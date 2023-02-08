@@ -1,0 +1,15 @@
+name: nlp-proto
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - jupyter
+  - pypdf
+  - ca-certificates
+  - certifi
+  - openssl
+prefix: /home/philip/miniconda3/envs/nlp-proto
