@@ -21,6 +21,8 @@ jobs:
         environment-file: environment.yml
     - name: Scrape new LDs
       run: |
+        which python
+        mamba list
         python -B scraper.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
