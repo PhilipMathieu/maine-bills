@@ -21,7 +21,7 @@ jobs:
         environment-file: environment.yml
     - name: Scrape new LDs
       run: |
-        mamba activate nlp-proto
+        conda activate nlp-proto
         which python
         mamba list
         python -B scraper.py
