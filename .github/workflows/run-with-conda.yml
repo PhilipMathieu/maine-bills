@@ -5,25 +5,27 @@ on: workflow_dispatch
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     strategy:
       max-parallel: 5
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
+    - uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: '3.11'
-    - name: Add conda to system path
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install dependencies
-      run: |
-        conda env update --file environment.yml --name base
+        python-version: 3.11
+        use-mamba: true
+        miniforge-variant: Mambaforge
+        channels: conda-forge,defaults
+        channel-priority: true
+        activate-environment: nlp-proto
+        environment-file: environment.yml
     - name: Scrape new LDs
       run: |
-        python -B scrape.py
+        which python
+        python -B scraper.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
 
