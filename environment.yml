@@ -12,4 +12,5 @@ dependencies:
   - ca-certificates
   - certifi
   - openssl
+  - requests[security]
 prefix: /home/philip/miniconda3/envs/nlp-proto
