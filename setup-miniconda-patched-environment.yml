@@ -13,4 +13,5 @@ dependencies:
   - certifi
   - openssl
   - python=3.11
+  - requests[security]
 prefix: /home/philip/miniconda3/envs/nlp-proto
