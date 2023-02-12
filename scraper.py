@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
-logging.basicConfig(filename='scraper.log', level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+logging.basicConfig(handlers=[logging.FileHandler("debug.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
 
 def pdf_to_txt(ld):
     reader = PdfReader("./pdf/"+ld+".pdf")
