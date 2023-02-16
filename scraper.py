@@ -35,10 +35,14 @@ for ld in lds:
 
     new_count += 1
     logging.info("Processing {}".format(ld))
-
-    # download the pdf
-    logging.debug("Downloading PDF for {}".format(ld))
-    res = requests.get(directory+ld+".pdf")
+    
+    try:
+        # download the pdf
+        logging.debug("Downloading PDF for {}".format(ld))
+        res = requests.get(directory+ld+".pdf")
+    except requests.exceptions.RequestException as e:
+        logging.warning("Download error for {}; will retry on next run".format(ld))
+        
     with open('./pdf/'+ld+'.pdf', 'wb') as f:
         f.write(res.content)
     
