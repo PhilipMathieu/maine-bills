@@ -23,7 +23,7 @@ def pdf_to_txt(ld):
 logging.info("######### NEW RUN #########")
 directory = "http://lldc.mainelegislature.org/Open/LDs/131/"
 res = requests.get(directory)
-soup = BeautifulSoup(res.content)
+soup = BeautifulSoup(res.content, features="html.parser")
 hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]] # skip link to parent directory
 lds = [href.split('/')[-1][:-4] for href in hrefs]
 
@@ -32,7 +32,11 @@ for ld in lds:
     if os.path.isfile("./txt/"+ld+".txt"):
         logging.debug("{} already in corpus.".format(ld))
         continue
-
+    
+    if newcount >= 25:
+        logging.warning("Maximum number of bills reached.")
+        break
+        
     new_count += 1
     logging.info("Processing {}".format(ld))
     
@@ -53,5 +57,6 @@ for ld in lds:
     # clean up
     logging.debug("Removing PDF for {}".format(ld))
     os.remove('./pdf/'+ld+'.pdf')
+   
 
 logging.info("Added {} new bills to corpus.".format(new_count))
