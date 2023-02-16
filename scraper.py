@@ -32,20 +32,18 @@ for ld in lds:
     if os.path.isfile("./txt/"+ld+".txt"):
         logging.debug("{} already in corpus.".format(ld))
         continue
-    
-    if newcount >= 25:
-        logging.warning("Maximum number of bills reached.")
-        break
         
-    new_count += 1
     logging.info("Processing {}".format(ld))
     
     try:
         # download the pdf
         logging.debug("Downloading PDF for {}".format(ld))
-        res = requests.get(directory+ld+".pdf")
+        res = requests.get(directory+ld+".pdf", timeout=10)
     except requests.exceptions.RequestException as e:
         logging.warning("Download error for {}; will retry on next run".format(ld))
+        continue
+    
+    new_count += 1
         
     with open('./pdf/'+ld+'.pdf', 'wb') as f:
         f.write(res.content)
