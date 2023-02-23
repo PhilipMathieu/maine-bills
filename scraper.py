@@ -10,7 +10,7 @@ def pdf_to_txt(ld):
     reader = PdfReader("./pdf/"+ld+".pdf")
 
     lines = []
-    for page in reader.pages[1:]:
+    for page in reader.pages:
         # Extract text from the whole page
         text_all = page.extract_text()
         # Split text at line breaks
