@@ -959,3 +959,192 @@
 2023-03-15 23:52:13,470:INFO:Processing 131-LD-1138
 2023-03-15 23:52:23,590:WARNING:Download error for 131-LD-1138; will retry on next run
 2023-03-15 23:52:23,590:INFO:Added 143 new bills to corpus.
+2023-03-22 10:12:25,728:INFO:######### NEW RUN #########
+2023-03-22 10:12:26,711:INFO:Processing 131-LD-0143-CA_A_H0006
+2023-03-22 10:12:27,322:INFO:Processing 131-LD-0790
+2023-03-22 10:12:28,444:INFO:Processing 131-LD-0791
+2023-03-22 10:12:29,497:INFO:Processing 131-LD-0792
+2023-03-22 10:12:30,471:INFO:Processing 131-LD-0798
+2023-03-22 10:12:31,607:INFO:Processing 131-LD-0799
+2023-03-22 10:12:32,746:INFO:Processing 131-LD-0834
+2023-03-22 10:12:50,106:WARNING:Download error for 131-LD-0834; will retry on next run
+2023-03-22 10:12:50,106:INFO:Processing 131-LD-0835
+2023-03-22 10:13:00,297:WARNING:Download error for 131-LD-0835; will retry on next run
+2023-03-22 10:13:00,297:INFO:Processing 131-LD-0836
+2023-03-22 10:13:10,633:WARNING:Download error for 131-LD-0836; will retry on next run
+2023-03-22 10:13:10,633:INFO:Processing 131-LD-0837
+2023-03-22 10:13:20,734:WARNING:Download error for 131-LD-0837; will retry on next run
+2023-03-22 10:13:20,734:INFO:Processing 131-LD-0838
+2023-03-22 10:13:30,835:WARNING:Download error for 131-LD-0838; will retry on next run
+2023-03-22 10:13:30,835:INFO:Processing 131-LD-0844
+2023-03-22 10:13:32,062:INFO:Processing 131-LD-0871
+2023-03-22 10:13:33,527:INFO:Processing 131-LD-0872
+2023-03-22 10:13:34,742:INFO:Processing 131-LD-0873
+2023-03-22 10:13:35,981:INFO:Processing 131-LD-0879
+2023-03-22 10:13:37,298:INFO:Processing 131-LD-0880
+2023-03-22 10:13:46,675:INFO:Processing 131-LD-0881
+2023-03-22 10:13:56,775:WARNING:Download error for 131-LD-0881; will retry on next run
+2023-03-22 10:13:56,776:INFO:Processing 131-LD-0907
+2023-03-22 10:14:06,935:WARNING:Download error for 131-LD-0907; will retry on next run
+2023-03-22 10:14:06,935:INFO:Processing 131-LD-0914
+2023-03-22 10:14:17,290:WARNING:Download error for 131-LD-0914; will retry on next run
+2023-03-22 10:14:17,290:INFO:Processing 131-LD-0915
+2023-03-22 10:14:27,390:WARNING:Download error for 131-LD-0915; will retry on next run
+2023-03-22 10:14:27,390:INFO:Processing 131-LD-0916
+2023-03-22 10:14:37,490:WARNING:Download error for 131-LD-0916; will retry on next run
+2023-03-22 10:14:37,490:INFO:Processing 131-LD-0917
+2023-03-22 10:14:47,592:WARNING:Download error for 131-LD-0917; will retry on next run
+2023-03-22 10:14:47,592:INFO:Processing 131-LD-0918
+2023-03-22 10:14:49,747:INFO:Processing 131-LD-0949
+2023-03-22 10:14:50,979:INFO:Processing 131-LD-0950
+2023-03-22 10:14:52,202:INFO:Processing 131-LD-0951
+2023-03-22 10:14:53,353:INFO:Processing 131-LD-0952
+2023-03-22 10:15:01,777:INFO:Processing 131-LD-0953
+2023-03-22 10:15:12,217:WARNING:Download error for 131-LD-0953; will retry on next run
+2023-03-22 10:15:12,217:INFO:Processing 131-LD-0960
+2023-03-22 10:15:22,318:WARNING:Download error for 131-LD-0960; will retry on next run
+2023-03-22 10:15:22,318:INFO:Processing 131-LD-0985
+2023-03-22 10:15:32,418:WARNING:Download error for 131-LD-0985; will retry on next run
+2023-03-22 10:15:32,418:INFO:Processing 131-LD-0986
+2023-03-22 10:15:42,519:WARNING:Download error for 131-LD-0986; will retry on next run
+2023-03-22 10:15:42,519:INFO:Processing 131-LD-0987
+2023-03-22 10:15:52,620:WARNING:Download error for 131-LD-0987; will retry on next run
+2023-03-22 10:15:52,620:INFO:Processing 131-LD-0988
+2023-03-22 10:16:02,723:WARNING:Download error for 131-LD-0988; will retry on next run
+2023-03-22 10:16:02,724:INFO:Processing 131-LD-0994
+2023-03-22 10:16:04,976:INFO:Processing 131-LD-0995
+2023-03-22 10:16:06,202:INFO:Processing 131-LD-1022
+2023-03-22 10:16:07,451:INFO:Processing 131-LD-1023
+2023-03-22 10:16:08,678:INFO:Processing 131-LD-1030
+2023-03-22 10:16:18,047:INFO:Processing 131-LD-1031
+2023-03-22 10:16:28,141:WARNING:Download error for 131-LD-1031; will retry on next run
+2023-03-22 10:16:28,141:INFO:Processing 131-LD-1032
+2023-03-22 10:16:38,242:WARNING:Download error for 131-LD-1032; will retry on next run
+2023-03-22 10:16:38,242:INFO:Processing 131-LD-1033
+2023-03-22 10:16:48,338:WARNING:Download error for 131-LD-1033; will retry on next run
+2023-03-22 10:16:48,338:INFO:Processing 131-LD-1066
+2023-03-22 10:16:58,438:WARNING:Download error for 131-LD-1066; will retry on next run
+2023-03-22 10:16:58,438:INFO:Processing 131-LD-1067
+2023-03-22 10:17:08,532:WARNING:Download error for 131-LD-1067; will retry on next run
+2023-03-22 10:17:08,532:INFO:Processing 131-LD-1068
+2023-03-22 10:17:18,633:WARNING:Download error for 131-LD-1068; will retry on next run
+2023-03-22 10:17:18,634:INFO:Processing 131-LD-1069
+2023-03-22 10:17:20,871:INFO:Processing 131-LD-1070
+2023-03-22 10:17:22,019:INFO:Processing 131-LD-1071
+2023-03-22 10:17:23,167:INFO:Processing 131-LD-1102
+2023-03-22 10:17:24,416:INFO:Processing 131-LD-1103
+2023-03-22 10:17:32,827:INFO:Processing 131-LD-1104
+2023-03-22 10:17:43,014:WARNING:Download error for 131-LD-1104; will retry on next run
+2023-03-22 10:17:43,014:INFO:Processing 131-LD-1105
+2023-03-22 10:17:53,115:WARNING:Download error for 131-LD-1105; will retry on next run
+2023-03-22 10:17:53,115:INFO:Processing 131-LD-1111
+2023-03-22 10:18:03,215:WARNING:Download error for 131-LD-1111; will retry on next run
+2023-03-22 10:18:03,215:INFO:Processing 131-LD-1112
+2023-03-22 10:18:13,315:WARNING:Download error for 131-LD-1112; will retry on next run
+2023-03-22 10:18:13,316:INFO:Processing 131-LD-1137
+2023-03-22 10:18:23,505:WARNING:Download error for 131-LD-1137; will retry on next run
+2023-03-22 10:18:23,506:INFO:Processing 131-LD-1138
+2023-03-22 10:18:33,600:WARNING:Download error for 131-LD-1138; will retry on next run
+2023-03-22 10:18:33,600:INFO:Processing 131-LD-1145
+2023-03-22 10:18:35,938:INFO:Processing 131-LD-1146
+2023-03-22 10:18:37,285:INFO:Processing 131-LD-1147
+2023-03-22 10:18:38,424:INFO:Processing 131-LD-1148
+2023-03-22 10:18:39,558:INFO:Processing 131-LD-1149
+2023-03-22 10:18:49,088:INFO:Processing 131-LD-1150
+2023-03-22 10:18:59,270:WARNING:Download error for 131-LD-1150; will retry on next run
+2023-03-22 10:18:59,270:INFO:Processing 131-LD-1151
+2023-03-22 10:19:09,371:WARNING:Download error for 131-LD-1151; will retry on next run
+2023-03-22 10:19:09,372:INFO:Processing 131-LD-1152
+2023-03-22 10:19:19,470:WARNING:Download error for 131-LD-1152; will retry on next run
+2023-03-22 10:19:19,470:INFO:Processing 131-LD-1153
+2023-03-22 10:19:29,571:WARNING:Download error for 131-LD-1153; will retry on next run
+2023-03-22 10:19:29,571:INFO:Processing 131-LD-1154
+2023-03-22 10:19:39,757:WARNING:Download error for 131-LD-1154; will retry on next run
+2023-03-22 10:19:39,757:INFO:Processing 131-LD-1155
+2023-03-22 10:19:49,946:WARNING:Download error for 131-LD-1155; will retry on next run
+2023-03-22 10:19:49,947:INFO:Processing 131-LD-1156
+2023-03-22 10:19:52,229:INFO:Processing 131-LD-1157
+2023-03-22 10:19:53,553:INFO:Processing 131-LD-1158
+2023-03-22 10:19:54,881:INFO:Processing 131-LD-1159
+2023-03-22 10:19:56,144:INFO:Processing 131-LD-1160
+2023-03-22 10:20:05,640:INFO:Processing 131-LD-1161
+2023-03-22 10:20:15,742:WARNING:Download error for 131-LD-1161; will retry on next run
+2023-03-22 10:20:15,742:INFO:Processing 131-LD-1162
+2023-03-22 10:20:25,935:WARNING:Download error for 131-LD-1162; will retry on next run
+2023-03-22 10:20:25,935:INFO:Processing 131-LD-1163
+2023-03-22 10:20:36,036:WARNING:Download error for 131-LD-1163; will retry on next run
+2023-03-22 10:20:36,036:INFO:Processing 131-LD-1164
+2023-03-22 10:20:46,186:WARNING:Download error for 131-LD-1164; will retry on next run
+2023-03-22 10:20:46,186:INFO:Processing 131-LD-1165
+2023-03-22 10:20:56,285:WARNING:Download error for 131-LD-1165; will retry on next run
+2023-03-22 10:20:56,286:INFO:Processing 131-LD-1166
+2023-03-22 10:21:06,387:WARNING:Download error for 131-LD-1166; will retry on next run
+2023-03-22 10:21:06,387:INFO:Processing 131-LD-1167
+2023-03-22 10:21:08,537:INFO:Processing 131-LD-1168
+2023-03-22 10:21:09,775:INFO:Processing 131-LD-1169
+2023-03-22 10:21:11,034:INFO:Processing 131-LD-1170
+2023-03-22 10:21:12,174:INFO:Processing 131-LD-1171
+2023-03-22 10:21:20,662:INFO:Processing 131-LD-1172
+2023-03-22 10:21:30,762:WARNING:Download error for 131-LD-1172; will retry on next run
+2023-03-22 10:21:30,762:INFO:Processing 131-LD-1173
+2023-03-22 10:21:40,863:WARNING:Download error for 131-LD-1173; will retry on next run
+2023-03-22 10:21:40,863:INFO:Processing 131-LD-1174
+2023-03-22 10:21:50,964:WARNING:Download error for 131-LD-1174; will retry on next run
+2023-03-22 10:21:50,964:INFO:Processing 131-LD-1175
+2023-03-22 10:22:01,065:WARNING:Download error for 131-LD-1175; will retry on next run
+2023-03-22 10:22:01,066:INFO:Processing 131-LD-1176
+2023-03-22 10:22:11,168:WARNING:Download error for 131-LD-1176; will retry on next run
+2023-03-22 10:22:11,168:INFO:Processing 131-LD-1177
+2023-03-22 10:22:21,269:WARNING:Download error for 131-LD-1177; will retry on next run
+2023-03-22 10:22:21,269:INFO:Processing 131-LD-1178
+2023-03-22 10:22:23,415:INFO:Processing 131-LD-1179
+2023-03-22 10:22:24,757:INFO:Processing 131-LD-1180
+2023-03-22 10:22:25,985:INFO:Processing 131-LD-1181
+2023-03-22 10:22:27,129:INFO:Processing 131-LD-1182
+2023-03-22 10:22:35,340:INFO:Processing 131-LD-1183
+2023-03-22 10:22:45,441:WARNING:Download error for 131-LD-1183; will retry on next run
+2023-03-22 10:22:45,441:INFO:Processing 131-LD-1184
+2023-03-22 10:22:55,541:WARNING:Download error for 131-LD-1184; will retry on next run
+2023-03-22 10:22:55,541:INFO:Processing 131-LD-1185
+2023-03-22 10:23:05,642:WARNING:Download error for 131-LD-1185; will retry on next run
+2023-03-22 10:23:05,642:INFO:Processing 131-LD-1186
+2023-03-22 10:23:15,743:WARNING:Download error for 131-LD-1186; will retry on next run
+2023-03-22 10:23:15,743:INFO:Processing 131-LD-1187
+2023-03-22 10:23:25,844:WARNING:Download error for 131-LD-1187; will retry on next run
+2023-03-22 10:23:25,844:INFO:Processing 131-LD-1188
+2023-03-22 10:23:35,946:WARNING:Download error for 131-LD-1188; will retry on next run
+2023-03-22 10:23:35,946:INFO:Processing 131-LD-1189
+2023-03-22 10:23:38,113:INFO:Processing 131-LD-1190
+2023-03-22 10:23:39,395:INFO:Processing 131-LD-1191
+2023-03-22 10:23:40,634:INFO:Processing 131-LD-1192
+2023-03-22 10:23:41,885:INFO:Processing 131-LD-1193
+2023-03-22 10:23:50,350:INFO:Processing 131-LD-1194
+2023-03-22 10:24:00,451:WARNING:Download error for 131-LD-1194; will retry on next run
+2023-03-22 10:24:00,451:INFO:Processing 131-LD-1195
+2023-03-22 10:24:10,554:WARNING:Download error for 131-LD-1195; will retry on next run
+2023-03-22 10:24:10,554:INFO:Processing 131-LD-1196
+2023-03-22 10:24:20,655:WARNING:Download error for 131-LD-1196; will retry on next run
+2023-03-22 10:24:20,655:INFO:Processing 131-LD-1197
+2023-03-22 10:24:30,808:WARNING:Download error for 131-LD-1197; will retry on next run
+2023-03-22 10:24:30,808:INFO:Processing 131-LD-1198
+2023-03-22 10:24:40,908:WARNING:Download error for 131-LD-1198; will retry on next run
+2023-03-22 10:24:40,908:INFO:Processing 131-LD-1199
+2023-03-22 10:24:51,010:WARNING:Download error for 131-LD-1199; will retry on next run
+2023-03-22 10:24:51,010:INFO:Processing 131-LD-1200
+2023-03-22 10:24:53,247:INFO:Processing 131-LD-1201
+2023-03-22 10:24:54,558:INFO:Processing 131-LD-1202
+2023-03-22 10:24:55,890:INFO:Processing 131-LD-1203
+2023-03-22 10:24:57,182:INFO:Processing 131-LD-1204
+2023-03-22 10:25:05,681:INFO:Processing 131-LD-1205
+2023-03-22 10:25:15,781:WARNING:Download error for 131-LD-1205; will retry on next run
+2023-03-22 10:25:15,781:INFO:Processing 131-LD-1206
+2023-03-22 10:25:25,883:WARNING:Download error for 131-LD-1206; will retry on next run
+2023-03-22 10:25:25,883:INFO:Processing 131-LD-1207
+2023-03-22 10:25:35,984:WARNING:Download error for 131-LD-1207; will retry on next run
+2023-03-22 10:25:35,985:INFO:Processing 131-LD-1208
+2023-03-22 10:25:46,172:WARNING:Download error for 131-LD-1208; will retry on next run
+2023-03-22 10:25:46,173:INFO:Processing 131-LD-1209
+2023-03-22 10:25:56,360:WARNING:Download error for 131-LD-1209; will retry on next run
+2023-03-22 10:25:56,360:INFO:Processing 131-LD-1210
+2023-03-22 10:26:06,462:WARNING:Download error for 131-LD-1210; will retry on next run
+2023-03-22 10:26:06,462:INFO:Added 57 new bills to corpus.
