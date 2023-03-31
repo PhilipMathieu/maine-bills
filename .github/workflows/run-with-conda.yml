@@ -28,7 +28,7 @@ jobs:
     - name: Scrape new LDs
       run: |
         which python
-        python -B scraper.py
+        python -B src/scraper.py
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
 
