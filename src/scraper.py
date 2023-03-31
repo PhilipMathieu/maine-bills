@@ -13,7 +13,7 @@ args = parser.parse_args()
 LEG_SESSION = args.session
 DIRECTORY_URL = "http://lldc.mainelegislature.org/Open/LDs/"+LEG_SESSION+"/"
 
-logging.basicConfig(handlers=[logging.FileHandler("debug.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+logging.basicConfig(handlers=[logging.FileHandler("scraper.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
 
 def pdf_to_txt(ld):
     reader = PdfReader("./pdf/"+ld+".pdf")
