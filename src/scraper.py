@@ -61,6 +61,9 @@ if __name__ == "__main__":
             # skip if fails. This happens somewhat frequently due to timeouts
             logging.warning("Download error for {}; will retry on next run".format(ld))
             continue
+        except FileNotFoundError:
+            logging.warning("Could not write pdf for {}; will retry on next run".format(ld))
+            continue
         
         new_count += 1
         
