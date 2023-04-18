@@ -54,16 +54,15 @@ if __name__ == "__main__":
             # try to download the pdf
             logging.debug("Downloading PDF for {}".format(ld))
             res = requests.get(DIRECTORY_URL+ld+".pdf", timeout=10)
+            # try to write the content to a file
+            with open('./data/pdf/'+ld+'.pdf', 'wb') as f:
+                f.write(res.content)
         except requests.exceptions.RequestException as e:
             # skip if fails. This happens somewhat frequently due to timeouts
             logging.warning("Download error for {}; will retry on next run".format(ld))
             continue
         
         new_count += 1
-
-        # open the PDFs    
-        with open('./data/pdf/'+ld+'.pdf', 'wb') as f:
-            f.write(res.content)
         
         # perform the conversion
         logging.debug("Converting {}".format(ld))
