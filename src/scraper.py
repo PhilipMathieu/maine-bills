@@ -38,6 +38,9 @@ if __name__ == "__main__":
     hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]] # skip link to parent directory
     lds = [href.split('/')[-1][:-4] for href in hrefs]
 
+    # create temporary directory for PDF downloads
+    os.mkdir("./data/pdf/")
+
     # process the links
     new_count = 0
     for ld in lds:
@@ -60,9 +63,11 @@ if __name__ == "__main__":
         except requests.exceptions.RequestException as e:
             # skip if fails. This happens somewhat frequently due to timeouts
             logging.warning("Download error for {}; will retry on next run".format(ld))
+            print(e)
             continue
-        except FileNotFoundError:
+        except FileNotFoundError as e:
             logging.warning("Could not write pdf for {}; will retry on next run".format(ld))
+            print(e)
             continue
         
         new_count += 1
@@ -74,5 +79,7 @@ if __name__ == "__main__":
         # clean up
         logging.debug("Removing PDF for {}".format(ld))
         os.remove('./data/pdf/'+ld+'.pdf')
+    
+    os.rmdir('./data/pdf/')
     
     logging.info("Added {} new bills to corpus.".format(new_count))
