@@ -8,15 +8,11 @@ import argparse
 # command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--session", default="131", type=str, help="number of the legislative session to run")
+parser.add_argument("-o", "--output_dir", default="./131/", type=str, help="path to store working and output files in")
 args = parser.parse_args()
 
-LEG_SESSION = args.session
-DIRECTORY_URL = "http://lldc.mainelegislature.org/Open/LDs/"+LEG_SESSION+"/"
-
-logging.basicConfig(handlers=[logging.FileHandler("./data/scraper.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
-
 def pdf_to_txt(ld):
-    reader = PdfReader("./data/pdf/"+ld+".pdf")
+    reader = PdfReader(args.output_dir+"pdf/"+ld+".pdf")
 
     lines = []
     for page in reader.pages:
@@ -26,10 +22,22 @@ def pdf_to_txt(ld):
         lines.extend(text_all.split('\n'))
 
     # Write all text to .txt
-    with open("./data/txt/"+ld+".txt", 'w') as file:
+    with open(args.output_dir+"txt/"+ld+".txt", 'w') as file:
         file.writelines([line + "\n" for line in lines])
 
 if __name__ == "__main__":
+    
+    LEG_SESSION = args.session
+    DIRECTORY_URL = "http://lldc.mainelegislature.org/Open/LDs/"+LEG_SESSION+"/"
+
+    # set up directories if necessary
+    if not os.path.exists(os.path.join(args.output_dir, "pdf/")):
+        os.makedirs(os.path.join(args.output_dir, "pdf/"))
+    if not os.path.exists(os.path.join(args.output_dir, "txt/")):
+        os.makedirs(os.path.join(args.output_dir, "txt/"))
+    
+    # start logging
+    logging.basicConfig(handlers=[logging.FileHandler(args.output_dir+"scraper.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
     logging.info("######### NEW RUN #########")
 
     # download and parse list of PDF links from the URL
@@ -38,15 +46,12 @@ if __name__ == "__main__":
     hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]] # skip link to parent directory
     lds = [href.split('/')[-1][:-4] for href in hrefs]
 
-    # create temporary directory for PDF downloads
-    os.mkdir("./data/pdf/")
-
     # process the links
     new_count = 0
     for ld in lds:
 
         # skip anything that has already been added to the corpus
-        if os.path.isfile("./data/txt/"+ld+".txt"):
+        if os.path.isfile(args.output_dir+"txt/"+ld+".txt"):
             logging.debug("{} already in corpus.".format(ld))
             continue
 
@@ -58,7 +63,7 @@ if __name__ == "__main__":
             logging.debug("Downloading PDF for {}".format(ld))
             res = requests.get(DIRECTORY_URL+ld+".pdf", timeout=10)
             # try to write the content to a file
-            with open('./data/pdf/'+ld+'.pdf', 'wb') as f:
+            with open(args.output_dir+'pdf/'+ld+'.pdf', 'wb') as f:
                 f.write(res.content)
         except requests.exceptions.RequestException as e:
             # skip if fails. This happens somewhat frequently due to timeouts
@@ -78,8 +83,8 @@ if __name__ == "__main__":
 
         # clean up
         logging.debug("Removing PDF for {}".format(ld))
-        os.remove('./data/pdf/'+ld+'.pdf')
+        os.remove(args.output_dir+'pdf/'+ld+'.pdf')
     
-    os.rmdir('./data/pdf/')
+    os.rmdir(args.output_dir+'pdf/')
     
     logging.info("Added {} new bills to corpus.".format(new_count))
