@@ -70,7 +70,7 @@ if __name__ == "__main__":
         try:
             # try to download the pdf
             logging.debug("Downloading PDF for {}".format(ld))
-            res = requests.get(DIRECTORY_URL+ld+".pdf", timeout=10)
+            res = requests.get(url+ld+".pdf", timeout=10)
             # try to write the content to a file
             with open(args.output_dir+'pdf/'+ld+'.pdf', 'wb') as f:
                 f.write(res.content)
