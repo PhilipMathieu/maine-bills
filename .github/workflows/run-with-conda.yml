@@ -31,5 +31,5 @@ jobs:
         python -B src/scraper.py
     # automatically create a pull request with changed files
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4
+      uses: peter-evans/create-pull-request@v5
 
