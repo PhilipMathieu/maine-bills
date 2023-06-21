@@ -5,12 +5,14 @@ from bs4 import BeautifulSoup
 from pypdf import PdfReader
 import argparse
 
-# command line arguments
+# create command line arguments to choose the legislative session and set the output directory
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--session", default="131", type=str, help="number of the legislative session to run")
 parser.add_argument("-o", "--output_dir", default="./131/", type=str, help="path to store working and output files in")
 args = parser.parse_args()
 
+# this function takes the bill's legislative document number (ld), opens and reads the PDF,
+# extracts all text, and writes the output to a text file
 def pdf_to_txt(ld):
     reader = PdfReader(args.output_dir+"pdf/"+ld+".pdf")
 
@@ -27,8 +29,8 @@ def pdf_to_txt(ld):
 
 if __name__ == "__main__":
     
-    LEG_SESSION = args.session
-    DIRECTORY_URL = "http://lldc.mainelegislature.org/Open/LDs/"+LEG_SESSION+"/"
+    # set the url from the session number
+    url = "http://lldc.mainelegislature.org/Open/LDs/" + args.session + "/"
 
     # set up directories if necessary
     if not os.path.exists(os.path.join(args.output_dir, "pdf/")):
@@ -37,14 +39,21 @@ if __name__ == "__main__":
         os.makedirs(os.path.join(args.output_dir, "txt/"))
     
     # start logging
-    logging.basicConfig(handlers=[logging.FileHandler(args.output_dir+"scraper.log"),logging.StreamHandler()], level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+    logging.basicConfig(
+        handlers=[
+            logging.FileHandler(args.output_dir+"scraper.log"), # write the logs to a file
+            logging.StreamHandler() # also write logs to the console
+            ],
+        level=logging.INFO,
+        format="%(asctime)s:%(levelname)s:%(message)s"
+    )
     logging.info("######### NEW RUN #########")
 
     # download and parse list of PDF links from the URL
-    res = requests.get(DIRECTORY_URL)
+    res = requests.get(url)
     soup = BeautifulSoup(res.content, features="html.parser")
-    hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]] # skip link to parent directory
-    lds = [href.split('/')[-1][:-4] for href in hrefs]
+    hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]] # get all links except to parent directory
+    lds = [href.split('/')[-1][:-4] for href in hrefs] # turn the list of links into a list of lds
 
     # process the links
     new_count = 0
@@ -66,25 +75,29 @@ if __name__ == "__main__":
             with open(args.output_dir+'pdf/'+ld+'.pdf', 'wb') as f:
                 f.write(res.content)
         except requests.exceptions.RequestException as e:
-            # skip if fails. This happens somewhat frequently due to timeouts
+            # skip if the download fails. This happens frequently
             logging.warning("Download error for {}; will retry on next run".format(ld))
             print(e)
             continue
         except FileNotFoundError as e:
+            # Log a separate error if the issue is related to writing the PDF
             logging.warning("Could not write pdf for {}; will retry on next run".format(ld))
             print(e)
-            continue
-        
-        new_count += 1
+            continu
         
         # perform the conversion
         logging.debug("Converting {}".format(ld))
         pdf_to_txt(ld)
 
-        # clean up
+        # clean up the PDF document
         logging.debug("Removing PDF for {}".format(ld))
         os.remove(args.output_dir+'pdf/'+ld+'.pdf')
+
+        # increment the counter
+        new_count += 1
     
+    # delete the temporary PDF directory
     os.rmdir(args.output_dir+'pdf/')
     
+    # log success message
     logging.info("Added {} new bills to corpus.".format(new_count))
