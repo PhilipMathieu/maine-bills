@@ -3,11 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - numpy
-  - pandas
-  - matplotlib
-  - seaborn
-  - jupyter
+  - beautifulsoup4
   - pypdf
   - ca-certificates
   - certifi
