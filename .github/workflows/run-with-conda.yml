@@ -28,7 +28,10 @@ jobs:
     # run the scraper script
     - name: Scrape new LDs
       run: |
-        python -B src/scraper.py
+        python -B src/bill_scraper.py
+    - name: Scrape new testimony
+      run: |
+        python -B src/bill_scraper.py -t
     # automatically create a pull request with changed files
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
