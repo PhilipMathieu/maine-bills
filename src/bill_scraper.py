@@ -21,7 +21,7 @@ def main(args):
             ],
         format="%(asctime)s:%(levelname)s:%(message)s"
     )
-    
+
     # Set the log level for the file handler to INFO
     file_handler = logging.getLogger().handlers[0]
     file_handler.setLevel(logging.INFO)
@@ -39,7 +39,8 @@ def main(args):
     lds = [href.split('/')[-1][:-4] for href in hrefs] # turn the list of links into a list of lds
 
     # process the links
-    new_count = 0
+    bill_count = 0
+    testimony_count = 0
     for ld in lds:
 
         # skip bills that are already in the corpus
@@ -70,6 +71,8 @@ def main(args):
             logging.debug("Removing PDF for {}".format(ld))
             os.remove(pdf)
 
+            bill_count += 1
+
         if args.testimony:
             # don't download testimony for amendments (they don't have separate testimony)
             if len(ld.split('-')) > 3:
@@ -92,13 +95,10 @@ def main(args):
                     scraper.pdf_to_txt(pdf)
                     logging.debug("Removing PDF for LD {}/{}".format(ldno, document_name))
                     os.remove(pdf)
-        
-
-        # increment the counter
-        new_count += 1
+                    testimony_count += 1
     
     # log success message
-    logging.info("Added {} new bills to corpus.".format(new_count))
+    logging.info(f"Added {bill_count} new bills and {testimony_count} pieces of testimony to corpus.")
 
 if __name__ == "__main__":
     # create command line arguments to choose the legislative session and set the output directory
