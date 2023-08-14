@@ -19,9 +19,17 @@ def main(args):
             logging.FileHandler(args.output_dir+"bills_scraper.log"), # write the logs to a file
             logging.StreamHandler() # also write logs to the console
             ],
-        level=logging.INFO,
         format="%(asctime)s:%(levelname)s:%(message)s"
     )
+    
+    # Set the log level for the file handler to INFO
+    file_handler = logging.getLogger().handlers[0]
+    file_handler.setLevel(logging.INFO)
+
+    # Set the log level for the stream handler based on args.loglevel
+    stream_handler = logging.getLogger().handlers[1]
+    stream_handler.setLevel(args.loglevel.upper())
+
     logging.info("######### NEW RUN #########")
 
     # download and parse list of PDF links from the URL
@@ -67,7 +75,7 @@ def main(args):
             if len(ld.split('-')) > 3:
                 continue
             # download the testimony
-            logging.info("Downloading testimony for {}".format(ld))
+            logging.debug("Checking testimony for {}".format(ld))
             ldno = ld.split('-')[2]
             testimony = scraper.get_testimony(ldno)
             if testimony:
@@ -75,6 +83,10 @@ def main(args):
                 os.makedirs(t_dir, exist_ok=True)
                 for t in testimony:
                     document_name = f'{t["FirstName"]} {t["LastName"]} ({t["Organization"]}) - LD {ldno}.pdf'
+                    
+                    if os.path.isfile(os.path.join(t_dir, document_name.replace('.pdf', '.txt'))):
+                        logging.debug("Testimony for LD {}/{} already in corpus.".format(ldno, document_name))
+                        continue
                     pdf = scraper.download_testimony(t["Id"], document_name, t_dir)
                     logging.debug("Converting testimony for LD {}/{}".format(ldno, document_name))
                     scraper.pdf_to_txt(pdf)
@@ -94,6 +106,7 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--session", default="131", type=str, help="number of the legislative session to run")
     parser.add_argument("-o", "--output_dir", default="./131/bills/", type=str, help="path to store bills in")
     parser.add_argument("-t", "--testimony", type=str, nargs="?", default=None, const="./131/testimony/", help="path to store testimony in")
+    parser.add_argument( '-log', '--loglevel', default='warning', help='Provide logging level. Example --loglevel debug' )
     args = parser.parse_args()
 
     # run the main function
