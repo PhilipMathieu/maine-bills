@@ -1,0 +1,220 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2159
+S.P. 915 In Senate, January 9, 2024
+An Act to Protect the Confidentiality of Attorney-Client E-mail 
+Communications for Residents of Jails and Correctional Facilities
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Judiciary suggested and ordered printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator CARNEY of Cumberland.
+Cosponsored by Representative MOONEN of Portland.
+
+Page 1 - 131LR2708(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  4 MRSA §1804, sub-§3, ¶P, as enacted by PL 2023, c. 394, Pt. A, §3, is 
+3 amended to read:
+4 P.  Develop and maintain a registry of names, telephone numbers, e-mail addresses and 
+5 other contact information for attorneys who provide legal services to persons who are 
+6 incarcerated.  The commission shall on a weekly basis provide these names, telephone 
+7 numbers, e-mail addresses and other contact information to all sheriffs' offices and to 
+8 the Department of Corrections. On the Monday following transmission of the 
+9 information, the sheriffs' offices and the Department of Corrections have constructive 
+10 notice that communications to and from these attorneys by residents of jails and 
+11 correctional facilities are subject to the attorney-client privilege. The attorneys' names, 
+12 telephone numbers, e-mail addresses and other contact information are confidential.
+13Sec. 2.  5 MRSA §200-N, as enacted by PL 2023, c. 394, Pt. A, §4, is amended to 
+14 read:
+15§200-N.  Confidential attorney-client communications
+161.  Policies.  By January 1, 2024, the  The Attorney General shall adopt a written policy 
+17 for the protection of confidential attorney-client communications by employees and agents 
+18 of the Attorney General, which must include, at a minimum, processes to protect and ensure 
+19 confidentiality of attorney‑client communications and processes to be followed in the event 
+20 that there is a breach of attorney-client confidentiality.
+212.  Training.  By January 1, 2024, the  The Attorney General shall develop a training 
+22 program for all state, county and municipal law enforcement officers and investigators 
+23 who, as part of a criminal investigation, may inadvertently hear, view or read confidential 
+24 attorney-client communications, which must include, at a minimum, practices and 
+25 procedures for protecting and ensuring confidential attorney-client communications and 
+26 practices and procedures to be followed in the event that there is a breach of attorney-client 
+27 confidentiality.
+28Sec. 3.  15 MRSA §709, sub-§4, as amended by PL 1979, c. 701, §11, is further 
+29 amended to read:
+304.  Intercept.  "Intercept" means to hear, view, read or record or aid another to hear , 
+31 view, read or record the contents of any wire  communication or oral communication 
+32 through the use of any intercepting device by any person other than:
+33 A.  The sender or receiver of that communication;
+34 B.  A person within the range of normal unaided hearing or subnormal hearing 
+35 corrected to not better than normal; or
+36 C.  A person given prior authority by the sender or receiver.
+37Sec. 4.  15 MRSA §714, as enacted by PL 2023, c. 394, Pt. A, §5, is amended to 
+38 read:
+39§714.  Intercepted attorney-client communications of jail and correctional facility 
+40residents
+Page 2 - 131LR2708(01)11.  Intercepted attorney-client communications of jail and correctional facility 
+2residents.  If the sender or the recipient of an intercepted oral communication or wire 
+3 communication was, at the time the communication was made, a resident in either a jail or 
+4 an adult or juvenile correctional facility administered by the Department of Corrections and 
+5 the other party was an attorney and if the resident demonstrates that the jail or correctional 
+6 facility had actual or constructive notice at the time the communication was made of the 
+7 attorney's name and, if the communication involved the use of a telephone, the jail or 
+8 correctional facility had actual or constructive notice at the time that the communication 
+9 was made of the attorney's telephone number and the communication was made directly to 
+10 or from that telephone number:
+11 A.  The contents of the intercepted oral communication or wire communication and the 
+12 fact and circumstances of the communication are not admissible in a criminal 
+13 proceeding, including a proceeding under chapter 305‑A;
+14 B.  A person who viewed or , listened to  or read the intercepted  oral communication  or 
+15 wire communication and did not immediately discontinue viewing  or, listening to  or 
+16 reading the communication as soon as the person had sufficient information to 
+17 determine that the sender or the recipient of the communication was, at the time the 
+18 communication was made, a resident in a jail or correctional facility and the other part  
+19 party was an attorney, is disqualified from participating in an investigation of the 
+20 resident and from appearing as a witness in a criminal proceeding in which the resident 
+21 is a defendant, including a proceeding under chapter 305‑A; and
+22 C.  A person who viewed or , listened to  or read the intercepted  oral communication  or 
+23 wire communication and saw  or, heard  or read information that may be relevant to a 
+24 pending or anticipated charge against the resident or a defense the resident may assert, 
+25 or may lead to the discovery of that evidence, is disqualified from participating in the 
+26 investigation of the resident and from appearing as a witness in the pending or 
+27 anticipated criminal proceeding in which the resident is a defendant, including a 
+28 subsequent proceeding under chapter 305‑A on the pending or anticipated charge.
+29 For purposes of this subsection, the inclusion of the attorney's name and telephone number 
+30 on a list transmitted by the Maine Commission on Indigent Legal Services pursuant to Title 
+31 4, section 1804, subsection 3, paragraph P to a sheriff's office or to the Department of 
+32 Corrections constitutes constructive notice to a jail in the same county as the sheriff's office 
+33 or to all correctional facilities administered by the Department of Corrections, respectively, 
+34 beginning on the Monday following the transmission.
+351-A.  Applicability of subsection 1.  Subsection 1 applies to an intercepted oral 
+36 communication or wire communication for which:
+37 A.  The sender or recipient of the communication was, at the time the communication 
+38 was made, a resident in either a jail or an adult or juvenile correctional facility 
+39 administered by the Department of Corrections and the other party was an attorney; 
+40 and
+41 B.  The resident under paragraph A demonstrates that the jail or correctional facility:
+42 (1)  For an oral communication, had actual or constructive notice of the attorney's 
+43 name at the time the communication was made;
+Page 3 - 131LR2708(01)1 (2)  Had actual or constructive notice of the attorney's name and telephone number 
+2 at the time the communication was made, if the communication involved the use 
+3 of a telephone and the communication was made directly to or from the attorney's 
+4 telephone number; or
+5 (3)  Had actual or constructive notice of the attorney's name and e-mail address at 
+6 the time the communication was made or intercepted, if the communication 
+7 involved the use of e-mail and the communication was made directly to or from 
+8 the attorney's e-mail address.
+91-B.  Constructive notice.  For purposes of this section, the inclusion of an attorney's 
+10 name,  telephone number or e-mail address on a list transmitted by the Maine Commission 
+11 on Indigent Legal Services pursuant to Title 4, section 1804, subsection 3, paragraph P to 
+12 a sheriff's office or to the Department of Corrections constitutes constructive notice of the 
+13 name, telephone number or e-mail address to a jail in the same county as the sheriff's office 
+14 or to all correctional facilities administered by the Department of Corrections, respectively, 
+15 beginning on the Monday following the transmission.
+162.  Application of other law or rule.  This section does not limit the applicability of 
+17 any other provision of law or of the Maine Rules of Evidence regarding the admissibility 
+18 or inadmissibility in evidence of attorney-client communications that do not meet the 
+19 requirements of this section.
+20Sec. 5.  34-A MRSA §1208, sub-§8, as enacted by PL 2023, c. 394, Pt. A, §13, is 
+21 amended to read:
+228.  Standards regarding attorney-client communications.  The commissioner shall 
+23 establish mandatory standards:
+24 A.  By January 1, 2024, for  For the protection of confidential attorney-client 
+25 communications by each county and municipal detention facility. The standards must 
+26 include, at a minimum:
+27 (1)  Processes to protect and ensure confidentiality of attorney-client 
+28 communications, including but not limited to requirements that each facility 
+29 develop and maintain a registry of the names, telephone numbers, e-mail addresses 
+30 and other contact information for attorneys who provide legal services to residents 
+31 of the facility and that the attorneys' names, telephone numbers, e-mail addresses 
+32 and other contact information on the registry are confidential, except that each 
+33 facility must proactively and by request of the attorney or the attorney's client who 
+34 is a resident of the facility confirm the registration of an attorney's name, telephone 
+35 number, e-mail address and other contact information; and
+36 (2)  Processes to be followed in the event that there is a breach of attorney-client 
+37 confidentiality; and
+38 B.  By January 1, 2024, requiring  Requiring each county and municipal detention 
+39 facility to designate space within the facility for attorney-client meetings and the 
+40 exchange of case materials and to make that space available to residents of the facility 
+41 and their attorneys on a timely basis.
+42Sec. 6.  34-A MRSA §1402, sub-§14, as enacted by PL 2023, c. 394, Pt. A, §14, is 
+43 amended to read:
+Page 4 - 131LR2708(01)114.  Standards regarding attorney-client communications.  The commissioner shall 
+2 establish mandatory standards:
+3 A.  By January 1, 2024, for  For the protection of confidential attorney-client 
+4 communications by each correctional facility. The standards must include, at a 
+5 minimum:
+6 (1)  Processes to protect and ensure confidentiality of attorney-client 
+7 communications, including but not limited to requirements that each correctional 
+8 facility develop and maintain a registry of the names, telephone numbers, e-mail 
+9 addresses and other contact information for attorneys who provide legal services 
+10 to persons who are residents of the correctional facility and that the attorneys' 
+11 names, telephone numbers, e-mail addresses and other contact information on the 
+12 registry are confidential, except that each correctional facility must proactively and 
+13 by request of the attorney or the attorney's client confirm the registration of an 
+14 attorney's name, telephone number, e-mail address and other contact information; 
+15 and
+16 (2)  Processes to be followed in the event that there is a breach of attorney-client 
+17 confidentiality; and
+18 B.  By January 1, 2024, requiring  Requiring each correctional facility to designate 
+19 space within the correctional facility for attorney-client meetings and the exchange of 
+20 case materials and to make that space available to residents of the correctional facility 
+21 and their attorneys on a timely basis.
+22SUMMARY
+23 Public Law 2023, chapter 394 specified the consequences for the interception of an 
+24 oral or wire communication, including a telephone call, between a person residing in either 
+25 a jail or in an adult or juvenile correctional facility and an attorney; these communications 
+26 are confidential.  This bill extends those consequences to an intercepted attorney-client e-
+27 mail communication if the resident can show that the jail or correctional facility had actual 
+28 or constructive notice at the time the e-mail communication was made or intercepted of the 
+29 attorney's name and the attorney's e-mail address and if the communication was made 
+30 directly to or from that e-mail address.  Similar to Public Law 2023, chapter 394, the bill 
+31 provides that:
+32 1. The contents and existence of the communication are not admissible in a criminal 
+33 proceeding, including a post-conviction review proceeding;
+34 2. A person who viewed, listened to or read the communication and did not 
+35 immediately discontinue doing so as soon as the person had sufficient information to 
+36 determine that the communication was protected by attorney-client privilege is disqualified 
+37 from participating in an investigation of the resident and from appearing as a witness in a 
+38 criminal proceeding in which the resident is a defendant, including a post-conviction 
+39 review proceeding; and
+40 3. A person who viewed, listened to or read the intercepted communication and saw, 
+41 heard or read information that may be relevant to a pending or anticipated charge against 
+42 the resident or a defense the resident may assert, or that may lead to the discovery of that 
+43 evidence, is disqualified from participating in an investigation of the resident or appearing 23
+24
+25
+26
+27
+28
+29
+30
+31
+Page 5 - 131LR2708(01)44 as a witness in the pending or anticipated criminal proceeding in which the resident is a 
+45 defendant, including a subsequent post-conviction review proceeding on the pending or 
+46 anticipated criminal proceeding.
+4 The bill also makes technical changes to remove previously expired deadlines.1
+2
+3

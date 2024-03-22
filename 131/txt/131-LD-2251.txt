@@ -1,0 +1,170 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2251
+H.P. 1445 House of Representatives, March 5, 2024
+An Act to Amend the Mining Excise Tax Laws
+Reported by Representative PERRY of Bangor for the Joint Standing Committee on 
+Taxation pursuant to Resolve 2023, chapter 83, section 1.
+Reference to the Committee on Taxation suggested and ordered printed pursuant to Joint 
+Rule 218.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3119(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  1 MRSA §2601, sub-§4, as enacted by PL 1981, c. 711, §1, is repealed.
+3Sec. 2.  14 MRSA §6662, sub-§1, ¶C, as enacted by PL 1983, c. 189, is amended 
+4 by amending subparagraph (2) to read:
+5 (2)  Payment of any the excise tax under Title 36, sections 2851 to 2865  section 
+6 2856-A;
+7Sec. 3.  36 MRSA §271, sub-§2, ¶A, as amended by PL 2019, c. 401, Pt. A, §4, is 
+8 further amended by repealing subparagraph (6).
+9Sec. 4.  36 MRSA §271, sub-§10, ¶A, as enacted by PL 2009, c. 571, Pt. WWW, 
+10 §7, is amended to read:
+11 A.  The filing fee for a petition for an appeal of current use valuation under the tree 
+12 growth tax law, chapter 105, subchapter 2‑A, the farm and open space tax law, chapter 
+13 105, subchapter 10, or the working waterfront land law, chapter 105, subchapter 10‑A 
+14 or a petition for an appeal relating to section 2865 is $75.
+15Sec. 5.  36 MRSA §1760, sub-§115 is enacted to read:
+16115.  Products used in commercial mining.  Sales to a mining company for use in 
+17 mining in a mining area.  As used in this subsection, "mining" and "mining company" have 
+18 the same meanings as in section 2855 and "mining area" has the same meaning as in Title 
+19 38, section 490-MM, subsection 12.
+20Sec. 6.  36 MRSA §2854, as enacted by PL 1981, c. 711, §10, is amended to read:
+21§2854.  Excise tax in lieu of property taxes
+221.  Annual excise tax.  A mining company shall pay to the State Tax Assessor, for the 
+23 use set forth in this chapter, an annual excise tax for the privilege of conducting mining 
+24 within the State.
+252.  Property tax exemption.  The excise tax imposed by this chapter shall be in lieu 
+26 of all property taxes on or with respect to mining property, except for the real property 
+27 taxes on the following:
+28 A.  Buildings, excluding fixtures and equipment; and
+29 B.  Land, excluding the value of minerals or mineral rights.
+30Sec. 7.  36 MRSA §2855, sub-§2, as enacted by PL 1981, c. 711, §10, is repealed.
+31Sec. 8.  36 MRSA §2855, sub-§3, as enacted by PL 1981, c. 711, §10, is repealed.
+32Sec. 9.  36 MRSA §2855, sub-§4, as enacted by PL 1981, c. 711, §10, is repealed.
+33Sec. 10.  36 MRSA §2855, sub-§5, as enacted by PL 1981, c. 711, §10, is amended 
+34 to read:
+355.  Gross proceeds.  "Gross proceeds" means a mining company's federal gross income 
+36 from mining with respect to a mine site  mining, as defined in Section 613 of the code  Code, 
+37 in the State.
+38Sec. 11.  36 MRSA §2855, sub-§6, as enacted by PL 1981, c. 711, §10, is repealed.
+Page 2 - 131LR3119(01)1Sec. 12.  36 MRSA §2855, sub-§7, as enacted by PL 1981, c. 711, §10, is repealed.
+2Sec. 13.  36 MRSA §2855, sub-§9, as enacted by PL 1981, c. 711, §10, is amended 
+3 to read:
+49.  Minerals.  "Minerals" means all naturally-occurring  naturally occurring metallic 
+5 minerals as defined in Title 38, section 490-MM, subsection 8.
+6Sec. 14.  36 MRSA §2855, sub-§10, as enacted by PL 1981, c. 711, §10, is repealed 
+7 and the following enacted in its place:
+810.  Mining.  "Mining" has the same meaning as in Title 38, section 490-MM, 
+9 subsection 11, except that activity described in Title 38, section 490-MM, subsection 11, 
+10 paragraph D is mining regardless of any exclusion by the Department of Environmental 
+11 Protection pursuant to Title 38, section 490-NN, subsection 4.
+12Sec. 15.  36 MRSA §2855, sub-§12, as amended by PL 1983, c. 776, §5, is repealed.
+13Sec. 16.  36 MRSA §2855, sub-§13, as enacted by PL 1981, c. 711, §10, is repealed.
+14Sec. 17.  36 MRSA §2855, sub-§14, as amended by PL 1993, c. 395, §18, is 
+15 repealed.
+16Sec. 18.  36 MRSA §2855, sub-§16, as enacted by PL 1981, c. 711, §10, is repealed.
+17Sec. 19.  36 MRSA §2855, sub-§17, as enacted by PL 1981, c. 711, §10, is repealed.
+18Sec. 20.  36 MRSA §2856, as corrected by RR 2013, c. 2, §45, is repealed and the 
+19 following enacted in its place:
+20§2856.  Amount of annual excise tax
+21 The amount of the annual excise tax on a mining company is the mining company's 
+22 gross proceeds multiplied by 0.35.
+23Sec. 21.  36 MRSA §2857, as enacted by PL 1981, c. 711, §10, is amended to read:
+24§2857.  Returns
+251.  Annual return.  A mining company shall file, on or before the date the mining 
+26 company's state income tax return is due to be filed, an annual return on a form specified 
+27 by the State Tax Assessor for each tax year.
+282.  Form and contents.  The return shall must indicate:
+29 A.  The tax due;
+30 B.  The estimated tax payments made; and
+31 C.  Credits provided under section 2858; and
+32 D.  Information relating to the value of facilities and equipment, gross proceeds , net 
+33 proceeds or other relevant information as the State Tax Assessor may by rule require.
+343.  Payments.  A mining company shall pay the tax due, less estimated tax payments 
+35 and credits, at the time its annual return is due without extensions.
+364.  Extensions.  The State Tax Assessor may grant a reasonable extension of time for 
+37 filing a return, declaration, statement or other document or payment of tax or estimated tax 
+Page 3 - 131LR3119(01)38 required by this chapter on such terms and conditions as he the State Tax Assessor may 
+39 require.  The extension may not exceed 8 months.
+35.  Computation.  In computing a mining company's tax, gross proceeds and net 
+4 proceeds shall be computed as if each mine site were a separate taxpayer. The State Tax 
+5 Assessor may distribute, apportion or allocate on a reasonable basis gross proceeds, 
+6 deductions, credits or allowances between or among mining companies or mine sites, if 
+7 such distribution, apportionment or allocation is necessary to prevent evasion of taxes 
+8 imposed by this chapter, or to reflect clearly the gross or net proceeds of any mining 
+9 company or mine site.
+10Sec. 22.  36 MRSA §2858, as amended by PL 1987, c. 772, §26, is repealed.
+11Sec. 23.  36 MRSA §2861, as amended by PL 2011, c. 653, §4 and affected by §33 
+12 and amended by c. 682, §38, is repealed.
+13Sec. 24.  36 MRSA §2862, as amended by PL 2011, c. 653, §5 and affected by §33, 
+14 is repealed.
+15Sec. 25.  36 MRSA §2862-A is enacted to read:
+16§2862-A.  Distribution of revenues
+17 Excise tax revenues must be deposited in the Mining Excise Tax Fund established in 
+18 section 2866.
+19Sec. 26.  36 MRSA §2863, as amended by PL 2017, c. 211, Pt. E, §7, is repealed.
+20Sec. 27.  36 MRSA §2865, as amended by PL 2007, c. 627, §76, is repealed.
+21Sec. 28.  36 MRSA §2866, as amended by PL 2011, c. 653, §6 and affected by §33 
+22 and amended by c. 682, §38, is further amended to read:
+23§2866.  Mining Oversight  Excise Tax Fund
+241.  Creation of fund.  The Mining Oversight Excise Tax Fund, referred to in this 
+25 section as "the fund," is established as a nonlapsing fund administered by the Mining Excise 
+26 Tax Trust Fund Board of Trustees, referred to in this section as "the board."  The board 
+27 shall oversee and authorize expenditures from the fund.
+282.  Investment.  The Treasurer of State shall invest the money in the fund as authorized 
+29 by Title 5, section 138.
+304.  Uses of fund.  Money from the fund may be used only to fund oversight of mining 
+31 activity as provided in the mining rules adopted by the Department of Environmental 
+32 Protection under the Maine Metallic Mineral Mining Act, and expenses for site oversight.  
+33 Expenses for site oversight include, but are not limited to, expenses of the department or 
+34 the department's agents or contractors related to site oversight, including costs of personnel 
+35 and administrative costs and expenses necessary to administer, review and monitor 
+36 corrective action.
+375.  Uses for fund.  Beginning in 2025, the Governor shall propose uses for the fund, 
+38 consistent with section 2853, as part of the biennial budget.1
+2
+Page 4 - 131LR3119(01)1SUMMARY
+2 This bill makes changes to the mining excise tax as recommended by the Department 
+3 of Administrative and Financial Services, Bureau of Revenue Services, Office of Tax 
+4 Policy, as required by Resolve 2023, chapter 83, section 1 including providing a sales tax 
+5 exemption for sales to a mining company for use in mining.  The bill also:
+6 1. Simplifies the excise tax imposed on a mining company by establishing a formula 
+7 of the gross proceeds of that mining company multiplied by 0.35 and eliminating credits 
+8 for payment of certain property taxes and prepayment of taxes; 
+9 2. Renames the Mining Oversight Fund the Mining Excise Tax Fund and simplifies the 
+10 distribution of excise tax revenues by requiring all revenue to be deposited in the Mining 
+11 Excise Tax Fund, instead of being split between the General Fund, the Mining Excise Tax 
+12 Trust Fund and the Mining Impact Assistance Fund;
+13 3. Eliminates the Mining Impact Assistance Fund, which is used to provide grants to 
+14 municipalities, counties and the unorganized territory to offset the loss of property tax 
+15 revenue and to provide necessary new or additional public facilities and services related to 
+16 mining; and
+17 4.  Requires the Governor to propose uses for the Mining Excise Tax Fund as part of 
+18 the biennial budget.2
+3
+4
+5

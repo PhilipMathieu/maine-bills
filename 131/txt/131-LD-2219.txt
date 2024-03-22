@@ -1,0 +1,555 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2219
+S.P. 949 In Senate, February 21, 2024
+An Act to Implement the Recommendations of the Maine 
+Commission on Indigent Legal Services
+Reported by Senator CARNEY of Cumberland for the Joint Standing Committee on 
+Judiciary pursuant to the Maine Revised Statutes, Title 4, section 1804, subsection 3.
+Reference to the Committee on Judiciary suggested and ordered printed pursuant to Joint 
+Rule 218.
+DAREK M. GRANT
+Secretary of the Senate
+
+Page 1 - 131LR3049(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  4 MRSA §1801, as enacted by PL 2009, c. 419, §2, is amended to read:
+3§1801.  Maine Commission on Indigent Legal Services; established
+4 The Maine Commission on Indigent Legal Services, established by Title 5, section 
+5 12004‑G, subsection 25‑A, is an independent commission whose purpose is to provide 
+6 efficient,  promote high-quality , effective and efficient representation to indigent criminal 
+7 defendants, juvenile defendants and children and parents in child protective cases, and due 
+8 process for persons who receive indigent legal services in parity with the resources of the 
+9 State and consistent with federal and state constitutional and statutory obligations.  The 
+10 commission shall work to ensure the delivery of indigent legal services by qualified and 
+11 competent counsel in a manner that is fair and consistent throughout the State and to ensure 
+12 adequate funding of a statewide system of indigent legal services, which must be provided 
+13 and managed in a fiscally responsible manner, free from undue political interference and 
+14 conflicts of interest.
+15Sec. 2.  4 MRSA §1802, sub-§3-A is enacted to read:
+163-A.  Employed counsel.  "Employed counsel" means an attorney employed by the 
+17 commission to provide indigent legal services directly to persons who receive indigent 
+18 legal services, including an attorney who is a district defender, deputy district defender or 
+19 assistant district defender.  "Employed counsel" does not include an attorney employed by 
+20 the commission who does not provide indigent legal services directly to persons who 
+21 receive indigent legal services.
+22Sec. 3.  4 MRSA §1803, as amended by PL 2017, c. 430, §§1 and 2, is further 
+23 amended to read:
+24§1803.  Commission structure
+251.  Members; appointment; chair.  The commission consists of 9 members appointed 
+26 by the Governor and subject to review by the joint standing committee of the Legislature 
+27 having jurisdiction over judiciary matters and confirmation by the Legislature.  The 
+28 Governor shall designate one member to serve as chair of the commission.  The 
+29 membership consists of the following:
+30 A.  One member from a list of qualified potential appointees, provided by the President 
+31 of the Senate;
+32 B.  One member from a list of qualified potential appointees, provided by the Speaker 
+33 of the House of Representatives;
+34 C.  Three members from a list of qualified potential appointees, provided by the Chief 
+35 Justice of the Supreme Judicial Court;
+36 D.  One member with experience in administration and finance;
+37 E.  One member with experience providing representation in child protection 
+38 proceedings;
+39 F.  One member from a list of qualified potential appointees who are attorneys engaged 
+40 in the active practice of law and provide indigent legal services, provided by the 
+Page 2 - 131LR3049(01)41 president of the Maine State Bar Association.  This member is a nonvoting member of 
+42 the commission; and
+3 G.  One member from a list of qualified potential appointees who are attorneys engaged 
+4 in the active practice of law and provide indigent legal services, provided by the 
+5 president of a statewide organization, other than the Maine State Bar Association, that 
+6 represents criminal defense attorneys.  This member is a nonvoting member of the 
+7 commission.
+8 In determining the appointments and recommendations under this subsection, the 
+9 Governor, the President of the Senate, the Speaker of the House of Representatives, the 
+10 Chief Justice of the Supreme Judicial Court, the president of the Maine State Bar 
+11 Association and the president of the statewide organization that represents criminal defense 
+12 attorneys shall consider input from individuals and organizations with an interest in the 
+13 delivery of indigent legal services.  Recommendations provided by the president of the 
+14 Maine State Bar Association and the president of the statewide organization representing 
+15 criminal defense attorneys must consist of attorneys providing indigent legal services as a 
+16 majority of their law practices.
+172.  Qualifications.  Individuals appointed to the commission must have demonstrated 
+18 a commitment to quality representation for persons who are indigent and have the 
+19 knowledge required to ensure that quality of representation is provided in each area of law.  
+20 No more than 7 members may be attorneys engaged in the active practice of law.  A person 
+21 who is a sitting judge, prosecutor or law enforcement official, or an employee of such a 
+22 person, may not be appointed to the commission.  A voting member and the immediate 
+23 family members living in the same household as the member may not receive compensation 
+24 from the commission, other than that authorized in Title 5, section 12004‑G, subsection 
+25 25‑A, while the member is serving on the commission.
+26 The limitations on members receiving compensation from the commission do not apply to 
+27 any member serving on the commission as of April 1, 2018 for the duration of the member's 
+28 term.
+293.  Terms.  Members of the commission are appointed for terms of 3 years each, except 
+30 that of those first appointed the Governor shall designate 2 whose terms are only one year, 
+31 2 whose terms are only 2 years and one whose term is 3 years. A member may not serve 
+32 more than 2 consecutive 3-year terms plus any initial term of less than 3 years.
+33 A member of the commission appointed to fill a vacancy occurring otherwise than by 
+34 expiration of term is appointed only for the unexpired term of the member succeeded.
+354.  Quorum.  A quorum is a majority of the current voting members of the commission.  
+36 A vacancy in the commission does not impair the power of the remaining members to 
+37 exercise all the powers of the commission.
+385.  Compensation.  Each member of the commission is eligible to be compensated as 
+39 provided in Title 5, chapter 379.
+405-A.  Compensation.  A member of the commission and an immediate family member 
+41 living in the same household as the member of the commission may not receive 
+42 compensation from the commission, other than that authorized in Title 5, section 12004‑G, 
+43 subsection 25‑A, while the member is serving on the commission, except that the members 
+44 appointed under subsection 1, paragraphs F and G and their immediate family members 1
+2
+Page 3 - 131LR3049(01)45 may be compensated by the commission for providing indigent legal services as assigned 
+46 counsel at the same compensation rate established by the commission's rules for all 
+47 assigned counsel.
+4Sec. 4.  4 MRSA §1804, as amended by PL 2023, c. 344, §§1 to 5 and c. 394, Pt. A, 
+5 §§1 to 3, is further amended to read:
+6§1804.  Commission responsibilities
+71.  Executive director.  The commission shall hire an executive director. The executive 
+8 director must be an attorney licensed to practice law in this State; be a member in good 
+9 standing of the bar of the State; and have experience in the legal field, including, but not 
+10 limited to, the provision of indigent legal services.
+112.  Rulemaking.  The commission shall adopt rules governing the delivery of indigent 
+12 legal services by assigned counsel, contract counsel and public defenders  employed 
+13 counsel. The rules adopted by the commission must include:
+14 A.  Standards governing eligibility for indigent legal services.  The eligibility standards 
+15 must take into account the possibility of a defendant's or civil party's ability to make 
+16 periodic installment payments toward counsel fees and the cost of private legal services 
+17 in the relevant geographic area;
+18 B.  Standards prescribing minimum experience, training and other qualifications for 
+19 contract eligibility requirements for an attorney to be eligible to serve as assigned 
+20 counsel, assigned contract counsel and public defenders  or employed counsel;
+21 C.  Standards for assigned counsel, contract counsel and public defender case loads  
+22 employed counsel caseloads;
+23 D.  Standards for the evaluation of assigned counsel, contract counsel and public 
+24 defenders.  The commission shall review the standards developed pursuant to this 
+25 paragraph at least every 5 years, or earlier upon the recommendation of the executive 
+26 director;
+27 E.  Standards for independent, high-quality and efficient effective representation of 
+28 clients whose cases present conflicts of interest;
+29 F.  Standards for the reimbursement of expenses incurred by assigned counsel, contract 
+30 counsel and public defenders  employed counsel, including attendance at training 
+31 events provided by the commission; and
+32 G.  Other standards considered necessary and appropriate to ensure the delivery of 
+33 adequate high-quality and effective indigent legal services.
+343.  Duties.  The commission shall:
+35 A.  Develop and maintain a system that employs public defenders  employed counsel, 
+36 uses appointed private attorneys and contracts with individual attorneys or groups of 
+37 attorneys. The commission shall consider other programs necessary to provide quality 
+38 high-quality and efficient effective indigent legal services;
+39 B.  Develop and maintain an assigned counsel voucher review and payment 
+40 authorization system that includes disposition information;
+41 C.  Establish processes and procedures consistent with commission standards to ensure 
+42 that office and contract personnel use information technology and case load  caseload 1
+2
+3
+Page 4 - 131LR3049(01)43 management systems so that detailed expenditure and case load indigent legal services 
+44 caseload data are accurately collected, recorded and reported;
+3 D.  Develop criminal defense, child protective and involuntary commitment 
+4 representation training and evaluation programs for attorneys throughout the State to 
+5 ensure an adequate pool of qualified attorneys;
+6 E.  Establish minimum qualifications eligibility standards to ensure that attorneys  who 
+7 provide indigent legal services are qualified and capable of providing quality high-
+8 quality and effective representation in the case types to which they are assigned, 
+9 recognizing that quality  high-quality and effective representation in each of these types 
+10 of cases requires counsel with experience and specialized training in that field;
+11 F.  Establish rates of compensation for assigned counsel and contract counsel;
+12 G.  Establish a method for accurately tracking, monitoring and enforcing case load 
+13 caseload standards for assigned counsel, contract counsel and public defenders  
+14 employed counsel;
+15 H.  By January 15th of each year, submit to the Legislature, the Chief Justice of the 
+16 Supreme Judicial Court and the Governor an annual report on the operation, needs and 
+17 costs of the indigent legal services system.  The report must include:
+18 (1)  An evaluation of: contracts; services provided by contract counsel, assigned 
+19 counsel and public defenders  employed counsel; any contracted professional 
+20 services; and cost containment measures; and
+21 (2)  An explanation of the relevant law changes to the indigent legal services 
+22 covered by the commission and the effect of the changes on the quality of 
+23 representation and costs.
+24 The joint standing committee of the Legislature having jurisdiction over judiciary 
+25 matters may report out legislation on matters related to the report;
+26 I.  Approve and submit a biennial budget request to the Department of Administrative 
+27 and Financial Services, Bureau of the Budget, including supplemental budget requests 
+28 as necessary;
+29 J.  Develop an administrative review and appeal process for attorneys who are 
+30 aggrieved by a decision of the executive director, or the executive director's designee, 
+31 determining:
+32 (1)  Whether an attorney meets the minimum eligibility requirements to receive 
+33 assignments or to receive assignments in specialized case types pursuant to any 
+34 commission rule setting forth eligibility requirements;
+35 (2)  Whether an attorney previously found eligible is no longer eligible to receive 
+36 assignments or to receive assignments in specialized case types pursuant to any 
+37 commission rule setting forth eligibility requirements; and
+38 (3)  Whether to grant or withhold a waiver of the eligibility requirements set forth 
+39 in any commission rule.
+40 All decisions of the commission, including decisions on appeals under subparagraphs 
+41 (1), (2) and (3), constitute final agency action.  All decisions of the executive director, 1
+2
+Page 5 - 131LR3049(01)42 or the executive director's designee, other than decisions appealable under 
+43 subparagraphs (1), (2) and (3), constitute final agency action;
+3 K.  Pay appellate counsel;
+4 L.  Establish processes and procedures to acquire investigative and expert services that 
+5 may be necessary for a case, including contracting for such services;
+6 M.  Establish procedures for handling complaints about the performance of counsel 
+7 providing indigent legal services;
+8 N.  Develop a procedure for approving requests by counsel for authorization to file a 
+9 petition as described in section 1802, subsection 4, paragraph D;
+10 O.  Establish a system to audit financial requests and payments that includes the 
+11 authority to recoup payments when necessary.  The commission may summon persons 
+12 and subpoena witnesses and compel their attendance, require production of evidence, 
+13 administer oaths and examine any person under oath as part of an audit.  Any summons 
+14 or subpoena may be served by registered mail with return receipt.  Subpoenas issued 
+15 under this paragraph may be enforced by the Superior Court; and
+16 P.  Develop and maintain a registry of names, telephone numbers and other contact 
+17 information for attorneys who provide legal services to persons who are incarcerated.  
+18 The commission shall on a weekly basis provide these names, telephone numbers and 
+19 other contact information to all sheriffs' offices and to the Department of Corrections. 
+20 On the Monday following transmission of the information, the sheriffs' offices and the 
+21 Department of Corrections have constructive notice that communications to and from 
+22 these attorneys by residents of jails and correctional facilities are subject to the 
+23 attorney-client privilege. The attorneys' names, telephone numbers and other contact 
+24 information are confidential. ; and
+25 Q.  Develop training and evaluation programs for attorneys throughout the State who 
+26 provide indigent legal services.
+274.  Powers.  The commission may:
+28 A.  Establish and maintain a principal office and other offices within the State as it 
+29 considers necessary;
+30 B.  Meet and conduct business at any place within the State;
+31 C.  Use voluntary and uncompensated services of private individuals and organizations 
+32 as may from time to time be offered and needed;
+33 D.  Adopt rules to carry out the purposes of this chapter. Rules adopted pursuant to this 
+34 paragraph are routine technical rules as defined in Title 5, chapter 375, subchapter 2‑A, 
+35 except that rules adopted to establish rates of compensation for assigned counsel and 
+36 contract counsel under subsection 3, paragraph F are major substantive rules as defined 
+37 in Title 5, chapter 375, subchapter 2‑A; and
+38 E.  Appear in court and before other administrative bodies represented by its own 
+39 attorneys. ; and
+40 F.  Notwithstanding Title 5, chapter 155, through employed counsel, retain 
+41 investigative and expert services that are reasonably necessary for case-specific 
+42 purposes.  For purposes of this paragraph, investigative and expert services are for case-1
+2
+Page 6 - 131LR3049(01)43 specific purposes if the services relate to a specific case and not to the ongoing activities 
+44 of the commission or its employees that do not relate to a specific case.  Nothing in this 
+45 paragraph affects the applicability of Title 5, chapter 155 to the purchase of services, 
+46 supplies, materials and equipment by the commission or its employees for purposes 
+47 that are not case-specific purposes.
+6Sec. 5.  4 MRSA §1806, as amended by PL 2023, c. 344, §6, is further amended to 
+7 read:
+8§1806.  Information not public record
+9 Disclosure of information and records in the possession of the commission is governed 
+10 by this section.
+111.  Definitions.  As used in this section, unless the context otherwise indicates, the 
+12 following terms have the following meanings.
+13 A.  "Individual client information" means name, ; date of birth ,; social security number ,; 
+14 gender, ; ethnicity ,; home , work, school or other address ,; home telephone number ,; 
+15 home facsimile fax number ,; home e-mail address ,; personal cellular telephone 
+16 number, ; personal pager number ; and any information protected under  the Maine Rules 
+17 of Evidence, Rules 501 to 509 or the Maine Rules of Professional Conduct, Rule 1.6 
+18 or otherwise protected by the attorney-client relationship.
+19 B.  "Personal contact information" means home address, home telephone number, 
+20 home facsimile fax number, home e-mail address, personal cellular telephone number, 
+21 personal pager number, date of birth and social security number.
+22 C.  "Request for funds for expert or investigative assistance  noncounsel funds" means 
+23 a request submitted to the commission by an indigent party or by  an attorney  or on 
+24 behalf of an indigent client a person eligible for indigent legal services seeking 
+25 authorization to expend funds for expert or investigative noncounsel assistance, which 
+26 includes, but is not limited to, the assistance of a private investigator, interpreter or 
+27 translator, psychiatrist, psychologist or other mental health expert, medical expert and 
+28 scientific expert.
+29 D.  "Case information" means:
+30 (1)  The court in which a case is brought;
+31 (2)  Any criminal charges or juvenile crime charges and the type, but not the 
+32 contents, of any petition giving rise to a case;
+33 (3)  The docket number;
+34 (4)  The identity of assigned counsel and the date of assignment;
+35 (5)  The withdrawal of assigned counsel and the date of withdrawal; and
+36 (6)  Any order for reimbursement of assigned counsel fees.
+372.  Confidential information.  The following information and records in the 
+38 possession of the commission are not open to public inspection and do not constitute public 
+39 records as defined in Title 1, section 402, subsection 3.
+40 A.  Individual client information that is submitted by a commission-rostered attorney 
+41 or a court is confidential, except that the names of criminal defendants and the names 1
+2
+3
+4
+5
+Page 7 - 131LR3049(01)42 of juvenile defendants charged with offenses that if committed by an adult would 
+43 constitute murder or a Class A, Class B or Class C crime are not confidential.
+3 B.  Information subject to the lawyer-client privilege set forth in the Maine Rules of 
+4 Evidence, Rule 502 or that constitutes a confidence or secret under the Maine Rules of 
+5 Professional Conduct, Rule 1.6 is confidential.
+6 C.  Personal contact information of a commission-rostered attorney  assigned counsel 
+7 and contract counsel is confidential.
+8 D.  Personal contact information of a member of the commission or a commission staff 
+9 member employee, including employed counsel, is confidential.
+10 E.  A request for noncounsel funds for expert or investigative assistance that is 
+11 submitted by an indigent party or by an attorney on behalf of an indigent client is 
+12 confidential. The decision of the executive director of the commission hired pursuant 
+13 to section 1804, subsection 1, or the executive director's designee, to grant or deny such 
+14 a request is not confidential after a case has been completed.  A case is completed when 
+15 the judgment is affirmed on appeal or the period for appeal has expired.
+16 F.  Any information obtained or gathered by the commission through a formal or 
+17 informal complaint or when performing an evaluation or investigation of an attorney 
+18 is confidential, except that it may be disclosed to the attorney being evaluated or 
+19 investigated. :
+20 (1)  The commission may disclose the information to the attorney who is the subject 
+21 of the formal or informal complaint, evaluation or investigation;
+22 (2)  The executive director of the commission hired pursuant to section 1804, 
+23 subsection 1, or the executive director's designee, may disclose the information to 
+24 the Maine Assistance Program for Lawyers described in Title 14, section 164-A;
+25 (3)  If the attorney who is subject to an evaluation or investigation appeals from a 
+26 decision of the executive director or the executive director's designee, in 
+27 accordance with the process established under section 1804, subsection 3, 
+28 paragraph J, the information may be disclosed at a public hearing conducted by the 
+29 commission on the appeal, except that information that is protected by the attorney-
+30 client privilege or that is confidential under any provision of law, the Maine Rules 
+31 of Evidence or the Maine Rules of Professional Conduct remains confidential; and
+32 (4)  As provided in subsection 4.
+333.  Confidential information disclosed by the Judicial Department.  The Judicial 
+34 Department may disclose to the commission confidential information necessary for the 
+35 commission to carry out its functions, including, but not limited to, the collection of 
+36 amounts owed to reimburse the State for the cost of assigned counsel, as follows:
+37 A.  Case information and individual client information with respect to court 
+38 proceedings that are confidential by statute or court rule in which one or more parties 
+39 are represented by assigned counsel; and
+40 B.  The name, address, date of birth and social security number of any person ordered 
+41 by the court to reimburse the State for some or all of the cost of assigned counsel.1
+2
+Page 8 - 131LR3049(01)1 This information Information received by the commission from the Judicial Department 
+2 under this subsection remains confidential in the possession of the commission and is not 
+3 open to public inspection, except that the names of criminal defendants and the names of 
+4 juvenile defendants charged with offenses that if committed by an adult would constitute 
+5 murder or a Class A, Class B or Class C crime are not confidential.
+64.  Rules of professional conduct.  Nothing in this section prohibits the executive 
+7 director of the commission hired pursuant to section 1804, subsection 1, or the executive 
+8 director's designee, from reporting potential professional misconduct under the Maine 
+9 Rules of Professional Conduct to the Board of Overseers of the Bar or from disclosing 
+10 information and records related to potential professional misconduct to the board.
+115.  Confidential information possessed by employed counsel.  Records, information 
+12 and materials created, received, obtained, maintained or stored by or on behalf of employed 
+13 counsel that are protected under the Maine Rules of Evidence, Rules 501 to 509 or the 
+14 Maine Rules of Professional Conduct, Rule 1.6 or otherwise protected by the attorney-
+15 client relationship are confidential.
+16Sec. 6.  14 MRSA §8104-B, sub-§4-A is enacted to read:
+174-A.  Performing public defense function.  An employee's performing or failing to 
+18 perform any indigent legal services in the scope of that employee's employment with the 
+19 Maine Commission on Indigent Legal Services established by Title 5, section 12004-G, 
+20 subsection 25-A.  For purposes of this subsection, "indigent legal services" has the same 
+21 meaning as in Title 4, section 1802, subsection 4;
+22Sec. 7.  14 MRSA §8111, sub-§1, ¶E, as amended by PL 2001, c. 662, §8, is further 
+23 amended to read:
+24 E.  Any intentional act or omission within the course and scope of employment; 
+25 provided that such immunity does not exist in any case in which an employee's actions 
+26 are found to have been in bad faith; or
+27Sec. 8.  14 MRSA §8111, sub-§1, ¶F, as enacted by PL 2001, c. 662, §9, is 
+28 amended to read:
+29 F.  Any act by a member of the Maine National Guard within the course and scope of 
+30 employment; except that immunity does not exist when an employee's actions are in 
+31 bad faith or in violation of military orders while the employee is performing active state 
+32 service pursuant to Title 37‑B. ; or
+33Sec. 9.  14 MRSA §8111, sub-§1, ¶G is enacted to read:
+34 G.  Performing or failing to perform any indigent legal services as an employee of the 
+35 Maine Commission on Indigent Legal Services established in Title 5, section 12004-
+36 G, subsection 25-A. For purposes of this subsection, "indigent legal services" has the 
+37 same meaning as in Title 4, section 1802, subsection 4.
+38Sec. 10.  15 MRSA §3010, sub-§4, ¶B, as enacted by PL 2021, c. 365, §9 and 
+39 affected by §37, is amended to read:
+40 B.  Any person for any purpose when expressly authorized by a statute, court rule, court 
+41 decision or court order containing language specifically referring to confidential 
+Page 9 - 131LR3049(01)42 juvenile history record information or one or more of the types of confidential juvenile 
+43 history record information; or  
+3Sec. 11.  15 MRSA §3010, sub-§4, ¶C, as enacted by PL 2021, c. 365, §9 and 
+4 affected by §37, is amended to read:
+5 C.  A public entity for purposes of international travel, such as issuing visas and 
+6 granting of citizenship. ; or   
+7Sec. 12.  15 MRSA §3010, sub-§4, ¶D is enacted to read:
+8 D.  The Maine Commission on Indigent Legal Services established by Title 5, section 
+9 12004-G, subsection 25-A for the purposes of assigning, evaluating or supervising 
+10 counsel.
+11Sec. 13.  15 MRSA §3306, sub-§1, ¶B, as amended by PL 2019, c. 525, §15, is 
+12 further amended to read:
+13 B.  If the juvenile requests an attorney and if the juvenile and the juvenile's parent or 
+14 parents, guardian or legal custodian are found to be without sufficient financial means,  
+15 the juvenile must be considered indigent and counsel must be appointed by the court.   
+16 If, after counsel has been appointed, private counsel retained by the juvenile enters an 
+17 appearance, appointed counsel must file a motion to withdraw.
+18Sec. 14.  15 MRSA §3308-C, sub-§4, ¶H is enacted to read:
+19 H.  Juvenile case records must be open to inspection by and, upon request, be 
+20 disseminated to the Maine Commission on Indigent Legal Services established by Title 
+21 5, section 12004-G, subsection 25-A for the purposes of assigning, evaluating or 
+22 supervising counsel.
+23Sec. 15.  22 MRSA §4005, sub-§2, as amended by PL 1983, c. 783, §2, is further 
+24 amended to read:
+252.  Parents.  Parents and custodians are entitled to legal counsel in child protection 
+26 proceedings, except a request for a preliminary protection order under section 4034 or a 
+27 petition for a medical treatment order under section 4071, but including hearings on those 
+28 orders. They The parent or custodian may request the court to appoint legal counsel for 
+29 them  the parent or custodian. The court, if it finds them the parent or custodian indigent, 
+30 shall appoint and pay the reasonable costs and expenses of their legal counsel.   To ensure 
+31 the proper evaluation of ineffective assistance claims, the court shall, upon the filing of a 
+32 notice of appeal, appoint new counsel for an indigent parent or custodian who appeals from 
+33 an order in a child protection proceeding terminating that parent's parental rights.
+34Sec. 16.  22 MRSA §4005-D, sub-§3-A is enacted to read:
+353-A.  Maine Commission on Indigent Legal Services; access to proceedings.  The 
+36 executive director of the Maine Commission on Indigent Legal Services established by 
+37 Title 5, section 12004-G, subsection 25-A, or the executive director's designee, may attend 
+38 and observe all court proceedings under this chapter for any purpose related to assigning, 
+39 evaluating or supervising counsel.  The court may not grant the commission, the executive 
+40 director, or the executive director's designee, intervenor status or the right to be heard solely 
+41 on the basis of attendance by the executive director or the executive director's designee at 
+42 a court proceeding under the authority granted in this subsection.1
+2
+Page 10 - 131LR3049(01)1Sec. 17.  22 MRSA §4006, as repealed and replaced by PL 1997, c. 715, Pt. A, §3, 
+2 is amended to read:
+3§4006.  Appeals
+4 A party aggrieved by an order of a court entered pursuant to section 4035, 4054 or 4071 
+5 may appeal directly to the Supreme Judicial Court sitting as the Law Court, and such 
+6 appeals are governed by the Maine Rules of Civil Appellate Procedure , chapter 9.
+7 Appeals from any order under section 4035, 4054 or 4071 must be expedited.  Any 
+8 attorney appointed to represent a party in a District Court proceeding under this chapter 
+9 shall continue to represent that client in any appeal unless otherwise ordered by the court  
+10 on appeal until new counsel is appointed for the appeal in accordance with section 4005, 
+11 subsection 2.
+12 Orders entered under this chapter under sections other than section 4035, 4054 or 4071 
+13 are interlocutory and are not appealable.
+14Sec. 18.  22 MRSA §4007, sub-§1-A, ¶E is enacted to read:
+15 E.  The court shall disclose records that are confidential under this subsection to the 
+16 Maine Commission on Indigent Legal Services established by Title 5, section 12004-G, 
+17 subsection 25-A for the purpose of assigning, evaluating or supervising counsel.
+18Sec. 19.  22 MRSA §4008, sub-§3, ¶M, as amended by PL 2023, c. 151, §8, is 
+19 further amended to read:
+20 M.  Law enforcement authorities for entry into the National Crime Information Center 
+21 database of the Federal Bureau of Investigation and to a national information 
+22 clearinghouse for missing and exploited children operated pursuant to 42 United States 
+23 Code, Section 5773(b).  Information disclosed pursuant to this paragraph is limited to 
+24 information on missing or abducted children or youth that is required to be disclosed 
+25 pursuant to 42 United States Code, Section 671(a)(35)(B); and
+26Sec. 20.  22 MRSA §4008, sub-§3, ¶N, as enacted by PL 2023, c. 151, §9, is 
+27 amended to read:
+28 N.  A party to a child protection proceeding and the attorney representing the party in 
+29 the proceeding, with protection for identity of reporters and other persons when 
+30 appropriate. ; and
+31Sec. 21.  22 MRSA §4008, sub-§3, ¶O is enacted to read:
+32 O.  The Maine Commission on Indigent Legal Services established by Title 5, section 
+33 12004-G, subsection 25-A for the purpose of assigning, evaluating or supervising 
+34 counsel, with protection for identity of reporters and other persons when appropriate.
+35Sec. 22.  22 MRSA §4011-A, sub-§1, as amended by PL 2015, c. 117, §1, is further 
+36 amended by amending the 3rd blocked paragraph to read:
+37 An employer may not take any action to prevent or discourage an employee from making 
+38 a report except that an adult person listed in paragraph A is not obligated to and may not 
+39 make a report to the department under this subsection if the report is based on information 
+40 that qualifies as a confidence or secret of a covered client of an attorney under the Maine 
+41 Rules of Professional Conduct, Rule 1.6 and the adult person obtained access to the 
+Page 11 - 131LR3049(01)42 information while working for or at the request of the attorney for the covered client, unless 
+43 the attorney would have the authority to disclose the information under the Maine Rules of 
+44 Professional Conduct, Rule 1.6(b)(1).  For purposes of this subsection, "covered client" 
+45 means a parent or custodian who is a party to a proceeding under this chapter or an adult 
+46 or minor charged with a crime or a juvenile crime.
+6Sec. 23.  22 MRSA §4014, sub-§1, as amended by PL 2023, c. 146, §2, is further 
+7 amended to read:
+81.  Reporting and proceedings.  A Except as provided in subsection 1-A, a person, 
+9 including an agent of the department, participating in good faith in reporting under this 
+10 subchapter or participating in a related child protection investigation or proceeding, 
+11 including, but not limited to, a multidisciplinary team, out-of-home abuse investigating 
+12 team or other investigating or treatment team, or a related law enforcement investigation 
+13 or criminal justice proceeding is immune from any criminal or civil liability for the act of 
+14 reporting or participating in the investigation or proceeding.  Good faith does not include 
+15 instances when a false report is made and the person knows the report is false. This section 
+16 may not be construed to bar criminal or civil action regarding perjury or regarding the abuse 
+17 or neglect that led to a report, investigation or proceeding.
+18Sec. 24.  22 MRSA §4014, sub-§1-A is enacted to read:
+191-A.  Attorney-client privilege.  The attorney-client privilege is not abrogated by this 
+20 subchapter. Statements or information that qualifies as a confidence or secret of a covered 
+21 client of an attorney under the Maine Rules of Professional Conduct, Rule 1.6 is subject to 
+22 the privilege and, unless the attorney would have the authority to disclose the information 
+23 under the Maine Rules of Professional Conduct, Rule 1.6(b)(1), may not form the basis of 
+24 a report under this subchapter by any person who obtained access to the information while 
+25 working for or at the request of the attorney, including, but not limited to, a person 
+26 described in section 4011-A, subsection 1, paragraph A.  For purposes of this subsection, 
+27 "covered client" means a parent or custodian who is a party to a proceeding under this 
+28 chapter or an adult or minor charged with a crime or a juvenile crime.
+29SUMMARY
+30 This bill implements the recommendations of the Maine Commission on Indigent 
+31 Legal Services to make the following changes to laws governing the commission and 
+32 related provisions of law.
+33 1.  In the laws governing the commission, it defines the term "employed counsel" to 
+34 refer to a person employed by the commission to provide direct legal services to persons 
+35 who receive indigent legal services, formerly referred to in those laws as "public 
+36 defenders."
+37 2.  It provides that the 2 members of the commission who are attorneys engaged in the 
+38 active practice of law and who provide indigent legal services are voting members of the 
+39 commission.
+40 3. It requires that the executive director of the commission be an attorney licensed to 
+41 practice law and a member in good standing of the bar of the State.1
+2
+3
+4
+5
+30
+31
+32
+Page 12 - 131LR3049(01)1 4. It specifies that when the commission through employed counsel retains 
+2 investigative and expert services that are reasonably necessary for case-specific purposes, 
+3 those services are not required to be made through the state procurement process.
+4 5. It clarifies that any information subject to a privilege under the Maine Rules of 
+5 Evidence or the Maine Rules of Professional Conduct or otherwise protected by the 
+6 attorney-client privilege remains confidential when it is in the possession or control of the 
+7 commission or when it is received, obtained, maintained or stored by or on behalf of 
+8 employed counsel.
+9 6. It clarifies that, although information obtained or gathered by the commission 
+10 through a formal or informal complaint or when performing an evaluation or investigation 
+11 of an attorney is generally confidential, if the attorney appeals from a decision finding the 
+12 attorney ineligible to receive case assignments, the information may be disclosed at a public 
+13 hearing conducted by the commission on the appeal unless the information is protected by 
+14 the attorney-client privilege or by any other provision of law, the Maine Rules of Evidence 
+15 or the Maine Rules of Professional Conduct.
+16 7. It establishes immunity from suit under the Maine Tort Claims Act for the 
+17 commission and its employees for claims based on performing or failing to perform any 
+18 indigent legal services.  The immunity provided by the bill mirrors the immunity from suit 
+19 granted under the Maine Tort Claims Act to governmental entities and their employees for 
+20 performing or failing to perform any prosecutorial function involving civil, criminal or 
+21 administrative enforcement.
+22 8. It requires that a Juvenile Court consider any juvenile who requests counsel to be 
+23 indigent for the purposes of appointing counsel; authorizes Maine criminal justice agencies 
+24 to disseminate confidential juvenile history record information to the commission for the 
+25 purposes of assigning, evaluating or supervising counsel; and requires the Juvenile Court, 
+26 on request, to disseminate juvenile case records to the commission for the purposes of 
+27 assigning, evaluating or supervising counsel.
+28 9. It directs the court to appoint new counsel for an indigent parent who appeals from 
+29 an order in a child protection proceeding terminating that parent's parental rights; 
+30 authorizes the executive director of the commission, or the executive director's designee, 
+31 to attend and observe child protection proceedings for purposes related to assigning, 
+32 evaluating or supervising counsel; and requires the court and the Department of Health and 
+33 Human Services to disclose child protective records to the commission for the purposes of 
+34 assigning, evaluating or supervising counsel.
+35 10. It prohibits a professional who otherwise qualifies as a mandated reporter of 
+36 suspected child abuse or neglect from making a report to the Department of Health and 
+37 Human Services if the information that forms the basis of the report would qualify as a 
+38 confidence or secret of a covered client of an attorney under the Maine Rules of 
+39 Professional Conduct, Rule 1.6 and the professional obtained the information while 
+40 working for or at the request of the attorney for the covered client, unless the attorney for 
+41 the covered client would have the authority to disclose the information under the Maine 
+42 Rules of Professional Conduct, Rule 1.6(b)(1) because the disclosure is reasonably believed 
+43 necessary to prevent reasonably certain substantial bodily harm or death.  The bill defines 
+44 a "covered client" to mean a parent who is a party to a child protection proceeding or an 
+45 adult or minor charged with a crime or a juvenile crime.

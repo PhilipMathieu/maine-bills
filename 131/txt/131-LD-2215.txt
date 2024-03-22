@@ -1,0 +1,261 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2215
+H.P. 1421 House of Representatives, February 20, 2024
+An Act to Implement the Recommendations of the Right to Know 
+Advisory Committee Regarding Public Records Exceptions
+Reported by Representative MOONEN of Portland for the Joint Standing Committee on 
+Judiciary pursuant to the Maine Revised Statutes, Title 1, section 411, subsection 6, paragraph 
+G.
+Reference to the Committee on Judiciary suggested and ordered printed pursuant to Joint 
+Rule 218.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3050(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  22 MRSA §2425-A, sub-§12, as amended by PL 2023, c. 365, §8, is 
+3 repealed.
+4Sec. 2.  22 MRSA §2425-A, sub-§14 is enacted to read:
+514.  Confidentiality.  This subsection governs confidentiality.
+6 A. For purposes of this subsection, "personal contact information" has the same 
+7 meaning as in Title 1, section 402, subsection 3, paragraph O, subparagraph (1) and 
+8 "caregiver exempt from registration" means a caregiver who is not required to register 
+9 pursuant to section 2423-A, subsection 3, paragraph C.
+10 B.  Information that identifies a qualifying patient, a visiting qualifying patient or a 
+11 registered patient under this chapter is confidential and may not be disclosed by the 
+12 department, except:
+13 (1) With the written consent of the patient; or
+14 (2) Pursuant to a court order or a subpoena.
+15 C. Information that identifies a caregiver exempt from registration is confidential and 
+16 may not be disclosed by the department, except:
+17 (1) With the written consent of the caregiver; or
+18 (2) Pursuant to a court order or a subpoena or as provided in paragraph F.
+19 D. Except as provided in this paragraph and in paragraphs B and C, applications, 
+20 supporting information and other information regarding a registered caregiver, 
+21 including any address where the registered caregiver cultivates, manufactures, tests, 
+22 packages, stores or sells cannabis plants or harvested cannabis under this chapter, are 
+23 not confidential. The personal contact information of a registered caregiver or of an 
+24 applicant for registration as a registered caregiver is confidential and may not be 
+25 disclosed by the department, except:
+26 (1) With the written consent of the registered caregiver or applicant for registration 
+27 as a registered caregiver;
+28 (2) Pursuant to a court order or a subpoena;
+29 (3) As provided in paragraph F; or
+30 (4) If a registered caregiver resides at the same address where the registered 
+31 caregiver cultivates, manufactures, tests, packages, stores or sells cannabis plants 
+32 or harvested cannabis under this chapter, the department may disclose that address 
+33 to a state, county or municipal employee responsible for the administration of this 
+34 chapter or of rules, ordinances or warrant articles authorized under this chapter, 
+35 including, but not limited to, law enforcement officers and code enforcement 
+36 officers.  Any information received by a state, county or municipal employee under 
+37 this subparagraph is confidential and may not be further disclosed or disseminated, 
+38 except as otherwise provided by law.
+39 E. Except as provided in this paragraph and in paragraphs B and C, applications, 
+40 supporting information and other information regarding a dispensary, manufacturing 
+41 facility, cannabis testing facility and an assistant, officer or director of a registered 
+Page 2 - 131LR3050(01)42 caregiver, dispensary, manufacturing facility or cannabis testing facility under this 
+43 chapter are not confidential. The personal contact information of a cardholder who is 
+44 an assistant, officer or director of a registered caregiver, dispensary, manufacturing 
+45 facility or cannabis testing facility and an applicant for a registry identification card as 
+46 an assistant, officer or director of a registered caregiver, dispensary, manufacturing 
+47 facility or cannabis testing facility or registration certificate for a dispensary, 
+48 manufacturing facility or cannabis testing facility is confidential and may not be 
+49 disclosed by the department, except:
+9 (1) With the written consent of the cardholder or applicant; or
+10 (2) Pursuant to a court order or a subpoena.
+11 F.  Notwithstanding any provision of this subsection to the contrary, the department 
+12 may, when necessary to protect the public from a threat to public health or safety, notify 
+13 the public of the following:
+14 (1)  The identity of a caregiver exempt from registration, a registered caregiver, a 
+15 dispensary, a manufacturing facility or a cannabis testing facility associated with 
+16 the threat to public health or safety and that person's status as a caregiver exempt 
+17 from registration, registered caregiver, dispensary, manufacturing facility or 
+18 cannabis testing facility; and
+19 (2) The location where any cannabis plants or harvested cannabis associated with 
+20 the threat to public health or safety were cultivated, manufactured, tested, 
+21 packaged, stored or sold.
+22 G. Notwithstanding any provision of this subsection to the contrary, the department 
+23 shall comply with Title 36, section 175. Information provided by the department 
+24 pursuant to this paragraph may be used by the department's Bureau of Revenue 
+25 Services only for the administration and enforcement of taxes imposed under Title 36.   
+26 H. A final written decision of the department pursuant to section 2430-I imposing an 
+27 administrative penalty; ordering forfeiture and destruction of cannabis plants, cannabis 
+28 or cannabis products; or suspending or revoking a registry identification card or 
+29 registration certificate is not confidential.
+30 I. A caregiver, dispensary, manufacturing facility or cannabis testing facility or an 
+31 officer, director or assistant of a caregiver, dispensary, manufacturing facility or 
+32 cannabis testing facility may not be required to disclose to a law enforcement officer 
+33 information that could reasonably identify an individual's identity without a warrant 
+34 requiring the disclosure.
+35 J.  A person who accompanies a patient to obtain cannabis plants or harvested cannabis 
+36 may not be required to disclose to a law enforcement officer information that could 
+37 reasonably identify an individual patient's identity without a warrant requiring the 
+38 disclosure.
+39Sec. 3.  22 MRSA §3022, sub-§8, as amended by PL 2017, c. 475, Pt. A, §33, is 
+40 further amended to read:
+418.  Certain information confidential.  The following records in the possession or 
+42 custody of a medical examiner or the Office of Chief Medical Examiner are not public 
+43 records within the meaning of Title 1, section 402, subsection 3 and are confidential:1
+2
+3
+4
+5
+6
+7
+8
+Page 3 - 131LR3050(01)1 A.  Medical records relating to a medical examiner case;
+2 B.  Law enforcement agency reports or records relating to a medical examiner case;
+3 C.  Communications with the Department of the Attorney General relating to a medical 
+4 examiner case;
+5 D.  Communications with the office of a district attorney relating to a medical examiner 
+6 case;
+7 E.  Death certificates and amendments made to the certificates, except for the 
+8 information for which the medical examiner is responsible, as listed in section 2842, 
+9 subsection 3, and not ordered withheld by the Attorney General relating to a medical 
+10 examiner case or missing person;
+11 F.  Photographs and transparencies, histological slides, videotapes and other like items 
+12 relating to a medical examiner case; and
+13 G.  Written or otherwise recorded communications that express or are evidence of 
+14 suicidal intent obtained under section 3028, subsections 4 and 5.
+15Sec. 4.  22 MRSA §3294, as enacted by PL 1987, c. 714, §2, is amended to read:
+16§3294.  Confidential information provided to professional and occupational licensing 
+17boards
+18 If confidential information regarding a person subject to or seeking licensure, 
+19 certification or registration by a licensing board indicates that the person may have engaged 
+20 in unlawful activity, professional misconduct or conduct which  that may be in violation of 
+21 the laws or rules relating to the licensing board, the director may release this information 
+22 to the appropriate licensing board.  Confidential information shall  must be disclosed and 
+23 used in accordance with section 3292 and may also be disclosed to members, employees 
+24 and agents of a licensing board who are directly related to the matter at issue.
+251.  Notice to the licensee or applicant. Notice of the release of confidential 
+26 information shall  must be provided by the board to the licensee or applicant in accordance 
+27 with the law and rules relating to the licensing board.  If the law or rules relating to a 
+28 licensing board do not provide for notice to licensees or applicants subject to or seeking 
+29 licensure, certification or registration, the licensing board shall provide notice to the 
+30 licensee or applicant upon determination of the board to take further action following its 
+31 investigation.
+322.  Licensing board requests for confidential information.  Any licensing board 
+33 pursuing action within the scope of the board's authority or conducting an investigation of 
+34 any person subject to or seeking licensure, certification or registration by the board for 
+35 engaging in unlawful activity, professional misconduct or conduct which  that may be in 
+36 violation of the laws or rules relating to the board may request confidential information 
+37 from the bureau.  Any information provided to the board for an investigation shall be  is 
+38 governed by section 3292 and this section.
+393.  Use of confidential information in proceedings and investigations.  The use of 
+40 confidential information in proceedings, informal conferences and adjudicatory hearings 
+41 shall be  is governed by Title 5, section 9057, subsection 6. The use of confidential 
+42 information in investigations is governed by Title 10, section 8003-B, subsection 2, 
+43 paragraph G as long as any confidential information disclosed under that paragraph is not 
+Page 4 - 131LR3050(01)44 further disclosed by any person for purposes other than an investigation by a licensing 
+45 board.
+3Sec. 5.  22 MRSA §5409, as enacted by PL 2019, c. 653, Pt. A, §1, is amended to 
+4 read:
+5§5409.  Records
+6 Except as provided in this section or by other provision of law, information obtained 
+7 by the marketplace under this chapter is a public record within the meaning of Title 1, 
+8 chapter 13, subchapter 1.
+91.  Financial information.  Any personally identifiable financial information, 
+10 supporting data or tax return of any person obtained by the marketplace under this chapter 
+11 is confidential and not open to public inspection pursuant to 26 United States Code, Section 
+12 6103 and Title 36, section 191.
+132.  Health information.  Health information obtained by the marketplace under this 
+14 chapter that is covered by the federal Health Insurance Portability and Accountability Act 
+15 of 1996, Public Law 104-191, or information covered by Title 22, section 1711‑C is 
+16 confidential and not open to public inspection.
+173.  Personally identifiable information.  Personally identifiable information not 
+18 otherwise described in subsection 1 or 2 that is obtained by the marketplace under this 
+19 chapter is confidential. As used in this subsection, "personally identifiable information" 
+20 means information that permits the identity of an individual to whom the information 
+21 applies to be able to be reasonably inferred or known by either direct or indirect means.
+22Sec. 6.  36 MRSA §191, sub-§3-B, as amended by PL 2017, c. 452, §29, is further 
+23 amended to read:
+243-B.  Additional restrictions for certain information provided by the Department 
+25of Administrative and Financial Services.  Information provided to the assessor by the 
+26 Department of Administrative and Financial Services pursuant to section 175 and Title 22, 
+27 section 2425‑A, subsection 12  14, paragraph  L G may be used by the bureau only for the 
+28 administration and enforcement of taxes imposed under this Title.  These restrictions are 
+29 in addition to those imposed by subsection 1.
+30SUMMARY
+31 This bill implements statutory changes recommended by the Right to Know Advisory 
+32 Committee after reviewing certain existing public records exceptions in the Maine Revised 
+33 Statutes, Title 22.
+34 The bill replaces the provisions of law governing the confidentiality of records and 
+35 information under the Maine Medical Use of Cannabis Act.
+36 The bill specifies the following.
+37 1. Information that identifies a qualifying patient, a visiting qualifying patient or a 
+38 registered patient is confidential and may not be disclosed by the Department of 
+39 Administrative and Financial Services, except with the written consent of the patient or 
+40 pursuant to a court order or a subpoena.1
+2
+31
+32
+33
+Page 5 - 131LR3050(01)1 2. Information that identifies a caregiver who is exempt from registration under the 
+2 Maine Medical Use of Cannabis Act is confidential and may not be disclosed by the 
+3 Department of Administrative and Financial Services, except with the written consent of 
+4 the caregiver, pursuant to a court order or a subpoena or when necessary to protect the 
+5 public from a threat to public health or safety.
+6 3. Personal contact information of a registered caregiver or of an applicant for 
+7 registration as a registered caregiver is confidential and may not be disclosed by the 
+8 Department of Administrative and Financial Services, except with the written consent of 
+9 the registrant or applicant, pursuant to a court order or a subpoena or when necessary to 
+10 protect the public from a threat to public health or safety.  In addition, if the registered 
+11 caregiver resides at the same address where the registered caregiver engages in activities 
+12 authorized under the Maine Medical Use of Cannabis Act, the department may disclose 
+13 that address to a state, county or municipal employee responsible for the administration of 
+14 the Act or of rules, ordinances or warrant articles authorized under the Act, including a law 
+15 enforcement officer or code enforcement officer.
+16 4. Personal contact information of a holder of a registry identification card who is an 
+17 assistant, officer or director of a registered caregiver, dispensary, manufacturing facility or 
+18 cannabis testing facility or of an applicant for a registry identification card as an assistant, 
+19 officer or director of a registered caregiver, dispensary, manufacturing facility or cannabis 
+20 testing facility or registration certificate for a dispensary, manufacturing facility or 
+21 cannabis testing facility is confidential and may not be disclosed by the Department of 
+22 Administrative and Financial Services, except in response to a court order or a subpoena.
+23 5. A final written decision of the Department of Administrative and Financial Services 
+24 imposing an administrative penalty, ordering forfeiture and destruction of cannabis or 
+25 suspending or revoking a registry identification card or registration certificate is not 
+26 confidential.
+27 The bill preserves the obligation of the Department of Administrative and Financial 
+28 Services under current law to provide information to the department's Bureau of Revenue 
+29 Services for the administration and enforcement of taxes and the requirement in current 
+30 law that law enforcement officers obtain a warrant before they may require a caregiver, 
+31 dispensary, manufacturing facility or cannabis testing facility to disclose information that 
+32 could reasonably identify an individual or require a person who accompanies a patient to 
+33 disclose information that could reasonably identify a patient.
+34 The bill clarifies that a record relating to a medical examiner case is confidential and 
+35 that the location or custodian of the record does not affect the record's confidentiality. It 
+36 also makes other technical and grammatical changes to conform with drafting standards 
+37 recommended by the Right to Know Advisory Committee.
+38 The bill clarifies that a professional or occupational licensing board that receives 
+39 confidential information from the Director of the Office of Child and Family Services or 
+40 the Director of the Office of MaineCare Services within the Department of Health and 
+41 Human Services may release that confidential information during the pendency of an 
+42 investigation as long as that confidential information is not further disclosed for any other 
+43 purpose.
+44 The bill clarifies that any personally identifiable information obtained by the Maine 
+45 Health Insurance Marketplace is confidential. 
+Page 6 - 131LR3050(01)1 The bill also makes technical and grammatical changes and corrects a cross-reference.

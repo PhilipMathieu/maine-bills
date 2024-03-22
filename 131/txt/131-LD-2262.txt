@@ -1,0 +1,189 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2262
+H.P. 1452 House of Representatives, March 12, 2024
+An Act to Amend the Process for the Sale of Foreclosed Properties 
+Due to Nonpayment of Taxes
+Reported by Representative PERRY of Bangor for the Joint Standing Committee on 
+Taxation pursuant to Public Law 2023, chapter 358, section 2, subsection 7.
+Reference to the Committee on Taxation suggested and ordered printed pursuant to Joint 
+Rule 218.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3134(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  36 MRSA §943-C, as amended by PL 2023, c. 358, §1, is further amended 
+3 to read:
+4§943-C.  Sale of foreclosed properties
+5 Notwithstanding any provision of law to the contrary, after the foreclosure process 
+6 under sections 942 and 943 or sections 1281 and 1282 is completed and the right of 
+7 redemption has expired, if a municipality chooses to sell to someone other than the former 
+8 owner, the municipal officers or their designee shall notify the former owner of the right to 
+9 require the municipality to use the sale process under subsection 3.  For the purpose of this 
+10 section, "former owner" means the owner or owners of record at the time of foreclosure or, 
+11 if deceased, the former owner's heirs, devisees or personal representatives.  The notice must 
+12 be sent by United States Postal Service certified mail, return receipt requested, and first-
+13 class mail to the last known address of the former owner  and "tax-acquired property" means 
+14 real property taken by a municipality for nonpayment of property taxes.  If the municipality 
+15 agrees to sell the property back to the former owner, the alternative sale process under this 
+16 section does not apply.  If the sale to the former owner is not completed, the requirements 
+17 of this section are reinstated.
+181-A.  Subject property.  This section governs the sale of all tax-acquired property 
+19 through the tax lien mortgage foreclosure process under sections 942 and 943 or sections 
+20 1281 and 1282.
+212.  Notification; appeal.  At least 90 days prior to listing property for sale, the 
+22 municipal officers or their designee shall send a written notice to the last known address of 
+23 the former owner, by United States Postal Service certified mail, return receipt requested, 
+24 and first-class mail, of the right to require the sale process described in subsection 3.  The 
+25 State Tax Assessor shall prepare application forms, notices and instructions that must be 
+26 used by municipalities to inform former owners of their right to apply for the sale process 
+27 provided under subsection 3.
+283.  Sale process requirements.  If the former owner submits a written demand within 
+29 90 days after the notification in subsection 2 that the sale process of this subsection be used  
+30 When selling a tax-acquired property, the municipal officers or their designee shall:
+31 A.  List the property for sale with a real estate broker licensed under Title 32, chapter 
+32 114 who does not hold an elected or appointed office in the municipality and is not 
+33 employed by the municipality;
+34 B.  Sell  Convey the property via quitclaim deed to the successful buyer at the highest 
+35 reasonable price at which the property is able to sell , or the price at which the property 
+36 is anticipated by the real estate broker to sell within 6 months after listing; and
+37 C.  Pay to the former owner any sale proceeds in excess of:
+38 (1)  The sum of all taxes owed on the property;
+39 (2)  Property  The sum of all taxes that would have been assessed on the property 
+40 during the period following foreclosure when the property is owned by the 
+41 municipality;
+42 (3)  All accrued interest;
+Page 2 - 131LR3134(01)1 (4)  Fees, including advertising, mailing and recording fees and property listing 
+2 and real estate broker's fees;
+3 (5)  Any other expenses incurred by the municipality in selling, or maintaining  or 
+4 improving the property, including, but not limited to, an administrative fee equal 
+5 to 10% of the property taxes owed and reasonable attorney's fees;
+6 (6)  The cost to the municipality of the lien and foreclosure process, including, but 
+7 not limited to, reasonable attorney's fees; and
+8 (7)  Unpaid sewer, water or other utility charges and fees imposed by the 
+9 municipality.
+10 If the municipal officers are unable to list or sell the property under the requirements of 
+11 paragraphs A and B, or if the property tax payer does not request that the property be sold 
+12 according to the sale process in this subsection, the municipal officers may sell the property 
+13 in any manner authorized by the municipality's legislative body, if the municipal officers 
+14 pay the former owner any excess sale proceeds as calculated in paragraph C.
+154-A.  Effect of inability to contract or sell property.  If, after 3 attempts, a 
+16 municipality is unable to contract with a real estate broker for the sale of the property as 
+17 described in subsection 3 or the broker is unable to sell the property within 6 months after 
+18 listing, the municipal officers may sell the property in any manner authorized by the 
+19 municipality's legislative body, as long as the municipality pays the former owner any 
+20 excess sale proceeds as calculated in subsection 3, paragraph C.
+215.  Property in the unorganized territory.  With regard to the sale of property 
+22 acquired by the State through tax lien foreclosure in the unorganized territory, the State 
+23 Tax Assessor has the obligations of a municipality under this section.
+246.  Quitclaim deed and waiver  Waiver of former owner.  As a condition of 
+25 disbursement of excess sale proceeds to the former owner under subsection 3, paragraph 
+26 C, the municipal officers may require the former owner to execute a quitclaim deed without 
+27 covenant conveying any interest of the former owner in the property to the municipality 
+28 and to deliver that deed before conveyance by the municipality to the buyer.  Receipt of  
+29 such excess sale proceeds by the former owner pursuant to this section is deemed to be a 
+30 waiver of any right of the former owner to commence any action pursuant to section 946-B.  
+31 Failure of a municipality to file the notice required by subsection 11 does not nullify or 
+32 otherwise affect the validity of the waiver under this subsection.
+337.  Retention of tax-acquired property.  If a municipality chooses to retain a tax-
+34 acquired property for municipal use, the municipality must procure an appraisal report from 
+35 an appraiser licensed to provide real estate appraisals in this State showing the value of the 
+36 tax-acquired property being retained.  The appraiser may not hold an elected or appointed 
+37 office in the municipality or be otherwise employed by the municipality.  The municipal 
+38 officers, after providing the notice required by subsection 8, shall pay the former owner 
+39 any excess sale proceeds as calculated in subsection 3, paragraph C, substituting the value 
+40 of the tax-acquired property as shown in the appraisal report for the selling price of the tax-
+41 acquired property.
+428.  Notice of intent to pay excess sale proceeds.  If after the sale of a tax-acquired 
+43 property there exist any excess sale proceeds as described in subsection 3, paragraph C, at 
+44 least 30 days prior to disbursement of those excess sale proceeds to the former owner the 
+Page 3 - 131LR3134(01)45 municipal officers shall send written notice of the municipality’s intent to pay the former 
+46 owner the excess sale proceeds.  The notice must be sent by certified mail, return receipt 
+47 requested, to the last known address of the former owner and the last known address of 
+48 each record holder of an interest in the tax-acquired property.  This notice does not limit 
+49 the right of lienholders to pursue any claims to the excess sale proceeds against the former 
+50 owner otherwise available by law.
+79.  Notice by publication.  If the municipality is unable, after reasonable diligence, to 
+8 locate the former owner of a tax-acquired property in order to send the notice required in 
+9 subsection 8, the municipality, once a week for 3 consecutive weeks, shall place a notice 
+10 in a newspaper of general circulation in the county in which the tax-acquired property is 
+11 located.  The notice must include the name of the former owner, a description of the 
+12 tax-acquired property that was sold, the amount of the excess sale proceeds and the date by 
+13 which the excess sale proceeds must be claimed.
+1410.  Retention of proceeds.  If, after provision of notice under subsection 9, a former 
+15 owner fails to claim the excess proceeds within 30 days of the final published notice, the 
+16 former owner’s rights to the excess sale proceeds are forfeited and the municipality may 
+17 retain and expend the proceeds in whatever manner the legislative body of the municipality 
+18 considers appropriate, as long as the municipality has given notice to each record holder of 
+19 an interest in the tax-acquired property pursuant to subsection 8.
+2011.  Notice of payment of proceeds.  A municipality, within 10 days of payment of 
+21 any excess sale proceeds to the former owner under this section, shall record in the registry 
+22 of deeds of the county or registry district where the tax-acquired property is located a notice 
+23 signed by the municipal officers.  The notice must include the name of the former owner 
+24 to whom the excess sale proceeds were paid, the amount of the excess sale proceeds, the 
+25 date on which the excess sale proceeds were paid to the former owner, a description of the 
+26 tax-acquired property that was sold and a statement that receipt of the excess sale proceeds 
+27 by the former owner is deemed to be a waiver of the former owner's right to commence any 
+28 action pursuant to section 946-B.
+29 The State Tax Assessor shall prescribe the form of the notice to be used by municipalities 
+30 under this subsection.
+31SUMMARY
+32 This bill is reported out by the Joint Standing Committee on Taxation.  It is the 
+33 recommendation of the Working Group to Study Equity in the Property Tax Foreclosure 
+34 Process pursuant to Public Law 2023, chapter 358.
+35 This bill amends the process following the foreclosure on a property by a municipality 
+36 for failure to pay property taxes and the return of excess funds by:
+37 1.  Requiring a municipality to make 3 attempts to contract with a real estate broker for 
+38 the sale of the property;
+39 2.  Requiring that a real estate broker attempt to sell the property for 6 months before 
+40 the municipality can sell the property in a manner authorized by the municipality's 
+41 legislative body;
+42 3.  Eliminating the requirement that the former owner submit a written demand for the 
+43 return of the excess funds; 1
+2
+3
+4
+5
+6
+32
+33
+34
+Page 4 - 131LR3134(01)1 4.  Allowing a municipality to deduct from the proceeds of the sale, in addition to the 
+2 other costs authorized under current law, fees incurred for advertising, mailing and 
+3 recording related to the property and expenses incurred in improving the property;
+4 5.  Requiring a municipality, at least 30 days prior to the disbursement of excess 
+5 proceeds to the former owner, to provide notice of such intent to the former owner and each 
+6 record holder of an interest in the property.  The notice must be made by certified mail, 
+7 return receipt requested;
+8 6.  Requiring the municipality, if it is unable to locate the former owner, to have 
+9 published in a newspaper of general circulation in the county in which the property is 
+10 located, a notice specifying the former owner, a description of the property sold, the amount 
+11 of the excess proceeds and the date by which the proceeds must be claimed; and
+12 7.  Requiring the municipality, within 10 days of paying the excess proceeds to the 
+13 former owner, to record in the registry of deeds a notice indicating the payment of the 
+14 excess proceeds, to whom the payment was made, the date of the payment, a description of 
+15 the property sold and a statement that the former owner waived, by accepting the excess 
+16 proceeds, the right to commence an action to dispute the taking of the property.

@@ -1,0 +1,103 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain so me errors and/or omissions) 
+ 
+ 
+'KW,',\;4
+'' :->
+^^*t-
+•'y^+-/^1 •^C-^^" V r\, L.D, 1932
+2 Date; j^ (Filing No, H-13>^)
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Clerk of the House.
+5 STATE OF MAINE
+6 HOUSE OF REPRESENTATIVES
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " ^ » to H,P. 1240, L.D. 1932, "An Act to Require
+10 Broadband Internet Access Service Providers to Prorate Customer Bills"
+11 Amend the bill by striking out everything after the enacting clause and inserting the
+12 following;
+13 'See. 1. 10 MRSA c. 237 is enacted to read:
+14 CHAPTER 237
+15 BROADBAND INTERNET ACCESS SERVICE
+16 S1500-U. Broadband Internet access service
+17 1. Definitions. As used in this chapter, unless the context otherwise indicates, the
+18 following terms have the followine meanings,
+19 A. "Broadband Internet_access service" or "service" means a mass-market retail service
+20 by wire that provides the capability to transmit data to and receive data from all or
+21 sybstantiallv all Internet endpoints. includinR any capabilities that are incidental to and
+22 enable the operation of the service, excluding dial-up Internet access service,
+23 B, "Customer" means a current or former subscriber of broadband Internet access
+24 service,
+25 C, "Provider" means a person th_at provides broadband Internet access service.
+26 2. Service cancellation. A m'oyider in the State shallBroyide a customer with a pro
+27 rata credit or rebate for the days of the monthly billing period after the cancellation of
+28 broadband Internet access service if that customer requests cancellation of service 3 or
+29 more working days before the end ofthe monthly billing period, A customer is not eligible
+30 to receive a pro rata credit or rebate under this subsection if the customer fails to return
+31 eauioment of the provider related to_the Brovision of broadband Internet access service,
+Page 1 - 131LR2408(03)
+COMMITTEE AMENDMENT
+A- COMMITTEE AMENDMENT" /^'toH.P. 1240, L,D, 1932
+1 3. Interruption of service. If broadband_ Internet access service to a customer is
+2 interrupted for 6 or more consecutive hours in a single billing period, the provider shall:
+3 A^. Notify the customer of the reason for the interruption in service; and
+4 B. If the interruption in service is not caused by an act beyond the reasonable control
+5 of the provider, provide the customer with a pro rata credit or rebate during the billing
+6 Genod following the interruption, An act beyondthe reasonable control of the provider
+7 includes, but is not limited to:
+8 d) A natural event, including, but not limited to, a fire. explosion. storm, hurricane.
+9 tornado, earthquake or flood;
+10 (2) The actions of a 3rd party not working on behalf of the provider, including, but
+11 not limited to, the operation of a motor vehicle or excavation activities; and
+12 (3) An interruption in service due to customer-owned equipment. customer wiring
+13 or the malfunction of equipment not owned by_the provider on a utility pole,
+14 4. Notice to customers. A provider shall include on each customer bill for broadband
+15 Internet access service a notice regarding the customer's right to a mo rata credit or rebate
+16 for jnten-uption of service in accordance with subsection 3 or cancellation of service in
+17 accordance with subsection 2, The notice must include a toll-fi-ee telephone number and a
+18 telephone number accessible by a teletypewriter device or TTY for contacting the provider
+19 reeardine the pro rata credit or rebate, The notice must be in nontechnical language,
+20 understandable by the general public and printed in a prominent location on the bill in
+21 boldface type,
+22 5. Unfair trade practice violations. A violation of this chapter constitutes a violation
+23 of the Maine Unfair Trade Practices Act'
+24 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+25 number to read consecutively,
+26 SUMMARY
+27 This amendment replaces the bill and does the followmg,
+28 1, It moves the statutory allocation from the Maine Revised Statutes, Title 35-A to
+29 Title 10 and specifies that a violation of the provisions enacted in the amendment
+30 constitutes a violation of the Maine Unfair Trade Practices Act,
+31 2. It defines "broadband Internet access service" to exclude wireless and dial-up
+32 Internet access service and updates the definitions of "customer" and "provider" from the
+33 bill to reference that definition.
+34 3. It provides that a customer is not eligible to receive a pro rata credit or rebate for
+35 service cancellation if the customer fails to return equipment of the provider related to the
+3 6 provision of broadband Internet access service.
+37 4, It requires a provider to notify a customer of the reason for an interruption of
+38 broadband Internet access service if the service is interrupted for 6 or more consecutive
+39 hours in a single monthly billing period. If the interruption in service is not caused by an
+40 act beyond the reasonable control of the provider, the provider must provide the customer
+41 with a pro rata credit or rebate during the billing period following the interruption,
+Page 2 - l31LR2408(03)
+COMMITTEE AMENDMENT

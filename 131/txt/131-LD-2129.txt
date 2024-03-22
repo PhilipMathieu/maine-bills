@@ -1,0 +1,222 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2129
+H.P. 1353 House of Representatives, January 3, 2024
+An Act to Establish a Statewide Sexual Assault Forensic 
+Examination Kit Tracking System and Conduct an Inventory of 
+Existing Forensic Examination Kits in the Possession of Law 
+Enforcement
+(EMERGENCY)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Criminal Justice and Public Safety suggested and ordered 
+printed.
+ROBERT B. HUNT
+Clerk
+Presented by Representative GEIGER of Rockland.
+Cosponsored by Senator BEEBE-CENTER of Knox and
+Representatives: ANKELES of Brunswick, CRAFTS of Newcastle, DOUDERA of Camden, 
+GATTINE of Westbrook, MORIARTY of Cumberland, OSHER of Orono, STOVER of 
+Boothbay, Senator: VITELLI of Sagadahoc.
+
+Page 1 - 131LR2786(01)1Emergency preamble.  Whereas, acts and resolves of the Legislature do not 
+2 become effective until 90 days after adjournment unless enacted as emergencies; and
+3Whereas, this legislation requires the establishment of a statewide sexual assault 
+4 forensic examination kit tracking system and an inventory of all sexual assault forensic 
+5 examination kits in the possession of law enforcement agencies; and
+6Whereas, the immediate passage of this legislation is critical to strengthen the State's 
+7 enforcement of sexual assault laws and response to sexual assault; and
+8Whereas, in the judgment of the Legislature, these facts create an emergency within 
+9 the meaning of the Constitution of Maine and require the following legislation as 
+10 immediately necessary for the preservation of the public peace, health and safety; now, 
+11 therefore,
+12Be it enacted by the People of the State of Maine as follows:
+13Sec. 1.  24 MRSA §2986, sub-§3, as amended by PL 2019, c. 94, §1, is further 
+14 amended to read:
+153.  Completed kit.  If the alleged victim has not reported the alleged offense to a law 
+16 enforcement agency when the examination is complete, the hospital or health care 
+17 practitioner shall then notify the nearest law enforcement agency, which shall transport and 
+18 store the completed forensic examination kit for 8  20 years.  The completed kit may be 
+19 identified only by the tracking number.  If during that storage period an alleged victim 
+20 decides to report the alleged offense to a law enforcement agency, the alleged victim may 
+21 contact the hospital or health care practitioner to determine the tracking number.  The 
+22 hospital or health care practitioner shall provide the alleged victim with the tracking 
+23 number on the forensic examination kit and shall inform the alleged victim which law 
+24 enforcement agency is storing the kit.
+25 If the alleged victim reports the alleged offense to a law enforcement agency by the time 
+26 the examination is complete, the investigating agency shall retain custody of the forensic 
+27 examination kit.
+28 If an examination is performed under subsection 5 and the alleged victim does not, within 
+29 60 days, regain a state of consciousness adequate to decide whether or not to report the 
+30 alleged offense, the State may file a motion in the District Court relating to storing or 
+31 processing the forensic examination kit.  Upon finding good cause and after considering 
+32 factors, including, but not limited to, the possible benefits to public safety in processing the 
+33 kit and the likelihood of the alleged victim's regaining a state of consciousness adequate to 
+34 decide whether or not to report the alleged offense in a reasonable time, the District Court 
+35 may order either that the kit be stored for additional time or that the kit be transported to 
+36 the Maine State Police Crime Laboratory for processing, or such other disposition that the 
+37 court determines just.  In the interests of justice or upon motion by the State, the District 
+38 Court may conduct hearings required under this paragraph confidentially and in camera 
+39 and may impound pleadings and other records related to them.
+40Sec. 2.  25 MRSA §2915-A is enacted to read:
+41§2915-A.  Sexual assault forensic examination kit tracking system
+Page 2 - 131LR2786(01)11. Definitions. As used in this section, unless the context otherwise indicates, the 
+2 following terms have the following meanings.
+3 A. "Crime laboratory" means the Maine State Police Crime Laboratory located in 
+4 Augusta or a laboratory licensed to provide forensic services to law enforcement 
+5 agencies for the purpose of analyzing forensic examination kits. 
+6 B.  "Department" means the Department of Public Safety.
+7 C. "Forensic examination kit" means a uniform standardized forensic examination kit 
+8 developed by the department pursuant to section 2915, subsection 1 for evidence 
+9 collection by a licensed health care provider in alleged cases of sexual assault.
+10 D. "Law enforcement agency" means the State Police, a county law enforcement 
+11 agency or a municipal law enforcement agency. 
+12 E. "Licensed health care provider" means:
+13 (1) A hospital licensed under Title 22, chapter 405; or
+14 (2) A health care practitioner who is licensed by this State to provide or otherwise 
+15 lawfully providing health care or a partnership or corporation made up of such 
+16 health care practitioners.
+17 F. "Sexual assault" means a crime enumerated in Title 17-A, chapter 11.
+18 G. "Tracking system" means the forensic examination kit tracking system established 
+19 by the department pursuant to subsection 2.
+202. Forensic examination kit tracking system.  The department shall establish, operate 
+21 and maintain a forensic examination kit tracking system through the use of department 
+22 personnel and resources and, to accomplish those duties, may contract with public or 
+23 private entities, including, but not limited to, software and technology providers. 
+24 A. The tracking system must provide continuous access to the tracking system by 
+25 approved users.
+26 B. For each forensic examination kit, the tracking system must track:
+27 (1) The location and status of the kit from the initial collection at a licensed health 
+28 care provider; 
+29 (2) The inventory and storage of the kit by a law enforcement agency or crime 
+30 laboratory; 
+31 (3) The date when a law enforcement agency notifies a district attorney that the kit 
+32 is completed pursuant to section 3821; 
+33 (4)  The status of analysis of the kit at a crime laboratory; and
+34 (5)  The storage or destruction of the kit after completion of analysis. 
+35 C. The tracking system must provide for updating and tracking of a forensic 
+36 examination kit as follows.
+37 (1) An alleged victim of sexual assault from whom forensic evidence has been 
+38 collected using a forensic examination kit must have access to the tracking system 
+39 on an anonymous and secure basis for the purposes of receiving updates regarding 
+40 the forensic examination kit and tracking the status of the forensic examination kit.
+Page 3 - 131LR2786(01)1 (2) A licensed health care provider, law enforcement agency, district attorney and 
+2 any other entity in the possession of a forensic examination kit must have access 
+3 to the tracking system for the purposes of entering, updating and tracking the status 
+4 and location of a forensic examination kit.
+53. Participation required. Law enforcement agencies, licensed health care providers, 
+6 crime laboratories and district attorneys in the State shall participate in the tracking system 
+7 on the schedule and in the manner required by the department pursuant to rules adopted 
+8 pursuant to subsection 6.
+94. Immunity. A person or entity required by subsection 3 to participate in the tracking 
+10 system is immune from civil liability for actions taken as a participant that are required by 
+11 subsection 3 or by rules adopted pursuant to subsection 6. 
+125. Report. The department shall report to the joint standing committee of the 
+13 Legislature having jurisdiction over criminal justice and public safety matters and the 
+14 Governor by June 1, 2025, and annually thereafter, regarding the tracking system. The 
+15 report may include recommendations from the department for improved operation of the 
+16 tracking system and must include the following information, identified by the county from 
+17 which a forensic examination kit was entered into the tracking system:
+18 A. The number of forensic examination kits in the tracking system with respect to 
+19 which the alleged victim has reported the alleged offense to a law enforcement agency 
+20 and with respect to which the alleged victim has not reported the alleged offense to a 
+21 law enforcement agency and, for each of those categories, the number of kits on which 
+22 analysis has been completed and the number on which analysis has not been completed;
+23 B. The number of forensic examination kits entered into the tracking system during the 
+24 prior calendar year and, of those forensic examination kits, the number on which 
+25 analysis has been completed and the number on which analysis has not been completed;
+26 C.  The average and median lengths of time for forensic examination kits to be sent for 
+27 analysis after being entered into the tracking system and for analysis to be completed; 
+28 and
+29 D.  The number of forensic examination kits entered into the tracking system for more 
+30 than one year for which analysis has not been completed.
+31 The State Police, and any other law enforcement agency that performs its duties in more 
+32 than one county, shall provide to the department tracking information for each county 
+33 where a forensic examination kit was entered into the tracking system, and the department 
+34 shall use that information in compiling its report.
+356.  Rules. The commissioner shall adopt rules to govern participation and 
+36 implementation of the tracking system. The rules must include provisions for maintaining 
+37 confidentiality of tracking system information; provisions to ensure timely posting to the 
+38 tracking system; a process for approving tracking system users and access for approved 
+39 users; procedures for posting information and for updating information in the tracking 
+40 system; and requirements for documentation of persons who have posted, accessed and 
+41 updated information in the tracking system. Rules adopted pursuant to this subsection are 
+42 routine technical rules as defined by Title 5, chapter 375, subchapter 2-A.
+43Sec. 3.  Sexual assault forensic examination kit inventory.  By June 1, 2025, a 
+44 law enforcement agency that receives, maintains, stores or preserves forensic examination 
+Page 4 - 131LR2786(01)45 kits used to perform forensic examinations for alleged victims of sexual assault shall 
+46 complete an inventory of all kits in its possession and shall report its findings to the 
+47 Department of Public Safety. Reported findings to the department must include a 
+48 breakdown by year by each agency of the number of:
+5 1. Kits received with respect to which the alleged victim has reported the alleged 
+6 offense to a law enforcement agency and with respect to which the alleged victim has not 
+7 reported the alleged offense to a law enforcement agency; 
+8 2. Reported kits that were never analyzed; and 
+9 3. Reported kits returned after analysis.
+10 The department shall compile all agency findings and present a report of the inventory 
+11 by September 1, 2025 to the joint standing committee of the Legislature having jurisdiction 
+12 over criminal justice and public safety matters. At the same time, the department shall post 
+13 the report on its website in a manner easily accessible to the public.
+14Emergency clause.  In view of the emergency cited in the preamble, this legislation 
+15 takes effect when approved.
+16SUMMARY
+17 This bill directs the Department of Public Safety to establish, operate and maintain a 
+18 sexual assault forensic examination kit tracking system. The system must provide relevant 
+19 information for victims, both those who choose to report to a law enforcement agency and 
+20 those who choose not to report, and other approved users regarding the processing, custody, 
+21 analysis and destruction of evidence. The department is required to submit an annual report 
+22 by June 1st to the joint standing committee of the Legislature having jurisdiction over 
+23 criminal justice and public safety matters and the Governor concerning information related 
+24 to the status of sexual assault forensic examination kits reported in the tracking system. The 
+25 bill provides requirements for the tracking system and requires the department to adopt 
+26 routine technical rules, including rules regarding participation in the tracking system, 
+27 confidentiality and the operation of the tracking system. 
+28 The bill directs that, by June 1, 2025, a law enforcement agency that receives, 
+29 maintains, stores or preserves sexual assault forensic examination kits must complete an 
+30 inventory of all kits in its possession and report its findings to the Department of Public 
+31 Safety. The department must compile all agency reports and present findings of the 
+32 inventory by September 1, 2025 to the joint standing committee of the Legislature having 
+33 jurisdiction over criminal justice and public safety matters and at the same time post the 
+34 report on the department’s public website in an easily accessible location.
+35 Public Law 2023, chapter 236 changed a provision in the Maine Revised Statutes, Title 
+36 25 to require law enforcement agencies to store sexual assault forensic examination kits for 
+37 20 years.  For consistency with that provision, this bill amends a provision in Title 24 to 
+38 require law enforcement agencies to store sexual assault forensic examination kits for 20 
+39 years.1
+2
+3
+4
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
