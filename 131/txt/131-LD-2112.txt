@@ -1,0 +1,1713 @@
+ 
+MAINE STATE LEGISLATURE  
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY  
+at the Maine State Law and Legislative Reference Library 
+http://legislature.m aine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting diffe rences from printed original) 
+ 
+ 
+Printed on recycled paper131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2112
+S.P. 905 In Senate, January 3, 2024
+An Act to Replace the Money Transmitters Act
+Submitted by the Department of Professional and Financial Regulation pursuant to Joint 
+Rule 203.
+Reference to the Committee on Health Coverage, Insurance and Financial Services 
+suggested and ordered printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator BAILEY of York.
+
+Page 1 - 131LR2696(01)1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  26 MRSA §879, sub-§3, ¶F, as enacted by PL 2017, c. 416, §4, is amended 
+3 to read:
+4 F.  A money transmitter licensed under Title 32, chapter 80, subchapter 1  79-A; and
+5Sec. 2.  32 MRSA c. 79-A is enacted to read:
+6CHAPTER 79-A
+7MONEY TRANSMITTERS
+8SUBCHAPTER 1
+9SHORT TITLE AND PURPOSE
+10§6067.  Short title
+11 This chapter may be known and cited as "the Maine Money Transmission 
+12 Modernization Act."
+13§6068.  Purpose
+14 It is the intent of the Legislature that the provisions of this Act accomplish the 
+15 following:
+161.  Coordination.  Ensure states can coordinate in all areas of regulation, licensing and 
+17 supervision to eliminate unnecessary regulatory burden and more effectively use regulator 
+18 resources;
+192.  Protection of public.  Protect the public from financial crime;
+203.  Standardization.  Standardize the types of activities that are subject to licensing or 
+21 otherwise exempt from licensing; and
+224.  Modernization.  Modernize safety and soundness requirements to ensure customer 
+23 funds are protected in an environment that supports innovative and competitive business 
+24 practices.
+25SUBCHAPTER 2
+26DEFINITIONS
+27§6071.  Definitions
+28 As used in this chapter, unless the context otherwise indicates, the following terms 
+29 have the following meanings.
+301.  Acting in concert.  "Acting in concert" means knowingly acting together with a 
+31 common goal of jointly acquiring control of a licensee whether or not pursuant to an 
+32 express agreement.
+Page 2 - 131LR2696(01)12.  Administrator.  "Administrator" means the Superintendent of Consumer Credit 
+2 Protection within the Department of Professional and Financial Regulation.
+33.  Authorized delegate.  "Authorized delegate" means a person a licensee designates 
+4 to engage in money transmission on behalf of the licensee.
+54.  Bank Secrecy Act.  "Bank Secrecy Act" means the federal Bank Secrecy Act, 31 
+6 United States Code, Section 5311 et seq. and its implementing regulations.
+75.  Bureau.  "Bureau" means the Department of Professional and Financial Regulation, 
+8 Bureau of Consumer Credit Protection.
+96.  Closed loop stored value.  "Closed loop stored value" means stored value that is 
+10 redeemable by the issuer only for goods or services provided by the issuer or its affiliate or 
+11 franchisees of the issuer or its affiliate, except to the extent required by applicable law to 
+12 be redeemable in cash for its cash value.
+137.  Control.  "Control" means:
+14 A.  The power to vote, directly or indirectly, at least 25% of the outstanding voting 
+15 shares or voting interests of a licensee or person in control of a licensee;
+16 B.  The power to elect or appoint a majority of key individuals or executive officers, 
+17 managers, directors, trustees or other persons exercising managerial authority of a 
+18 person in control of a licensee; or
+19 C.  The power to exercise, directly or indirectly, a controlling influence over the 
+20 management or policies of a licensee or person in control of a licensee.
+21 A person is presumed to exercise a controlling influence when the person holds the power 
+22 to vote, directly or indirectly, at least 10% of the outstanding voting shares or voting 
+23 interests of a licensee or person in control of a licensee.
+24 A person presumed to exercise a controlling influence pursuant to this subsection may rebut 
+25 the presumption of control if the person is a passive investor.
+26 For purposes of determining the percentage of a person controlled by any other person, the 
+27 person's interest must be aggregated with the interest of any other immediate family 
+28 member, including the person's spouse, parents, children, siblings, parents-in-law, 
+29 children-in-law and siblings-in-law, and any other person who shares that person's home.
+308.  Eligible rating.  "Eligible rating" means a credit rating of any of the 3 highest rating 
+31 categories provided by an eligible rating service, whereby each category may include rating 
+32 category modifiers such as "plus" or "minus" for S&P Global Ratings or successor 
+33 organization, or the equivalent from any other eligible rating service. Long-term credit 
+34 ratings are considered eligible ratings if the rating is equal to or higher than "A-" by S&P 
+35 Global Ratings or successor organization, or the equivalent from any other eligible rating 
+36 service. Short-term credit ratings are considered eligible ratings if the rating is equal to or 
+37 higher than "A-2" or "SP-2" by S&P Global Ratings or successor organization, or the 
+38 equivalent from any other eligible rating service. If ratings differ among eligible rating 
+39 services, the highest rating applies when determining whether a security bears an eligible 
+40 rating.
+Page 3 - 131LR2696(01)19.  Eligible rating service.  "Eligible rating service" means a nationally recognized 
+2 statistical rating organization recognized by the United States Securities and Exchange 
+3 Commission and any other organization designated by the administrator by rule or order.
+410.  Federally insured depository financial institution.  "Federally insured 
+5 depository financial institution" means a bank, credit union, savings and loan association, 
+6 trust company, savings association, savings bank, industrial bank or industrial loan 
+7 company organized under the laws of the United States or any state of the United States, 
+8 when that bank, credit union, savings and loan association, trust company, savings 
+9 association, savings bank, industrial bank or industrial loan company has federally insured 
+10 deposits.
+1111.  In this State.  "In this State," for a transaction requested in person, means at a 
+12 physical location within this State.  For a transaction requested electronically or by 
+13 telephone, "in this State" means that the person requesting the transaction is at a physical 
+14 location within this State.  For a transaction requested electronically or by telephone, the 
+15 provider of money transmission may determine if the person requesting the transaction is 
+16 in this State by relying on other information provided by the person regarding the location 
+17 of the residential address, if an individual, or principal place of business, if a business 
+18 entity, or other physical address location and any records associated with the person that 
+19 the provider of money transmission may have that indicate the location, including but not 
+20 limited to an address associated with an account.
+2112.  Individual.  "Individual" means a natural person.
+2213.  Key individual.  "Key individual" means an individual ultimately responsible for 
+23 establishing or directing policies and procedures of a licensee, such as an executive officer, 
+24 manager, director or trustee.
+2514.  Licensee.  "Licensee" means a person licensed under this Act.
+2615.  Material litigation.  "Material litigation" means litigation that, according to 
+27 generally accepted accounting principles in the United States, is significant to a person's 
+28 financial health and would be required to be disclosed in the person's annual audited 
+29 financial statements, reports to shareholders or similar records.
+3016.  Monetary value.  "Monetary value" means a medium of exchange, whether or not 
+31 redeemable in money.
+3217.  Money.  "Money" means a medium of exchange that is authorized or adopted by 
+33 the United States or a foreign government.  "Money" includes a monetary unit of account 
+34 established by an intergovernmental organization or by agreement between 2 or more 
+35 governments.
+3618.  Money transmission.  "Money transmission" means:
+37 A.  Selling or issuing payment instruments to a person located in this State;
+38 B.  Selling or issuing stored value to a person located in this State; or
+39 C.  Receiving money for transmission from a person located in this State. 
+40 "Money transmission" does not include the provision solely of online or 
+41 telecommunications services or network access.
+Page 4 - 131LR2696(01)119.  MSB.  "MSB" means a money services business as defined in 31 Code of Federal 
+2 Regulations, Section 1010.100. 
+320.  MSB accredited state.  "MSB accredited state" means a state agency that is 
+4 accredited by the Conference of State Bank Supervisors or successor organization and the 
+5 Money Transmitter Regulators Association or successor organization for money 
+6 transmission licensing and supervision.
+721.  Multistate licensing process.  "Multistate licensing process" means an agreement 
+8 entered into by and among state regulators relating to coordinated processing of 
+9 applications for money transmission licenses, applications for the acquisition of control of 
+10 a licensee, control determinations or notice and information requirements for a change of 
+11 key individuals.
+1222.  NMLS.  "NMLS" means the nationwide multistate licensing system and registry 
+13 developed by the Conference of State Bank Supervisors or successor organization and the 
+14 American Association of Residential Mortgage Regulators or successor organization and 
+15 owned and operated by the State Regulatory Registry LLC or successor organization, or 
+16 any successor or affiliated entity, for the licensing and registration of persons in financial 
+17 services industries.
+1823.  Outstanding money transmission obligation.  "Outstanding money transmission 
+19 obligation" means:
+20 A.  A payment instrument or stored value issued or sold by a licensee to a person 
+21 located in the United States or reported as sold by an authorized delegate of the licensee 
+22 to a person that is located in the United States that has not yet been paid or refunded 
+23 by or for the licensee, or escheated in accordance with applicable abandoned property 
+24 laws; or
+25 B.  Money received for transmission by the licensee or an authorized delegate in the 
+26 United States from a person located in the United States that has not been received by 
+27 the payee or refunded to the sender or escheated in accordance with applicable 
+28 abandoned property laws.
+29 For purposes of this subsection, "in the United States" includes, to the extent applicable, a 
+30 state, territory or possession of the United States; the District of Columbia; the 
+31 Commonwealth of Puerto Rico; or a United States military installation that is located in a 
+32 foreign country.
+3324.  Passive investor.  "Passive investor" means a person that:
+34 A.  Does not have the power to elect or appoint a majority of key individuals or 
+35 executive officers, managers, directors, trustees or other persons exercising managerial 
+36 authority of a person in control of a licensee;
+37 B.  Is not employed by and does not have any managerial duties of the licensee or 
+38 person in control of a licensee; 
+39 C.  Does not have the power to exercise, directly or indirectly, a controlling influence 
+40 over the management or policies of a licensee or a person in control of a licensee; and
+41 D.  Either:
+Page 5 - 131LR2696(01)1 (1)  Attests to paragraphs A to C in a form and in a medium prescribed by the 
+2 administrator; or
+3 (2)  Commits to the passivity characteristics of paragraphs A to C in a written 
+4 document.
+525.  Payment instrument.  "Payment instrument" means a written or electronic check, 
+6 draft, money order, traveler's check or other wire, electronic or written instrument, or 
+7 written order for the transmission or payment of money or monetary value, whether or not 
+8 negotiable.  "Payment instrument" does not include stored value or an instrument that:
+9 A.  Is redeemable by the issuer only for goods or services provided by the issuer or its 
+10 affiliate or franchisees of the issuer or its affiliate, except to the extent required by 
+11 applicable law to be redeemable in cash for its cash value; or
+12 B.  Is not sold to the public but issued and distributed as part of a loyalty, rewards or 
+13 promotional program.
+1426.  Person.  "Person" means an individual, general partnership, limited partnership, 
+15 limited liability company, corporation, trust, association, joint stock corporation or other 
+16 corporate entity identified by the administrator.
+1727.  Receiving money for transmission.  "Receiving money for transmission" or 
+18 "money received for transmission" means the receipt of money or monetary value in the 
+19 United States for transmission within or outside the United States by electronic or other 
+20 means.
+2128.  Stored value.  "Stored value" means monetary value representing a claim against 
+22 the issuer evidenced by an electronic or digital record and that is intended and accepted for 
+23 use as a means of redemption for money or monetary value or payment for goods or 
+24 services.  "Stored value" includes, but is not limited to, prepaid access as defined by 31 
+25 Code of Federal Regulations, Section 1010.100(ww) but does not include a payment 
+26 instrument, closed loop stored value or stored value not sold to the public but issued and 
+27 distributed as part of a loyalty, rewards or promotional program.
+2829.  Tangible net worth.  "Tangible net worth" means the aggregate assets of a licensee 
+29 excluding all intangible assets, less liabilities, as determined in accordance with generally 
+30 accepted accounting principles in the United States.
+31SUBCHAPTER 3
+32EXEMPTIONS
+33§6074.  Exemptions
+34 This Act does not apply to:
+351.  Operator.  An operator of a payment system to the extent that it provides 
+36 processing, clearing or settlement services between or among persons exempted by this 
+37 section or licensees in connection with wire transfers, credit card transactions, debit card 
+38 transactions, stored-value transactions, automated clearinghouse transfers or similar funds 
+39 transfers;
+Page 6 - 131LR2696(01)12.  Agent.  A person appointed as an agent of a payee to collect and process a payment 
+2 from a payer to the payee for goods or services, other than money transmission itself, 
+3 provided to the payer by the payee, as long as:
+4 A.  There exists a written agreement between the payee and the agent directing the 
+5 agent to collect and process payments from payers on the payee's behalf;
+6 B.  The payee holds the agent out to the public as accepting payments for goods or 
+7 services on the payee's behalf; and
+8 C.  Payment for the goods and services is treated as received by the payee upon receipt 
+9 by the agent so that the payer's obligation is extinguished and there is no risk of loss to 
+10 the payer if the agent fails to remit the funds to the payee;
+113.  Intermediary.  A person that acts as an intermediary by processing payments 
+12 between an entity that has directly incurred an outstanding money transmission obligation 
+13 to a sender and the sender's designated recipient, as long as the entity:
+14 A.  Is properly licensed or exempt from licensing requirements under this Act;
+15 B.  Provides a receipt, electronic record or other written confirmation to the sender 
+16 identifying the entity as the provider of money transmission in the transaction; and
+17 C.  Bears sole responsibility to satisfy the outstanding money transmission obligation 
+18 to the sender, including the obligation to make the sender whole in connection with any 
+19 failure to transmit the funds to the sender's designated recipient;
+204.  United States.  The United States or a department, agency or instrumentality of the 
+21 United States or its agent;
+225.  United States Postal Service.  Money transmission by the United States Postal 
+23 Service or by an agent of the United States Postal Service;
+246.  Agency.  A state, county, municipal or other governmental agency or governmental 
+25 subdivision or instrumentality of a state or its agent;
+267.  Financial institution.  A federally insured depository financial institution, bank 
+27 holding company, office of an international banking corporation, foreign bank that 
+28 establishes a federal branch pursuant to the federal International Banking Act of 1978, 12 
+29 United States Code, Section 3102, corporation organized pursuant to the federal Bank 
+30 Service Company Act, 12 United States Code, Sections 1861 to 1867 or corporation 
+31 organized under the federal Edge Act, 12 United States Code, Sections 611 to 633;
+328.  Financial organization.  A supervised financial organization as defined in Title 
+33 9-A, section 1-301, subsection 38-A, as long as the supervised financial organization does 
+34 not engage in the business of issuing or selling payment instruments through an authorized 
+35 delegate that is not a supervised financial organization;
+369.  Electronic funds transfer.  Electronic funds transfer of governmental benefits for 
+37 a federal, state, county or governmental agency by a contractor on behalf of the United 
+38 States or a department, agency or instrumentality of the United States or on behalf of a state 
+39 or governmental subdivision, agency or instrumentality of the United States;
+4010.  Board of trade.  A board of trade designated as a contract market under the federal 
+41 Commodity Exchange Act, 7 United States Code, Sections 1 to 25 or a person that, in the 
+Page 7 - 131LR2696(01)42 ordinary course of business, provides clearance and settlement services for a board of trade 
+43 to the extent of its operation as or for such a board;
+311.  Futures commission merchant.  A registered futures commission merchant under 
+4 the federal commodities laws to the extent of its operation as such a merchant;
+512.  Securities broker-dealer.  A person registered as a securities broker-dealer under 
+6 federal or state securities laws to the extent of its operation as such a broker-dealer;
+713.  Employee.  An individual employed by a licensee, authorized delegate or person 
+8 exempted from the licensing requirements of this Act when acting within the scope of 
+9 employment and under the supervision of the licensee, authorized delegate or exempted 
+10 person as an employee and not as an independent contractor;
+1114.  Service provider.  A person expressly appointed as a 3rd-party service provider 
+12 to or agent of an entity exempt under subsection 7, solely to the extent that:
+13 A.  The service provider or agent is engaging in money transmission on behalf of and 
+14 pursuant to a written agreement with the exempt entity that sets forth the specific 
+15 functions that the service provider or agent is to perform; and
+16 B.  The exempt entity assumes all risk of loss and all legal responsibility for satisfying 
+17 the outstanding money transmission obligations owed to purchasers and holders of the 
+18 outstanding money transmission obligations upon receipt of the purchaser's or holder's 
+19 money or monetary value by the service provider or agent;
+2015.  Payroll processor.  A payroll processor licensed under Title 10, chapter 222; or
+2116.  Regulation, rule or order.  A person exempt by regulation, rule or order if the 
+22 administrator finds the exemption to be in the public interest and that the regulation of the 
+23 person is not necessary for the purposes of this Act.
+24§6075.  Authority to require demonstration of exemption
+25 The administrator may require that a person claiming to be exempt from licensing 
+26 pursuant to section 6074 provide information and documentation to the administrator 
+27 demonstrating that the person qualifies for a claimed exemption.
+28SUBCHAPTER 4
+29IMPLEMENTATION; CONFIDENTIALITY; INVESTIGATIONS; 
+30RELATIONSHIP TO FEDERAL LAW
+31§6078.  Implementation
+32 In order to carry out the purposes of this Act, the administrator may, subject to the 
+33 provisions of section 6080, subsections 1 and 2:
+341.  Licensing.  Require licensing under this Act through NMLS. The administrator is 
+35 authorized to participate in the nationwide mortgage licensing system and registry;
+362.  Agreements.  Enter into agreements or relationships with other government 
+37 officials or federal and state regulatory agencies and regulatory associations in order to 
+38 improve efficiencies and reduce regulatory burden by standardizing methods or procedures 
+39 and sharing resources, records or related information obtained under this Act;1
+2
+Page 8 - 131LR2696(01)13.  Examination and investigation.  Use, hire, contract or employ analytical systems, 
+2 methods or software to examine or investigate any person subject to this Act;
+34.  Reports.  Accept from state or federal government agencies or officials licensing, 
+4 examination or investigation reports made by those state or federal government agencies 
+5 or officials; and
+65.  Audit reports.  Accept audit reports made by an independent certified public 
+7 accountant or other qualified 3rd-party auditor for an applicant or licensee and incorporate 
+8 the audit report in a report of examination or investigation.
+9§6079.  Administrative authority
+10 The administrator has the authority to administer, interpret and enforce this Act, to 
+11 adopt rules implementing this Act and to recover the cost of administering and enforcing 
+12 this Act by imposing and collecting proportionate and equitable fees associated with 
+13 applications, examinations, investigations and other actions required to achieve the 
+14 purposes of this Act.
+15§6080.  Confidentiality
+16 Information confidentiality and disclosure is governed by this section.
+171.  Confidentiality and prohibited disclosure.  Except as otherwise provided in 
+18 subsection 2, all information or reports obtained by the administrator from an applicant for 
+19 a license, licensee or authorized delegate and all information contained in or related to an 
+20 examination, investigation, operating report or condition report prepared by, on behalf of 
+21 or for the use of the administrator, or financial statements, balance sheets or authorized 
+22 delegate information, are confidential and are not subject to disclosure under Title 1, 
+23 chapter 13.
+242.  Authorized disclosure.  The administrator may disclose information not otherwise 
+25 subject to disclosure under subsection 1 to representatives of state or federal agencies who 
+26 certify in a record that they will maintain the confidentiality of the information or if the 
+27 administrator finds that the release is reasonably necessary for the protection and interest 
+28 of the public.
+293.  Licensees.  This section does not prohibit the administrator from disclosing to the 
+30 public a list of all licensees or the aggregated financial or transactional data concerning 
+31 those licensees.
+324.  Public information.  Information contained in the records of the bureau that is not 
+33 confidential and may be made available to the public either on the bureau's publicly 
+34 accessible website, upon receipt by the bureau of a written request, or in NMLS includes:
+35 A.  The name, business address, telephone number and unique identifier of a licensee;
+36 B.  The business address of a licensee's registered agent for service;
+37 C.  The name, business address and telephone number of each authorized delegate;
+38 D.  The terms of or a copy of a bond filed by a licensee, as long as confidential 
+39 information, including but not limited to prices and fees for that bond, is redacted;
+40 E.  Copies of nonconfidential final orders of the bureau relating to a violation of this 
+41 Act or rules implementing this Act; and
+Page 9 - 131LR2696(01)1 F.  Imposition of an administrative fine or penalty under this Act.
+2§6081.  Investigations
+3 Investigations by the administrator are governed by this section.
+41.  Examination.  The administrator may conduct an examination or investigation of 
+5 a licensee or authorized delegate or otherwise take independent action authorized by this 
+6 Act or by a rule adopted or order issued under this Act as reasonably necessary or 
+7 appropriate to administer and enforce this Act, rules implementing this Act and other 
+8 applicable law, including the Bank Secrecy Act and the federal Uniting and Strengthening 
+9 America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism 
+10 (USA PATRIOT Act) Act of 2001, Public Law 107-56, 115 Stat. 272.  The administrator 
+11 may:
+12 A.  Conduct an examination of a licensee's business either on-site or off-site as the 
+13 administrator may reasonably require;
+14 B.  Conduct an examination in conjunction with an examination conducted by 
+15 representatives of agencies of the State or agencies of another state or of the Federal 
+16 Government;
+17 C.  Accept the examination report of an agency of the State or an agency of another 
+18 state or of the Federal Government or a report prepared by an independent accounting 
+19 firm, which on being accepted is considered for all purposes as an official report of the 
+20 administrator; and
+21 D.  Summon and examine under oath a key individual or employee of a licensee or 
+22 authorized delegate and require a key individual or employee to produce records 
+23 regarding any matter related to the condition and business of the licensee or authorized 
+24 delegate.
+252.  Records.  A licensee or authorized delegate shall provide, and the administrator 
+26 may have full and complete access to, all records the administrator may reasonably require 
+27 to conduct a complete examination.  The records must be provided at the location and in 
+28 the format specified by the administrator, and the administrator may use multistate record 
+29 production standards and examination procedures when such standards and procedures will 
+30 reasonably achieve the requirements of this subsection.
+313.  Costs.  Unless otherwise directed by the administrator, a licensee shall pay all costs 
+32 reasonably incurred in connection with an examination of the licensee or the licensee's 
+33 authorized delegates.
+34§6082.  Networked supervision
+35 Networked supervision by the administrator is governed by this section.
+361.  Multistate supervision.  To efficiently and effectively administer and enforce this 
+37 Act and to minimize regulatory burden, the administrator is authorized to participate in 
+38 multistate supervisory processes established between states and coordinated through the 
+39 Conference of State Bank Supervisors, the Money Transmitter Regulators Association and 
+40 affiliates or successors of the conference and association for all licensees that hold licenses 
+41 in this State and other states.  As a participant in multistate supervision, the administrator 
+42 shall:
+Page 10 - 131LR2696(01)1 A. Cooperate, coordinate and share information with other state and federal regulators 
+2 in accordance with section 6080;
+3 B.  Enter into written cooperation, coordination or information-sharing contracts or 
+4 agreements with organizations whose memberships are made up of state or federal 
+5 government agencies; and
+6 C.  Cooperate, coordinate and share information with organizations whose 
+7 memberships are made up of state or federal government agencies, as long as the 
+8 organizations agree in writing to maintain the confidentiality and security of the shared 
+9 information in accordance with section 6080.
+102.  Enforcement authority.  The administrator may not waive, and nothing in this 
+11 section constitutes a waiver of, the administrator's authority to conduct an examination or 
+12 investigation or otherwise take independent action authorized by this Act or by a rule 
+13 adopted or order issued under this Act to enforce compliance with applicable state or 
+14 federal law.
+153.  Joint examination.  A joint examination or investigation or acceptance of an 
+16 examination or investigation report does not waive an examination assessment provided 
+17 for in this Act.
+18§6083.  Relationship to federal law
+19 State money transmission jurisdiction is governed by this section.
+201.  Governance.  If state money transmission jurisdiction is conditioned on a federal 
+21 law, any inconsistency between a provision of this Act and the federal law governing 
+22 money transmission is governed by the applicable federal law to the extent of the 
+23 inconsistency.
+242.  Guidance.  If there is an inconsistency between this Act and a federal law that 
+25 governs pursuant to subsection 1, the administrator may provide interpretive guidance that 
+26 identifies the inconsistency and identifies the appropriate means of compliance with federal 
+27 law.
+28§6084.  Prohibited practices
+29 It is a violation of this Act for a licensee, executive officer, responsible individual or 
+30 other person subject to this Act in connection with money transmission to:
+311.  Defraud or mislead.  Directly or indirectly employ any scheme, device or artifice 
+32 to defraud or mislead any person, including but not limited to engaging in bait and switch 
+33 advertising or sales practices;
+342.  Unfair acts.  Directly or indirectly engage in any unfair, deceptive or abusive act 
+35 or practice toward any person, including but not limited to any false or deceptive statement 
+36 about fees or other terms of money transmission or currency exchange;
+373.  Fraud or misrepresentation.  Directly or indirectly obtain property by fraud or 
+38 misrepresentation;
+394.  False information.  Make, publish or disseminate any false, deceptive or misleading 
+40 information;
+415.  Property for personal use.  Receive or take possession for personal use of property 
+42 of a money transmission business, other than in payment for services rendered, and with 
+Page 11 - 131LR2696(01)43 intent to defraud or to omit to make or cause or direct to omit to make a full and true entry 
+44 in the books and accounts of the money transmission business;
+36.  False entries.  Make or concur in making any false entry or omit or concur in 
+4 omitting any material entry in the books or accounts of a money transmission business;
+57.  False reports.  Knowingly make or publish to the administrator or concur in making 
+6 or publishing to the administrator any written report, exhibit or statement of a money 
+7 transmission business's affairs or pecuniary condition containing any material statement 
+8 that is false or omit or concur in omitting any statement required by law to be contained in 
+9 such a written report, exhibit or statement; or
+108.  Failure to report.  Fail to make any report or statement lawfully required by the 
+11 administrator or other public official.
+12SUBCHAPTER 5
+13MONEY TRANSMISSION LICENSES
+14§6087.  License required
+15 A person may not engage in the business of money transmission or advertise, solicit or 
+16 hold itself out as providing money transmission unless the person is licensed under this 
+17 Act.
+181.  Exemption.  This section does not apply to:
+19 A.  A person that is an authorized delegate of a person licensed under this Act acting 
+20 within the scope of authority conferred by a written contract with the licensee; or
+21 B.  A person that is exempt pursuant to section 6074 and does not engage in money 
+22 transmission outside the scope of such exemption.
+232.  Transfer or assignment.  A license issued under section 6091 is not transferable 
+24 or assignable.
+25§6088.  Consistent state licensing
+26 Consistent licensing between the State and other states is governed by this section.
+271.  Authorization.  To establish consistent licensing between the State and other states, 
+28 the administrator may:
+29 A.  Implement all licensing provisions of this Act in a manner that is consistent with 
+30 other states that have adopted this Act; and
+31 B.  Participate in nationwide protocols for licensing cooperation and coordination 
+32 among state regulators as long as such protocols are consistent with this Act.
+332.  Relationships and contracts.  In order to fulfill the purposes of this Act, the 
+34 administrator may establish relationships or contracts with NMLS or other entities 
+35 designated by NMLS to enable the administrator to:
+36 A.  Collect and maintain records;
+37 B.  Coordinate multistate licensing processes and supervision processes;1
+2
+Page 12 - 131LR2696(01)1 C.  Process fees; and
+2 D.  Facilitate communication between this State and licensees or other persons subject 
+3 to this Act.
+43.  NMLS licensing.  The administrator may use NMLS for all aspects of licensing in 
+5 accordance with this Act, including but not limited to license applications, applications for 
+6 acquisitions of control, surety bonds, reporting, criminal history background checks, credit 
+7 checks, fee processing and examinations.
+84.  NMLS forms, processes and functionalities.  The administrator may use NMLS 
+9 forms, processes and functionalities in accordance with this Act.  If NMLS does not provide 
+10 forms, processes or functionality for a provision of this Act, the administrator may strive 
+11 to implement the requirements in a manner that facilitates uniformity with respect to 
+12 licensing, supervision, reporting and regulation of licensees that are licensed in multiple 
+13 jurisdictions.
+145.  Waive or modify requirements.  The administrator may waive or modify by rule 
+15 any or all of the requirements, in whole or in part, and establish new requirements as 
+16 reasonably necessary to participate in NMLS.
+17§6089.  Application for license
+18 License applications are governed by this section.
+191.  Forms.  An applicant for a license shall apply in a form and in a medium as 
+20 prescribed by the administrator.  Each form must contain content as set forth by law or rule 
+21 and additional content determined by the administrator to be necessary to properly evaluate 
+22 an application.  The administrator may change or update forms and media in accordance 
+23 with applicable law to carry out the purposes of this Act and maintain consistency with 
+24 NMLS licensing standards and practices. The application must state or contain, as 
+25 applicable:
+26 A.  The legal name and residential and business addresses of the applicant and any 
+27 fictitious or trade name used by the applicant in conducting its business;
+28 B.  A list of any criminal convictions of the applicant and any material litigation in 
+29 which the applicant has been involved in the 10-year period preceding the submission 
+30 of the application;
+31 C.  A description of any money transmission previously provided by the applicant and 
+32 the money transmission that the applicant seeks to provide in the State;
+33 D.  A list of the applicant's proposed authorized delegates and the locations in this State 
+34 where the applicant and its authorized delegates propose to engage in money 
+35 transmission;
+36 E.  A list of other states in which the applicant is licensed to engage in money 
+37 transmission and any license revocations or suspensions or other disciplinary action 
+38 taken against the applicant in another state;
+39 F.  Information concerning any bankruptcy or receivership proceedings affecting the 
+40 applicant or a person in control of an applicant;
+41 G.  A sample form of contract for authorized delegates, if applicable;
+42 H.  A sample form of payment instrument or stored value, if applicable;
+Page 13 - 131LR2696(01)1 I.  The name and address of any federally insured depository financial institution 
+2 through which the applicant plans to conduct money transmission; and
+3 J.  Any other information the administrator or NMLS reasonably requires with respect 
+4 to the applicant.
+52.  Corporation, limited liability company, partnership or other legal entity.  If an 
+6 applicant is a corporation, limited liability company, partnership or other legal entity, the 
+7 applicant, in addition to the application information under subsection 1, shall provide:
+8 A. The date of the applicant's incorporation or formation and state or country of 
+9 incorporation or formation;
+10 B.  If applicable, a certificate of good standing from the state or country in which the 
+11 applicant is incorporated or formed;
+12 C.  A brief description of the structure or organization of the applicant, including any 
+13 parents or subsidiaries of the applicant, and whether any parents or subsidiaries are 
+14 publicly traded;
+15 D.  The legal name, any fictitious or trade name, all business and residential addresses 
+16 and the employment of each key individual and person in control of the applicant, as 
+17 applicable, in the 10-year period preceding the submission of the application;
+18 E.  A list of any criminal convictions and material litigation in which a person in control 
+19 of the applicant that is not an individual has been involved in the 10-year period 
+20 preceding the submission of the application;
+21 F.  A copy of audited financial statements of the applicant for the most recent fiscal 
+22 year and for the 2-year period preceding the submission of the application or, if 
+23 determined to be acceptable to the administrator, certified unaudited financial 
+24 statements for the most recent fiscal year or other period acceptable to the 
+25 administrator;
+26 G.  A certified copy of unaudited financial statements of the applicant for the most 
+27 recent fiscal quarter; 
+28 H.  If the applicant is a publicly traded corporation, a copy of the most recent report 
+29 filed with the United States Securities and Exchange Commission under Section 13 of 
+30 the federal Securities Exchange Act of 1934, 15 United States Code, Section 78m;
+31 I.  If the applicant is a wholly owned subsidiary of:
+32 (1)  A corporation publicly traded in the United States, a copy of audited financial 
+33 statements for the parent corporation for the most recent fiscal year or a copy of 
+34 the parent corporation's most recent report filed under the federal Securities 
+35 Exchange Act of 1934, 15 United States Code, Section 78m; or
+36 (2)  A corporation publicly traded outside the United States, a copy of similar 
+37 documentation filed with the regulator of the parent corporation's domicile outside 
+38 the United States;
+39 J.  The name and address of the applicant's registered agent in this State; and
+40 K.  Any other information the administrator reasonably requires with respect to the 
+41 applicant.
+Page 14 - 131LR2696(01)13.  Waiver.  The administrator may waive one or more requirements of subsections 1 
+2 and 2 or permit an applicant to submit other information in lieu of the required information.  
+3 A waiver under this subsection is limited to one licensing period.
+4§6090.  Information requirements for certain individuals
+5 Information requirements for certain individuals are governed by this section.
+61.  Required information.  An individual in control of a licensee or applicant, an 
+7 individual that seeks to acquire control of a licensee and a key individual shall furnish to 
+8 the administrator through NMLS the following items:
+9 A.  The individual's fingerprints for submission to the Federal Bureau of Investigation 
+10 and the administrator for purposes of a national criminal history record check unless 
+11 the individual resides outside of the United States and has resided outside of the United 
+12 States for the last 10 years; and
+13 B.  Personal history and experience in a form and in a medium prescribed by the 
+14 administrator, to obtain the following:
+15 (1) An independent credit report from a consumer reporting agency unless the 
+16 individual does not have a social security number, in which case this requirement 
+17 is waived;
+18 (2) Information related to any criminal convictions or pending charges; and
+19 (3) Information related to any regulatory or administrative action and any civil 
+20 litigation involving claims of fraud, misrepresentation, conversion, 
+21 mismanagement of funds, breach of fiduciary duty or breach of contract.
+222.  Foreign residence.  If the individual under subsection 1 has resided outside of the 
+23 United States at any time in the last 10 years, the individual shall also provide an 
+24 investigative background report prepared by an independent search firm that meets the 
+25 following requirements:
+26 A.  At a minimum, the independent search firm:
+27 (1) Must demonstrate that it has sufficient knowledge and resources and employs 
+28 accepted and reasonable methodologies to conduct the research of the investigative 
+29 background report; and
+30 (2) May not be affiliated with or have an interest with the individual it is 
+31 researching; and
+32 B.  At a minimum, the investigative background report must be written in the English 
+33 language and contain the following:
+34 (1) If available in the individual's jurisdiction of residency, a comprehensive credit 
+35 report, or any equivalent information obtained or generated by the independent 
+36 search firm to develop the report, including a search of the court data in the 
+37 countries, provinces, states, cities, towns and contiguous areas where the individual 
+38 resided and worked;
+39 (2) Criminal records information for the past 10 years, including but not limited to 
+40 felonies, misdemeanors or similar convictions for violations of law in the countries, 
+41 provinces, states, cities, towns and contiguous areas where the individual resided 
+42 and worked;
+Page 15 - 131LR2696(01)1 (3) Employment history;
+2 (4) Media history, including an electronic search of national and local publications, 
+3 wire services and business applications; and
+4 (5) Financial services-related regulatory history, including but not limited to 
+5 money transmission, securities, banking, insurance and mortgage-related 
+6 industries.
+7§6091.  Issuance of license
+8 License issuance is governed by this section.
+91.  Complete application.  When an application for an original license appears to 
+10 include all the items and address all of the matters that are required under this subchapter, 
+11 the application is complete and the administrator shall promptly notify the applicant of the 
+12 date on which the application was determined to be complete and:
+13 A.  The administrator shall approve or deny the application within 120 days after the 
+14 completion date; or
+15 B.  If the application is not approved or denied within 120 days after the completion 
+16 date:
+17 (1) The application is approved; and
+18 (2) The license takes effect as of the first business day after expiration of the 120-
+19 day period.
+20 The administrator for good cause may extend the application period.
+212.  Completion determination.  A determination by the administrator that an 
+22 application is complete and is accepted for processing means only that the application, on 
+23 its face, appears to include all of the items, including the criminal history record check 
+24 response from the Federal Bureau of Investigation, and address all of the matters that are 
+25 required.  The determination is not an assessment of the substance of the application or of 
+26 the sufficiency of the information provided.
+273.  Investigation.  When an application is filed and considered complete under this 
+28 section, the administrator shall investigate the applicant's financial condition and 
+29 responsibility, financial and business experience, competence, character and general 
+30 fitness.  The administrator may conduct an on-site investigation of the applicant, the 
+31 reasonable cost of which the applicant must pay.  The administrator shall issue a license to 
+32 an applicant under this subsection if the administrator finds that the following conditions 
+33 have been fulfilled:
+34 A.  The applicant has complied with sections 6089 and 6090; and
+35 B.  The financial condition and responsibility, financial and business experience, 
+36 competence, character and general fitness of the applicant and the competence, 
+37 experience, character and general fitness of the key individuals and persons in control 
+38 of the applicant indicate that it is in the interest of the public to permit the applicant to 
+39 engage in money transmission.
+404.  Multistate licensing process.  If an applicant avails itself of or is otherwise subject 
+41 to a multistate licensing process:
+Page 16 - 131LR2696(01)1 A.  The administrator may accept the investigation results of a lead investigative state 
+2 for the purposes of subsection 3 if the lead investigative state has sufficient staffing, 
+3 expertise and minimum standards; or 
+4 B.  If the State is a lead investigative state, the administrator may investigate the 
+5 applicant pursuant to subsection 3 and the time frames established by agreement 
+6 through the multistate licensing process, as long as the time frames are compliant with 
+7 the application period in subsection 1, paragraph A.
+85.  Notice of denial.  The administrator shall issue a formal written notice of the denial 
+9 of a license application within 30 days of the decision to deny the application.  The 
+10 administrator shall set forth in the notice of denial the specific reasons for the denial of the 
+11 application.  An applicant whose application is denied by the administrator under this 
+12 subsection may request a hearing on the issue in accordance with Title 5, chapter 375, 
+13 subchapter 4.
+146.  License term.  Except as provided in subsection 1, paragraph B, the initial license 
+15 term begins on the day the application is approved.  A license expires on December 31st of 
+16 the year in which the license term began, unless the initial license date is between 
+17 November 1st and December 31st, in which case the initial license term runs through 
+18 December 31st of the following year.
+197.  Requirements.  An applicant for a money transmission license must demonstrate 
+20 that it meets or will meet the requirements in sections 6100-R, 6100-S and 6100-T.
+21§6092.  Renewal of license
+22 License renewal is governed by this section. 
+231.  Annual renewal.  A license under this Act may be renewed annually.  The renewal 
+24 term is for a period of one year and begins on January 1st of each year after the initial 
+25 license term and expires on December 31st of the year the renewal term begins.
+262.  Renewal report.  A licensee must submit a renewal report with the renewal fee, in 
+27 a form and in a medium prescribed by the administrator.  The renewal report must state or 
+28 contain a description of each material change in information submitted by the licensee in 
+29 its original license application that has not been reported to the administrator.
+303.  Renewal extension.  The administrator for good cause may grant an extension of 
+31 the renewal date.
+324.  Processing license renewals.  The administrator may use NMLS to process license 
+33 renewals as long as the license renewals are consistent with the requirements of this section.
+34§6093.  Maintenance of license
+35 License maintenance is governed by this section.
+361.  Suspension and revocation.  If a licensee does not continue to meet the 
+37 qualifications or satisfy the requirements that apply to an applicant for a new money 
+38 transmission license, the administrator may suspend or revoke the licensee's license in 
+39 accordance with the procedures established by this Act or other applicable state law.
+402.  Requirements.  A money transmission licensee must at all times meet the 
+41 requirements in sections 6100-R, 6100-S and 6100-T.
+Page 17 - 131LR2696(01)1SUBCHAPTER 6
+2ACQUISITION OF CONTROL AND CHANGE OF KEY INDIVIDUAL
+3§6096.  Acquisition of control of a licensee
+4 Acquisition of control of a licensee is governed by this section.
+51.  Approval.  A person or group of persons acting in concert seeking to acquire control 
+6 of a licensee shall obtain the written approval of the administrator prior to acquiring control. 
+7 An individual does not acquire control of a licensee and is not subject to this section when 
+8 that individual becomes a key individual in the ordinary course of business.
+92.  Application.  A person or group of persons acting in concert seeking to acquire 
+10 control of a licensee shall, in cooperation with the licensee, submit an application in a form 
+11 and in a medium prescribed by the administrator.
+123.  NMLS use.  Upon request, the administrator may permit a licensee or the person or 
+13 group of persons acting in concert seeking to acquire control of a licensee to submit some 
+14 or all information required by the administrator pursuant to subsection 2 without using 
+15 NMLS.
+164.  Required information.  The application required by subsection 2 must include 
+17 information required by section 6090 for any new key individuals that have not previously 
+18 completed the requirements of section 6090 for a licensee.
+195.  Completion.  When an application for acquisition of control of a licensee appears 
+20 to include all the items and address all of the matters that are required, the application is 
+21 complete and the administrator shall promptly notify the applicant of the date on which the 
+22 application was determined to be complete and:
+23 A.  The administrator shall approve or deny the application within 60 days after the 
+24 completion date; or
+25 B.  If the application is not approved or denied within 60 days after the completion 
+26 date:
+27 (1) The application is approved; and
+28 (2) The person or group of persons acting in concert is not prohibited from 
+29 acquiring control of a licensee.
+30 The administrator for good cause may extend the application period.
+316.  Completion determination.  A determination by the administrator that an 
+32 application is complete and is accepted for processing means only that the application, on 
+33 its face, appears to include all of the items and address all of the matters that are required.  
+34 The determination is not an assessment of the substance of the application or of the 
+35 sufficiency of the information provided.
+367.  Investigation.  When an application is filed and considered complete under 
+37 subsection 6, the administrator shall investigate the financial condition and responsibility, 
+38 financial and business experience, competence, character and general fitness of the person 
+39 or group of persons acting in concert seeking to acquire control of a licensee.  The 
+Page 18 - 131LR2696(01)40 administrator shall approve an acquisition of control if the administrator finds that the 
+41 following conditions have been fulfilled:
+3 A.  The requirements of subsections 2 and 4 have been met, as applicable; and
+4 B.  The financial condition and responsibility, financial and business experience, 
+5 competence, character and general fitness of the person or group of persons acting in 
+6 concert seeking to acquire control of a licensee and the competence, experience, 
+7 character and general fitness of the key individuals and persons that would be in control 
+8 of the licensee after the acquisition of control indicate that it is in the interest of the 
+9 public to permit the person or group of persons acting in concert to control the licensee.
+108.  Multistate licensing process.  If an applicant avails itself or is otherwise subject to 
+11 a multistate licensing process:
+12 A.  The administrator may accept the investigation results of a lead investigative state 
+13 for the purposes of subsection 7 if the lead investigative state has sufficient staffing, 
+14 expertise and minimum standards; or
+15 B.  If the State is a lead investigative state, the administrator may investigate the 
+16 applicant pursuant to subsection 7 and the time frames established by agreement 
+17 through the multistate licensing process.
+189.  Notice of denial.  The administrator shall issue a formal written notice of the denial 
+19 of an application to acquire control of a licensee within 30 days of the decision to deny the 
+20 application.  The administrator shall set forth in the notice of denial the specific reasons for 
+21 the denial of the application.  An applicant whose application is denied by the administrator 
+22 under this subsection may request a hearing on the issue in accordance with Title 5, chapter 
+23 375, subchapter 4.
+2410.  Exemptions.  The requirements of subsections 1 and 2 do not apply to the 
+25 following:
+26 A.  A person that acts as a proxy for the sole purpose of voting at a designated meeting 
+27 of the shareholders or holders of voting shares or voting interests of a licensee or person 
+28 in control of a licensee;
+29 B.  A person that acquires control of a licensee by devise or descent;
+30 C.  A person that acquires control of a licensee as a personal representative, custodian, 
+31 guardian, conservator or trustee or as an officer appointed by a court of competent 
+32 jurisdiction or by operation of law;
+33 D.  A person that is exempt under section 6074, subsection 7;
+34 E.  A person that the administrator determines is not subject to subsection 1 based on 
+35 the public interest;
+36 F.  A public offering of securities of a licensee or a person in control of a licensee; or
+37 G.  An internal reorganization of a person in control of the licensee for which the 
+38 ultimate person in control of the licensee remains the same.
+3911.  Acquisition notification.  Persons in subsection 10, paragraphs B, C, D, F and G 
+40 in cooperation with the licensee shall notify the administrator within 15 days after the 
+41 acquisition of control.1
+2
+Page 19 - 131LR2696(01)112.  Streamlined acquisition of control.  Acquisition of control of a licensee may be 
+2 streamlined in accordance with this subsection.
+3 A.  The requirements of subsections 1 and 2 do not apply to a person that has complied 
+4 with and received approval to engage in money transmission under this Act or was 
+5 identified as a person in control of a licensee in a prior application filed with and 
+6 approved by the administrator or by an MSB accredited state pursuant to a multistate 
+7 licensing process, as long as:
+8 (1) The person has not had a license revoked or suspended or controlled a licensee 
+9 that has had a license revoked or suspended while the person was in control of the 
+10 licensee in the previous 5 years;
+11 (2) If the person is a licensee, the person is well-managed and has received at least 
+12 a satisfactory rating for compliance at its most recent examination by an MSB 
+13 accredited state if such rating was given;
+14 (3) The licensee to be acquired is projected to meet the requirements of sections 
+15 6100-R, 6100-S and 6100-T after the acquisition of control is completed and, if the 
+16 person acquiring control is a licensee, that licensee is also projected to meet the 
+17 requirements of sections 6100-R, 6100-S and 6100-T after the acquisition of 
+18 control is completed;
+19 (4) The licensee to be acquired will not implement any material changes to its 
+20 business plan as a result of the acquisition of control and, if the person acquiring 
+21 control is a licensee, that licensee also will not implement any material changes to 
+22 its business plan as a result of the acquisition of control; and
+23 (5) The person provides notice of the acquisition in cooperation with the licensee 
+24 and attests to subparagraphs (1) to (4) in a form and in a medium prescribed by the 
+25 administrator.
+26 B.  If the notice under paragraph A, subparagraph (5) is not denied within 30 days of 
+27 the date on which the notice is determined to be complete, the notice is deemed 
+28 approved.
+2913.  Determination.  Before filing an application for approval to acquire control of a 
+30 licensee, a person may request in writing a determination from the administrator as to 
+31 whether the person would be considered a person in control of a licensee upon 
+32 consummation of a proposed transaction.  If the administrator determines that the person 
+33 would not be a person in control of a licensee, the person and transaction are not subject to 
+34 the requirements of subsections 1 and 2.
+3514.  Multistate licensing process.  If a multistate licensing process includes a 
+36 determination pursuant to subsection 13 and an applicant avails itself or is otherwise subject 
+37 to the multistate licensing process:
+38 A.  The administrator may accept the control determination of a lead investigative state 
+39 with sufficient staffing, expertise and minimum standards for the purposes of 
+40 subsection 13; or
+41 B.  If the State is a lead investigative state, the administrator may investigate the 
+42 applicant pursuant to subsection 13 and the time frames established by agreement 
+43 through the multistate licensing process.
+Page 20 - 131LR2696(01)1§6097.  Notice and information requirements for change of key individuals
+2 Notice and information requirements for a change of key individuals is governed by 
+3 this section.
+41.  Licensee adding or replacing key individual.  A licensee adding or replacing a 
+5 key individual shall:
+6 A.  Provide notice in a manner prescribed by the administrator within 15 days of the 
+7 effective date of the key individual's appointment; and
+8 B.  Provide information as required by section 6090 within 45 days of the effective 
+9 date of the key individual's appointment.
+102.  Notice of disapproval.  Within 90 days of the date on which the notice provided 
+11 pursuant to subsection 1 is determined to be complete, the administrator may issue a notice 
+12 of disapproval of a key individual if the competence, experience, character or integrity of 
+13 the individual indicates that it would not be in the best interests of the public or the 
+14 customers of the licensee to permit the individual to be a key individual of the licensee.
+153.  Basis of disapproval.  A notice of disapproval must contain a statement of the basis 
+16 for disapproval and be sent to the licensee and the disapproved individual.  An applicant 
+17 whose application is denied by the administrator under this section may request a hearing 
+18 on the issue in accordance with Title 5, chapter 375, subchapter 4.
+194.  Approval.  If the notice provided pursuant to subsection 1 is not disapproved within 
+20 90 days of the date on which the notice is determined to be complete, the key individual is 
+21 deemed approved.
+225.  Multistate licensing process.  If a multistate licensing process includes a key 
+23 individual notice review and disapproval process pursuant to this section and the licensee 
+24 avails itself or is otherwise subject to the multistate licensing process:
+25 A.  The administrator may accept the determination of another state if the investigating 
+26 state has sufficient staffing, expertise and minimum standards for the purposes of this 
+27 section; or
+28 B.  If the State is a lead investigative state, the administrator may investigate the 
+29 applicant pursuant to subsection 2 and the time frames established by agreement 
+30 through the multistate licensing process.
+31SUBCHAPTER 7
+32REPORTING AND RECORDS
+33§6100.  Report of condition
+34 Condition reporting is governed by this section.
+351.  Report.  A licensee shall submit a report of condition within 45 days of the end of 
+36 each calendar quarter or within any extended time as the administrator may prescribe.
+372.  Required information.  The report of condition must include:
+38 A.  Financial information at the licensee level;
+Page 21 - 131LR2696(01)1 B.  Nationwide and state-specific money transmission transaction information in every 
+2 jurisdiction in the United States where the licensee is licensed to engage in money 
+3 transmission;
+4 C.  Permissible investments maintenance reporting pursuant to section 6100-U;
+5 D.  Transaction destination country reporting for money received for transmission, if 
+6 applicable.  The information required by this paragraph is required to be included only 
+7 in a report of condition submitted within 45 days of the end of the 4th calendar quarter; 
+8 and
+9 E.  Any other information the administrator reasonably requires with respect to the 
+10 licensee. The administrator may use NMLS for the submission of the report required 
+11 by this section and may change or update as necessary the requirements of this section 
+12 to carry out the purposes of this Act and maintain consistency with NMLS reporting.
+13§6100-A.  Audited financials
+14 Audited financial filing is governed by this section.
+151.  Required filing.  A licensee shall, within 90 days of the end of each fiscal year or 
+16 within any extended time as the administrator may prescribe, file with the administrator:
+17 A.  An audited financial statement of the licensee for the fiscal year prepared in 
+18 accordance with generally accepted accounting principles in the United States; and
+19 B.  Any other information as the administrator may reasonably require.
+202.  Filing preparation.  The audited financial statements required by this section must 
+21 be prepared by an independent certified public accountant or independent public accountant 
+22 who is satisfactory to the administrator.
+233.  Certificate of opinion.  The audited financial statements required by this section 
+24 must include or be accompanied by a certificate of opinion of the independent certified 
+25 public accountant or independent public accountant who prepared the statements that is 
+26 satisfactory in form and content to the administrator.  If the certificate of opinion is 
+27 qualified, the administrator may order the licensee to take any action the administrator may 
+28 find necessary to enable the independent certified public accountant or independent public 
+29 accountant to remove the qualification.
+30§6100-B.  Authorized delegate reporting
+31 Authorized delegate reporting is governed by this section.
+321.  Authorized delegate reports.  A licensee shall submit a report regarding its 
+33 authorized delegates within 45 days of the end of each calendar quarter.  The administrator 
+34 may use NMLS for the submission of the report required by this section as long as the 
+35 report submission is consistent with the requirements of this section.
+362.  Required information.  The authorized delegate report must include, at a 
+37 minimum, each authorized delegate's:
+38 A.  Company's legal name;
+39 B.  Taxpayer employer identification number;
+40 C.  Principal provider of money transmission;
+Page 22 - 131LR2696(01)1 D.  Physical address;
+2 E.  Mailing address;
+3 F.  Business conducted in other states, if any;
+4 G.  Fictitious or trade name, if any;
+5 H.  Contact person's name, telephone number and e-mail address;
+6 I.  Start date acting as licensee's authorized delegate; and
+7 J.  End date acting as licensee’s authorized delegate, if applicable.
+8 The administrator may request any other information the administrator reasonably requires 
+9 with respect to the authorized delegate.
+10§6100-C.  Reports of certain events
+11 Event reporting is governed by this section.
+121.  Events requiring report within one day.  A licensee shall file a report with the 
+13 administrator within one business day after the licensee has reason to know of the 
+14 occurrence of any of the following events:
+15 A.  The filing of a petition by or against the licensee under the United States Bankruptcy 
+16 Code, 11 United States Code, Sections 101 to 110 for bankruptcy or reorganization;
+17 B.  The filing of a petition by or against the licensee for receivership, the 
+18 commencement of any other judicial or administrative proceeding for the licensee's 
+19 dissolution or reorganization or the making of a general assignment for the benefit of 
+20 the licensee's creditors; or
+21 C.  The commencement of a proceeding to revoke or suspend the licensee's license in 
+22 a state or country in which the licensee engages in business or is licensed.
+232.  Events requiring report within 3 days.  A licensee shall file a report with the 
+24 administrator within 3 business days after the licensee has reason to know of the occurrence 
+25 of any of the following events:
+26 A.  The filing of a civil or criminal action against the licensee or a key individual or 
+27 person in control of the licensee by a state or federal agency; or
+28 B.  The filing of a civil or criminal action against an authorized delegate by a state or 
+29 federal agency.
+30§6100-D.  Bank Secrecy Act reports
+31 A licensee and an authorized delegate shall file all reports required by federal currency 
+32 reporting, record-keeping and suspicious activity reporting requirements as set forth in the 
+33 Bank Secrecy Act and other federal and state laws pertaining to money laundering. The 
+34 timely filing of a complete and accurate report required under this section with the 
+35 appropriate federal agency is deemed compliant with the requirements of this section.
+36§6100-E.  Records
+37 Records maintenance is governed by this section.
+381.  Required records.  A licensee shall maintain for at least 3 years the following 
+39 records for determining its compliance with this Act:
+Page 23 - 131LR2696(01)1 A.  A record of each outstanding money transmission obligation sold;
+2 B.  A general ledger posted at least monthly containing all asset, liability, capital, 
+3 income and expense accounts;
+4 C.  Bank statements and bank reconciliation records;
+5 D.  Records of outstanding money transmission obligations;
+6 E.  Records of each outstanding money transmission obligation paid within the 3-year 
+7 period;
+8 F.  A list of the last known names and addresses of all of the licensee's authorized 
+9 delegates; and
+10 G.  Any other records the administrator may reasonably require by rule.
+112.  Form of records.  The items specified in subsection 1 may be maintained in any 
+12 form of record as long as the records can be viewed without special equipment and can be 
+13 copied using methods commonly used in business.
+143.  Records outside this State.  Records specified in subsection 1 may be maintained 
+15 outside this State if they are made accessible to the administrator on 7 business days' notice.
+164.  Inspection.  All records maintained by the licensee as required in subsections 1 to 
+17 3 are open to inspection by the administrator pursuant to section 6081, subsection 1.
+18SUBCHAPTER 8
+19AUTHORIZED DELEGATES
+20§6100-H.  Relationship between licensee and authorized delegate
+21 The relationship between licensees and authorized delegates is governed by this 
+22 section.
+231.  Definition.  For the purposes of this section, "remit" means to make direct payments 
+24 of money to a licensee or its representative authorized to receive money or to deposit money 
+25 in a bank in an account specified by the licensee.
+262.  Authorized delegate.  Before a licensee may conduct business through an 
+27 authorized delegate or allows a person to act as the licensee's authorized delegate, the 
+28 licensee shall:
+29 A.  Adopt, and update as necessary, written policies and procedures reasonably 
+30 designed to ensure that the licensee's authorized delegates comply with applicable state 
+31 and federal law;
+32 B.  Enter into a written contract that complies with subsection 4; and
+33 C.  Conduct a reasonable risk-based background investigation sufficient for the 
+34 licensee to determine whether the authorized delegate has complied and will likely 
+35 comply with applicable state and federal law.
+363.  Compliance.  An authorized delegate shall operate in full compliance with this Act.
+Page 24 - 131LR2696(01)14.  Contract.  The written contract required by subsection 2, paragraph B must be 
+2 signed by the licensee and the authorized delegate and, at a minimum, must:
+3 A.  Appoint the person signing the contract as the licensee's authorized delegate with 
+4 the authority to conduct money transmission on behalf of the licensee;
+5 B.  Set forth the nature and scope of the relationship between the licensee and the 
+6 authorized delegate and the respective rights and responsibilities of the parties;
+7 C.  Require the authorized delegate to agree to fully comply with all applicable state 
+8 and federal laws, rules and regulations pertaining to money transmission, including this 
+9 Act and laws and rules implementing this Act and relevant provisions of the Bank 
+10 Secrecy Act and the federal Uniting and Strengthening America by Providing 
+11 Appropriate Tools Required to Intercept and Obstruct Terrorism (USA PATRIOT Act) 
+12 Act of 2001, Public Law 107-56, 115 Stat. 272;
+13 D.  Require the authorized delegate to remit and handle money and monetary value in 
+14 accordance with the terms of the contract between the licensee and the authorized 
+15 delegate;
+16 E.  Impose a trust on money and monetary value net of fees received for money 
+17 transmission for the benefit of the licensee;
+18 F.  Require the authorized delegate to prepare and maintain records as required by this 
+19 Act or rules implementing this Act, or as reasonably requested by the administrator;
+20 G.  Acknowledge that the authorized delegate consents to examination or investigation 
+21 by the administrator;
+22 H.  State that the licensee is subject to regulation by the administrator and that, as part 
+23 of that regulation, the administrator may suspend or revoke an authorized delegate 
+24 designation or require the licensee to terminate an authorized delegate designation;
+25 I.  Acknowledge receipt of the written policies and procedures required under 
+26 subsection 2, paragraph A; and
+27 J.  Acknowledge that neither the licensee nor the authorized delegate may authorize 
+28 subdelegates without the written consent of the administrator.
+295.  Suspended, revoked, surrendered or expired license.  If a licensee's license is 
+30 suspended, revoked, surrendered or expired, the licensee, within 5 business days, shall 
+31 provide documentation to the administrator that the licensee has notified all applicable 
+32 authorized delegates of the licensee whose names are filed with the administrator of the 
+33 suspension, revocation, surrender or expiration of a license.  Upon suspension, revocation, 
+34 surrender or expiration of a license, applicable authorized delegates shall immediately 
+35 cease to provide money transmission as an authorized delegate of the licensee.
+366.  Fees.  An authorized delegate of a licensee holds in trust for the benefit of the 
+37 licensee all money net of fees received from money transmission.  If an authorized delegate 
+38 commingles any funds received from money transmission with any other funds or property 
+39 owned or controlled by the authorized delegate, all commingled funds and other property 
+40 are considered held in trust in favor of the licensee in an amount equal to the amount of 
+41 money net of fees received from money transmission.
+Page 25 - 131LR2696(01)17.  Subdelegates.  An authorized delegate may not use a subdelegate to conduct money 
+2 transmission on behalf of a licensee.
+3§6100-I.  Unauthorized activities
+4 A person may not engage in the business of money transmission on behalf of a person 
+5 not licensed under this Act or not exempt pursuant to subchapter 3. A person that engages 
+6 in the business of money transmission on behalf of such a person provides money 
+7 transmission to the same extent as if the person were a licensee and is jointly and severally 
+8 liable with the unlicensed or nonexempt person.
+9SUBCHAPTER 9
+10TIMELY TRANSMISSION REFUNDS; DISCLOSURES
+11§6100-L.  Transmission
+12 Money received for transmission is governed by this section.
+131.  Money forwarding.  A licensee shall forward all money received for transmission 
+14 in accordance with the terms of the agreement between the licensee and the sender unless 
+15 the licensee has a reasonable belief or a reasonable basis to believe that the sender may be 
+16 a victim of fraud or that a crime or violation of law, rule or regulation has occurred, is 
+17 occurring or may occur.
+182.  Failure to forward.  If a licensee fails to forward money received for transmission 
+19 in accordance with this section, the licensee shall respond to inquiries by the sender with 
+20 the reason for the failure unless providing a response would violate a state or federal law, 
+21 rule or regulation.
+22§6100-M.  Refunds
+23 Refunds are governed by this section.
+241.  Applicability.  This section does not apply to:
+25 A.  Money received for transmission subject to 12 Code of Federal Regulations, Part 
+26 1005, Subpart B; or
+27 B.  Money received for transmission pursuant to a written agreement between the 
+28 licensee and payee to process payments for goods or services provided by the payee.
+292.  Refunds.  A licensee shall refund to the sender within 10 days of receipt of the 
+30 sender's written request for a refund all money received for transmission unless any of the 
+31 following occurs:
+32 A.  The money has been forwarded within 10 days of the date on which the money was 
+33 received for transmission;
+34 B.  Instructions have been given committing an equivalent amount of money to the 
+35 person designated by the sender within 10 days of the date on which the money was 
+36 received for transmission;
+37 C.  The agreement between the licensee and the sender instructs the licensee to forward 
+38 the money at a time that is beyond 10 days of the date on which the money was received 
+Page 26 - 131LR2696(01)39 for transmission. If funds have not yet been forwarded in accordance with the terms of 
+40 the agreement between the licensee and the sender, the licensee shall issue a refund in 
+41 accordance with the other provisions of this section;
+4 D.  The refund is requested for a transaction that the licensee has not completed based 
+5 on a reasonable belief or a reasonable basis to believe that a crime or violation of law, 
+6 rule or regulation has occurred, is occurring or may occur; or
+7 E.  The refund request does not enable the licensee to identify the sender's name and 
+8 address or telephone number or identify the particular transaction to be refunded if the 
+9 sender has multiple transactions outstanding.
+10§6100-N.  Receipts
+11 Receipts are governed by this section.
+121.  Application.  This section does not apply to:
+13 A.  Money received for transmission subject to 12 Code of Federal Regulations, Part 
+14 1005, Subpart B; or
+15 B.  Money received for transmission pursuant to a written agreement between the 
+16 licensee and payee to process payments for goods or services provided by the payee.
+172.  Electronic receipts.  For a transaction conducted in person, the receipt may be 
+18 provided electronically if the sender requests or agrees to receive an electronic receipt.  For 
+19 a transaction conducted electronically or by phone, a receipt may be provided 
+20 electronically.  All electronic receipts must be provided in a retainable form.
+213.  Money transmission receipts.  A licensee or its authorized delegate shall provide 
+22 the sender a receipt for money received for transmission.
+23 A.  The receipt required by this section must contain the following information, as 
+24 applicable:
+25 (1) The name of the sender;
+26 (2) The name of the designated recipient;
+27 (3) The date of the transaction;
+28 (4) The unique transaction or identification number;
+29 (5) The name of the licensee, the licensee's NMLS unique identifier, the licensee's 
+30 business address and the licensee’s customer service telephone number;
+31 (6) The amount of the transaction in United States dollars;
+32 (7) Any fees charged by the licensee to the sender for the transaction; and
+33 (8) Any taxes collected by the licensee from the sender for the transaction.
+34 B.  The receipt required by this section must be in English and in the language 
+35 principally used by the licensee or authorized delegate to advertise, solicit or negotiate, 
+36 either orally or in writing, for a transaction conducted in person, electronically or by 
+37 phone, if other than English.
+38 For purposes of this section, "receipt" means a paper receipt, electronic record or other 
+39 written confirmation.1
+2
+3
+Page 27 - 131LR2696(01)1§6100-O.  Notice of contact information
+2 A licensee or authorized delegate shall include on a receipt or disclose on the licensee's 
+3 publicly accessible website or mobile application the name and telephone number of the 
+4 bureau and a statement that the licensee's customers may contact the bureau with questions 
+5 or complaints about the licensee's money transmission services.
+6SUBCHAPTER 10
+7PRUDENTIAL STANDARDS
+8§6100-R.  Net worth
+9 Net worth requirements are governed by this section.
+101.  Tangible net worth.  A licensee under this Act shall maintain at all times a tangible 
+11 net worth of the greater of $100,000 and 3% of total assets for the first $100,000,000, 2% 
+12 of additional assets for $100,000,000 to $1,000,000,000 and 0.5% of additional assets for 
+13 over $1,000,000,000.
+142.  Financial statements.  Tangible net worth must be demonstrated at initial 
+15 application by the applicant’s most recent audited or unaudited financial statements 
+16 pursuant to section 6089, subsection 2, paragraph F.
+173.  Exemption.  Notwithstanding the provisions of this section, the administrator may, 
+18 for good cause shown, exempt, in whole or in part, from the requirements of this section 
+19 any applicant or licensee.
+20§6100-S.  Surety bond
+21 Surety bond requirements are governed by this section.
+221.  Security.  An applicant for a money transmission license shall provide, and a 
+23 licensee at all times shall maintain, security consisting of a surety bond in a form 
+24 satisfactory to the administrator or, with the administrator's approval, a deposit instead of 
+25 a bond in accordance with this section.
+262.  Amount.  The amount of the required security is $100,000.
+273.  Exceeding maximum required bond amount.  A licensee may exceed the 
+28 maximum required bond amount pursuant to section 6100-T, subsection 1.
+29§6100-T.  Maintenance of permissible investments
+30 Permissible investment maintenance is governed by this section.
+311.  Investment requirements.  A licensee shall maintain at all times permissible 
+32 investments that have a market value computed in accordance with generally accepted 
+33 accounting principles in the United States of not less than the aggregate amount of all of 
+34 its outstanding money transmission obligations.
+352.  Investment limits.  Except for permissible investments enumerated in section 
+36 6100-U, subsection 1, the administrator, with respect to any licensee, may by rule or order 
+37 limit the extent to which a specific investment maintained by a licensee within a class of 
+38 permissible investments may be considered a permissible investment, if the specific 
+Page 28 - 131LR2696(01)39 investment represents undue risk to customers, not reflected in the market value of 
+40 investments.
+33.  Trusts.  Permissible investments, even if commingled with other assets of the 
+4 licensee, are held in trust for the benefit of the purchasers and holders of the licensee's 
+5 outstanding money transmission obligations in the event of insolvency, the filing of a 
+6 petition by or against the licensee under the United States Bankruptcy Code, 11 United 
+7 States Code, Sections 101 to 110 for bankruptcy or reorganization, the filing of a petition 
+8 by or against the licensee for receivership or the commencement of any other judicial or 
+9 administrative proceeding for its dissolution or reorganization or in the event of an action 
+10 by a creditor against the licensee who is not a beneficiary of this statutory trust.  A 
+11 permissible investment impressed with a trust pursuant to this section may not be subject 
+12 to attachment, levy of execution or sequestration by order of any court, except for a 
+13 beneficiary of this statutory trust.
+144.  Notice.  Upon the establishment of a statutory trust in accordance with subsection 
+15 3 or when any funds are drawn on a letter of credit pursuant to section 6100-U, subsection 
+16 1, paragraph D, the administrator shall notify the applicable regulator of each state in which 
+17 the licensee is licensed to engage in money transmission, if any, of the establishment of the 
+18 trust or the funds drawn on the letter of credit, as applicable.  Notice is deemed satisfied if 
+19 performed pursuant to a multistate agreement or through NMLS. Funds drawn on a letter 
+20 of credit, and any other permissible investments held in trust for the benefit of the 
+21 purchasers and holders of the licensee's outstanding money transmission obligations, are 
+22 deemed held in trust for the benefit of such purchasers and holders on a pro rata and 
+23 equitable basis in accordance with statutes pursuant to which permissible investments are 
+24 required to be held in this State, and other states, as applicable.  A statutory trust established 
+25 pursuant to this subsection is terminated upon extinguishment of all of the licensee's 
+26 outstanding money transmission obligations.
+275.  Other investments.  The administrator by rule or order may allow other types of 
+28 investments that the administrator determines are of sufficient liquidity and quality to be a 
+29 permissible investment.  The administrator may participate in efforts with other state 
+30 regulators to determine that other types of investments are of sufficient liquidity and quality 
+31 to be a permissible investment.
+32§6100-U.  Permissible investments
+33 Permissible investments are governed by this section.
+341.  Types of permissible investments.  The following investments are permissible 
+35 under section 6100-T:
+36 A.  Cash, including demand deposits, savings deposits and funds in such accounts held 
+37 for the benefit of the licensee's customers in a federally insured depository financial 
+38 institution, and cash equivalents, including automated clearinghouse items in transit to 
+39 the licensee and automated clearinghouse items or international wires in transit to a 
+40 payee, cash in transit via armored car, cash in so-called smart safes, cash in licensee-
+41 owned locations, debit card or credit card-funded transmission receivables owed by 
+42 any bank or money market mutual funds rated "AAA" by S&P Global Ratings or 
+43 successor organization, or the equivalent from any other eligible rating service;1
+2
+Page 29 - 131LR2696(01)1 B.  Certificates of deposit or senior debt obligations of an insured depository institution, 
+2 as defined in the Federal Deposit Insurance Act, 12 United States Code, Section 
+3 1813(c)(2) or as described under the Federal Credit Union Act, 12 United States Code, 
+4 Section 1751 et seq.;
+5 C.  An obligation of the United States or a commission, agency or instrumentality of 
+6 the United States; an obligation that is guaranteed fully as to principal and interest by 
+7 the United States; or an obligation of a state or a governmental subdivision, agency or 
+8 instrumentality of the United States; and
+9 D.  The full drawable amount of an irrevocable standby letter of credit, for which the 
+10 stated beneficiary is the administrator, that stipulates that the beneficiary need only 
+11 draw a sight draft under the letter of credit and present it to obtain funds up to the letter 
+12 of credit amount within 7 days of presentation of the items required by subparagraph 
+13 (3).
+14 (1)  The letter of credit:
+15 (a) Must be issued by a federally insured depository financial institution, a 
+16 foreign bank that is authorized under federal law to maintain a federal agency 
+17 or federal branch office in a state or states or a foreign bank that is authorized 
+18 under state law to maintain a branch in a state that bears an eligible rating or 
+19 whose parent company bears an eligible rating and is regulated, supervised and 
+20 examined by federal or state authorities in the United States having regulatory 
+21 authority over banks, credit unions and trust companies;
+22 (b) Must be irrevocable and unconditional and indicate that it is not subject to 
+23 any condition or qualifications outside of the letter of credit;
+24 (c) May not contain reference to any other agreements, documents or entities 
+25 or otherwise provide for any security interest in the licensee; and
+26 (d) Must contain an issue date and expiration date and expressly provide for 
+27 automatic extension, without a written amendment, for an additional period of 
+28 one year from any current or future expiration date, unless the issuer of the 
+29 letter of credit notifies the administrator in writing by certified or registered 
+30 mail or courier mail or other receipted means, at least 60 days prior to the 
+31 expiration date, that the irrevocable letter of credit will not be extended.
+32 (2)  If a notice of expiration or nonextension of a letter of credit is issued under 
+33 subparagraph (1), division (d), the licensee shall demonstrate to the satisfaction of 
+34 the administrator, 15 days prior to expiration, that the licensee maintains and will 
+35 maintain permissible investments in accordance with section 6100-T, subsection 1 
+36 upon the expiration of the letter of credit.  If the licensee is not able to do so, the 
+37 administrator may draw on the letter of credit in an amount up to the amount 
+38 necessary to meet the licensee's requirements to maintain permissible investments 
+39 in accordance with section 6100-T, subsection 1.  Such a draw must be offset 
+40 against the licensee's outstanding money transmission obligations.  The drawn 
+41 funds must be held in trust by the administrator or the administrator's designated 
+42 agent, to the extent authorized by law, as agent for the benefit of the purchasers 
+43 and holders of the licensee's outstanding money transmission obligations.
+Page 30 - 131LR2696(01)1 (3)  The letter of credit must state that the issuer of the letter of credit will honor, 
+2 at sight, a presentation made by the beneficiary to the issuer of the following 
+3 documents on or prior to the expiration date of the letter of credit: 
+4 (a)  The original letter of credit, including any amendments; and 
+5 (b)  A written statement from the beneficiary stating that any of the following 
+6 events have occurred: 
+7 (i)  The filing of a petition by or against the licensee under the United 
+8 States Bankruptcy Code, 11 United States Code, Sections 101 to 110 for 
+9 bankruptcy or reorganization; 
+10 (ii)  The filing of a petition by or against the licensee for receivership or 
+11 the commencement of any other judicial or administrative proceeding for 
+12 the dissolution or reorganization of the licensee; 
+13 (iii)  The seizure of assets of a licensee by an administrator pursuant to an 
+14 emergency order issued in accordance with applicable law, on the basis of 
+15 an action, violation or condition that has caused or is likely to cause the 
+16 insolvency of the licensee; or 
+17 (iv)  The beneficiary has received notice of expiration or nonextension of 
+18 a letter of credit and the licensee failed to demonstrate to the satisfaction 
+19 of the beneficiary that the licensee will maintain permissible investments 
+20 in accordance with section 6100-T, subsection 1 upon the expiration or 
+21 nonextension of the letter of credit. 
+22 (4)  The administrator may designate an agent to serve on the administrator's behalf 
+23 as beneficiary to a letter of credit as long as the agent and letter of credit meet 
+24 requirements established by the administrator.  The administrator's agent may 
+25 serve as agent for multiple licensing authorities for a single irrevocable letter of 
+26 credit if the proceeds of the drawable amount for the purposes of this paragraph 
+27 are assigned to the administrator. 
+28 (5)  The administrator may participate in multistate processes designed to facilitate 
+29 the issuance and administration of letters of credit, including but not limited to 
+30 services provided by NMLS and the State Regulatory Registry LLC or successor 
+31 organization. 
+322.  Investment limits.  Unless permitted by the administrator by rule or order to exceed 
+33 the limit as set forth in this subsection, the following investments are permissible under 
+34 section 6100-T to the extent specified.
+35 A.  Receivables that are payable to a licensee from its authorized delegates in the 
+36 ordinary course of business that are less than 7 days old are permissible up to 50% of 
+37 the aggregate value of the licensee's total permissible investments.
+38 B.  Of the receivables permissible under paragraph A, receivables that are payable to a 
+39 licensee from a single authorized delegate in the ordinary course of business may not 
+40 exceed 10% of the aggregate value of the licensee's total permissible investments.
+41 C.  The following investments are permissible up to 20% per category and combined 
+42 up to 50% of the aggregate value of the licensee's total permissible investments:
+Page 31 - 131LR2696(01)1 (1)  A short-term investment, up to 6 months in duration, bearing an eligible rating;
+2 (2)  Commercial paper bearing an eligible rating;
+3 (3)  A bill, note, bond or debenture bearing an eligible rating;
+4 (4)  United States tri-party repurchase agreements collateralized at 100% or more 
+5 with United States government or agency securities, municipal bonds or other 
+6 securities bearing an eligible rating;
+7 (5)  Money market mutual funds rated less than "AAA" and equal to or higher than 
+8 "A-" by S&P Global Ratings or successor organization, or the equivalent from any 
+9 other eligible rating service; and
+10 (6)  A mutual fund or other investment fund composed exclusively of one or more 
+11 permissible investments listed in subsection 1, paragraphs A to C.
+12 D.  Cash, including demand deposits, savings deposits and funds in such accounts held 
+13 for the benefit of the licensee's customers, at foreign depository institutions is 
+14 permissible up to 10% of the aggregate value of the licensee's total permissible 
+15 investments if the licensee has received a satisfactory rating in its most recent 
+16 examination and the foreign depository institution: 
+17 (1) Has an eligible rating; 
+18 (2) Is registered under the federal foreign account tax compliance laws under the 
+19 federal Hiring Incentives to Restore Employment Act, Title V, Subtitle A; 
+20 (3) Is not located in a country subject to sanctions from the United States 
+21 Department of the Treasury, Office of Foreign Assets Control; and 
+22 (4) Is not located in a high-risk or noncooperative jurisdiction as designated by the 
+23 Financial Action Task Force or successor organization. 
+24SUBCHAPTER 11
+25ENFORCEMENT
+26§6100-X.  Suspension and revocation
+27 License suspension and revocation are governed by this section.
+281.  License suspension and revocation.  The administrator may suspend or revoke a 
+29 license or order a licensee to revoke the designation of an authorized delegate if: 
+30 A.  The licensee violates this Act or a rule adopted or an order issued under this Act; 
+31 B.  The licensee does not cooperate with an examination or investigation by the 
+32 administrator; 
+33 C.  The licensee engages in fraud, intentional misrepresentation or gross negligence; 
+34 D.  An authorized delegate is convicted of a violation of a state or federal anti-money 
+35 laundering statute or violates a rule adopted or an order issued under this Act as a result 
+36 of the licensee's willful misconduct or willful blindness; 
+Page 32 - 131LR2696(01)1 E.  The competence, experience, character or general fitness of the licensee, authorized 
+2 delegate, person in control of a licensee, key individual or responsible person of the 
+3 authorized delegate indicates that it is not in the public interest to permit the person to 
+4 provide money transmission; 
+5 F.  The licensee engages in an unsafe or unsound practice; 
+6 G.  The licensee is insolvent, suspends payment of its obligations or makes a general 
+7 assignment for the benefit of its creditors; or 
+8 H.  The licensee does not remove an authorized delegate after the administrator issues 
+9 and serves upon the licensee a final order including a finding that the authorized 
+10 delegate has violated this Act. 
+112.  Determination.  In determining whether a licensee is engaging in an unsafe or 
+12 unsound practice under subsection 1, paragraph F, the administrator may consider the size 
+13 and condition of the licensee's money transmission, the magnitude of the loss, the gravity 
+14 of the violation of this Act and the previous conduct of the person involved. 
+15§6100-Y.  Suspension and revocation of authorized delegates
+16 Authorized delegate suspension and revocation are governed by this section.
+171.  Designation suspension and revocation.  The administrator may issue an order 
+18 suspending or revoking the designation of an authorized delegate if the administrator finds 
+19 that: 
+20 A.  The authorized delegate violates this Act or a rule adopted or an order issued under 
+21 this Act; 
+22 B.  The authorized delegate does not cooperate with an examination or investigation 
+23 by the administrator; 
+24 C.  The authorized delegate engages in fraud, intentional misrepresentation or gross 
+25 negligence; 
+26 D.  The authorized delegate is convicted of a violation of a state or federal anti-money 
+27 laundering statute; 
+28 E.  The competence, experience, character or general fitness of the authorized delegate 
+29 or a person in control of the authorized delegate indicates that it is not in the public 
+30 interest to permit the authorized delegate to provide money transmission; or 
+31 F.  The authorized delegate engages in an unsafe or unsound practice. 
+322.  Determination.  In determining whether an authorized delegate is engaging in an 
+33 unsafe or unsound practice, the administrator may consider the size and condition of the 
+34 authorized delegate's provision of money transmission, the magnitude of the loss, the 
+35 gravity of the violation of this Act or a rule adopted or order issued under this Act and the 
+36 previous conduct of the authorized delegate. 
+373.  Relief.  An authorized delegate may apply for relief from a suspension or revocation 
+38 of designation as an authorized delegate according to procedures prescribed by the 
+39 administrator. 
+40§6100-Z.  Orders to cease and desist
+41 Orders to cease and desist are governed by this section.
+Page 33 - 131LR2696(01)11.  Order issuance.  If the administrator determines that a violation of this Act or a 
+2 rule adopted or an order issued under this Act by a licensee or authorized delegate is likely 
+3 to cause immediate and irreparable harm to the licensee, its customers or the public as a 
+4 result of the violation, or cause insolvency or significant dissipation of assets of the 
+5 licensee, the administrator may issue an order requiring the licensee or authorized delegate 
+6 to cease and desist from the violation. The order becomes effective upon its service upon 
+7 the licensee or authorized delegate. 
+82.  Authorized delegate.  The administrator may issue an order against a licensee to 
+9 cease and desist from providing money transmission through an authorized delegate that is 
+10 the subject of a separate order by the administrator. 
+113.  Administrative proceeding.  An order to cease and desist remains effective and 
+12 enforceable pending the completion of an administrative proceeding pursuant to Title 5, 
+13 chapter 375.
+144.  Petition.  A licensee or an authorized delegate that is served with an order to cease 
+15 and desist may petition the Superior Court for a judicial order setting aside, limiting or 
+16 suspending the enforcement, operation or effectiveness of the order pending the completion 
+17 of an administrative proceeding pursuant to Title 5, chapter 375. 
+185.  Expiration.  An order to cease and desist expires unless the administrator 
+19 commences an administrative proceeding within 10 days after the order is issued. 
+20§6100-AA.  Consent agreements
+21 The administrator may enter into a consent agreement at any time with a person to 
+22 resolve a matter arising under this Act or a rule adopted or order issued under this Act.  A 
+23 consent agreement must be signed by the person to whom it is issued or by the person's 
+24 authorized representative and must indicate agreement with the terms contained in the 
+25 agreement.  A consent agreement may contain a provision that it does not constitute an 
+26 admission by a person that this Act or a rule adopted or order issued under this Act has 
+27 been violated.  A consent agreement may be entered into only with the consent of the 
+28 applicant, licensee or registrant; the administrator; and the Attorney General.  A remedy, 
+29 penalty or fine that is otherwise available by law, even if only in the jurisdiction of the 
+30 Superior Court, may be achieved by consent agreement, including long-term suspension 
+31 and permanent revocation of a license and revocation of a designation of an authorized 
+32 delegate.  A consent agreement is not subject to review or appeal and may be modified only 
+33 by a writing executed by all parties to the original consent agreement.  A consent agreement 
+34 is enforceable by an action in Superior Court.
+35§6100-BB.  Criminal penalties
+36 Criminal penalties for violations of this Act are governed by this section.
+371.  False records.  A person that intentionally makes a false statement, 
+38 misrepresentation or false certification in a record filed or required to be maintained under 
+39 this Act or that intentionally makes a false entry or omits a material entry in such a record 
+40 is guilty of a Class D crime. 
+412.  Unlicensed activity; no more than $1,000 in compensation.  A person that 
+42 knowingly engages in an activity for which a license is required under this Act without 
+43 being licensed under this Act and who receives no more than $1,000 in compensation 
+44 within a 30-day period from this activity is guilty of a Class D crime.
+Page 34 - 131LR2696(01)13.  Unlicensed activity; more than $1,000 but no more than $10,000 in 
+2compensation.  A person that knowingly engages in an activity for which a license is 
+3 required under this Act without being licensed under this Act and that receives more than 
+4 $1,000 but no more than $10,000 in compensation within a 30-day period from this activity 
+5 is guilty of a Class C crime. 
+64.  Unlicensed activity; more than $10,000 in compensation.  A person that 
+7 knowingly engages in an activity for which a license is required under this Act without 
+8 being licensed under this Act and that receives more than $10,000 in compensation within 
+9 a 30-day period from this activity is guilty of a Class B crime.
+10§6100-CC.  Civil penalties
+11 The administrator may assess a civil penalty against a person that violates this Act or 
+12 a rule adopted or an order issued under this Act in an amount not to exceed $1,000 per day 
+13 for each day the violation is outstanding, plus this State's costs and expenses for the 
+14 investigation and prosecution of the matter, including reasonable attorney's fees.
+15§6100-DD.  Unlicensed persons
+16 Orders to cease and desist for unlicensed persons are governed by this section.
+171.  Order.  If the administrator has reason to believe that a person has violated or is 
+18 violating section 6087, the administrator may issue an order to show cause why an order to 
+19 cease and desist should not be issued requiring that the person cease and desist from the 
+20 violation. 
+212.  Temporary restraining order.  In an emergency, the administrator may petition 
+22 the Superior Court for the issuance of a temporary restraining order ex parte pursuant to 
+23 the Maine Rules of Civil Procedure. 
+243.  Effective date.  An order to cease and desist becomes effective upon its service 
+25 upon the person. 
+264.  Administrative proceeding.  An order to cease and desist remains effective and 
+27 enforceable pending the completion of an administrative proceeding pursuant to Title 5, 
+28 chapter 375. 
+295.  Petition.  A person that is served with an order to cease and desist for violating 
+30 section 6087 may petition the Superior Court for a judicial order setting aside, limiting or 
+31 suspending the enforcement, operation or effectiveness of the order pending the completion 
+32 of an administrative proceeding pursuant to Title 5, chapter 375. 
+336.  Expiration.  An order to cease and desist expires unless the administrator 
+34 commences an administrative proceeding within 10 days after the order is issued. 
+35§6100-EE.  Expenses of investigations and administrative hearings
+36 A licensee shall reimburse the administrator for costs involved in investigating 
+37 suspected violations of this Act and in bringing administrative proceedings or actions in 
+38 court to enforce the terms of this Act.
+39SUBCHAPTER 12
+40MISCELLANEOUS PROVISIONS
+Page 35 - 131LR2696(01)1§6100-HH.  Uniformity of application and construction
+2 In applying and construing this Act, consideration must be given to the need to promote 
+3 uniformity of the law with respect to its subject matter among states that enact it.
+4§6100-II.  Adoption of rules
+5 Rules adopted by the administrator pursuant to this Act are routine technical rules 
+6 pursuant to Title 5, chapter 375, subchapter 2-A.
+7§6100-JJ.  Treatment of fees
+8 The administrator may set the fees under this Act by rule up to a maximum of $2,500 
+9 for an initial license, $1,000 for a license renewal and $1,000 for the designation of an 
+10 authorized delegate.  
+11 The aggregate of fees, examination expense reimbursements and other payments made 
+12 under this Act is appropriated for the use of the administrator.  Any balances of funds do 
+13 not lapse but must be carried forward to be expended for the same purposes in the following 
+14 fiscal year.
+15§6100-KK.  Multiple licenses
+16 A person licensed under this Act is not required to obtain a separate license to engage 
+17 in either the cashing of checks or the exchange of foreign currency in the State.
+18§6100-LL.  Giving notice
+19 When the giving of notice is required by this Act, for persons licensed in this State 
+20 through NMLS or applying for licensing through NMLS, notice is considered complete 
+21 when posted to the licensee's or applicant's site on NMLS.
+22SUBCHAPTER 13
+23VIRTUAL CURRENCY
+24§6100-OO.  Definitions
+25 For the purposes of this subchapter, unless the context otherwise indicates, the 
+26 following terms have the following meanings. 
+271.  Asymmetric cryptosystem.  "Asymmetric cryptosystem" means an algorithm or 
+28 series of algorithms that provide a secure key pair, a public key and a private key.
+292.  Control of virtual currency.  "Control of virtual currency," when used in reference 
+30 to a transaction or relationship involving virtual currency, means the power to execute 
+31 unilaterally or prevent indefinitely a virtual currency transaction.
+323.  Digital signature.  "Digital signature" means an electronic signature that transforms 
+33 a message by using an asymmetric cryptosystem.
+344.  Exchange.  "Exchange" means to assume control of virtual currency from or on 
+35 behalf of a person, at least momentarily, to sell, trade or convert: 
+36 A.  Virtual currency for money, bank credit or one or more forms of virtual currency; 
+37 or 
+Page 36 - 131LR2696(01)1 B.  Money or bank credit for one or more forms of virtual currency.
+25.  Private key.  "Private key" means the key of a key pair used to verify a digital 
+3 signature.
+46.  Public key.  "Public key" means the key of a key pair used to create a digital 
+5 signature.
+67.  Transfer.  "Transfer" means to assume control of virtual currency from or on behalf 
+7 of a person and to:
+8 A.  Credit the virtual currency to the account of another person;
+9 B.  Move the virtual currency from one account of a person to another account of the 
+10 same person; or
+11 C.  Relinquish control of virtual currency to another person.
+128.  Unhosted wallet.  "Unhosted wallet" means a wallet that is owned, held or 
+13 controlled by an individual owner other than a 3rd party or a custodian.  "Unhosted wallet" 
+14 also means a wallet that is not owned, held or controlled by a licensee or a supervised 
+15 financial organization as defined in Title 9-A, section 1-301, subsection 38-A.
+169.  United States dollar equivalent of virtual currency.  "United States dollar 
+17 equivalent of virtual currency" means the equivalent value of a particular virtual currency 
+18 in United States dollars shown on a virtual currency exchange based in the United States 
+19 for a particular date or period specified in this Act.
+2010.  Virtual currency.  "Virtual currency" means a digital representation of value that:
+21 A.  Is used as a medium of exchange, unit of account or store of value; and
+22 B.  Is not money, whether or not denominated in money.
+23 "Virtual currency" does not include a transaction in which a merchant grants, as part of an 
+24 affinity or rewards program, value that cannot be taken from or exchanged with the 
+25 merchant for money, bank credit or virtual currency or a digital representation of value 
+26 issued by or on behalf of a game publisher and used solely within an online game, game 
+27 platform or family of games sold by the same publisher or offered on the same game 
+28 platform.
+2911.  Virtual currency administration.  "Virtual currency administration" means 
+30 issuing virtual currency with the authority to redeem the currency for money, bank credit 
+31 or other virtual currency.
+3212.  Virtual currency business activity.  "Virtual currency business activity" means:
+33 A.  Exchanging, transferring or storing virtual currency or engaging in virtual currency 
+34 administration, whether directly or through an agreement with a virtual currency 
+35 control-services vendor;
+36 B.  Holding electronic precious metals or electronic certificates representing interests 
+37 in precious metals on behalf of another person or issuing shares or electronic 
+38 certificates representing interests in precious metals; or
+39 C.  Exchanging one or more digital representations of value used within one or more 
+40 online games, game platforms or family of games for:
+Page 37 - 131LR2696(01)1 (1)  Virtual currency offered by or on behalf of the same game publisher from 
+2 which the original digital representation of value was received; or
+3 (2)  Money or bank credit outside the online game, game platform or family of 
+4 games offered by or on behalf of the same game publisher from which the original 
+5 digital representation of value was received.
+613.  Virtual currency control-services vendor.  "Virtual currency control-services 
+7 vendor" means a person that has control of virtual currency solely under an agreement with 
+8 a person that, on behalf of another person, assumes control of virtual currency.
+914.  Wallet.  "Wallet" means a physical device, a writing, a receipt or any digital or 
+10 electronic technology that allows an individual owner or a custodian the ability to directly 
+11 or indirectly control a private key for a digital signature for the purpose of money 
+12 transmission.
+13§6100-PP.  Scope
+14 The application of this subchapter is governed by this section.
+151.  Application.  This subchapter does not apply to the exchange, transfer or storage 
+16 of virtual currency or to virtual currency administration to the extent the federal Electronic 
+17 Fund Transfer Act, 15 United States Code, Sections 1693 to 1693r, the federal Securities 
+18 Exchange Act of 1934, 15 United States Code, Sections 78a to 78oo or the federal 
+19 Commodity Exchange Act, 7 United States Code, Sections 1 to 27f govern the activity.
+202.  Exempt activity.  This subchapter does not apply to activity by:
+21 A.  A person that:
+22 (1)  Contributes only connectivity software or computing power to a decentralized 
+23 virtual currency or to a protocol governing transfer of the digital representation of 
+24 value;
+25 (2)  Provides only data storage or security services for a business engaged in virtual 
+26 currency business activity and does not otherwise engage in virtual currency 
+27 business activity on behalf of another person; or
+28 (3)  Provides only to a person otherwise exempt from this Act virtual currency as 
+29 one or more enterprise solutions used solely between each other and has no 
+30 agreement or relationship with a person that is an end user of virtual currency;
+31 B.  A person using virtual currency, including creating, investing, buying or selling or 
+32 obtaining virtual currency as payment for the purchase or sale of goods or services, 
+33 solely:
+34 (1)  On the person's own behalf;
+35 (2)  For personal, family or household purposes; or
+36 (3)  For academic purposes;
+37 C.  A person whose virtual currency business activity with or on behalf of persons is 
+38 reasonably expected to be valued, in the aggregate, on an annual basis at $5,000 or less, 
+39 measured by the United States dollar equivalent of virtual currency;
+40 D.  An attorney to the extent the attorney is providing escrow account services to a 
+41 person;
+Page 38 - 131LR2696(01)1 E.  A title insurance company to the extent the company is providing escrow account 
+2 services to a person;
+3 F.  A securities intermediary, as defined in Title 11, section 8-1102, subsection (1), 
+4 paragraph (n), or a commodity intermediary, as defined in Title 11, section 9-1102, 
+5 subsection (17), that:
+6 (1)  Does not engage in the ordinary course of business in virtual currency business 
+7 activity with or on behalf of a person in addition to maintaining securities accounts 
+8 or commodities accounts and is regulated as a securities intermediary or 
+9 commodity intermediary under federal law, law of this State other than this Act or 
+10 the law of another state; and
+11 (2)  Affords a person protections comparable to those set forth in section 6100-SS;
+12 G.  A secured creditor under Title 11, article 9-A or creditor with a judicial lien or lien 
+13 arising by operation of law on collateral that is virtual currency, if the virtual currency 
+14 business activity of the creditor is limited to enforcement of the security interest or lien 
+15 in compliance with the applicable law;
+16 H.  A virtual currency control-services vendor; or
+17 I.  A person that:
+18 (1)  Does not receive compensation from a person for providing virtual currency 
+19 products or services or conducting virtual currency business activity; or
+20 (2)  Is engaged in testing products or services with the person's own funds.
+213.  Exemption determination.  The administrator may determine that a person or class 
+22 of persons, given facts particular to the person or class, is exempt from this Act, regardless 
+23 of whether the person or class is covered by requirements imposed under federal law on an 
+24 MSB.
+25§6100-QQ.  License required for engaging in virtual currency business activity
+26 Licensing for virtual currency business activity is governed by this section.
+271.  Licensing.  A person may not engage in virtual currency business activity, or hold 
+28 itself out as being able to engage in virtual currency business activity, with or on behalf of 
+29 another person unless the person is:
+30 A.  Licensed in this State by the administrator pursuant to section 6091; or 
+31 B.  Exempt from licensing under section 6074.
+322.  Requirements.  A person that is licensed to engage in virtual currency business 
+33 activity is engaged in the business of money transmission and is subject to the requirements 
+34 of this Act.
+35§6100-RR.  Required disclosures
+36 Licensee disclosures are governed by this section.
+371.  Licensee disclosures.  A licensee that engages in virtual currency business activity 
+38 shall provide to a person that uses the licensee's products or services the disclosures 
+39 required by subsection 2 and any additional disclosure the administrator by rule determines 
+40 reasonably necessary for the protection of persons.  The administrator shall determine by 
+Page 39 - 131LR2696(01)41 rule the time and form required for disclosure.  A disclosure required by this section must 
+42 be made separately from any other information provided by the licensee and in a clear and 
+43 conspicuous manner in a format the person may keep.  A licensee may propose for the 
+44 administrator's approval alternate disclosures as more appropriate for its virtual currency 
+45 business activity with or on behalf of persons.
+62.  Relationship disclosures.  Before establishing a virtual currency business activity 
+7 relationship with a person, a licensee shall disclose, to the extent applicable to the virtual 
+8 currency business activity the licensee will undertake with the person:
+9 A.  A schedule of fees and charges the licensee may assess, the manner by which fees 
+10 and charges will be calculated if they are not set in advance and disclosed and the 
+11 timing of the fees and charges;
+12 B.  Whether the product or service provided by the licensee is covered by:
+13 (1)  A form of insurance or is otherwise guaranteed against loss by an agency of 
+14 the United States up to the full United States dollar equivalent of virtual currency 
+15 purchased from the licensee or for control of virtual currency by the licensee as of 
+16 the date of the placement or purchase, including the maximum amount provided 
+17 by insurance under the Federal Deposit Insurance Corporation or otherwise 
+18 available from the Securities Investor Protection Corporation or successor 
+19 organization or, if not provided at the full United States dollar equivalent of virtual 
+20 currency purchased from the licensee or for control of virtual currency by the 
+21 licensee, the maximum amount of coverage for each person expressed in the United 
+22 States dollar equivalent of the virtual currency; or
+23 (2)  Private insurance against theft or loss, including theft involving a computer or 
+24 networked device or theft by other means;
+25 C.  The irrevocability of a transfer or exchange and any exception to irrevocability;
+26 D.  A description of:
+27 (1)  Liability for an unauthorized, mistaken or accidental transfer or exchange;
+28 (2)  The person's responsibility to provide notice to the licensee of the transfer or 
+29 exchange;
+30 (3)  The basis for any recovery by the person from the licensee;
+31 (4)  General error-resolution rights applicable to the transfer or exchange; and
+32 (5)  The method for the person to update the person's contact information with the 
+33 licensee;
+34 E.  That the date or time when a transfer or exchange is made and the person's account 
+35 is debited may differ from the date or time when the person initiates the instruction to 
+36 make the transfer or exchange;
+37 F.  Whether the person has a right to stop a preauthorized payment or revoke 
+38 authorization for a transfer and the procedure to initiate a stop-payment order or revoke 
+39 authorization for a subsequent transfer;
+40 G.  The person's right to receive a receipt, trade ticket or other evidence of a transfer or 
+41 exchange;1
+2
+3
+4
+5
+Page 40 - 131LR2696(01)1 H.  The person's right to at least 30 days' prior notice of a change in the licensee's fee 
+2 schedule, other terms and conditions of operating its virtual currency business activity 
+3 with the person and the policies applicable to the person's account; and
+4 I.  That virtual currency is not money.
+53.  Transaction confirmation.  Except as otherwise provided in subsection 4, at the 
+6 conclusion of a virtual currency transaction with or on behalf of a person, a licensee shall 
+7 provide the person a confirmation in a record that contains:
+8 A.  The name and contact information of the licensee, including information the person 
+9 may need to ask a question or file a complaint;
+10 B.  The type, value, date, precise time and amount of the transaction; and
+11 C.  The fee charged for the transaction, including any charge for conversion of virtual 
+12 currency to money, bank credit or other virtual currency.
+134.  Daily confirmation.  If a licensee discloses that it will provide a daily confirmation 
+14 in the initial disclosure under subsection 3, the licensee may elect to provide a single, daily 
+15 confirmation for all transactions with or on behalf of a person on that day instead of a per 
+16 transaction confirmation.
+17§6100-SS.  Property interests and entitlements to virtual currency
+18 Property interests and entitlements to virtual currency are governed by this section.
+191.  Control.  A licensee that has control of virtual currency for one or more persons 
+20 shall maintain control of virtual currency in each type of virtual currency sufficient to 
+21 satisfy the aggregate entitlements of the persons to the type of virtual currency.
+222.  Violation.  If a licensee violates subsection 1, the property interests of the persons 
+23 in the virtual currency are pro rata property interests in the type of virtual currency to which 
+24 the persons are entitled, without regard to the time the persons became entitled to the virtual 
+25 currency or the licensee obtained control of the virtual currency.
+263.  Virtual currency.  The virtual currency referred to in this section is:
+27 A.  Held for the persons entitled to the virtual currency;
+28 B.  Not property of the licensee;
+29 C.  Not subject to the claims of creditors of the licensee; and
+30 D.  A permissible investment under this Act.
+31§6100-TT.  Additional requirements for virtual currency business activities
+32 Additional requirements for virtual currency business activities are governed by this 
+33 section.
+341.  Compliance.  A licensee engaged in virtual currency business activities shall 
+35 comply with all provisions of this Act to the extent applicable to the licensee's activities.
+362.  Tangible net worth calculation.  A licensee engaged in virtual currency business 
+37 activities may include in its calculation of tangible net worth virtual currency, measured by 
+38 the average value of the virtual currency in United States dollar equivalent of virtual 
+39 currency over the prior 6 months, excluding control of virtual currency for a person entitled 
+40 to the protections pursuant to section 6100-SS.
+Page 41 - 131LR2696(01)13.  Records.  A licensee shall maintain, for all virtual currency business activity with 
+2 or on behalf of a person 5 years after the date of the activity, a record of:
+3 A.  Each transaction of the licensee with or on behalf of the person or for the licensee's 
+4 account in this State, including:
+5 (1)  The identity of the person;
+6 (2)  The form of the transaction;
+7 (3)  The amount, date and payment instructions given by the person; and
+8 (4)  The account number, name and United States Postal Service address of the 
+9 person and, to the extent feasible, other parties to the transaction;
+10 B.  The aggregate number of transactions and aggregate value of transactions by the 
+11 licensee with or on behalf of the person and for the licensee's account in this State, 
+12 expressed in United States dollar equivalent of virtual currency for the previous 12 
+13 calendar months;
+14 C.  Each transaction in which the licensee exchanges one form of virtual currency for 
+15 money or another form of virtual currency with or on behalf of the person;
+16 D.  All assets, liabilities, capital, income and expenses of the licensee, as a monthly 
+17 general ledger;
+18 E.  Each business call report the licensee is required to create or provide to the 
+19 Department of Professional and Financial Regulation or NMLS;
+20 F.  Bank statements and bank reconciliation records for the licensee and the name, 
+21 account number and United States Postal Service address of each bank the licensee 
+22 uses in the conduct of its virtual currency business activity with or on behalf of the 
+23 person;
+24 G.  A report of any dispute with the person; and
+25 H.  A report of any virtual currency business activity transaction with or on behalf of a 
+26 person that the licensee was unable to complete.
+274.  Form of records.  A licensee shall maintain records required by subsection 3 in a 
+28 form that enables the administrator to determine whether the licensee is in compliance with 
+29 this Act, a court order, a federal law and a law of this State other than this Act.
+30§6100-UU.  Requirements for unhosted wallets
+31 A licensee shall identify the recipient of virtual currency or monetary value transferred 
+32 to an unhosted wallet.  If the sender claims that it is also the recipient of the transferred 
+33 virtual currency or monetary value, attestation by the sender alone is not sufficient to meet 
+34 this identification requirement.
+35Sec. 3.  32 MRSA c. 80, headnote is amended to read:
+36CHAPTER 80
+37MONEY TRANSMITTERS AND CHECK CASHERS  AND CASH-DISPENSING 
+38MACHINES
+Page 42 - 131LR2696(01)1Sec. 4.  32 MRSA c. 80, sub-c. 1, as amended, is repealed.
+2Sec. 5.  32 MRSA §6132, sub-§5, ¶C, as enacted by PL 1997, c. 155, Pt. A, §2, is 
+3 amended to read:
+4 C.  A licensee under the Maine Money Transmitters Transmission Modernization Act; 
+5 or
+6Sec. 6.  32 MRSA §6132, sub-§6, ¶B, as enacted by PL 1997, c. 155, Pt. A, §2, is 
+7 amended to read:
+8 B.  A licensee under the Maine Money Transmitters Transmission Modernization Act; 
+9 or
+10Sec. 7.  Transition. A person that immediately prior to the effective date of this Act 
+11 is licensed pursuant to the Maine Revised Statutes, Title 32, chapter 80, subchapter 1 to 
+12 engage in the business of money transmission is not subject to the provisions of the Maine 
+13 Money Transmission Modernization Act to the extent that those provisions conflict with or 
+14 establish requirements not imposed under the law in effect immediately prior to the 
+15 effective date of this Act until the person renews the person’s license on or after the 
+16 effective date of this Act.  The person is required to amend its authorized delegate contracts 
+17 to comply with the Maine Money Transmission Modernization Act only for contracts 
+18 entered into or amended on or after the effective date of this Act.  Nothing in this section 
+19 may be construed as limiting an authorized delegate's obligations to operate in full 
+20 compliance with the Maine Money Transmission Modernization Act as required by Title 
+21 32, section 6100-H, subsection 3.
+22SUMMARY
+23 This bill repeals the Money Transmitters Act and replaces it with a model act.  The bill 
+24 uses national standardized definitions and terms and uses national standardized licensing 
+25 requirements.23
+24
+25
