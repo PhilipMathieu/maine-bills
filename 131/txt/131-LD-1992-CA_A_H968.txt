@@ -1,0 +1,850 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+t(ff 
+2 
+3 VETERANS AND LEGAL AFFAIRS 
+L.D. 1992 
+(Filing No. H-1&.E) 
+4 Reproduced and distributed under the direction of the Clerk of the House. 
+5 STATE OF MAINE 
+6 HOUSE OF REPRESENTATIVES 
+7 131ST LEGISLATURE 
+8 SECOND REGULAR SESSION 
+9 COMMITTEE AMENDMENT" A:" to H.P. 1275 1 L.D. 1992 1 "An Act to Legalize 
+10 Historical Horse Racing and Electronic Beano to Allow Maine Gaming Licensees and 
+11 Federally Recognized Indian Tribes to Compete with Other Gaming States" 
+12 Amend the bill by striking out the title and substituting the following: 
+13 'An Act to Legalize Historical Horse Racing and Electronic Beano to Allow Certain 
+14 Maine Gaming Licensees and Federally Recognized Indian Tribes to Compete with 
+15 Other Gaming States and to Make Changes to the Laws Related to High-stakes 
+16 Beano' 
+17 Amend the bill by striking out everything after the enacting clause and inserting the 
+18 following: 
+19 'Sec. 1. 8 MRSA c. 39 is enacted to read: 
+20 CHAPTER39 
+21 ELECTRONIC BEANO AND IDSTORICAL HORSE RACING 
+22 §1501. Definitions 
+23 As used in this chapter, unless the context otherwise indicates, the following terms 
+24 have the following meanings. 
+25 1. Beano. 11 Bea110 11 means a game of chance, as defined in Title 17, section 1831, 
+26 subsection 5, in which: 
+27 A. A patticipant plays with one or more cards bearing numbers or other designations; 
+28 B. A paiticipant covers such numbers or other designations on that pa1ticipant 1 s card 
+29 or cards when objects similarly numbered or designated are drawn; 
+30 C. The winner of the game is the first person who covers a previously designated 
+31 arrangement of numbers or other designations on the cards under paragraph A; and 
+Page 1 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+0 ~.1 
+~ ,•• 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMEN_T" t'(' to H.P. 1275, L.D. 1992 
+D. A pmticipant plays for prizes, including monetmy prizes. 
+2. Director. "Director" means the director of the Gambling Control Unit. 
+3. Electronic beano. "Electronic beano" means a game of beano played in an 
+electronic or electromechanical fonnat that replicates the game of beano by incorporating 
+all of the characteristics of the game of beano and that allows the paiticipant to play against 
+other participants who are playing electronic beano, but not to play with or against the 
+electronic beano terminal. 
+4. Electronic beano terminal. "Electronic beano terminal" means an electronic 
+device used by a patticipant to play electronic beano. An electronic beano tenninal allows 
+a patticipant, upon payment of cash, token or credit, to play a game of electronic beano 
+from a draw of no more than 75 numbers or other designations that correspond to the 
+electronic beano game. The element of chance is determined by a centrnl computer server 
+system that communicates with the electronic beano terminal. An electronic beano terminal 
+may only award a prize in the form of a voucher that may be redeemed for a prize, including 
+a monetaty prize. The electronic beano terminal may not dispense cash to a patticipant. An 
+electronic beano terminal is not a slot machine as defined in section 1001, subsection 39, 
+5. Gambling Control Unit. ''Gambling Control Unit" means the Gambling Control 
+Unit within the Depatiment of Public Safety. 
+6. Historical horse race. "Historical horse race" means a horse race that: 
+A. Was previously run at a licensed pari-mutuel facility located in the United States; 
+B. Concluded with official results; and 
+C. Concluded without scratches, disqualifications or dead-heat finishes. 
+7. Historical horse racing terminal. "Historical horse racing terminal" means an 
+electronic device approved by the director that allows a player to place a pari-mutuel wager 
+on a historical horse race upon payment of cash, token or credit. The outcome of each 
+wager may only be based on the outcome of the historical horse race or races and no random 
+elements may determine the outcome of the wager. A historical horse racing terminal is not 
+a slot machine as defined in section 1001, subsection 3 9. 
+8. License. "License" means a license issued by the director under this chapter. 
+9. Licensee. "Licensee" means a person granted a license under this chapter. 
+10. Net terminal income. "Net terminal income" means cash, tokens, credits or 
+similar objects or things of value used to play on an electronic beano terminal or a historical 
+horse racing terminal minus cash, credits or prizes paid out to winners. 
+11. Pari-mutuel wagering. "Pari-mutuel wagering" means a method of wagering in 
+which those who wager on horses that finish in the position or positions for which wagers 
+are taken share in the total amounts wagered. 
+12. Terminal distributor. "Terminal distributor" means a person, firm, corporation, 
+association or organization that sells, markets or otherwise distributes electronic beano 
+terminals or historical horse racing terminals, 
+§1502. Powers of director 
+1. Powers. In administering and enforcing this chapter, the director may: 
+Page 2 -131LR2284(02) 
+COMMITTEE AMENDMENT 
+o0 1 ~ 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+COMMITTEE AMENDMENT"~" to H.P. 1275, L.D. 1992 
+A. Pursuant to section 1503, approve or deny any application for and issue, limit, 
+restrict, suspend or revoke any license issued under this chapter; 
+B. Review reports of the investigation and qualifications of an applicant before a 
+license is issued; 
+C. Prescribe the manner for the collection of all revenues under this chapter; 
+D. Investigate complaints regarding the operation of electrnnic beano terminals and 
+historical horse racing terminals in violation of this chapter and rules adopted pursuant 
+to this chapter; 
+E. Impose sanctions, penalties and costs of investigation and hearing against an 
+applicant or licensee for violation of this chapter or rules adopted pmsuant to this 
+chapter; and 
+F. Conduct a financial audit of any licensee, at any time, to ensure compliance with 
+this chapter. 
+§1503. License to operate electronic beano or historical horse racing terminals 
+1. License reguired. A person may not operate an electrnnic beano terminal or 
+historical horse racing terminal unless the person has been issued a license by the director. 
+An electrnnic beano license authorizes a licensee to own or lease electrnnic beano terminals 
+at a location as prnvided in subsection 5. A historical horse racing license authorizes a 
+licensee to own or lease historical horse racing terminals at a location as prnvided in 
+subsection 5. 
+2. Persons eligible for historical horse racing license. The director may issue 
+licenses to operate historical horse racing terminals to: 
+A. Federally recognized Indian tribes within the State; 
+B. Commercial tracks licensed to conduct pari-mutuel wagering under chapter 11 and 
+not licensed under chapter 31, subchapter 2; and 
+C. Off-track betting facilities licensed under section 275-D. 
+3. Persons eligible for electronic beano license. The director may issue licenses to 
+operate electrnnic beano terminals to federally recognized Indian tribes in the State. 
+4. Application; license fee; term. An application for a license must be submitted in 
+a manner prescribed by the director. The initial fee and renewal fee for a license to operate 
+historical horse racing terminals may not exceed $1,000. The initial fee and renewal fee for 
+a license to operate electronic beano terminals may not exceed $1,000. Licenses must be 
+renewed annually. 
+5. Location; number of terminals; municipal approval. Electrnnic beano terminals 
+or historical horse racing terminals may be located in the State according to this subsection. 
+A. A licensed commercial track under subsection 2, paragraph B may operate up to 
+100 historical horse racing terminals, except that a commercial track may also operate 
+up to 100 electronic beano terminals or historical horse racing terminals according to 
+a written agreement under paragraph C with each federally recognized Indian tribe. 
+The operation of electrnnic beano terminals and historical horse racing terminals must 
+be approved by the municipality by referendum vote. The terminals must be located 
+within the enclosure of the licensed commercial track. 
+Page 3 • 131LR2284(02) 
+COMMITTEE AMENDMENT 
+o<o 1 
+~ 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMENT" ,k,' to H.P. 1275, L.D. 1992 
+B. A licensed off-track betting facility under subsection 2, paragraph C may operate up 
+to 25 historical horse racing terminals. The terminals must be located within the 
+licensed off-track betting facility. 
+C. A federally recognized Indian tribe under subsection 2, paragraph A and subsection 
+3 may operate up to 200 electronic beano terminals or historical horse racing terminals. 
+The terminals may be operated: 
+(1) On Passamaquoddy Indian territory, in the case of the Passamaquoddy Tribe; 
+(2) On Penobscot Indian territory, in the case of the Penobscot Nation; 
+(3) On Houlton Band Trust Land, in the case of the Houlton Band of Maliseet 
+Indians; 
+(4) On Mi'kmaq Nation Trust Land, in the case of the Mi'kmaq Nation; 
+(5) At a location in a municipality that is adjacent to a federally recognized Indian 
+tribe's land or territ01y listed in subparagraphs (1) to (4) if that municipality has 
+approved operation of electronic beano terminals or historical horse racing 
+terminals under this chapter; 
+(6) At a commercial track licensed under subsection 2, paragraph B and located 
+pursuant to paragraph A according to a written agreement between the federally 
+recognized Indian tribe and the commercial track approved by the director. A 
+commercial track may operate electrnnic beano terminals and historical horse 
+racing terminals on behalf of a federally recognized Indian tribe according to a 
+written agreement under this paragraph; or 
+(7) With another federally recognized Indian tribe at a location listed in 
+subparagraphs (1) to (5) according to a written agreement with the federally 
+recognized Indian tribe approved by the director. 
+A federally recognized Indian tribe may operate electronic beano terminals and 
+historical horse racing terminals at multiple locations. A federally recognized Indian 
+tribe may operate only up to 100 terminals pursuant to subparagraph (6) or (7). 
+6. Terminal fee, In addition to the license fee under subsection 4, the fee for each 
+electronic beano terminal or historical horse racing terminal is $50 annually. 
+7. Terminal distributor; registration. A licensee may only use electronic beano 
+terminals or historical horse racing terminals that are ce1tified and registered with the 
+Gambling Control Unit and that are provided by a terminal distributor licensed under 
+section 1505. The director shall adopt rules regarding the certification and registration of 
+electrnnic beano terminals and historical horse racing terminals. Rules developed pursuant 
+to this subsection are routine technical rules as defined by Title 5, chapter 375, subchapter 
+2-A. 
+8, Minimum age. A licensee may not permit a person under 21 years of age to operate 
+an electronic beano terminal or historical horse racing terminal. A licensee may not permit 
+a person under 21 years of age from entering any area where an electrnnic beano terminal 
+or historical horse racing terminal is being operated. 
+§1504. Allocation of funds 
+Page 4 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+1 
+~o<o; 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMENT",/{' to H.P. 1275, L.D. 1992 
+1. Distribution of net terminal income. A licensee shall collect and distribute 25% 
+of the net terminal income from electronic beano terminals and historical horse racing 
+terminals to the director for distribution by the director as follows: 
+A. One percent of net terminal income must be deposited to the General Fund for 
+administrative expenses of the Gambling Control Unit: 
+B, Two percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Gambling Addiction Prevention 
+and Treatment Fund established by Title 5, section 20006-B; 
+C, Two percent of the net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Substance Use Disorder 
+Assistance Program established by Title 25, section 5101; 
+D, Two percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Agricultural Fair Support Fund 
+established by Title 7, section 91; 
+E. Four percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the fund established in section 298 to 
+supplement hamess racing purses; 
+F, One percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Harness Racing Promotional Fund 
+established in section 299-A; 
+G. One percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Fund to Encourage Racing at 
+Maine's Commercial Tracks established in section 299; 
+H. Two percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Sire Stakes Fund established under 
+section 281; 
+I. Two percent of net tenninal income must be forwarded by the director to the 
+Treasurer of State, who shall credit the money to the Coordinated Veterans Assistance 
+Fund established in Title 37-B, section 514; 
+J. Six percent of net terminal income must be forwarded by the director to the Treasurer 
+of State, who shall credit the money to the Maine Veterans' Homes Stabilization Fund 
+established in Title 37-B, section 613; and 
+K. Two percent of net terminal income must be forwarded by the director to the 
+Treasurer of State, who shall remit the funds not less than quarterly to the municipality 
+in which the electronic beano terminals or historical horse racing terminals are located, 
+Notwithstanding paragraph K, if the electronic beano terminals or historical horse racing 
+terminals are located pursuant to section 1503, subsection 5, paragraph C, subparagraphs 
+(1) to (4), the funds must be retained by the federally recognized Indian tribe, as applicable. 
+If the electronic beano terminals or historical horse racing terminals are located pursuant 
+to section 1503, subsection 5, paragraph C, subparagraph (6), the funds must be remitted 
+according to the written agreement authorizing the location of the terminals. 
+Page 5 • 131LR2284(02) 
+COMMITTEE AMENDMENT 
+OCj 1 
+2 ~ 3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+43 
+44 
+45 
+COMMITTEE AMENDMENT" fa.' to H.P. 1275, L.D. 1992 
+2, Failure to collect and distribute funds, A licensee who knowingly or intentionally 
+fails to comply with this section commits a Class C crime. In addition to any other sanction 
+available by law. the license of the person may be revoked by the director and electronic 
+beano terminals and historical horse racing terminals operated by the licensee may be 
+disabled and the proceeds and associated gaming equipment may be confiscated by the 
+director and are subject to forfeiture under Title 17-A. section 959 or 960. 
+3. Late payments, The director may adopt rules establishing the dates on which 
+payments required by this section are due. All payments not remitted when due must be 
+paid together with interest on the unpaid balance at a rate of 1.5% per month. 
+§1505, Terminal distributors; licenses; records and reports 
+1. Terminal distributors licensed. A terminal distributor may not sell, lease, market 
+or otherwise distribute electronic beano terminals or historical horse racing terminals unless 
+licensed by the Gambling Control Unit. A nonresident manufacturer or distributor of 
+electrnnic beano terminals or historical horse racing terminals doing business in the State 
+must have an agent in this State who is licensed as a terminal distributor. A terminal 
+distributor may not sell. market or otherwise distribute electronic beano terminals or 
+historical horse racing terminals to a person or organization, except to persons licensed to 
+operate electronic beano terminals or historical horse racing terminals under section 1503. 
+2. Application; fee, An applicant for a terminal distributor license or, if the applicant 
+is a firm. corporation. association or other organization, its resident manager. 
+superintendent or official representative. shall file an application with the Gambling 
+Contrnl Unit on a form provided by the Gambling Control Unit. The fee for a terminal 
+distributor license is $5,000 annually. In addition to the license fee. the director may charge 
+a one-time initial application fee for a terminal distributor license in an amount equal to the 
+projected cost of processing the application and performing any background investigations. 
+If the actual cost exceeds the projected cost. an additional fee may be charged to meet the 
+actual cost. If the projected cost exceeds the actual cost. the difference may be refunded to 
+the applicant. 
+3, Sales agreements. A terminal distributor shall forward to the Gambling Control 
+Unit, prior to delive1y of any electronic beano terminals or historical horse racing tenninals 
+to the purchaser. a copy of all sales agreements. sales contracts or any other agreements 
+involving the sale of any electronic beano terminals or historical horse racing terminals. 
+The terms of these agreements must include. but are not limited to. the name of the seller. 
+name of the purchaser. address of the seller, address of the purchaser, a description of the 
+electronic beano terminals or historical horse racing terminals, including serial number and 
+model name and number. total sale price, any arrangement or terms for payments and the 
+date of final payment. Any change, modification or alteration of these agreements must be 
+repo1ted to the Gambling Control Unit by the purchaser within 6 days of the change. 
+modification or alteration. 
+4. Service agreement. With the sale of any electronic beano terminals or historical 
+horse racing terminals that includes a service agreement. the terminal distributor shall 
+forward to the Gambling Control Unit a copy of the service agreement prior to delivery of 
+the electronic beano terminal or historical horse racing terminal. The terms of the service 
+agreement must include, but are not limited to, the name of the seller. name of the 
+purchaser. address of the seller, address of the purchaser. a description of the electronic 
+Page 6 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+~ 1 ~o 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+43 
+COMMITTEE AMENDMENT"A" to H.P. 1275, L.D. 1992 
+beano terminal or historical horse racing terminal to be serviced, including serial number 
+and model name and number and all prices and payments for that service. Any change, 
+modification or alteration of the agreement must be repotted to the Gambling Control Unit 
+by the purchaser within 6 days of the change, modification or alteration. 
+5. Lease agreement. When an electronic beano terminal or historical horse racing 
+terminal is leased, the terminal distributor shall forward to the Gambling Control Unit a 
+copy of the lease agreement and shipment approval prior to delivery of the electronic beano 
+tenninal or historical horse racing terminal. The tenns of the lease must include, but are 
+not limited to, the name of the lessor, address of the lessor, name of the lessee, address of 
+the lessee, description of the electronic beano terminal or historical horse racing terminal, 
+serial number, model name or number of the electronic beano terminal or historical horse 
+racing terminal and all prices and payments for the lease. Each lease must be for a specific 
+period of time. Electronic beano te1111inals or historical horse racing terminals leased under 
+this section must be clearly marked to identify the name and address of the terminal 
+distributor. A lease agreement under this subsection may not allow a terminal distributor 
+to receive more than 50% of net terminal income. 
+6. Reports. A terminal distributor shall file annually with the Gambling Control Unit 
+a report indicating: 
+A. The names and addresses of all persons or federally recognized Indian tribes to 
+which the terminal distributor has distributed electronic beano terminals or historical 
+horse racing terminals and the dates of the distribution; 
+B. A description of the electronic beano terminals or historical horse racing terminals 
+distributed, including serial number and model name and number; and 
+C. The number of electronic beano terminals or historical horse racing terminals 
+distributed. 
+7. Retention and inspection of records. A terminal distributor shall maintain and 
+keep for a period of 3 years, on the premises of the terminal distributor, any records that 
+may be necessaty to substantiate the reports required by this section or by the rules adopted 
+unde1· this chapter. The records must be open to inspection by the Gambling Control Unit, 
+and a terminal distributor may not refuse the Gambling Control Unit permission to inspect 
+or audit the records. Refusal to pennit inspection or audit of the records does not constitute 
+a crime under this chapter but constitutes grounds for the revocation of a terminal 
+distributor license. 
+8, Rulemaking, The director shall adopt rules as necessary to administer this section, 
+including rules regarding the licensing of terminal distributors under subsection 1. Rules 
+adopted pursuant to this subsection are routine technical rules pursuant to Title 5, chapter 
+375, subchapter 2-A. 
+§1506, Violations and penalties 
+1. Violation, A person, firm, corporation or association or an agent or employee of 
+one of those entities who violates any provision of this chapter or a rule adopted pursuant 
+to this chapter is subject to the penalties under subsection 2. 
+2. Penalty. For each violation of this chapter or of a rule adopted pursuant to this 
+chapter, the director may: 
+Page 7 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+~1 
+~o 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMENT "A" to H.P. 1275, L.D. 1992 
+A. Impose a fine of up to $1,000 per violation: or 
+B. Impose a fine not to exceed $5,000 for violations arising out of the same transaction 
+or occurrence. 
+§1507. Applicability of other laws 
+Unless otherwise specified in this chapter, the provisions of Title 17, chapter 62 and 
+Title 17-A, chapter 39 do not apply to the conduct of electronic beano and historical horse 
+racing operated in accordance with this chapter and rules adopted pursuant to this chapter. 
+§1508. Rulemaking 
+The director shall adopt rules to implement this chapter. Rules adopted pursuant to this 
+section are routine technical rules as defined in Title 5, chapter 375, subchapter 2-A. 
+1. Required rules. Rules adopted pursuant to this section must include, but are not 
+limited to, the following: 
+A. Provisions allowing individuals to restrict themselves from using an electronic 
+beano terminal or a historical horse racing terminal upon request by placing themselves 
+on the list established pursuant to section 1003, subsection 3, paragraph I: 
+B. Standards for involunta1y placement on the list established pursuant to section 1003, 
+subsection 3, paragraph I and for removal from the list: and 
+C. Provisions to prevent undesirable conduct relating to the ownership, leasing, 
+distribution and operation of electronic beano terminals and historical horse racing 
+terminals. 
+Sec. 2. 17 MRSA §314-A, sub-§1, 'ifA, as amended by PL 2017, c. 284, Pt. JJJJJ, 
+§9, is fmther amended to read: 
+A. The Gambling Control Unit may also issue, to accept a registration from a federally 
+recognized Indian tribe, licenses licensed under this section to sell lucky seven or other 
+similar sealed tickets in accordance with section 324-A. 
+Sec, 3. 17 MRSA §314-A, sub-§1, as amended by PL 2017, c. 284, Pt. JJJJJ, §9 
+and Pt. KKKKK, §2, is fmther amended by amending the first blocked paragraph to read: 
+The Gambling Control Unit may flat issue more than one license under this section to a 
+federally recognized Indian tribe for the same period. 
+Sec. 4. 17 MRSA §314-A, sub-§1-A, as amended by PL 2017, c. 284, Pt. JJJJJ, 
+§ 10, is further amended to read: 
+1-A. Sealed tickets; dispenser, The Gambling Contrnl Unit may also accept a 
+registration from a federally recognized Indian tribe licensed under this section to sell lucky 
+seven or other similar sealed tickets in accordance 1 Nith section 324 A. The licensee A 
+federally recognized Indian tribe licensed under this section and registered to sell lucky 
+seven or other similar sealed tickets under subsection 1, paragraph A may operate a 
+dispenser to sell the lucky seven or other similar tickets in accordance with section 324-A. 
+As used in this subsection, "dispenser" means a mechanical or electrical device or machine 
+that, upon the inse1tion of money, credit or something of value, dispenses printed lucky 
+seven or other similar tickets. The element of chance must be provided by the ticket itself, 
+not by the dispenser. The Gambling Control Unit may adopt rules to facilitate the use of 
+Page 8 - l31LR2284(02) 
+COMMITTEE AMENDMENT 
+\ oS 
+1 
+;'~ 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+COMMITTEE AMENDMENT/\" to H,P, 1275, L.D, 1992 
+dispensers. Rules adopted pursuant to this subsection are routine technical rules as defined 
+in Title 5, chapte1'375, subchapter 2-A. 
+Sec. 5. 17 MRSA §314-A, sub-§3, as amended by PL 2017, c, 284, Pt. JJJJJ, § 11, 
+is repealed, 
+Sec. 6. 17 MRSA §314-A, sub-§3-A, as enacted by PL 2003, c, 452, Pt. I, §5 and 
+affected by Pt. X, §2, is repealed. 
+Sec. 7. 17 MRSA §314-A, sub-§3-B, as amended by PL 2017, c, 284, Pt. JJJJJ, 
+§12 and PL 2023, c. 369, Pt. A, §4 and affected by §5, is futther amended to read: 
+3-B. Games up to 100 Number of days per year of operation. An organization A 
+federally recognized Indian tribe licensed under this section other than the Penobscot 
+Nation, the Houlton Band of Maliseet Indians and the Mi'kmaq Nation may operate high­
+stakes beano games up to -WO 250 days per year, A high-stakes beano game licensed under 
+this section and canceled for any reason may be rescheduled at any time, as long as 5 days' 
+prior notice of the new date is given to the Gambling Control Unit. 
+Sec. 8. 17 MRSA §314-A, sub-§5, 1C, as amended by PL 2011, c. 410, §3, is 
+repealed. 
+Sec. 9. 17 MRSA §314-A, sub-§5, ~ is enacted to read: 
+D, Conduct a game outside of Passamaquoddy Indian territmy, in the case of the 
+Passamaquoddy Tribe: outside of Penobscot Indian territory, in the case of the 
+Penobscot Nation: outside of Houlton Band Trust Land, in the case of the Houlton 
+Band of Maliseet Indians: outside of Mi'kmaq Nation Trust Land, in the case of the 
+Mi'kmaq Nation, except that a federally recognized Indian tribe licensed under this 
+section may conduct a game at a location in a municipality adjacent to land or territoty 
+where that federally recognized Indian tribe is authorized to conduct a game pursuant 
+to this paragraph as approved by that municipality. 
+Sec. 10. 17 MRSA §314-A, sub-§7, as amended by PL 1987, c. 679, §1 and 
+affected by PL 1991, c. 426, §§8 to 10, is further amended to read: 
+7. Payment for services. Except as provided in paragraph A, an organization fl: 
+federally recognized Indian tribe licensed under this section may pay the persons operating 
+the high-stakes beano games for the organization federally recognized Indian tribe no more 
+than 200% of the minimum wage as established by Title 26, chapter 7, subchapter III- J, 
+The persons need not be members of an organization a federally recognized Indian tribe 
+licensed under this section. 
+A. An organization A federally recognized Indian tribe licensed under this section may 
+contract for provision of professional legal, advertising, accounting and auditing 
+services. The persons employed under a contract entered into under this paragraph 
+may receive reasonable professional fees at a rate higher than minimum wage.' 
+Amend the bill by relettering or renumbering any nonconsecutive Patt letter or section 
+number to read consecutively. 
+Page 9 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+0~ 1 
+~ 2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+COMMITTEE AMENDMENT "K' to H.P. 1275, L.D. 1992 
+SUMMARY 
+This amendment, which replaces the bill, changes the title and authorizes the licensed 
+operation of electronic beano terminals and historical horse racing terminals by federally 
+recognized Indian tribes, and authorizes the operation of historical horse racing terminals 
+by off-track betting facilities and commercial tracks. Licenses are issued by the director of 
+the Gambling Control Unit within the Depatiment of Public Safety. The bill also requires 
+distributors of electronic beano terminals and historical horse racing terminals to be 
+licensed with the Gambling Control Unit. 
+The amendment establishes limits on the number and location of tenninals based upon 
+the type of licensee. The amendment requires an operator of an electronic beano terminal 
+or historical horse racing terminal to collect 25% of net terminal income for distribution 
+among the General Fund for administrative expenses of the Gambling Control Unit, 
+gambling addiction prevention and treatment services, the Substance Use Disorder 
+Assistance Program, agricultural fairs, funds dedicated to suppotting and promoting 
+harness racing, the Coordinated Veterans Assistance Fund, the Maine Veterans' Homes 
+Stabilization Fund and municipalities in which terminals are located. 
+The amendment also makes changes to the laws related to high-stakes beano, including 
+removing ce1tain restrictions on the number of days a federally recognized Indian tribe may 
+operate high-stakes beano based on the tribe and instead allowing any licensed federally 
+recognized Indian tribe to operate high-stakes beano up to 250 days per year. It also 
+removes ce1tain restrictions on where a federally recognized Indian tribe may conduct a 
+game of high-stakes beano and instead authorizes a federally recognized Indian tribe 
+licensed to operate high-stakes beano to conduct a game on that federally recognized Indian 
+tribe's land or territory or in a municipality that is adjacent to land or territory where that 
+federally recognized Indian tribe is authorized to conduct a high-stakes beano game as 
+approved by that municipality. The amendment makes other technical changes to the high­
+stakes beano laws. 
+FISCAL NOTE REQUIRED 
+(See attached) 
+Page 10 - 131LR2284(02) 
+COMMITTEE AMENDMENT 
+Approved: 04/08/24 feac::.. 
+131st MAINE LEGISLATURE 
+LD 1992 LR2284(02) 
+An Act to Legalize Historical Horse Racing and Electronic Beano to Allow Maine Gaming Licensees 
+and Federally Recognized Indian Tribes to Compete with Other Gaming States 
+Fiscal Note for Bill as Amended by Committee Amendment ~• ( \Jr J.'(J.oi) 
+Committee: Veterans and Legal Affairs 
+Fiscal Note Required: Yes 
+Fiscal Note 
+Potential current biennium revenue increase - Other Special Revenue Funds 
+Contingent current biennium cost increase - Other Special Revenue Funds 
+Fiscal Detail and Notes 
+This bill authorizes the Gambling Control Unit within the Department of Public Safety to allow the licensed operation 
+of electronic beano terminals and historical horse racing terminals by federally recognized Indian tribes and the 
+licensed operation of historical horse racing terminals by off-track betting facilities and commercial tracks. The bill 
+directs that 25% of the net terminal incomes from the devices be credited to the GCU for distribution as follows: 
+Gambling Control Unit Admin Expenses (OSR) 
+Gambling Addiction Prevention and Treatment Fund 
+Substance Use Disorder Assistance Program 
+Agricultural Fair Support Fund 
+Fund to Supplement Harness Racing Purses 
+Harness Racing Promotional Fund 
+Fund to Encourage Racing at Maine's Commercial Tracks 
+Sire Stakes Fund 
+Coordinated Veterans Assistance Fund 
+Maine Veterans' Homes Stabilization Fund 
+Municipalities where terminals are located 
+1% 
+2% 
+2% 
+2% 
+4% 
+1% 
+1% 
+2% 
+2% 
+6% 
+2% 
+The amount of additional Other Special Revenue Funds revenue generated by the operation of terminals and the 
+associated license revenue will depend on the number and location of terminals registered. If all entities who qualify. 
+to seek a license do so, the additional licensing, administrative, and compliance activities associated with the terminals 
+may increase the workload on the GCU staff. Any such increase is expected to be gradual and additional staffing for 
+the GCU may need to be addressed in future budgets. 
+LR2284(02) - Fiscal Note - Page 1 of 1 

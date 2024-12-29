@@ -1,0 +1,172 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+L.D. 589
+2 Date:Apt|y-tA ._.__ (Filing No. S-f
+MAJORITY
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT Hft" " to S.P. 257, L.D. 589, "An Act to Ensure That
+10 the Maine Electric Grid Provides Additional Benefits to Maine Ratepayers"
+11 Amend the bill by striking out everything after the enacting clause and inserting the
+12 following:
+13 'See. 1. 35-A MRSA §3148 is enacted to read:
+14 §3148. Periodic review of erid-enhancine technoloey
+15 1. Definitions. As used in this section, unless the context otherwise indicates, the
+16 following termshaye the following meanings.
+17 A. "Grid-enhancing technology" means any hardware or software technology that
+18 enables enhanced or more efficient flow of electricity across the existing._electric
+19 transmission and distnbution_SYStem. "Grid-enhancing technology" does not include
+20 generation assets or energy storage.
+21 B. "Large investor-owned transmission and distribution utility" has the same meaning
+22 as in section 3201, subsection 12.
+23 2. Periodic review. Beginning January 15, 2025. and every 5 years thereafter, the
+24 commission shall conduct a review or contract with a consultant to conduct a review of
+25 available grid-enhancing technology that could be implemented by a large investor-owned
+26 transmission and distribution utility to reduce or defer the need for investment in grid
+27 infrastructure in the State. The commission may produce a report or contract with a
+28 consultant to produce a report describing the grid-enhancing technology identified in the
+29 review. The commission may file information or the report for use in rate cases or other
+30 proceedings involving a large investor-owned transmission and distribution utility.
+31 including the integrated grid planning proceeding required pursuant to section_3147»
+32 subsection 2.
+33 Sec. 2. 35-A MRSA §3802, sub-§l-A is enacted to read:
+34 1-A. Beneficial lQad.__mBeneficial load" means:
+Page I - 131LR1954(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT" ^" to S.P. 257, L.D. 589 [S- SS'3
+t0s, 1 A. An increase .in electric load that is consistent with the principles of beneficial
+2 electrification; or
+3 B. The excess electrical capacity within the grid. the use of which is consistent with
+4 beneficiaLelectrification and, when feasible, avoids the need for significant investment
+5 in or expenditures for additional gn_d infrastructure,
+6 "Beneficial load" includes electric load that is used to reduce peak demand or shift the
+7 demand to lower cost time periods.
+8 Sec. 3. 35-A MRSA §3803, sub-§2, as enacted by PL 2023,c.328,§1, is amended
+9 to read:
+10 2. Plan for promoting beneficial electrification for end uses of energy. The trust
+11 shall develop a 3-year beneficial electrification plan for end uses of energy as part of the
+12 trust's triennial plan in accordance with section 10104, subsection 4 and provide annual
+13 updates to the plan in accordance with section 10104, subsection 6. In developing its
+14 beneficial cloctrifioation plan for end uses, the trust shall consult with relevant departments
+15 and agencies.
+16 A. In developing its beneficial electrification plan for end uses that promotes beneficial
+17 electrification, the trust shall:
+18 (I) Consult with relevant departments and agencies;
+19 (2) Consider jncentivizing the aouropriate placement of and oromotine
+20 commercial or industrial beneficial load;and
+21 C3') Integrate the ongoing energy planning efforts of the office as appropriate.
+22 B. In developing its beneficial electrification plan under this subsection, the trust shall
+23 consider:
+24 d) incorporating the assumptions and advancing the findings and
+25 recommendations of the office in its "Maine Energy Plan: Pathway to 2040" study
+26 launched in August 2023. part of the comprehensive state energy plan required by
+27 Title 2, section 9, subsection 3, paragraph C;
+28 (T) Whether, in order to enable more efficient generation and transmission
+29 planning, a certain type or location of electric load is beneficial load;
+30 (3) Integrating with and informing the commission's consideration of grid planning
+31 priorities pursuant to section 3147; and
+32 C4') Seeking input from transmission and distribution utilities and relevant agencies
+33 and oreanizafions in the State.
+34 Sec. 4. Efficiency IVIaine Trust beneficial electrification update. By February
+35 1, 2025, the trust shall provide a written update on its beneficial electrification planning as
+36 well as any recommendations, which may include proposed legislation, to improve its
+37 planning activities or to advance beneficial electrification, as defined in the Maine Revised
+3 8 Statutes, Title 3 5-A, section 3 802, subsection 1, and siting of beneficial load, as defined in
+39 Title 35-A, section 3802, subsection 1-A, to the joint standing committee of the Legislature
+40 having jurisdiction over energy matters. The committee may report out a bill related to
+41 beneficial electrification or the trust's recommendations to the 132nd Legislature in 2025.
+Page 2 - 131LR1954(02)
+COMMITTEE AMENDMENT
+ft " to S.P. 257, L.D. 589 [ <> - $^?COMMITTEE AMENDMENT "
+3» Sec. 5. Appropriations and allocations. The following appropriations and
+--'2 allocations are made.
+3 PUBLIC UTILITIES COMMISSION
+4 Public Utilities - Administrative Division 0184
+5 Initiative: Provides one-time funding for contracted consulting services.
+6 OTHER SPECIAL REVENUE FUNDS 2023-24 2024-25
+7 All Other $0 $102,100
+9 OTHER SPECIAL REVENUE FUNDS TOTAL $0 $102,100
+10
+11 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+12 number to read consecutive ly,
+13 SUMMARY
+14 This amendment replaces the bill, which is a concept draft. The amendment does the
+15 following.
+16 1. It directs the Public Utilities Commission to conduct a review or contract with a
+17 consultant to conduct a review of available grid-enhancing technology that may be
+18 implemented by large investor-owned transmission and distribution utilities to reduce or
+19 defer the need for investment in grid infrastructure in the State. The commission may
+20 produce a report or contract with a consultant to produce a report. The report may be used
+21 by the commission in rate cases or other proceedings involving a large investor-owned
+22 transmission and distribution utility, including the integrated grid planning proceeding.
+23 2. It defines "beneficial load" for the purposes of the Beneficial Electrification Policy
+24 Act.
+25 3. It requires the Efficiency Maine Trust, as a part of its development of a 3-year
+26 beneficial electrification plan for end uses of energy, to consider incentivizing the
+27 appropriate placement of and promoting commercial or industrial beneficial load and
+28 integrate the ongoing energy planning efforts of the Governor's Energy Office as
+29 appropriate.
+30 4. It requires the Efficiency Maine Trust to.provide, by Februaiy 1, 2025, a written
+31 update on its beneficial electrification planning as well as any recommendations to the joint
+32 standing committee of the Legislature having jurisdiction over energy matters.
+33 5, It adds an appropriations and allocations section.
+3 4 FISCAL NOTE REQUIRED
+35 (See attached)
+Page 3 - 131LR1954(02)
+COMMITTEE AMENDMENT
+Approved: 01/29/24 ^KZ'd
+131st MAINE LEGISLATURE
+LD 589 LR 1954(02)
+An Act to Ensure That the Maine Electric Grid Provides Additional Benefits to Maine Ratepayers
+Fiscal Note for Bill as Amended by Committee Amendment "4Y5~SS^)
+Committee: Energy, Utilities and Technology
+Fiscal Note Required: Yes
+Fiscal Note
+Projections Projections
+FY 2023-24 FY 2024-25 FY 2025-26 FY 2026-27
+Appropriations/AIlocations
+Other Special Revenue Funds
+Revenue
+Other Special Revenue Funds
+$0
+$0
+$102,100
+$102,100
+$0
+$0
+$0
+$0
+Fiscal Detail and Notes
+The Public Utilities Commission (PUC) has indicated that additional resources are required to complete the initial
+review required by this bill. The bill includes a one-time Other Special Revenue Funds allocation of $102,100 in fiscal
+year 2024-25 for contract consulting services and other associated costs. Since the PUC is funded by assessments on
+transmission and distribution utilities set to produce sufficient revenue for any expenditures needed to operate, the
+assessments will be increased to fund the new allocations,
+Any additional costs to the Efficiency Maine Trust to implement the provisions of this bill are expected to be minor
+and can be absorbed within existing budgeted resources.
+LR1954(02) - Fiscal Note - Page 1 of 1

@@ -1,0 +1,1080 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2290
+H.P. 1478 House of Representatives, April 9, 2024
+An Act to Correct Inconsistencies, Conflicts and Errors in the Laws 
+of Maine
+(EMERGENCY)
+Reported by Representative MOONEN of Portland for the Revisor of Statutes pursuant to 
+the Maine Revised Statutes, Title 1, section 94.
+Reference to the Committee on Judiciary suggested and ordered printed pursuant to Joint 
+Rule 218.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3063(01)
+1Emergency preamble.  Whereas, acts and resolves of the Legislature do not 
+2 become effective until 90 days after adjournment unless enacted as emergencies; and 
+3Whereas, acts of this and previous Legislatures have resulted in certain technical 
+4 inconsistencies, conflicts and errors in the laws of Maine; and
+5Whereas, these inconsistencies, conflicts and errors create uncertainties and 
+6 confusion in interpreting legislative intent; and
+7Whereas, it is vitally necessary that these uncertainties and this confusion be resolved 
+8 in order to prevent any injustice or hardship to the citizens of Maine; and 
+9Whereas, in the judgment of the Legislature, these facts create an emergency within 
+10 the meaning of the Constitution of Maine and require the following legislation as 
+11 immediately necessary for the preservation of the public peace, health and safety; now, 
+12 therefore,
+13Be it enacted by the People of the State of Maine as follows:
+14PART A
+15Sec. A-1.  2 MRSA §9, sub-§3, ¶I, as enacted by PL 2007, c. 656, Pt. C, §1, is 
+16 amended to read:
+17 I.  Monitor energy transmission capacity planning and policy affecting this State and 
+18 the regulatory approval process for the development of energy infrastructure pursuant 
+19 to Title 35‑A, section 122 and make recommendations to the Governor and the 
+20 Legislature as necessary for changes to the relevant laws and rules to facilitate energy 
+21 infrastructure planning and development; and
+22Sec. A-2.  2 MRSA §9, sub-§4, as enacted by PL 2009, c. 655, Pt. C, §2, is amended 
+23 to read:
+244.  Advice to state agencies.  The director shall advise state agencies regarding energy-
+25 related principles for agencies to consider, along with the laws and policies governing those 
+26 agencies, in conjunction with the sale, lease or other allowance for use of state-owned land 
+27 or assets for the purpose of development of energy infrastructure. For the purposes of this 
+28 subsection, "state-owned" and "energy infrastructure corridor" have the same meanings as 
+29 in Title 35-A, section 122, subsection 1  means owned by the State or by a state agency or 
+30 state authority. At a minimum, the director shall consider the following principles in 
+31 advising state agencies under this subsection:
+32 A.  The principles for the determination of the long-term public interest of the State as 
+33 specified in Title 35‑A, former section 122, subsection 1-D, paragraph B;
+34 B.  Avoiding wherever possible the use of lands subject to the provisions of the 
+35 Constitution of Maine, Article IX, Section 23;
+36 C.  Maximizing the benefit realized from the State's strategic location within New 
+37 England and the northeastern region; and
+38 D.  Complying with the provisions of the memorandum of agreement between the 
+39 Maine Turnpike Authority and the Department of Transportation under Title 35‑A, 
+40 former section 122, subsection 1-C, when applicable.
+Page 2 - 131LR3063(01)
+1 Nothing in this subsection alters any of the responsibilities or limits any of the authority of 
+2 the Department of Administrative and Financial Services, Bureau of General Services 
+3 pursuant to Title 5.  Nothing in this subsection alters or limits the ability of departments or 
+4 agencies of the State, along with the Bureau of General Services pursuant to Title 5, to 
+5 generate or cogenerate energy at state facilities for use on site and elsewhere.
+6Sec. A-3.  5 MRSA §282, sub-§9, as amended by PL 2017, c. 284, Pt. GG, §2, is 
+7 further amended to read:
+89.  Energy infrastructure benefits fund.  To establish an energy infrastructure 
+9 benefits fund. Except as otherwise provided by Title 35‑A, section 122, subsections 1-C 
+10 and 6-B or any other law, including the Constitution of Maine, the fund consists of any 
+11 revenues derived from the use of state-owned land and assets for energy infrastructure 
+12 development pursuant to Title 35‑A, section 122.  Each fiscal year, the Treasurer of State 
+13 shall transfer revenues collected in the fund to the Efficiency Maine Trust for deposit by 
+14 the Efficiency Maine Trust Board in program funds pursuant to Title 35‑A, section 10103, 
+15 subsection 4 and use by the trust in accordance with Title 35‑A, section 10103, subsection 
+16 4‑A. For the purposes of this subsection, "energy infrastructure" and "state-owned" have 
+17 the same meanings as in Title 35‑A, former section 122, subsection 1;
+18Sec. A-4.  5 MRSA §943, sub-§1, ¶K, as amended by PL 2023, c. 412, Pt. 
+19 AAAAA, §1 and affected by §3, is further amended to read:
+20 K.  Director, Bureau of Rehabilitation Services; and
+21Sec. A-5.  5 MRSA §6203-B, sub-§1, as amended by PL 2023, c. 284, §6, is further 
+22 amended to read:
+231.  Fund established.  The Maine Working Waterfront Access Protection Fund, 
+24 referred to in this section as "the fund," is established and is administered by the board in 
+25 cooperation with the Commissioner of Marine Resources under the provisions of this 
+26 chapter and Title 12, section 6031‑A  6042.  The fund consists of the proceeds from the sale 
+27 of bonds authorized for the purposes set forth in subsection 3 and funds received as 
+28 contributions from private and public sources for those purposes.  The fund must be held 
+29 separate and apart from all other money, funds and accounts, except that eligible investment 
+30 earnings credited to the assets of the fund become part of the assets of the Land for Maine's 
+31 Future Trust Fund.  Any balance remaining in the fund at the end of a fiscal year must be 
+32 carried forward for the next fiscal year.
+33Sec. A-6.  5 MRSA §7054-A, as corrected by RR 2023, c. 1, Pt. B, §24 and affected 
+34 by §50, is amended to read:
+35§7054-A.  Access to register for ASPIRE-JOBS  ASPIRE-TANF participants
+36 In making referrals to a position on an open competitive basis in the classified service, 
+37 preference must be given to ASPIRE-JOBS  ASPIRE-TANF participants as set forth in this 
+38 section.
+391.  Eligibility.  Candidates must be active participants of the ASPIRE-JOBS Program  
+40 ASPIRE-TANF program, as defined in Title 22, chapter 1054‑A, or current recipients of 
+41 Temporary Assistance for Needy Families who have completed the ASPIRE-JOBS 
+42 Program  ASPIRE-TANF program within the past year at the time an application for 
+43 employment is filed with the Bureau of Human Resources in order to be eligible for 
+Page 3 - 131LR3063(01)
+44 preference under this section.  Candidates shall make their status in the ASPIRE-JOBS 
+45 Program  ASPIRE-TANF program known to the State Human Resources Officer in a 
+46 manner prescribed by the officer.  Eligibility for preference continues for a period of one 
+47 year after the date of application for employment and may be renewed at the end of one 
+48 year at the request of the candidate if the candidate continues to meet the other eligibility 
+49 criteria specified in this subsection.  A candidate receives preference only if the candidate 
+50 has earned a qualifying rating on all relevant examinations.
+82.  Certification preference.  Preference is limited to referral of the highest scoring 
+9 ASPIRE-JOBS Program  ASPIRE-TANF program participant as an additional candidate to 
+10 be interviewed.  If the normal certification procedure includes an eligible ASPIRE-JOBS 
+11 Program  ASPIRE-TANF program participant, further preferential certification may not be 
+12 made.  Preference under this section may not exclude a person who would be referred 
+13 normally.
+14Sec. A-7.  5 MRSA §7068, sub-§1, ¶A, as corrected by RR 2023, c. 1, Pt. B, §40 
+15 and affected by §50, is amended to read:
+16 A.  In carrying out these programs, the officer shall invite and include, to the extent 
+17 they wish to participate, representatives of the Bureau of Employee Health  Human 
+18 Resources, the Maine Public Employees Retirement System and employee 
+19 representatives who are bargaining agents for any or all of the state employees 
+20 attending the conference.  Such employee representatives participate as the officer 
+21 provides in the program, but must at least be given the chance to address employees in 
+22 represented bargaining units on the rights and obligations of employees under the 
+23 contract for their bargaining unit and as to insurance programs and other benefits that 
+24 are available from the employee representative.
+25Sec. A-8.  5 MRSA §12004-G, sub-§30-D, as enacted by PL 2009, c. 655, Pt. A, 
+26 §1, is repealed.
+27Sec. A-9.  5 MRSA §23001, sub-§2-A, as enacted by PL 2007, c. 551, §2, is 
+28 amended to read:
+292-A.  Report to committees.  Submit a biennial report beginning March 1, 2009, 
+30 compiled by the Director of the Bureau of Human Resources  State Human Resources 
+31 Officer within the Department of Administrative and Financial Services, on the plans 
+32 developed pursuant to subsection 2 to the joint standing committees of the Legislature 
+33 having jurisdiction over state and local government matters and over labor matters and to 
+34 the Governor's office.  The report must include any changes made to the plans, an 
+35 assessment made by the director  officer of the effectiveness of the plans and any 
+36 recommendations for legislative action pertaining to the report.  The joint standing 
+37 committee of the Legislature having jurisdiction over state and local government matters 
+38 may submit legislation pertaining to the report to the first regular session of each 
+39 Legislature;
+40Sec. A-10.  6 MRSA §244, first ¶ is amended to read:
+41 Any person aggrieved by any decision of the board of appeals, or any taxpayer, or any 
+42 officer, department, board or bureau of the political subdivision may appeal to the Superior 
+43 Court in the manner provided for appeal on estimate  the determination of damages for town 
+44 ways in Title 23, section 3005  3029.
+1
+2
+3
+4
+5
+6
+7
+Page 4 - 131LR3063(01)
+1Sec. A-11.  10 MRSA §1663, sub-§1, ¶A, as amended by PL 2023, c. 43, §1, is 
+2 further amended to read:
+3 A.  "Biodiesel" means a renewable,  fuel composed of biodegradable mono-alkyl esters 
+4 of long chain fatty acids derived from plant oils or animal fats that meets the 
+5 requirements of the most recent ASTM International standard D6751.  "Biodiesel" 
+6 includes fuel that otherwise meets the requirements of this paragraph and also contains 
+7 up to 1% diesel fuel.
+8Sec. A-12.  12 MRSA §685-A, sub-§11, as amended by PL 2007, c. 656, Pt. A, §1, 
+9 is further amended to read:
+1011.  Exemptions.  Real estate used or to be used by a public utility, as defined in Title 
+11 35‑A, section 102, subsection 13, or a person who is issued a certificate by the Public 
+12 Utilities Commission under Title 35‑A, section 122 may be wholly or partially exempted 
+13 from regulation to the extent that the commission may not prohibit such use but may impose 
+14 terms and conditions for use consistent with the purpose of this chapter, when, upon timely 
+15 petition, notice and public hearing, the Public Utilities Commission determines that such 
+16 exemption is necessary or desirable for the public welfare or convenience.  The Public 
+17 Utilities Commission shall adopt by rule procedures to implement this subsection.  Rules 
+18 adopted pursuant to this subsection are routine technical rules as defined in Title 5, chapter 
+19 375, subchapter 2‑A.
+20Sec. A-13.  12 MRSA §6302-A, sub-§2, as amended by PL 2013, c. 254, §2 and 
+21 PL 2023, c. 369, Pt. A, §4 and affected by §5, is further amended by amending the first 
+22 blocked paragraph to read:
+23 For purposes of this subsection, "sustenance use" means all noncommercial consumption 
+24 or noncommercial use by any person within Passamaquoddy Indian territory, as defined in 
+25 Title 30, section 6205, subsection 1, Penobscot Indian territory, as defined in Title 30, 
+26 section 6205, subsection 2, Aroostook Band  Mi'kmaq Nation Trust Land, as defined in 
+27 Title 30, section 7202  7203, subsection  2 6, or Houlton Band Trust Land, as defined in 
+28 Title 30, section 6203, subsection 2‑A, or at any location within the State by a tribal 
+29 member, by a tribal member's immediate family or within a tribal member's household.  
+30 The term "sustenance use" does not include the sale of marine organisms.
+31Sec. A-14.  12 MRSA §6302-A, sub-§10, as amended by PL 2013, c. 8, §1 and PL 
+32 2023, c. 369, Pt. A, §4 and affected by §5, is further amended to read:
+3310.  Agent.  For purposes of this section, an agent of the Mi'kmaq Nation is any entity 
+34 authorized by the Aroostook Band of Micmacs  Mi'kmaq Nation Tribal Council to act on 
+35 its behalf under this section and an agent of the Houlton Band of Maliseet Indians is any 
+36 entity authorized by the Houlton Band of Maliseet Indians Tribal Council to act on its 
+37 behalf under this section.  The Aroostook Band of Micmacs  Mi'kmaq Nation Tribal Council 
+38 shall certify to the department any agent it has designated to act on its behalf under this 
+39 section.  The Houlton Band of Maliseet Indians Tribal Council shall certify to the 
+40 department any agent it has designated to act on its behalf under this section.
+41Sec. A-15.  12 MRSA §10853, sub-§8, as amended by PL 2023, c. 228, §6 and c. 
+42 369, Pt. A, §4 and affected by §5, is further amended to read:
+438.  Members of federally recognized Indian nation, band or tribe.  The 
+44 commissioner shall issue a hunting, trapping and fishing license, including an archery 
+Page 5 - 131LR3063(01)
+45 hunting license under this chapter, and including all permits, stamps and other permission 
+46 needed to hunt, trap and fish, to a person who is an enrolled member of the Passamaquoddy 
+47 Tribe, the Penobscot Nation, the Houlton Band of Maliseet Indians or the Mi'kmaq Nation 
+48 that is valid for the life of that person without any charge or fee pursuant to section 11109, 
+49 if the person presents certification from the appropriate reservation chief or governor or the 
+50 Aroostook Micmac  Mi'kmaq Nation Tribal Council stating that the person described is an 
+51 enrolled member of a federally recognized Indian nation, band or tribe listed in this 
+52 subsection.  Holders of these licenses are subject to this Part, including, but not limited to, 
+53 a lottery or drawing system for issuing a particular license or permit.  Members of a 
+54 federally recognized Indian nation, band or tribe listed in this subsection are exempt from 
+55 the trapper education program required for a license under section 12201, the bear trapping 
+56 education course required by section 12260‑A, subsection 4 and the archery hunter 
+57 education course under section 11106.  A license holder under this subsection who qualifies 
+58 to hunt during the special season on deer under section 11153 and who meets the eligibility 
+59 requirements of section 11106 must have included in that person's license one antlerless 
+60 deer permit and one either-sex permit.
+17Sec. A-16.  12 MRSA §12201, sub-§3, ¶A, as amended by PL 2017, c. 164, §15 
+18 and PL 2023, c. 369, Pt. A, §4 and affected by §5, is further amended to read:
+19 A.  A person who is an enrolled member of the Passamaquoddy Tribe, the Penobscot 
+20 Nation, the Houlton Band of Maliseet Indians or the Mi'kmaq Nation who presents 
+21 certification from the respective reservation chief or governor or the Aroostook 
+22 Micmac  Mi'kmaq Nation Tribal Council stating that the person is an enrolled member 
+23 of a federally recognized nation, band or tribe listed in this paragraph is exempt from 
+24 the requirements of this subsection.
+25Sec. A-17.  12 MRSA §12260-A, sub-§4, as amended by PL 2023, c. 228, §10 and 
+26 c. 369, Pt. A, §4 and affected by §5, is further amended by amending the 2nd blocked 
+27 paragraph to read:
+28 A person who is an enrolled member of the Passamaquoddy Tribe, the Penobscot Nation, 
+29 the Houlton Band of Maliseet Indians or the Mi'kmaq Nation who presents certification 
+30 from the appropriate reservation chief or governor or the Aroostook Micmac  Mi'kmaq 
+31 Nation Tribal Council stating that the person is an enrolled member of a federally 
+32 recognized Indian nation, band or tribe listed in this paragraph is exempt from this 
+33 subsection.
+34Sec. A-18.  12 MRSA §13068-A, sub-§10, ¶A, as amended by PL 2021, c. 166, 
+35 §1, is further amended by amending the first blocked paragraph to read:
+36 As used in this paragraph, "motorboat" does not include an "airboat," which has the 
+37 same meaning as in paragraph A‑2.  airboat.  For the purposes of this paragraph, 
+38 "airboat" means a flat-bottomed watercraft propelled by an aircraft-type propeller and 
+39 powered by either an aircraft engine or an automotive engine.
+40Sec. A-19.  15 MRSA §6203, sub-§1, ¶F, as enacted by PL 2023, c. 199, §1, is 
+41 amended to read:
+42 F.  To prosecute a survivor for engaging in prostitution under Title 17-A, former section 
+43 853‑A; or
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+Page 6 - 131LR3063(01)
+1Sec. A-20.  15 MRSA §6203, sub-§2, ¶F, as enacted by PL 2023, c. 199, §1, is 
+2 amended to read:
+3 F.  Engaging in prostitution under Title 17-A, former section 853-A; and
+4Sec. A-21.  20-A MRSA §1352, sub-§2, ¶I, as amended by PL 2023, c. 405, Pt. 
+5 A, §38, is further amended to read:
+6 I.  When a referendum is called for the purpose of approving the agreement to transfer 
+7 a municipality from one district to another district, the article must be in the form set 
+8 forth in section 1467, subsection 2.
+9Sec. A-22.  20-A MRSA §15689-A, sub-§12, as amended by PL 2021, c. 635, Pt. 
+10 C, §8 and c. 694, §3 and affected by §4, is repealed and the following enacted in its place:
+1112.  National board certification salary supplement.  The commissioner shall pay 
+12 annual salary supplement payments to a school administrative unit, a publicly supported 
+13 secondary school or an education service center as authorized under chapter 123 for 
+14 payment to school teachers who have attained certification from the National Board for 
+15 Professional Teaching Standards or its successor organization pursuant to section 13007, 
+16 subsection 2, paragraph D and section 13013‑A.
+17Sec. A-23.  22 MRSA §1812-G, sub-§1-B, ¶E, as amended by PL 2023, c. 241, 
+18 §1, is further amended to read:
+19 E.  "Disqualifying offense" means a substantiation for abuse, neglect or 
+20 misappropriation of property, or a criminal conviction identified in rules adopted by 
+21 the department that prohibits employment as a certified nursing assistant or a direct 
+22 care worker or an immediate supervisor in accordance with subsection 2‑C or 3-A, 
+23 whichever applies.
+24Sec. A-24.  22 MRSA §1812-G, sub-§2-C, as amended by PL 2023, c. 241, §7 
+25 and c. 309, §24, is repealed and the following enacted in its place:
+262-C.  Registry notations.  The registry must include for a certified nursing assistant 
+27 and an immediate supervisor listed on the registry a notation of:
+28 A.  Disqualifying criminal convictions;
+29 B.  Nondisqualifying criminal convictions, except that a notation is not required on the 
+30 registry for Class D and Class E criminal convictions over 10 years old that did not 
+31 involve as a victim of the act a patient, client or resident; and
+32 C.  Substantiated findings, including but not limited to the following information:
+33 (1)  Documentation of an investigation of the certified nursing assistant or 
+34 immediate supervisor, including the nature of the allegation and evidence 
+35 supporting a determination that substantiates the allegation of abuse, neglect or 
+36 misappropriation of property of a client, patient or resident;
+37 (2)  Documentation of substantiated findings of abuse, neglect or misappropriation 
+38 of property of a client, patient or resident;
+39 (3)  If the certified nursing assistant or immediate supervisor appealed the 
+40 substantiated finding, the date of the hearing; and
+Page 7 - 131LR3063(01)
+1 (4)  The statement of the certified nursing assistant or immediate supervisor 
+2 disputing the allegation of abuse, neglect or misappropriation of property of a 
+3 client, patient or resident if the certified nursing assistant or immediate supervisor 
+4 submitted such a statement.
+5Sec. A-25.  22 MRSA §1812-G, sub-§4, as amended by PL 2023, c. 241, §10 and 
+6 c. 309, §25, is repealed and the following enacted in its place:
+74.  Department verification of credentials and training.  The department may verify 
+8 the credentials and training of certified nursing assistants and immediate supervisors listed 
+9 on the registry.
+10Sec. A-26.  22 MRSA §1812-G, sub-§4-A, as amended by PL 2023, c. 241, §11 
+11 and c. 309, §26, is repealed and the following enacted in its place:
+124-A.  Provider verification fee.  The department may establish a provider verification 
+13 fee not to exceed $25 annually per provider for verification of a certified nursing assistant's 
+14 or an immediate supervisor's credentials and training. Providers may not pass the cost on 
+15 to the individual certified nursing assistant or immediate supervisor. Provider verification 
+16 fees collected by the department must be placed in a special revenue account to be used by 
+17 the department to operate the registry, including but not limited to the cost of criminal 
+18 history record checks. The department may adopt rules necessary to implement this 
+19 subsection.  Rules adopted pursuant to this subsection are routine technical rules as defined 
+20 in Title 5, chapter 375, subchapter 2‑A.
+21Sec. A-27.  22 MRSA §1812-G, sub-§6, as amended by PL 2023, c. 241, §13 and 
+22 c. 309, §27, is repealed and the following enacted in its place:
+236.  Prohibited employment based on disqualifying offenses.  An individual with a 
+24 disqualifying offense, including a substantiated complaint or a disqualifying criminal 
+25 conviction, may not work as a certified nursing assistant, a direct access worker or an 
+26 immediate supervisor, and an employer is subject to penalties for employing a disqualified 
+27 or otherwise ineligible person in accordance with applicable federal or state laws.
+28Sec. A-28.  22 MRSA §1812-G, sub-§6-A, as amended by PL 2023, c. 241, §14 
+29 and c. 309, §28, is repealed and the following enacted in its place:
+306-A.  Background check.  Certified nursing assistants and immediate supervisors are 
+31 subject to a background check pursuant to chapter 1691 and according to the following:
+32 A.  A training program for certified nursing assistants must secure or pay for a 
+33 background check on each individual who applies for enrollment. The individual's 
+34 current name and all previous names are subject to the background check. A copy of 
+35 the background check is given to the individual who, upon successful completion of 
+36 the training, submits it with an application to be listed on the registry as a certified 
+37 nursing assistant.
+38 (1)  Prior to enrolling an individual, a training program for certified nursing 
+39 assistants must notify individuals that a background check will be conducted and 
+40 that certain disqualifying offenses, including criminal convictions, may prohibit an 
+41 individual from working as a certified nursing assistant.
+42 B.  Pursuant to sections 1717, 1724, 2137, 2149‑A, 7706, 8606, 9005 and 9054 and 
+43 Title 34‑B, section 1225, licensed, certified or registered providers shall secure and pay 
+Page 8 - 131LR3063(01)
+44 for a background check prior to hiring an individual who will work in direct contact 
+45 with clients, patients or residents, including a certified nursing assistant or an 
+46 immediate supervisor.
+4 C.  The department may secure a background check on certified nursing assistants and 
+5 immediate supervisors on the registry.
+6 D.  A person or other legal entity that is not otherwise licensed by the department and 
+7 that employs or places a certified nursing assistant to provide services allowing direct 
+8 access shall secure and pay for a background check in accordance with state law and 
+9 rules adopted by the department.
+10Sec. A-29.  22 MRSA §1812-G, sub-§6-B, as repealed by PL 2023, c. 241, §15 
+11 and amended by c. 309, §29, is repealed.
+12Sec. A-30.  22 MRSA §1812-G, sub-§6-C, ¶A, as amended by PL 2023, c. 241, 
+13 §16 and c. 309, §30, is repealed and the following enacted in its place:
+14 A.  A disqualifying criminal conviction prohibits employment as a certified nursing 
+15 assistant, a direct access worker or an immediate supervisor.
+16 (1)  An individual with a disqualifying criminal conviction is subject to an 
+17 employment ban of 5, 10 or 30 years. The department shall adopt rules that specify 
+18 disqualifying criminal convictions that prohibit employment for 5 years, 
+19 disqualifying criminal convictions that prohibit employment for 10 years and 
+20 disqualifying criminal convictions that prohibit employment for 30 years.
+21Sec. A-31.  22 MRSA §1812-G, sub-§6-C, ¶B, as amended by PL 2023, c. 241, 
+22 §17 and c. 309, §30, is repealed and the following enacted in its place:
+23 B.  Nondisqualifying criminal convictions do not prohibit employment as a certified 
+24 nursing assistant, a direct access worker or an immediate supervisor.
+25Sec. A-32.  22 MRSA §1812-G, sub-§6-D, as repealed by PL 2023, c. 241, §18 
+26 and amended by c. 309, §31, is repealed.
+27Sec. A-33.  22 MRSA §1812-G, sub-§10, as amended by PL 2023, c. 241, §20 and 
+28 c. 309, §32, is repealed and the following enacted in its place:
+2910.  Complaint investigation.  The department may investigate complaints and 
+30 allegations against certified nursing assistants, direct access workers or immediate 
+31 supervisors of abuse, neglect or misappropriation of property of a client, patient or resident.
+32Sec. A-34.  22 MRSA §1812-G, sub-§13, as amended by PL 2023, c. 241, §22 and 
+33 c. 309, §34, is repealed and the following enacted in its place:
+3413.  Substantiated finding; lifetime employment ban.  A certified nursing assistant, 
+35 a direct care worker or an immediate supervisor with a notation on the registry of a 
+36 substantiated finding of abuse of a patient, client or resident is banned for life from 
+37 employment as a certified nursing assistant, a direct care worker or an immediate 
+38 supervisor.
+39Sec. A-35.  22 MRSA §2353, sub-§3, as amended by PL 2023, c. 153, §1 and 
+40 affected by §3 and amended by c. 161, §3, is repealed and the following enacted in its 
+41 place:
+1
+2
+3
+Page 9 - 131LR3063(01)
+13.  Authorized administration and dispensing of naloxone hydrochloride or 
+2another opioid overdose-reversing medication by corrections officers and municipal 
+3firefighters.  A regional or county jail, a prison, a correctional facility as defined in Title 
+4 34‑A, section 1001, subsection 6 or a municipal fire department as defined in Title 30‑A, 
+5 section 3151, subsection 1 is authorized to obtain a supply of naloxone hydrochloride or 
+6 another opioid overdose-reversing medication to be administered or dispensed in 
+7 accordance with this subsection.  A corrections officer, in accordance with policies adopted 
+8 by the jail, prison or correctional facility, and a municipal firefighter as defined in Title 
+9 30‑A, section 3151, subsection 2, in accordance with policies adopted by the municipality, 
+10 may administer or dispense intranasal naloxone hydrochloride or another opioid overdose-
+11 reversing medication as clinically indicated if the corrections officer or municipal 
+12 firefighter has received medical training in accordance with protocols adopted by the 
+13 Medical Direction and Practices Board established in Title 32, section 83, subsection 16‑B.  
+14 The Medical Direction and Practices Board shall establish medical training protocols for 
+15 corrections officers and municipal firefighters pursuant to this subsection.
+16Sec. A-36.  22 MRSA §2353, sub-§5, ¶B, as amended by PL 2023, c. 154, §1 and 
+17 c. 161, §3, is repealed and the following enacted in its place:
+18 B.  A person described in this section as being authorized to possess, obtain, store, 
+19 administer or dispense naloxone hydrochloride or another opioid overdose-reversing 
+20 medication, acting in good faith and with reasonable care, is immune from criminal 
+21 and civil liability and is not subject to professional disciplinary action for possessing 
+22 or providing to another person naloxone hydrochloride or another opioid overdose-
+23 reversing medication in accordance with this section or for administering naloxone 
+24 hydrochloride or another opioid overdose-reversing medication in accordance with this 
+25 section to an individual whom the person believes in good faith is experiencing an 
+26 opioid-related drug overdose or for any outcome resulting from such actions.
+27Sec. A-37.  22 MRSA §2423-A, sub-§10, ¶E, as repealed and replaced by PL 
+28 2023, c. 365, §2 and c. 405, Pt. A, §57, is repealed and the following enacted in its place:
+29 E.  A cannabis testing facility shall obtain and must be able to produce, upon demand 
+30 of the department or a municipal code enforcement officer, documentation of the 
+31 facility's accreditation pursuant to standard ISO/IEC 17025 of the International 
+32 Organization for Standardization by a 3rd-party accrediting body.
+33Sec. A-38.  22 MRSA §2430-G, as repealed by PL 2023, c. 365, §18 and amended 
+34 by c. 405, Pt. A, §58, is repealed.
+35Sec. A-39.  22 MRSA §9053, sub-§2, as amended by PL 2023, c. 176, §37 and c. 
+36 241, §48, is repealed and the following enacted in its place:
+372.  Assisted housing facility.  "Assisted housing facility" means a facility licensed 
+38 pursuant to chapter 1663 or an independent housing with services program exempt from 
+39 licensing pursuant to chapter 1663.
+40Sec. A-40.  22 MRSA §9053, sub-§14, ¶D, as amended by PL 2023, c. 241, §51 
+41 and repealed and replaced by c. 309, §41, is repealed and the following enacted in its place:
+42 D.  An independent contractor pursuant to Title 26, section 1043, subsection 11, 
+43 paragraph E or Title 39‑A, section 102, subsection 13‑A; a worker who is placed with 
+Page 10 - 131LR3063(01)
+44 a provider by a temporary nurse agency; or a worker who is placed with a provider by 
+45 a personal care agency registered or licensed pursuant to section 1717;
+3Sec. A-41.  23 MRSA §73, sub-§3, ¶F, as amended by PL 2023, c. 177, §2 and c. 
+4 319, §2, is repealed and the following enacted in its place:
+5 F.  Be consistent with the purposes, goals and policies of Title 30-A, chapter 187, 
+6 subchapter 2;
+7Sec. A-42.  23 MRSA §1803-C, sub-§2, ¶A, as enacted by PL 2011, c. 652, §7 
+8 and affected by §14, is amended by amending subparagraph (1) to read:
+9 (1)  Title 5, section 282, subsection 9; and
+10Sec. A-43.  23 MRSA §1803-C, sub-§2, ¶A, as enacted by PL 2011, c. 652, §7 
+11 and affected by §14, is amended by repealing subparagraph (2). 
+12Sec. A-44.  24 MRSA §2931, sub-§2, as enacted by PL 1985, c. 804, §§16 and 22, 
+13 is amended to read:
+142.  Birth of healthy child; claim for damages prohibited.  No  A person may not 
+15 maintain a claim for relief or receive an award for damages based on the claim that the birth 
+16 and rearing of a healthy child resulted in damages to him  that person. A person may 
+17 maintain a claim for relief based on a failed sterilization procedure resulting in the birth of 
+18 a healthy child and receive an award of damages for the hospital and medical expenses 
+19 incurred for the sterilization procedures and pregnancy, the pain and suffering connected 
+20 with the pregnancy and the loss of earnings by the mother during pregnancy.
+21Sec. A-45.  29-A MRSA §523, sub-§3, as amended by PL 2023, c. 257, §9, is 
+22 further amended to read:
+233.  Special veterans registration plates.  The Secretary of State, on application and 
+24 evidence of payment of the excise tax required by Title 36, section 1482 and the registration 
+25 fee required by section 501 or by section 504, subsection 1 for a vehicle with a registered 
+26 gross weight over 10,000 pounds, shall issue a registration certificate and a set of special 
+27 veterans registration plates to be used in lieu of regular registration plates for a vehicle with 
+28 a registered gross weight of not more than 26,000 pounds to any person who has served in 
+29 the United States Armed Forces and who has been honorably discharged, any person who 
+30 has served a minimum of 20 years in the National Guard and has been honorably discharged 
+31 or to a person who has served in the United States Armed Forces for at least 3 years and 
+32 continues to serve.  If a person who qualifies for a special veterans registration plate under 
+33 this subsection is a primary driver of any vehicle, the Secretary of State may issue in 
+34 accordance with this section a set of special veterans registration plates for each vehicle.
+35 Each application must be accompanied by the applicant's Armed Forces Report of Transfer 
+36 or Discharge, DD Form 214, certification from the United States Veterans Administration 
+37 or the appropriate branch of the United States Armed Forces verifying the applicant's 
+38 military service and honorable discharge, a letter from the Department of Defense, 
+39 Veterans and Emergency Management, Maine Bureau of Veterans' Services verifying 
+40 active duty military service and length of service or a Form 22 from the United States 
+41 Department of Defense, National Guard Bureau indicating a minimum of 20 years of 
+42 service.
+1
+2
+Page 11 - 131LR3063(01)
+43 The Secretary of State shall recall a special veterans registration plate of a recipient who 
+44 has been less than honorably discharged from the United States Armed Forces.
+Page 12 - 131LR3063(01)
+1 All surplus revenue collected for issuance of the special veterans registration plates is 
+2 retained by the Secretary of State to maintain and support this program.
+3 The surviving spouse of a special veteran  veterans registration plate recipient issued plates 
+4 in accordance with this subsection may retain and display the special veteran  veterans 
+5 registration plates as long as the surviving spouse remains unmarried.  Upon remarriage, 
+6 the surviving spouse may not use the special veteran  veterans registration plates on a motor 
+7 vehicle, but may retain them as a keepsake.  Upon the death of the surviving spouse, the 
+8 family may retain the special veteran  veterans registration plates, but may not use them on 
+9 a motor vehicle.
+10 The Secretary of State may issue a special disability registration plate for veterans in 
+11 accordance with section 521, subsections 1, 5, 7 and 9.  The special disability registration 
+12 plate for veterans must bear the International Symbol of Access.
+13 The Secretary of State may issue a set of special veterans registration plates when the 
+14 qualifying veteran is the primary driver of a company-owned vehicle if:
+15 A.  The company is owned solely by a veteran who qualifies for a veteran plate under 
+16 this section;
+17 B.  The vehicle is leased by a veteran who qualifies for the veteran plate under this 
+18 subsection; or
+19 C.  The vehicle is leased by the employer of a veteran who qualifies for the veteran 
+20 plate and the employer has assigned the vehicle exclusively to the veteran.  The 
+21 employer must attest in writing that the veteran will have exclusive use of the vehicle 
+22 and agrees to the display of the special veteran  veterans registration plate.
+23Sec. A-46.  30-A MRSA §701, sub-§2-C, as amended by PL 2021, c. 732, Pt. B, 
+24 §1, is further amended to read:
+252-C.  Tax assessment for correctional services.  Beginning July 1, 2022, the counties 
+26 shall annually collect the base assessment limit of $82,110,358 from municipalities for the 
+27 provision of correctional services in accordance with this subsection. In subsequent years, 
+28 the counties may collect an amount that is more or less than the base assessment limit 
+29 established in this subsection, except that if the amount is increased above the base 
+30 assessment limit established in this subsection, the additional amount each year may not 
+31 exceed the base assessment limit as adjusted by 4% or the growth limitation factor, as 
+32 established in section 706‑A, subsection 3, including any adjustments for extraordinary 
+33 circumstances allowed under section 706‑A, subsection 5, whichever is greater. A county 
+34 may not increase its base assessment limit under this subsection if the county has not 
+35 reported the revenues, expenses and populations information required by section 1210-E, 
+36 subsection 6  Title 34-A, section 1208-B, subsection 5. If a county collects in a year an 
+37 amount that is more or less than the base assessment limit established for that county 
+38 pursuant to this subsection, the base assessment limit in the succeeding year is the amount 
+39 collected in the prior year, excluding any adjustments for extraordinary circumstances 
+40 allowed under section 706‑A, subsection 5.  For the purposes of this subsection, 
+41 "correctional services" includes management services, personal services, contractual 
+42 services, commodity purchases, capital expenditures and all other costs, or portions thereof, 
+43 necessary to maintain and operate correctional services.  "Correctional services" does not 
+Page 13 - 131LR3063(01)
+44 include county jail debt unless there is a surplus in the account that pays for correctional 
+45 services at the end of the state fiscal year.
+3 The assessment to municipalities within each county may not exceed the base assessment 
+4 limit, which is:
+5 A.  A sum of $5,300,000 in Androscoggin County;
+6 B.  A sum of $3,249,000 in Aroostook County;
+7 C.  A sum of $15,355,672 in Cumberland County;
+8 D.  A sum of $2,400,000 in Franklin County;
+9 E.  A sum of $2,126,002 in Hancock County;
+10 F.  A sum of $8,222,098 in Kennebec County;
+11 G.  A sum of $4,793,893 in Knox County;
+12 H.  A sum of $3,141,105 in Lincoln County;
+13 I.  A sum of $2,400,000 in Oxford County;
+14 J.  A sum of $10,315,042 in Penobscot County;
+15 K.  A sum of $1,486,750 in Piscataquis County;
+16 L.  A sum of $2,967,105 in Sagadahoc County;
+17 M.  A sum of $5,900,000 in Somerset County;
+18 N.  A sum of $3,038,999 in Waldo County;
+19 O.  A sum of $2,120,557 in Washington County; and
+20 P.  A sum of $9,294,135 in York County.
+21Sec. A-47.  30-A MRSA §4326, sub-§3-A, ¶I, as amended by PL 2021, c. 657, 
+22 §8, is further amended to read:
+23 I.  Encourage the availability of and access to traditional outdoor recreation 
+24 opportunities, including, without limitation, hunting, boating, fishing and hiking, and 
+25 encourage the creation of greenbelts, public parks, trails and conservation easements.  
+26 Each municipality or multimunicipal region shall identify and encourage the protection 
+27 of undeveloped shoreland and other areas identified in the local planning process as 
+28 meriting that protection; and
+29Sec. A-48.  30-A MRSA §4326, sub-§3-A, ¶J, as amended by PL 2021, c. 657, 
+30 §9, is further amended to read:
+31 J.  Develop management goals for great ponds pertaining to the type of shoreline 
+32 character, intensity of surface water use, protection of resources of state significance 
+33 and type of public access appropriate for the intensity of use of great ponds within the 
+34 municipality's or multimunicipal region's jurisdiction. ; and
+35Sec. A-49.  30-A MRSA §4326, sub-§3-A, ¶L, as repealed by PL 2021, c. 657, 
+36 §11 and amended by c. 754, §4, is repealed.
+37Sec. A-50.  30-A MRSA §4326, sub-§3-A, ¶M, as repealed by PL 2021, c. 657, 
+38 §12 and amended by c. 754, §5, is repealed.
+1
+2
+Page 14 - 131LR3063(01)
+1Sec. A-51.  30-A MRSA §4352, sub-§4, as amended by PL 2009, c. 615, Pt. G, §1, 
+2 is further amended to read:
+34.  Exemptions.  Real estate used or to be used by a public utility, as defined in Title 
+4 35‑A, section 102, subsection 13, by a person who is issued a certificate by the Public 
+5 Utilities Commission under Title 35‑A, section 122 or by a renewable ocean energy project 
+6 as defined in Title 12, section 1862, subsection 1, paragraph F‑1 is wholly or partially 
+7 exempt from an ordinance only when on petition, notice and public hearing the Public 
+8 Utilities Commission determines that the exemption is reasonably necessary for public 
+9 welfare and convenience.  The Public Utilities Commission shall adopt by rule procedures 
+10 to implement this subsection.  Rules adopted pursuant to this subsection are routine 
+11 technical rules as defined in Title 5, chapter 375, subchapter 2‑A.
+12Sec. A-52.  32 MRSA §85, sub-§8, as amended by PL 2023, c. 92, §1 and affected 
+13 by §2 and amended by c. 161, §5, is repealed and the following enacted in its place:
+148.  Naloxone hydrochloride or another opioid overdose-reversing medication.  An 
+15 emergency medical services person licensed under this chapter shall administer and 
+16 dispense naloxone hydrochloride or another opioid overdose-reversing medication in 
+17 compliance with protocols and training developed in accordance with this chapter.  An 
+18 opioid overdose-reversing medication referenced in this subsection must be approved by 
+19 the federal Food and Drug Administration.
+20Sec. A-53.  34-A MRSA §1210-E, sub-§6, as enacted by PL 2021, c. 732, Pt. A, 
+21 §3 and affected by §5, is amended to read:
+226.  Required reporting.  The county jails and the regional jail shall report to the 
+23 department any data required by the council pursuant to section 1208‑B, subsection 4, 
+24 paragraph E  5, on the schedule and in the format required by the council.  Failure of a jail 
+25 to report as required may result in delayed quarterly payments to the counties as provided 
+26 in subsection 5 and as set forth by rule.  
+27Sec. A-54.  35-A MRSA §1311-A, sub-§1, ¶D, as enacted by PL 1997, c. 691, §5 
+28 and affected by §10, is amended by amending the first blocked paragraph to read:
+29 Unless the commission finds that the conditions of subparagraphs 1  subparagraph (1) 
+30 or 2  (2) are met, the obligations of attorneys under the ethical rules, including the 
+31 obligation to decline representation in certain cases, the authority of the commission to 
+32 discipline attorneys who appear before the commission, including the authority, under 
+33 section 1502, to punish for contempt persons who fail to comply with a protective 
+34 order, and the commission's ability to recommend sanctions by other bodies, including 
+35 the discipline of attorneys by the courts and the Board of Overseers of the Bar, is 
+36 sufficient security to permit the attorney to have access to information in order to 
+37 represent a party before the commission.
+38Sec. A-55.  35-A MRSA §10103, sub-§4-A, ¶A, as repealed and replaced by PL 
+39 2013, c. 369, Pt. A, §6, is amended to read:
+40 A.  To improve the State's economy by pursuing lower energy costs for people, 
+41 communities and businesses in a manner that will enhance the environment of the State 
+42 in accordance with the triennial plan. In the expenditure of funds pursuant to this 
+43 paragraph, the trust may provide grants, loans, programs and incentives; and .
+Page 15 - 131LR3063(01)
+1Sec. A-56.  35-A MRSA §10103, sub-§4-A, ¶B, as enacted by PL 2009, c. 655, 
+2 Pt. B, §4, is repealed.
+3Sec. A-57.  36 MRSA §1483, sub-§4, as amended by PL 2009, c. 434, §20, is 
+4 further amended to read:
+54.  Dealers or manufacturers.  Vehicles owned by bona fide dealers or manufacturers 
+6 of the vehicles that are held solely for demonstration and sale and constitute stock in trade, 
+7 and aircraft registered in accordance with Title 6, section 53;
+8Sec. A-58.  38 MRSA §464, sub-§4, ¶F, as amended by PL 2021, c. 503, §1 and 
+9 c. 551, §§7 and 8, is further amended by repealing subparagraph (2) and enacting the 
+10 following in its place:
+11 (2)  Where high quality waters of the State constitute an outstanding national 
+12 resource, that water quality must be maintained and protected.  For purposes of this 
+13 paragraph, the following waters are considered outstanding national resources: 
+14 those water bodies in national and state parks and wildlife refuges and in the 
+15 Katahdin Woods and Waters National Monument; those water bodies in public 
+16 reserved lands; and those water bodies classified as Class AA and SA waters 
+17 pursuant to section 465, subsection 1; section 465‑B, subsection 1; and, unless 
+18 otherwise specified, listed under sections 467, 468 and 469.
+19Sec. A-59.  38 MRSA §1310-N, sub-§9, ¶A-1, as enacted by PL 2007, c. 406, §2, 
+20 is amended to read:
+21 A-1.  A solid waste disposal facility must have in place a host community agreement 
+22 with all applicable host communities during the development and operation and 
+23 through closure of that facility, except that a solid waste disposal facility owned by a 
+24 municipality that meets the provisions of section 1303-C, subsection 6, paragraph B  
+25 B-2, subparagraph (1) is not required to have in place a host community agreement 
+26 with the host community that is the geographic site of the facility.  A host community 
+27 agreement for the purposes of this section must, when applicable, include the 
+28 provisions set forth in paragraph B, except that a host community agreement in effect 
+29 prior to the effective date of this paragraph  September 20, 2007 is not required to 
+30 include the provisions set forth in paragraph B.
+31Sec. A-60.  38 MRSA §3107, sub-§3-B, as enacted by PL 2023, c. 482, §26, is 
+32 amended to read:
+333-B.  Commingling program operated by commingling cooperative.  Subject to the 
+34 requirements of this subsection and notwithstanding any provision of this chapter to the 
+35 contrary, by October 15, 2024, all commingling groups established pursuant to subsection  
+36 subsections 1‑A and 1‑B, including the State, through the Department of Administrative 
+37 and Financial Services, Bureau of Alcoholic Beverages and Lottery Operations, shall 
+38 collectively establish a commingling cooperative to provide for the management of all 
+39 beverage containers subject to the requirements of this chapter under a single commingling 
+40 program, referred to in this subsection as "the program."
+41 A.  The cooperative must be established as a nonprofit organization exempt from 
+42 taxation under the United States Internal Revenue Code of 1986, Section 501(c)(3).  
+43 The cooperative must be governed by a board of not less than 9 and not more than 15 
+44 members that represents the range of beverages and beverage container material types 
+Page 16 - 131LR3063(01)
+45 subject to the requirements of this chapter and that includes a board member 
+46 representing each commingling group.  The board shall convene an advisory group that 
+47 includes as members representatives of the range of beverages and beverage container 
+48 material types subject to the requirements of this chapter as well as representatives of 
+49 dealers, pick-up agents, recycling facilities, redemption centers that primarily sort 
+50 containers manually, redemption centers that primarily sort containers using reverse 
+51 vending machines, entities operating account-based bulk processing programs and 
+52 environmental advocacy organizations.  The board shall invite representatives of the 
+53 department to participate in and provide input regarding the activities of the advisory 
+54 group.  
+11 B.  By January 15, 2025, the cooperative shall submit a plan for the operation of the 
+12 program to the department for review and approval. The plan must include, but is not 
+13 limited to:
+14 (1)  The method by which the program will facilitate the transition from beverage 
+15 container sorting at redemption centers by brand to sorting by material type and, 
+16 for redemption centers that manually sort containers, by size within each material 
+17 type.  The program may facilitate the negotiation of agreements with redemption 
+18 centers to gather brand data through use of reverse vending machines, account-
+19 based bulk processing programs or similar technology as long as the cost of such 
+20 data collection is paid by the program;
+21 (2)  Standards to provide for fair apportionment of costs among the commingling 
+22 groups and initiators of deposit included in the program, which may be based on:
+23 (a)  The combined beverage container sales by the initiators of deposit that are 
+24 members of each commingling group;
+25 (b)  The unit or brand counts generated by reverse vending machines or 
+26 account-based bulk processing programs as long as the reverse vending 
+27 machines or account-based bulk processing programs are subject to periodic 
+28 3rd-party audits on a schedule approved by the department and with the costs 
+29 of those audits paid by the program; and  
+30 (c)  The rates of redemption, as determined pursuant to the method set forth in 
+31 subparagraph (3) and in accordance with the requirements of subparagraph (5);
+32 (3)  A method for determining the rate of redemption for beverage containers, 
+33 which must be verified through a 3rd-party audit paid for by the cooperative, 
+34 expressed as a percentage of the beverage containers redeemed that are available 
+35 for redemption; the rate of redemption by beverage type and by beverage container 
+36 material type; and, to the maximum extent practicable, regional redemption rates 
+37 in the State.  The method for determining the redemption rate may not include in 
+38 its calculation any unredeemed beverage containers collected or processed by 
+39 municipal or other recycling programs.  The program must ensure that a single 
+40 redemption rate, determined by the method specified in the plan, is used by all 
+41 commingling groups and initiators of deposit to determine cost apportionment 
+42 pursuant to subparagraph (2);
+43 (4)  A budget for the program that includes, but is not limited to, identification of 
+44 any start-up costs for the program that will not be ongoing, including, but not 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Page 17 - 131LR3063(01)
+45 limited to, the costs of the study described in paragraph F, and a description of the 
+46 method by which the cooperative will determine and collect payments from 
+47 commingling groups to cover the program's start-up costs;
+4 (5)  The method by which the cooperative will collect deposits from initiators of 
+5 deposit for nonrefillable beverage containers and handling fees for redeemed 
+6 containers, whether directly from the initiator of deposit or through the 
+7 commingling group of which the initiator of deposit is a member.  The program 
+8 must ensure that an initiator of deposit is not required to pay any handling fees for 
+9 its beverage containers that exceeds the applicable redemption rate for those 
+10 containers as calculated pursuant to subparagraph (3);
+11 (6)  A description of how the cooperative intends to segregate, maintain, calculate 
+12 and expend unclaimed beverage container deposits in accordance with section 
+13 3108-A;
+14 (7)  A description of how the cooperative will provide a consistent beverage 
+15 container pick-up schedule for each redemption center in accordance with the pick-
+16 up requirements of section 3106, subsection 8-A and the rules adopted pursuant to 
+17 that subsection.  The program must ensure that pick-up schedules are designed to 
+18 reduce transportation distances and minimize costs but must allow each 
+19 commingling group to provide for beverage container pickup of the commingling 
+20 group's equivalent container material;
+21 (8)  Information on how the cooperative will be responsible for and ensure payment 
+22 to a dealer or redemption center within 10 calendar days of any beverage container 
+23 pickup of all applicable deposits and handling fees for the beverage containers 
+24 picked up from the dealer or redemption center, except as otherwise provided under 
+25 a written agreement entered into by the cooperative or a member commingling 
+26 group and the dealer or redemption center, and the applicable costs of plastic bags 
+27 provided to the dealer or redemption center in accordance with section 3106, 
+28 subsection 9;
+29 (9)  Information on how the cooperative will ensure that each commingling group 
+30 and each initiator of deposit that is a member of the commingling group maintains 
+31 ownership over the commingling group's and initiator of deposit's share of the 
+32 beverage containers redeemed, collected and processed for recycling under the 
+33 program;
+34 (10)  Information on how the cooperative will calculate the base rates offered for 
+35 the processing of beverage containers using an account-based bulk processing 
+36 program or pick-up agents;
+37 (11)  A certification that the cooperative will not share, except with the department 
+38 as necessary, information provided by a commingling group or initiator of deposit 
+39 that is proprietary information and that is identified by the commingling group or 
+40 initiator of deposit as proprietary information.  The certification must include a 
+41 description of the methods by which the cooperative intends to ensure the 
+42 confidentiality of that information;
+43 (12)  Information on how the cooperative will maintain a publicly accessible 
+44 website regarding the program that includes, at a minimum, the following:
+1
+2
+3
+Page 18 - 131LR3063(01)
+1 (a)  A searchable list of all initiators of deposit and beverage container label 
+2 registrations, including for beverages sold directly to consumers in the State, 
+3 in a manner that allows redemption centers, dealers and consumers to obtain 
+4 up-to-date information regarding whether a particular beverage is authorized 
+5 for sale and redemption in the State;
+6 (b)  A search function through which consumers can identify nearby dealers or 
+7 redemption centers offering redemption services based on information made 
+8 available to the cooperative by the department; and
+9 (c)  The base rates for the processing of beverage containers by container type 
+10 as determined in accordance with subparagraph (10);
+11 (13)  A proposed timeline for implementation of the program plan, if approved, 
+12 designed to ensure implementation of the plan on or before July 15, 2025 and a 
+13 description of how the cooperative will notify commingling groups, initiators of 
+14 deposit, dealers, distributors, pick-up agents and other affected entities regarding 
+15 program implementation, which must include, but is not limited to, posting of 
+16 information relating to program implementation on the website described in 
+17 subparagraph (12);
+18 (14)  A description of how the cooperative will support the development of 
+19 infrastructure throughout the State for the collection and sanitization of refillable 
+20 beverage containers and for the return of those refillable beverage containers to 
+21 initiators of deposit of refillable beverage containers for refilling and sale.  That 
+22 infrastructure development may involve redemption centers, centralized washing 
+23 and sanitization facilities and other methods;
+24 (15)  Information regarding the advisory group formed by the board in accordance 
+25 with paragraph A, including, but not limited to, its membership and the length of 
+26 the terms of its members, a proposed meeting schedule and a description of the role 
+27 and responsibilities of the advisory group, which may include, but are not limited 
+28 to, advising the board regarding the development of the plan submitted under this 
+29 paragraph;
+30 (16)  A description of how the cooperative will operate the program in a manner 
+31 designed to achieve an overall statewide redemption rate for all beverage 
+32 containers subject to the requirements of this chapter, as determined in accordance 
+33 with subparagraph (3), of 75% by January 1, 2027; of 80% by January 1, 2032; and 
+34 of 85% by January 1, 2037; and
+35 (17)  Any other information required by the department.
+36 C.  Within 120 days of receipt of a plan submitted by the cooperative under paragraph 
+37 B, the department shall review the plan and approve the plan, approve the plan with 
+38 conditions or reject the plan.  Prior to determining whether to approve or reject a plan, 
+39 the department shall hold a public hearing on the plan.  The department shall notify the 
+40 cooperative in writing of its determination and, if the plan is approved with conditions 
+41 or rejected, shall include in the notification a description of the basis for the conditions 
+42 or rejection.  
+43 (1)  If the cooperative's plan is rejected, it may submit a revised plan to the 
+44 department within 60 days of receiving the notice of rejection.  The department 
+Page 19 - 131LR3063(01)
+45 may approve the revised plan as submitted or approve the revised plan subject to 
+46 the implementation of specific changes required by the department.
+3 (2)  If the cooperative's plan is approved in accordance with this paragraph, the 
+4 cooperative shall implement the plan on or before July 15, 2025 in accordance with 
+5 the timeline for implementation described in paragraph B, subparagraph (13), 
+6 subject to any changes or conditions imposed by the department.  If the cooperative 
+7 fails to implement an approved plan on or before July 15, 2025, the initiators of 
+8 deposit that are members of each of the commingling groups included in the 
+9 cooperative are deemed to be in violation of this chapter and are subject to penalties 
+10 pursuant to section 3111.
+11 D.  If the department determines that the program implemented by the cooperative 
+12 pursuant to a plan approved under paragraph C has failed to make adequate progress 
+13 toward fulfilling the requirements of the plan, excluding the redemption rate goals 
+14 described in paragraph B, subparagraph (16), the department shall notify the 
+15 cooperative in writing of its determination and may direct the cooperative to implement 
+16 specific changes to the program within 30 days of the date of the notification.  
+17 E.  On or before April 1, 2026, and annually thereafter, the cooperative shall submit to 
+18 the department and make available on its publicly accessible website a report that 
+19 includes, but is not limited to:
+20 (1)  Contact information for the cooperative and a list of all initiators of deposit 
+21 and beverage container label registrations, including for beverages sold directly to 
+22 consumers in the State;
+23 (2)  Information on the rates of redemption for beverage containers calculated in 
+24 accordance with plan requirements under paragraph B, subparagraph (3).  The 
+25 report must include information regarding the total number of beverage containers 
+26 subject to the requirements of this chapter sold or distributed in the State during 
+27 the previous calendar year by the members of each commingling group, aggregated 
+28 within each commingling group to provide only a total, aggregated number for 
+29 each commingling group.  If the calculated overall statewide redemption rate for 
+30 beverage containers is less than the applicable redemption rate goal described in 
+31 paragraph B, subparagraph (16), the report must include recommendations for 
+32 changes to the operation of the program that are designed to achieve the required 
+33 rate, which may include, but are not limited to, recommended increases in the 
+34 deposit and refund value for beverage containers;
+35 (3)  Detailed information on the calculation and expenditure of unclaimed deposit 
+36 funds in the previous calendar year in accordance with section 3108‑A;
+37 (4)  A description of the education and outreach efforts implemented under the 
+38 program in the previous calendar year to encourage participation in the beverage 
+39 container redemption program, reduce instances of fraud in redemption and 
+40 educate businesses and consumers on the value and safety of refillable beverage 
+41 containers.  The report must include the results of an assessment, completed by an 
+42 independent 3rd party, of the effectiveness of the efforts;
+43 (5)  Any recommendations for changes to the program to improve the convenience 
+44 of the collection system under the program, consumer education or program 
+1
+2
+Page 20 - 131LR3063(01)
+45 evaluation and any goals for supporting the use of refillable and reusable 
+46 containers;
+3 (6)  A financial report on the program, as determined through a 3rd-party financial 
+4 audit, that identifies the total cost of implementing the program and the specific 
+5 administration, collection, transportation, disposition and communication costs for 
+6 the program, including all costs associated with payment of handling fees, and an 
+7 anticipated budget for the subsequent program year; and
+8 (7)  Any other information required by the department.
+9 For the report due April 1, 2026 only, the department may modify or waive any of the 
+10 reporting requirements set forth in this paragraph upon a finding that the information 
+11 required cannot feasibly be determined or provided by the cooperative due to a partial-
+12 year operation of the program.
+13 F.  Within 90 days of receiving approval of a program plan from the department under 
+14 paragraph C, the cooperative, in consultation with the department, shall contract with 
+15 an independent 3rd party to conduct a study: examining operating costs for redemption 
+16 centers of a variety of sizes, in a variety of geographical locations and using a variety 
+17 of redemption technologies; analyzing the effects that eliminating brand sorting of 
+18 beverage containers may have on transportation costs and redemption center operating 
+19 costs, including, but not limited to, labor and utilities costs; recommending a handling 
+20 fee schedule and payment schedule designed to facilitate a stable and sustainable 
+21 redemption system; and recommending other recycling-related services that may be 
+22 provided at redemption centers to support statewide recycling efforts and diversify the 
+23 redemption center business model.
+24 (1)  In consultation with the department, the cooperative shall ensure that the study 
+25 contract specifies the scope of the study and provides for publication of an interim 
+26 progress report or reports and a final report.  All costs associated with the study 
+27 must be paid by the cooperative.
+28 (2)  The cooperative shall provide any interim progress reports and the final report 
+29 under subparagraph (1) to the department and, after receipt of the final report, the 
+30 department shall provide a copy of the final report, along with any additional 
+31 comments or recommendations of the department, to the joint standing committee 
+32 of the Legislature having jurisdiction over environment and natural resources 
+33 matters.  The final report and any additional comments or recommendations of the 
+34 department may be included in the report required pursuant to section 3115, 
+35 subsection 3.  After reviewing the final report and the department's additional 
+36 comments or recommendations, if any, the committee may report out legislation 
+37 relating to the final report or to the department's comments or recommendations.
+38 G.  The cooperative shall pay to the department a reasonable annual fee established by 
+39 the department, not to exceed $600,000, as provided in this paragraph.
+40 (1)  On or before July 15, 2025, the cooperative shall pay to the department the 
+41 annual fee under this paragraph to cover the department's costs for review of the 
+42 program plan submitted by the cooperative pursuant to paragraph B and the 
+43 department's costs prior to program plan implementation in its oversight of the 
+44 development and implementation of the commingling program under this 
+1
+2
+Page 21 - 131LR3063(01)
+45 subsection.  The department may require the cooperative to pay a portion of the fee 
+46 required under this subparagraph at the time the cooperative submits a program 
+47 plan for review and approval pursuant to paragraph B to cover the department's 
+48 cost for review of the program plan.
+5 (2)  On or before April 1, 2026, and annually thereafter, the cooperative shall pay 
+6 to the department the annual fee under this paragraph to cover the department's 
+7 costs for review of the cooperative's annual report under paragraph E and the 
+8 department's costs in the previous calendar year for its oversight, administration 
+9 and enforcement of the commingling program implemented under this subsection. 
+10 The cooperative shall pay the fee required pursuant to this subparagraph at the time 
+11 it submits the annual report required pursuant to paragraph E.
+12 H.  Reports submitted to the department under this subsection must be made available 
+13 to the public on the department's publicly accessible website, except that proprietary 
+14 information submitted to the department in a plan, in an amendment to a plan or 
+15 pursuant to reporting requirements of this subsection that is identified by the submitter 
+16 as proprietary information is confidential and must be handled by the department in the 
+17 same manner as confidential information is handled under section 1310‑B.
+18 I.  Beginning July 15, 2025, an initiator of deposit that is not in compliance with all 
+19 applicable requirements of the single commingling program implemented pursuant to 
+20 this subsection:
+21 (1)  Commits a violation of this chapter and is subject to penalties pursuant to 
+22 section 3111; and
+23 (2)  Is prohibited from selling or distributing in the State any beverage container 
+24 subject to the requirements of this chapter as long as the violation exists. A 
+25 distributor or dealer may not sell or distribute in the State any such containers of 
+26 the initiator of deposit, and the department may remove from sale any such 
+27 containers of the initiator of deposit.
+28 The department may adopt rules as necessary for the implementation of this subsection and 
+29 the oversight of the cooperative and the single commingling program implemented 
+30 pursuant to this subsection.  Rules adopted pursuant to this subsection are routine technical 
+31 rules as defined in Title 5, chapter 375, subchapter 2‑A.
+32Sec. A-61. PL 2023, c. 412, Pt. A, §38, under the caption "PUBLIC 
+33SAFETY, DEPARTMENT OF" in the 5th occurrence of that part relating to 
+34"Emergency Medical Services Stabilization and Sustainability Program 
+35N477," is amended by amending the initiative paragraph to read:
+36 Initiative: Provides one-time funding for emergency medical services sustainability grants 
+37 to emergency medical services entities that are nonprofit or for-profit emergency medical 
+38 services training centers licensed under the Maine Revised Statutes, Title 32, chapter 2-B 
+39 or to regional councils as long as the entities meet all applicable grant requirements under 
+40 Title 32, section 98, subsection 4.
+41Emergency clause.  In view of the emergency cited in the preamble, this legislation 
+42 takes effect when approved.
+1
+2
+3
+4
+Page 22 - 131LR3063(01)
+1SUMMARY
+2 Part A does the following.
+3 Section 1 removes a cross-reference to a provision regarding energy infrastructure 
+4 corridors that was repealed on July 30, 2017.
+5 Section 2 amends cross-references to a provision regarding energy infrastructure 
+6 corridors that was repealed on July 30, 2017.  The section also replaces a cross-reference 
+7 with a definition and removes a definition for a term that was not used.
+8 Section 3 amends cross-references to a provision regarding energy infrastructure 
+9 corridors that was repealed on July 30, 2017.
+10 Section 4 makes a technical correction.
+11 Section 5 corrects a cross-reference.
+12 Section 6 corrects references to the ASPIRE TANF program. The program was 
+13 changed from the ASPIRE JOBS Program in 1997.
+14 Section 7 corrects a reference to the Bureau of Human Resources, which took over the 
+15 duties of the Bureau of State Employee Health, referred to incorrectly in a provision of law 
+16 as "the Bureau of Employee Health," in 1991.
+17 Section 8 repeals a provision establishing the Interagency Review Panel.  The provision 
+18 setting out the panel's membership and duties overseeing the use of certain energy 
+19 infrastructure corridors was repealed on July 30, 2017.
+20 Section 9 changes the term "Director of the Bureau of Human Resources" to "State 
+21 Human Resources Officer" in agreement with Public Law 2023, chapter 412, Part D, 
+22 section 3.
+23 Section 10 corrects a cross-reference and updates a term to reflect the terminology in 
+24 the section that replaced the repealed section.
+25 Section 11 replaces a missing phrase.
+26 Section 12 removes a cross-reference to a provision regarding energy infrastructure 
+27 corridors that was repealed on July 30, 2017.
+28 Section 13 changes a cross-reference to the Aroostook Band Trust Land to Mi'kmaq 
+29 Nation Trust Land in agreement with Public Law 2023, chapter 369, Part A.
+30 Section 14 changes a reference to the Aroostook Band of Micmacs to Mi'kmaq Nation 
+31 in agreement with Public Law 2023, chapter 369, Part A, section 4.
+32 Section 15 changes a reference to the Aroostook Micmac Council to Mi'kmaq Nation 
+33 Tribal Council in agreement with Public Law 2023, chapter 369, Part A.
+34 Section 16 changes a reference to the Aroostook Micmac Council to Mi'kmaq Nation 
+35 Tribal Council in agreement with Public Law 2023, chapter 369, Part A.
+36 Section 17 changes a reference to the Aroostook Micmac Council to Mi'kmaq Nation 
+37 Tribal Council in agreement with Public Law 2023, chapter 369, Part A.
+38 Section 18 eliminates a reference to a provision that was repealed in 2023 and provides 
+39 in its place a definition contained in the repealed provision.
+40 Section 19 corrects a cross-reference.
+2
+Page 23 - 131LR3063(01)
+1 Section 20 corrects a cross-reference.
+2 Section 21 corrects a clerical error.
+3 Section 22 corrects a conflict created by Public Law 2021, chapters 635 and 694, which 
+4 affected the same provision of law, by incorporating the changes made by both laws.
+5 Section 23 adds a new term and corrects a cross-reference consistent with recent 
+6 changes made to related statutory provisions.
+7 Section 24 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+8 affected the same provision of law, by incorporating the changes made by both laws and 
+9 removing a reference to "direct care worker" that should have been removed by Public Law 
+10 2023, chapter 241 consistent with the changes made by that law.
+11 Section 25 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+12 affected the same provision of law, by incorporating the changes made by both laws.
+13 Section 26 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+14 affected the same provision of law, by incorporating the changes made by both laws.
+15 Section 27 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+16 affected the same provision of law, by incorporating the changes made by both laws.
+17 Section 28 corrects a conflict created by Public Law, chapters 241 and 309, which 
+18 affected the same provision of law, by incorporating the changes made by both laws.
+19 Section 29 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+20 affected the same provision of law, by repealing the provision.
+21 Section 30 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+22 affected the same provision of law, by incorporating the changes made by both laws.
+23 Section 31 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+24 affected the same provision of law, by incorporating the changes made by both laws.
+25 Section 32 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+26 affected the same provision of law, by repealing the provision.
+27 Section 33 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+28 affected the same provision of law, by incorporating the changes made by both laws.
+29 Section 34 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+30 affected the same provision of law, by incorporating the changes made by both laws.
+31 Section 35 corrects a conflict created by Public Law 2023, chapters 153 and 161, which 
+32 affected the same provision of law, by incorporating the changes made by both laws.
+33 Section 36 corrects a conflict created by Public Law 2023, chapters 154 and 161, which 
+34 affected the same provision of law, by incorporating the changes made by both laws.
+35 Section 37 corrects a conflict created by Public Law 2023, chapters 365 and 405, which 
+36 affected the same provision of law, by repealing the provision and replacing it with the 
+37 chapter 405 version.
+38 Section 38 corrects a conflict created by Public Law 2023, chapters 365 and 405, which 
+39 affected the same provision of law, by repealing the provision.
+Page 24 - 131LR3063(01)
+1 Section 39 corrects a conflict created by Public Law 2023, chapters 176 and 241, which 
+2 affected the same provision of law, by incorporating the changes made by both laws.
+3 Section 40 corrects a conflict created by Public Law 2023, chapters 241 and 309, which 
+4 affected the same provision of law, by incorporating the changes made by both laws.
+5 Section 41 corrects a conflict created by Public Law 2023, chapters 177 and 319, which 
+6 affected the same provision of law, by incorporating the changes made by both laws.
+7 Sections 42 and 43 remove a cross-reference to a provision regarding energy 
+8 infrastructure corridors that was repealed on July 30, 2017.
+9 Section 44 corrects gender-specific language and makes a grammatical change.
+10 Section 45 corrects inconsistent terminology.
+11 Section 46 corrects a cross-reference.
+12 Section 47 makes a technical correction.
+13 Section 48 makes a technical correction.
+14 Section 49 corrects a conflict created by Public Law 2021, chapters 657 and 754, which 
+15 affected the same provision of law, by repealing the provision.
+16 Section 50 corrects a conflict created by Public Law 2021, chapters 657 and 754, which 
+17 affected the same provision of law, by repealing the provision.
+18 Section 51 removes a cross-reference to a provision regarding energy infrastructure 
+19 corridors that was repealed on July 30, 2017.
+20 Section 52 corrects a conflict created by Public Law 2023, chapters 92 and 161, which 
+21 affected the same provision of law, by incorporating the changes made by both laws.
+22 Section 53 corrects a cross-reference.
+23 Section 54 makes technical corrections and a grammatical change.
+24 Section 55 makes a technical correction.
+25 Section 56 removes a reference to an entity that was eliminated on July 30, 2017.
+26 Section 57 removes an obsolete cross-reference.
+27 Section 58 corrects a conflict created by Public Law 2021, chapters 503 and 551, which 
+28 affected the same provision of law, by incorporating the changes made by both laws.
+29 Section 59 corrects a cross-reference and replaces a generic reference to the effective 
+30 date of the paragraph with the actual effective date of the paragraph.
+31 Section 60 makes a grammatical change.
+32 Section 61 corrects a cross-reference.

@@ -1,0 +1,502 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2204
+H.P. 1412 House of Representatives, February 5, 2024
+An Act to Combat Racketeering in Scheduled Drugs by Certain 
+Organizations
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Criminal Justice and Public Safety suggested and ordered 
+printed.
+ROBERT B. HUNT
+Clerk
+Presented by Representative ANDREWS of Paris.
+Cosponsored by Senator HARRINGTON of York and
+Representatives: ARDELL of Monticello, CYRWAY of Albion, NEWMAN of Belgrade, 
+NUTTING of Oakland, PERKINS of Dover-Foxcroft, POIRIER of Skowhegan, SOBOLESKI 
+of Phillips, WHITE of Guilford.
+
+Page 1 - 131LR2862(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  17-A MRSA c. 46 is enacted to read:
+3CHAPTER 46
+4RACKETEER INFLUENCED AND CORRUPT ORGANIZATIONS
+5§1131. Definitions
+6 As used in this chapter, unless the context otherwise indicates, the following terms 
+7 have the following meanings.
+81. Criminal act. "Criminal act" means conduct constituting, or a conspiracy or attempt 
+9 to commit, a violation punishable by imprisonment for one year or more of any of sections 
+10 1103 to 1106; 1107-A to 1109; or 1117 to 1124.
+112. Criminal proceeding. "Criminal proceeding" means a criminal proceeding brought 
+12 under section 1132.
+133. Enterprise. "Enterprise" means a sole proprietorship, partnership, corporation, trust 
+14 or other legal entity, or a union, governmental entity, association or group of persons 
+15 associated in fact but not a legal entity, and includes illicit as well as legitimate enterprises.
+164. Participates in a pattern of criminal activity. "Participates in a pattern of criminal 
+17 activity" means, with respect to a person who participates in a pattern of criminal activity, 
+18 that the person participating is a principal with respect to conduct constituting at least 3 of 
+19 the criminal acts included in the pattern of criminal activity and at least 2 of the criminal 
+20 acts are criminal acts other than conspiracy.
+215. Pattern of criminal activity. "Pattern of criminal activity" means conduct 
+22 constituting 3 or more criminal acts that:
+23 A. Were committed within 10 years of the commencement of the applicable criminal 
+24 proceeding;
+25 B. Are neither isolated incidents nor so closely related and connected in point of time 
+26 or circumstance of commission as to constitute a single criminal offense; and
+27 C. Were either:
+28 (1) Related to one another through a common scheme or plan or a shared criminal 
+29 purpose; or
+30 (2) Committed, solicited or intentionally aided by persons acting with the culpable 
+31 state of mind required for the commission of the criminal acts and associated with 
+32 or in an enterprise involved in those criminal acts.
+336. Personal property. "Personal property" means personal property, an interest in 
+34 personal property or a right, including a bank account, a debt, corporate stock, a patent or 
+35 a copyright.
+367. Principal. "Principal" means a person who personally engages in conduct 
+37 constituting a criminal act or who is criminally liable under section 57 for the conduct of 
+38 another constituting a criminal act.
+Page 2 - 131LR2862(01)
+18. Prosecuting authority. "Prosecuting authority" means the office of a district 
+2 attorney or the Department of the Attorney General.
+39. Real property. "Real property" means any real property or an interest in real 
+4 property, including a lease of, or mortgage on, real property.
+5§1132. Racketeering
+61. Crime. A person is guilty of racketeering if the person:
+7 A. Is employed by or associated with an enterprise and intentionally conducts or 
+8 participates in the affairs of the enterprise by participating in a pattern of criminal 
+9 activity;
+10 B. Acquires or maintains an interest in or control of an enterprise, or an interest in real 
+11 property, by participating in a pattern of criminal activity; or
+12 C. Participates in a pattern of criminal activity and knowingly invests any proceeds 
+13 derived from that conduct, or any proceeds derived from the investment or use of those 
+14 proceeds, in an enterprise or in real property.
+152. Permitted activities. It is not a violation of this section to:
+16 A. Purchase securities on the open market with intent to make an investment, and 
+17 without the intent of controlling or participating in the control of the issuer, or of 
+18 assisting another to do so, if the securities of the issuer held by the purchaser, the 
+19 members of the purchaser's immediate family and the purchaser's accomplices in a 
+20 pattern of criminal activity do not amount in the aggregate to 5% of the outstanding 
+21 securities of any one class and do not confer, either in the law or in fact, the power to 
+22 elect one or more directors of the issuer;
+23 B. Make a deposit in an account maintained in a financial institution, as defined in Title 
+24 32, section 6151, subsection 4, that creates an ownership interest in that institution; or
+25 C. Purchase nonvoting shares in a limited partnership with intent to make an investment 
+26 and without the intent of controlling or participating in the control of the partnership.
+273. Affirmative defense; federal offenses. It is an affirmative defense to prosecution 
+28 under this section that the person engaged in racketeering because the person is a trafficked 
+29 person as defined in Title 5, section 4701, subsection 1, paragraph A. The prosecuting 
+30 authority shall recommend that federal action not be commenced for violations of federal 
+31 law that are committed by a person engaged in racketeering because the person is a 
+32 trafficked person and that arise out of conduct that constitutes racketeering.
+33§1133. Criminal penalties
+341. Penalty. Except as provided in this subsection, a person convicted of violating 
+35 section 1132 commits a Class A crime for which a term of imprisonment of not more than 
+36 20 years or, notwithstanding sections 1704 and 1705, a fine of not more than $1,000,000, 
+37 or both, may be imposed. A person convicted of violating section 1132 when at least one 
+38 of the criminal acts in the pattern of criminal activity is a violation of section 1105-A 
+39 involving the making, creating or manufacturing of scheduled drugs as described in section 
+40 1101, subsection 17, paragraph A commits a Class A crime for which a term of 
+41 imprisonment of not more than 30 years or, notwithstanding sections 1704 and 1705, a fine 
+42 of not more than $1,000,000, or both, may be imposed.
+Page 3 - 131LR2862(01)
+12. Fine. In lieu of the fine authorized by subsection 1, a person convicted of violating 
+2 section 1132, who received economic gain from the act or caused economic loss or personal 
+3 injury during the act, may be sentenced to pay a fine calculated under this subsection. The 
+4 maximum fine is 3 times the gross economic gain or 3 times the gross economic loss, 
+5 whichever is greater, plus court costs and the costs of investigation and prosecution 
+6 reasonably incurred, less the value of any property forfeited under section 1134. The court 
+7 shall hold a hearing to determine the amount of the fine authorized by this subsection. In 
+8 imposing a fine, the court shall consider the seriousness of the conduct, whether the amount 
+9 of the fine is disproportionate to the conduct in which the person engaged, the impact of 
+10 the conduct on victims and any legitimate enterprise involved in that conduct, as well as 
+11 the economic circumstances of the convicted person, including the effect of the imposition 
+12 of the fine on the person's immediate family. For purposes of this subsection, "loss" does 
+13 not include pain and suffering.
+143. Injunctive relief. After the entry of a judgment that includes a fine under this section 
+15 or an order of criminal forfeiture under section 1134, the court may enter a restraining order 
+16 or injunction, require the execution of a satisfactory performance bond or take other action, 
+17 including the appointment of a receiver, that the court considers proper to protect the 
+18 interests of the prosecuting authority in collecting the money or forfeiture or the interests 
+19 of an innocent party.
+204. Disposition of fine proceeds. The court shall apply fines collected under this section 
+21 to the costs and expenses of investigation and prosecution, including costs of resources and 
+22 personnel reasonably incurred in investigation and prosecution, and the balance, if any, 
+23 must be deposited in the General Fund.
+245. Restitution. In a settlement discussion or before the imposition of a sentence under 
+25 this section, the prosecuting authority shall vigorously advocate full restitution to an 
+26 aggrieved person. Before the acceptance of a plea or after a verdict but before the 
+27 imposition of a sentence under this section, the court must ensure that full restitution has 
+28 been duly effected or that a satisfactory explanation of why full restitution is impractical 
+29 has been made to the court.
+30§1134. Criminal forfeiture
+311. Forfeiture. When a person is convicted of violating section 1132, the court may 
+32 order the person to forfeit to the prosecuting authority any real property or personal 
+33 property subject to forfeiture under this section. Property subject to forfeiture is real 
+34 property and personal property that was used in the course of, intended for use in the course 
+35 of, derived from or realized through conduct in violation of section 1132. A court may not 
+36 order the forfeiture of property that has been used to pay reasonable attorney's fees in 
+37 connection with a criminal proceeding under section 1132. For the purposes of this section, 
+38 "property" includes property constituting an interest in or means of control or influence 
+39 over the enterprise involved in the violation of section 1132 and any property constituting 
+40 proceeds derived from the violation of section 1132, including:
+41 A. A position, office, appointment, tenure, commission or employment contract:
+42 (1)  That was acquired or maintained in violation of section 1132;
+43 (2)  Through which the person conducted or participated in the conduct of the 
+44 affairs of an enterprise in violation of section 1132; or
+Page 4 - 131LR2862(01)
+1 (3)  That afforded the person a source of influence or control over the affairs of an 
+2 enterprise that the person exercised in violation of section 1132;
+3 B. Any compensation, right or benefit derived from a position, office, appointment, 
+4 tenure, commission or employment contract described in paragraph A that accrued to 
+5 the person during the period of conduct in violation of section 1132;
+6 C. Any interest in an enterprise, any security of an enterprise, any claim against an 
+7 enterprise or a property or contractual right affording the person a source of influence 
+8 or control over the affairs of an enterprise that the person exercised in violation of 
+9 section 1132; and
+10 D. Any amount payable or paid under any contract for goods or services that was 
+11 awarded or performed in violation of section 1132.
+122. Other property of defendant. The court may order criminal forfeiture of any 
+13 property other than property described under subsection 1 of the defendant up to the value 
+14 of the property that is unreachable if any property subject to criminal forfeiture under 
+15 subsection 1:
+16 A. Cannot be located;
+17 B. Has been sold to a bona fide purchaser for value;
+18 C. Has been placed beyond the jurisdiction of the court;
+19 D. Has been substantially diminished in value by the conduct of the defendant;
+20 E. Has been commingled with other property that cannot be divided without difficulty 
+21 or undue injury to innocent persons; or
+22 F. Is otherwise unreachable without undue injury to an innocent person.
+23§1135. Preservation of property subject to forfeiture
+241. Temporary restraining order. When an indictment or complaint is filed under 
+25 section 1132, the court may take any of the following actions if the prosecuting authority 
+26 shows by a preponderance of the evidence that the action is necessary to preserve the 
+27 reachability of property subject to criminal forfeiture:
+28 A. Enter a restraining order or injunction;
+29 B. Require the execution of a satisfactory performance bond; or
+30 C. Take any other reasonable action, including the appointment of a receiver.
+31 Before granting the remedies provided by this subsection, the court shall hold a hearing, 
+32 after notice to all affected persons, giving them a reasonable opportunity to respond. At the 
+33 hearing, the rules of evidence do not apply.
+342. Preindictment order. The following provisions govern preindictment orders.
+35 A. If an indictment or complaint has not been filed, the court may take actions provided 
+36 in subsection 1 if the prosecuting authority makes the showing required by subsection 
+37 1 and also shows that:
+38 (1) There is probable cause to believe that the property with respect to which the 
+39 order is sought would, in the event of a conviction, be subject to criminal forfeiture 
+40 under section 1134; and
+Page 5 - 131LR2862(01)
+1 (2) The requested order would not result in substantial and irreparable harm or 
+2 injury to the party against whom the order is to be entered, or to other affected 
+3 persons, that outweighs the need to preserve the reachability of the property.
+4 B. An order entered under this subsection is effective for a maximum of 90 days unless:
+5 (1) Extended by the court for good cause; or
+6 (2) Terminated by the filing of an indictment or complaint alleging that the 
+7 property is subject to forfeiture.
+83. Restraining order without notice. On application by the prosecuting authority, the 
+9 court may grant, without notice to any party, a temporary restraining order to preserve the 
+10 reachability of property subject to criminal forfeiture under section 1134 if:
+11 A. An indictment or complaint alleging that property is subject to criminal forfeiture 
+12 has been filed or the court determines that there is probable cause to believe that 
+13 property with respect to which the order is sought would, in the event of a conviction, 
+14 be subject to criminal forfeiture under section 1134;
+15 B. The property is in the possession or control of the party against whom the order is 
+16 to be entered; and
+17 C. The court makes a specific finding in writing that the property can be concealed, 
+18 disposed of or placed beyond the jurisdiction of the court before any party may be 
+19 heard in opposition.
+20 A temporary restraining order granted without notice to any party under this subsection 
+21 expires within the time fixed by the court, not to exceed 10 days. The court may extend the 
+22 order for good cause shown or if the party against whom it is entered consents to an 
+23 extension. After a temporary restraining order is granted under this subsection, a hearing 
+24 concerning the entry of an order under this section must be held at the earliest practicable 
+25 time and before the temporary order expires.
+26§1136. Disposition of forfeiture proceeds
+271. Disposition alternatives. Except as provided in subsection 2, after making due 
+28 provisions for the rights of innocent persons, the prosecuting authority shall, as soon as 
+29 feasible, dispose of all property ordered forfeited under section 1134 by:
+30 A. Public sale;
+31 B. Sale or transfer to an innocent person; or
+32 C. Destruction, if the property is not needed for evidence in a pending criminal or civil 
+33 proceeding.
+342. Transfer to Maine State Housing Authority. The prosecuting authority shall, as 
+35 soon as feasible, transfer real property ordered forfeited under section 1134 and suitable 
+36 for residential use to the Maine State Housing Authority.
+373. No reversion to defendant. For the purposes of this section, an interest in personal 
+38 property or real property not exercisable by or transferable for value by the prosecuting 
+39 authority expires and does not revert to the defendant. Forfeited property may not be 
+40 purchased by the defendant, a relative of the defendant or any person acting in concert with 
+41 the defendant or on the defendant's behalf.
+Page 6 - 131LR2862(01)
+14. Sale proceeds. The proceeds of a sale or other disposition of forfeited property under 
+2 this section, whether by final judgment, settlement or otherwise, must be applied as 
+3 follows:
+4 A. To the fees and costs of the forfeiture and sale, including expenses of seizure, 
+5 maintenance and custody of the property pending its disposition, advertising and court 
+6 costs; and
+7 B. The balance to the Maine State Housing Authority to be used by the authority to pay 
+8 taxes, fees and liens associated with real property transferred to the authority pursuant 
+9 to subsection 2 and rehabilitate that real property into livable residential real property 
+10 for resale.
+11§1137. Additional relief available
+12 With respect to property ordered forfeited, a fine imposed or a civil penalty imposed 
+13 in a criminal proceeding under section 1132 or civil proceeding under section 1139, the 
+14 court may, on petition of the prosecuting authority or any other person within 60 days of a 
+15 final order:
+161. Authorize compromise. Authorize the compromise of claims;
+172. Award compensation. Award compensation to persons providing information that 
+18 results in a forfeiture under section 1134;
+193. Grant petition. Grant a petition for mitigation or remission of a forfeiture or fine;
+204. Restore forfeited property or award imposed fines. Restore forfeited property or 
+21 award imposed fines to victims of a violation of section 1132; and
+225. Take any other action. Take any other action to protect the rights of innocent 
+23 persons that is in the interests of justice and is consistent with the purposes of this chapter.
+24§1138. Relation to other sanctions
+251. Remedy not exclusive. Except as provided in this section, a criminal penalty, 
+26 forfeiture or fine imposed under section 1132, 1133, 1134 or 1139 does not preclude the 
+27 application of any other criminal penalty or civil remedy for the separate criminal acts. A 
+28 prosecuting authority may not file a civil action under section 1139 if any prosecuting 
+29 authority has filed a previous criminal proceeding under section 1132 against the same 
+30 person based on the same criminal conduct and the charges were dismissed after jeopardy 
+31 attached or the person was acquitted.
+322. Restitution. A restitution payment to a victim under section 1133 does not limit 
+33 liability for damages in a civil action or proceeding for an amount greater than the 
+34 restitution payment.
+35§1139. Civil remedies
+361. Relief available. The prosecuting authority may institute civil proceedings in court 
+37 seeking relief from conduct constituting a violation of section 1132 or to prevent or restrain 
+38 future violations. If the prosecuting authority proves the alleged violation by a 
+39 preponderance of the evidence, and the court has made due provision for the rights of 
+40 innocent persons, the court may:
+41 A. Order a defendant to divest an interest in an enterprise or in real property;
+Page 7 - 131LR2862(01)
+1 B. Impose reasonable restrictions on the future activities or investments of a defendant, 
+2 including prohibiting a defendant from engaging in the same type of endeavor as the 
+3 enterprise in which the defendant was engaged in violation of section 1132;
+4 C. Order the dissolution or reorganization of an enterprise;
+5 D. Order the suspension or revocation of a license, permit or prior approval granted to 
+6 an enterprise by a state agency; or
+7 E. Order the surrender of the charter of a corporation organized under the law of this 
+8 State, the dissolution of an enterprise or the revocation of the authority for a foreign 
+9 corporation to conduct business in this State if the court finds that:
+10 (1) The board of directors or a managerial agent acting on behalf of the corporation, 
+11 in conducting the affairs of the corporation, authorized or engaged in conduct 
+12 constituting a violation of section 1132; and
+13 (2) The public interest in preventing future criminal conduct requires the action.
+142. Injunctive relief. In a proceeding under this section, the court may grant injunctive 
+15 relief.
+163. Civil penalty. The prosecuting authority may institute proceedings against an 
+17 enterprise or an individual to recover a civil penalty. The penalty may be imposed in the 
+18 discretion of the court for conduct constituting a violation of section 1132. The civil penalty 
+19 may not exceed $1,000,000 less a fine imposed under section 1133. Penalties collected 
+20 under this section must be paid to the State and applied to the costs and expenses of 
+21 investigation and prosecution, including costs of resources and personnel incurred in 
+22 investigation and prosecution, and the balance, if any, must be deposited in the General 
+23 Fund.
+244. Attorney's fees. If the court issues an injunction or grants other relief under this 
+25 section, or the prosecuting authority otherwise substantially prevails, the prosecuting 
+26 authority must also recover reasonable attorney's fees in the trial and appellate courts and 
+27 costs of investigation and litigation reasonably incurred.
+285. Personal jurisdiction. Personal service of process in a proceeding under this section 
+29 may be made on any person outside of this State if the person was a principal in any conduct 
+30 constituting a violation of section 1132 in this State. The person is deemed to have 
+31 submitted to the jurisdiction of the courts of this State for the purposes of this section.
+32§1140. Notice to other prosecuting authorities
+33 When a prosecuting authority or law enforcement agency begins an investigation, files 
+34 a charge or makes an arrest involving this chapter, the prosecuting authority or law 
+35 enforcement agency shall notify the Department of the Attorney General. An office of a 
+36 district attorney or a law enforcement agency is not required to obtain the permission of the 
+37 Attorney General to conduct an investigation, file a charge or make an arrest involving this 
+38 chapter. The Attorney General shall notify all prosecuting authorities and law enforcement 
+39 agencies that are conducting investigations, filing charges or making arrests involving this 
+40 chapter, the same actors and the same acts. The Attorney General shall designate the 
+41 prosecuting authority or law enforcement agency that first filed notice of an investigation 
+42 involving this chapter, the same actors and the same acts as the exclusive prosecuting 
+Page 8 - 131LR2862(01)
+43 authority or law enforcement agency for the matter under investigation if that prosecuting 
+44 authority or law enforcement agency requests that designation.
+3§1141.  Personal property and real property
+4 For purposes of this chapter:
+51.  Personal property.  Personal property and a beneficial interest in personal property 
+6 are deemed to be located where the trustee is, the personal property is or the instrument 
+7 evidencing the right is; and
+82.  Real property.  A beneficial interest in real property is deemed to be located where 
+9 the real property is located.
+10Sec. 2.  30-A MRSA §4173, sub-§6 is enacted to read:
+116.  Permit required.  A permit is required for the installation or upgrade of electrical 
+12 service to a total of 400 amperes or more in a residential building. The ampere ratings of 
+13 all electrical panels must be added together to determine whether the 400-ampere threshold 
+14 in this subsection is met. If the residential building is in a municipality that has provided 
+15 for electrical inspections, the person performing the work must apply to the municipal 
+16 electrical inspector in writing for a permit. If the residential building is not in a municipality 
+17 that has provided for electrical inspections, the person performing the work must apply to 
+18 a state electrical inspector in writing for a permit. A municipal electrical inspector or state 
+19 electrical inspector shall notify the transmission and distribution utility that serves the 
+20 residential building of an application made under this subsection.
+21Sec. 3.  33 MRSA §451 is repealed and the following enacted in its place:
+22§451.  Rights of aliens
+231.  Alien may take, hold, convey and devise real estate.  Except as provided in 
+24 subsection 2, an alien may take, hold, convey and devise real estate or any interest therein. 
+25 All conveyances and devises of real estate or interest already made by or to an alien are 
+26 valid.
+272.  Certain aliens may not purchase or otherwise acquire real estate.  An alien, 
+28 except an alien who is a legal permanent resident of the United States, who is a citizen of 
+29 one of the following countries may not purchase or otherwise acquire real estate or any 
+30 interest in real estate in this State:
+31 A.  The People's Republic of China, including the Hong Kong Special Administrative 
+32 Region;
+33 B.  The Republic of Cuba;
+34 C.  The Islamic Republic of Iran;
+35 D.  The Democratic People's Republic of Korea; or
+36 E.  The Russian Federation.
+37Sec. 4.  35-A MRSA §3217, sub-§5 is enacted to read:
+385.  Suspicious power use reports.  The following provisions govern suspicious power 
+39 use reports.
+1
+2
+Page 9 - 131LR2862(01)
+1 A. A consumer-owned transmission and distribution utility and an investor-owned 
+2 transmission and distribution utility shall generate a suspicious power use report under 
+3 this section and transmit that report to the Department of Public Safety, Maine State 
+4 Police when:
+5 (1) A 400 ampere or more total service is installed or an existing service is 
+6 upgraded to a 400 ampere or more total service at a residential property, regardless 
+7 of whether that installation or upgrade is a single 400 ampere or more panel or 
+8 multiple smaller panels the sum of which is 400 amperes or more;
+9 (2) A transformer malfunctions;
+10 (3) A transformer larger than 25 kilovolt-amperes is installed or a transformer is 
+11 upgraded to a transformer larger than 25 kilovolt-amperes for a residential 
+12 customer; or
+13 (4) There is a month-to-month increase in power consumption of greater than 
+14 500% for a residential customer.
+15 The square footage of the residential property and the reason for the power increase, if 
+16 known to the consumer-owned transmission and distribution utility and the investor-
+17 owned transmission and distribution utility, must be included in the report.
+18Sec. 5. Utilities to generate list. A consumer-owned transmission and distribution 
+19 utility and an investor-owned transmission and distribution utility, as defined in the Maine 
+20 Revised Statutes, Title 35-A, section 3201, subsections 6 and 11-A, respectively, shall 
+21 generate a list of 400 ampere or more total service installations and upgrades and 
+22 malfunctioning transformers at residential properties since 2013 and submit this list to the 
+23 Department of Public Safety, Maine State Police in a manner specified by the Maine State 
+24 Police.
+25SUMMARY
+26 This bill establishes the crime of racketeering and provides that a person is guilty of 
+27 racketeering if the person is employed by or associated with an enterprise and intentionally 
+28 conducts or participates in the affairs of the enterprise by participating in a pattern of 
+29 criminal activity; acquires or maintains an interest in or control of an enterprise, or an 
+30 interest in real property, by participating in a pattern of criminal activity; or participates in 
+31 a pattern of criminal activity and knowingly invests any proceeds derived from that 
+32 conduct, or any proceeds derived from the investment or use of those proceeds, in an 
+33 enterprise or in real property. The bill defines "criminal act" as conduct constituting, or a 
+34 conspiracy or attempt to commit, a violation punishable by imprisonment for one year or 
+35 more of the criminal laws governing scheduled drugs. The definition of "criminal act" 
+36 includes violations of the laws governing the aggravated trafficking of scheduled drugs that 
+37 involve the making, creating or manufacturing of scheduled drugs. It is an affirmative 
+38 defense to a prosecution for racketeering that the person engaged in racketeering because 
+39 the person is a trafficked person. A person guilty of racketeering commits a Class A crime 
+40 for which a term of imprisonment of not more than 20 years or a fine of not more than 
+41 $1,000,000, or both, may be imposed. A person guilty of racketeering when at least one of 
+42 the criminal acts in the pattern of criminal activity is aggravated trafficking of scheduled 
+43 drugs involving the making, creating or manufacturing of scheduled drugs commits a Class 
+44 A crime for which a term of imprisonment of not more than 30 years or a fine of not more 
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+Page 10 - 131LR2862(01)
+45 than $1,000,000, or both, may be imposed. In lieu of these fines, a person guilty of 
+46 racketeering who received economic gain from the act or caused economic loss or personal 
+47 injury during the act may be sentenced to pay a fine that is no greater than 3 times the gross 
+48 economic value gained or 3 times the gross economic loss caused, whichever is greater, 
+49 plus court costs and the costs of investigation and prosecution reasonably incurred, less the 
+50 value of any property forfeited.
+7 The bill provides that when a person is convicted of racketeering, the court may order 
+8 the person to forfeit to the prosecuting authority any real or personal property that was used 
+9 in the course of, intended for use in the course of, derived from or realized through conduct 
+10 in violation of the racketeering laws. The prosecuting authority must transfer real property 
+11 ordered forfeited and suitable for residential use to the Maine State Housing Authority. The 
+12 proceeds of a sale or other disposition of forfeited property must be applied to the fees and 
+13 costs of the forfeiture and sale and the balance must be transferred to the Maine State 
+14 Housing Authority to be used by the authority to pay taxes, fees and liens associated with 
+15 real property transferred to the authority as a result of forfeiture and to rehabilitate that real 
+16 property into livable residential real property for resale.
+17 The bill provides that the prosecuting authority may institute civil proceedings in court 
+18 seeking relief from conduct constituting a violation of the laws governing racketeering or 
+19 to prevent or restrain future violations.
+20 The bill provides that when a prosecuting authority or law enforcement agency begins 
+21 an investigation, files a charge or makes an arrest involving the laws governing 
+22 racketeering, the prosecuting authority or law enforcement agency must notify the 
+23 Department of the Attorney General. An office of a district attorney or a law enforcement 
+24 agency is not required to obtain the permission of the Attorney General to conduct an 
+25 investigation, file a charge or make an arrest. The Attorney General must notify all 
+26 prosecuting authorities and law enforcement agencies that are conducting investigations, 
+27 filing charges or making arrests involving the laws governing racketeering, the same actors 
+28 and the same acts. The Attorney General must designate the prosecuting authority or law 
+29 enforcement agency that first filed notice of an investigation involving the laws governing 
+30 racketeering, the same actors and the same acts as the exclusive prosecuting authority or 
+31 law enforcement agency for the matter under investigation if that prosecuting authority or 
+32 law enforcement agency requests that designation.
+33 The bill requires a permit for the installation or upgrade of electrical service to a total 
+34 of 400 amperes or more in a residential building. It also requires a transmission and 
+35 distribution electric utility to generate a suspicious power use report and transmit that report 
+36 to the Department of Public Safety, Maine State Police when: a 400 ampere or more total 
+37 service is installed or an existing service is upgraded to a 400 ampere or more total service 
+38 at a residential property, regardless of whether that installation or upgrade is a single 400 
+39 ampere or more panel or multiple smaller panels the sum of which is 400 amperes or more; 
+40 a transformer malfunctions; a transformer larger than 25 kilovolt-amperes is installed or a 
+41 transformer is upgraded to a transformer larger than 25 kilovolt-amperes for a residential 
+42 customer; or there is a month-to-month increase in power consumption of greater than 
+43 500% for a residential customer. A transmission and distribution electric utility also is 
+44 required to generate a list of 400 ampere or more total service installations and upgrades 
+45 and malfunctioning transformers at residential properties since 2013 and submit this list to 
+46 the Maine State Police in a manner specified by the Maine State Police.
+1
+2
+3
+4
+5
+6
+Page 11 - 131LR2862(01)
+1 The bill provides that an alien, except an alien who is a legal permanent resident of the 
+2 United States, who is a citizen of the People's Republic of China, including the Hong Kong 
+3 Special Administrative Region; the Republic of Cuba; the Islamic Republic of Iran; the 
+4 Democratic People's Republic of Korea; or the Russian Federation may not purchase or 
+5 otherwise acquire real estate or any interest in real estate in this State.

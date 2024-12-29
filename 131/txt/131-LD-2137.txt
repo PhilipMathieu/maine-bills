@@ -1,0 +1,882 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2137
+H.P. 1361 House of Representatives, January 3, 2024
+An Act to Join the Dentist and Dental Hygienist Compact
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Health Coverage, Insurance and Financial Services 
+suggested and ordered printed.
+ROBERT B. HUNT
+Clerk
+Presented by Representative MORRIS of Turner.
+
+Page 1 - 131LR2881(01)
+1Be it enacted by the People of the State of Maine as follows:
+2CONCEPT DRAFT
+3SUMMARY
+4 This bill is a concept draft pursuant to Joint Rule 208.
+5 This bill proposes to enact the Dentist and Dental Hygienist Compact to facilitate the 
+6 interstate practice of dentistry and dental hygiene by improving public access to dentistry 
+7 and dental hygiene services provided by dentists and dental hygienists practicing in states 
+8 in which they are not licensed. The compact preserves the regulatory authority of a state to 
+9 protect public health and safety through that state's current system of state licensure and 
+10 promote mobility and address workforce shortages by eliminating the necessity for licenses 
+11 in multiple states by providing for the mutual recognition of other member state licenses.  
+12 The verbatim text of the Dentist and Dental Hygienist Compact, which has not been 
+13 edited to make necessary, nonsubstantive changes to conform to Maine legislative drafting 
+14 standards, reads as follows.
+15DENTIST AND DENTAL HYGIENIST COMPACT
+16SECTION 1. TITLE AND PURPOSE
+17 This statute shall be known and cited as the Dentist and Dental Hygienist Compact. The 
+18 purposes of this Compact are to facilitate the interstate practice of dentistry and dental 
+19 hygiene and improve public access to dentistry and dental hygiene services by providing 
+20 Dentists and Dental Hygienists licensed in a Participating State the ability to practice in 
+21 Participating States in which they are not licensed. The Compact does this by establishing 
+22 a pathway for a Dentists and Dental Hygienists licensed in a Participating State to obtain a 
+23 Compact Privilege that authorizes them to practice in another Participating State in which 
+24 they are not licensed. The Compact enables Participating States to protect the public health 
+25 and safety with respect to the practice of such Dentists and Dental Hygienists, through the 
+26 State's authority to regulate the practice of dentistry and dental hygiene in the State. The 
+27 Compact: 
+28 A.  Enables Dentists and Dental Hygienists who qualify for a Compact Privilege to 
+29 practice in other Participating States without satisfying burdensome and 
+30 duplicative requirements associated with securing a License to practice in those 
+31 States;
+32 B.   Promotes mobility and addresses workforce shortages through each Participating 
+33 State's acceptance of a Compact Privilege to practice in that State;
+34 C.  Increases public access to qualified, licensed Dentists and Dental Hygienists by 
+35 creating a responsible, streamlined pathway for Licensees to practice in 
+36 Participating States.
+37 D.   Enhances the ability of Participating States to protect the public's health and safety;
+38 E.   Does not interfere with licensure requirements established by a Participating State;
+39 F.   Facilitates the sharing of licensure and disciplinary information among 
+40 Participating States;
+4
+Page 2 - 131LR2881(01)
+1 G.  Requires Dentists and Dental Hygienists who practice in a Participating State 
+2 pursuant to a Compact Privilege to practice within the Scope of Practice authorized 
+3 in that State;
+4 H.  Extends the authority of a Participating State to regulate the practice of dentistry 
+5 and dental hygiene within its borders to Dentists and Dental Hygienists who 
+6 practice in the State through a Compact Privilege;
+7 I.    Promotes the cooperation of Participating State in regulating the practice of 
+8 dentistry and dental hygiene within those States;
+9 J.    Facilitates the relocation of military members and their spouses who are licensed 
+10 to practice dentistry or dental hygiene;
+11SECTION 2. DEFINITIONS
+12 As used in this Compact, unless the context requires otherwise, the following definitions 
+13 shall apply:
+14 A.  "Active Military Member" means any person with full-time duty status in the 
+15 armed forces of the United States, including members of the National Guard and 
+16 Reserve.
+17 B.  "Adverse Action" means disciplinary action or encumbrance imposed on a 
+18 License or Compact Privilege by a State Licensing Authority.
+19 C.  "Alternative Program" means a non-disciplinary monitoring or practice 
+20 remediation process applicable to a Dentist or Dental Hygienist approved by a 
+21 State Licensing Authority of a Participating State in which the Dentist or Dental 
+22 Hygienist is licensed. This includes, but is not limited to, programs to which 
+23 Licensees with substance abuse or addiction issues are referred in lieu of Adverse 
+24 Action.
+25 D.  "Clinical Assessment" means examination or process, required for licensure as a 
+26 Dentist or Dental Hygienist as applicable, that provides evidence of clinical 
+27 competence in dentistry or dental hygiene.
+28 E.  "Commissioner" means the individual appointed by a Participating State to serve 
+29 as the member of the Commission for that Participating State.
+30 F.  "Compact" means this Dentist and Dental Hygienist Compact.
+31 G.  "Compact Privilege" means the authorization granted by a Remote State to allow 
+32 a Licensee from a Participating State to practice as a Dentist or Dental Hygienist 
+33 in a Remote State.
+34 H.  "Continuing Professional Development" means a requirement, as a condition of 
+35 License renewal to provide evidence of successful participation in educational or 
+36 professional activities relevant to practice or area of work.
+37 I.   "Criminal Background Check" means the submission of fingerprints or other 
+38 biometric-based information for a License applicant for the purpose of obtaining 
+39 that applicant's criminal history record information, as defined in 28 C.F.R. § 
+40 20.3(d) from the Federal Bureau of Investigation and the State's criminal history 
+41 record repository as defined in 28 C.F.R. § 20.3(f).
+Page 3 - 131LR2881(01)
+1 J.  "Data System" means the Commission's repository of information about 
+2 Licensees, including but not limited to examination, licensure, investigative, 
+3 Compact Privilege, Adverse Action, and Alternative Program.
+4 K.  "Dental Hygienist" means an individual who is licensed by a State Licensing 
+5 Authority to practice dental hygiene.
+6 L.  "Dentist" means an individual who is licensed by a State Licensing Authority to 
+7 practice dentistry.
+8 M.  "Dentist and Dental Hygienist Compact Commission" or "Commission" 
+9 means a joint government agency established by this Compact comprised of each 
+10 State that has enacted the Compact and a national administrative body comprised 
+11 of a Commissioner from each State that has enacted the Compact.
+12 N.  "Encumbered License" means a License that a State Licensing Authority has 
+13 limited in any way other than through an Alternative Program.
+14 O.  "Executive Board" means the Chair, Vice Chair, Secretary and Treasurer and any 
+15 other Commissioners as may be determined by Commission Rule or bylaw.
+16 P.  "Jurisprudence Requirement" means the assessment of an individual's 
+17 knowledge of the laws and Rules governing the practice of dentistry or dental 
+18 hygiene, as applicable, in a State.
+19 Q.  "License" means current authorization by a State, other than authorization 
+20 pursuant to a Compact Privilege, or other privilege, for an individual to practice as 
+21 a Dentist or Dental Hygienist in that State.
+22 R.  "Licensee" means an individual who holds an unrestricted License from a 
+23 Participating State to practice as a Dentist or Dental Hygienist in that State.
+24 S.  "Model Compact" the model for the Dentist and Dental Hygienist Compact on file 
+25 with the Council of State Governments or other entity as designated by the 
+26 Commission.
+27 T.  "Participating State" means a State that has enacted the Compact and been 
+28 admitted to the Commission in accordance with the provisions herein and 
+29 Commission Rules.
+30 U.  "Qualifying License" means a License that is not an Encumbered License issued 
+31 by a Participating State to practice dentistry or dental hygiene.
+32 V.  "Remote State" means a Participating State where a Licensee who is not licensed 
+33 as a Dentist or Dental Hygienist is exercising or seeking to exercise the Compact 
+34 Privilege.
+35 W.  "Rule" means a regulation promulgated by an entity that has the force of law.
+36 X.   "Scope of Practice" means the procedures, actions, and processes a Dentist or 
+37 Dental Hygienist licensed in a State is permitted to undertake in that State and the 
+38 circumstances under which the Licensee is permitted to undertake those 
+39 procedures, actions and processes. Such procedures, actions and processes and the 
+40 circumstances under which they may be undertaken may be established through 
+41 means, including, but not limited to, statute, regulations, case law, and other 
+42 processes available to the State Licensing Authority or other government agency.
+Page 4 - 131LR2881(01)
+1 Y.  "Significant Investigative Information" means information, records, and 
+2 documents received or generated by a State Licensing Authority pursuant to an 
+3 investigation for which a determination has been made that there is probable cause 
+4 to believe that the Licensee has violated a statute or regulation that is considered 
+5 more than a minor infraction for which the State Licensing Authority could pursue 
+6 Adverse Action against the Licensee.
+7 Z.  "State" means any state, commonwealth, district, or territory of the United States 
+8 of America that regulates the practices of dentistry and dental hygiene.
+9 AA. "State Licensing Authority" means an agency or other entity of a State that is 
+10 responsible for the licensing and regulation of Dentists or Dental Hygienists.
+11SECTION 3. STATE PARTICIPATION IN THE COMPACT
+12 A.  In order to join the Compact and thereafter continue as a Participating State, a State 
+13 must:
+14 1.  Enact a compact that is not materially different from the Model Compact as 
+15 determined in accordance with Commission Rules;
+16 2.  Participate fully in the Commission's Data System;
+17 3.  Have a mechanism in place for receiving and investigating complaints about its 
+18 Licensees and License applicants;
+19 4.  Notify the Commission, in compliance with the terms of the Compact and 
+20 Commission Rules, of any Adverse Action or the availability of Significant 
+21 Investigative Information regarding a Licensee and License applicant;
+22 5.  Fully implement a Criminal Background Check requirement, within a time frame 
+23 established by Commission Rule, by receiving the results of a qualifying Criminal 
+24 Background Check;
+25 6.  Comply with the Commission Rules applicable to a Participating State;
+26 7.  Accept the National Board Examinations of the Joint Commission on National 
+27 Dental Examinations or another examination accepted by Commission Rule as a 
+28 licensure examination;
+29 8.  Accept for licensure that applicants for a Dentist License graduate from a 
+30 predoctoral dental education program accredited by the Commission on Dental 
+31 Accreditation, or another accrediting agency recognized by the United States 
+32 Department of Education for the accreditation of dentistry and dental hygiene 
+33 education programs, leading to the Doctor of Dental Surgery (D.D.S.) or Doctor of 
+34 Dental Medicine (D.M.D.) degree;
+35 9.  Accept for licensure that applicants for a Dental Hygienist License graduate from a 
+36 dental hygiene education program accredited by the Commission on Dental 
+37 Accreditation or another accrediting agency recognized by the United States 
+38 Department of Education for the accreditation of dentistry and dental hygiene 
+39 education programs;
+40 10. Require for licensure that applicants successfully complete a Clinical Assessment;
+41 11. Have Continuing Professional Development requirements as a condition for 
+42 License renewal; and
+Page 5 - 131LR2881(01)
+1 12. Pay a participation fee to the Commission as established by Commission Rule.
+2 B.  Providing alternative pathways for an individual to obtain an unrestricted License does 
+3 not disqualify a State from participating in the Compact.
+4 C.  When conducting a Criminal Background Check the State Licensing Authority shall:
+5 1.  Consider that information in making a licensure decision;
+6 2.  Maintain documentation of completion of the Criminal Background Check and 
+7 background check information to the extent allowed by State and federal law; and
+8 3.  Report to the Commission whether it has completed the Criminal Background 
+9 Check and whether the individual was granted or denied a License.
+10 D.  A Licensee of a Participating State who has a Qualifying License in that State and does 
+11 not hold an Encumbered License in any other Participating State, shall be issued a 
+12 Compact Privilege in a Remote State in accordance with the terms of the Compact and 
+13 Commission Rules. If a Remote State has a Jurisprudence Requirement a Compact 
+14 Privilege will not be issued to the Licensee unless the Licensee has satisfied the 
+15 Jurisprudence Requirement.
+16SECTION 4. COMPACT PRIVILEGE
+17 A.  To obtain and exercise the Compact Privilege under the terms and provisions of the 
+18 Compact, the Licensee shall:
+19 1.  Have a Qualifying License as a Dentist or Dental Hygienist in a Participating State;
+20 2.  Be eligible for a Compact Privilege in any Remote State in accordance with D, G 
+21 and H of this section;
+22 3.  Submit to an application process whenever the Licensee is seeking a Compact 
+23 Privilege;
+24 4.  Pay any applicable Commission and Remote State fees for a Compact Privilege in 
+25 the Remote State;
+26 5.  Meet any Jurisprudence Requirement established by a Remote State in which the 
+27 Licensee is seeking a Compact Privilege;
+28 6.  Have passed a National Board Examination of the Joint Commission on National 
+29 Dental Examinations or another examination accepted by Commission Rule;
+30 7.  For a Dentist, have graduated from a predoctoral dental education program 
+31 accredited by the Commission on Dental Accreditation, or another accrediting 
+32 agency recognized by the United States Department of Education for the 
+33 accreditation of dentistry and dental hygiene education programs, leading to the 
+34 Doctor of Dental Surgery (D.D.S.) or Doctor of Dental Medicine (D.M.D.) degree;
+35 8.  For a Dental Hygienist, have graduated from a dental hygiene education program 
+36 accredited by the Commission on Dental Accreditation or another accrediting 
+37 agency recognized by the United States Department of Education for the 
+38 accreditation of dentistry and dental hygiene education programs;
+39 9.  Have successfully completed a Clinical Assessment for licensure;
+Page 6 - 131LR2881(01)
+1 10. Report to the Commission Adverse Action taken by any non-Participating State 
+2 when applying for a Compact Privilege and, otherwise, within thirty (30) days from 
+3 the date the Adverse Action is taken;
+4 11. Report to the Commission when applying for a Compact Privilege the address of 
+5 the Licensee's primary residence and thereafter immediately report to the 
+6 Commission any change in the address of the Licensee's primary residence; and
+7 12. Consent to accept service of process by mail at the Licensee's primary residence on 
+8 record with the Commission with respect to any action brought against the Licensee 
+9 by the Commission or a Participating State, and consent to accept service of a 
+10 subpoena by mail at the Licensee's primary residence on record with the 
+11 Commission with respect to any action brought or investigation conducted by the 
+12 Commission or a Participating State.
+13 B.  The Licensee must comply with the requirements of subsection A of this section to 
+14 maintain the Compact Privilege in the Remote State. If those requirements are met, the 
+15 Compact Privilege will continue as long as the Licensee maintains a Qualifying 
+16 License in the State through which the Licensee applied for the Compact Privilege and 
+17 pays any applicable Compact Privilege renewal fees.
+18 C.  A Licensee providing dentistry or dental hygiene in a Remote State under the Compact 
+19 Privilege shall function within the Scope of Practice authorized by the Remote State 
+20 for a Dentist or Dental Hygienist licensed in that State.
+21 D.  A Licensee providing dentistry or dental hygiene pursuant to a Compact Privilege in a 
+22 Remote State is subject to that State's regulatory authority. A Remote State may, in 
+23 accordance with due process and that State's laws, by Adverse Action revoke or remove 
+24 a Licensee's Compact Privilege in the Remote State for a specific period of time and 
+25 impose fines or take any other necessary actions to protect the health and safety of its 
+26 citizens. If a Remote State imposes an Adverse Action against a Compact Privilege that 
+27 limits the Compact Privilege, that Adverse Action applies to all Compact Privileges in 
+28 all Remote States. A Licensee whose Compact Privilege in a Remote State is removed 
+29 for a specified period of time is not eligible for a Compact Privilege in any other 
+30 Remote State until the specific time for removal of the Compact Privilege has passed 
+31 and all encumbrance requirements are satisfied.
+32 E.  If a License in a Participating State is an Encumbered License, the Licensee shall lose 
+33 the Compact Privilege in a Remote State and shall not be eligible for a Compact 
+34 Privilege in any Remote State until the License is no longer encumbered.
+35 F.  Once an Encumbered License in a Participating State is restored to good standing, the 
+36 Licensee must meet the requirements of subsection A of this section to obtain a 
+37 Compact Privilege in a Remote State.
+38 G.  If a Licensee's Compact Privilege in a Remote State is removed by the Remote State, 
+39 the individual shall lose or be ineligible for the Compact Privilege in any Remote State 
+40 until the following occur:
+41 1.  The specific period of time for which the Compact Privilege was removed has 
+42 ended; and
+43 2.  All conditions for removal of the Compact Privilege have been satisfied.
+Page 7 - 131LR2881(01)
+1 H.  Once the requirements of subsection G of this section have been met, the Licensee must 
+2 meet the requirements in subsection A of this section to obtain a Compact Privilege in 
+3 a Remote State.
+4SECTION 5. ACTIVE MILITARY MEMBER OR THEIR SPOUSES
+5 An Active Military Member and their spouse shall not be required to pay to the 
+6 Commission for a Compact Privilege the fee otherwise charged by the Commission. If a 
+7 Remote State chooses to charge a fee for a Compact Privilege, it may choose to charge a 
+8 reduced fee or no fee to an Active Military Member and their spouse for a Compact 
+9 Privilege.
+10SECTION 6. ADVERSE ACTIONS
+11 A.  A Participating State in which a Licensee is licensed shall have exclusive authority to 
+12 impose Adverse Action against the Qualifying License issued by that Participating 
+13 State.
+14 B.  A Participating State may take Adverse Action based on the Significant Investigative 
+15 Information of a Remote State, so long as the Participating State follows its own 
+16 procedures for imposing Adverse Action.
+17 C.  Nothing in this Compact shall override a Participating State's decision that participation 
+18 in an Alternative Program may be used in lieu of Adverse Action and that such 
+19 participation shall remain non-public if required by the Participating State's laws. 
+20 Participating States must require Licensees who enter any Alternative Program in lieu 
+21 of discipline to agree not to practice pursuant to a Compact Privilege in any other 
+22 Participating State during the term of the Alternative Program without prior 
+23 authorization from such other Participating State.
+24 D.  Any Participating State in which a Licensee is applying to practice or is practicing 
+25 pursuant to a Compact Privilege may investigate actual or alleged violations of the 
+26 statutes and regulations authorizing the practice of dentistry or dental hygiene in any 
+27 other Participating State in which the Dentist or Dental Hygienist holds a License or 
+28 Compact Privilege.
+29 E.  A Remote State shall have the authority to:
+30 1.  Take Adverse Actions as set forth in Section 4.D against a Licensee's Compact 
+31 Privilege in the State;
+32 2.  In furtherance of its rights and responsibilities under the Compact and the 
+33 Commission's Rules issue subpoenas for both hearings and investigations that 
+34 require the attendance and testimony of witnesses, and the production of evidence. 
+35 Subpoenas issued by a State Licensing Authority in a Participating State for the 
+36 attendance and testimony of witnesses, or the production of evidence from another 
+37 Participating State, shall be enforced in the latter State by any court of competent 
+38 jurisdiction, according to the practice and procedure of that court applicable to 
+39 subpoenas issued in proceedings pending before it. The issuing authority shall pay 
+40 any witness fees, travel expenses, mileage, and other fees required by the service 
+41 statutes of the State where the witnesses or evidence are located; and
+Page 8 - 131LR2881(01)
+1 3.  If otherwise permitted by State law, recover from the Licensee the costs of 
+2 investigations and disposition of cases resulting from any Adverse Action taken 
+3 against that Licensee.
+4 F.  Joint Investigations
+5 1.  In addition to the authority granted to a Participating State by its Dentist or Dental 
+6 Hygienist licensure act or other applicable State law, a Participating State may 
+7 jointly investigate Licensees with other Participating States.
+8 2.  Participating States shall share any Significant Investigative Information, litigation, 
+9 or compliance materials in furtherance of any joint or individual investigation 
+10 initiated under the Compact.
+11 G.  Authority to Continue Investigation
+12 1.  After a Licensee's Compact Privilege in a Remote State is terminated, the Remote 
+13 State may continue an investigation of the Licensee that began when the Licensee 
+14 had a Compact Privilege in that Remote State.
+15 2.  If the investigation yields what would be Significant Investigative Information had 
+16 the Licensee continued to have a Compact Privilege in that Remote State, the 
+17 Remote State shall report the presence of such information to the Data System as 
+18 required by Section 8.B.6 as if it was Significant Investigative Information.
+19SECTION 7. ESTABLISHMENT AND OPERATION OF THE COMMISSION.
+20 A.  The Compact Participating States hereby create and establish a joint government 
+21 agency whose membership consists of all Participating States that have enacted the 
+22 Compact. The Commission is an instrumentality of the Participating States acting 
+23 jointly and not an instrumentality of any one State. The Commission shall come into 
+24 existence on or after the effective date of the Compact as set forth in Section 11A.
+25 B.  Participation, Voting, and Meetings
+26 1.  Each Participating State shall have and be limited to one (1) Commissioner selected 
+27 by that Participating State's State Licensing Authority or, if the State has more than 
+28 one State Licensing Authority, selected collectively by the State Licensing 
+29 Authorities.
+30 2.  The Commissioner shall be a member or designee of such Authority or Authorities.
+31 3.  The Commission may by Rule or bylaw establish a term of office for 
+32 Commissioners and may by Rule or bylaw establish term limits.
+33 4.  The Commission may recommend to a State Licensing Authority or Authorities, as 
+34 applicable, removal or suspension of an individual as the State's Commissioner.
+35 5.  A Participating State's State Licensing Authority, or Authorities, as applicable, shall 
+36 fill any vacancy of its Commissioner on the Commission within sixty (60) days of 
+37 the vacancy.
+38 6.  Each Commissioner shall be entitled to one vote on all matters that are voted upon 
+39 by the Commission.
+Page 9 - 131LR2881(01)
+1 7.  The Commission shall meet at least once during each calendar year. Additional 
+2 meetings may be held as set forth in the bylaws. The Commission may meet by 
+3 telecommunication, video conference or other similar electronic means.
+4 C.  The Commission shall have the following powers:
+5 1.  Establish the fiscal year of the Commission;
+6 2.  Establish a code of conduct and conflict of interest policies;
+7 3.  Adopt Rules and bylaws;
+8 4.  Maintain its financial records in accordance with the bylaws;
+9 5.  Meet and take such actions as are consistent with the provisions of this Compact, 
+10 the Commission's Rules, and the bylaws;
+11 6.  Initiate and conclude legal proceedings or actions in the name of the Commission, 
+12 provided that the standing of any State Licensing Authority to sue or be sued under 
+13 applicable law shall not be affected;
+14 7.  Maintain and certify records and information provided to a Participating State as 
+15 the authenticated business records of the Commission, and designate a person to do 
+16 so on the Commission's behalf;
+17 8.  Purchase and maintain insurance and bonds;
+18 9.  Borrow, accept, or contract for services of personnel, including, but not limited to, 
+19 employees of a Participating State;
+20 10. Conduct an annual financial review;
+21 11. Hire employees, elect or appoint officers, fix compensation, define duties, grant 
+22 such individuals appropriate authority to carry out the purposes of the Compact, and 
+23 establish the Commission's personnel policies and programs relating to conflicts of 
+24 interest, qualifications of personnel, and other related personnel matters;
+25 12. As set forth in the Commission Rules, charge a fee to a Licensee for the grant of a 
+26 Compact Privilege in a Remote State and thereafter, as may be established by 
+27 Commission Rule, charge the Licensee a Compact Privilege renewal fee for each 
+28 renewal period in which that Licensee exercises or intends to exercise the Compact 
+29 Privilege in that Remote State. Nothing herein shall be construed to prevent a 
+30 Remote State from charging a Licensee a fee for a Compact Privilege or renewals 
+31 of a Compact Privilege, or a fee for the Jurisprudence Requirement if the Remote 
+32 State imposes such a requirement for the grant of a Compact Privilege;
+33 13. Accept any and all appropriate gifts, donations, grants of money, other sources of 
+34 revenue, equipment, supplies, materials, and services, and receive, utilize, and 
+35 dispose of the same; provided that at all times the Commission shall avoid any 
+36 appearance of impropriety and/or conflict of interest;
+37 14. Lease, purchase, retain, own, hold, improve, or use any property, real, personal, or 
+38 mixed, or any undivided interest therein;
+39 15. Sell, convey, mortgage, pledge, lease, exchange, abandon, or otherwise dispose of 
+40 any property real, personal, or mixed;
+41 16. Establish a budget and make expenditures;
+Page 10 - 131LR2881(01)
+1 17. Borrow money;
+2 18. Appoint committees, including standing committees, which may be composed of 
+3 members, State regulators, State legislators or their representatives, and consumer 
+4 representatives, and such other interested persons as may be designated in this 
+5 Compact and the bylaws;
+6 19. Provide and receive information from, and cooperate with, law enforcement 
+7 agencies;
+8 20. Elect a Chair, Vice Chair, Secretary and Treasurer and such other officers of the 
+9 Commission as provided in the Commission's bylaws;
+10 21. Establish and elect an Executive Board;
+11 22. Adopt and provide to the Participating States an annual report;
+12 23. Determine whether a State's enacted compact is materially different from the Model 
+13 Compact language such that the State would not qualify for participation in the 
+14 Compact; and
+15 24. Perform such other functions as may be necessary or appropriate to achieve the 
+16 purposes of this Compact.
+17 D.  Meetings of the Commission
+18 1.  All meetings of the Commission that are not closed pursuant to this subsection shall 
+19 be open to the public. Notice of public meetings shall be posted on the 
+20 Commission's website at least thirty (30) days prior to the public meeting.
+21 2.  Notwithstanding subsection D.1 of this section, the Commission may convene an 
+22 emergency public meeting by providing at least twenty-four (24) hours prior notice 
+23 on the Commission's website, and any other means as provided in the Commission's 
+24 Rules, for any of the reasons it may dispense with notice of proposed rulemaking 
+25 under Section 9.L. The Commission's legal counsel shall certify that one of the 
+26 reasons justifying an emergency public meeting has been met.
+27 3.  Notice of all Commission meetings shall provide the time, date, and location of the 
+28 meeting, and if the meeting is to be held or accessible via telecommunication, video 
+29 conference, or other electronic means, the notice shall include the mechanism for 
+30 access to the meeting through such means.
+31 4.  The Commission may convene in a closed, non-public meeting for the Commission 
+32 to receive legal advice or to discuss:
+33 a.  Non-compliance of a Participating State with its obligations under the Compact;
+34 b.  The employment, compensation, discipline or other matters, practices or 
+35 procedures related to specific employees or other matters related to the 
+36 Commission's internal personnel practices and procedures;
+37 c.  Current or threatened discipline of a Licensee or Compact Privilege holder by 
+38 the Commission or by a Participating State's Licensing Authority;
+39 d.  Current, threatened, or reasonably anticipated litigation;
+40 e.  Negotiation of contracts for the purchase, lease, or sale of goods, services, or 
+41 real estate;
+Page 11 - 131LR2881(01)
+1 f.  Accusing any person of a crime or formally censuring any person;
+2 g.  Trade secrets or commercial or financial information that is privileged or 
+3 confidential;
+4 h.  Information of a personal nature where disclosure would constitute a clearly 
+5 unwarranted invasion of personal privacy;
+6 i.   Investigative records compiled for law enforcement purposes;
+7 j.   Information related to any investigative reports prepared by or on behalf of or 
+8 for use of the Commission or other committee charged with responsibility of 
+9 investigation or determination of compliance issuespursuant to the Compact;
+10 k.  Legal advice;
+11 l.   Matters specifically exempted from disclosure to the public by federal or 
+12 Participating State law; and
+13 m. Other matters as promulgated by the Commission by Rule.
+14 5.  If a meeting, or portion of a meeting, is closed, the presiding officer shall state that 
+15 the meeting will be closed and reference each relevant exempting provision, and 
+16 such reference shall be recorded in the minutes.
+17 6.  The Commission shall keep minutes that fully and clearly describe all matters 
+18 discussed in a meeting and shall provide a full and accurate summary of actions 
+19 taken, and the reasons therefore, including a description of the views expressed. All 
+20 documents considered in connection with an action shall be identified in such 
+21 minutes. All minutes and documents of a closed meeting shall remain under seal, 
+22 subject to release only by a majority vote of the Commission or order of a court of 
+23 competent jurisdiction.
+24 E.  Financing of the Commission
+25 1.  The Commission shall pay, or provide for the payment of, the reasonableexpenses 
+26 of its establishment, organization, and ongoing activities.
+27 2.  The Commission may accept any and all appropriate sources of revenue, donations, 
+28 and grants of money, equipment, supplies, materials, and services.
+29 3.  The Commission may levy on and collect an annual assessment from each 
+30 Participating State and impose fees on Licensees of Participating States when a 
+31 Compact Privilege is granted, to cover the cost of the operations and activities of 
+32 the Commission and its staff, which must be in a total amount sufficient to cover its 
+33 annual budget as approved each fiscal year for which sufficient revenue is not 
+34 provided by other sources. The aggregate annual assessment amount for 
+35 Participating States shall be allocated based upon a formula that the Commission 
+36 shall promulgate by Rule.
+37 4.  The Commission shall not incur obligations of any kind prior to securing thefunds 
+38 adequate to meet the same; nor shall the Commission pledge the credit of any 
+39 Participating State, except by and with the authority of the Participating State.
+40 5.  The Commission shall keep accurate accounts of all receipts and disbursements. 
+41 The receipts and disbursements of the Commission shall be subject to the financial 
+42 review and accounting procedures established under its bylaws. All receipts and 
+Page 12 - 131LR2881(01)
+43 disbursements of funds handled by the Commission shall be subject to an annual 
+44 financial review by a certified or licensed public accountant, and the report of the 
+45 financial review shall be included in and become part of the annual report of the 
+46 Commission.
+5 F.  The Executive Board
+6 1.  The Executive Board shall have the power to act on behalf of the Commission 
+7 according to the terms of this Compact. The powers, duties, and responsibilities of 
+8 the Executive Board shall include:
+9 a.  Overseeing the day-to-day activities of the administration of the Compact 
+10 including compliance with the provisions of the Compact, the Commission's 
+11 Rules and bylaws;
+12 b.  Recommending to the Commission changes to the Rules or bylaws, changes to 
+13 this Compact legislation, fees charged to Compact Participating States, fees 
+14 charged to Licensees, and other fees;
+15 c.  Ensuring Compact administration services are appropriately provided, 
+16 including by contract;
+17 d.  Preparing and recommending the budget;
+18 e.  Maintaining financial records on behalf of the Commission;
+19 f.  Monitoring Compact compliance of Participating States and providing 
+20 compliance reports to the Commission;
+21 g.  Establishing additional committees as necessary;
+22 h.  Exercising the powers and duties of the Commission during the interim between 
+23 Commission meetings, except for adopting or amending Rules, adopting or 
+24 amending bylaws, and exercising any other powers and duties expressly 
+25 reserved to the Commission by Rule or bylaw; and
+26 i.  Other duties as provided in the Rules or bylaws of the Commission.
+27 2.  The Executive Board shall be composed of up to seven (7) members:
+28 a.  The Chair, Vice Chair, Secretary and Treasurer of the Commission and any 
+29 other members of the Commission who serve on the Executive Board shall be 
+30 voting members of the Executive Board; and
+31 b.  Other than the Chair, Vice Chair, Secretary, and Treasurer, the Commission 
+32 may elect up to three (3) voting members from the current membership of the 
+33 Commission.
+34 3.  The Commission may remove any member of the Executive Board as provided in 
+35 the Commission's bylaws.
+36 4.  The Executive Board shall meet at least annually.
+37 a.  An Executive Board meeting at which it takes or intends to take formal action 
+38 on a matter shall be open to the public, except that the Executive Board may 
+39 meet in a closed, non-public session of a public meeting when dealing with any 
+40 of the matters covered under subsection D.4.
+1
+2
+3
+4
+Page 13 - 131LR2881(01)
+1 b.  The Executive Board shall give five (5) business days' notice of its public 
+2 meetings, posted on its website and as it may otherwise determine to provide 
+3 notice to persons with an interest in the public matters the Executive Board 
+4 intends to address at those meetings.
+5 5.  The Executive Board may hold an emergency meeting when acting for the 
+6 Commission to:
+7 a.  Meet an imminent threat to public health, safety, or welfare;
+8 b.  Prevent a loss of Commission or Participating State funds; or
+9 c.  Protect public health and safety.
+10 G.  Qualified Immunity, Defense, and Indemnification
+11 1.  The members, officers, executive director, employees and representatives of the 
+12 Commission shall be immune from suit and liability, both personally and in their 
+13 official capacity, for any claim for damage to or loss of property or personal injury 
+14 or other civil liability caused by or arising out of any actual or alleged act, error, or 
+15 omission that occurred, or that the person against whom the claim is made had a 
+16 reasonable basis for believing occurred within the scope of Commission 
+17 employment, duties or responsibilities; provided that nothing in this paragraph shall 
+18 be construed to protect any such person from suit or liability for any damage, loss, 
+19 injury, or liability caused by the intentional or willful or wanton misconduct of that 
+20 person. The procurement of insurance of any type by the Commission shall not in 
+21 any way compromise or limit the immunity granted hereunder.
+22 2.  The Commission shall defend any member, officer, executive director, employee, 
+23 and representative of the Commission in any civil action seeking to impose liability 
+24 arising out of any actual or alleged act, error, or omission that occurred within the 
+25 scope of Commission employment, duties, or responsibilities, or as determined by 
+26 the Commission that the person against whom the claim is made had a reasonable 
+27 basis for believing occurred within the scope of Commission employment, duties, 
+28 or responsibilities; provided that nothing herein shall be construed to prohibit that 
+29 person from retaining their own counsel at their own expense; and provided further, 
+30 that the actual or alleged act, error, or omission did not result from that person's 
+31 intentional or willful or wanton misconduct.
+32 3.  Notwithstanding subsection G.1 of this section, should any member, officer, 
+33 executive director, employee, or representative of the Commission be held liable 
+34 for the amount of any settlement or judgment arising out of any actual or alleged 
+35 act, error, or omission that occurred within the scope of that individual's 
+36 employment, duties, or responsibilities for the Commission, or that the person to 
+37 whom that individual is liable had a reasonable basis for believing occurred within 
+38 the scope of the individual's employment, duties, or responsibilities for the 
+39 Commission, the Commission shall indemnify and hold harmless such individual, 
+40 provided that the actual or alleged act, error, or omission did not result from the 
+41 intentional or willful or wanton misconduct of the individual.
+42 4.  Nothing herein shall be construed as a limitation on the liability of any Licensee for 
+43 professional malpractice or misconduct, which shall be governed solely by any 
+44 other applicable State laws.
+Page 14 - 131LR2881(01)
+1 5.  Nothing in this Compact shall be interpreted to waive or otherwise abrogate a 
+2 Participating State's state action immunity or state action affirmative defense with 
+3 respect to antitrust claims under the Sherman Act, Clayton Act, or any other State 
+4 or federal antitrust or anticompetitive law or regulation.
+5 6.  Nothing in this Compact shall be construed to be a waiver of sovereign immunity 
+6 by the Participating States or by the Commission.
+7SECTION 8. DATA SYSTEM
+8 A.  The Commission shall provide for the development, maintenance, operation, and 
+9 utilization of a coordinated database and reporting system containing licensure, 
+10 Adverse Action, and the presence of Significant Investigative Information on all 
+11 Licensees and applicants for a License in Participating States.
+12 B.  Notwithstanding any other provision of State law to the contrary, a Participating State 
+13 shall submit a uniform data set to the Data System on all individuals to whom this 
+14 Compact is applicable as required by the Rules of the Commission, including:
+15 1.  Identifying information;
+16 2.  Licensure data;
+17 3.  Adverse Actions against a Licensee, License applicant or Compact Privilege and 
+18 information related thereto;
+19 4.  Non-confidential information related to Alternative Program participation, the 
+20 beginning and ending dates of such participation, and other information related to 
+21 such participation;
+22 5.  Any denial of an application for licensure, and the reason(s) for such denial, 
+23 (excluding the reporting of any criminal history record information where 
+24 prohibited by law);
+25 6.  The presence of Significant Investigative Information; and
+26 7.  Other information that may facilitate the administration of this Compact or the 
+27 protection of the public, as determined by the Rules of the Commission.
+28 C.  The records and information provided to a Participating State pursuant to this Compact 
+29 or through the Data System, when certified by the Commission or an agent thereof, 
+30 shall constitute the authenticated business records of the Commission, and shall be 
+31 entitled to any associated hearsay exception in any relevant judicial, quasi-judicial or 
+32 administrative proceedings in a Participating State.
+33 D.  Significant Investigative Information pertaining to a Licensee in any Participating State 
+34 will only be available to other Participating States.
+35 E.  It is the responsibility of the Participating States to monitor the database to determine 
+36 whether Adverse Action has been taken against a Licensee or License applicant. 
+37 Adverse Action information pertaining to a Licensee or License applicant in any 
+38 Participating State will be available to any other Participating State.
+39 F.  Participating States contributing information to the Data System may designate 
+40 information that may not be shared with the public without the express permission of 
+41 the contributing State.
+Page 15 - 131LR2881(01)
+1 G.  Any information submitted to the Data System that is subsequently expunged pursuant 
+2 to federal law or the laws of the Participating State contributing the information shall 
+3 be removed from the Data System.
+4SECTION 9. RULEMAKING
+5 A.  The Commission shall promulgate reasonable Rules in order to effectively and 
+6 efficiently implement and administer the purposes and provisions of the Compact. A 
+7 Commission Rule shall be invalid and have no force or effect only if a court of 
+8 competent jurisdiction holds that the Rule is invalid because the Commission exercised 
+9 its rulemaking authority in a manner that is beyond the scope and purposes of the 
+10 Compact, or the powers granted hereunder, or based upon another applicable standard 
+11 of review.
+12 B.  The Rules of the Commission shall have the force of law in each Participating State, 
+13 provided however that where the Rules of the Commission conflict with the laws of 
+14 the Participating State that establish the Participating State's Scope of Practice as held 
+15 by a court of competent jurisdiction, the Rules of the Commission shall be ineffective 
+16 in that State to the extent of the conflict.
+17 C.  The Commission shall exercise its Rulemaking powers pursuant to the criteria set forth 
+18 in this section and the Rules adopted thereunder. Rules shall become binding as of the 
+19 date specified by the Commission for each Rule.
+20 D.  If a majority of the legislatures of the Participating States rejects a Commission Rule 
+21 or portion of a Commission Rule, by enactment of a statute or resolution in the same 
+22 manner used to adopt the Compact, within four (4) years of the date of adoption of the 
+23 Rule, then such Rule shall have no further force and effect in any Participating State or 
+24 to any State applying to participate in the Compact.
+25 E.   Rules shall be adopted at a regular or special meeting of the Commission.
+26 F.   Prior to adoption of a proposed Rule, the Commission shall hold a public hearing and 
+27 allow persons to provide oral and written comments, data, facts, opinions, and 
+28 arguments.
+29 G.   Prior to adoption of a proposed Rule by the Commission, and at least thirty (30) days 
+30 in advance of the meeting at which the Commission will hold a public hearing on the 
+31 proposed Rule, the Commission shall provide a Notice of Proposed Rulemaking:
+32 1.  On the website of the Commission or other publicly accessible platform;
+33 2.  To persons who have requested notice of the Commission's notices of proposed 
+34 rulemaking, and
+35 3.  In such other way(s) as the Commission may by Rule specify.
+36 H.  The Notice of Proposed Rulemaking shall include:
+37 1.  The time, date, and location of the public hearing at which the Commission will 
+38 hear public comments on the proposed Rule and, if different, the time, date, and 
+39 location of the meeting where the Commission will consider and vote on the 
+40 proposed Rule;
+Page 16 - 131LR2881(01)
+1 2.  If the hearing is held via telecommunication, video conference, or other electronic 
+2 means, the Commission shall include the mechanism for access to the hearing in 
+3 the Notice of Proposed Rulemaking;
+4 3.  The text of the proposed Rule and the reason therefor;
+5 4.  A request for comments on the proposed Rule from any interested person; and
+6 5.  The manner in which interested persons may submit written comments.
+7 I.    All hearings will be recorded. A copy of the recording and all written comments and 
+8 documents received by the Commission in response to the proposed Rule shall be 
+9 available to the public.
+10 J.    Nothing in this section shall be construed as requiring a separate hearing on each 
+11 Commission Rule. Rules may be grouped for the convenience of the Commission at 
+12 hearings required by this section.
+13 K.  The Commission shall, by majority vote of all Commissioners, take final action on the 
+14 proposed Rule based on the rulemaking record.
+15 1.  The Commission may adopt changes to the proposed Rule provided the changes do 
+16 not enlarge the original purpose of the proposed Rule.
+17 2.  The Commission shall provide an explanation of the reasons for substantive changes 
+18 made to the proposed Rule as well as reasons for substantive changes not made that 
+19 were recommended by commenters.
+20 3.  The Commission shall determine a reasonable effective date for the Rule. Except 
+21 for an emergency as provided in subsection L, the effective date of the Rule shall 
+22 be no sooner than thirty (30) days after the Commission issuing the notice that it 
+23 adopted or amended the Rule.
+24 L.   Upon determination that an emergency exists, the Commission may consider and adopt 
+25 an emergency Rule with 24 hours' notice, with opportunity to comment, provided that 
+26 the usual rulemaking procedures provided in the Compact and in this section shall be 
+27 retroactively applied to the Rule as soon as reasonably possible, in no event later than 
+28 ninety (90) days after the effective date of the Rule. For the purposes of this provision, 
+29 an emergency Rule is one that must be adopted immediately in order to:
+30 1.  Meet an imminent threat to public health, safety, or welfare;
+31 2.  Prevent a loss of Commission or Participating State funds;
+32 3.  Meet a deadline for the promulgation of a Rule that is established by federal law or 
+33 rule; or
+34 4.  Protect public health and safety.
+35 M.  The Commission or an authorized committee of the Commission may direct revisions 
+36 to a previously adopted Rule for purposes of correcting typographical errors, errors in 
+37 format, errors in consistency, or grammatical errors. Public notice of any revisions shall 
+38 be posted on the website of the Commission. The revision shall be subject tochallenge 
+39 by any person for a period of thirty (30) days after posting. The revision may be 
+40 challenged only on grounds that the revision results in a material change to a Rule. A 
+41 challenge shall be made in writing and delivered to the Commission prior to the end of 
+42 the notice period. If no challenge is made, the revision will take effect without further 
+Page 17 - 131LR2881(01)
+43 action. If the revision is challenged, the revision may not take effect without the 
+44 approval of the Commission.
+3 N.  No Participating State's rulemaking requirements shall apply under this Compact
+4SECTION 10. OVERSIGHT, DISPUTE RESOLUTION, AND ENFORCEMENT
+5 A.  Oversight
+6 1.  The executive and judicial branches of State government in each Participating State 
+7 shall enforce this Compact and take all actions necessary and appropriate to 
+8 implement the Compact.
+9 2.  Venue is proper and judicial proceedings by or against the Commission shall be 
+10 brought solely and exclusively in a court of competent jurisdiction where 
+11 theprincipal office of the Commission is located. The Commission may waive 
+12 venue and jurisdictional defenses to the extent it adopts or consents to participate in 
+13 alternative dispute resolution proceedings. Nothing herein shall affect or limit the 
+14 selection or propriety of venue in any action against a Licensee for professional 
+15 malpractice, misconduct or any such similar matter.
+16 3.  The Commission shall be entitled to receive service of process in any proceeding 
+17 regarding the enforcement or interpretation of the Compact or Commission Rule 
+18 and shall have standing to intervene in such a proceeding for all purposes. Failure 
+19 to provide the Commission service of process shall render a judgment or order void 
+20 as to the Commission, this Compact, or promulgated Rules.
+21 B.  Default, Technical Assistance, and Termination
+22 1.  If the Commission determines that a Participating State has defaulted in the 
+23 performance of its obligations or responsibilities under this Compact or the 
+24 promulgated Rules, the Commission shall provide written notice to the defaulting 
+25 State. The notice of default shall describe the default, the proposed means of curing 
+26 the default, and any other action that the Commission may take, and shall offer 
+27 training and specific technical assistance regarding the default.
+28 2.  The Commission shall provide a copy of the notice of default to the other 
+29 Participating States.
+30 C.   If a State in default fails to cure the default, the defaulting State may be terminated 
+31 from the Compact upon an affirmative vote of a majority of the Commissioners, and 
+32 all rights, privileges and benefits conferred on that State by this Compact may be 
+33 terminated on the effective date of termination. A cure of the default does not relieve 
+34 the offending State of obligations or liabilities incurred during the period of default.
+35 D.  Termination of participation in the Compact shall be imposed only after all other means 
+36 of securing compliance have been exhausted. Notice of intent to suspend or terminate 
+37 shall be given by the Commission to the governor, the majority and minority leaders 
+38 of the defaulting State's legislature, the defaulting State's State Licensing Authority or 
+39 Authorities, as applicable, and each of the Participating States' State Licensing 
+40 Authority or Authorities, as applicable.
+41 E.   A State that has been terminated is responsible for all assessments, obligations, and 
+42 liabilities incurred through the effective date of termination, including obligations that 
+43 extend beyond the effective date of termination.
+1
+2
+Page 18 - 131LR2881(01)
+1 F.   Upon the termination of a State's participation in this Compact, that State shall 
+2 immediately provide notice to all Licensees of the State, including Licensees of other 
+3 Participating States issued a Compact Privilege to practice within that State, of such 
+4 termination. The terminated State shall continue to recognize all Compact Privileges 
+5 then in effect in that State for a minimum of one hundred eighty (180) days after the 
+6 date of said notice of termination.
+7 G.  The Commission shall not bear any costs related to a State that is found to be in default 
+8 or that has been terminated from the Compact, unless agreed upon in writing between 
+9 the Commission and the defaulting State.
+10 H.  The defaulting State may appeal the action of the Commission by petitioning the U.S. 
+11 District Court for the District of Columbia or the federal district where the Commission 
+12 has its principal offices. The prevailing party shall be awarded all costs of such 
+13 litigation, including reasonable attorney's fees.
+14 I.   Dispute Resolution
+15 1.  Upon request by a Participating State, the Commission shall attempt to resolve 
+16 disputes related to the Compact that arise among Participating States and between 
+17 Participating States and non-Participating States.
+18 2.  The Commission shall promulgate a Rule providing for both mediation and binding 
+19 dispute resolution for disputes as appropriate.
+20 J.  Enforcement
+21 1.  The Commission, in the reasonable exercise of its discretion, shall enforce the 
+22 provisions of this Compact and the Commission's Rules.
+23 2.  By majority vote, the Commission may initiate legal action against a Participating 
+24 State in default in the United States District Court for the District of Columbia or 
+25 the federal district where the Commission has its principal offices to enforce 
+26 compliance with the provisions of the Compact and its promulgated Rules. The 
+27 relief sought may include both injunctive relief and damages. In the event judicial 
+28 enforcement is necessary, the prevailing party shall be awarded all costs of such 
+29 litigation, including reasonable attorney's fees. The remedies herein shall not be the 
+30 exclusive remedies of the Commission. The Commission may pursue any other 
+31 remedies available under federal or the defaulting Participating State's law.
+32 3.  A Participating State may initiate legal action against the Commission in the U.S. 
+33 District Court for the District of Columbia or the federal district where the 
+34 Commission has its principal offices to enforce compliance with the provisions of 
+35 the Compact and its promulgated Rules. The relief sought may include both 
+36 injunctive relief and damages. In the event judicial enforcement is necessary, the 
+37 prevailing party shall be awarded all costs of such litigation, including reasonable 
+38 attorney's fees.
+39 4.  No individual or entity other than a Participating State may enforce this Compact 
+40 against the Commission.
+41SECTION 11. EFFECTIVE DATE, WITHDRAWAL, AND AMENDMENT
+42 A.  The Compact shall come into effect on the date on which the Compact statute is enacted 
+43 into law in the seventh Participating State.
+Page 19 - 131LR2881(01)
+1 1.  On or after the effective date of the Compact, the Commission shall convene and 
+2 review the enactment of each of the States that enacted the Compact prior to the 
+3 Commission convening ("Charter Participating States") to determine if the statute 
+4 enacted by each such Charter Participating State is materially different than the 
+5 Model Compact.
+6 a.  A Charter Participating State whose enactment is found to be materially 
+7 different from the Model Compact shall be entitled to the default process set 
+8 forth in Section 10.
+9 b.  If any Participating State is later found to be in default, or is terminated or 
+10 withdraws from the Compact, the Commission shall remain in existence and 
+11 the Compact shall remain in effect even if the number of Participating States 
+12 should be less than seven (7).
+13 2.  Participating States enacting the Compact subsequent to the Charter Participating 
+14 States shall be subject to the process set forth in Section 7.C.23 to determine if their 
+15 enactments are materially different from the Model Compact and whether they 
+16 qualify for participation in the Compact.
+17 3.  All actions taken for the benefit of the Commission or in furtherance of the purposes 
+18 of the administration of the Compact prior to the effective date of the Compact or 
+19 the Commission coming into existence shall be considered to be actions of the 
+20 Commission unless specifically repudiated by the Commission.
+21 4.  Any State that joins the Compact subsequent to the Commission's initial adoption 
+22 of the Rules and bylaws shall be subject to the Commission's Rules and bylaws as 
+23 they exist on the date on which the Compact becomes law in that State. Any Rule 
+24 that has been previously adopted by theCommission shall have the full force and 
+25 effect of law on the day the Compact becomes law in thatState.
+26 B.  Any Participating State may withdraw from this Compact by enacting a statute 
+27 repealing that State's enactment of the Compact.
+28 1.  A Participating State's withdrawal shall not take effect until one hundred eighty 
+29 (180) days after enactment of the repealing statute.
+30 2.  Withdrawal shall not affect the continuing requirement of the withdrawing State's 
+31 Licensing Authority or Authorities to comply with the investigative and Adverse 
+32 Action reporting requirements of this Compact prior to the effective date of 
+33 withdrawal.
+34 3.  Upon the enactment of a statute withdrawing from this Compact, the State shall 
+35 immediately provide notice of such withdrawal to all Licensees within that State. 
+36 Notwithstanding any subsequent statutory enactment to the contrary, such 
+37 withdrawing State shall continue to recognize all Compact Privileges to practice 
+38 within that State granted pursuant to this Compact for a minimum of one hundred 
+39 eighty (180) days after the date of such notice of withdrawal.
+40 C.  Nothing contained in this Compact shall be construed to invalidate or prevent any 
+41 licensure agreement or other cooperative arrangement between a Participating State 
+42 and a non-Participating State that does not conflict with the provisions of this Compact.
+Page 20 - 131LR2881(01)
+1 D.  This Compact may be amended by the Participating States. No amendment to this 
+2 Compact shall become effective and binding upon any Participating State until it is 
+3 enacted into the laws of all Participating States.
+4SECTION 12. CONSTRUCTION AND SEVERABILITY
+5 A.  This Compact and the Commission’s rulemaking authority shall be liberally construed 
+6 so as to effectuate the purposes, and the implementation and administration of the 
+7 Compact. Provisions of the Compact expressly authorizing or requiring the 
+8 promulgation of Rules shall not be construed to limit the Commission’s rulemaking 
+9 authority solely for those purposes.
+10 B.  The provisions of this Compact shall be severable and if any phrase, clause, sentence 
+11 or provision of this Compact is held by a court of competent jurisdiction to be contrary 
+12 to the constitution of any Participating State, a State seeking participation in the 
+13 Compact, or of the United States, or the applicability thereof to any government, 
+14 agency, person or circumstance is held to be unconstitutional by a court of competent 
+15 jurisdiction, the validity of the remainder of this Compact and the applicability thereof 
+16 to any other government, agency, person or circumstance shall not be affected thereby.
+17 C.  Notwithstanding subsection B of this section, the Commission may deny a State's 
+18 participation in the Compact or, in accordance with the requirements of Section 10.B, 
+19 terminate a Participating State's participation in the Compact, if it determines that a 
+20 constitutional requirement of a Participating State is a material departure from the 
+21 Compact. Otherwise, if this Compact shall be held to be contrary to the constitution of 
+22 any Participating State, the Compact shall remain in full force and effect as to the 
+23 remaining Participating States and in full force and effect as to the Participating State 
+24 affected as to all severable matters.
+25SECTION 13. CONSISTENT EFFECT AND CONFLICT WITH OTHER STATE 
+26LAWS
+27 A.  Nothing herein shall prevent or inhibit the enforcement of any other law of a 
+28 Participating State that is not inconsistent with the Compact.
+29 B.  Any laws, statutes, regulations, or other legal requirements in a Participating State in 
+30 conflict with the Compact are superseded to the extent of the conflict.
+31 C.  All permissible agreements between the Commission and the Participating States are 
+32 binding in accordance with their terms.

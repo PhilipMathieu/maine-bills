@@ -1,0 +1,225 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+'II IPJ 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+L.D. 796 
+(Filing No. H- £>)) 
+HEALTH COVERAGE, INSURANCE AND FINANCIAL SERVICES 
+Reproduced and distributed under the direction of the Clerk of the House. 
+STATE OF MAINE 
+HOUSE OF REPRESENTATIVES 
+131ST LEGISLATURE 
+SECOND REGULAR SESSION 
+COMMITTEE AMENDMENT,£" to H.P. 485, L.D. 796, "An Act Concerning 
+Prior Authorizations for Health Care Provider Services" 
+Amend the bill by striking out everything after the enacting clause and inserting the 
+following: 
+'Sec. 1. 24-A MRSA §4302, sub-§2, as amended by PL 2007, c. 199, Pt. B, §3, is 
+further amended to read: 
+2. Plan eamplaiat; complaints and adverse decisions; pt'iaf' aath0f'iii!iati0a 
+statistics. A carrier shall provide annually to the superintendent information for each 
+health plan that it offers or renews on plan complaints; and adverse decisions afl:d pFiof 
+autho£i2aatioa statistics. This statistical information must contain, at a minimum: 
+A. The ratio of the number of complaints received by the plan to the total number of 
+enrollees, reported by type of complaint and category of enrollee; 
+B. The ratio of the number of adverse decisions issued by the plan to the number of 
+complaints received, reported by category; 
+C. The fatio oftl¼e HUmbef of pFiof autl¼ofi2aatioas deaied by the plaa to the HUmbef of 
+pfiof aathod2aatioas feqitestea, feported by oategozy; 
+D. The ratio of the number of successful enrollee appeals overturning the original 
+denial to the total number of appeals filed; 
+E. The percentage of disenrollments by enrollees and providers from the health plan 
+within the previous 12 months and the reasons for the disenrollments. With respect to 
+enrollees, the information provided in this paragraph must differentiate between 
+voluntary and involuntary disenrollments; and 
+F. Enrollee satisfaction statistics, including provider-to-enrollee ratio by geographic 
+region and medical specialty and a rep01t on what actions, if any, the carrier has taken 
+to improve complaint handling and eliminate the causes of valid complaints. 
+Sec. 2. 24-A MRSA §4302, sub-§2-A is enacted to read: 
+Page 1 -131LR1786(03) 
+COMMITTEE AMENDMENT 
+ROS 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMENT ".{5'' to H.P. 485, L.D. 796 
+2-A. Reporting of information related to prior authorization. In addition to the 
+information required to be provided under subsection 2, a carrier shall report to the 
+superintendent the following information consistent with federal requirements for reporting 
+of metrics related to prior authorization determinations for the prior calendar year, 
+excluding data on prescription drugs: 
+A. A list of all items and services that require prior authorization: 
+B. The number and percentage of standard prior authorization requests that were 
+approved, aggregated for all items and services; 
+C. The number and percentage of standard prior authorization requests that were 
+denied, aggregated for all items and services: 
+D. The number and percentage of standard prior authorization requests that were 
+approved after appeal. aggregated for all items and services; 
+E. The number and percentage of prior authorization requests for which the time frame 
+for review was extended. and the request was approved, aggregated for all items and 
+services; 
+F. The number and percentage of expedited prior authorization requests that were 
+approved, aggregated for all items and services: 
+G. The number and percentage of expedited prior authorization requests that were 
+denied, aggregated for all items and services: 
+H. The average and median time that elapsed between the submission of a request and 
+a determination by the carrier. for standard prior authorizations. aggregated for all 
+items and services: and 
+I. The average and median time that elapsed between the submission of a request and 
+a decision by the carrier for expedited prior authorizations, aggregated for all items and 
+services. 
+Sec. 3. 24-A MRSA §4302, sub-§2-B is enacted to read: 
+2-B. Data reporting; utilization review data. Beginning April 1, 2026 and annually 
+thereafter, the superintendent shall collect the information required under subsections 2 and 
+2-A, together with the utilization review information collected pursuant to section 2749. 
+Sec. 4. Stakeholder group on prior authorization requirements. The 
+Department of Professional and Financial Regulation, Bureau of Insurance shall convene 
+a stakeholder group that includes representatives of physicians, hospitals, consumers, 
+employers subject to state regulation, pharmacy benefit managers and health insurance 
+carriers to consider the impact of prior authorization requirements on providers, enrollees 
+and health care costs and outcomes. The Bureau of Insurance shall submit a report 
+summarizing its findings no later than Janua1y 15, 2025 to the joint standing committee of 
+the Legislature having jurisdiction over health coverage, insurance and financial services 
+matters. The committee may report out a bill related to findings in the report to the 132nd 
+Legislature in 2025 .
+1 
+Amend the bill by relettering or renumbering any nonconsecutive Part letter or section 
+number to read consecutively. 
+Page 2 - 131LR1786(03) 
+COMMITTEE AMENDMENT 
+ROS ........, 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+COMMfITEE AMENDMENT~ "to H.P. 485, L.D. 796 
+SUMMARY 
+This amendment, which is the minority report of the committee, replaces the bill, which 
+is a concept draft. The amendment requires carriers to report to the Department of 
+Professional and Financial Regulation, Bureau of Insurance certain information related to 
+prior authorization determinations consistent with federal requirements beginning April 1, 
+2026 and annually thereafter. 
+The amendment also requires the Bureau of Insurance to convene a stakeholder group 
+to consider the impact of prior authorization requirements on providers, enrollees and 
+health care costs and report back to the joint standing committee of the Legislature having 
+jurisdiction over health coverage, insurance and financial services by January 15, 2025. 
+The committee may report out a bill related to any findings in the report to the 132nd 
+Legislature in 2025. 
+FISCAL NOTE REQUffiED 
+(See attached) 
+Page 3 -131LR1786(03) 
+COMMITTEE AMENDMENT 
+Approved: 03/15/24 :b.?ae:.. 
+131st MAINE LEGISLATURE 
+LD796 LR1786(03) 
+An Act Concerning Prior Authorizations for Health Care Provider Services 
+Fiscal Detail and Notes 
+Fiscal Note for Bill as Amended by Committee Amendment '£ (}(-955) 
+Committee: Health Coverage, Insurance and Financial Services 1/ 
+Fiscal Note Required: Yes 
+Fiscal Note 
+Minor cost increase - General Fund 
+Ally additional costs to the Department of Professional and Financial Regulation from the provisions of this bill are 
+expected to be minor and can be absorbed within existing budgeted resources. 

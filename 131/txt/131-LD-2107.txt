@@ -1,0 +1,101 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2107
+S.P. 900 In Senate, January 3, 2024
+An Act Regarding Department of Education Reliance on Criminal 
+Background Checks Required by the Department of Health and 
+Human Services
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Education and Cultural Affairs suggested and ordered 
+printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator STEWART of Aroostook.
+Cosponsored by Representative COLLAMORE of Pittsfield and
+Senators: LIBBY of Cumberland, RAFFERTY of York.
+
+Page 1 - 131LR2735(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  19-A MRSA §2111, sub-§5, as enacted by PL 2019, c. 402, §1, is amended 
+3 to read:
+45.  Confidentiality.  Information obtained pursuant to this section is confidential and 
+5 may not be disseminated for purposes other than as provided in subsections 6 and 7 and 
+6 Title 20-A, section 6103, subsection 12.
+7Sec. 2.  20-A MRSA §6103, sub-§12 is enacted to read:
+812.  Reliance on criminal history background check information provided to 
+9Department of Health and Human Services.  Notwithstanding any provision of this 
+10 section to the contrary, the commissioner shall rely on information provided by the Maine 
+11 Criminal Justice Information System and the Federal Bureau of Investigation to the 
+12 Department of Health and Human Services for state and national criminal history 
+13 background checks conducted on a person required to have a criminal history background 
+14 check pursuant to Title 19-A, section 2111; Title 22, section 2425-A, subsection 3-A; Title 
+15 22, section 5307, subsection 2; Title 22, section 8110; Title 22, section 8302-A; or Title 
+16 22, section 8302-B as long as the person has been continuously employed in a position 
+17 requiring a criminal history background check pursuant to one of those provisions of law 
+18 and the information was provided by the Maine Criminal Justice Information System or the 
+19 Federal Bureau of Investigation within 24 months prior to the issuance of a credential or 
+20 renewal under chapter 501 or 502.  The Department of Health and Human Services shall 
+21 provide to the commissioner the information received pursuant to the background check 
+22 conducted pursuant to Title 19-A or 22.
+23Sec. 3.  22 MRSA §2425-A, sub-§3-A, ¶F, as amended by PL 2019, c. 331, §19, 
+24 is further amended to read:
+25 F.  Information obtained pursuant to this subsection is confidential.  The results of 
+26 criminal history record checks received by the department are for official use only and, 
+27 except as provided in Title 20-A, section 6103, subsection 12, may not be disseminated 
+28 to any other person.
+29Sec. 4.  22 MRSA §5307, sub-§2, ¶F, as enacted by PL 2021, c. 400, §1, is 
+30 amended to read:
+31 F.  Information obtained pursuant to this subsection is confidential.  The results of 
+32 background checks received by the department are for official use only and, except as 
+33 provided in Title 20-A, section 6103, subsection 12, may not be disseminated to any 
+34 other person or entity.  
+35Sec. 5.  22 MRSA §8110, sub-§5, as enacted by PL 2019, c. 399, §1, is amended to 
+36 read:
+375.  Confidentiality.  Information obtained pursuant to this section is confidential and 
+38 may not be disseminated for purposes other than as provided in subsections 6 and 7 and 
+39 Title 20-A, section 6103, subsection 12.
+40Sec. 6.  22 MRSA §8302-C, sub-§1, ¶F, as enacted by PL 2017, c. 457, §9, is 
+41 amended to read:
+Page 2 - 131LR2735(01)
+1 F.  Information obtained pursuant to this subsection is confidential.  The results of 
+2 criminal background checks received by the department are for official use only and, 
+3 except as provided in Title 20-A, section 6103, subsection 12, may not be disseminated 
+4 to any other person or entity.
+5SUMMARY
+6 This bill requires that, when a criminal history background check of a person is required 
+7 for the issuance or renewal of a teaching or educational personnel credential and that person 
+8 was subject to a criminal history background check by the Department of Health and 
+9 Human Services, the Commissioner of Education must rely on the criminal history 
+10 background check information provided to the Department of Health and Human Services 
+11 by the Maine Criminal Justice Information System and the Federal Bureau of Investigation.
+6
+7
+8
+9
+10
+11

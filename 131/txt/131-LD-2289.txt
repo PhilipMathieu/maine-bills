@@ -1,0 +1,106 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2289
+S.P. 1002 In Senate, April 9, 2024
+Resolve, to Establish an Automotive Right to Repair Working 
+Group
+Reported by Senator CURRY of Waldo for the Joint Standing Committee on Innovation, 
+Development, Economic Advancement and Business pursuant to Joint Order 2023, S.P. 978.
+DAREK M. GRANT
+Secretary of the Senate
+
+Page 1 - 131LR3185(01)
+1Sec. 1. Automotive right to repair working group. Resolved: That the 
+2 Attorney General shall convene a working group to develop recommendations for 
+3 legislation to establish an entity with rule-making and enforcement authority to adopt 
+4 standards governing access to motor vehicle telematics systems and to otherwise 
+5 implement and enforce the requirements of the Maine Revised Statutes, Title 29-A, section 
+6 1810.
+7 1.  The Attorney General or the Attorney General's designee shall participate in the 
+8 working group and shall invite the participation in the working group of the following 
+9 additional members:
+10 A.  The Secretary of State or the Secretary of State's designee;
+11 B.  Two members representing motor vehicle manufacturers, at least one of whom must 
+12 represent an organization of motor vehicle manufacturers; 
+13 C.  One member representing aftermarket parts manufacturers;
+14 D.  One member representing aftermarket parts distributors and retailers;
+15 E.  Two members representing independent repair facilities, at least one of whom is an 
+16 owner or operator of a facility;
+17 F.  One member representing new motor vehicle dealers;
+18 G. One member representing a consumer advocacy organization; and
+19 H.  One member representing a data privacy advocacy organization.
+20 Members of the working group serve without compensation. The Office of the Attorney 
+21 General shall provide necessary staffing services to the working group.
+22 2.  The working group shall develop recommendations for legislation to establish an 
+23 entity to ensure cyber-secure access to motor vehicle-generated data to owners and owner- 
+24 authorized independent repair facilities for maintenance, diagnostic and repair purposes. 
+25 The recommendations developed by the working group must address that entity's ability 
+26 to:
+27 A.  Identify and adopt relevant standards for implementing the requirements of Title 
+28 29-A, section 1810, including standards relating to access to vehicle telematics 
+29 systems;
+30 B.  Monitor motor vehicle manufacturer compliance with standards adopted by the 
+31 entity;
+32 C.  Develop and monitor policies for the evolving use and availability of data generated 
+33 by the operations of motor vehicles;
+34 D.  Create policies for compliance with relevant laws, regulations, standards, 
+35 technologies and best practices related to motor vehicle data, with consideration given 
+36 to privacy and cybersecurity concerns; and
+37 E.  Adopt rules necessary for implementation and enforcement of Title 29-A, section 
+38 1810 and to enforce the requirements of that law consistent with those rules.
+39 3.  On or before February 28, 2025, the Attorney General shall submit to the joint 
+40 standing committee of the Legislature having jurisdiction over innovation, development, 
+Page 2 - 131LR3185(01)
+41 economic advancement and business matters a report containing the findings and 
+42 recommendations of the working group under this section. After reviewing the report, the 
+43 committee may report out legislation relating to the report to the 132nd Legislature in 2025. 
+4SUMMARY
+5 This resolve directs the Attorney General or the Attorney General's designee to 
+6 convene an automotive right to repair working group.
+7FISCAL NOTE REQUIRED
+8(See attached)
+1
+2
+3
+5
+6
+7
+8
+Approved: 03/29/24
+LD 2289 LR 3185(01)
+Fiscal Detail and Notes
+Any additional costs to the Office of the Attorney General to convene a working group and to the Department of 
+Secretary of State to participate in the group are expected to be minor and can be absorbed within existing budgeted 
+resources.
+Fiscal Note Required: Yes
+Fiscal Note
+Minor cost increase - General Fund
+131st MAINE LEGISLATURE
+Resolve, to Establish an Automotive Right to Repair Working Group
+Fiscal Note for Original Bill
+Committee: Innovation, Development, Economic Advancement and Business
+LR3185(01) - Fiscal Note - Page 1 of 1

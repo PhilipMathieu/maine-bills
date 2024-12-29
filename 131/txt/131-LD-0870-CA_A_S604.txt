@@ -1,0 +1,916 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+^-ROS
+1 L.D. 870
+2 Date: 3, ?^L) (Filing No. S- (^)
+MAJORITY ,
+I
+3 JUDICIARY
+4 Reproduced and distributed under the direction of the Secretary of the Senate,
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " fi " to S.P. 367, L.D. 870, "An Act to Strengthen
+10 Freedom of Speech Protections by Extending Laws Against Strategic Lawsuits Against
+11 Public Participation"
+12 Amend the bill by striking out the title and substituting the followmg:
+13 'An Act to Strengthen Freedom of Speech Protections by Enacting the Uniform Public
+14 Expression Protection Act'
+15 Amend the bill by striking out everything after the enacting clause and inserting the
+16 following:
+17 'PREFATORYNOTE
+18 Special Thanks. The Committee wishes to thank Thomas R. Burke, Stanley W.
+19 Lamport, Ben Sheffiier, and Ashley H. Verdon, all of whom served as Observers during
+20 the drafting process, for their steady and valued input and expertise.
+21 Introduction. In the late 1980s, commentators began observing that the civil litigation
+22 system was increasingly being used in an illegitimate way: not to seek redress or relief for
+23 harm, or to vindicate one's legal rights, but rather to silence or intimidate citizens by
+24 subjecting them to costly and lengthy litigation. These kinds of abusive lawsuits are
+25 particularly troublesome when defendants fmd themselves targeted for exercising their
+26 constitutional rights to publish and speak freely, petition the government, and associate
+27 with others. Commentators dubbed these kinds of civil actions "Strategic Lawsuits Against
+28 Public Participation," or SLAPPs.
+29 SLAPPs defy simple definition, They can be brought by and agamst individuals,
+30 corporate entities, or government officials across all points of the political or social
+31 spectrum. They can address a wide variety of issues—from zoning, to the environment, to
+32 politics, to education. They are often cloaked as otherwise standard clauns of defamation,
+33 civil conspiracy, tortious interference, nuisance, and invasion of privacy, just to name a
+34 few. But for all the ways in which SLAPPs may clothe themselves, their unifying features
+Page 1 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT " /\ " to S.P. 367, L.D. 870 ^$- (s^ui
+1 make them a dangerous force: Their purpose is to ensnare their targets in costly litigation
+2 that chills society from engaging in constihitionally protected activity.
+3 Anti-SLAPP Laws in the United States. To limit the detrimental effects SLAPPs can
+4 have, 32 states, as well as the District of Columbia and the Territory of Guam, have enacted
+5 laws to both assist defendants in seeking dismissal and to deter vexatious litigants from
+6 bringing such suits in the first place. An Anti-SLAPP law, at its core, is one by which a
+7 legislature imposes external change upon judicial procedure, in implicit recognition that
+8 the judiciary has not itself modified its own procedures to deal with this specific brand of
+9 abusive litigation. Although procedural in operation, these laws protect substantive rights,
+10 and therefore have substantive effects. So, it should not be surprising that each of the 34
+11 legislative enactments have been performed statutorily—none are achieved through civil-
+12 procedure rules. The states that have passed anti-SLAPP legislation, in one form or another,
+13 are:
+14 Arizona (2006) (Ariz. Rev. Stat. Ann. § 12-752) (2006)
+15 Arkansas (2005) (Ark. Code Ann. § 16-63-501 through § 16-63-508)(2005)
+16 California (1992) (Cal. Civ. Proc. Code § 425.16 through § 425.18)
+17 Colorado (2019) (Col. Rev. Stat. Ann. § 13-20-1101)
+18 Connecticut (201 8) (Conn. Gen. Stat. Ann. § 52-196a)
+19 Delaware (1992) (Del. Code Ann. tit. 10, § 8136, through § 8138)
+20 District of Columbia (2012) (D.C. Code § 16-5501 through § 16-5505)
+21 Florida (2004,2000) (Fla. Stat. Ann. §§ 720.304, 768.295)
+22 Georgia (1996) (Ga. Code. Ann. §9-11-11.1)
+23 Guam (1998) (Guam Code Ann. tit. 7, § 17101 through § 17109)2
+24 Hawaii (2002) (Haw. Rev. Stat. § 634F-1 through § 634F-4)
+25 Illinois (2007) (735 111. Comp. Stat. 110/15 through 110/99)
+26 Indiana (1998) (Ind. Code § 34-7-7-1 through § 34-7-7-10)
+27 • Kansas (201 6) (Kan. Stat. Ann § 60-5320)
+28 Louisiana (1999) (La. Code Civ. Proc. Ann. art. 971)
+29 Maine (1995) (Me. Rev. Stat. Ann. tit. 14, § 556)
+30 Maryland (2004) (Md. Code Ann., Cts. & Jud. Proc. § 5-807)
+31 Massachusetts (1994) (Mass. Gen. Laws ch. 231, §59H)
+32 Minnesota (1994) (Minn. Stat. § 554,01 through § 554.06) (Held unconstitutional by
+33 Leiendecker v. Asian Women United of Minnesota, 895 N.W.2d 623, 635-37 (Minn.
+34 2017))
+35 Missouri (2004) (Mo. Rev. Stat. § 537.528)
+36 Nebraska (1994) (Neb. Rev. Stat, § 25-21,243 through § 25-21,246)
+37 Nevada (1997) (Nev. Rev. Stat. § 41.635 through 41.670)
+38 New Mexico (2001) (N.M. Stat. § 38-2-9.1 through § 38-2-9.2)
+Page 2 - 131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " f\ " to S.P. 367, L.D. 870 ( S-(fiC>^
+ROS
+1 New York (1992) (NY. Civ. Rights Law § 70-a and § 76-a)
+2 Oklahoma (2014) (Okla. Stat. tit. 12, § 1430 through § 1440)
+3 Oregon (2001) (Or. Rev. Stat. § 31.150 through § 31.155)
+4 Pennsylvania (2000) (27 Pa. Consol. Stat. § 8301 through § 8305,and § 7707)
+5 Rhode Island (1993) (R.I. Gen. Laws § 9-33-1 through § 9-33-4)
+6 Tennessee (2019, 1997) (Tenn. Code. Ann. § 20-17-101 through § 20-17-110; § 4-21-
+7 1001 through §4-21-1004)
+8 Texas (2011) (Tex. Civ. Prac. & Rem. Code § 27.001 through § 27.011)
+9 Utah (2008) (Utah Code § 78B-6-1401 through § 78B-6-1405)
+10 Vermont (2005) (Vt. Stat. Ann. tit. 12 § 1041)
+11 Virginia (2007) (Va. Code Ann. § 8.01-223.2)
+12 Washmgton (2010, 1989) (Wash. Rev. Code § 4.24.500 through § 4.24.525) (Held
+13 unconstitrtional by Davis v. Cox, 351 P.3d 862, 875 (Wash. 2015))
+14 Many early anti-SLAPP statutes were narrowly drawn by limiting their use to particular
+15 types of parties or cases—for example, to lawsuits brought by public applicants or
+16 pennittees, or to lawsuits brought against defendants speaking in a particular fomm or on
+17 a particular topic. More recently, however, legislatures have recognized that narrow anti-
+18 SLAPP laws are ineffectual in curbing the many forms of abusive litigation that SLAPPs
+19 can take. To that end, most modem statutory enactments have been broad with respect to
+20 the parties that may use the acts and the kmds of cases to which the acts apply.
+21 The recent trend further evidences a shift toward statutes that achieve their goals by
+22 generally employing at least five mechanisms:
+23 1. Creating specific vehicles for filing motions to dismiss or strike early in the litigation
+24 process;
+25 2. Requiring the expedited hearing of these motions, coupled with a stay or limitation
+26 of discovery until after they're heard;
+27 3. Requiring the plaintiff to demonstrate the case has some degree of merit;
+28 4. Imposing cost-shifting sanctions that award attorney's fees and other costs when the
+29 plaintiff is unable to carry its burden; and
+30 5. Allowing for an interlocutoiy appeal of a decision to deny the defendant's motion.
+31 The Need for a Uniform Anti-SLAPP Act. Although there is certainly a movement
+32 toward broad statutes that utilize the five tools described above, the precise ways in which
+33 different states have constructed their laws are far from cohesive. This degree of variance
+34 from state to state—and an absence of protection in 18 states—leads to confusion and
+35 disorder among plaintiffs, defendants, and courts. It also contributes to what can be called
+36 "litigation tourism"; that is, a type of forum shoppmg by which a plaintiff who has choices
+37 among the states m which to bring a lawsuit will do so in a state that lacks strong and clear
+38 anti-SLAPP protections. Several recent high-profile examples of this type of forum
+39 shopping have made the need for uniformity all the more evident.
+Page 3 - l31LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT"/^" to S.P. 367, L.D. 870 [£y[o^-
+1 The Uniform Public Expression Protection Act seeks to harmonize these varying
+2 approaches by enunciating a clear process through which SLAPPs can be challenged and
+3 their merits fairly evaluated in an expedited manner. In doing so, the Act actually serves
+4 two purposes: protecting individuals' rights to petition and speak freely on issues of public
+5 interest while, at the same time, protecting the rights of people and entities to file
+6 meritorious lawsuits for real injuries.
+7 The Uniform Public Expression Protection Act, Generally. The Uniform Public
+8 Expression Protection Act follows the recent trend of state legislatures to enact broad
+9 statutory protections for its citizens. It does so by utilizing all five of the tools mentioned
+10 above in a motion practice that carefully and clearly identifies particular burdens for each
+11 party to meet at particular phases in the motion's procedure. The general flow of a motion
+12 under the Act employs a three-phase analysis seen in many states' statutes. Upon the filing
+13 of a motion, all proceedings—including discovery—between-the moving party and
+14 responding party are stayed, subject to a few specific exceptions. In the first phase, the
+15 court effectively decides whether the Act applies. It does so by first determining if the
+16 responding party's (typically the plaintiffs) cause of action implicates the moving party's
+17 (typically the defendant's) right to free speech, petition, or association. The burden is on
+18 the moving party to make the initial showing that the Act applies. If the court holds that the
+19 moving party has not carried that burden, then the motion is denied, the stay of proceedings
+20 is lifted, and the parties proceed to litigate the merits of the case (subject to the ability of
+21 the moving party to interlocutorily appeal the motion's denial). If the court determines that
+22 the moving party has carried its burden, then the responding party can show its cause of
+23 action fits within one of the three exceptions to the Act. If it carries that burden—for
+24 example, by showing that its cause of action is against an agent of a governmental unit
+25 acting or purporting to act in an official capacity—then the Act does not apply, and the
+26 motion is denied. If it fails to carry that burden, then the court proceeds to the second step
+27 of the analysis.
+28 In the second phase, the court determines if the responding party has a viable cause of
+29 action from a prima-facie perspective. In this phase, the burden is on the responding party
+30 to establish a prima-facie case for each essential element of the cause of action challenged
+31 by the motion. If the court holds that the responding party has not carried its burden to
+32 establish a pruna-facie case, then the motion is granted, and the responding party's cause
+33 of action is terminated with prejudice to refiling. The moving party is entitled to its costs,
+34 attorney's fees, and expenses. If the court holds that the responding party has carried its
+35 burden, then—and only then—the court proceeds to the third step of the analysis.
+36 In the third phase, the court determines if the responding party has a legally viable
+37 cause of action. In this phase, the burden shifts back to the moving party to show either that
+3 8 the responding party failed to state a cause of action upon which relief can be granted (for
+39 example, a claim that is barred by res judicata, or preempted by some other law), or that
+40 there is no genuine issue as to any material fact and the moving party is entitled to judgment
+41 as a matter of law (for example, if the cause of action, while perhaps factually viable, is
+42 time-barred by limitations). If the moving party makes such a showing, the motion is
+43 granted; if it fails to make such a showing, the motion is denied.
+44 Sec. 1. 14 MRSA §556, as amended by PL 2023,c. 322, § 1, is repealed.
+45 Sec. 2. 14 MRSA c. 203,sub-c. 5 is enacted to read:
+Page 4 - 131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT" A "to S.P. 367, L.D. 870 ( ^-(
+1 SUBCHAPTER 5
+2 UNIFORM PUBLIC EXPRESSION PROTECTION ACT
+3 §731. Short title
+4 This subchapter may be known and cited as "the Uniform Public Expression Protection
+5 Act."
+6 Comments
+7 Although "SLAPP"—an acronym for "Strategic Lawsuit Against Public
+8 Participation"—does not appear in the Act's title, the Uniform Public Expression Protection
+9 Act should be considered an anti-SLAPP act. Although "[t]he paradigm SLAPP is a suit
+10 filed by a large developer against environmental activists or a neighborhood association
+11 intended to chill the defendants' contmued political or legal opposition to the developers'
+12 plans," SLAPPs "are by no means limited to environmental issues, nor are the defendants
+13 necessarily local organizations with lunited resources." Hupp v Freedom Commc'ns, 163
+14 Cal. Rpb-. 3d 919, 922 (Cal. Ct. App. 2013). "[W]hile SLAPP suits 'masquerade as ordinary
+15 lawsuits' the conceptual features which reveal them as SLAPP's are that they are generally
+16 meritless suits brought by large private interests to deter common citizens from exercising
+17 their political or legal rights or to punish them for domg so." Id.
+18 S732. Definitions
+19 As used in this subchapter, unless the context otherwise indicates, the followine terms
+20 have the followine meanines,
+21 1. Governmental unit. "Governmental unit" means a public corporation or
+22 government or eovemmental subdivision. agency or instrymentalitv.
+23 2. Person. "Person" means an individual, estate, trust, partnership, business or
+24 nonprofitentity.^ovemmental unit or other legal entity.
+25 §733. Applicability
+26 1. Goods or services. For the purposes of this section, "goods or services "_c|oes not
+27 include the creation, dissemination, exhibition or advertisement or similar promotion of a
+28 dramatic, literary, musical, political, ioumalistic or artistic work.
+29 2. Cause of action asserted. Except as otherwise provided in subsection 3. this
+30 subchapter applies to a cause of action asserted in a civil action against a tierson based on
+31 the_persc>nls;
+32 A. Communication in a leeislative, executive, judicial, administrative or other
+33 governmental proceeding;
+34 B. Communication on an issue under consideration or review in a leeislative,
+3 5 executive, judicial, administrative or other governmental proceedine;
+36 C. Exercise of the right offi-eedom of speech or of the press, the right to assemble or
+37 petition or the right of association, guaranteed by the United States Constitution or by
+38 the Constitution of Maine, on a matter of public concemior
+Page 5 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT " Q. " to S.P. 367, L.D. 870
+1 D. Written or oral statement made in connection with a discrimination complaint
+2 pursuant to the Maine Human Rights Act prany _writte^Q^^^^^^^ made in
+3 connection with a comDhmtpyrsuant to^^^^^^TO so-called Title
+4 IXjM-Qvisions of the federal Education Amendments of 1972. Public Law 92-318,
+5 3. Exceptions. This subchapter does not apply to a cause of action assertedi
+6 A. Aeainst a governmental unit or an employee or agent of a governmental unit acting
+7 or purporting to act in an official capacity;
+8 B. By a eovemmental unit or an employee or agent of a governmental unit acting in an
+9 official capacity to enforce a law to protect asainst an imminent threat to public health
+10 or safety; or
+11 C. Aeainst a person primarily engaged in the business of selling or leasing goods or
+12 services if the cause of action arises out of a cQmmumcatjpnrelated to^^^A sale
+13 or lease of the goods or services,
+14 Comments
+15 1. Most courts explain the resolution of anti-SLAPP motions in terms of either a three-
+16 or two-pronged procedure. E.g., Younkin v, Hines, 546 S.W.3d 675, 679 (Tex. 2018)
+17 ("Reviewing a[n anti-SLAPP] motion to dismiss requires a three-step analysis."); Wilson
+18 v. Cable News Network, Inc., 444 P.3d 706, 713 (Cal. 2019) ("A court evaluates an anti-
+19 SLAPP motion in two steps."). Section 2 of the Act constitutes the first step of that
+20 procedure, where the moving party (typically the defendant) must show that the responding
+21 party's (typically the plaintiff's) cause of action arises from the movant's exercise of First
+22 Amendment rights on a matter of public concern. This step focuses on the movant's activity,
+23 and whether the movant can show that it has been sued for that activity. See, e.g., Navellier
+24 v. Sletten, 52 P.3d 703, 711 (Cal. 2002) ("The anti-SLAPP statute's defmitional focus is
+25 not [on] the form of the plaintiffs cause of action but, rather, the defendant's activity that
+26 gives rise to his or her asserted liability and whether that activity constitutes protected
+27 speech or petitioning." (emphasis original)). If the movant cannot satisfy the first step—in
+28 other words, cannot show that the cause of action is linked to First Amendment activity on
+29 a matter of public concern—then the court will deny the motion without ever proceeding
+30 to the second or third step. THOMAS R. BURKE, ANTI-SLAPP LITIGATION § 1.2
+31 (2019). Further discussion of how a court adjudicates the first step, including the parties'
+32 burdens and the materials a court should review, appears in Comments 2 and 3 to Section
+33 7.
+34 2. Although the Act operates in a procedural manner—specifically, by altering the
+35 typical procedure parties follow at the outset of litigation—the rights the act protects are
+36 most certainly substantive in nature. See U.S. ex rel. Newsham v. Lockheed Missiles &
+37 Space Co., Inc., 190 F.3d 963, 972-973 (9th Cir. 1999) (applymg California's anti-SLAPP
+3 8 law to diversity actions in federal court because the statute was "crafted to serve an interest
+39 not directly addressed by the Federal Rules: the protection of 'the constitutional rights of
+40 freedom of speech and petition for redress of grievances.'"). Otherwise stated, the Act's
+41 procedural features are designed to prevent substantive consequences: the impairment of
+42 Fu'st Amendment rights and the time and expense of defending against litigation that has
+43 no demonstrable merit. Williams v. Cordillera Comms., Inc., No. 2:13-CV-124,2014 WL
+Page 6 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT" /)" to S.P. 367, L.D. 870
+1 2611746,at * 1 (S.D. Tex. June 11, 2014). As stated by one California court, "[t]he point
+2 of the anti-SLAPP statute is that you have a right not to be dragged through the courts
+3 because you exercised your constihitional rights." People ex rel. Lockyer v. Brar, 115 Cal.
+4 App. 4th 1315, 13 17 (4th Dist, 2004).
+5 3. The statite is only applicable to civil actions. It has no applicability in criminal
+6 proceedings.
+7 4. The term "civil action" should be constmed consistently with Fed. R. Civ. P. 1.
+8 5. The term "cause of action" refers to a group of operative facts that give rise to one
+9 or more bases for recovery in a civil action. The term contemplates that in one civil action,
+10 a party seekmg relief may assert multiple causes of action that invoke different facts and
+11 theories for relief. In some jurisdictions, other terms of art, such as "claim for relief,"
+12 "ground of action," "right of action," or "case theory," might be more appropriate than
+13 "cause of action." See, e.g., Baral v. Schnitt, 376 P.3d 604, 616 (Cal. 2016) (holding that
+14 when the California Legislature used the term "cause of action" in its anti-SLAPP statute,
+15 "it had in mind allegations of protected activity that are asserted as grounds for relief
+16 (emphasis original)). Regardless of the term used by a state, the Act can be utilized to
+17 challenge part or all of a single cause of action, or multiple causes of action in the same
+18 case. See id. at 615 ("A single cause of action . . . may include more than one instance of
+19 alleged wrongdoing."). Otherwise stated, a single civil action can contain both a cause of
+20 action subject to the Act and one not subject to the Act.
+21 6. Sections 2(b)(l) and (2) apply to a cause of action brought against a person based on
+22 the person's communication. "Communication" should be construed broadly—consistent
+23 with holdings of the Supreme Court of the United States—to mclude any expressive
+24 conduct that likewise implicates the First Amendment. See Texas v, Johnson, 491 U,S. 397,
+25 404 (1989) ("[W]e have long recognized that [First Amendment] protection does not end
+26 at the spoken or written word."); Spence v. Washington, 418 U.S. 405, 409-11 (1974)
+27 (holdmg that conduct constitutes "communication" when it is accompanied by an intent to
+28 convey a particularized message and, given the surrounding cu-cumstances, the likelihood
+29 is great that the message will be understood by those who view it); Rumsfeld v. Fomm for
+30 Acad. and Instititional Rights, 547 U.S. 47, 65-66 (2006); Tinker v. Des Momes Indep.
+31 Cmty. Sch. Dist, 393 U.S. 503, 505-06 (1969). Conduct is not specifically mentioned in
+32 the Act so as to avoid parties from attempting to use it to shield themselves from liability
+33 for nonexpressive conduct that nevertheless tangentially relates to a matter of public
+34 concern. See United States v. O'Brien, 391 U.S. 367, 376 (1968) ("We cannot accept the
+35 view that an apparently limitless variety of conduct can be labeled 'speech' whenever the
+36 person engaging in the conduct intends thereby to express an idea."). But the Act is intended
+37 to protect expressive conduct. For example, a person's work on behalf of a political
+38 campaign might include constitutionally protected expressive conduct, such as putting up
+39 campaign signs or organizing a rally. The Act would protect that conduct. But a person
+40 who damages another candidate's campaign signs or physically threatens attendees at an
+41 opposing rally would not be engaging in expressive conduct, and therefore should not be
+42 able to utilize the Act, even though the conduct tangentially relates to matters of public
+43 concern.
+Page 7 - 131LR1654(02)
+COMMITTEE AMENDMENT
+^OS COMMITTEE AMENDMENT " 4 " to S.P. 367, L.D. 870 (^(^)i~l
+1 7. Sections 2(b)(l)-(3) identify three different instances in which the Act may be
+2 utilized. Section 2(b)(l) protects communication that occurs before any legislative,
+3 executive, judicial, administrative, or other governmental proceeding—effectively, any
+4 speech or expressive conduct that would implicate one's right to petition the government.
+5 Section 2(b)(2) operates similarly, but extends to speech or expressive conduct about those
+6 matters being considered in legislative, executive, judicial, administrative, or other
+7 governmental proceedings—the speech or conduct need not take place before the
+8 governmental body. Section 2(b)(3) operates differently than (1) and (2) and provides the
+9 broadest degree of protection; it applies to any exercise of the right of free speech or press,
+10 free association, or assembly or petition, so long as that exercise is on a matter of public
+11 concern.
+12 8. The terms "freedom of speech or of the press," "the right to assemble or petition,"
+13 and "the right of association" should all be construed consistently with caselaw of the
+14 Supreme Court of the United States and the state's highest court.
+15 9. The term matter of public concern" should be construed consistently with caselaw
+16 of the Supreme Court of the United States and the state's highest court. See, e.g., Snyder v.
+17 Phelps, 562 U.S. 443, 453 (2011) (holding that "[s]peech deals with matters of public
+18 concern when it can 'be fairly considered as relating to any matter of political, social, or
+19 other concern to the community,' or when it 'is a subject of legitimate news interest; that is,
+20 a subject of general interest and of value and concern to the public'" (citations omitted));
+21 Brown v. Entna't Merchs. Ass'n, 564 U.S. 786, 790 (2011) ("The Free Speech Clause exists
+22 principally to protect discourse on public matters, but we have long recognized that it is
+23 difficult to distinguish politics from. entertainment, and dangerous to try."). "The [matter-
+24 of-public-concem] inquiry turns on the 'content, form, and context' of the speech." Lane v.
+25 Franks, 573 U.S. 228, 241 (2014) (quoting Connick v. Myers, 461 U.S. 138, 147-48
+26 (1983)). The term should also be construed consistently with terms like "public issue" and
+27 "matter of public interest" seen in some state statutes. See, e.g., CAL. CIV. PROC. CODE
+28 § 425.16 (employing the terms "public issue" and "issue of public interest"), FihnOn.com
+29 Inc. v. DoubleVerify Inc., 439 P.3d 1156,1164-65 (Cal. 2019).
+30 The California Supreme Court breaks "matter of public concern" (or in its statute,
+31 "public issue" "First, we ask what 'public issue or [ ] issue of public interest' the speech in
+32 question implicates—a question we answer by looking to the content of the speech. Second,
+33 we ask what functional relationship exists between the speech and the public conversation
+34 about some matter of public interest. It is at the latter stage that context proves useful." Id.
+35 (citation omitted). The court observed that the first step is typically not difficult for the
+36 movant: "[V]irtually always, defendants succeed in drawing a line—however tenuous—
+37 connecting their speech to an abstract issue of public interest." Id. But the second step is
+38 where many movants fail. The inquiry "demands 'some degree of closeness' between fhe
+39 challenged statements and the asserted public interest." Id. (citation omitted). As other
+40 California courts have noted, "it is not enough that the statement refer to a subject of
+41 widespread public interest; the statement must in some manner itself contribute to the
+42 public debate." WUbanks v. Walk, 17 Cal. Rptr. 3d 497, 506 (Cal. Ct, App. 2004); see also
+43 Dyer v. Childress, 55 Cal. Rptr. 3d 544, 548 (2007) ("The fact that 'a broad and amorphous
+44 public interest' can be connected to a specific dispute is not enough." (citation omitted)).
+Page 8 - 131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /\ " to S.P. 367, L.D. 870
+1 The California Supreme Court explains that what it means to "contribute to the public
+2 debate" "will perhaps differ based on the state of public discourse at a given time, and the
+3 topic of contention. But ultimately, our inquiry does not turn on a normative evaluation of
+4 the substance of the speech. We are not concerned with the social utility of the speech at
+5 issue, or the degree to which it propelled the conversation in any particular direction; rather,
+6 we examine whether a defendant—through public or private speech or conduct—
+7 participated in, or furthered, the discourse that makes an issue one of public interest.
+8 FilmOn, Inc., 439 P.3d at 1166.
+9 Further discussion of how a court adjudicates whether a cause of action is based on the
+10 moving party's exercise of First Amendment rights on a matter of public concern, including
+11 the movant's burden and the materials a court should review, appears in Comment 2 to
+12 Section 7.
+13 10. Section 2(c) provides a list of exemptions, or situations to which the Act does not
+14 apply. It is the burden of the responding party to establish the applicability of one or more
+15 exemptions. Thus, even if a movant can show the Act applies under Section 2(b), the Act
+16 may nevertheless not apply if the non-movant can show the cause of action is exempt.
+17 Further discussion of how a court adjudicates whether a cause of action is exempt,
+18 including the responding party's burden and the materials a court should review, appears in
+19 Comment 3 to Section 7.
+20 11, The term "governmental unit or an employee or agent of a governmental unit acting
+21 in an official capacity" includes any private people or entities working as government
+22 contractors, to the extent the cause of action pertains to that government contract.
+23 12. The term "dramatic, literary, musical, political, journalistic, or artistic work" used
+24 in Section (a)(3) should be constmed broadly to include newspapers, magazines, books,
+25 plays, motion pictures, television programs, video games, or Internet websites or other
+26 electronic mediums.
+27 13. Section 2(c)(3) carves out from the scope of the Act "communication[s] related to
+28 [a] person's sale or lease of [ ] goods or services" when that person is primarily engaged m
+29 the selling, leasing, or licensing of those goods or services. In other words, "commercial
+30 speech" is exempted from the protections of the Act. By way of illustration, if a mattress
+31 store is sued for false statements made m its advertising of mattresses—whether by an
+32 aggrieved consumer or a competitor—the mattress store would not be able to avail itself of
+33 the Act. But if the same mattress store were sued for tortious interference for organizmg a
+34 petition campaign to oppose the building of a new school, its activity would not be related
+35 to the sale or lease of goods or services, and it could use the Act for protection of its First
+36 Amendment conduct.
+37 But the "commercial-speech exemption" does not apply to the creation, dissemination,
+38 exhibition, or advertisement of a dramatic, literary, musical, political, journalistic, or
+39 artistic work. This is consistent with the holdings of most courts that the contents of works
+40 protected by the First Amendment are not considered "goods or services," even if sold for
+41 profit. See, e.g., Joseph Burstyn, Inc. v. Wilson, 343 U.S. 495, 501 (1952) ("That books,
+42 newspapers, and magazines are published and sold for profit does not prevent them from
+Page 9 - 131LR16S4(02)
+COMMITTEE AMENDMENT
+ROS
+COMMITTEE AMENDMENT " /[" to S.P. 367, L.D. 870 ( <^, (^t
+1 being a form of expression whose liberty is safeguarded by the First Amendment."); Winter
+2 v. G.P. Putaam's Sons, 938 F.2d 1033, 1036 (9th Cir. 1991) (ideas and expressions in a
+3 book are not a product); Way v. Boy Scouts of Am., 856 S.W.2d 230, 239 (Tex. 1993)
+4 ("We conclude that the ideas, thoughts, words, and information conveyed by the magazine
+5 ... are not products."). This ensures that claims targeting those in the business of making
+6 and selling works protected by the First Amendment are not denied the ability to invoke
+7 the Act. See Dyer v. Childress, 147 Cal. App. 4th 1273, 1283 (2007) (expressive works
+8 exception to the commercial speech exemption was "intended to 'exempt the news media
+9 and other media defendants (such as the motion picture industry) from the [commercial-
+10 speech exemption] when the underlying act relates to news gathering and reporting to the
+11 public with respect to the news media or to activities involved in the creation or
+12 dissemination of any works of a motion picture or television studio."' (citations omitted)).
+13 §734. Special motion for expedited relief
+14 Not later than 60 days after a party is served with a complaint, petition. cross-claim,
+15 counterclaim, 3rd-partv claim or other pleading that asserts a cause of action to which this
+16 subchapter applies, or at a later time on a showing of good cause, the party may file a
+17 Special jnotion for expedited relief to dismiss the cause of action or part of the cause of
+18 action.
+19 Comments
+20 1. Unlike a defense under Fed. R. Civ. P. 12(b), the motion need not be filed prior to
+21 other pleadings in the case, and a party should not be estopped from filing a motion by
+22 taking any other actions in the case.
+23 2. The Act should apply not just to mitial claims brought by a plaintiff against a
+24 defendant, but to any claim brought by any party who seeks to punish or intimidate another
+25 party for the exercise of its constitutional rights. In this connection, initial defendants
+26 frequently use their ability to bring counterclaims and crossclaims for abusive purposes,
+27 and the Act should be available to seek dismissal of such claims.
+28 3. The terms "complaint" and "petition" are intended to include any amended pleadings
+29 that assert a cause of action for the first time in a case.
+30 4. "Crossclaim" means a cause of action asserted between co-plaintiffs or co-
+31 defendants m the same civil action.
+32 5. "Counterclaim" means a cause of action asserted by a party against an opposing party
+3 3 after an original claim has been made by that opposing party. The term should be construed
+34 synonymously with terms like "counteraction," "countersuit," and "cross-demand."
+35 6. "Third-party" claim should be construed in accordance with Fed. R. Civ. P. 14.
+36 7. "Good cause" means a reason factually or legally sufficient to appropriately explain
+37 why the motion was not brought within the prescribed deadline. This section should not be
+38 construed to require a party to seek leave of court prior to filing a motion later than the
+Page 10 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT " ^ " to S.P. 367, L.D, 870
+1 prescribed deadline. Instead, a court should make any good-cause determination as part of
+2 its ruling on the motion under Section 8.
+3 8. Some states may choose to title their special motion one to "dismiss," while others
+4 may title it one to "strike." The choice of title is not substantive in nature and does not
+5 affect uniformity or construction of the statute.
+6 S735. Stay
+7 1. Stay proceedings. Except as otherwise provided in subsections 4 to 7. on the filing
+8 of a motion under section 734:
+9 A. All other proceedines between the moving party and_respondm& party, including
+10 discovery and a pending hearing or motion, are staved; and
+11 B. On motion by the movme party, the court may stay a^eann^Q^^^^^^^
+12 another party, or discover/ by another party, if the hearmg or ruling on the motion
+13 would adjudicate, or the discovery would relate to. an issue material to the motion
+14 under section 734.
+15 2. Length of stay. A stay under subsection 1 remains in effect until entry of an order
+16 ruling on the motion under section 734 and expiration of the time under the Maine Rules
+17 of Appellate Procedure for thejnovm^partv^ to
+18 3. Stay on aDDeaL_._ExceEt as.plhe^^ 6 and 7, if a party
+19 appeals from an order ruline on a motion under section 734, all proceedings between all
+20 parties in the action are staved. The stay remains in effect until the conclusion of the appeal.
+21 4. Limited discovery. During a stay under subsection 1, the court may allow limited
+22 discover/ if a party shows that specific information is necessary to establish whether a
+23 party has satisfied or failed to satisfy a burden under sectio^^ 1 and the
+24 information is not reasonably available unless discovery is allowed.
+25 5. IMotion for costs, attorney's fees and expenses. A motion under section 740 for
+26 costs, attorney's fees and expenses is not subject to a stay under this section.
+27 6. Dismissal. A stay granted under this section does not affect a party's ability
+2 8 voluntarily to dismiss a cause of action or part of a cause of action or move to sever a cause
+29 ofaction.
+30 7. Other motions. During a stay under this_ section, the court for good cause may hear
+31 and rulej:)n:
+3 2 A. A motion unrelated to the motion under section 734: and
+33 B, Am to protect against an imminent
+34 threat to public health or safety.
+35 Comments
+36 1. Section 4 furthers the purpose of the Act by protecting a moving party from the
+37 burdens of litigation—which include not only discovery, but responding to motions and
+3 8 other potentially abusive tactics—until the court adjudicates the motion and the moving
+39 party's appellate rights with respect to the motion are exhausted.
+Page 11 - 131LR1654(02)
+COMMITTEE AMENDMENT
+*w " COMMITTEE AMENDMENT " r\ " to S.P. 367, L.D. 870
+1 2. Section 4(a)(l) provides that the stay only applies to proceedings between the parties
+2 to the motion, but Section 4(a)(2) allows the moving party to seek a stay of proceedings
+3 and discoveiy between other parties if there are legal or factual issues at play in those
+4 proceedings that are material to the party's motion. Otherwise stated, if a defendant moves
+5 to dismiss a plaintiffs cause of action, that motion should not stay proceedings or discovery
+6 between the plaintiff and other defendants—or between other defendants themselves—
+7 unless those proceedings involve legal or factual issues that are material to the motion, or
+8 the discovery is relevant to the motion.
+9 By way of illustration, a candidate for political office sues two defendants—his
+10 opponent, for defamation over comments made about the plaintiff during the campaign,
+11 and his opponent's campaign manager, for hacking into the plaintiffs campaign's computer
+12 files and erasing valuable donor lists and other data. Only the plaintiffs opponent moves to
+13 dismiss under the Act; the campaign manager does not. In that case, the plaintiff could still
+14 proceed with discovery and dispositive motions against the campaign manager, because
+15 the claim concerning the hacking is entirely unrelated to the defamation claim. The moving
+16 defendant has no interest that would be affected by the hackmg claim. But under slightly
+17 altered facts, a different outcome might exist: The plaintiff alleges that (1) the opposing
+18 campaign manager violated the plaintiffs privacy rights by stealing sensitive personal
+19 information in the hacking incident; and (2) the opposing candidate violated the plaintiffs
+20 privacy rights by disclosing that sensitive personal information in a speech. Again, the
+21 opposing candidate moves to dismiss under the Act; the campaign manager does not. In
+22 that case, the causes of action are so interrelated that the moving defendant would not be
+23 able to protect his interests without participating in the case against his co-defendant—
+24 something he would not have to do if he prevails on the motion. In such an example, the
+25 court should grant a request to stay the proceedings as between the plaintiff and non-
+26 moving defendant, because the moving defendant would have no way of protecting his
+27 interests without participating in the case.
+28 3. Section 4(c) provides that all proceedings between all parties in the case are stayed
+29 if a party appeals an order under the Act. This subsection protects a moving party from
+30 having to battle related claims—some of which might be subject to a motion under the Act
+31 and some which are not—at the same time in two different courts. For example, if two
+32 plaintiffs file causes of action against a single defendant, and the defendant only moves to
+33 dismiss against one plaintiff but not the other, the defendant should be able to appeal a
+34 denial of that motion without also having to simultaneously defend related causes of action
+3 5 (albeit ones not subject to the Act in the trial court brought by the other plaintiff.
+36 By way of illustration, multiple plaintiffs—all contestants on a reality TV show contest
+37 sue one defendant—the TV producer—in a single case for their negative treatment on the
+38 show. Each plaintiffs claim is distinct and centers on separate statements. The defendant
+39 files a motion to dismiss under the Act against only one plaintiff. The motion is denied; the
+40 defendant appeals under Section 9. At that point, all the proceedings are stayed, because
+41 the defendant should not be required to try claims in the b-ial court while appealing other
+42 claims from the same case in the appellate court.
+43 To the extent any party not subject to the motion desires to move forward in the trial
+44 court on what it believes are unrelated causes of action while the appeal of the motion's
+Page 12 - 131LR1654(02)
+COMMITTEE AMENDMENT
+pPS COMMITTEE AMENDMENT " ^" to S.P. 367, L.D. 870 ^ ^
+1 order is pending, it retains the right under Section 4(f) to request a severance of those causes
+2 of action.
+3 4. Section 4(d) provides the court with discretion to permit a party to conduct specified,
+4 limited discovery amied at the sole purpose of collecting enough evidence to meet its
+5 burden or burdens under Section 7(a) of the Act. This provision recognizes that a party may
+6 not have the evidence it needs—for example, evidence of another individual's state of mind
+7 in a defamation action—prior to filing or responding to a motion. The provision allows the
+8 party to attempt to obtain that evidence without opening the case up to full-scale discovery
+9 and incurring those burdens and costs.
+10 5. Section 4(g) serves the ultimate purpose of the Act: to allow a party to avoid the
+11 expense and burden of frivolous litigation until the court can determine that the claims are
+12 not frivolous. In that connection, a court should be free to hear any motion that does not
+13 affect the moving party's right to be free from an abusive cause of action, including a
+14 motion to conduct discovery on causes of action unrelated to the cause of action being
+15 challenged under the Act, and motions for preliminary injunctive relief seeking to protect
+16 against an imminent threat to public health or safety.
+17 §736. Judicial priority
+18 An action under this subchapter may be advanced on the docket and receive priority
+19 over other cases when the court determines that the interests of justice so require.
+20 Comments
+21 1. Section 5 should not be construed to prevent the parties from agreeing to a later
+22 hearing date and presentmg that agreement to the court with a request to find "other good
+23 cause" for a later hearing. Nevertheless, the court, and not the parties, is responsible for
+24 controlling the pace of litigation, and the court should affmnatively fmd that good cause
+25 does exist independent of a mere agreement by the parties to a later hearing date.
+26 2. The question of whether the Act requires a live hearing or whether a court may
+27 consider the motion on written submission should be governed by the local customs of the
+28 jurisdiction.
+29 3. State law and local customs of the jurisdiction should dictate the consequences for a
+30 court failing to comply with the timelines set forth in this section.
+31 §737. Proof
+32 In ruling on a motion under section 734. the court shall consider the pleadings. the
+33 motion, any reply or response to the motion and any evidence that could be considered in
+34 ruling on a motion for summary iudement under Rule 56 of the Maine Rules of Civil
+35 Procedure.
+36 Comments
+37 1. The Act establishes a procedure that shares many attributes with summary judgment.
+38 See Sweetwater Union High Sch. Dist. v. Gilbane Bldg. Co., 434 P.3d 1152, 1157 (Cal.
+Page 13 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT "^ " to S.P. 367, L.D. 870 (^ ^t
+1 2019) (describing the California statute as a "summary-judgment-like procedure"); Gundel
+2 v. AV Homes, Inc., 264 So. 3d 304, 3 12-13 (Fla. Dist. Ct. App. 2019) (equating a motion
+3 under Florida's law to one for summary judgment). So, consistent with summary-judgment
+4 practice, parties should submit admissible, competent evidence—such as affidavits,
+5 deposition testimony, or tangible evidence—for the court to consider. See Sweetwater
+6 Union High Sch. Dist., 434 P.3d at 1157 ("There are important differences between [anti-
+7 SLAPP motions and motions for summary judgment]. Chief among them is that an anti-
+8 SLAPP motion is filed much earlier and before discovery. However, to the extent both
+9 schemes are designed to determine whether a suit should be allowed to move forward, both
+10 schemes should require a showing based on evidence potentially admissible at trial
+11 presented in the proper form."). A court should use the parties' pleadings to frame the issues
+12 in the case, but a party should not be able to rely on its own pleadings as substantive
+13 evidence. See id.; Church of Scientology v. Wollersheim, 49 Cal. Rptr. 2d 620, 636, 637
+14 (Cal. Ct. App. 1996), disapproved of on another point in Equilon Enters, v. Consumer
+15 Cause, Inc., 124 Cal. Rptr. 2d 507, 519 n.5 (Cal. Ct. App. 2002). A party may rely on an
+16 opposing party s pleadings as substantive evidence, consistent with the general mle that an
+17 opposing party's pleadings constitute admissible admissions. See Faiella v. Fed. Nat'l
+18 Mortg. Ass'n, 928 F.3d 141, 146 (1st Cir. 2019) ("A party ordinarily is bound by his
+19 representations to a court"), PPX Enters., Inc. v, Audiofidelity, Inc., 746 F.2d 120, 123 (2d
+20 Cir. 1984) ("[SJtipulations and admissions in the pleadings are generally binding on the
+21 parties and the Court.").
+22 2. The question of whether the Act reqiures a live hearing or whether a court may
+23 consider the motion on written submission should be governed by the local customs of the
+24 jurisdiction.
+25 §738. Dismissal of cause of action in whole or in part
+26 1. Dismissal with prejudice. In rslmg,os,& motion under section 734, the court shall
+27 dismiss with prejudice a cause of action, or part of a cause of action, if:
+28 A. The moving party establishes under section 733. subsection 2 that this Act applies;
+29 B. The responding party fails to establishjinder section 73 3, subsection 3 that this Act
+30 does not apBly; and
+31 C. Either:
+32 CD The responding party fails to establish a prima facie case as to each essential
+33 element of the cause of action: or
+34 (2\ The moving party establishes that:
+3 5 Cat The responding party failed to state a cause of action upon which relief can
+36 be granted; or
+37 fb) There is no genuine issue as to any material fact and the moving party is
+38 entitled to judgment as a matter of law on the cause of action or part of the
+39 cause of action.
+40 2. Dismissal without prejudice; right to costs, attorney's fees and expenses. A
+41 voluntary^ dismissal without prejudice of a responding party's cause of action, or part of a
+42 cause of action, that is the subject of a motion under section 734 does not affect a moving
+Page 14 - 131LR1654(02)
+COMMITTEE AMENDMENT
+ROS
+COMMITTEE AMENDMENT " ^ " to S.P. 367, L.D. 870 / <;;/
+1 party's right to obtam a ruling on the motion and seek costs, attorney's fees and expenses
+2 under section 740.
+3 3. Dismissal ^ on motion. A voluntary dismissal with
+4 prejudice of a respondmg party's cause of action, or part of a cause of action, that is the
+5 subject of a motion under section 734 establishes for the purpose of section 740 that the
+6 movine party prevailed on the motion.
+7 Comments
+8 1. Section 7(a) recognizes that a court can strike or dismiss a part of a cause of action-
+9 for example, certain operative facts or theories of liability—and deny the motion as to other
+10 parts of the cause of action. E.g., Baral v. Schnitt, 376 P.3d 604, 615 (Cal. 2016) (holding
+11 that California's statute can be utilized to challenge all or only part of a single cause of
+12 action, because a single cause of action may rely on multiple instances of conduct, only
+13 some of which may be protected).
+14 2. Section 7(a)(l) establishes "Phase One" of the motion's procedure—applicability. In
+15 this phase, the party filing the motion has the burden to establish the Act applies for one of
+16 the reasons identified in Section 2(b). To use the Act, a movant need not prove that the
+17 responding party has violated a constitutional right—only that the responding party's suit
+18 arises from the movant's constitutionally protected activity. THOMAS R. BURKE, ANTI-
+19 SLAPP LITIGATION § 3.2 (2019). Nor does the moving party need to show that the
+20 responding party intended to chill constitutional activities (motivation is urelevant to the
+21 phase-one analysis) or prove that the responding party actually chilled the movant's
+22 protected activities. Id. But "[t]he mere fact that an action was filed after protected activity
+23 took place does not mean the action arose from that activity for the purposes of the anti-
+24 SLAPP statrte. Moreover, that a cause of action arguably may have been 'triggered' by
+25 protected activity does not entail it [as] one arising from such." Navellier v. Sletten, 52 P.3d
+26 695, 708-09 (Cal. 2002). Rather, the Act is available to a moving party if the conduct
+27 underlying the cause of action was "itself an "act in furtherance" of the party's exercise of
+28 First Amendment rights on a matter of public concern. See City of Cotati v. Cashman, 52
+29 P.3d 695, 701 (2002). The moving party meets this burden by demonstrating two things:
+30 first, that it engaged in conduct that fits one of the three categories spelled out in Section
+31 2(b); and second, that the moved-upon cause of action is premised on that conduct. See id.
+32 In short, the Act's "definitional focus is not the form of the [non-movant's] cause of action
+33 but, rather, the [movant's] activity that gives rise to his or her asserted liability—and
+34 whether that activity constitutes protected speech or petitioning." Navellier, 52 P,3d at 711.
+35 In many instances, the moving party will be able to carry its burden simply by usmg
+36 the responding party's pleadings. See Hersh v. Tatum, 526 S.W,3d 462, 467 (Tex. 2017)
+37 ("When it is clear from the plaintiffs pleadmgs that the action is covered by the Act, the
+38 defendant need show no more."). As pointed out m Comment 2 to Section 6, a party is
+39 always free to use an opposmg party's pleadings as stipulations and admissions, and when
+40 the Complaint spells out the cause of action and the activity underlymg that cause of action,
+41 the moving party will be able to satisfy its burden rather easily. For example, if a defendant
+42 is sued by a public official for defamation, and the Complaint identifies the allegedly
+43 defamatory statement made by the defendant, then the defendant should need to do no more
+Page 15 - 131LR1654(02)
+COMMITTEE AMENDMENT
+. COMMITTEE AMENDMENT " ZL" to S.P. 367, L.D. 870 ,
+1 than attach the Complaint as an exhibit to its motion—the Complaint itself would clearly
+2 demonstrate that the defendant is being sued for speaking out about a public official
+3 (undoubtedly a matter of public concern).
+4 In other instances, the moving party will have to attach evidence to its motion to
+5 establish that the cause of action is based on the exercise of protected activity. That's
+6 because a creative plaintiff can disguise what is actually a SLAPP as a "garden variety" tort
+7 action. "Thus, a court must look past how the plaintiff characterizes the defendant's conduct
+8 to determine, based on evidence presented, whether the plaintiffs claims are based on
+9 protected speech or conduct." BURKE, supra at § 3.4. But the factthatthe movant's burden
+10 must be carried with evidence—whether that be the responding party's pleadings or
+11 evidence the movant presents—does not mean the inquiry is a factual one. On the contrary,
+12 the motion is legal in nature, and the burden is likewise legal. Thus, the court should not
+13 impose a factual burden on the moving party—like "preponderance of the evidence" or
+14 "clear and convincing evidence"—typically seen in fact-finding inquiries. Rather, like other
+15 legal rulings, the court should simply make a determination, based on the evidence
+16 produced by the moving party, whether a cause of action brought against the moving party
+17 is based on its (1) communication in a legislative, executive, judicial, administrative, or
+18 other governmental proceeding; (2) communication on an issue under consideration or
+19 review in a legislative, executive, judicial, administrative, or other governmental
+20 proceeding; or (3) exercise of the right of freedom of speech or of the press, the right to
+21 assemble or petition, or the right of association, on a matter of public concern. It should do
+22 so without weighing the parties' evidence against each other, but instead by determining
+23 whether the evidence put forth by the movant establishes the legal standard. If the moving
+24 party fails to prove the Act applies, the motion must be denied.
+25 3. Section 7(a)(2) is also part of "Phase One" of the motion's procedure. Even if the
+26 Act applies for one of the reasons identified in Section 2(b), the Act may nevertheless not
+27 apply if the party against whom the motion is filed can establish the applicability of an
+28 exemption identified in Section 2(c). A party seeking to establish the applicability of an
+29 exemption bears the burden of proof on that exemption. Like establishing applicability
+30 under Section 2(b), the burden to establish non-applicability under Section 2(c) is legal,
+31 and not factual. The responding party may use the moving party's motion, or affidavits or
+32 any other evidence admissible in a summary judgment proceeding, to cany its burden. And
+33 like the Section 2(b) analysis, the court should decide whether the cause of action is exempt
+34 from the act without weighing the evidence against that of the moving party, but instead by
+35 determining whether the evidence produced by the responding party establishes the
+36 applicability of an exemption. If the responding party so establishes, the motion must be
+37 denied. If the moving party proves the Act applies and the responding party cannot establish
+38 the applicability of an exemption, the court moves to "Phase Two" of the motion's
+39 procedure.
+40 4. Section 7(a)(3)(A) establishes "Phase Two" of the motion's procedure—prima-facie
+41 viability. Anti-SLAPP laws "do not insulate defendants from any liability for claims arising
+42 from protected rights of petition or speech. [They] only provide[] a procedure for weeding
+43 out, at an early stage, meritless claims arising from protected activity." Sweetwater Union
+44 High Sch. Dist. v. Gilbane Bldg. Co., 434 P.3d 1152, 1157 (Cal. 2019) (emphasis original)
+45 (citations omitted). Phase Two (as well as Phase Three) is where that "weeding out" occurs.
+Page 16 - 131LR16S4(02)
+COMMITTEE AMENDMENT
+^QS COMMITTEE AMENDMENT "^ " to S.P. 367, L.D. 870
+1 In this phase, the party against whom the motion is filed has the burden to show its case
+2 has merit by establishing a prima-facie case as to each essential element of the cause of
+3 action being challenged by the motion. See Baral v. Schnitt, 376 P.3d 604, 613 (Cal. 2016)
+4 (holding that a responding party cannot prevail on an anti-SLAPP motion by establishing
+5 a prima-facie case on any one part of a cause of action). The moving party has no burden
+6 in this phase. "Prima facie" means evidence sufficient as a matter of law to establish a given
+7 fact if it is not rebutted or contradicted. Dallas Morning News, Inc. v. Hall, 579 S.W.3d
+8 370, 376-77 (Tex. 2019) (prima-facie evidence "is 'the minimum quantum of evidence
+9 necessary to support a rational inference that the allegation of fact is true'"); Wilson v.
+10 Parker, Covert & Chidester, 50 P.3d 733, 739 (Cal. 2002) ("[TJhe plaintiff must
+11 demonstrate that the complamt is [ ] supported by a sufficient prima-facie showing of facts
+12 to sustain a favorable judgment if the evidence submitted by the plaintiff is credited.").
+13 Precisely how the responding party carries its burden to establish a pruna-facie case "will
+14 vary from case to case, dependmg on the nature of the complaint and the thrust of the
+15 motion." Baral, 376 P.3d at 614. But the responding party should be afforded "a certain
+16 degree of leeway" in carrying its burden "due to 'the early stage at which the motion is
+17 brought and heard and the limited opportunity to conduct discovery.'" Integrated Healthcare
+18 Holdings, Inc. v. Fitzgibbons, 44 Cal. Rptr. 3d 517, 529 (2006) (citations omitted).
+19 California courts have "repeatedly described the anti-SLAPP procedure as operating like
+20 an early summary judgment motion." THOMAS R. BURKE, ANTI-SLAPP LITIGATION
+21 § 5,2 (2019), "[A] plaintiffs burden as to the second prong of the anti-SLAPP test is akin
+22 to that of a party opposing a motion for summary judgment." Yu v. Signet BankA^irginia,
+23 126 Cal. Rptr. 2d 516, 530 (Cal. Ct. App. 2002) (disapproved of on other grounds by
+24 Newport Harbor Ventures, LLC v. Morris Cerullo World Evangelism, 413 P.3d 650 (Cal.
+25 2018)).
+26 Accordingly, all a responding party must do to satisfy its burden under Phase Two is
+27 produce evidence that, if believed, would satisfy each element of the challenged cause of
+28 action, A court may not weigh that evidence, but rather must take it as true and determine
+29 whether it meets the elements of the moved-upon cause of action. Sweetwater Union High
+30 Sch. Dist., 434 P.3d at 1157. If the responding party cannot establish a prima-facie case,
+31 then the motion must be granted and the cause of action (or portion of the cause of action)
+32 must be stricken or dismissed. If the respondmg party does establish a prima-facie case,
+33 then (and only then) the court moves to "Phase Three" of the motion's procedure.
+34 5. Section 7(a)(3)(B) establishes "Phase Three" of the motion's procedure—legal
+35 viability. Even if a responding party makes a prima-facie showing under Section
+36 7(a)(3)(A), the moving party may still prevail if it shows that the responding party failed
+37 to state a cause of action upon which relief can be granted or that there is no genuine issue
+38 as to any material fact and the party is entitled to judgment as a matter of law—in other
+39 words, that the cause of action is not legally sound. In this phase, the burden shifts back to
+40 the moving party. If the movmg party makes a showing under Section 7(a)(3)(B), then the
+41 motion must be granted and the cause of action (or portion of the cause of action) must be
+42 stricken or dismissed. If the moving party does not make such a showing—and the
+43 responding party successfully established a prima-facie case in "Phase Two"—then the
+44 motion must be denied.
+Page 17 - 131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /} " to S.P. 367, L.D. 870 fcy ((2(^/
+1 For example, a plaintiff desiring to build a "big box" store sues a defendant for tortious
+2 interference based on the defendant's efforts to organize a public campaign adverse to the
+3 plaintiff. The defendant moves to dismiss under the Act and establishes that the suit targets
+4 he First Amendment activity on a matter of public concern. Thus, the motion moves to
+5 Phase Two. In that phase, the plaintiff is able to establish a prima-facie case on each
+6 essential element of its tortious interference cause of action. Thus, the motion moves to
+7 Phase Three. But in that final phase, the defendant shows that the claim is barred by
+8 limitations. In such an instance, the court must grant the motion, because the defendant
+9 showed itself to be entitled to judgment as a matter of law.
+10 Although Phase Three uses traditional summary judgment and Fed. R. Civ. P. 12(b)(6)
+11 language, it does not serve as a replacement for those vehicles. On the contrary, summary
+12 judgment and other dismissal mechanisms remain options for defendants who cannot
+13 establish that they have been sued for protected activity. In other words, to get to Phase
+14 Three—and be entitled to the Act's sanctions under Section 10—a movant must first prevail
+15 under Phase One by showing the Act's applicability. But by employing a legal-viability
+16 standard, the Act recognizes that a SLAPP plaintiff can just as easily harass a defendant
+17 with a legally nonviable claim as it can with a factually nonviable one.
+18 6. Sections 7(b) and (c) recognize that a party may desire to dismiss or nonsuit a cause
+19 of action after a motion is filed in order to avoid the sanctions that accompany a dismissal
+20 under Section 10. Both sections serve to maintain the moving party's ability to seek
+21 attorney's fees and costs—even though the offending cause of action has been dismissed—
+22 because the filing of a motion under the Act is costly, and many plaintiffs refuse to
+23 voluntarily dismiss their claims until a motion has been filed. But a prudent moving party
+24 should take efforts to inform opposing parties that it intends to file a motion under the Act,
+25 so as to give them an opportunity to voluntarily dismiss offending claims before a motion
+26 is filed. Courts may take a moving party's failure to do so mto account when calculating
+27 the reasonableness of the moving party's attorney's fees.
+28 7. Section 7(b) protects a moving party from the gamesmanship of a responding party
+29 who dismisses a cause of action after the filing of a motion, only to refile the offending
+3 0 cause of action after the motion is rendered moot by the claim's dismissal.
+31 8. Once a motion has been filed, a voluntary dismissal or nonsuit of the responding
+32 party's cause of action does not deprive the court of jurisdiction.
+33 9. State law should dictate the effect of a dismissal of only part of a cause of action.
+34 §739. Appeal
+35 A moving party may appeal jis_& matter of right from an order denying, m whole or in
+36 part, a motion under section 734, An appeal of a judgment or order under this subchapter
+3 7 is governed by the Maine Rules of Appellate Procedure.
+38 Comments
+39 1. "If the defendant were required to wait until fmal judgment to appeal the denial of a
+40 meritorious anti- SLAPP motion, a decision by this court reversing the district court's denial
+Pagel8-131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " ^ " to S.P. 367, L.D. 870 (^ ^ (j^(^-
+1 of the motion would not remedy the fact that the defendant had been compelled to defend
+2 against a meritless claim brought to chill rights of free expression. Thus, [anti-SLAPP
+3 statutes] protect the defendant from the burdens of trial, not merely from ultimate
+4 judgments of liability." Batzel v, Smith, 333 F.3d 1018, 1025 (9th Cu-. 2003) (superseded
+5 by statute on unrelated grounds as stated m Fyk v. Pacebook, Inc., No. 19-16232, 2020 WL
+6 3124258,at *2 (9th Cir. June 12, 2020)).
+7 2. This section should not be constmed to foreclose an interlocutory appeal of an order
+8 granting, in whole or in part, a motion under Section 3, if state law would otherwise permit
+9 such an appeal.
+10 3. This section is not intended to affect any separate writ procedure a state may have.
+11 4. This section is not intended to prevent a court from entering an order certifying a
+12 question or otherwise permitting an immediate appeal of an order that dismisses only part
+13 of a claim.
+14 5. A party who chooses not to interlocutorily appeal under this section should not be
+15 foreclosed from filing an ordinary, non-interiocutory appeal of a court's denial of a motion
+16 under Section 3 following the entry of a final, appealable judgment,
+17 §740. Costs, attorney's fees and expenses
+18 On a motion under section 734. the court shall award court costs, attorney's fees and
+19 reasonable litieation expenses related to the motion:
+20 1. If movine party prevails. To the moving partyjfthe moving party prevails on the
+21 motion; or
+22 2. If respondine party prevails. To the resDondin& partY if the responding party
+23 prevails on the motion and the court finds that the motion was frivolous or filed solely with
+24 intent to delay the proceedine.
+25 Comments
+26 1. The mandatory nature of the relief provided for by this section is integral to the
+27 uniformity of the Act. States that do not impose a mandatory award upon dismissal of a
+28 cause of action will become safe havens for abusive litigants. Without the prospect of
+29 having to financially reimburse a successful moving party, SLAPP plaintiffs will be able
+30 to file their frivolous suits in such states with impunity, knowing that, at worst, their claims
+31 will only be dismissed. But because moving parties would be financially responsible for
+32 the expense of obtaining that dismissal, the effect of the abusive cause of action is
+33 nevertheless achieved. The only way to assure a truly uniform application of the Act is to
+34 require the award of attorney's fees to successful moving parties.
+35 2. Nothing m this section should be construed to prevent a court, in appropriate
+36 circumstances, from awarding sanctions under other applicable law or court rule agauist a
+37 party, the party s attorney, or both. For instance, many states have adopted court rules
+3 8 analogous to Fed. R. Civ. P. 11, and the constricted breadth of Section 1 0 should not act as
+Page 19 - 131LR1654(02)
+COMMITTEE AMENDMENT
+HOS
+COMMITTEE AMENDMENT " A" to S.P. 367, L.D. 870 few)
+1 a shield or restriction agamst the imposition of such sanctions where they would be
+2 otherwise warranted,
+3 3. The term "costs" includes filing fees, as well as other monetary amounts a state may
+4 define as a "cost."
+5 4. The term "attorney's fees" means the fees paid to the attorney to compensate for his
+6 or her time and effort m the prosecution or defense of the motion.
+7 5. The term "litigation expenses" means the hard costs an attorney mcurs in the
+8 prosecution or defense of the motion. Typical expenses in a case can include copies and
+9 faxes, postage, couriers, expert witnesses, consultants, private court reporters, and travel.
+10 §741. Construction
+11 This subchapter must be broadly construed and applied to protect the exercise of the
+12 right of freedom of speech and of the press, the right to assemble and petition and the rieht
+13 of association guaranteed by the United States Constitution or by the Constitution of Maine.
+14 Comments
+15 Similar expressions of intent by states that their anti-SLAPP statutes be broadly
+16 construed have been pivotal to courts' interpretations of those statutes. See, e.g.,
+17 ExxonMobil Pipeline Co. v. Coleman, 512 S.W.3d 895, 898 (Tex. 2017) (recognizing that
+18 the Texas Legislature "has instructed that the [statute] 'shall be construed liberally to
+19 effectuate its purpose and intent fully'"); Briggs v. Eden Council for Hope & Opportunity,
+20 969 P.2d 564, 573 (Cal. 1999) ("The Legislature's 1997 amendment of [California's anti-
+21 SLAPP statute] to mandate that it be broadly construed apparently was prompted by
+22 judicial decisions . . . that had narrowly construed it. ... That the Legislature added its
+23 broad construction proviso . . . plainly indicates these decisions were mistaken in their
+24 narrow view of the relevant legislative intent.").
+25 §742. Uniformitv of application and construction
+26 In applying and construing this chapter, consideration must be eiven to the need to
+27 promote uniformity of the law with respect to its subject matter among states that enact it.
+28 Sec. 3. Application. This Act applies to a civil action filed or cause of action asserted
+29 in a civil action on or after January 1, 2025.
+30 Sec. 4. Savings clause. This Act does not affect a cause of action asserted before
+31 January 1, 2025 in a civil action or a motion under the Maine Revised Statutes, Title 14,
+32 former section 556 regarding the cause of action.
+33 Sec. 5. Legislative intent. This Act is the Maine enactment of the Uniform Public
+34 Expression Protection Act as revised by the National Conference of Commissioners on
+35 Uniform State Laws. The text of the uniform act has been changed to conform to the Maine
+36 statutory conventions. The changes are technical in nature and it is the intent of the
+37 Legislatoe that this Act be interpreted as substantively the same as the uniform act.
+Page20-131LR1654(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /^ " to S.P. 367, L.D. 870
+1 Sec. 6. Comments. The Legislature accepts the Uniform Comments composed by
+2 the National Conference of Commissioners on Uniform State Laws as part of the Uniform
+3 Public Expression Protection Act.
+4 Sec. 7. Effective date. This Act takes effect January 1, 2025.'
+5 Amend the bill by relettermg or renumbering any nonconsecutive Part letter or section
+6 number to read consecutively.
+7 SUMMARY
+8 This amendment repeals the State's law against strategic lawsuits against public
+9 participation, or the anti-SLAPP law, and replaces it with the Uniform Law Commission's
+10 Uniform Public Expression Protection Act. This legislation takes effect January 1,2025,
+Page 21 - 131LR1654(02)
+COMMITTEE AMENDMENT

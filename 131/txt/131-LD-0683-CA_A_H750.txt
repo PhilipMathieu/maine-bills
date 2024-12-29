@@ -1,0 +1,408 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+1 L,D. 683
+2 Date: ^[[KS\^\ t<A^OC^'l^\ (Filing No. H--?<?C>)
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Clerk of the House,
+5 STATE OF MAINE
+6 HOUSE OF REPRESENTATIVES
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " ^" to H.P. 452, L.D. 683, "An Act to Reduce
+10 Electricity Rates"
+11 Amend the bill by striking out the title and substitutmg the followmg:
+12 'An Act to Reduce Electricity Rates Through Changes to the State's Net Energy
+13 Billing Programs'
+14 Amend the bill by striking out everythmg after the enacting clause and inserting the
+15 following:
+16 'See. 1. 2 MRSA §9, sub-§6-A, as enacted by PL 2023,c.411, §1, is amended to
+17 read:
+18 6-A. Distributed Solar and Energy Storage Program. The Distributed Solar and
+19 Energy Storage Program, referred to in this subsection as "the program," is established to
+20 provide funding to foster the continued growth of cost-effective distributed solar facilities
+21 and energy storage systems in this State. The office, as funding allows, shall develop the
+22 program no later than July 1, 2024.
+23 A. As used in this subsection, the followmg terms have the following meanings.
+24 (1) "Distributed solar facility" means a solar generating facility interconnected to
+25 a t-ansmission and distribution utility as defmed in Title 35-A, section 102,
+26 subsection 20-B.
+27 (2) "Energy storage system" has the same meaning as in Title 35-A, section 3481,
+28 subsection 6.
+29 B. The program must be designed to obtain and provide available federal funds to
+30 support cost-effective distributed solar facilities and energy storage systems, The office
+31 shall consult with the Public Utilities Commission m developing and admmistermg the
+32 program.
+33 C. In order to support the office's activities in administering the program, the office
+34 may request funds from the Public Utilities Commission for the office's administrative
+Page 1 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " f^' to H.P. 452, L.D, 683
+1 costs, which may include, but are not limited to, costs associated with hiring
+2 consultants and office personnel and contracting for technical analysis.
+3 Notwithstanding Title 3 5-A, section 117, if the office requests funding in accordance
+4 with this paragraph, the commission may provide funding, to the extent available, from
+5 the Public Utilities Commission Reimbursement Fund under section 117. If the Public
+6 Utilities Commission Reimbursement Fund doos not have sufficient funding,
+7 notwithstanding Title 35-A, section 116, subsection /1, the commission may provide
+8 funding from the Public Utilities CommiBQion Regulatory Fund in aooordanoo with this
+9 paragraph.
+10 D. The office shall apply for available federal funds to fund the program, including,
+11 but not limited to, funds from the United States Environmental Protection Agency's
+12 Greenhouse Gas Reduction Fund under 42 United States Code, Section 7434. Nothing
+13 in this paragraph limits other uses of federal funds received by the office consistent
+14 with applicable federal requirements.
+15 E, Except as provided in paragraph C, ratepayer funds may not be used to implement
+16 the program or to provide funding under the program to distributed solar facilities or
+17 energy storage systems.
+18 F ,_No later than January 15th of each year, the office_shall pro\dde a repQrt to the ioint
+19 standine committee of the Legislature having jurisdiction over energy matters
+20 summarizingits actiYities under the proeram and evaluatine the orosram's benefits and
+21 costs to ratepayers .
+22 Sec. 2. 35-A MRSA §3209-A, sub-§2, as enacted by PL 2019,c. 478, Pt. A, §3,is
+23 amended to read:
+24 2. Financial interest required. ¥be Except as otherwise provided in this section, the
+25 commission shall allow a customer to participate in net energy billing if the customer has
+26 a financial interest in a distributed generation resource or in a generation resource that has
+27 a net energy billing arrangement on the effective date of this section, including facility
+28 ownership, a lease agreement or a power purchase agreement.
+29 Sec. 3. 35-A MRSA §3209-A, sub-§2-A is enacted to read:
+30 2-A. Net energy billine termination. Except as provided in subsections 10 and 11
+31 and notwithstandine any other provision of law to the contrary, after December 31. 2044.
+32 a person may not oarticioate in net energy billins under this sectioiL
+33 Sec. 4. 35-A MRSA §3209-A, sub-§3, as enacted by PL 2019, c. 478, Pt. A, §3,is
+34 amended to read:
+35 3. Shared financial interest for investor-owned utility customers; limitation.
+36 Multiple customers of an investor-owned transmission and distribution utility that have
+37 distinct billing accounts with that utility may share a financial interest in a distributed
+3 8 generation resource under subsection 2. Any number of Subject to the provisions specified
+39 in subsection 3-A. customers of an mvestor-owned transmission and distribution utility
+40 with a shared financial interest in a distributed generation resource may participate in net
+41 energy billing, except that the number of eligible customers or meters is limited to 10 for a
+42 shared fmancial interest in a distributed generation resource located in the service territory
+43 of an investor-owned transmission and distribution utility located in an area administered
+44 by the independent system administrator for northern Maine or any successor of the
+Page 2 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " ^" to H.P. 452, L.D. 683
+1 independent system administrator for northern Maine unless the commission determines
+2 that the utility's billing system can accommodate more than 10 accounts or meters for the
+3 purpose of net energy billing.
+4 Sec. 5. 35-A MRSA §3209-A, sub-§3-A is enacted to read:
+5 3-A. Shared financial interest for investor-owned utility customers; 20-customer
+6 limitation, Beginning October 1,2024, the following provisions apply.
+7 A. Except as provided in tiaragraph B and subsection 10. no more than 20 customers
+8 of an myestor-owned transmission and distribution utility may share a financial interest
+9 in a distributed generation resource and participate in net energy billine under this
+10 section^ In order to qualify tQ^articimtemn^^^ billing under this oaraeraoh. the
+11 distributed generation resource must be located on the same side of a meter as one of
+12 the customers sharing a financial interest and serve the electric load of that customer,
+13 and at least 50% of the net energy billing credits associated with the output of the
+14 distributed generation resource must be allocated to the retail account of that customer.
+15 B. The limitation under paragraph A does not apply to;
+16 d) A customer participating in net energy bUlin£under this section pursuant to a
+17 net enerev billing agreement that was entered into prior to October 1. 2024; or
+18 (2} _A municipality partjcmatmg in net enerev billine under this section in
+19 connection with a distributed generation resowce^^^^tf distributed generation
+20 resource is located on the same side of a meter as the municioalitv and serves the
+21 electric load of that municipality and at least 25% of the net enerev billine credits
+22 associated with the output of the distributed generation resource are allocated to
+23 the retail account of that municipality.
+24 An amendment, revision or reissuance of an aereement under this subsection that occurs
+25 after October 1. 2024 may not be interpreted to affect the date on which the agreement was
+26 initially executed.
+27 Sec. 6. 35-A MRSA §3209-A, sub-§4, as enacted by PL 2019,c. 478, Pt. A,§3,is
+28 amended to read:
+29 4. System size. The Subject to the provisions specified in subsection 4-A. the
+30 nameplate capacity of a distributed generation resource that may be used for net energy
+31 billmg must be less than 5 megawatts, except that, if a municipality is the customer
+32 participating in net energy billing, the nameplate capacity of a distributed generation
+33 resource located m that municipality that may be used for the net energy billing may be 5
+34 megawatts or more, as long as less than 5 megawatts of metered electricity from the
+3 5 resource is used for net energy billing,
+36 Sec. 7. 35-A MR8A §3209-A, sub-§4-A is enacted to read;
+37 4-A^_System sizebeginnine October 1, 2024. Begmning October 1, 2024, the
+38 following provisions apply,
+39 A, Except as provided in paraeraoh B. the nameplate caoacitv of a distributed
+40 generation resource that may be used for net energy billine under this section may not
+41 bemore than onemegawatt, except that. if a municipalitv is the customer particbating
+42 in net._energv billing, the nameplate capacity of a distributed eeneration resource
+43 located m that municipality that may be used for the net energy billing may be greater
+Page 3 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " &. " to H.P. 452, L.D, 683
+1 than one megawatt. as lone as not more than one meeawatt ofmetered electricity from
+2 the resource is used for net energy billing.
+3 B. The limitation under paragraph A does not aooly to a customer oarticipatine in net
+4 energy billing under this section pursuant to a net energy billing agreement that was
+5 entered into prior to October 1.2024.
+6 Sec. 8. 35-A MRSA §3209-A, sub-§9, as enacted by PL 2023, c. 411, §2, is
+7 amended to read;
+8 9. Applicability to projects between one mcgawatt and 2 mcgawatts greater than
+9 one megawatt and not more than 2 megawatts. A distributed generation resource with
+10 a nameplate capacity of at least greater than one megawatt and not more than 2 megawatts
+11 may be used for net energy billing under this section only if the requirements of paragraph
+12 A are met.
+13 A. On or before December 31,2024, the proposed distributed generation resource must
+14 reach commercial operation by the date specified in the net energy billing agreement
+15 or by the date specified with an allowable modification to that agreement.
+16 An entity proposing the development of a distributed generation resource that does not
+17 meet the requirement of this subsection may petition the commission for a good-cause
+18 exemption due to external delays outside of the entity's control, which the commission may
+19 grant if it finds that without the external delays the entity could reasonably have been
+20 expected to meet the requirement. A distributed generation resource that receives a eood-
+21 cause exemption may not be used for net energy billing under this section unless it has
+22 reachedcommercial_or>eration by December 3 1.2025.
+23 Sec. 9. 35-A MRSA §3209-A, sub-§10 is enacted to read:
+24 10. Consumer-owned small project exception; rules. In accordance with this
+25 subsection, the commission may approve the use of a consumer-owned small project for
+26 net enerpy billing under this section.
+27 A. For the purposes of this subsection, "consumer-owned small project" means a
+28 distributed seneration resource with a nameplate capacity of one meeawatt or lessthat
+29 is wholly owned by the customers receiving the net energy billine credits associated
+30 with the output of the distributed generation resource.
+31 B, A consumer-owned small project is not subject to the provisions established in
+3 2 subsections_2-A and 3 -A,
+33 C. The commission may not aporove more than 10 consumer-owned small proi ects
+34 under this subsection.
+35 D, The commission may adopt mles to implement this_subsection. Rules adopted
+36 pursuant to this subsection are routine technical rules as defined in Title 5. chauter 375,
+37 subcharrter 2-A,
+3 8 Nothing in this subsection prohibits the use of a distributed generation resource for net
+39 energy billine if that distributed generation resource qualifies for net energy billmg under
+40 subsection 3-A or 4-A.
+41 Sec. 10. 35-A MRSA §3209-A, sub-§ll is enacted to read:
+Page 4 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " ^ " to H,P, 452, L.D. 683
+1 11. Sinele customer exception. Notwithstanding any other provision of this section
+2 to the contrary, a distributed generation resource may be used for net energy billing if the
+3 distributed generation resource;
+4 A, Is owned bv a customer;
+5 B. Is used to serve the electric load of that customer only; and
+6 C. Meets the criterion that 100% ofjhe net enerw billmg credits associated with the
+7 output of the distributed generation resource are allocated to the retail account ofjhat
+8 customer,
+9 Sec. 11. 35-A MRSA §3209-B, sub-§3, as enacted by PL 2019, c. 478, Pt. A, §4,
+10 is amended to read:
+11 3. System size. %e Subject to the provisions specified in subsection 3-A. the
+12 nameplate capacity of a distributed generation resource that may be used for net energy
+13 billing under this section must be less than 5 megawatts.
+14 Sec. 12. 35-A MRSA §3209-B, sub-§3-A is enacted to read;
+15 3-A. System size beeinnine October 1, 2024. Besmning October 1. 2024, the
+16 following erovisions apply.
+17 A. Except as provided in paragraph B, the nameplate capacity of a distributed
+18 generation resource that may be used for net energy billing under this section may not
+19 be more than one megawatt.
+20 B. The limitation under paraeraoh A does not apply to a customer participatine in net
+21 energy billing under this section pursuant to a net_energY _bUlmg agreement that was
+22 entered into prior to October 1,2024^
+23 Sec. 13. 35-A MRSA §3209-B, sub-§4, as enacted by PL 2019,c,478, Pt, A, §4,
+24 is amended to read:
+25 4. Shared financial interest for investor-owned utility customers; limitation.
+26 Multiple commercial or institutional customers that have distinct billing accounts with an
+27 investor-owned transmission and distribution utility may share a financial interest m a
+28 distributed generation resource under subsection 2. ABy-^BBBbw-ef Subject to the
+29 provisions specified in subsection 4-A. commercial or institutional customers may
+30 participate in net energy billing with a shared interest in a distributed generation resource,
+31 except that the number of customers or meters is limited to 10 for a shared interest in a
+32 distributed generation resource located in the service territory of an iavestor-owned
+33 transmission and distribution utility located in an area administered by the independent
+34 system administrator for northern Maine or any successor of the independent system
+3 5 administrator for northern IVtauie unless the commission determmes that the utility's billing
+36 system can accommodate more than 10 accounts or meters for the purpose of net energy
+37 billing.
+38 Sec. 14. 35-A MRSA §3209-B, sub-§4-A is enacted to read;
+39 4-A. Shared financial interest for investor-owned transmission and distribution
+40 utility; 20-customer limitation. Beginning October 1, 2024, the following provisions
+41 applv.
+Page 5 - 131LR1892(02)
+COMMITTEE AMENDMENT
+^^•"" COMMITTEE AMENDMENT "{\ » to H,P. 452, L.D. 683
+1 A. Except as rirovided in paragraoh B. no more than 20 customers of an investor-
+2 owned transmission and distribution utility may share a. financial interest in a
+3 distributed generation resource and participate in net energy billing under this section.
+4 In order to Qualify to participate in net energy billing under this paragraph, the
+5 distributed generation resource must be located on the same side of a meter as one of
+6 the customers sharmg a financial interest and serve the electric load of that customer,
+7 and at least 50% of the net enerev billine credits associated with the output of the
+8 distributed generation resource must be allocated to the retail account of that customer.
+9 B, The limitation under oaraeraph A does not aoolv to:
+10 CD A customer oarticioatine; in net energy billins under this section pursuant to a
+11 net energy billing agreement that was entered into prior to October 1. 2024; or
+12 (2) A municipality participating m net energy billing under this section in
+13 connection with a distributed generation resource if the distributed generation
+14 resource is located on the same side of a meter as the mumcipalitv and serves the
+15 electric load of that municipality and at least 25% ofthenet^nergv_billingj;redits
+16 associated with the output of the distributed generation resource are allocated to
+17 the retail account of that municipality.
+18 An amendment, revision or reissuance of an agreement under this subsection that occurs
+19 after October 1, 2024 may not be interpreted to affect the date on which the agreement was
+20 uiitially executed.
+21 Sec. 15. 35-A MRSA §3209-B, sub-§5, ^[D, as enacted by PL 2019, c. 478, Pt. A,
+22 §4, is amended to read:
+23 D. A customer participating in the program who remains eligible to participate in the
+24 program must be allowed to receive a bill credit based on the tariff rate for a period of
+25 no less than 20 years from the date of first receiving the credit or until December 31.
+26 2044. whichever occurs first,
+27 Sec. 16. 35-A MRSA §3209-B, sub-§5-A is enacted to read:
+28 5-A. Net energy billine termination. Notwithstandine any other provision of law to
+29 the contrary, after December 31. 2044 a person may not particroate in net energy billing
+30 under this section.
+31 Sec. 17. 35-A MRSA §3209-B, sub-§8, as enacted by PL 2023, c. 411, §4, is
+32 repealed.
+33 Sec. 18. 35-A MRSA §3209-C, sub-§2, ^B, as enacted by PL 2023, c, 411, §5, is
+34 amended to read:
+35 B. The commission shall allocate to each investor-owned transmission and distribution
+3 6 utility its pro rata share of net energy billing costs. If the commission finds that a benefit
+37 of distributed generation under net energy billing provides a monetized net financial
+3 8 benefit to an investor owned transmission and distribution utility that the commission
+39 does not otherwise account for when setting rates for the utility, the net financial benefit
+40 must bo applied to offset tho net energy billing costs allocated under this paragraph.
+41 The allocation must be based on each utility s total retail kilowatt-hour energy sales to
+42 ratepayers that pay net energy billing costs. The commission may determine the means
+Page 6 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " f\ " to H.P. 452, L.D. 683
+1 to be used for the allocation required under this subsection, and those means may
+2 include the direct transfer of funds between transmission and distribution utilities.
+3 Sec. 19. 35-A MRSA §3209-D, sub-§2, as enacted by PL 2023, c. 411, §6, is
+4 repealed and the following enacted m its place;
+5 2. Competitive solicitations and initial procurement. The commission shall
+6 conduct one or more competitive solicitations in order to select distributed eeneration
+7 resources for coirtracts under this subsection.
+8 A. No later than November 1. 2024. the cQmmission shallinitiate the first comBetitive
+9 solicitation in order to select distributed eeneration resources for contracts pursuant to
+10 this subsection.
+11 B, The commission shall select for a contract under this section any bid relating to a
+12 distributed generation resource that the commission finds will result in substantial
+13 savings to ratepayers as compared to the cost of the distributed generation resource
+14 remaining in a net energy billine arrangement under section 3209-A or 3209-B. In
+15 reviewing bids and establishing a contract price under this subsection, the commission
+16 shall determine and consider the levelized cost of the energy that will be purchased
+17 under the contract.
+18 Sec. 20. 35-A MRSA §3209-E, sub-§l, ^[A, as enacted by PL 2023, c. 411, §7, is
+19 amended to read:
+20 A. "Distributed generation resource" has the same meaning as in section 3209-D,
+21 subseotion I, paragfapfrA 3 209-A. subsection 1, paragraph B.
+22 Sec. 21. 35-A MRSA §3209-F is enacted to read;
+23 83209-F. Reviewof compensation; alteration
+24 Notwithstanding the provisions of sections 3 209-A and 3209-B, the commission may
+25 periodically review and alter by rule the amount of compensation, which may include a bill
+26 credit based on tariff rate. that a customer with a financial interest in a djstrj^^
+27 generation resource receives as a result of participating in net energy billing in accordance
+28 with this section and section 101.
+29 1. Review of compensation. The commission may periodically review and alter by
+30 rule the amount of comuensation. which may include a bill credit based on the tariff rate.
+31 that a customer with a financial interest in a distributed eeneration resource receives as -a
+32 result of participating in net energy billing under section 3209-A or 3209-B. In making
+33 any alteration under this section, the commission shall use a standard or representative
+34 distributed generation resource to^^^^^ compensation provided under
+35 section 3209-A or 3209-B and shall ensure that any alteration provides a reasonable
+36 ooDortunitv for the recovery of reasonable costs, as determined by the commission, and a
+37 reasonable rate of retirn. The commission, may not increase any compensation above the
+3 8 lowest_amoynt.that woyld be received under section 3209-B ,
+39 2. Alteration. The eommission may modify by rule the requirements under section
+40 3209-A or 3209-B to the extent necessary to allow the State or a distributed generation
+41 resource oarticioatme in a net energy billine arraneement under section 3209-A or 3209-B
+42 to qualify for federal grants or subsidies that benefit ratepayers in this State,
+Page 7 - 131LR1892(02)
+COMMITTEE AMENDMENT
+^
+COMMITTEE AMENDMENT " f\ " to H,P. 452, L,D. 683
+^ 1 3. Rules. Rules_adoBtedj3ursuant to this, section are major substantive rules as defined
+2 in Title 5. chapter 375. subchaoter 2-A,'
+3 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+4 number to read consecutively.
+5 SUMMARY
+6 This amendment replaces the bill, which is a concept draft, and changes the title. The
+7 amendment does the following.
+8 1. It removes the language that authorizes the Public Utilities Commission to provide
+9 funds to the Governor's Energy Office from the Public Utilities Commission Regulatory
+10 Fund for the office's administrative costs associated with the Distributed Solar and Energy
+11 Storage Program established by the Maine Revised Statutes, Title 2, section 9, subsection
+12 6-A and requires the office to provide an annual report on the program.
+13 2, Beginning October 1, 2024, it limits the number of customers who may share a
+14 financial interest in a distributed generation resource and participate in the kilowatt-hour
+15 credit and tariff rate net energy billing programs to 20 customers subject to certain
+16 conditions. It creates exceptions to the limitation for a customer participating in net energy
+17 billing pursuant to an agreement entered into prior to October 1,2024 and for a municipality
+18 if the distributed generation resource is on the same side of the meter as the municipality
+19 and at least 25% of the net energy billing credits associated with the output of the
+20 distributed generation resource are allocated to the municipality.
+21 3, Beginning October 1, 2024, it limits the nameplate capacity of a distributed
+22 generation resource that may be used for the kilowatt-hour credit and tariff rate net energy
+23 billing programs to one megawatt or less, except the limitation does not apply to a customer
+24 participating m accordance with an agreement entered into prior to October 1,2024. It also
+25 creates an exception to this limitation for a distributed generation resource in the
+26 kilowatt-hour credit net energy billing program that applies if the distributed generation
+27 resource is owned by the customer and is used to serve the electric load of that customer
+28 only and 100% of the net energy billing credits associated with the distributed generation
+29 resource are allocated to the retail account of that customer.
+30 4, It provides that, after December 31, 2044, a person is prohibited from participating
+31 in the tariff rate net energy billing program and the kilowatt-hour credit net energy billing
+32 program, except that a person may participate in the kilowatt-hour credit net energy billing
+33 program beyond December 31, 2044 m connection with a project approved by the
+34 commission as described in Title 35-A, section 3209-A, subsection 10.
+35 5. It establishes limitations on participation in the kilowatt-hour credit and tariff rate
+3 6 net energy billing programs for distributed generation resources with a nameplate capacity
+37 of greater than one megawatt and not more than 2 megawatts.
+38 6. It provides that a customer participating in the tariff rate net energy billing program
+39 who remains eligible to participate in the program may receive a bill credit based on the
+40 tariff rate for a period of no less than 20 years from the date of first receiving the credit or
+41 until December 3 1,2044, whichever occurs first.
+42 7. It removes the requirement that the commission apply any monetized net financial
+43 benefits that are not otherwise accounted for when setting rates to offset the net energy
+Page 8 - 131LR1892(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /^ " to H.P. 452, L.D. 683
+3?
+•"' 1 billing costs that may be allocated to the investor-owned transmission and distribution
+2 utility.
+3 8. It makes changes to the timing and selection requirements for the competitive
+4 solicitation and procurement required by Title 3 5-A, section 3209-D.
+5 9. It allows the commission to periodically review and by rule alter the amount of
+6 compensation that a customer with a financial interest in a distributed generation resource
+7 receives as a result of participating m net energy billing,
+8 FISCAL NOTE REQUIRED
+9 (See attached)
+Page 9 - 131LR1892(02)
+COMMITTEE AMENDMENT
+Approved: 01/30/24 /!^%5?ct
+131st MAINE LEGISLATURE
+LD 683 LR 1892(02)
+An Act to Reduce Electricity Rates
+Fiscal Note for Bill as Amended by Committee Amendment "/\" (J-+"
+Committee: Energy, Utilities and Technology
+Fiscal Note Required: Yes
+Fiscal Note
+Removes Funding Option
+Minor cost increase - Other Special Revenue Funds
+Fiscal Detail and Notes
+This bill removes a provision enacted in LD 1986 (P.L. 2023, c.411) that authorized the Public Utilities Commiss;
+(PUC) to provide funds for administrative costs to the Governor's Energy Office (GEO) from the PUC Regulatory
+Fund. Because the bill retains the provisions that allow the PUC to provide funding from the PUC Reimbursement
+Fund, no changes are required to the allocations provided in LD 1986.
+Any additional costs to the PUC or the GEO to implement the other provisions of this bill are expected to be minor
+and can be absorbed within existing budgeted resources,
+LR1892(02) - Fiscal Note - Page 1 of 1

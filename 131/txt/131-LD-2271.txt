@@ -1,0 +1,135 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2271
+S.P. 987 In Senate, March 14, 2024
+An Act to Implement the Recommendations of the Task Force to 
+Evaluate the Impact of Facility Fees on Patients to Improve Facility 
+Fee Transparency and Notification and to Prohibit Facility Fees for 
+Certain Services
+Reported by Senator BAILEY of York for the Joint Standing Committee on Health 
+Coverage, Insurance and Financial Services pursuant to Public Law 2023, chapter 410, section 
+2.
+Reference to the Committee on Health Coverage, Insurance and Financial Services 
+suggested and ordered printed pursuant to Joint Rule 218.
+DAREK M. GRANT
+Secretary of the Senate
+
+Page 1 - 131LR3082(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  22 MRSA §1718-B, sub-§1, ¶A-1 is enacted to read:
+3 A-1.  "Facility fee" means a fee charged or billed by a health care entity for outpatient 
+4 services provided in a hospital-based facility that is:
+5 (1)  Intended to compensate the hospital or health system for the operational 
+6 expenses of the hospital or health system; and
+7 (2)  Separate and distinct from a professional fee.
+8Sec. 2.  22 MRSA §1718-B, sub-§1, ¶C is enacted to read:
+9 C.  "Hospital-based facility" means a facility that is owned or operated, in whole or in 
+10 part, by a hospital or health system where hospital services or professional medical 
+11 services are provided.
+12Sec. 3.  22 MRSA §1718-B, sub-§1, ¶D is enacted to read:
+13 D.  "Professional fee" means a fee charged or billed by a health care entity for 
+14 professional medical services provided in a hospital-based facility.
+15Sec. 4.  22 MRSA §1718-B, sub-§2, ¶E is enacted to read:
+16 E.  A health care entity shall prominently display in a location that is readily accessible 
+17 to a patient, including a patient waiting area, and on the health care entity’s publicly 
+18 accessible website the following information:
+19 (1)  Whether the health care entity is a hospital-based facility and, if so, the name 
+20 of the hospital or health system and whether the health care entity charges a facility 
+21 fee;
+22 (2)  If a facility fee is charged, that the patient may incur a financial liability greater 
+23 than the patient would incur if the services were provided in a facility that was not 
+24 a hospital-based facility; and
+25 (3)  How to access the publicly accessible website of the Maine Health Data 
+26 Organization established pursuant to chapter 1683 for educational materials about 
+27 facility fees and whether and under what circumstances depending on payor and 
+28 type of service a facility fee may be charged.
+29Sec. 5.  22 MRSA §1718-I is enacted to read:
+30§1718-I.  Prohibition on facility fees for certain telehealth services
+311.  Definitions.  As used in this section, unless the context otherwise indicates, the 
+32 following terms have the following meanings.
+33 A.  "Facility fee" has the same meaning as in section 1718‑B, subsection 1, paragraph 
+34 A-1.
+35 B.  "Health care entity" has the same meaning as in section 1718‑B, subsection 1, 
+36 paragraph B.
+37 C.  "Hospital-based facility" has the same meaning as in section 1718‑B, subsection 1, 
+38 paragraph C.
+Page 2 - 131LR3082(01)
+12.  Facility fee prohibited; exception.  A health care entity may not impose a facility 
+2 fee on a patient for telehealth services received by that patient unless the patient is 
+3 physically present in a hospital-based facility when the telehealth services are delivered to 
+4 the patient.
+5Sec. 6.  22 MRSA §8712, sub-§2-A, as enacted by PL 2023, c. 410, §1, is amended 
+6 to read:
+72-A.  Facility fees charged by health care providers.  By January 1, 2024, and 
+8 annually thereafter, the organization shall produce and post on its publicly accessible 
+9 website a report on the payments for facility fees made by payors to the extent that payment 
+10 information is already reported to the organization. The organization shall submit the report 
+11 required by this subsection to the Office of Affordable Health Care established in Title 5, 
+12 section 3122 and the joint standing committee of the Legislature having jurisdiction over 
+13 health data reporting and health insurance matters.  The joint standing committee may 
+14 report out legislation based on the report to a first regular or second regular session of the 
+15 Legislature, depending on the year in which the report is submitted. The organization shall 
+16 produce and post on its publicly accessible website information designed to educate the 
+17 public about facility fees and whether and under what circumstances depending on payor 
+18 and type of service a facility fee may be charged.
+19 For the purposes of this subsection, unless the context otherwise indicates, the following 
+20 terms have the following meanings.
+21 A.  "Facility fee" means any fee charged or billed by a health care provider for 
+22 outpatient services provided in a hospital-based facility or freestanding emergency 
+23 facility that is intended to compensate the health care provider for the operational 
+24 expenses of the health care provider, separate and distinct from a professional fee, and 
+25 charged or billed regardless of how a health care service is provided.
+26 B.  "Health care provider" means a person, whether for profit or nonprofit, that 
+27 furnishes bills or is paid for health care service delivery in the normal course of 
+28 business. "Health care provider" includes, but is not limited to, a health system, 
+29 hospital, hospital-based facility, freestanding emergency facility or urgent care clinic.
+30Sec. 7.  24-A MRSA §4316, sub-§3, ¶H is enacted to read:
+31 H.  The carrier may not reimburse for a facility fee except with respect to a physically 
+32 present patient as provided in Title 22, section 1718-I, subsection 2. 
+33SUMMARY
+34 This bill is reported out by the Joint Standing Committee on Health Coverage, 
+35 Insurance and Financial Services pursuant to Public Law 2023, chapter 410.  The bill 
+36 implements certain recommendations of the Task Force to Evaluate the Impact of Facility 
+37 Fees on Patients. 
+38 The bill prohibits the charging of a facility fee by a health care entity for telehealth 
+39 services unless the patient is physically present in a hospital-based facility when receiving 
+40 those telehealth services.
+41 The bill requires a health care entity to post notice in a location readily accessible to 
+42 patients, including patient waiting areas, and on the entity’s publicly accessible website if 
+34
+35
+36
+37
+Page 3 - 131LR3082(01)
+43 the health care entity is a hospital-based facility that is part of a hospital or health system 
+44 and whether a facility fee will be charged for receiving services. 
+3 The bill also requires the Maine Health Data Organization to post information on its 
+4 publicly accessible website relating to facility fees to educate the public about what facility 
+5 fees are and the circumstances when facility fees may or may not be charged in association 
+6 with the delivery of health care services.
+1
+2

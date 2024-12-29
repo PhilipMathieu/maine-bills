@@ -1,0 +1,160 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+L.D. 2070
+Date: ^ ^ (Filing No. S-5S2.)
+3 VETERANS AND LEGAL AFFAIRS
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " (^ to S.P. 871, L.D. 2070, "An Act to Implement
+10 a Facility-based Monitoring System for Slot Machines"
+11 Amend the bill by inserting after the title and before the enacting clause the following:
+12 'Emergency preamble. Whereas, acts and resolves of the Legislature do not
+13 become effective until 90 days after adjournment unless enacted as emergencies; and
+14 Whereas, the current contract between the Department of Public Safety, Gambling
+15 Control Board and the 3rd party operatmg the central site monitoring system on behalf of
+16 the Gambling Control Board expires on June 30, 2024; and
+17 Whereas, it is necessary to enact the changes authorizing the transition from a central
+18 site monitoring system to a facility-based monitoring system before the expiration of the
+19 current contract; and
+20 Whereas, in the judgment of the Legislature, these facts create an emergency within
+21 the meaning of the Constitution of Maine and require the following legislation as
+22 immediately necessary for the preservation of the public peace, health and safety; now,
+23 therefore,'
+24 Amend the bill in section 1 in subsection 13-B in the last line (page 1, line 8 in L.D.)
+25 by striking out the following: "and disabling of slot machines" and inserting the following:
+26 'and malfunction'
+27 Amend the bill by striking out all of section 4 and inserting the following:
+28 'See. 4. 8 MRSA §1003, sub-§2, ^K, as enacted by PL 2003, c. 687, Pt. A, §5 and
+29 affected by Pt. B, § 11, is amended to read:
+30 K. Maintain Ensure the board or the director or staff, in collaboration with the casino
+31 operator or slot machine operator, has the ability to activate and deactivate the
+32 operation of individual slot machines via the central site monitoring system under
+3 3 authority of board staff or perQons contracted by the board;'
+34 Amend the bill by striking out all of section 6 and inserting the following:
+Page 1 - 131LR2775(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /^' to S.P. 871, L.D. 2070
+'See. 6. 8 MRSA §1003, sub-§2, ^N, as enacted by PL 2003,c. 687, Pt. A, §5 and
+2 affected by Pt. B, § 11, is amended to read:
+3 N. Cause the central site monitoring system to disable. in collaboration with the casino
+4 OBerator or slot machine operator, a slot machine to_be disabLed that does not meet
+5 registration requirements provided by this chapter or rules adopted under this chapter
+6 or as directed by the department;'
+7 Amend the bill by striking out all of section 7 and inserting the following:
+8 -See. 7. 8 MRSA §1003, sub-§2, ^O, as enacted by PL 2003, c. 687, Pt. A, §5 and
+9 affected by Pt. B, § 11, is amended to read:
+10 0. Cause the central site monitoring system to disable. in collaboration with the casino
+11 operator or slot machine operator, a slot machme to be disabled and cause the
+12 department to seize the proceeds of that slot machine if the funds from that slot machine
+13 have not been distributed, deposited or allocated in accordance with section 1036;'
+14 Amend the bill in section 8 in §1004 in subsection 1 by inserting after paragraph G the
+15 following:
+16 'An on-site computer system that is accessible by the department thrQugh read-onlv access
+17 and was m operation as of January 1. 2024 at a casino or slot machine facility operated by
+18 a person licensed under section 1011 is considered a facility-based monitoring system
+19 under this chapter.'
+20 Amend the bill by inserting after section 12 the following:
+21 'See. 13. 8 MRSA §1020, sub-§4, as amended by PL 2019, c. 614, §4, is further
+22 amended to read:
+23 4. Examination Certification of slot machines and associated equipment. The
+24 board shall, in cooperation with the department, examine approve qualified independent
+25 laboratories for certification of slot machines and slot machine associated equipment of
+26 from slot machine distributors and gambling services vendors seeking registration as
+27 required in this chapter. The board shall require the slot machine distributor or gambling
+28 services vendor seeking examination and appmvri certification of the slot machine or slot
+29 machine associated equipment to pay the board-approved independent laboratory the
+3 0 anticipated cost of the examination certification before the examination occurs certification
+31 is completed. After the examination occurs, the board shall refund overpayments or charge
+32 and collect amounts Quffioient to reimburse the board for underpayments of actual cost.
+33 The board may contract for the examinations of slot machines and slot machine associated
+34 equipment as required by this section adopt rules to establish the approval process to verify
+3 5 certifications, approve shipments and inspect slot machines. Rules adopted pursuant to this
+36 subsection are routine technical mles as defined in Title 5, chapter 375, subchapter 2-A.
+37 Sec. 14. Appropriations and allocations. The following appropriations and
+38 allocations are made.
+39 PUBLIC SAFETY, DEPARTMENT OF
+40 Gambling Control Board Z002
+41 Initiative: Reduces allocations for coirtracted services related to a central site monitoring
+42 system for slot machines.
+Page 2 - 131LR2775(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " ft" to S.P. 871, L.D. 2070 ( ^ •$S ~^
+ROt
+1 OTHER SPECIAL REVENUE FUNDS 2023-24 2024-25
+All Other $0 ($500,000)
+4 OTHER SPECIAL REVENUE FUNDS TOTAL $0 ($500,000)
+5
+6 Sec. 15. Effective date. This Act takes effect June 30, 2024.'
+7 Amend the bill by adding before the summary the followmg:
+8 'Emergency clause. In view of the emergency cited in the preamble, this legislation
+9 takes effect when approved.'
+10 Amend the bill by relettermg or renumbering any nonconsecutive Part letter or section
+11 number to read consecutively.
+12 SUMMARY
+13 This amendment does the following.
+14 1. The bill provides that a facility-based monitoring system is used to disable slot
+15 machines; the amendment instead provides that the Department of Public Safety, Gambling
+16 Control Board, or the director or staff of the board, in collaboration with a casino operator
+17 or slot machine operator, has the ability to disable slot machines when appropriate.
+18 2. It clarifies that an on-site computer system that is accessible by the Department of
+19 Public Safety through read-only access and was in operation as of January 1, 2024 at a
+20 casino or slot machine facility licensed by the State is considered a facility-based
+21 monitoring system.
+22 3. It amends the provision of law regarding examination of slot machines and
+23 associated equipment to provide that the Gambling Control Board, in cooperation with the
+24 Department of Public Safety, must approve qualified independent laboratories for
+25 certification of slot machines and associated equipment from slot machine distributors and
+26 gambling services vendors seeking registration. A slot machine distributor or gambling
+27 services vendor seeking certification of the slot machine or associated equipment must pay
+28 the board-approved independent laboratory the cost of the certification before it is
+29 completed. The Gambling Control Board may adopt routine technical rules to establish the
+30 approval process to verify certifications, approve shipments and inspect slot machines.
+31 4. It adds an emergency preamble and emergency clause and an effective date of June
+32 30,2024.
+33 FISCAL NOTE REQUIRED
+34 (See attached)
+Page 3 - 131LR2775(02)
+COMMITTEE AMENDMENT
+Approved: 02/21/24 ^K?<=-
+131st MAINE LEGISLATURE
+LD 2070 LR 2775(02)
+An Act to Implement a Facility-based Monitoring System for Slot Machines
+Fiscal Note for Bill as Amended by Committee Amendment '^"/<,'5^^
+Committee: Veterans and Legal Affairs
+Fiscal Note Required: Yes
+Fiscal Note
+Projections Projections
+FY 2023-24 FY 2024-25 FY 2025-26 FY 2026-27
+Appropriations/Allocations
+Other Special Revenue Funds $0 ($500,000) ($1,100,000) ($1,100,000)
+Fiscal Detail and Notes
+This bill replaces the current requirement that the Gambling Control Unit (GCU) within the Department of Public
+Safety maintain a central site monitoring system with a requirement that all slot machines be able to electronically
+communicate with the GCU starting June 30, 2024. The bill includes a deallocation of Other Special Revenue Funds
+of $500,000 in fiscal year 2024-25 to reflect elimination of expenses related to the maintenance of the central site
+monitoring system.
+LR2775(02) - Fiscal Note - Page 1 of 1

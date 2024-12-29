@@ -1,0 +1,243 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+1^-ROS
+1 L.D. 1056
+2 Date: \|^ |Z^ (FilingNo. 8-5(5 )
+MINORITY
+3 JUDICIARY
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " ^ " to S.P. 425, L.D. 1056, "An Act Restricting
+10 State Assistance m Federal Collection of Personal Electronic Data and Metadata "
+11 Amend the bill by striking out the title and substituting the following:
+12 'An Act to Enhance Regulation of the Grand Jury Subpoena Process and Government
+13 Access to Electronic Device Information'
+14 Amend the bill by striking out everything after the enacting clause and inserting the
+15 following:
+16 'PART A
+17 Sec.A-1. 15 MRSA §58 is enacted to read:
+18 §58. Notice of grand jury subpoena
+19 1. Definitions. As used in this section. unless the,context otherwise indicates, the
+20 following terms have the following meanings.
+21 A. "Adverse result" means:
+22 d) Immediate danger of death or serious physical miury to any person;
+23 (2) Flight from prosecution;
+24 C3) Destruction of or tampering with evidence;
+25 ('41 Intimidation of a potential witness;
+26 f5) Seriously ieouardizmg an investigation; or
+27 (6) Undue delay of a trial.
+28 B. "Court" means the Superior Court or the District Court.
+29 C. "Grand jury subpoena" means a subpoena issued by a grand jury pursuant to Rule
+30 17 or 17A of the Maine Rules of Unified Criminal_Procedure and pursuant to section
+31 56,
+Page 1 - 131LR2187(02)
+COMMITTEE AMENDMENT
+ROS
+COMMITTEE AMENDMENT " /j" to S.P. 425, L.D. 1056 f <^. ^\'
+1 D. "Subject of the grand jury subpoena" means the person or persons, if reasonablv
+2 identifiable by an attorney for the State, about whom any grand jury witaess testunonv
+3 or documentary evidence or tangible_obiects are _SQUght through a.grand iury subpoena.
+4 "Subject of the grand jury subpoena" does not include the person upon whom the grand
+5 iury subpoena is served.
+6 2._Notice by subpoenaed person. A person served with a grand jury subpoena may
+7 notify any person of the existence of the grand jury subuoena unless a court order
+8 Brohibitmg such action is served with the grand jury subpoena. On aoplicatJQn by an
+9 attorney for the State, a court mav issue an order prohibiting the person served from
+10 notifying any other person of the existence of a grand jury subpoena if the attorney for the
+11 State_demonstrates that there is a reason to believe thatjiotification of the existence of the
+12 grand jury subpoena will have an adverse result.
+13 3. Notice by attorney for the State. An attorney for the State, within one year after
+14 service of a grand jury subpoena, shall notify the subject of the grand jury subuoenaofthe
+15 existence of the subpoena unless:
+16 A. The subject of the grand jury subpoena was indicted either by the grand jury that
+17 issued the subpoena or by anothergrand iury_ to which any evidence produced in
+18 response to the subpoena was presented; or
+19 B. On application by an attorney for the State, a court issues an order waiving the notice
+20 reouu-ed by this subsection. A court may issue an order waivine the notice reguu-ed by
+21 this subsection if the attorney for the State demonstrates that there is a reason to believe
+22 that notifymg the subject of the grand jury subpoena of the existence of the subpoena
+23 will have an adversej-esult.
+24 PART B
+25 Sec. B-l. 16 MRSA c. 3, sub-c. 10, headnote is amended to read:
+26 SUBCHAPTER 10
+27 PORTABLE ELECTRONIC DEVICE CONTENT INFORMATION
+28 Sec. B-2. 16 MRSA §641, sub-§2, as enacted by PL 2013,c.402,§ 1, is repealed.
+29 Sec. B-3. 16 MRSA §641, sub-§3-A is enacted to read:
+30 3-A. Electronic device. "Electronic device" means an electronic device that enables
+31 access to, or use of, an electronic communication service or remote computmg service.
+32 Sec. B-4. 16 MRSA §641, sub-§3-B is enacted to read:
+33 3-B.JElectronic device information. "Electronic device information" means:
+34 A. With respect to any wu-e, oralor electronic communication stored on, generated bv
+3 5 or transmitted from or to the electronic device, any infomiation concemins the
+36 substance, purport ormeaning of that communication as well as information about the
+3 7 sender or a reciuient of the communication, mcludine the location of the sender or a
+3 8 recipient at any point during the communication; the format of the communication; the
+39 time or date the communication was created, sent or received; or any information
+Page 2 - 131LR2187(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " f\ " to S.P. 425, L.D. 1056 (^ ^^
+1 relating to a person or an electronic device participating in the electronic
+2 communication, such as an Internet protocol address; and
+3 B. Any other information stored on, generated by or transmitted through operation of
+4 the electronic device.
+5 "Electronic device information" does not include location information as defined in section
+6 647, subsection 5, except information about the location of a sender or recipient of a wire.
+7 oral or electronic communication.
+8 Sec. B-5. 16 MRSA §641, sub-§5, as enacted by PL 2013,c.402,§ 1, is amended
+9 to read:
+10 5. Owner. Owner" means the person or entity having the legal title, claim or right to
+11 a portable an electronic device.
+12 Sec. B-6. 16 MRSA §641, sub-§6, as amended by PL 2019,c. 489, §5, is repealed.
+13 Sec. B-7. 16 MRSA §641, sub-§7, as enacted by PL 2013,c. 402, §1, is repealed
+14 and the following enacted in its place:
+15 7. Remote computins service. "Remote computing service" means:
+16 A. The provision to the public over the Internet of on-demand computer storage; or
+17 B. Processing services provided by means of an electronic communication service.
+18 Sec. B-8. 16 MRSA §641, sub-§8, as enacted by PL 2013,c. 402, §1, is amended
+19 to read:
+20 8. User. "User" means a person or entity that uses a portable an electronic device.
+21 Sec. B-9. 16 MRSA §642, as amended by PL 2017,c. 144,§4, is farther amended
+22 to read:
+23 §642. Authority to obtain and disclose content electronic device information held by
+24 a provider of electronic communication service or remote computins service
+25 1. Authority to obtain. A government entity may obtain portable electronic device
+26 content information directly from a provider of electronic communication service or a
+27 provider of remote computing service only m accordance with a valid search warrant issued
+28 by a duly authorized justice, judge or justice of the peace using procedures established
+29 pursuant to Title 15, section 55 or 56 or as otherwise provided in this subchapter.
+30 2. Authority to disclose. A provider of electronic communication service or remote
+31 computing service may disclose portable electronic device ©efiteet information to a
+32 government entity only pursuant to a warrant issued by a duly authorized justice, judge or
+33 justice of the peace or as otherwise provided in this subchapter.
+34 Sec. B-10. 16 MRSA §643, as amended by PL 2019,c.489,§§7 and 8, is further
+35 amended to read:
+36 §643. Notice
+37 Notice must be given to the owner or user of a portable an electronic device whose
+3 8 content electronic device information was obtained by a government entity. The notice
+39 requirements of this section do not apply if the government entity is unable to identify the
+40 owner or user of a portable an electronic device.
+Page 3 - 131LR2187(02)
+COMMITTEE AMENDMENT
+ROS COMMITTEE AMENDMENT "/^ " to S.P. 425, L.D. 1056 (S- 51$-N)
+1 1. Timing and content of notice. Unless the court determines under subsection 2 that
+2 no notice is required, the government entity shall provide notice to the owner or user that
+3 content electronic device information was obtained by the government entity from a
+4 provider of electronic communication service or remote computing service within 3 days
+5 of obtaining the content that information. The notice must be made by service or delivered
+6 by registered or first-class mail, e-mail or any other means reasonably calculated to be
+7 effective as specified by the court issuing the warrant. The notice must contain the
+8 following information:
+9 A. The nature of the law enforcement inquiry, with reasonable specificity;
+10 B. The content electronic device information of the owner or user that was supplied to
+11 or requested by the government entity and the date on which it was provided or
+12 requested; and
+13 C. The identity of the provider of electronic communication service or remote
+14 computing service from wfeem which the information was obtained.
+15 2. Notification not required. A government entity acting under section 642 may
+16 include m the application for a warrant a request for an order to waive the notification
+17 required under this section. The court may issue the order if the court detennines that there
+18 is reason to believe that notification will have an adverse result.
+19 3. Preclusion of notice to owner or user subject to warrant for content electronic
+20 device information. A government entity acting under section 642 may include in its
+21 application for a warrant a request for an order directing a provider of elect-onic
+22 communication service or remote computmg service to which a warrant is directed not to
+23 notify any other person of the existence of the warrant. The court may issue the order if the
+24 court determines that there is reason to believe that notification of the existence of the
+25 warrant will have an adverse result.
+26 Sec. B-ll. 16 MRSA §644, as amended by PL 2019,c.489,§9, is further amended
+27 to read:
+28 §644. Exceptions
+29 1. Consent of owner or user. When disclosure of portable electronic device
+30 information is not prohibited by federal law, a government entity may obtain the
+31 information without a warrant with the informed, affirmative consent of the owner or user
+32 of the portable electronic device concerned, except when the device is known or believed
+33 by the owner or user to be in the possession of a 3rd party authorized to possess the device
+34 by the owner or user.
+35 2. Consent of owner or user not required if content electronic device information
+36 public. Notwithstanding subsection 1, a government entity may obtain eeatefit electronic
+37 device information without a warrant if the content electronic device information is
+38 otherwise disclosed by anyone in a publicly accessible domain, including, but not limited
+39 to, on the Internet.
+40 3. Emergency. When a government entity cannot, with due diligence, obtain a warrant
+41 in tune to address an emergency that involves or is believed to involve imminent danger of
+42 death or serious physical injury to any person, a government entity may obtain the
+43 electronic device information from a portable elect-onio devico without a warrant, and a
+Page 4 - 131LR2187(02)
+COMMITTEE AMENDMENT
+ROS
+COMMITTEE AMENDMENT " 4. " to S.P, 425, L.D. 1056 (,'S- S^
+1 provider of electronic communication service or remote computing service may disclose
+2 such information to the requesting government entity without a warrant.
+3 Sec. B-12. 16 MRSA §645, as enacted by PL 2013, c. 402, §1, is amended by
+4 amending the section headnote to read:
+5 §645. Use of content electronic device information obtained in violation of this
+6 subchapter not admissible
+7 Sec. B-13. 16 MRSA §648, first ^, as amended by PL 2017, c. 144, §5, is further
+8 amended to read:
+9 Except as provided in subchapter 10 or this subchapter, a government entity may not
+10 obtain location information without a valid warrant issued by a duly authorized justice,
+11 judge or justice of the peace using procedures established pursuant to Title 15, section 55
+12 or 56.
+13 Sec. B-14. 16 MRSA §649, first ^, as reallocated by RR 2013, c. 1, §30, is
+14 amended to read:
+15 Notice must be given to the owner or user of an electronic device whose location
+16 information was obtained by a government entity pursuant to this subchapter. The
+17 government entity's notification obligation applies only if the government entity is able to
+18 identify the owner or user.'
+19 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+20 number to read consecutively.
+21 SUMMARY
+22 This amendment, which is the minority report of the committee, strikes and replaces
+23 the bill.
+24 Part A of the amendment clarifies that a person upon whom a grand jury subpoena is
+25 served may notify others of the existence of the subpoena unless a court issues an order
+26 prohibiting notice to any person on the basis that there is a reason to believe such notice
+27 will have an adverse result. It also requires an attorney for the State, within one year after
+28 service of a grand jury subpoena, to notify the subject of the subpoena against whom an
+29 indictment has not been issued of the existence of the subpoena unless a court enters an
+30 order waiving the notice requirement on the basis that there is a reason to believe such
+31 notice will have an adverse result. For purposes of these provisions, the amendment defmes
+32 "adverse result" as immediate danger of death or serious physical injury to any person;
+33 flight from prosecution; destruction of or tampering with evidence; intimidation of a
+34 potential witness; seriously jeopardizing an investigation; or undue delay of a trial.
+35 Part B of the amendment amends the provisions of law that require state and local
+36 government entities to obtam a search warrant, unless certain enumerated circumstances
+37 exist, before accessing information regarding the content of portable electronic device
+38 communications. Part B expands the scope of these laws to apply when state or local
+39 government entities seek to obtain not only infonnation about the content of
+40 communications but also metadata about those communications and any other information
+41 stored on, generated by or transmitted through operation of an electronic device, regardless
+42 of whether it is portable. Part B also clarifies that these provisions of law apply when state
+Page 5 - 131LR2187(02)
+COMMITTEE AMENDMENT
+ROS
+COMMITTEE AMENDMENT " Q, " to S.P. 425, L.D. 1056 CS1
+1 and local government entities seek to obtain electronic device information stored by remote
+2 computing services that provide Internet storage to the public, commonly referred to as
+3 "cloud storage services."
+Page 6 - 131LR2187(02)
+COMMITTEE AMENDMENT

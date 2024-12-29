@@ -1,0 +1,192 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2240
+S.P. 960 In Senate, February 28, 2024
+An Act to Implement Protections Against Deed Fraud
+(AFTER DEADLINE)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+205.
+Reference to the Committee on Judiciary suggested and ordered printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator INGWERSEN of York.
+Cosponsored by Representative MOONEN of Portland and
+Senators: BRENNER of Cumberland, CARNEY of Cumberland, RAFFERTY of York, 
+TIPPING of Penobscot, Representatives: DUCHARME of Madison, MALON of Biddeford, 
+PARRY of Arundel, SHEEHAN of Biddeford.
+
+Page 1 - 131LR3011(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  5 MRSA §200-O is enacted to read:
+3§200-O.  Creation of notices and publications to warn public of risks posed by deed 
+4fraud
+5 The Office of the Attorney General, referred to in this section as "the office," shall 
+6 create notices and publications designed to inform and educate the public regarding the 
+7 risks posed by deed fraud. The notices and publications must provide owners of real 
+8 property in this State with information concerning types of deed fraud, the risk associated 
+9 with deed fraud and information about resources for assistance available to property owners 
+10 affected by deed fraud. The office shall make the notices and publications available to 
+11 registers of deeds in the State to distribute pursuant to Title 33, section 612 and to the State 
+12 Tax Assessor for distribution pursuant to Title 36, section 301. For the purposes of this 
+13 section, "deed fraud" has the same meaning as in Title 33, section 612.
+14Sec. 2.  14 MRSA §6055 is enacted to read:
+15§6055.  Deed fraud
+16 The District Court or the Superior Court has jurisdiction to grant appropriate equitable 
+17 relief when the plaintiff has shown by a preponderance of the evidence that the defendant 
+18 has committed deed fraud within the meaning of Title 33, section 612.  Equitable relief 
+19 may include, but is not limited to:
+201.  Nullifying fraudulent instrument.  Ordering the immediate nullification of any 
+21 publicly recorded fraudulent instrument affecting title to real property; 
+222.  Damages.  Damages; and
+233.  Attorney's fees and costs.  Attorney's fees and costs.
+24Sec. 3.  17-A MRSA §706-B is enacted to read:
+25§706-B.  Recording fraudulent instrument with register of deeds
+261.  A person is guilty of recording a fraudulent instrument with a register of deeds if:
+27 A.  The person knowingly or intentionally records or attempts to record with a register 
+28 of deeds a false deed, mortgage, lien or any other instrument for which the law provides 
+29 public recording;
+30 B.  In the process of recording with a register of deeds a deed, mortgage, lien or any 
+31 other instrument for which the law provides public recording, the person knowingly or 
+32 intentionally provides to a register of deeds false information in respect to a material 
+33 fact pertaining to the instrument the person seeks to record; or
+34 C.  In the process of recording with a register of deeds a deed, mortgage, lien or any 
+35 other instrument for which the law provides public recording, the person, who is not 
+36 the true owner of the real property affected by the instrument the person seeks to record 
+37 or the authorized agent of the true owner, knowingly or intentionally misrepresents the 
+38 person's identity in an attempt to impersonate the true owner or the true owner's 
+39 authorized agent.
+402.   Violation of this section is a Class B crime.
+Page 2 - 131LR3011(01)
+1Sec. 4.  32 MRSA §13173, sub-§1, as enacted by PL 1987, c. 395, Pt. A, §212, is 
+2 amended to read:
+31.  Designated broker.  The owner or a duly authorized agency official shall hold a 
+4 Maine real estate broker license and be designated by the agency to act for it in the conduct 
+5 of real estate brokerage and shall secure, and maintain in force, the surety bond required 
+6 by section 13721-A.
+7Sec. 5.  32 MRSA §13198, sub-§3, as amended by PL 2017, c. 210, Pt. F, §6, is 
+8 further amended to read:
+93.  Acts authorized.  Each broker license granted entitles the holder to perform all of 
+10 the acts contemplated under this chapter on behalf of an agency, including being designated 
+11 by the agency to act for it, except that a licensed real estate broker must secure and maintain 
+12 the surety bond required by section 13271-A before the real estate broker may act on behalf 
+13 of an agency.
+14Sec. 6.  32 MRSA §13271, sub-§6, as amended by PL 2005, c. 378, §13 and 
+15 affected by §29, is further amended to read:
+166.  Designated broker.  "Designated broker" means a broker designated by a real estate 
+17 brokerage agency to act for the real estate brokerage agency in the conduct of real estate 
+18 brokerage.  To qualify as a designated broker, the broker must satisfy the requirements of 
+19 section 13271-A.
+20Sec. 7.  32 MRSA §13271-A is enacted to read:
+21§13271-A.  Surety bond required for designated brokers
+22 To qualify as a designated broker within the meaning of this chapter, a real estate 
+23 broker shall secure and maintain in force as long as the broker remains a designated broker 
+24 a surety bond issued by a state-licensed insurer in the amount of $25,000, in favor of the 
+25 Treasurer of State, for the benefit of the State and any person who relied on the professional 
+26 services of the designated broker or agency in a transaction for sale or purchase of real 
+27 estate that resulted in deed fraud that harmed that person when the designated broker's or 
+28 agency's conduct in respect to that transaction would subject the designated broker or 
+29 agency, or both, to disciplinary action under section 13067-A. For the purposes of this 
+30 section, "deed fraud" has the same meaning as in Title 33, section 612.
+31Sec. 8.  33 MRSA §10 is enacted to read:
+32§10.  Sale of real estate by out-of-state seller
+33 If a seller who is not a resident of this State offers for sale real estate that is located in 
+34 this State, the seller shall pay to the real estate broker, associate real estate broker or real 
+35 estate agent a $500 refundable fee at the time the offer to purchase is accepted by the seller 
+36 to be held in escrow. The fee must be returned to the seller at the time of closing as long as 
+37 the broker or agent certifies that the broker or agent has performed due diligence in 
+38 confirming the identity of the seller to ensure the seller is the true owner of the real estate.
+39Sec. 9.  33 MRSA §203, last ¶, as amended by PL 2021, c. 651, Pt. A, §7 and 
+40 affected by §8, is further amended to read:
+41 Notwithstanding any of the requirements in this section, an instrument with an 
+42 acknowledgment conforming to the requirements of the Revised Uniform Law on Notarial 
+Page 3 - 131LR3011(01)
+43 Acts must be accepted for recording purposes, except that any instrument affecting title to 
+44 real property and recorded with a register of deeds pursuant to this section must be 
+45 acknowledged before a person authorized to perform notarial acts in this State as described 
+46 in Title 4, section 1910.
+5Sec. 10.  33 MRSA §612 is enacted to read:
+6§612.  Register authorized to distribute notices, publications and programs warning 
+7public about deed fraud
+8 A register of deeds may distribute notices, publications and information about 
+9 programs to inform and educate the public about the risks of deed fraud and inform victims 
+10 of deed fraud of available resources for assistance. The notices, publications and 
+11 information about programs may also include instructions for a property owner to sign up 
+12 for a service, if available, to receive electronic notification of real estate transactions 
+13 involving the property owner's name or property.  For the purposes of this section, "deed 
+14 fraud" means:
+151.  Forgery.  Forgery within the meaning of Title 17-A, section 703 in respect to a 
+16 deed, mortgage, lien or other instrument affecting title to real property; or
+172.  False recording.  Fraudulently recording, attempting to record or otherwise 
+18 knowingly or intentionally providing false information or misrepresenting one's identity to 
+19 a register of deeds in the process of recording a deed, mortgage, lien or other instrument 
+20 within the meaning of Title 17-A, section 706-B.
+21Sec. 11.  36 MRSA §301, as amended by PL 1975, c. 545, §4 and PL 1997, c. 526, 
+22 §14, is further amended by enacting at the end a new paragraph to read:
+23 The State Tax Assessor shall direct all primary assessing areas and municipal assessing 
+24 units to include in real property tax bills a standard notice regarding the risks of deed fraud 
+25 and resources available to assist victims of deed fraud. "Deed fraud" has the same meaning 
+26 as in Title 33, section 612.
+27SUMMARY
+28 This bill enacts new provisions and amends current provisions of law to protect 
+29 individuals from deed fraud. The bill makes it a Class B crime to record or attempt to record 
+30 with a register of deeds a false deed, mortgage, lien or other instrument for which the law 
+31 provides public recording or, in the process of recording a deed, mortgage, lien or other 
+32 instrument for which the law provides public recording, to provide to a register of deeds 
+33 false information in respect to a material fact pertaining to that instrument or impersonate 
+34 the true owner. The bill also provides for equitable relief for individuals who have been 
+35 impacted by a forged or fraudulently recorded instrument. 
+36 The bill requires that any instrument affecting title to real property and recorded with 
+37 a register of deeds must be acknowledged before a person authorized to perform notarial 
+38 acts in this State, rather than an out-of-state notarial officer.
+39 The bill requires that sellers of real estate who are not residents of this State pay a $500 
+40 refundable fee to the real estate broker or other transacting agent to be placed in escrow 
+41 and returned to the seller at the closing as long as the agent can certify that the agent has 
+42 performed due diligence in confirming the identity of the seller. 
+1
+2
+3
+4
+28
+29
+30
+31
+32
+33
+34
+35
+Page 4 - 131LR3011(01)
+1 The bill requires a designated real estate broker to secure, and maintain thereafter, a 
+2 surety bond in the amount of $25,000 for the benefit of the State and any person harmed 
+3 by deed fraud as a result of the broker's or agency's action. 
+4 The bill directs the Office of the Attorney General to create notices and publications 
+5 designed to inform and educate the public regarding the risks posed by deed fraud.  The 
+6 bill requires the office to make these materials available to registers of deeds throughout 
+7 the State and to the State Tax Assessor.  The bill authorizes registers of deeds to distribute 
+8 notices, publications and information about programs to educate the public about deed 
+9 fraud and directs the State Tax Assessor to require that all real property tax bills contain a 
+10 notice to property owners regarding the risks of deed fraud and resources available to 
+11 victims.

@@ -1,0 +1,98 @@
+^\/UO^.\T^
+L.D, 1576
+Date: \ | 7.^> | ^-^ (Filing No. H- TO)
+3 JUDICIARY
+4 Reproduced and distributed under the direction of the Clerk of the House.
+5 STATE OF MAINE
+6 HOUSE OF REPRESENTATIVES
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " /\ " to H,P. 1021, L,D. 1576, "An Actto Update the
+10 Laws Governing Electronic Device Information as Evidence"
+11 Amend the bill by striking out everything after the enacting clause and inserting the
+12 following:
+13 'See. 1. 16 MRSA c. 3, sub-c. 10, headnote is amended to read;
+14 SUBCHAPTER 10
+15 PORTABLE ELECTRONIC DEVICE CONTENT INFORMATION
+16 Sec. 2. 16 MRSA §641, sub-§3-A is enacted to read:
+17 3-A. Electronic device. "Electronic device" means an electronic device that enables
+18 access to. or use of. an electronic communication service or remote computing service.
+19 Sec. 3. 16MRSA§641,sub-§5,asenactedbyPL2013,c.402,§l,isamendedto
+20 read;
+21 5. Owner. "Owner" means the person or entity having the legal title, claim or right to
+22 a portable an electronic device.
+23 Sec. 4. 16 MRSA §641, sub-§6, as amended by PL 2019,c. 489, §5, is repealed.
+24 Sec. 5. 16 MRSA §641, sub-§7, as enacted by PL 2013,c.402, §1, is repealed and
+25 the following enacted in its place;
+26 7. Remote computing service. "Remote computine service" means:
+27 A, The provision to the public over the Internet of on-demand computer storage; or
+28 B. Processine services provided by means of an electronic communication service.
+29 Sec. 6. 16 MRSA §641, sub-§8, as enacted by PL 2013,c.402, §1, is amended to
+30 read;
+Page 1 - 131LR1832(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT" A-" to H,P. 1021, L.D. 1576
+1 8. User. User means a person or entity that uses a portable an electronic device.
+2 Sec. 7. 16 MRSA §642, as amended by PL 2017, c. 144, §4, is further amended to
+3 read:
+4 §642. Authority to obtain and disclose content information held by a provider of
+5 electronic communication service or remote computine service
+6 1. Authority to obtain. A government entity may obtain portable electronic device
+7 content information directly from a provider of electronic communication service or a
+8 provider of remote computing service only in accordance with a valid search warrant issued
+9 by a duly authorized justice, judge or justice of the peace using procedures established
+10 pursuant to Title 15, section 55 or 56 or as otherwise provided in this subchapter,
+11 2. Authority to disclose. A provider of electronic communication service or remote
+12 computing service may disclose portable electronic device content information to a
+13 government entity only pursuant to a warrant issued by a duly authorized justice, judge or
+14 justice of the peace or as otherwise provided in this subchapter,
+15 Sec. 8. 16 MRSA §643, first % as amended by PL 2019, c, 489, §7, is further
+16 amended to read:
+17 Notice must be given to the owner or user of a portable an electronic device whose
+18 content information was obtained by a government entity. The notice requirements of this
+19 section do not apply if the government entity is unable to identify the owner or user of a
+20 portable an electronic device.
+21 Sec. 9. 16 MRSA §643, sub-§3, as enacted by PL 2013,c.402,§ 1, is amended to
+22 read;
+23 3. Preclusion of notice to owner or user subject to warrant for content
+24 information. A government entity acting under section 642 may include in its application
+25 for a warrant a request for an order directing a provider of electronic communication service
+26 or remote computing service to which a warrant is directed not to notify any other person
+27 of the existence of the warrant. The court may issue the order if the court determines that
+28 there is reason to believe that notification of the existence of the warrant will have an
+29 adverse result,
+30 Sec. 10. 16 MRSA §644, sub-§l, as amended by PL 2019, c. 489, §9, is further
+31 amended to read:
+32 . 1. Consent of owner or user. When disclosure of portable electronic device content
+33 information is not prohibited by federal law, a government entity may obtain the
+34 information without a warrant with the informed, affirmative consent of the owner or user
+35 of the portable electronic device concerned, except when the device is known or believed
+36 by the owner or user to be in the possession of a 3rd party authorized to possess the device
+37 by the owner or user,
+38 Sec. 11. 16 MRSA §644, sub-§3, as amended by PL 2019, c. 489,§9, is further
+39 amended to read;
+40 3. Emergency. When a government entity cannot, with due diligence, obtain a warrant
+41 in time to address an emergency that involves or is believed to involve imminent danger of
+42 death or serious physical injury to any person, a government entity may obtain the content
+Page 2 - 131LR1832(02)
+COMMITTEE AMENDMENT
+^
+COMMITTEE AMENDMENT " A_" to H,P, 1021, L,D, 1576
+1 information from a portable an electronic device without a warrant, and a provider of
+2 electronic communiGation service or remote computing service may disclose such
+3 information to the requesting government entity without a warrant,'
+4 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+5 number to read consecutively,
+6 • SUMMARY
+7 This amendment strikes and replaces the bill. The amendment amends the provisions
+8 of law that require state and local government entities to obtain a search warrant, unless
+9 certain enumerated circumstances exist, before accessing information regarding the content
+10 of portable electronic device communications, Under the amendment, these provisions of
+11 law apply when state or local government entities seek to obtain content information
+12 associated with any electronic device, including devices that are not portable, The
+13 amendment also clarifies that these provisions of law apply when state and local
+14 government entities seek to obtain electronic device content information stored by remote
+15 computing services that provide Internet storage to the public, commonly referred to as
+16 "cloud storage services."
+Page 3 - 131LR1832(02)
+COMMITTEE AMENDMENT

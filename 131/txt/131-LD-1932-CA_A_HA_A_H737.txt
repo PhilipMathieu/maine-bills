@@ -1,0 +1,95 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+s
+1 L,D, 1932
+2 Date: 2/1 /2^f (Filing No. H- 757)
+3 Reproduced and distributed under the direction of the Clerk of the House.
+4 STATE OF MAINE
+5 HOUSE OF REPRESENTATWES
+6 131ST LEGISLATURE
+7 SECOND REGULAR SESSION
+8 HOUSE AMENDMENT " A " to COMMITTEE AMENDMENT "A" to H.P. 1240,
+9 L.D. 1932, "An Act to Require Broadband Internet Access Service Providers to Prorate
+10 Customer Bills"
+11 Amend the amendment in section 1 in c. 237 in §1500-U by striking out all of
+12 subsection 3 (page 2, lines 1 to 13 in amendment) and inserting the following:
+13 '3. Interruption of service. Except as otherwise orovided in this subsection, if
+14 broadband Internet access service to a customer is intermpted fo^^^^^
+15 hours in a single biUmg_Deno_cLthe RrovideLshalLuoen reauest bv the customer, grant that
+16 customer a pro rata credit or rebate. To receive a pro rata credit or rebate, a.customer must
+17 submit the request to the provider no later than 60 days after the end of the billine oenod
+18 in which the intenwtion occurred.
+19 A customer is not eligible to receive a pro rata credit or rebate under this subsection for an
+20 mten-uotion in broadband Internet access service if the inteiruptioQ was cmsedbTmwt
+21 beyond the reasonable control of the provider, including^butnot Umjted to;
+22 A. A natural event including, but not limited to, a fire, explosion, storm, hurricane.
+23 tornado, earthquake or flood;
+24 B, The actions of a 3rd party not working on behalf of the provider, including, but not
+25 limited to. the oceration of a motor vehicle or excavation activities; or
+26 C. An mtemiption m service due to customer-owne(iegumment, customeLw^ or
+27 the malfuaction of equipment not owned by the provider on a utility pole.'
+28 Amend the amendment in section 1 inc. 237 in §1500-U in subsection 4 in the 3rd line
+29 (page 2, line 16 in. amendment) by inserting after the following; "inten-uption of service"
+30 the following; 'upon request'
+31 Amend the amendment in section 1 inc. 237 in §1500-U in subsection 4 in the 6th line
+32 (page 2, line 19 in amendment) by striking out the following; "regarding" and inserting the
+33 following: 'to request'
+34 Amend the amendment by relettering or renumbering any nonconsecutive Part letter or
+35 section number to read consecutively,
+Page 1 - 131LR2408(06)
+HOUSE AMENDMENT
+ROS
+•A (2 II l2<)
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+HOUSE AMENDMENT "M" to COMMITTEE AMENDMENT "A" to H.P. 1240, L.D.1932
+SUMMARY
+This amendment removes the requirement in Committee Amendment "A" that a
+provider notify a customer of the reason for an inten-uption of broadband Internet access
+service if the service is interrupted for 6 or more consecutive hours in a single monthly
+billing period and, if the intermption in service is not caused by an. act beyond the
+reasonable control of the provider, provide the customer with a pro rata credit or rebate
+during the billing period following the intermption. Instead, the amendment requires a
+customer seeking a pro rata credit or rebate for interruption in service to submit a request
+to the provider no later than 60 days after the end of the billing period in which the
+interruption occurred. Finally, the amendment specifies fhat a customer is not eligible for
+a pro rata credit or rebate for ip.terruption in service if the interruption in service was caused
+by an act beyond the reasoi^ble control offhejMoyider,
+SPONSORED BY:
+(Representative FAY, J.)
+TOWN: Raymond
+Page2-131LR2408(06)
+HOUSE AMENDMENT

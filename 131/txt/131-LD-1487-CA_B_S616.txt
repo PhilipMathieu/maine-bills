@@ -1,0 +1,533 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+Date:3}{').7 t:),~ 
+MINORITY I 
+I 
+L.D. 1487 
+(Filing No. S- {.e,/~ 
+INNOVATION, DEVELOPMENT, ECONOMIC ADVANCEMENT AND 
+BUSINESS 
+Reproduced and distributed under the direction of the Secretary of the Senate. 
+STATE OF MAINE 
+SENATE 
+131ST LEGISLATURE 
+SECOND REGULAR SESSION 
+CO1\.1MITTEE AMENDMENT" B" to S.P. 608, L.D. 1487, "An Act to Ensure That 
+Residents of the State Have the Right to Repair Their Own Electronic Devices" 
+Amend the bill by striking out the title and substituting the following: 
+'An Act to Ensure That Residents of the State Have the Right to Repair Their Own 
+Personal Electronic Devices' 
+Amend the bill by striking out everything after the enacting clause and inserting the 
+following: 
+'Sec. 1. 10 MRSA c. 234 is enacted to read: 
+CHAPTER234 
+RIGHT TO REP AIR ELECTRONIC EQUIPMENT 
+§1500-0. Right to repair 
+1. Definitions. As used in this section, unless the context otherwise indicates, the 
+following terms have the following meanings. 
+A. "Authorized repair provider" means: 
+(1) An original equipment manufacturer that offers the services of diagnosis, 
+maintenance or repair of its own personal digital electronic equipment and that 
+does not have an arrangement described in subparagraph (2) with an unaffiliated 
+person; or 
+(2) A person that is unaffiliated with an original equipment manufacturer and that 
+has an arrangement with the original equipment manufacturer under which the 
+original equipment manufacturer grants to the person a license to use a trade name, 
+service mark or related characteristics for the purposes of offering the services of 
+Page 1 - 131LR2305(03) 
+COMMITTEE AMENDMENT 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+\ 
+COMMITTEE AMENDMENT "8 "to S.P. 608, L.D. 1487 { )·Ul / t..e,,) 
+diagnosis, maintenance or repair of personal digital electronic equipment under the 
+name of or on behalf of the original equipment manufacturer. 
+B. "Diagnosis" means the process of identifying the issue or issues causing personal 
+digital electronic equipment to not be in full working order. 
+C. "Documentation" means, with respect to personal digital electronic equipment, a 
+manual, diagram, reporting output, service code description or similar kind of 
+information required for effecting the services of diagnosis, maintenance or repair of 
+equipment manufactured or sold by an original equipment manufacturer to facilitate 
+the diagnosis, maintenance or repair of the equipment. 
+D. "Fair and reasonable terms" means, with respect to documentation, parts and tools 
+required for the diagnosis, maintenance and repair of personal digital electronic 
+equipment, that such documentation, parts and tools are made available by the original 
+equipment manufacturer at commercially reasonable costs and on commercially 
+reasonable terms that are at least as favorable as the most favorable costs and terms 
+under which the manufacturer offers the documentation, parts and tools to an 
+authorized repair provider, accounting for any discount, rebate or fmancial incentive 
+offered to the authorized repair provider by the manufacturer, and that: 
+(1) With respect to documentation required for repair, such documentation is made 
+available by the original equipment manufacturer: 
+(a) On terms that do not require the recipient of the documentation to be or to 
+become an authorized repair provider; and 
+(b) At no charge, except that, when the documentation is requested in physical 
+printed form, the manufacturer may require payment for the reasonable actual 
+costs of preparing and sending the printed documentation; 
+(2) With respect to tools required for repair, such tools are made available by the 
+original equipment manufacturer: 
+(a) On terms that do not require the recipient of the tool to be or to become an 
+authorized repair provider; 
+(b) Without any impediments to use; and 
+• (c) At no charge for use or operation of the tool, except that when the tool is 
+requested in physical form, the manufacturer may require payment for the 
+reasonable, actual costs of procuring, preparing and sending the tool; and 
+(3) With respect to parts required for repair, such parts are made available by the 
+original equipment manufacturer either directly or through an authorized 
+distributor or authorized repair provider on terms that do not require the recipient 
+of the part to be or to become an authorized repair provider. 
+E. "Independent repair provider" means an individual or business operating in the State 
+that is not an authorized repair provider and that is not affiliated with an authorized 
+repair provider and that is engaged in diagnosing, maintaining and repairing personal 
+digital electronic equipment. 
+Page 2 - 131LR2305(03) 
+COMMITTEE AMENDMENT 
+~os 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+COMMITTEE AMENDMENT" 0" to S,P. 608, L.D. 1487 ( '),- {£;, f ti} 
+F. "Maintenance" means, with respect to personal digital electronic equipment, any 
+action necessary to keep currently working personal digital electronic equipment in full 
+working order. 
+G. "Modification" or "modify" means, with respect to personal digital electronic 
+equipment, any alteration to the equipment that is not maintenance and not repair. 
+H. "Original equipment manufacturer" or "manufacturer" means a business engaged in 
+the selling or leasing of or in otherwise supplying new personal digital electronic 
+equipment manufactured by or on behalf of the business. 
+I. "Owner" means an individual or business that owns or leases personal digital 
+electronic equipment purchased or used in the State. 
+J. "Part" means, with respect to personal digital electronic equipment, any replacement 
+part or assembly of parts, either new or used, or their equivalents, for maintaining or 
+repairing personal digital electronic equipment manufactured or sold by the 
+manufacturer. "Part" does not include printed circuit board assemblies that may allow 
+device cloning in violation of 18 United States Code, Section 1029 or other applicable 
+law. 
+K. "Personal digital electronic equipment" or "equipment" means a hardware product 
+that: 
+(1) Is a computer, cellular telephone or tablet: 
+(2) Is sold at retail for personal, household, family or home office use: 
+(3) Has a wholesale price to a retailer, or to others outside of direct retail sale, of 
+not less than $50: and 
+(4) Depends in whole or in part on digital electronics embedded in or attached to 
+the product for the product to function. 
+L. "Repair" means, with respect to personal digital electronic equipment, any action 
+necessary to restore the equipment to full working order. "Repair" does not include 
+post-sale modifications that alter the originally intended functioning of the personal 
+digital electronic equipment. 
+M. "Tool" means, with respect to personal digital electronic equipment, a software 
+program, hardware implement or other apparatus, or its equivalent, used for 
+diagnosing, maintaining or repairing personal digital electronic equipment 
+manufactured or sold by the manufacturer, including software or other mechanisms 
+that provide, program or pair a new part, calibrate functionality or perform any other 
+function required to repair the original part. 
+N. "Trade secret" means anything tangible or intangible or electronically stored or kept 
+that constitutes, represents, evidences or records intellectual property, including secret 
+or confidentially held designs, processes, procedures, formulas, inventions or 
+improvements or secret or confidentially held scientific, technical, merchandising, 
+production, financial, business or management information, or other intellectual 
+property that falls within the meaning of a trade secret under 18 United States Code, 
+Section 1839. 
+Page 3 - 131LR2305(03) 
+COMMITTEE AMENDMENT 
+?-.-os 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+43 
+i ' 
+COMMITTEE AMENDMENT" 8" to S.P. 608, L.D. 1487 ( s-f.tll ti) 
+2. Original equipment manufacturers; requirement. Beginning August 1, 2025 
+and except as otherwise provided in this section, an original equipment manufacturer of 
+personal digital electronic equipment sold or in use in the State on or after August 1, 2025 
+shall make available on fair and reasonable terms to any independent repair provider or 
+owner of the equipment any documentation, parts or tools, or their equivalents, required 
+for the diagnosis, maintenance or repair of the equipment. 
+An original equipment manufacturer may elect to alternatively comply with the 
+requirements of this section by providing to the original purchaser of personal digital 
+electronic equipment subject to the requirements of this section a reimbursement or the 
+equivalent or better and readily available replacement personal digital electronic equipment 
+at a price that is no more than the total cost of the sum of the parts of the equipment. 
+3. Additional limitations and exclusions. Notwithstanding any provision of this 
+section to the contrary: 
+A. An original equipment manufacturer is not required by this section to: 
+(l) Provide or make available documentation, parts or tools to an independent 
+repair provider or owner if: 
+(a) The part or tool is no longer available to the original equipment 
+manufacturer: or • 
+(b) The documentation or tool is used by the original equipment manufacturer 
+only to perform no-cost diagnostic services virtually through telephone. 
+Internet, chat function, e-mail or similar means that do not involve the 
+manufacturer's physically handling the owner's equipment. unless the 
+manufacturer also makes that documentation or tool available to persons 
+unaffiliated with the manufacturer: 
+(2) Divulge any trade secret: 
+(3) License any intellectual property, including copyrights or patents, to any 
+independent repair provider or owner: 
+(4) Make available to an independent repair provider or owner documentation. 
+parts or tools that would disable, reset or override electronic security locks or other 
+security-related measures or functions or disable or override antitheft security 
+measures set by the owner of the equipment without the owner's authorization. 
+Nothing in this subparagraph may be construed to relieve the original equipment 
+manufacturer's obligation to make available to an independent repair provider or 
+owner such documentation, parts or tools if the owner provides authorization; 
+(5) Provide documentation, parts or tools for any personal digital electronic 
+equipment where reconditioning or repair of the equipment is prohibited by law. 
+regulation or building or electrical code; 
+(6) Provide documentation or tools used exclusively by the original equipment 
+manufacturer for diagnosis, maintenance or repairs completed by machines that 
+operate on several personal digital electronic equipment products simultaneously 
+or otherwise for purposes of large-scale efficiency as long as the manufacturer 
+makes available to independent repair providers and owners sufficient alternative 
+documentation and tools to diagnose, maintain or repair the equipment; or 
+Page 4 - 131LR2305(03) 
+COMMITTEE AMENDMENT 
+~os 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+37 
+38 
+39 
+40 
+41 
+42 
+43 
+COMMITTEE AMENDMENT" e" to S.P. 608, L.D. 1487 ( $,la f~) 
+(7) Warrant any repairs provided by independent repair providers or owners; 
+B. An original equipment manufacturer and an authorized repair provider are not 
+required by this section to: 
+(1) Provide an independent repair provider or owner any information, other than 
+documentation, that is provided by the original equipment manufacturer to an 
+authorized repair provider; 
+(2) Make available any documentation, parts or tools for the purposes of modifying 
+or making modifications to any personal digital electronic equipment; or 
+(3) Make available any documentation, parts or tools in a manner that is 
+inconsistent with or in violation of applicable federal or state law; 
+C. In complying with the requirements of this section, an original equipment 
+manufacturer may: 
+(1) Make available documentation, parts or tools to an independent repair provider 
+or owner directly or through an authorized repair provider or an authorized 3rd­
+party provider. 
+(a) Nothing in this section may be construed to require an authorized repair 
+provider or authorized 3rd-party provider to provide such documentation, parts 
+or tools to an independent repair provider or owner or to relieve an original 
+equipment manufacturer of its obligations to make available documentation, 
+parts or tools to an independent repair provider or owner. 
+(b) An authorized repair provider may make documentation, parts or tools 
+available to an independent repair provider or owner as long as the authorized 
+repair provider is contractually permitted by the original equipment 
+manufacturer to provide and is not otherwise prohibited from providing the 
+documentation, parts or tools; and 
+(2) Restrict access to certain secure parts of a device by an independent repair 
+provider or owner as long as the access restriction does not prevent the independent 
+repair provider or owner from completing repairs that can otherwise be completed 
+by an authorized repair provider; and 
+D. An original equipment manufacturer is not liable under this section for improper 
+use of personal data or any data privacy or security breach in connection with repair, 
+diagnosis, maintenance or modification of personal digital electronic equipment by an 
+independent repair provider or owner. 
+Nothing in this section may be construed to abrogate, interfere with, contradict or alter the 
+terms of any agreement between an original equipment manufacturer and an authorized 
+repair provider, including, but not limited to, the performance or provision of warranty or 
+recall repair work by an authorized repair provider on behalf of an original equipment 
+manufacturer pursuant to such an authorized repair agreement, except that any provision in 
+such an authorized repair agreement that purports to waive, avoid, restrict or limit an 
+original equipment manufacturer's compliance with this section is void and unenforceable. 
+4. Written notice required. Before repairing personal digital electronic equipment 
+subject to the requirements of this section, an independent repair provider shall provide to 
+a customer a written notice that contains the following information: 
+Page 5 - 131LR2305(03) 
+COMMITTEE AMENDMENT 
+~os 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+11 
+12 
+13 
+14 
+15 
+16 
+17 
+18 
+19 
+20 
+21 
+22 
+23 
+24 
+25 
+26 
+27 
+28 
+29 
+30 
+31 
+32 
+33 
+34 
+35 
+36 
+. \ 
+COMMITTEE AMENDMENT" B" to S.P. 608,L.D. 1487 { S-lolu) 
+A. That the independent repair provider is not an authorized repair provider for the 
+personal digital electronic equipment; 
+B. That the consumer should review the terms and conditions of any warranty for the 
+personal digital electronic equipment as repairs not performed by an authorized repair 
+provider may affect the warranty; 
+C. That warranties for consumer products are governed by the federal Magnuson-Moss 
+Warranty - Federal Trade Commission Improvement Act, 15 United States Code, 
+Chapter 50, which: 
+(1) Gives consumers rights and protections that supersede conflicting provisions 
+in the warranty for the consumer product; 
+(2) Provides that a warranty for the consumer product may not require 
+maintenance and repairs to be performed only by an authorized repair provider; 
+and 
+(3) Provides that, if damage to the consumer product is shown to be caused by 
+equipment not offered or sold by the original equipment manufacturer or by faulty 
+repair performed by a repair provider that is not an authorized repair provider, that 
+damage may not be covered by the warranty but the warranty may otherwise 
+remain in effect; and 
+D. Whether the independent repair provider, in repairing personal digital electronic 
+equipment, uses any used replacement parts or replacement parts provided by a 
+supplier other than the original equipment manufacturer of the personal digital 
+electronic equipment. 
+5. Violations. A violation of this section is a violation of the Maine Unfair Trade 
+Practices Act.' 
+Amend the bill by relettering or renumbering any nonconsecutive Part letter or section 
+number to read consecutively. 
+SUMMARY 
+This amendment, which is a minority report of the committee, replaces the bill and 
+changes the title. The amendment establishes a requirement that, beginning August 1, 2025, 
+an original equipment manufacturer of personal digital electronic equipment, which 
+includes, but is not limited to, laptops, computers, cellular telephones and tablets, sold or 
+in use in the State on or after August 1, 2025 must make available on fair and reasonable 
+terms to any independent repair provider or owner of the equipment documentation, parts 
+or tools required for the diagnosis, maintenance or repair of the equipment. 
+FISCAL NOTE REQUIRED 
+(See attached) 
+Page 6 -131LR2305(03) 
+COMMITTEE AMENDMENT 
+Approved: 03/13/24 ~ae 
+131st MAINE LEGISLATURE 
+LD 1487 LR 2305(03) 
+• ·.An Act to Ensure That Residents of the State Have the Right to Repair Their Own Electronic Devices 
+Fiscal Note for Bill as Amended by Committee Amendment "(3't S-lr21t.a) 
+Committee: Innovation, Development, Economic Advancement and Business 
+Fiscal Note Required: Yes 
+Fiscal Note 
+Minor cost increase - General Fund 
+Minor revenue increase - General Fund 
+Correctional and Judicial Impact Statements 
+This bill may increase the number of civil suits filed in the court system. The additional workload associated with the 
+minimal number of new cases filed in the court system does not require additional funding at this time. 
+The collection of additional filing fees will increase General Fund revenue by minor amounts. 
+LR2305(03) - Fiscal Note - Page 1 of 1 

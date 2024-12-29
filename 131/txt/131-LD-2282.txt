@@ -1,0 +1,102 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2282
+S.P. 996 In Senate, March 27, 2024
+An Act to Provide Greater Transparency About the Cost of Insulin 
+and to Promote the Availability of Low-cost Insulin in the State
+Reported by the Majority from the Joint Standing Committee on Health Coverage, 
+Insurance and Financial Services pursuant to Joint Order 2023, S.P. 968.
+DAREK M. GRANT
+Secretary of the Senate
+
+Page 1 - 131LR3161(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  22 MRSA §8731, sub-§1-B is enacted to read:
+31-B.  Category of insulin.  "Category of insulin" means rapid-acting, short-acting, 
+4 intermediate-acting, long-acting and premixed insulin for which at least 2 licenses have 
+5 been issued by the federal Food and Drug Administration and are actively marketed 
+6 pursuant to such licensure in a category.
+7Sec. 2.  22 MRSA §8731, sub-§2-A is enacted to read:
+82-A.  Insulin.  "Insulin" has the same meaning as in Title 32, section 13786-D, 
+9 subsection 1, paragraph A and includes insulin or an insulin pen that is licensed under the 
+10 federal Public Health Service Act, 42 United States Code, Section 262(a) or 262(k).
+11Sec. 3.  22 MRSA §8732, sub-§3 is enacted to read:
+123.  Notification by manufacturers of wholesale acquisition cost for insulin.  No later 
+13 than February 15th of each year, a manufacturer of insulin shall notify the organization of 
+14 the wholesale acquisition cost per pricing unit for the insulin produced by the manufacturer 
+15 in each category of insulin.
+16Sec. 4.  32 MRSA §13800-D, sub-§2, as enacted by PL 2021, c. 303, §5, is amended 
+17 to read:
+182.  Exception.  A manufacturer that is a nonprofit organization or whose aggregate 
+19 total of insulin sold, delivered or distributed in this State does not exceed 500,000 units of 
+20 insulin in the year in which a registration fee under subsection 1 is due is not required to 
+21 pay the registration fee. To qualify for the exception under this subsection, a manufacturer 
+22 must demonstrate to the board, by January 31st of the year following the year in which the 
+23 registration fee is due, in a manner determined by the board, that the aggregate total of 
+24 insulin produced by the manufacturer that was sold, delivered or distributed within this 
+25 State in the year in which the manufacturer seeks to claim the exception did not exceed 
+26 500,000 units. The board may adopt rules to implement this section. Rules adopted 
+27 pursuant to this subsection are routine technical rules as defined in Title 5, chapter 375, 
+28 subchapter 2‑A.
+29SUMMARY
+30 This bill is being reported out by the Joint Standing Committee on Health Coverage, 
+31 Insurance and Financial Services pursuant to Joint Order 2023, S.P. 968.  The bill requires 
+32 a manufacturer of insulin to notify the Maine Health Data Organization no later than 
+33 February 15th of each year of the wholesale acquisition cost for the insulin produced by 
+34 the manufacturer in each category of insulin.  The bill also provides that a manufacturer of 
+35 insulin that is a nonprofit organization is not required to pay an annual insulin product 
+36 registration fee.  
+37FISCAL NOTE REQUIRED
+38(See attached)
+30
+31
+32
+33
+34
+35
+36
+37
+38
+Approved: 03/22/24
+LD 2282 LR 3161(01)
+Fiscal Detail and Notes
+131st MAINE LEGISLATURE
+This bill exempts a manufacturer of insulin that is a nonprofit organization from paying the $75,000 registration fee. It 
+is unclear whether any such organizations currently manufacture insulin, but manufacturers of 500,000 units or less 
+are already exempt from the fee. Any decrease in dedicated revenue to the Maine Board of Pharmacy within the 
+Department of Professional and Financial Regulation cannot be determined at this time.
+Any additional costs to the Maine Health Data Organization from the provisions of this bill are expected to be minor 
+and can be absorbed within existing budgeted resources.
+An Act to Provide Greater Transparency About the Cost of Insulin and to Promote the Availability of 
+Low-cost Insulin in the State
+Fiscal Note Original Bill
+Committee: Health Coverage, Insurance and Financial Services
+Fiscal Note Required: Yes
+Fiscal Note
+Current biennium revenue decrease - Other Special Revenue Funds
+Minor cost increase - General Fund
+LR3161(01) - Fiscal Note - Page 1 of 1

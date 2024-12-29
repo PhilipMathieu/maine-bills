@@ -1,0 +1,103 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2245
+S.P. 967 In Senate, March 5, 2024
+An Act to Clarify the Definition of "Underground Facility" and 
+Reduce Administrative Burdens Under the So-called Dig Safe Law
+Reported by Senator LAWRENCE of York for the Joint Standing Committee on Energy, 
+Utilitites and Technology  pursuant to Resolve 2023, chapter 47, section 3.
+Reference to the Committee on Energy, Utilities and Technology suggested and ordered 
+printed pursuant to Joint Rule 218.
+DAREK M. GRANT
+Secretary of the Senate
+
+Page 1 - 131LR3095(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  23 MRSA §3360-A, sub-§1, ¶E, as amended by PL 2019, c. 592, §1, is 
+3 further amended to read:
+4 E.  "Underground facility" means any item of personal property buried or placed below 
+5 ground for use in connection with the storage or conveyance of water, sewage, 
+6 electronic, telephonic or telegraphic communications, electric energy, oil, gas, 
+7 liquefied propane gas or other substances and including, but not limited to, pipes, 
+8 sewers, conduits, cables, valves, lines, wires, manholes, attachments, appurtenances 
+9 and those parts of poles below ground.  Except for liquefied propane gas distribution 
+10 systems that have underground pipes, "underground facility" does not include liquefied 
+11 propane gas distribution systems that are not included within the scope of 49 Code of 
+12 Federal Regulations, Part 192.  "Underground facility" does not include highway 
+13 drainage culverts or under drains. :
+14 (1)  Highway drainage culverts or under drains; or
+15 (2)  Liquefied propane gas distribution systems that have underground pipes 
+16 located on a residential lot if:
+17 (a)  The residential lot has no more than one structure connected by 
+18 underground pipes to a liquefied propane gas distribution system;
+19 (b)  The structure that is connected by underground pipes to a liquefied propane 
+20 gas distribution system contains no more than 2 dwelling units; and
+21 (c)  The liquefied propane gas tank is located 25 feet or less from that structure.
+22Sec. 2.  23 MRSA §3360-A, sub-§1, ¶F, as amended by PL 2001, c. 577, §3, is 
+23 further amended to read:
+24 F.  "Underground facility operator" means the owner or operator of any underground 
+25 facility, other than an underground oil storage facility as defined in Title 38, section 
+26 562‑A, subsection 21 or an airport aviation fuel hydrant piping system, used in 
+27 furnishing electric, telephone, telegraph, gas, petroleum transportation, liquefied 
+28 propane gas or cable television service.  "Underground facility operator" does not 
+29 include a municipality or a public utility with fewer than 5 full-time employees or fewer 
+30 than 300 customers or a person that owns underground facilities on its own property 
+31 for commercial or residential purposes.
+32Sec. 3.  Public Utilities Commission; rules.  The Public Utilities Commission 
+33 shall initiate rulemaking to amend its rule Chapter 895: Underground Facility Damage 
+34 Prevention Requirements to reduce the administrative burdens for underground facility 
+35 operators as defined in the Maine Revised Statutes, Title 23, section 3360-A, subsection 1, 
+36 paragraph F.  Notwithstanding Title 23, section 3360-A, subsection 13, rules adopted 
+37 pursuant to this section are routine technical rules as defined in Title 5, chapter 375, 
+38 subchapter 2‑A.
+39SUMMARY
+40 This bill is reported out by the Joint Standing Committee on Energy, Utilities and 
+41 Technology pursuant to Resolve 2023, chapter 47, section 3. The bill does the following.
+40
+41
+Page 2 - 131LR3095(01)
+1 1. It provides that an underground facility includes any item of personal property buried 
+2 or placed below ground for use in connection with the storage or conveyance of liquefied 
+3 propane gas.
+4 2. It exempts from the definition of "underground facility" liquefied propane gas 
+5 distribution systems that have underground pipes when that system is located on a 
+6 residential lot that has no more than one structure connected by underground pipes to the 
+7 liquefied propane gas distribution system, the structure has no more than 2 dwelling units 
+8 and the liquefied propane gas tank is located 25 feet or less from the structure.
+9 3. It provides that the owner or operator of any underground facility furnishing 
+10 liquefied propane gas is considered an underground facility operator. 
+11 4. It directs the Public Utilities Commission to amend its rule Chapter 895: 
+12 Underground Facility Damage Prevention Requirements to reduce the administrative 
+13 burdens for underground facility operators under the so-called Dig Safe law and specifies 
+14 that rules adopted for these purposes are routine technical rules.
+15 The committee has not taken a position on the substance of the bill.  By reporting the 
+16 bill out the committee is not suggesting and does not intend to suggest that it agrees or 
+17 disagrees with any aspect of the bill. The committee is reporting the bill out for the sole 
+18 purpose of having a bill printed that can be referred to the committee for an appropriate 
+19 public hearing and subsequent processing in the normal course. The committee is taking 
+20 this action to ensure clarity and transparency in the legislative review of the proposals 
+21 contained in the bill.

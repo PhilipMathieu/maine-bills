@@ -1,0 +1,167 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+"^ 1'; L.D. 122
+^'' "
+2 Date:y|?5P^ (Filing No. S-5^//)
+MAJORITY I
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " f( " to S.P, 61, L.D. 122, "An Act to Authorize the
+10 Efficiency Maine Trust to Establish a Program to Support the Uptake ofMedium-duty and
+11 Heavy-duty Zero-emission Vehicles by Maine Businesses and to Establish a Medium-duty
+12 and Heavy-duty Zero-emission Vehicle-to-grid Pilot Project"
+13 Amend the bill by striking out the title and substituting the following;
+14 'An Act to Update the Electric Vehicle Rebate Program and to Establish a Pilot
+15 Program to Support the Uptake of JVIedium Duty and Heavy Duty Zero-emission
+16 Vehicles'
+17 Amend the bill by strikmg out everything after the enacting clause and inserting the
+18 following:
+19 'See. 1. 35-A MRSA §10126, sub-§3, as amended by PL 2023,c.140,§2, is further
+20 amended to read:
+21 3. Rebate Incentive program established; eligibility. In accordance with the
+22 provisions of this section, the trust shall establish and administer a program that provides
+23 rebates incentives for the purchase or lease of electric vehicles. A person may apply for
+24 and, as resources within the fund allow, receive a-febate an incentive for an electric vehicle,
+25 subject to eligibility requu'ements established by the trust. Eligibility criteria for the vehicle
+26 must include that the vehicle is- a battery electric vehicle or a plug-in hybrid electric
+27 vehicle; the vehicle is purchased, or leased for a term of 36 months or more. from its
+28 original equipment manufacturer or an authorized licensee of the original equipment
+29 manufacturer or a licensed automobile dealer for a term of 36 months or more, in the State
+30 or from its original equipment manufacturer, wherever located; and, to the extent required
+31 by Title 29-A, chapter 5, the vehicle is registered in the State. An automobile, as defined
+32 in Title 29-A, section 101, subsection 7, with a gross vehicle weight rating of 6,000 pounds
+33 or less is not eligible for the program if it has a manufacturer's suggested retail price greater
+34 than $50,000 $55.000. To the extent funds are available, the trust may extend program
+3 5 eligibility to medium duty vehicles and heavy duty vehicles that are battery electric vehicles
+36 or plug-in hybrid electric vehicles and to electric bicycles. Eligibility requirements for the
+Page 1 - 131LR0753(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " // " to S.P. 61, L.D. 122
+-.-, (j v; •:-' 1 recipient of the febate mcentive must include that the recipient attests to a commitment to
+*" 2 fetaia-ewfierabip mamtain a registration in this State to the extent required by Title 29-A.
+3 chapter 5, whether through purchase or lease, of the eligible electric vehicle for at least 36
+4 months from the date of purchase or lease. The trust may require a recipient of a rebate an
+5 incentive under this section who does not FeteiH-ewawsfeip maintain a registration in this
+6 State of the eligible electric vehicle for at least 36 months to repay the trust up to the full
+7 amount of the rebate incentive. If the tmst extends program eligibility to electric bicycles,
+8 the trust shall limit the electric bicycle rebates incentives to recipients who are low-income
+9 and moderate-mcome individuals and to entities that serve those individuals, as determmed
+10 by the trust. For a recipient to receive a rebate an incentive for the purchase of an electric
+11 bicycle under the program, the electric bicycle must serve as the recipient's principal means
+12 of commuting, as determined by the trust.
+13 The tmst shall establish the Febste incentive amount for each eligible electric vehicle. The
+14 trust shall establish rebate incentive amounts that it determines most effectively increase
+15 the purchase use of eligible electric vehicles m the State to advance the State's carbon
+16 reduction targets and reduce transportation-related energy costs. For each model of an
+17 eligible electric vehicle, the trust may establish different pebete incentive amounts based
+18 on the size of the vehicle battery. The trust may establish different rebate incentive amounts
+19 for the purpose of providing reasonable opportunity for participation in the program across
+20 different customer groups and geographic areas. The trust may establish reasonable limits
+21 on the number of rebates incentives per vehicle or per person.
+22 Sec. 2. 35-A MRSA §10126, sub-§4, as enacted by PL 2019, c. 258, §1 and
+23 reallocated by RR 2019, c. 1, Pt. A, §54, is amended to read:
+24 4. List of eligible electric vehicles; applications. The trust shall develop, make
+25 available on its publicly accessible website and periodically update a list of eligible electric
+26 vehicles and rebates incentives included in the program. The trust shall develop and make
+27 available at its offices and on its publicly accessible website all forms and other documents
+28 necessary for a person to apply for and receive a direct rehste incentive under this section.
+29 Sec. 3. IVIedium duty and heavy duty electric vehicle pilot program. For
+30 fiscal years 2023-24 to 2025-26, to the extent that funds within the Electric Vehicle Fund
+31 established by the Maine Revised Statutes, Title 35-A, section 10126, subsection 2 allow,
+32 the Efficiency Maine Trust, referred to in this section as "the trust," shall establish a pilot
+33 program to provide incentives for the purchase or lease of medium duty and heavy duty
+34 vehicles in commercial applications that are electric vehicles. For the purposes of this
+35 section, "electric vehicle" means a battery electric vehicle as defined in Title 35-A, section
+36 10126, subsection 1, paragraph A. The pilot program must be designed to demonstrate the
+37 performance of the electric vehicles that are purchased or leased by pilot program
+3 8 participants and gather information about the electric vehicles' costs, benefits and other
+39 considerations relevant to their use and adoption in this State. The pilot program
+40 participants must be limited to businesses with 500 or fewer employees, that have their
+41 principal place of business in this State and that may use medium duty and heavy duty
+42 vehicles, excluding school buses, rated Class 2b through Class 8 under the United States
+43 Environmental Protection Agency classification system. In providing incentives for the
+44 purchase or lease of medium duty and heavy duty vehicles under the pilot program, the
+45 trust shall:
+Page 2 - 131LR0753(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT "/}- " to S.P. 61, L.D. 122 / <>-
+ff. w,
+1. Ensure that at least 50% of funds used to provide incentives under the pilot program
+2 are provided to businesses with 50 or fewer employees;
+3 2. Give preference to purchases or leases that use supply channels in this State; and
+4 3. Prioritize vehicle types commonly used and commercially available in the State for
+5 which the duty cycle proposed by the business is suitable for the electric vehicle model as
+6 determined by the trust, while giving consideration for the amount and type of daily use
+7 and the potential to improve energy independence and reduce greenhouse gas emissions.
+8 By December 31 , 2026, the trust shall submit a report of the activities and findings of
+9 the pilot program to the joint standing committee of the Legislature having jurisdiction over
+10 energy matters. The committee may report out a bill related to the trust's report to the 133rd
+11 Legislature in 2027.'
+12 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+13 number to read consecutively.
+14 SUMMARY
+15 This amendment replaces the bill, which is a concept draft, and does the following.
+16 1. It replaces the term "rebate" in the electric vehicle rebate program with the term
+17 "incentive,"
+18 2. It increases the maximum retail price of an electric vehicle that may qualify for the
+19 electric vehicle incentive program from $50,000 to $55,000 and clarifies that, to qualify for
+20 an mcentive, the requirement that the purchase or lease be from an in-state entity only
+21 applies to purchases or leases from licensed automobile dealers and authorized licensees of
+22 the original equipment manufacturer.
+23 3. It allows the Efficiency Maine Tmst to require that a recipient of an incentive under
+24 the electric vehicle incentive program maintain a Maine registration for 3 6 months to retain
+25 the full amount of the incentive instead ofrequirmg ownership for 36 months.
+26 4. It clarifies that the Efficiency Maine Tmst must establish incentive amounts that it
+27 determines will most effectively increase the use of eligible electric vehicles in this State
+28 to advance the State's carbon reduction targets.
+29 5. It requires the Efficiency Maine Tmst, to the extent that funds allow, to establish a
+30 pilot program to provide incentives for the purchase or lease of medium duty and heavy
+31 duty vehicles in commercial applications that are electric vehicles and establishes eligibility
+32 requirements for participants in the pilot program.
+33 6. It requires the Efficiency Maine Trust to provide a report to the joint standing
+34 committee of the Legislature having jurisdiction over energy matters on the activities and
+35 findings of the program by December 31, 2026.
+3 6 FISCAL NOTE REQUIRED
+37 (See attached)
+Page 3 - 131LR0753(02)
+COMMITTEE AMENDMENT
+Approved: 02/13/24 .^K?^
+131st MAINE LEGISLATURE
+LD 122 LR 753(02)
+An Act to Authorize the Efficiency Maine Trust to Establish a Program to Support the Uptake of
+IVIedium-duty and Heavy-duty Zero-emission Vehicles by Maine Businesses and to Establish a
+Medium-duty and Heavy-duty Zero-emission Vehicle-to-grid Pilot Project
+Fiscal Note for Bill as Amended by Committee Amendment '^7< z^L/
+Committee: Energy, Utilities and Technology
+Fiscal Note Required: Yes
+Fiscal Note
+Minor cost increase - Efficiency Maine Tmst
+Fiscal Detail and Notes
+Any additional costs to the Efficiency Maine Tmst to implement the provisions of this bill are expected to be mir
+and can be absorbed within existing budgeted resources.
+LR0753(02) - Fiscal Note - Page 1 of 1

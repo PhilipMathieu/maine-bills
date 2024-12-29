@@ -1,0 +1,141 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+1 L.D. 1465
+2 Date:^||5|5*< __ (Piling No. S-5J/ )
+MINORITY
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT "Q- " to S.P. 584, L.D. 1465, "An Act to Amend the
+10 Calculation of Tariff Rates and Billing Credits Under Net Energy Billing"
+11 Amend the bill by striking out the title and substituting the following:
+12 'An Act to Allow the Public Utilities Commission to Determine Tariff Rates Under
+13 Net Energy Billing'
+14 Amend the bill by striking out everything after the enacting clause and inserting the
+15 following:
+16 'See. 1. 35-A MRSA §3209-B, sub-§5, as amended by PL 2021, c.659, §19, is
+17 further amended to read:
+18 5. Tariff rate; bill credits. The commission shall establish by rule tariff rates for
+19 customers participating in the program. The initial tariff rate must be established no later
+20 than December 1, 2019.
+21 A. r0&e Except as otherwise provided by the commission pursuant to subsection 9. the
+22 tariff rate for a customer participating in net energy billing with a distributed generation
+23 resource described in this paragraph must equal the standard-offer service rate
+24 established under section 3212 that is applicable to the customer receiving the credit
+25 plus 75% of the effective transmission and distribution rate for the rate class that
+26 includes the smallest commercial customers of the investor-owned transmission and
+27 distribution utility. The tariff rate under this paragraph applies to net energy billing
+28 with a distributed generation resource:
+29 (1) With a nameplate capacity of greater than one megawatt if:
+30 (a) The entity developing the distributed generation resource certifies by
+31 affidavit with accompanying documentation to the commission that the entity,
+32 before September 1, 2022, commenced on-site physical work of a significant
+33 nature on the distributed generation resource and the entity has made and will
+34 continue to make continuous on-site construction efforts to advance toward
+35 completion of the distributed generation resource. For the purpose of this
+Page 1 - 131LR1597(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " ^ " to S.P. 584, L.D. 1465 (^ 53?
+1 paragraph, continuous on-site construction efforts include, but are not limited
+2 to, in the context of a solar facility, the continuous installation of racks or other
+3 structures to affix photovoltaic panels, collectors or solar cells to a site. The
+4 commission may share information contained in the affidavit submitted in
+5 accordance with this paragraph with a transmission and distribution utility, as
+6 necessary, to verify a distributed generation resource's compliance with this
+7 section. In administering this subsection, the commission may adopt rules
+8 including, but not limited to, requiring the entity that submits a sworn affidavit
+9 under this subparagraph to provide updated documentation to the commission
+10 after submission of the affidavit; or
+11 (b) The distributed generation resource is collocated with a net energy billing
+12 customer that is or net energy billing customers that are subscribed to at least
+13 50% of the facility's output; or
+14 (2) With a nameplate capacity of one megawatt or less.
+15 A-l. The Except as otherwise provided by the commission pursuant to subsection 9.
+16 the tariff rate for a customer participating in net energy billing under this section with
+17 a distributed generation resource not governed by paragraph A must:
+18 (1) In 2022, equal the standard-offer service rate established pursuant to section
+19 3212 that was applicable to the rate class of the customer receiving the credit on
+20 December 31, 2020 plus 75% of the effective transmission and distribution rate
+21 that was in effect on December 31,2020 for the rate class that includes the smallest
+22 commercial customers of the investor-owned transmission and distribution utility;
+23 and
+24 (2) Increase by 2.25% on January 1 st of each subsequent year, beginning January
+25 1,2023,
+26 B. A customer participating in the program must receive for electricity delivered to
+27 the electric grid from a distributed generation resource in which the customer has a
+28 fmancial interest a bill credit based on the tariff rate to apply against the costs of
+29 electricity delivered to the customer by the investor-owned transmission and
+30 distribution utility.
+31 C. A bill credit under the program as described in paragraph B may be applied to any
+32 portion of a customer's electricity bill. Credits that remain unused at the end of any
+33 billing period may be carried forward for up to one year from the end of that billing
+34 period.
+35 D. A customer participating in the program who remains eligible to participate in tfae
+3 6 program must be allowed to receive a bill credit based on the tariff rate for a period of
+37 no less than 20 years from the date of first receiving the credit.
+3 8 Sec. 2. 35-A MRSA §3209-B, sub-§9 is enacted to read:
+39 9. Review of compensation; rules. Notwithstanding any provision of this section to
+40 the contrary, the commission may periodically review andalter by rule the amount of
+41 compensation, whichjnay inclydea bilLcreditbasecLon the tariff rate, that a customer with
+42 a fmancial interest in a distributed generation resource receives as a result of participating
+43 in net energy billine under this section. In making any alteration under this subsection, the
+44 commission shall use a standard or representative distributed eeneration resource to assess
+Page 2 - 131LR1597(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " & " to S.P. 584, L.D, 1465
+-&.
+'1 the amount of compensation provided in accordance with subsection 5 and shall ensure that
+2 anv_alteration provides a reasonable opportunity for the recovery of reasonable costs, as
+3 determined by the commission. and a reasonable rate of return. The commission may not
+4 increase any compensation above the lowest amount that would be received under this
+5 section absent this subsection. Rules adopted pursuant to this subsection are major
+6 substantive rules as defined in TitleJ, chapter 3 75^nbchaBter 2-A,'
+7 Amend the bill by relettermg or renumbering any nonconsecutive Part letter or section
+8 number to read consecutively.
+9 SUMMARY
+10 This amendment replaces the bill and changes the title. The amendment provides that
+11 the Public Utilities Commission may periodically review and alter, by major substantive
+12 mle, the amount of compensation that a customer with a financial interest in a distributed
+13 generation resource receives as a result of participating in the tariff rate net energy billing
+14 program under the Maine Revised Statutes, Title 35-A, section 3209-B.
+15 FISCAL NOTE REQUIRED
+16 (See attached)
+Page 3 - 131LR1597(02)
+COMMITTEE AMENDMENT
+Approved: 02/01/24 ^K?c*-
+131st MAINE LEGISLATURE
+LD 1465 LR 1597(02)
+An Act to Amend the Calculation of Tariff Rates and Billing Credits Under Net Energy Billing
+Fiscal Note for Bill as Amended by Committee Amendment "^•'/',^$,2J|
+Committee: Energy, Utilities and Technology
+Fiscal Note Required: Yes
+Fiscal Note
+Minor cost increase - Other Special Revenue Funds
+Fiscal Detail and Notes
+Any additional costs to the Public Utilities Commission to adopt the changes in this bill are expected to be minor and
+can be absorbed within existing budgeted resources.
+LR1597(02) - Fiscal Note - Page 1 of 1

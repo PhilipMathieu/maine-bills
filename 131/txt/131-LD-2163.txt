@@ -1,0 +1,159 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2163
+S.P. 918 In Senate, January 11, 2024
+An Act to Require Electricity Providers to Inform Customers of 
+Alternative Electric Rates and Gather Consent Prior to Contract 
+Renewal
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Energy, Utilities and Technology suggested and ordered 
+printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator GROHOSKI of Hancock.
+
+Page 1 - 131LR2863(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  35-A MRSA §3202, sub-§9 is enacted to read:
+39.  Customer enrollment or unenrollment.  An entity that provides electric billing 
+4 and metering services shall process an electronic transaction of enrollment or unenrollment 
+5 of a customer from a standard-offer service provider or competitive electricity provider, 
+6 and the electronic transaction must be effective within 3 business days after receipt of an 
+7 electronic transaction notice from a standard-offer service provider or competitive 
+8 electricity provider.  An entity that provides electric billing and metering services shall 
+9 assign a customer who has been unenrolled by a competitive electricity provider and not 
+10 been enrolled by another competitive electricity provider to the appropriate standard-offer 
+11 service. An entity that provides electric billing and metering services is not required to 
+12 process more than 2 enrollments and 2 unenrollments per customer per bill cycle.
+13Sec. 2.  35-A MRSA §3203, sub-§4-B, ¶A, as enacted by PL 2017, c. 74, §1, is 
+14 amended to read:
+15 A.  Shall disclose, before entering into an agreement to provide service to a residential 
+16 consumer, to the residential consumer where the publicly accessible website addresses 
+17 and the telephone numbers of the commission and the Office of the Public Advocate 
+18 from which the residential consumer can obtain information with which to compare the 
+19 rates for service provided by the  standard-offer service provider and other competitive 
+20 electricity provider and the standard-offer service  providers;
+21Sec. 3.  35-A MRSA §3203, sub-§4-B, ¶C, as enacted by PL 2017, c. 74, §1, is 
+22 amended to read:
+23 C.  May not renew a contract for generation service at a fixed rate that is 20% or more 
+24 above the contract rate in the expiring contract without the express consent of the 
+25 residential consumer. Prior to securing the express consent of the residential consumer, 
+26 the competitive electricity provider shall provide the residential consumer in writing 
+27 with the proposed renewal rate and terms, the standard-offer service rate in effect at 
+28 the time consent is requested and the time period for which it is effective, any additional 
+29 standard-offer service rate approved by the commission that will be in effect during the 
+30 contract and the time period for which it is effective and the publicly accessible website 
+31 addresses and the telephone numbers of the commission and the Office of the Public 
+32 Advocate from which the residential consumer can obtain information with which to 
+33 compare the rates for service provided by a standard-offer service provider, the 
+34 residential consumer's current competitive electricity provider and other competitive 
+35 electricity providers;  and
+36Sec. 4.  35-A MRSA §3203, sub-§4-B, ¶D, as enacted by PL 2017, c. 74, §1, is 
+37 repealed.
+38Sec. 5.  35-A MRSA §3203, sub-§4-B, as amended by PL 2023, c. 375, §1, is 
+39 further amended by amending the first blocked paragraph to read:
+40 If a residential consumer does not provide the express consent required by paragraphs 
+41 paragraph C  and D, the residential consumer must be transferred to standard-offer service.
+42Sec. 6.  35-A MRSA §3203, sub-§15, as enacted by PL 1997, c. 316, §3, is amended 
+43 by enacting at the end a new first blocked paragraph to read:
+Page 2 - 131LR2863(01)
+1 An entity providing electric billing and metering services for a competitive electricity 
+2 provider shall indicate on each bill the publicly accessible website addresses and the 
+3 telephone numbers of the commission and the Office of the Public Advocate from which 
+4 the residential consumer can obtain information with which to compare the rates for service 
+5 provided by the standard-offer service provider and other competitive electricity providers.
+6Sec. 7.  35-A MRSA §3203, sub-§18, as amended by PL 2021, c. 108, §5, is further 
+7 amended to read:
+818.  Confidentiality of consumer customer information.  Information concerning 
+9 customers of a competitive electricity provider or customers contacted or enrolled by any 
+10 of its 3rd-party sales agents is subject to the same confidentiality protections afforded utility 
+11 customer information under section 704, subsection 5.  Upon the request of the Office of 
+12 the Public Advocate, an entity providing electric billing and metering services or a 
+13 competitive electricity provider shall provide the Office of the Public Advocate with 
+14 confidential information regarding competitive electricity provider sales, the 
+15 confidentiality of which the Office of the Public Advocate shall protect in the same manner 
+16 as records placed under a protective order by the commission.
+17Sec. 8.  35-A MRSA §3203, sub-§19 is enacted to read:
+1819.  Low-income customers.  Whenever a competitive electricity provider enters into 
+19 an agreement to provide service to a residential customer, either initially or for renewal of 
+20 an existing agreement, the residential customer shall consent to the competitive electricity 
+21 provider having access to confidential information held by the transmission and distribution 
+22 utility of the residential customer about whether the residential customer is receiving 
+23 financial assistance pursuant to a low-income assistance program authorized by section 
+24 3214. On a monthly basis, a transmission and distribution utility shall send competitive 
+25 electricity providers a list of all residential customers served by that transmission and 
+26 distribution utility that are receiving financial assistance pursuant to a low-income 
+27 assistance program authorized by section 3214. If a competitive electricity provider is 
+28 informed that a residential customer is receiving financial assistance pursuant to a low-
+29 income assistance program authorized by section 3214, the competitive electricity provider 
+30 may not enter into a renewal contract with that residential customer that would result in a 
+31 rate being charged during the contract period that is higher than the standard-offer service 
+32 rate in effect at the time the contract is entered into.
+33Sec. 9.  35-A MRSA §3212, sub-§7 is enacted to read:
+347.  Billing services.  An entity providing electric billing and metering services for a 
+35 standard-offer service provider shall indicate on each bill the publicly accessible website 
+36 addresses and the telephone numbers of the commission and the Office of the Public 
+37 Advocate from which the residential consumer can obtain information with which to 
+38 compare the rates for service provided by the standard-offer service provider and 
+39 competitive electricity providers.
+40Sec. 10.  35-A MRSA §3212, sub-§8 is enacted to read:
+418.  Confidentiality of customer information.  Information concerning customers of a 
+42 standard-offer service provider or any of its 3rd-party sales agents is subject to the same 
+43 confidentiality protections afforded utility customer information under section 704, 
+44 subsection 5.  Upon the request of the Office of the Public Advocate, an entity providing 
+Page 3 - 131LR2863(01)
+45 electric billing and metering services or a competitive electricity provider shall provide the 
+46 Office of the Public Advocate with confidential information regarding standard-offer 
+47 service provider sales, the confidentiality of which the Office of the Public Advocate shall 
+48 protect in the same manner as records placed under a protective order by the commission.
+5SUMMARY
+6 This bill accomplishes the following.
+7 1.  It requires competitive electricity providers to provide customers with information 
+8 at the time of contract renewal regarding how the customers can compare the standard-
+9 offer service rate and the rates of other competitive electricity providers. 
+10 2.  It requires entities providing billing services to competitive electricity providers and 
+11 standard-offer service providers to provide customers with information on customers' bills 
+12 regarding how the customers can compare the standard-offer service rate and the rates of 
+13 competitive electricity providers.
+14 3.  It requires competitive electricity providers to gather consent for all contract 
+15 renewals and requires electric utilities to process electronic enrollments or unenrollments 
+16 of customers within 3 business days.
+17 4.  It allows the Office of the Public Advocate to request and review confidential 
+18 information from a competitive electricity provider or a standard-offer service provider 
+19 pertinent to a proceeding and upon issuance of a Public Utilities Commission order 
+20 providing for protection of such confidential information.
+21 5.  It requires transmission and distribution utilities to provide a list of residential 
+22 customers who receive financial assistance from a low-income assistance program to 
+23 competitive electricity providers and prohibits competitive electricity providers from 
+24 entering into a renewal contract with a residential customer receiving assistance that would 
+25 result in a rate being charged that is higher than the standard-offer service rate.
+1
+2
+3
+4
+6

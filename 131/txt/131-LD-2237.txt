@@ -1,0 +1,497 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2237
+H.P. 1437 House of Representatives, February 28, 2024
+An Act to Strengthen Public Safety, Health and Well-being by Expanding Services 
+and Coordinating Violence Prevention Resources
+(AFTER DEADLINE)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 205.
+Reference to the Committee on Health and Human Services suggested and ordered printed.
+ROBERT B. HUNT
+Clerk
+Presented by Speaker TALBOT ROSS of Portland.
+Cosponsored by President JACKSON of Aroostook and
+Representatives: ABDI of Lewiston, ANKELES of Brunswick, ARFORD of Brunswick, BELL of Yarmouth, 
+BOYLE of Gorham, BRENNAN of Portland, BRIDGEO of Augusta, CLOUTIER of Lewiston, CLUCHEY of 
+Bowdoinham, COLLINGS of Portland, COPELAND of Saco, CRAFTS of Newcastle, CRAVEN of Lewiston, 
+CROCKETT of Portland, DANA of the Passamaquoddy Tribe, DHALAC of South Portland, DILL of Old Town, 
+DODGE of Belfast, DOUDERA of Camden, EATON of Deer Isle, FAY of Raymond, GATTINE of Westbrook, 
+GEIGER of Rockland, GERE of Kennebunkport, GOLEK of Harpswell, GRAHAM of North Yarmouth, 
+GRAMLICH of Old Orchard Beach, HASENFUS of Readfield, HEPLER of Woolwich, HOBBS of Wells, 
+JAUCH of Topsham, KESSLER of South Portland, KUHN of Falmouth, LAJOIE of Lewiston, LANDRY of 
+Farmington, LaROCHELLE of Augusta, LEE of Auburn, LOOKNER of Portland, MADIGAN of Waterville, 
+MALON of Biddeford, MASTRACCIO of Sanford, MATHIESON of Kittery, MATLACK of St. George, 
+MEYER of Eliot, MILLETT of Cape Elizabeth, MILLIKEN of Blue Hill, MONTELL of Gardiner, MOONEN of 
+Portland, MORIARTY of Cumberland, MURPHY of Scarborough, O'CONNELL of Brewer, O'NEIL of Saco, 
+OSHER of Orono, PERRY of Calais, PERRY of Bangor, PLUECKER of Warren, PRINGLE of Windham, 
+RANA of Bangor, RIELLY of Westbrook, RISEMAN of Harrison, ROBERTS of South Berwick, ROEDER of 
+Bangor, RUNTE of York, RUSSELL of Verona Island, SACHS of Freeport, SALISBURY of Westbrook, 
+SARGENT of York, SAYRE of Kennebunk, SHAGOURY of Hallowell, SHAW of Auburn, SHEEHAN of 
+Biddeford, SINCLAIR of Bath, SKOLD of Portland, STOVER of Boothbay, SUPICA of Bangor, TERRY of 
+Gorham, WARREN of Scarborough, WHITE of Waterville, WILLIAMS of Bar Harbor, WORTH of Ellsworth, 
+ZAGER of Portland, ZEIGLER of Montville, Senators: BAILEY of York, BALDACCI of Penobscot, BEEBE-
+CENTER of Knox, BRENNER of Cumberland, CARNEY of Cumberland, CHIPMAN of Cumberland, CURRY 
+of Waldo, DAUGHTRY of Cumberland, DUSON of Cumberland, HICKMAN of Kennebec, INGWERSEN of 
+York, LAWRENCE of York, NANGLE of Cumberland, PIERCE of Cumberland, RAFFERTY of York, 
+ROTUNDO of Androscoggin, TIPPING of Penobscot, VITELLI of Sagadahoc.
+
+Page 1 - 131LR2985(01)
+1Be it enacted by the People of the State of Maine as follows:
+2PART A
+3Sec. A-1.  Strengthen and expand mental health crisis intervention mobile 
+4response services.  The Department of Health and Human Services shall strengthen and 
+5 expand mental health crisis intervention mobile response services in order to provide 
+6 services 24 hours a day, 7 days a week.  The department shall provide for the incorporation 
+7 of mobile outreach peer support specialists, certified intentional peer support specialists 
+8 and recovery coaches, mental health law enforcement liaisons through behavioral health 
+9 agencies and community debriefing and critical incident response services into the existing 
+10 crisis services response system.  The department shall also provide for ancillary services 
+11 that are required components of mental health crisis intervention mobile response services.  
+12 The funding for these ancillary services must include travel costs to and from mobile face-
+13 to-face assessments not to exceed the federal per mile rate, travel time to and from mobile 
+14 face-to-face assessments and reimbursement for time spent on telephone conferences with 
+15 clients.  The department shall provide reimbursement for peer support services provided as 
+16 mental health crisis intervention mobile response services under the MaineCare program.
+17Sec. A-2.  E-9-1-1 and 9-8-8 coordination.  By January 30, 2025, the Department 
+18 of Health and Human Services, in coordination with the Department of Public Safety, shall 
+19 ensure the coordination of services under the State's E-9-1-1 system and the State's 9-8-8 
+20 mobile crisis services system.  By January 30, 2026, the Department of Health and Human 
+21 Services shall submit a status report related to the coordination of services, including 
+22 suggested legislation, to the joint standing committee of the Legislature having jurisdiction 
+23 over health and human services matters.  The joint standing committee may submit a bill 
+24 relating to the report to the Second Regular Session of the 132nd Legislature.
+25Sec. A-3.  Appropriations and allocations.  The following appropriations and 
+26 allocations are made.
+27HEALTH AND HUMAN SERVICES, DEPARTMENT OF
+28Mental Health Services - Community Z198
+29 Initiative: Provides funding to strengthen mental health crisis intervention mobile response 
+30 services in order to provide services 24 hours a day, 7 days a week. This funding must 
+31 provide funding for mobile outreach peer workers.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $808,256
+ __________ __________
+GENERAL FUND TOTAL $0 $808,256
+32Mental Health Services - Community Z198
+37 Initiative: Provides funding to strengthen mental health crisis intervention mobile response 
+38 services in order to provide services 24 hours a day, 7 days a week. This funding must 
+39 provide funding for certified intentional peer support specialists and recovery coaches.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $406,044
+ __________ __________
+32
+33
+34
+35
+36
+40
+41
+42
+Page 2 - 131LR2985(01)
+GENERAL FUND TOTAL $0 $406,044
+1Mental Health Services - Community Z198
+3 Initiative: Provides funding to strengthen mental health crisis intervention mobile response 
+4 services in order to provide services 24 hours a day, 7 days a week. This funding must 
+5 provide funding for mental health law enforcement liaisons through behavioral health 
+6 agencies.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $554,922
+ __________ __________
+GENERAL FUND TOTAL $0 $554,922
+7Mental Health Services - Community Z198
+12 Initiative: Provides funding to strengthen mental health crisis intervention mobile response 
+13 services in order to provide services 24 hours a day, 7 days a week. This funding must 
+14 provide funding for community debriefing and critical incident response.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $113,674
+ __________ __________
+GENERAL FUND TOTAL $0 $113,674
+15Mental Health Services - Community Z198
+20 Initiative: Provides funding to strengthen mental health crisis intervention mobile response 
+21 services in order to provide services 24 hours a day, 7 days a week. This funding must 
+22 provide funding for ancillary services that are required components of mental health crisis 
+23 intervention mobile response services. These ancillary services include travel costs to and 
+24 from mobile face-to-face assessments, not to exceed the federal per mile rate, and 
+25 reimbursement for time spent on telephone conferences with the client.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $636,575
+ __________ __________
+GENERAL FUND TOTAL $0 $636,575
+26  
+HEALTH AND HUMAN SERVICES, 
+DEPARTMENT OF
+  
+DEPARTMENT TOTALS 2023-24 2024-25
+   
+GENERAL FUND $0 $2,519,471
+ __________ __________
+DEPARTMENT TOTAL - ALL FUNDS $0 $2,519,471
+31PART B
+39Sec. B-1.  34-B MRSA §3613 is enacted to read:
+40§3613.  Crisis receiving centers
+1
+2
+7
+8
+9
+10
+11
+15
+16
+17
+18
+19
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+Page 3 - 131LR2985(01)
+11.  Definitions.  As used in this section, unless the context otherwise indicates, the 
+2 following terms have the following meanings.
+3 A.  "Crisis receiving center" means a center providing walk-in access to crisis services 
+4 to individuals experiencing behavioral health, mental health and substance use 
+5 challenges.
+6 B.  "Culturally sensitive trauma-informed care" means care that acknowledges, 
+7 respects and integrates the cultural values, beliefs and practices of individuals and 
+8 families.
+92.  Crisis receiving centers.  The department shall establish crisis receiving centers 
+10 across the State to support individuals dealing with behavioral health, mental health or 
+11 substance use issues.  At a minimum, a crisis receiving center must be established in 
+12 Androscoggin County, Aroostook County, Oxford County, Penobscot County, Washington 
+13 County and York County.  The department shall ensure that crisis receiving centers provide 
+14 culturally sensitive trauma-informed care.
+153.  Rules.  The department may adopt rules to implement this section.  Rules adopted 
+16 pursuant to this subsection are routine technical rules as defined in Title 5, chapter 375, 
+17 subchapter 2-A.
+18Sec. B-2.  Appropriations and allocations.  The following appropriations and 
+19 allocations are made.
+20HEALTH AND HUMAN SERVICES, DEPARTMENT OF
+21Mental Health Services - Community Z198
+22 Initiative: Provides funding to establish 6 crisis receiving centers, one each in 
+23 Androscoggin, Aroostook, Oxford, Penobscot, Washington and York counties.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $9,000,000
+ __________ __________
+GENERAL FUND TOTAL $0 $9,000,000
+24PART C
+29Sec. C-1.  22 MRSA c. 256-B is enacted to read:
+30CHAPTER 256-B
+31OFFICE OF VIOLENCE PREVENTION
+32§1427.  Office of Violence Prevention
+331.  Office established.  The Office of Violence Prevention, referred to in this section 
+34 as "the office," is established within the Maine Center for Disease Control and Prevention 
+35 to coordinate and promote effective efforts to reduce violence in the State, including, but 
+36 not limited to, gun violence, and related trauma and promote research regarding causes of 
+37 and evidence-based responses to violence, including gun violence. 
+382.  Director.  The commissioner shall appoint the director of the office.
+24
+25
+26
+27
+28
+Page 4 - 131LR2985(01)
+13.  Collaboration.  To carry out its duties, the office may collaborate with other state 
+2 agencies and programs, including, but not limited to, the Address Confidentiality Program 
+3 established under Title 5, section 90-B; the Victims' Compensation Board established under 
+4 Title 5, section 3360-A; the Department of Education; the Office of Behavioral Health 
+5 established under Title 5, section 20011; the Office of the Attorney General; and the 
+6 Department of Public Safety.  The office may also collaborate with individuals, educational 
+7 institutions, health care providers and organizations with expertise in violence prevention 
+8 and gun safety.
+94.  Awareness and education.  The office shall increase the awareness of and educate 
+10 the general public about laws and resources relating to violence prevention and conduct 
+11 awareness and education campaigns in accordance with this subsection. 
+12 A.  The office shall increase the awareness of and educate the general public about state 
+13 and federal laws and existing resources relating to violence prevention, including:
+14 (1) The availability of and the process for requesting protection orders, including, 
+15 but not limited to, protection from abuse orders under Title 19-A, chapter 103 and 
+16 protection from harassment orders under Title 5, chapter 337-A;
+17 (2) The process for accessing available mental health and substance use disorder 
+18 resources and how to refer individuals to needed mental health and substance use 
+19 disorder treatment services, including suicide prevention services;
+20 (3) The process for accessing available resources and services for domestic 
+21 violence prevention;
+22 (4) The process for reporting a lost or stolen firearm, including reporting 
+23 requirements in state law;
+24 (5) The best practices for safe storage of firearms; and
+25 (6)  Safe and responsible gun ownership, including increased awareness of the law 
+26 and methods of compliance with state and federal law.
+27 B.  The office shall conduct awareness and education campaigns and develop and 
+28 provide educational materials and training resources, including:
+29 (1) Developing and providing educational materials and training resources to local 
+30 law enforcement agencies, health care providers and educators to assist those 
+31 agencies, providers and educators with educating the public about the laws, 
+32 available resources and effective violence prevention strategies; 
+33 (2) Conducting awareness and education campaigns in a culturally competent way, 
+34 including by providing materials and resources in multiple languages; 
+35 (3) Conducting awareness and education campaigns directed toward gun owners, 
+36 parents and legal guardians of children and organizations that provide services to 
+37 individuals and communities disproportionately affected by gun violence; and
+38 (4) At the request of the Director of the Maine Center for Disease Control and 
+39 Prevention, supporting and providing assistance for education campaigns and 
+40 programs conducted by the department that are related to gun violence, including 
+41 education campaigns and programs relating to the safe storage of firearms and 
+42 suicide prevention.
+Page 5 - 131LR2985(01)
+1 The office may focus the awareness and education campaigns required under this 
+2 paragraph in communities identified by the office as disproportionately affected by gun 
+3 violence and use television messaging, radio broadcasts, print media, digital strategies 
+4 or any other form of messaging considered effective and appropriate by the office to 
+5 achieve the goals of this section.
+65.  Grant program.  Subject to available funding, the office may establish and 
+7 administer a grant program to award grants to organizations to conduct community-based 
+8 violence intervention initiatives that are primarily focused on interrupting cycles of 
+9 violence, including gun violence, trauma and retaliation by providing culturally competent 
+10 intervention services.
+11 A.  To be eligible for a grant award, an organization must demonstrate the ability to 
+12 conduct effective community-based violence intervention initiatives that meet the 
+13 criteria described in this subsection and in rules adopted by the Maine Center for 
+14 Disease Control and Prevention. The office shall prioritize awarding grants to 
+15 organizations that conduct violence intervention initiatives with individuals and in 
+16 communities identified as having the highest imminent risk of perpetrating or being 
+17 victimized by violence.
+18 B.  An initiative conducted with a grant award must use strategies that are evidence-
+19 informed and have demonstrated potential for reducing violence without contributing 
+20 to mass incarceration, such as group violence interventions, evidence-based street and 
+21 community outreach programs, violence interruption and crisis management programs 
+22 and individualized wraparound services. To improve the effectiveness of a violence 
+23 intervention initiative, a grant recipient shall conduct regular evaluations of the 
+24 initiative, including community input and engagement.
+25 C.  The Maine Center for Disease Control and Prevention shall adopt rules necessary 
+26 for the administration of the grant program, including grant application procedures, 
+27 criteria for determining the amount and duration of the grants and reporting 
+28 requirements for organizations that receive grants.
+29 D.  In administering the grant program, the office shall collaborate with stakeholders 
+30 as needed to ensure equity in the distribution of grants.  The office shall consult with 
+31 stakeholders to develop grant priorities. Stakeholders must include individuals and 
+32 families affected by violence, organizations with expertise in violence prevention and 
+33 gun safety and representatives of communities of color.
+346.  Data hub.  The office shall create and maintain a data hub of regularly updated and 
+35 accurate materials and resources as a repository for data, research and statistical 
+36 information regarding violence in the State, including gun violence. As part of maintaining 
+37 the data hub, the office shall:
+38 A. Assist researchers who are seeking information regarding violence in the State;
+39 B.  Collaborate with researchers, including organizations that conduct gun violence 
+40 research, to: 
+41 (1) Identify gaps in available data needed to conduct violence prevention research 
+42 and develop strategies to improve relevant data collection in the State; 
+43 (2) Use existing available research to enhance evidence-based violence prevention 
+44 tools and resources available to communities in the State; and 
+Page 6 - 131LR2985(01)
+1 (3) Improve the understanding of the disproportionate barriers to safety from 
+2 violence by encouraging disaggregation of data by race and ethnicity when 
+3 research is conducted; and
+4 C.  Promote new and relevant research regarding violence prevention and, if possible, 
+5 make the research accessible to researchers and the public.
+67. Funding.  The office may receive funding from any source for the purposes of this 
+7 section.  The office shall identify and apply for available federal grants and other funding 
+8 to further its work to prevent violence. The office may work in collaboration with other 
+9 state agencies and organizations to identify and apply for federal grants and other funding.
+108.  Reporting requirements.  The office and the department shall provide the 
+11 following reports relating to the office's work.
+12 A.  Annually, by November 30th, the office shall report to the department on the 
+13 activities it has conducted in the preceding 12 months. The report must include: 
+14 (1) Information regarding awareness and education campaigns conducted by the 
+15 office; 
+16 (2) Effective violence intervention programs identified by the office; 
+17 (3) Any federal grants or other funding the office applied for and whether the office 
+18 received those grants or other funds;
+19 (4) A general summary of new and relevant research included in the office's data 
+20 hub under subsection 6 and the nature of research assistance provided by the office; 
+21 and
+22 (5)  Recommendations to enhance the administration and operation of the office 
+23 and improve the availability of services to reduce violence in the State.
+24 The office shall make the report available on its publicly accessible website or on the 
+25 Maine Center for Disease Control and Prevention's publicly accessible website. 
+26 B.  In its annual report to the joint standing committee of the Legislature having 
+27 jurisdiction over health and human services matters pursuant to section 1425, the 
+28 Maine Center for Disease Control and Prevention shall include a summary of the 
+29 office's annual report submitted under paragraph A, including recommendations under 
+30 paragraph A, subparagraph (5) and instructions for accessing any new and relevant 
+31 violence prevention research identified by the office in paragraph A, subparagraph (4). 
+32 The Maine Center for Disease Control and Prevention shall make the summary 
+33 available on its publicly accessible website. 
+349.  Rules.  The Maine Center for Disease Control and Prevention shall adopt rules to 
+35 implement this chapter.  Rules adopted pursuant to this subsection are major substantive 
+36 rules as defined in Title 5, chapter 375, subchapter 2-A.  
+37PART D
+38Sec. D-1.  Appropriations and allocations.  The following appropriations and 
+39 allocations are made.
+40HEALTH AND HUMAN SERVICES, DEPARTMENT OF
+41Mental Health Services - Community Z198
+Page 7 - 131LR2985(01)
+1 Initiative: Provides funding to reduce waiting lists for and expand access to medication 
+2 management services provided by the Office of Behavioral Health that are similar to the 
+3 services provided under the department's rule Chapter 101: MaineCare Benefits Manual, 
+4 Chapter II, Section 65, Behavioral Health Services, to meet the timely access requirements 
+5 under the consent decree referenced in the Maine Revised Statutes, Title 34-B, section 
+6 1217. Medication management services include telehealth services and employee 
+7 recruitment and retention incentives.
+GENERAL FUND 2023-24 2024-25
+All Other $0 $6,000,000
+ __________ __________
+GENERAL FUND TOTAL $0 $6,000,000
+8PART E
+13Sec. E-1.  25 MRSA §2015 is enacted to read:
+14§2015.  Gun shop project
+151.  Definitions.  As used in this section, unless the context otherwise indicates, the 
+16 following terms have the following meanings.
+17 A.  "Dangerous or deadly weapon" has the same meaning as "dangerous weapon" in 
+18 Title 17-A, section 2, subsection 9, paragraph C.
+19 B.  "Department" means the Department of Public Safety.
+20 C.  "Firearm" has the same meaning as in Title 17-A, section 2, subsection 12-A.
+21 D.  "Gun shop" means a business located in the State that sells firearms, dangerous or 
+22 deadly weapons or related components, such as ammunition.
+23 E.  "Gun shop project" means a project to develop, create and distribute suicide 
+24 prevention educational materials.
+252.  Administration of the gun shop project.  The department shall administer a gun 
+26 shop project.
+273.  Educational materials.  In administering the gun shop project under this section, 
+28 the department, in partnership with the Department of Health and Human Services, shall 
+29 develop suicide prevention educational materials, including, but not limited to, information 
+30 on:
+31 A. Understanding and recognizing the various clinical signs, symptoms and indicators 
+32 of suicide risk; and
+33 B. Available suicide prevention resources.
+344.  Guidance in developing and creating educational materials.  The department 
+35 shall refer to the following for guidance in developing the educational materials under 
+36 subsection 3:
+37 A. Gun shop projects in other states;
+38 B. Programs created or offered by organizations in the dangerous or deadly weapon 
+39 industry; and
+40 C. Other projects or organizations that the department determines appropriate.
+8
+9
+10
+11
+12
+Page 8 - 131LR2985(01)
+15.  Creation of gun shop project educational materials.  The educational materials 
+2 under subsection 3 must be created as written materials, such as pamphlets, signs, posters, 
+3 tip sheets or other media, and as an online training course for firearm dealers licensed as 
+4 dealers under 18 United States Code, Section 923(a)(3) and for other customers.
+56.  Distribution of gun shop project educational materials.  The department shall 
+6 ensure that the written educational materials created under subsection 5 are available on 
+7 the department's publicly accessible website and are made available to and for distribution 
+8 through:
+9 A. Gun shops, which may distribute the materials at the point of purchase to an 
+10 individual who is purchasing a dangerous or deadly weapon; and
+11 B. Other organizations or locations that the department determines appropriate.
+127.  Training.  The department shall make voluntary training available to gun shops and 
+13 other organizations that receive written educational materials pursuant to subsection 6.  The 
+14 training must focus on methods to recognize the signs, symptoms and indicators of suicide 
+15 risk and available suicide prevention resources.
+168.  Reporting requirement.  Annually, by November 30th, the department shall 
+17 submit a written report regarding the activities of the gun shop project during the prior 
+18 calendar year, including, but not limited to, the categories of educational materials 
+19 developed, the number of written educational materials created and the number of 
+20 participants in the online training course, to the joint standing committee of the Legislature 
+21 having jurisdiction over public safety matters.
+22PART F
+23Sec. F-1.  Law enforcement alerts to the public and federally licensed 
+24firearms dealers.  The Commissioner of Public Safety shall:
+25 1.  Develop and implement procedures to notify the public of active shooter situations.  
+26 The procedures must include procedures for notifying the deaf and hard-of-hearing 
+27 community; and
+28 2.  Study issues concerning the development and implementation of procedures to 
+29 notify all holders of federal firearms licenses in the State regarding all statewide law 
+30 enforcement alerts relating to persons determined to be dangerous or in mental health crisis.  
+31 The study must include consideration of potential constitutional issues and the effect of 
+32 ensuring that the receipt of a law enforcement alert would not create an obligation for or 
+33 liability of the license holder related to any transaction with the person who is the subject 
+34 of the alert.  For the purposes of this subsection, "federal firearms license" means a license 
+35 issued under 18 United States Code, Section 923(a)(3).  By January 1, 2025, the 
+36 commissioner shall submit a report related to the study to the joint standing committee of 
+37 the Legislature having jurisdiction over criminal justice matters.  The committee may 
+38 submit a bill related to the report to the 132nd Legislature in 2025.
+39SUMMARY
+40 This bill enacts provisions to improve mental health crisis response services and to 
+41 reduce violence, including gun violence.
+40
+41
+Page 9 - 131LR2985(01)
+1 Part A provides funding to strengthen and expand mental health crisis intervention 
+2 mobile response services in order to provide services 24 hours a day, 7 days a week.  It 
+3 requires the Department of Health and Human Services to provide for the incorporation of 
+4 specific types of mental health and crisis intervention experts into the existing crisis 
+5 services response system.  It also provides funding for ancillary services for mobile 
+6 response services, including necessary travel and telephone conferences with clients.  Part 
+7 A also requires the Department of Health and Human Services, by January 30, 2025, in 
+8 coordination with the Department of Public Safety, to ensure the coordination of services 
+9 under the State's E-9-1-1 system and the State's 9-8-8 mobile crisis services system.  By 
+10 January 30, 2026, the Department of Health and Human Services must submit a status 
+11 report related to the coordination of services, including suggested legislation, to the joint 
+12 standing committee of the Legislature having jurisdiction over health and human services 
+13 matters, and the joint standing committee may submit a bill relating to the report to the 
+14 Second Regular Session of the 132nd Legislature.
+15 Part B directs the Department of Health and Human Services to establish crisis 
+16 receiving centers across the State to support individuals dealing with behavioral health, 
+17 mental health or substance use issues.  At a minimum, a crisis receiving center must be 
+18 established in Androscoggin, Aroostook, Oxford, Penobscot, Washington and York 
+19 counties.  Crisis receiving centers must provide culturally sensitive trauma-informed care.  
+20 Part B also provides funding to establish 6 crisis receiving centers.
+21 Part C establishes the Office of Violence Prevention within the Maine Center for 
+22 Disease Control and Prevention to coordinate and promote effective efforts to reduce 
+23 violence in the State, including gun violence, and related trauma and promote research 
+24 regarding causes of and evidence-based responses to violence.  The office is directed to 
+25 increase the awareness of and educate the general public about laws and resources relating 
+26 to violence prevention and conduct awareness and education campaigns.  The office may 
+27 establish and administer a grant program to award grants to organizations to conduct 
+28 community-based violence intervention initiatives that are primarily focused on 
+29 interrupting cycles of violence, trauma and retaliation by providing culturally competent 
+30 intervention services.  The office is required to create and maintain a data hub of regularly 
+31 updated and accurate materials and resources as a repository for data, research and 
+32 statistical information regarding violence in the State.  
+33 Part D provides funding to reduce waiting lists for and expand access to medication 
+34 management services, including telehealth services and employee recruitment and 
+35 retention incentives, provided by the Office of Behavioral Health that are similar to the 
+36 services provided under Department of Health and Human Services rule Chapter 101: 
+37 MaineCare Benefits Manual, Chapter II, Section 65, Behavioral Health Services, to meet 
+38 the timely access requirements under the consent decree referenced in the Maine Revised 
+39 Statutes, Title 34-B, section 1217.
+40 Part E requires the Department of Public Safety to administer a gun shop project, which 
+41 is a project to develop, create and distribute suicide prevention educational materials.  It 
+42 requires the Department of Public Safety, in partnership with the Department of Health and 
+43 Human Services, to develop and create written suicide prevention educational materials 
+44 and an online training course.  The written educational materials must be available on the 
+45 department's publicly accessible website and made available to and for distribution through 
+46 gun shops and other organizations determined appropriate by the department.
+Page 10 - 131LR2985(01)
+1 Part F requires the Commissioner of Public Safety to develop and implement 
+2 procedures to notify the public, including the deaf and hard-of-hearing community, of 
+3 active shooter situations.  It also requires the commissioner to study issues concerning the 
+4 development and implementation of procedures to notify all federally licensed firearms 
+5 dealers in the State regarding all statewide law enforcement alerts relating to persons 
+6 determined to be dangerous or in mental health crisis.

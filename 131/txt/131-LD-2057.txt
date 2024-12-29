@@ -1,0 +1,174 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2057
+H.P. 1319 House of Representatives, December 13, 2023
+An Act to Require the State Board of Examiners of Psychologists 
+and the Board of Examiners in Physical Therapy to Obtain 
+Fingerprint-based Federal Bureau of Investigation Criminal 
+Background Checks for Applicants for Licensure
+Submitted by the Department of Professional and Financial Regulation pursuant to Joint 
+Rule 203.
+Received by the Clerk of the House on December 11, 2023.  Referred to the Committee on 
+Health Coverage, Insurance and Financial Services pursuant to Joint Rule 308.2 and ordered 
+printed pursuant to Joint Rule 401.
+ROBERT B. HUNT
+Clerk
+Presented by Representative PERRY of Calais.
+
+Page 1 - 131LR2760(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  25 MRSA §1542-A, sub-§1, ¶AA is enacted to read:
+3 AA.  Who is an applicant for licensure as a psychologist with the State Board of 
+4 Examiners of Psychologists as required under Title 32, section 3833-B.
+5Sec. 2.  25 MRSA §1542-A, sub-§1, ¶BB is enacted to read:
+6 BB.  Who is an applicant for licensure as a physical therapist or a physical therapy 
+7 assistant with the Board of Examiners in Physical Therapy as required under Title 32, 
+8 section 3114-D.
+9Sec. 3.  25 MRSA §1542-A, sub-§3, ¶Z is enacted to read:
+10 Z.  The State Police shall take or cause to be taken the fingerprints of the person named 
+11 in subsection 1, paragraph AA at the request of that person or the State Board of 
+12 Examiners of Psychologists and upon payment of the fee by that person as required by 
+13 Title 32, section 3833-B.
+14Sec. 4.  25 MRSA §1542-A, sub-§3, ¶AA is enacted to read:
+15 AA.  The State Police shall take or cause to be taken the fingerprints of the person 
+16 named in subsection 1, paragraph BB at the request of that person or the Board of 
+17 Examiners in Physical Therapy and upon payment of the fee by that person as required 
+18 by Title 32, section 3114-D.
+19Sec. 5.  32 MRSA §3114-D is enacted to read:
+20§3114-D.  Criminal history record information; fees
+211.  Background check.  The board shall request a background check for each person 
+22 who submits an application for initial licensure or licensure by endorsement as a physical 
+23 therapist or a physical therapist assistant under this chapter. The background check must 
+24 include criminal history record information obtained from the Maine Criminal Justice 
+25 Information System, established in Title 16, section 631, and the Federal Bureau of 
+26 Investigation. 
+27 A.  The criminal history record information obtained from the Maine Criminal Justice 
+28 Information System must include a record of public criminal history record information 
+29 as defined in Title 16, section 703, subsection 8.
+30 B.  The criminal history record information obtained from the Federal Bureau of 
+31 Investigation must include other state and national criminal history record information.
+32 C.  An applicant shall submit to having fingerprints taken. The Department of Public 
+33 Safety, Bureau of State Police, upon payment by the applicant of a fee established by 
+34 the board, shall take or cause to be taken the applicant's fingerprints and shall forward 
+35 the fingerprints to the Department of Public Safety, Bureau of State Police, State 
+36 Bureau of Identification so that the State Bureau of Identification can conduct state and 
+37 national criminal history record checks. Except for the portion of the payment, if any, 
+38 that constitutes the processing fee charged by the Federal Bureau of Investigation, all 
+39 money received by the Bureau of State Police for purposes of this paragraph must be 
+40 paid to the Treasurer of State. The money must be applied to the expenses of 
+41 administration incurred by the Department of Public Safety.  Any person who fails to 
+Page 2 - 131LR2760(01)
+42 transmit criminal fingerprint records to the State Bureau of Identification pursuant to 
+43 this paragraph is subject to the provisions of Title 25, section 1550.
+3 D.  The subject of a Federal Bureau of Investigation criminal history record check may 
+4 obtain a copy of the criminal history record check by following the procedures outlined 
+5 in 28 Code of Federal Regulations, Sections 16.32 and 16.33. The subject of a state 
+6 criminal history record check may inspect and review the criminal history record 
+7 information pursuant to Title 16, section 709.
+8 E.  State and federal criminal history record information of an applicant for a physical 
+9 therapist or physical therapist assistant license may be used by the board for the purpose 
+10 of screening the applicant. A board action against an applicant under this subsection is 
+11 subject to the provisions of Title 5, chapter 341.
+12 F.  Information obtained pursuant to this subsection is confidential. The results of 
+13 background checks received by the board are for official use only and may not be 
+14 disseminated to the physical therapy compact commission, established under section 
+15 18708, or to any other person.
+16 G.  An applicant whose license has expired and who has not applied for renewal may 
+17 request in writing that the Department of Public Safety, Bureau of State Police, State 
+18 Bureau of Identification remove the applicant's fingerprints from the State Bureau of 
+19 Identification's fingerprint file. In response to a written request, the bureau shall remove 
+20 the applicant's fingerprints from the fingerprint file and provide written confirmation 
+21 of that removal.
+222.  Rules.  The board, following consultation with the Department of Public Safety, 
+23 Bureau of State Police, State Bureau of Identification, may adopt rules to implement this 
+24 section. Rules adopted pursuant to this subsection are routine technical rules as defined in 
+25 Title 5, chapter 375, subchapter 2-A.
+26Sec. 6.  32 MRSA §3833-B is enacted to read:
+27§3833-B.  Criminal history record information; fees
+281.  Background check.  The board shall request a background check for each person 
+29 who submits an application for initial licensure or licensure by endorsement as a 
+30 psychologist under this chapter. The background check must include criminal history 
+31 record information obtained from the Maine Criminal Justice Information System, 
+32 established in Title 16, section 631, and the Federal Bureau of Investigation.
+33 A.  The criminal history record information obtained from the Maine Criminal Justice 
+34 Information System must include a record of public criminal history record information 
+35 as defined in Title 16, section 703, subsection 8.
+36 B.  The criminal history record information obtained from the Federal Bureau of 
+37 Investigation must include other state and national criminal history record information.
+38 C.  An applicant shall submit to having fingerprints taken. The Department of Public 
+39 Safety, Bureau of State Police, upon payment by the applicant of a fee established by 
+40 the board, shall take or cause to be taken the applicant's fingerprints and shall forward 
+41 the fingerprints to the Department of Public Safety, Bureau of State Police, State 
+42 Bureau of Identification so that the State Bureau of Identification can conduct state and 
+43 national criminal history record checks. Except for the portion of the payment, if any, 
+1
+2
+Page 3 - 131LR2760(01)
+44 that constitutes the processing fee charged by the Federal Bureau of Investigation, all 
+45 money received by the Bureau of State Police for purposes of this paragraph must be 
+46 paid to the Treasurer of State. The money must be applied to the expenses of 
+47 administration incurred by the Department of Public Safety.  Any person who fails to 
+48 transmit criminal fingerprint records to the State Bureau of Identification pursuant to 
+49 this paragraph is subject to the provisions of Title 25, section 1550.
+7 D.  The subject of a Federal Bureau of Investigation criminal history record check may 
+8 obtain a copy of the criminal history record check by following the procedures outlined 
+9 in 28 Code of Federal Regulations, Sections 16.32 and 16.33. The subject of a state 
+10 criminal history record check may inspect and review the criminal history record 
+11 information pursuant to Title 16, section 709.
+12 E.  State and federal criminal history record information of an applicant for a 
+13 psychologist license may be used by the board for the purpose of screening the 
+14 applicant. A board action against an applicant under this subsection is subject to the 
+15 provisions of Title 5, chapter 341.
+16 F.  Information obtained pursuant to this subsection is confidential. The results of 
+17 background checks received by the board are for official use only and may not be 
+18 disseminated to the Psychology Interjurisdictional Compact Commission, established 
+19 under section 3850, or to any other person.
+20 G.  An applicant whose license has expired and who has not applied for renewal may 
+21 request in writing that the Department of Public Safety, Bureau of State Police, State 
+22 Bureau of Identification remove the applicant's fingerprints from the State Bureau of 
+23 Identification's fingerprint file. In response to a written request, the bureau shall remove 
+24 the applicant's fingerprints from the fingerprint file and provide written confirmation 
+25 of that removal.
+262.  Rules.  The board, following consultation with the Department of Public Safety, 
+27 Bureau of State Police, State Bureau of Identification, may adopt rules to implement this 
+28 section. Rules adopted pursuant to this subsection are routine technical rules as defined in 
+29 Title 5, chapter 375, subchapter 2-A.
+30SUMMARY
+31 This bill requires the State Board of Examiners of Psychologists and the Board of 
+32 Examiners in Physical Therapy to obtain national and state fingerprint-based criminal 
+33 history record information for certain applicants for initial licensure and licensure by 
+34 endorsement by each board.
+1
+2
+3
+4
+5
+6
+31
+32
+33
+34

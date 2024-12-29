@@ -1,0 +1,201 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2276
+H.P. 1463 House of Representatives, March 25, 2024
+An Act to Increase Funding for the Snowmobile Trail Fund and the 
+ATV Recreational Management Fund
+Reported by Representative LANDRY of Farmington for the Joint Standing Committee on 
+Inland Fisheries and Wildlife pursuant to Joint Order 2023, H.P. 1438.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3154(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  36 MRSA §2903-D, sub-§2, as amended by PL 2019, c. 452, §14, is further 
+3 amended to read:
+42.  Snowmobiles.  Of total gasoline tax revenues, 0.9045% 1.0068% is distributed 
+5 among the following agencies in the following manner:
+6 A.  The Commissioner of Inland Fisheries and Wildlife receives 14.93% 13.41% of 
+7 that amount, to be used by the commissioner for the purposes set forth in Title 12, 
+8 section 1893, subsection 3, section 10206, subsection 2, section 13104, subsections 2 
+9 to 12 10 and section 13105, subsection 1; and
+10 B.  The Snowmobile Trail Fund of the Department of Agriculture, Conservation and 
+11 Forestry, Bureau of Parks and Lands, described in Title 12, section 1893, subsection 3, 
+12 receives 85.07% 86.59% of that amount.
+13Sec. 2.  36 MRSA §2903-D, sub-§3, as amended by PL 2019, c. 501, §29, is further 
+14 amended to read:
+153.  All-terrain vehicles.  Of total gasoline tax revenues, 0.1525%  0.4593% is 
+16 distributed among the following agencies in the following manner:
+17 A.  The ATV Enforcement Grant and Aid Program established in Title 12, section 
+18 10322 receives 50% 16.60% of that amount; and
+19 B.  The ATV Recreational Management Fund, established in Title 12, section 1893, 
+20 subsection 2 receives 50% 83.40% of that amount.
+21Sec. 3.  Appropriations and allocations.  The following appropriations and 
+22 allocations are made.
+23AGRICULTURE, CONSERVATION AND FORESTRY, DEPARTMENT OF
+24Off-Road Recreational Vehicles Program Z224
+25 Initiative: Provides allocations for grants to municipalities and all-terrain vehicle clubs.
+OTHER SPECIAL REVENUE FUNDS 2023-24 2024-25
+All Other $0 $786,605
+ __________ __________
+OTHER SPECIAL REVENUE FUNDS TOTAL $0 $786,605
+26  
+AGRICULTURE, CONSERVATION AND 
+FORESTRY, DEPARTMENT OF
+  
+DEPARTMENT TOTALS 2023-24 2024-25
+   
+OTHER SPECIAL REVENUE FUNDS $0 $786,605
+ __________ __________
+DEPARTMENT TOTAL - ALL FUNDS $0 $786,605
+31INLAND FISHERIES AND WILDLIFE, DEPARTMENT OF
+39ATV Enforcement Fund Z276
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+Page 2 - 131LR3154(01)
+1 Initiative: Change in revenue from increasing the percentage of gasoline tax allocated to 
+2 snowmobile and all-terrain vehicle purposes.
+OTHER SPECIAL REVENUE FUNDS 2023-24 2024-25
+All Other $0 ($13)
+ __________ __________
+OTHER SPECIAL REVENUE FUNDS TOTAL $0 ($13)
+3  
+INLAND FISHERIES AND WILDLIFE, 
+DEPARTMENT OF
+  
+DEPARTMENT TOTALS 2023-24 2024-25
+   
+OTHER SPECIAL REVENUE FUNDS $0 ($13)
+ __________ __________
+DEPARTMENT TOTAL - ALL FUNDS $0 ($13)
+8MUNICIPAL BOND BANK, MAINE
+16TransCap Trust Fund Z064
+17 Initiative: Reduction in allocations from reducing the amount of gasoline taxes transferred 
+18 from the Highway Fund to the TransCap Trust Fund.
+OTHER SPECIAL REVENUE FUNDS 2023-24 2024-25
+All Other $0 ($80,620)
+ __________ __________
+OTHER SPECIAL REVENUE FUNDS TOTAL $0 ($80,620)
+19  
+MUNICIPAL BOND BANK, MAINE   
+DEPARTMENT TOTALS 2023-24 2024-25
+   
+OTHER SPECIAL REVENUE FUNDS $0 ($80,620)
+ __________ __________
+DEPARTMENT TOTAL - ALL FUNDS $0 ($80,620)
+24  
+SECTION TOTALS 2023-24 2024-25
+   
+OTHER SPECIAL REVENUE FUNDS $0 $705,972
+ __________ __________
+SECTION TOTAL - ALL FUNDS $0 $705,972
+31SUMMARY
+37 This bill is being reported out to the Legislature by the Joint Standing Committee on 
+38 Inland Fisheries and Wildlife pursuant to Joint Order 2023, H.P. 1438. The bill makes 
+39 several changes to the gasoline tax allocation to provide additional funding to the 
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+Page 3 - 131LR3154(01)
+40 Department of Agriculture, Conservation and Forestry, Bureau of Parks and Lands' 
+41 Snowmobile Trail Fund and ATV Recreational Management Fund.
+42FISCAL NOTE REQUIRED
+43(See attached)
+1
+2
+3
+4
+Approved: 03/14/24
+LD  2276     LR 3154(01)
+FY 2023-24 FY 2024-25
+Projections 
+FY 2025-26
+Projections 
+FY 2026-27
+Net Cost (Savings)
+General Fund $0 $58 $57 $56
+Highway Fund $0 $705,914 $700,946 $695,814
+Appropriations/Allocations
+Other Special Revenue Funds $0 $705,972 $701,003 $695,870
+Revenue
+General Fund $0 ($58) ($57) ($56)
+Highway Fund $0 ($705,914) ($700,946) ($695,814)
+Other Special Revenue Funds $0 $705,972 $701,003 $695,870
+Fiscal Detail and Notes
+Fiscal Note
+This bill increases the amount of gasoline taxes transferred from the Highway Fund to various snowmobile and ATV 
+funds within the Department of Agriculture, Conservation and Foresty (DACF). It results in a reduction in Highway 
+Fund revenue of $705,914, a decrease in General Fund revenue of $58 and a reduction in TransCap Trust Fund 
+revenue of $80,620 in fiscal year 2024-25.  It also reduces Other Special Revenue Funds allocations of $80,620 in 
+fiscal year 2024-25.  The bill includes allocations of $786,605 to the DACF in fiscal year 2024-25 and a deallocation 
+of $13 to the Department of Inland Fisheries and Wildlife in fiscal year 2024-25.  
+131st MAINE LEGISLATURE
+An Act to Increase Funding for the Snowmobile Trail Fund and the ATV Recreational Management 
+Fund
+Fiscal Note for Original Bill
+Committee: Inland Fisheries and Wildlife
+Fiscal Note Required: Yes
+LR3154(01) - Fiscal Note - Page 1 of 1

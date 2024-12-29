@@ -1,0 +1,226 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+Sfe—
+L.D. 877
+2 Date: 3(9.^3^ (Filing No. S-^/)
+MAJORITY i
+3 STATE AND LOCAL GOVERNMENT
+4 Reproduced and distributed under the direction of the Secretary of the Senate.
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " /) " to S.P. 374, L.D. 877, "An Act to Prohibit State
+10 Contracts with Companies Owned or Operated by the Government of the People's Republic
+11 of China"
+12 Amend the bill by striking out the title and substituting the following:
+13 'An Act to Increase Cybersecurity in Maine'
+14 Amend the bill by strikmg out everything after the enacting clause and inserting the
+15 following:
+16 'See. 1. 5 MRSA c. 164 is enacted to read:
+17 CHAPTER 164
+18 CYBERSECUMTY AND PROTECTION OF CRITICAL INFRASTRUCTURE
+19 S2021. Definitions
+20 As used in this chapter, unless the context otherwise indicates, the following terms
+21 have the followine meanings.
+22 1, Chief Information Officer. "Chief Information Officer" has the same meaning as
+23 in section 1972, subsection 2.
+24 2. Foreign adversary. "Foreign adversary" means a foreign government or foreign
+25 nongovemment person whom the United States Secretary of Commerce has determined.
+26 pursuant to 15 Code ofJFederal Regulations, Section 7.4 (2024\ has engaged in a lone-
+27 term pattern or serious instances of^onduct significantly adverse to the national security
+28 of the United States or the security and safety of United States persons.
+29 3. Foreign adversary business entity. "Foreign adversary business entity" means
+30 any tvne of organization, entity or enterprise engaged in commerce. whether operated for
+31 profit, that is organized under the laws or mles of a foreign adversary, directly or indirectly
+Page 1 - 131LR1814(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT "/L " to S.P. 374, L.D. 877 U) [c^-\
+RO^j owned or controlled by a foreign adversary or domiciled within the geographic borders of
+2 a foreien adversary.
+3 4. Local eovernmental entity. "Local governmental entity" means any local
+4 govemment, political subdivision or school district and any other public or private agency.
+5 person, partnership, corporation or business entity actine on behalf of any local
+6 governmental entity.
+7 5. State agency. _"State agency" means the State, or any department, agency, board,
+8 commission or other body of State Government, mcluding publicly funded mstitutions of
+9 higher education.
+10 S2022. Chief Information Officer to establish lists
+11 The Chief Information Officer shall establish and maintain:
+12 1. List of prohibited companies. A list of companies. including foreign adversary
+13 business entities, that pose a national security risk or a risk to the security and safety of
+14 persons of the United States. The list must include. but is not limited to. all companies
+15 identified by statute, regulation or official guidance from the United States Department of
+16 Commerce, the Federal Communications Commission, the United States Department of
+17 Homeland Security or any other appropriate federal aeency as oosme a national security
+18 risk or a risk to the security and safety of persons of the United States; and
+19 2. List of prohibited information and communications technoloev and services.
+20 A list^f infonnation and communications technoloev and services that pose a national
+21 security risk or a risk to the security and safetyof persons of the United States. J"he list
+22 must include, but is not limited to. all information and communications technology and
+23 services identified by statute. regulation or official guidance from the United States
+24 Department of Commerce, the Federal Communications Commission, the United States
+25 Department of Homeland Security or any other apDropriate federal agency as oosine a
+26 national security risk or a risk to the security and safety of persons of the United States.
+27 The lists must be published on the publicly accessible website of the Department of
+28 Administrative^nd Financial Services. Office of Information Technoloev and updated at
+29 least annually.
+30 §2023. Prohibited contract, use or purchase by state agency
+31 Except as provided in sections 2027 and 2028, a state agency may not contract with a
+32 company mcluded on the list of prohibited companies established and maintained by the
+33 Chief Information Officer pursuant to section 2022, subsection 1 or use, obtain or purchase
+34 any infonnation or communications technology or services included on the list of
+35 prohibited information and communications technoloev and services established and
+3 6 maintained by the Chief Information Officer pursuant to section 2022. subsection 2.
+37 §2024. Prohibited contract, use or purchase by local eovernmeatal entity
+3 8 Except as provided in section 2027. a local sovenunental entity may not use state funds
+39 in a contract with a company included on the list of prohibited comuanies established and
+40 maintamed bythe Chief Information Officer pursuant to section 2022. subsection 1 or use,
+41 obtain or purchase any information or communications technoloev or services included on
+42 the list of prohibited information and communications technology and services established
+43 and maintained by the Chief Information Officer pursuant to section 2022. subsection 2.
+Page 2 - 131LR1814(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /L " to S,P. 374, L.D. 877
+1 §2025. Indirect transfer of state funds
+2 A local governmental entity, when purchasing information or communications
+3 technoloev or services or enterm^intoa. contract for goods or services, shall take all
+4 reasonable steps to ensure state funds are not mdirectlv transferred to a company on the list
+5 of prohibited companiesjnaintamedbv^^^^^ Chief Infonnation Officer pursuant to section
+6 2022. subsection 1.
+7 §2026. Prohibited contract, use or purchase by judiciaLbranch and leeislative branch
+8 Except as_Drovided in sections 2027. 2029 and 2030. an office of the legislative branch
+9 or judicial branch may not contract with a company included on the list of prohibited
+10 companies established and mamtajned by the Chief Information Officer pursuant to section
+11 2022, subsection I or use, obtain or purchase any mformation or cpmmynications
+12 technoloev or services included on the list of prohibited infonnation and communications
+13 technology and services established and maintained by the Chief Information Officer
+14 pursuantto section 2022. subsection 2.
+15 §2027. Exemption; law enforcement
+16 The prohibitions in sections 2023 and 2024 do not apply to law enforcement entities.
+17 such as the State Police, a county sheriffs office and local law enforcement departments.
+18 to the extent the prohibitions restrict a law enforcement entitY^abiUtY to protect the public
+19 or mvestieate criminal activity.
+20 §2028. Waiver of prohibitions; executive branch
+21 Upon written request from a state agency, the Chief Information Officer may waive the
+22 prohibitions imposed in sections 2023 and 2024 as long as the waiver does not pose a
+23 national security risk ora.rjsk to the security and safety of persons of the United States.
+24 §2029. Waiver of prohibitions: leeislative branch
+25 The Leeislative Council, established in Title 3. section 161. or its designee. may waive
+26 the prohibitions imposed in sections 2023 and 2024 as long as the waiver does not pose a
+27 national security risk or a_riskto the security and safety of persons of the United States.
+28 §203Q._Waiver of prohibitions: judicial branch
+29 The State Court Admmjstrator under J'itle^t, section 15. or the State Court
+30 Administrator's desienee, may waive the prohibitions imposed in sections 2023 and 2024
+31 as long as theLwajyerdoes not pose a national security risk or a risk to the security and
+32 safety of persons of the United States.
+33 §2030-A. Certification required; civil violation
+34 A person that submits a bid OT proposal for a contract with the State for goods or
+35 services shall certify that the person is not a foreign_adversary_busmess entity. A person
+36 tiiat submits a false certification under this section commits a civil violation for which a
+37 fme may be adiudged in an amountthatis twice the amount of the contract for which the
+3 8 bid or proposal was submitted or $250.000. whichever is greater.
+39 S2030-B. Contracts void
+40 The followme contracts enteredjntobyestate agencY on or after the effective date of
+41 this chapter are void:
+Page 3 - 131LR1814(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT "^ " to S.P. 374, L.D. 877^ ^-(j)^
+1. Foreign adversary business entity. A contract with a foreign adversary business
+2 entity;
+3 2. Prohibited company. A contract with a company included on the list of prohibited
+4 CQnmames established and maintained by the Chief Information Officer pursuant to section
+5 2022. subsection I that was not granted a waiver under section 2028; and
+6 3. Prohibited information or communications technoloev or services. A contract
+7 to purchase information or communications technology or services included on the list of
+8 prohibited information or communications technoloav or services established and
+9 mamtained^bYthe Chief Information Officer jiursuant to section 2022, subsection 2 that
+10 was not granted a waiver under section 2028.
+11 §2030-0. Rules
+12 The department may adopt rules to implement this chapter. Rules adopted pursuant to
+13 this section are routine technical mles as defined m chapter 375. subchapter 2-A.'
+14 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+15 number to read consecutively.
+16 SUMMARY
+17 This amendment, which is the majority report of the committee, replaces the bill and
+18 changes the title. It requires the Chief Information Officer in the Department of
+19 Administrative and Financial Services to establish and mamtain a list of companies that
+20 pose a national security risk or a risk to the security and safety of persons of the United
+21 States and a list of mfonnation and communications technology and services that pose a
+22 national security risk or a risk to the security and safety of persons of the United States,
+23 which must be published on the department's publicly accessible website and must be
+24 updated at least annually. The Chief Information Officer must include on the lists
+25 companies and information and communications technology and services identified as
+26 posing a national security risk or a risk to the security and safety of persons of the United
+27 States by statute, regulation or official guidance from appropriate federal agencies. With
+28 certain exceptions, state agencies, local governmental entities, the judicial branch and the
+29 legislative branch are prohibited from contracting with a company or using, obtaining or
+30 purchasing information and communications technology and services included on the lists.
+31 Law enforcement agencies are also exempt from the prohibitions in the law to the extent
+32 the prohibitions restrict law enforcement agencies' ability to protect the public or
+33 investigate criminal activity.
+34 The amendment defines "foreign adversary" as a foreign government or foreign
+35 nongovemment person that the United States Secretary of Commerce has determined has
+36 engaged in a long-term pattern or serious instances of conduct significantly adverse to the
+37 national security of the United States or the security and safety of persons of the United
+38 States, The amendment also requires a person that submits a bid for a contract with the
+39 State for goods or services to certify that the person is not a foreign adversary. If a person
+40 submits a false certification, that person commits a civil violation for which a fine may be
+41 adjudged in an amount that is twice the amount of the contract or $250,000, whichever is
+Page 4 - 131LR1814(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /; " to S.P. 374, L.D. 877,
+greater. The amendment also provides that a contract entered into on or after the effective
+2 date of this legislation is void if the contract violates the prohibitions in the amendment.
+3 FISCAL NOTE REQUIRED
+4 (See attached)
+Page 5 - 131LR1814(02)
+COMMITTEE AMENDMENT
+Approved: 03/25/24 ^^d
+131st MAINE LEGISLATURE
+LD 877 LR 1814(02)
+An Act to Prohibit State Contracts with Companies Owned or Operated by the Government of the
+People's Republic of China
+Fiscal Note for Bill as Amended by Committee Amendment "/^/
+Committee: State and Local Government
+Fiscal Note Required: Yes
+Fiscal Note
+Potential current biennium cost increase - All funds
+Minor revenue increase - General Fund
+Minor revenue increase - Other Special Revenue Funds
+Correctional and Judicial Impact Statements
+This bill establishes new civil violations and may increase the number of civil suits filed in the court system. The
+additional workload associated with the minimal number of new cases filed in the court system does not require
+additional funding at this time.
+The collection of additional fines and filing fees will increase General Fund or other dedicated revenue by minor
+amounts.
+Fiscal Detail and Notes
+Prohibiting government agencies from contracting with companies or using or purchasing information and
+communications technology and services that are identified by the Department of Administrative and Financial
+Services as posing a national security risk or a risk to security of persons in the United States could increase costs to
+the extent this prohibition limits access to lower cost goods, technology and services.
+Additional costs to the Department of Administrative and Financial Services to establish and publish a list of
+prohibited companies and a list of prohibited information and communication technology and services that.pose
+security risks are expected to be minor and can be absorbed within existing budgeted resources.
+LR1814(02) - Fiscal Note - Page 1 of 1

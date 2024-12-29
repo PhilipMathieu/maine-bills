@@ -1,0 +1,201 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+^^-ROS
+1 L.D. 457
+REPORT A
+2 Date:y/^2.^ , (Filing No. S-(
+I
+3 TAXATION
+4 Reproduced and distributed under the direction of the Secretary of the Senate,
+5 STATE OF MAINE
+6 . SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT " " to S.P. 211, L.D, 457, "An Act to Amend
+10 Maine's Tax Laws"
+11 Amend the bill by striking out the title and substituting the following:
+12 'An Act to Phase Out the Pension Deduction Under the Income Tax and to Increase
+13 the Cost-of-Iiving Adjustment for Certain Government Retirement Benefits for Fiscal
+14 Year 2024-25'
+15 Amend the bill by striking out everything after the enacting clause and inserting the
+16 following:
+17 'See. 1. 5 MRSA §17806, sub-§l, ^A, as amended by PL 2021,c.635, Pt. NN, §1,
+18 is further amended to read:
+19 A, Except as provided in paragraphs A-l. A-2 and. A-3 and A-4. whenever there is a
+20 percentage increase in the Consumer Price Index from July 1st to June 30th, the board
+21 shall automatically make an equal percentage increase in retirement benefits, beginning
+22 in September, up to a maximum annual increase of 3%. Effective July 1, 2011, the
+23 increase applies to that portion of the retirement benefit up to $20,000, which amount
+24 must be indexed in subsequent years by the same percentage adjustments granted under
+25 this section. Effective July 1,2022, the increase applies to that portion of the retirement
+26 benefit up to $24,186.25, which amount must be indexed in subsequent years by the
+27 same percentage adjustments granted under this section,
+28 Sec. 2. 5 MRSA §17806, sub-§l, ^[A-4 is enacted to read:
+29 A-4. For cost-of-living adjustments awarded under paragraph A in fiscal year 2024-
+30 25 only, the increase applies to that portion of the retirement benefit up to $40.000.
+31 Sec. 3. 36 MRSA §5122, sub-§2, ^M-2, as amended by PL 2023,c. 523, Pt. B,
+32 § 1, is further amended by amending subparagraph (1), division (b) to read:
+33 (b) An amount equal to the aggregate of retirement benefits under militaiy
+34 retirement plans included in the individual's federal adjusted gross income;
+35 aad
+Page 1 - 131LR2184(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " /\ " to S.P. 211, L.D. 457 [,<V ^ 1^]
+1 Sec. 4. 36 MRSA §5122, sub-§2, ^M-2, as amended by PL 2023, c. 523, Pt. B,
+2 § 1, is further amended by amending subparagraph (2), division (f) to read:
+3 (f) "Retirement plan benefits" means employee retirement plan benefits,
+4 except pick-up contributions for which a subtraction is allowed under
+5 paragraph E, reported as pension or annuity income for federal income tax
+6 purposes and individual retirement account benefits reported as individual
+7 retirement account distributions for federal income tax purposes. "Retirement
+8 plan benefits" does not include distributions that are subject to the tax imposed
+9 by the Code, Section 72(t); and
+10 Sec. 5. 36 MRSA §5122, sub-§2, ^]M-2, as amended by PL 2023, c. 523, Pt, B,
+11 § 1, is further amended by enacting a new subparagraph (3) to read:
+12 f3) For tax years beginning on or afiter_Januai-y 1, 2024, the amount in
+13 subparagraph (l\ division (a) must be reduced by an amount equal to the total
+14 amount in subparagraph ( 1), division fa) multiplied by a fraction, the numerator of
+15 which is the taxpayer's federal adjusted gross income less the applicable amount.
+16 except that the numerator may not be less than zero, and the denommator of which
+17 is $50.000 in the case ofamarried individual filine a seDarate return and $100,000
+18 in all other filing cases. The fraction contained in this subparaeraph may not
+19 produce a result that is more than one. The applicable amount must be adjusted for
+20 inflation in accordance with section 5403, subsection 10.
+21 For purposes of this subparagraph, "applicable amount" means:
+22 fa) For individuals filing as single individuals, $100,000;
+23 fb) For individuals filing as heads of households, $150.000;
+24 fcl_J:;or individuals filing married joint returns _or^^^^^^
+25 $200.000; or
+26 Cd) _PQ^m^ filing separate retims. 1/2 of tjie_ appUcable
+27 amount under division fc).
+28 Sec. 6. 36 MRSA §5403, sub-§8, as amended by PL 2023, c. 412, Pt. ZZZ, §9, is
+29 further amended to read:
+30 8. Personal exemption phase-out. Beginning in 2018 and each year thereafter, by
+31 the dollar amount of the applicable amounts specified in section 5126-A, subsection 2,
+32 paragraphs A, B and C, except that for the purposes of this subsection, notwithstanding
+33 section 5402, subsection 1-B, the "cost-of-living adjustment" is the Chained Consumer
+34 Price Index for the 12-month period ending June 30th of the preceding calendar year
+35 divided by the Chained Consumer Price Index for the 12-month period ending June 30,
+36 2017;aad
+37 Sec. 7. 36 MRSA §5403, sub-§9, as enacted by PL 2023, c. 412, Pt. ZZZ, §10, is
+38 amended to read:
+39 9. Dependent exemption tax credit amount. Beginning in 2024 and each year
+40 thereafter, by the dollar amount of the dependent exemption tax credit under section
+41 5219-SS, except that for the purposes of this subsection, notwithstanding section 5402,
+42 subsection 1-B, the "cost-of-living adjustment" is the Chained Consumer Price Index for
+Page 2 - 131LR2184(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " l\ " to S.P. 211, L.D. 457
+1 the 12-month period ending June 30th of the preceding calendar year divided by the
+^ ^| 2 Chained Consumer Price Index for the 12-month period ending June 3 0,2023. If the credit
+3 amount, adjusted by application of the cost-of-living adjustment, is not a multiple of $5,
+4 any increase must be rounded to the next lowest multiple of $57; and
+5 Sec. 8. 36 MRSA §5403, sub-§10 is enacted to read:
+6 10. Income deduction for retirement plan benefits; applicable amount. Beeinning
+7 in 2024 and each year thereafter, by the dollar amount of the applicable amounts specified
+8 in section 5122, subsection 2, paragraph M-2. subparagraph (3), except that for the
+9 purposes of this subsection, notwithstanding section 5402, subsection 1-B. the "cost-of-
+10 living adjustment" is the Chained Consumer Price Index for the 12-month period ending
+11 June 30th of the preceding calendar year divided by the Chained Consumer Price Index for
+12 the 12-month period ending June 3 0. 2023,
+13 Sec. 9. Appropriations and allocations. The following appropriations and
+14 allocations are made.
+15 RETIREMENT SYSTEM, MAWE PUBLIC EMPLOYEES
+16 Retirement System - Retirement Allowance Fund 0085
+17 Initiative: Provides one-time funds to pay the unfunded actuarial liability created by
+18 providing that, for fiscal year 2024-25 only, the cost-of-living adjustment awarded to
+19 retired state employees and teachers and their beneficiaries applies to the first $40,000 of
+20 the retirement benefit.
+21 GENERAL FUND 2023-24 2024-25
+22 AllOther $0 $39,836,000
+23
+24 GENERAL FUND TOTAL $0 $39,836,000
+25
+26 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+27 number to read consecutively,
+28 • SUMMARY
+29 This amendment, which is the maj ority report of the committee, replaces the bill, which
+30 is a concept draft, changes the title and establishes a phase-out of the pension deduction for
+31 nonmilitary pensions under the income tax based on the income of the taxpayer. The phase-
+32 out begins with income over $100,000 for mdividuals, $150,000 for heads of households
+33 and $200,000 for married individuals filing jointly. The amendment adjusts these amounts
+34 for inflation in future years, The amendment provides that, for the cost-of-living adjustment
+35 awarded to retired state employees and teachers and their beneficiaries in fiscal year 2024-
+36 25 only, which is paid in September 2024, the adjustment applies to the first $40,000 of the
+37 retirement benefit. Effective July 1,2025, the increase applies to the portion that otherwise
+3 8 would have been in effect absent this one-time charge.
+39 FISCAL NOTE REQUIRED
+40 (See attached)
+Page 3 - 131LR2184(02)
+COMMITTEE AMENDMENT
+Approved: 03/21/24 ^^<=.
+131st MAINE LEGISLATURE
+LD 457 LR 2184(02)
+'• ...... :. •
+An Act to Amend Maine's Tax Laws
+Fiscal Note for Bill as Amended by Committee Amendment "/!"/C>-(e^3
+Committee: Taxation 'J ^- j
+Fiscal Note Required: Yes
+'r '."•: •' . :, .'
+Fiscal Note
+Projections Projections
+FY 2023-24 FY 2024-25 FY 2025-26 FY 2026-27
+Net Cost (Savings)
+General. Fund.,, . $0 $22,812,000 ($17,812,500) ($19,076,000)
+Appropriations/AHocations
+General Fund .
+Revenue :
+General Fund '
+Other Special Revenue Funds
+Fiscal Detail and Notes
+The provisions included in this legislation will result in a net cost to the General Fund of $22,812,000 in fiscal year
+2024-25 and net savings to the General Fund of $17,812,500 in fiscal year 2025-26 and $19,076,000 in fiscal year
+2026-27.
+First, this bill establishes a phaseout of the individual income tax pension deduction for non-military pensions based
+on the taxpayer's adjusted gross income for tax years beginning on or after January 1, 2024. It will increase General
+Fund revenue by $17,024,000 and increase Local Government Fund revenue by $896,000 in fiscal year 2024-25.
+This bill also provides that, for fiscal year 2024-25 only, the cost-of-living adjustment (COLA) awarded to retired
+state employees and teachers and their beneficiaries applies to the first $40,000 of the retirement benefit. According to
+the Maine Public Employees Retirement System, this provision will create an unfunded actuarial liability (UAL)
+totaling $39,836,000 that, pursuant to the Maine Constitution, will have to be funded immediately. This bill includes a
+one-time General Fund appropriation in that amount to the Retirement Allowance Fund within the Maine Public
+Employees Retirement System in fiscal year 2024-25 to pay for the cost of the COLA provision.
+LR2184(02) - Fiscal Note - Page 1 of 1
+$0
+$0
+$0
+$39,836
+$17,024
+$896
+,000
+,000
+,000
+$17,812
+$937
+$0
+,500
+,500
+$0
+$19,076,000
+$1,004,000

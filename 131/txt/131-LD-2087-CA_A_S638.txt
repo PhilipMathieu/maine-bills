@@ -1,0 +1,327 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from scanned originals with text recognition applied 
+(searchable text may contain some errors and/or omissions) 
+ 
+ 
+L,D. 2087
+Date:^»^ (Filing No. S-(^)
+3 ENERGY, UTILITIES AND TECHNOLOGY
+4 Reproduced and distributed under the direction of the Secretary of the Senate,
+5 STATE OF MAINE
+6 SENATE
+7 131ST LEGISLATURE
+8 SECOND REGULAR SESSION
+9 COMMITTEE AMENDMENT "ft " to S.P. 880, L.D. 2087, "An Act to Protect
+10 Property Owners by Preventing the Use of Eminent Domam to Build Transmission Lines
+11 Under the Northern Maine Renewable Energy Development Program"
+12 Amend the bill by striking out the title and substituting the following:
+13 'An Act to Protect Property Owners by IVIaking Certain Changes to the Laws
+14 Governing the Use of Eminent Domain by Transmission and Distribution Utilities'
+15 Amend the bill by inserting after the title and before the enacting clause the following:
+16 'Emergency preamble. Whereas, acts and resolves of the Legislature do not
+17 become effective until 90 days after adjournment unless enacted as emergencies; and
+18 Whereas, this legislation needs to take effect before the expiration of the 90-day
+19 period in order to provide appropriate protections to landowners in the State and to direct
+20 the Public Utilities Commission to establish notice requirements and develop educational
+21 materials related to proposed high-impact electric transmission lines; and
+22 Whereas, in the judgment of the Legislature, these facts create an emergency within
+23 the meaning of the Constitution of Maine and require the following legislation as
+24 immediately necessary for the preservation of the public peace, health and safety; now,
+25 therefore,'
+26 Amend the bill by striking out everything after the enacting clause and inserting the
+27 following:
+28 'See. 1. 12 M:RSA §598-C, as enacted by PL 2021,c.654,§1, is amended to read:
+29 §598-C. Process for determination of reduction or substantially altered use of
+30 designated land
+31 The Department of Agriculture, Conservation and Forestry, Bureau of Parks and Lands
+32 shall adopt rules to establish an objective evaluation process for determining if a proposed
+33 activity on land designated under this chapter and under the jurisdiction of the bureau would
+34 cause the land to be reduced or the uses of the land to be substantially altered. In the case
+Page 1 - 131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT "^. " to S.P. 880, L.D. 2087
+of a hieh-impact electric transmission Jme crossine or utilizing such land or a oortion of
+lit
+2 such land that is a rail trail or recreational comdor_Qr land of similar configuration, as
+3 determined by tlw_. bureau, the_rule^m criteria for determining that the
+4 high-impact electric transmission line would not cause the land to be reduced or the uses
+5 of the land to be substantially altered. In adopting the rules, the bureau shall observe the
+6 requirements relating to designated lands in the Constitution of Maine, Article IX, Section
+7 23 and ensure proper exercise of the bureau's public trust responsibility. These rules must
+8 also include provisions for public notice and comment before authorizing any such activity
+9 and for determining the appropriate instrument to be used to authorize that activity,
+10 including but not limited to whether an easement, lease, license or other instrument should
+11 be used. Rules adopted pursuant to this section are major substantive rules as defined in
+12 Title 5, chapter 375, subchapter 2-A.
+13 Sec. 2. 35-A MRSA §3132, sub-§6-C, as enacted by IB 2021,c. 1, §4, is amended
+14 to read:
+15 6-C. High-impact electric transmission line; legislative approval. In addition to
+16 obtaining a certificate of public convenience and necessity, a high-impact electric
+17 transmission line may not be constructed anywhere in the State without first obtaining the
+18 approval of the Legislature, except that any high-impact electric transmission line crossing
+19 or utilizing public lands designated by the Legislature pursuant to Title 12, section 598-A^
+20 other than service land. is deemed to substantially alter the land and must be approved by
+21 the vote of 2/3 of all the members elected to each House of the Legislature.
+22 For the ourooses of this subsection, "service land" means public lands designated by the
+23 Legislature pursuant to Title 12, section 598-A that are:
+24 A, A former railroad rieht-of-way that is no longer used for rail service and is owned
+25 by the State and used as a recreational trail; and
+26 B. Any other public land for which the crossing or utilization bv a proposed
+27 high-jmpact electric transmission line satisfies the criteria established by rule adopted
+2 8 pursuant to Title 12, section_ 59 8-C for a determination by the Department of
+29 Agriculture, Conservation and Fgrestry^ Bureau of Parks and Lands that the
+30 high-impact electric transmission line's crossing or utilization does not constitute a
+31 reduction or substantial alteration of those lands.
+32 Sec. 3. 35-A MRSA §3136, sub-§l, as amended by PL 2007,c.148, § 12, is further
+33 amended to read:
+34 1. Land necessary for location of transmission lines carrying 5,000 volts. Subject
+35 to approval by the commission under subsection 4 and the requirements of subsection 6. if
+36 applicable, a transmission and distribution utility may take and hold by right of eminent
+37 domain lands and easements necessary for the proper location of its transmission lines that
+38 are designed to carry voltages of 5,000 volts or more and of necessaiy appurtenances,
+39 located within the territoiy in which the utility is authorized to do public utility business,
+40 in the same manner and under the same conditions as set forth in chapter 65.
+41 Notwithstanding section 6501, subsection 1 and section 6507, subsection 4, owners are
+42 entitled to damages for all property taken by eminent domain in accordance with sub.sectjon
+43 5,
+Page 2 - 131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " A " to S.P, 880. L.D, 2087,
+1 Sec. 4. 35-A MRSA §3136, sub-§4, as amended by PL 2007,c, 148, §14, is further
+2 amended to read:
+3 4. Commission approval required; certificate of public convenience and
+4 necessity; offer requirements for hieh-impact electric transmission line;
+5 environmental factors. A location to be taken by eminent domain for such transmission
+6 or distribution lines must be approved by the commission before a transmission and
+7 distribution utility can exercise the right of eminent domain granted in subsection 1 or
+8 subsection 3. The commission may not approve a location to be taken by eminent domain
+9 for the construction, rebuilding or relocation of a transmission line that requires a certificate
+10 of public convenience and necessity under section 3132, unless the commission has issued
+11 a certificate of public convenience and necessity for that transmission line and, for a
+12 high-impact electric transmission line, the transmission and distribution utility has met the
+13 offer requirements described in paragraph A. Environmental factors to be considered for
+14 proper location of a transmission line are not subject to review by the commission under
+15 this section when the location of the transmission line has received site location of
+16 development approval under Title 3 8, section 484.
+17 A. If the transmission and distribution utility is seeking commission approval for the
+18 taking of a location by eminent domain for the construction. rebuilding or relocation
+19 ofahigh-impact electric transmission line on a lot or parcel of real property that is 200
+20 contiguous acres or less and the transmission and distribution utility seeks to take less
+21 than the entire property, the transmission and distribution utility must demonstrate to
+22 the commission that. in its negotiations with the owner of the property for a voluntary
+23 acquisition of the location, it made both an offer for the taking of title to the entire
+24 property in fee simple absolute and an offer for the taking of only that portion of the
+25 property sought by the utility and that the owner did not accept either offer.
+26 Sec. 5. 35-A MRSA §3136, sub-§5 is enacted to read:
+27 5,_0jvneren^^^ owner of a property taken by eminent dQmain by
+28 a transmission and distribution utility forAhe_constryc^^ or relocation of a
+29 transmission line is entitled to damages for all property taken, which must be determined
+3 0 using the methods set forth in Title 23, sections 154 to 154-F.
+31 Sec. 6. 35-A MRSA §3136, sub-§6 is enacted to read:
+32 6. Taking by transmission and distribution utility of locationon property that is
+33 200 acres or less for high-impact electric transmission line; owner option. If the
+34 commission, m accordance with subsection 4, approves a taking by eminent domain by a
+35 transmission and distribution utility for the construction, i^buildm&o of a
+3 6 hieh-impact electric transmission line when the location subject to the taking is a lot or
+37 parcel of real property that is 200 contieuous acres or less and die_tj-ansmis^^^^^
+38 distribution utility seeks and the commission has approved a taking of less than the entire
+39 property, the following requirements apply:
+40 A. The damages estimated by the county commissioners in accordance with section
+41 65 03, subsection 2 must include 2 estimates, one for the taking of title to the entire
+42 property in fee simple absolute and one for the taking of only that portion of the
+43 property approved for a taking by the commission; and
+Page3-131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " f\ " to S.P. 880, L.D. 2087
+B. The owner of the property has the option to require the transmission and distribution
+2 utility to take the entire property in fee simple absolute and. if the owner elects to
+3 require the transmission and distribution utility to take the entire prouertv, the
+4 commission shall approve the taking of the entire property.
+5 Sec. 7. 35-A MRSA §3136, sub-§7 is enacted to read:
+6 7. Property taken for hieh-impact electric transmission line; notice and
+7 educational materials. The commission shall routine technical rules regarding the
+8 provision of notice to an owner of real property whose property may be taken by eminent
+9 domain for the construction, rebuilding^rrelocatiQnofa high-impact electric transmission
+10 line by an entity selected to construct a high-impact electric transmission line pursuant to
+11 section 3210-1, subsection 2, or a transmission and disti4butionutUity^a^ to an owner
+12 of real property whose property abuts the proposed high-impact electric transmission line.
+13 The notice must include educational materials that include, but are notlimited to, materials
+14 describing the high-impact electnc_transmissiQn line development process and must be sent
+15 by certified mail.^^^^^T^ must establish requirements for the notice and educational
+16 materials including:
+17 A, The appearance and contents of the notice and_rnatenals;
+18 B. The appearance of the envelope that includes the notice and materials;
+19 C. The information to be included relatine to the high-impact electric transmissionjme
+20 development process;
+21 D. The information that describes the scope of the proposed hieh-impact electric
+22 transmission line;
+23 E. The nshts_a^nd^vvoi^ to participate in the
+24 development process;
+25 F. Resources Jhat may b^^^^^^^ of real property, which mav
+26 include resources for legal assistance; and
+27 G. The time frame for when the notice and educational materials must be sent to an
+28 owner of real property.
+29 The commission shall review and approve the notice and educational materials the
+3 0 transmission and distribution utility or entity is required to send before the notice and
+31 educational materials are proy^i^^^^^^ owner of real prQperty. The commission may
+32 reguest_that a state agency or other commission review any educational materials that
+33 address activities relating to the high-imnact electric transmission ljne_ development process
+34 that are undertaken by that other state agency pr other commission.
+35 Sec. 8. 35-A MRSA §3136, sub-§8 is enacted to read:
+36 8. Hieh-impact electrictransmiss^^ incurred by property
+37 owner. A transmission and distribution utility that takes a location by eminent domain for
+3 8 the construction, rcbyiHmg^^^^^ line is
+39 responsible for a property owner's fees and expenses associated with seeking an award of
+40 damages in accordance with this subsection.
+41 A. If the award for damages, as determined by the county commissioners in accordance
+42 with section 6503. subsection 2 or the Superior Court in accordance with section 6507.
+Page4-131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " A " to S.P, 880, L.D, 2087^"toS.P,880,L,D,2087('5-(d3g)
+is more than 40% and at least $25,000 greater than the last written offer of
+^^Q^ compensation prior to the property owner's or transmission and distribution utility's
+3 filing of a request for the determination of damages or an appeal of such determination
+4 to the Superior Court, the county commissioners or the court shall award the owner
+5 reasonable attorney's fees. litigation expenses, appraisal fees. other experts' fees and
+6 other_related costs in addition to other compensation authorized by this section.
+7 B. If the award for damages is at least 20%, but not more than 40%, and at least $ 10,000
+8 greater than the last written offer of compensation, the county commissioners or the
+9 court may award reasonable fees and expenses described in paragraph A.
+10 C. No attorney s fees may be awarded under this subsection if the award of damages is
+11 $25.000 or less,
+12 D. If the award of damages is less than 20% RreateL_than_ ^^A^_wn&^_off^Lof
+13 compensation, the owner of the property is responsible for the owner's own costs.
+14 For the purposes of this subsection, "last written offer QfconmensatiQn'lm^^^^
+15 offer of compensation made by the transmission and distribution utility and, in the case of
+16 a taking of only a portion of a lot or parcel of real property, the last offer made for the
+17 portion of the property sought by the transmission and distribution utility. "Last written
+18 offer of compensation" does not include the offer for the taking of title to the entire property
+19 in fee simple absolute as required by subsection 4.
+20 Sec. 9. 35-A MRSA §3136, sub-§9 is enacted to read:
+21 9. Definition. For the purposes of this section, "high-impact electric transmission
+22 line" means a transmission line of any length that is:
+23 A. Constructed to transmit direct current electricity; or
+24 B. Capable of operating at 345 kilovolts or more; and
+25 d) Is not a generator interconnection transmission facility as defined in section
+26 3132, subsection 1-B; and
+27 f2Us not constructed primarily to provide electric reliability, as detennined by the
+28 commission.
+29 Sec. 10. 38 MRSA §485-A, sub-§l-D is enacted to read:
+30 1-D. Hearing required; transmission line. If an application for the development and
+31 construction of a transmission line or lines requu-ine approval under this article is received
+32 by the department, the department or the board, as applicable. shall hold a hearine in
+33 accordance with section 486-A and may not issue an order without a hearing.
+34 Sec. 11. 38 MRSA §486-A, sub-§2-A is enacted to read:
+35 2-A. Developer; route analYsis public participation. The department shall require
+36 an applicant who has submitted an application pursuant to section 485-A related to the
+37 develooment and construction of a transmission line or lines requiring approval under this
+38 article to demonstrate to the department that the applicant conducted one or more public
+39 meetines regarding the transmission line or lines prior to the submission of its application.
+40 Such public meetines must include the presentation of information reearding the proposed
+41 transmission line or lines. including, but not limited to, proposed route information, and
+42 provide an OBportunitv for public Darticipation and comment. Information presented and
+Page 5- 131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " A " to S.P. 880, L.D. 2087 (
+public comments received at the public meetings must be made publicly available and be
+part of the record of any department or board proceeding.
+3 Sec. 12. Rulemaking. The Department of Agriculture, Consei-vation and Forestiy,
+4 Bureau of Parks and Lands shall adopt major substantive rules pursuant to the Maine
+5 Revised Statutes, Title 12, section 598-C to provide, in the case of a high-impact electric
+6 transmission line crossing or utilizing land designated under Title 12, chapter 202-A, or a
+7 portion of such designated land, that is a rail trail or recreational corridor or land of similar
+8 configuration, criteria for determining that the high-impact electric transmission line would
+9 not cause the land to be reduced or the uses of the land to be substantially altered. The
+10 bureau shall submit the provisionally adopted rules to the 132nd Legislature for review.
+11 Emergency clause. In view of the emergency cited in the preamble, this legislation
+12 takes effect when approved.'
+13 Amend the bill by relettering or renumbering any nonconsecutive Part letter or section
+14 number to read consecutively.
+15 SUMMARY
+16 This amendment replaces the bill, adds an emergency preamble and clause and changes
+17 the title. It does the following.
+18 1. It defines "service land" and excepts those public lands from the provision of law
+19 that considers a high-impact electric transmission line crossing or utilizing public lands a
+20 substantial alteration.
+21 2. It prohibits the Public Utilities Commission from approving a transmission and
+22 distribution utility's taking of a location for a high-impact electric transmission line by
+23 eminent domain if the location is on a lot or parcel of real property that is 200 contiguous
+24 acres or less and the transmission and distribution utility seeks to take less than the entire
+25 property, unless the transmission and distribution utility demonstrates that, in its
+26 negotiations with the owner of the property for a voluntary acquisition of the location, it
+27 made both an offer for the entire property and an offer for just the location.
+28 3. It clarifies the provisions of law that apply to the determination of damages for
+29 property taken by eminent domain for the construction, rebuilding or relocation of a
+30 high-impact electric transmission line designed to carry voltages of 5,000 volts or more and
+31 of necessary appurtenances.
+32 4. If a location approved by the commission for a taking by eminent domain for a
+33 high-impact electric transmission line is on a lot or parcel of real property that is 200
+34 contiguous acres or less and the transmission and distribution utility seeks to take less than
+35 the entire property, it requires the county commissioners' estimate of damages to include 2
+36 estimates, one for the entire property in fee simple absolute and one for the portion of the
+37 property approved for a taking. It provides that the owner of the property has the option to
+3 8 require the transmission and distribution utility to take the entire property and, if the owner
+39 elects to require the transmission and distribution utility to take the entire property, the
+40 commission must approve the taking of the entire property.
+41 5. It requires the commission to adopt rules regarding notice and educational materials
+42 that must be sent by certified mail to an owner of real property whose property may be
+43 taken by eminent domain for the construction, rebuilding or relocation of a high-impact
+Page 6 - 131LR2609(02)
+COMMITTEE AMENDMENT
+COMMITTEE AMENDMENT " d " to S,P, 880, L.D. 2087,
+electric transmission line, as well as to an owner whose property abuts the proposed high-
+2 impact electric transmission line, by an entity selected to construct a high-impact electric
+3 transmission line pursuant to the Maine Revised Statites, Title 35-A, section 3210-1,
+4 subsection 2, or a transmission and distribution utility,
+5 6. It establishes the circumstances under which a property owner's fees and expenses
+6 associated with seeking an award of damages for property taken by eminent domain must
+7 be paid by a transmission and distribution utility.
+8 7. It prohibits the Department of Environmental Protection and the Board of
+9 Environmental Protection from issuing an order without a hearing for a development of a
+10 high-impact electric transmission line of state or regional significance that may
+11 substantially affect the environment. It also requires the department to require an applicant
+12 for such development to demonstrate to the department that the applicant conducted one or
+13 more public meetings regarding the transmission line prior to the submission of any
+14 application to the department.
+15 8. It requires the Department of Agriculture, Conservation and Forestry, Bureau of
+16 Parks and Lands to adopt rules pursuant to Title 12, section 598-C to provide, in the case
+17 of a high-impact electric transmission line crossing or utilizing a rail trail or recreational
+18 corridor or land of similar configuration designated under Title 12, chapter 202-A, criteria
+19 for determining that the high-impact transmission line would not cause the land to be
+20 reduced or the uses of the land to be substantially altered.
+21 FISCAL NOTE REQUIRED
+22 (See attached)
+Page 7 - 131LR2609(02)
+COMMITTEE AMENDMENT
+Approved: 03/25/24 ^^c--
+131st MAINE LEGISLATURE
+LD 2087 LR 2609(02)
+An Act to Protect Property Owners by Preventing the Use of Eminent Domain to Build Transmission
+Lines Under the Northern Maine Renewable Energy Development Program
+Fiscal Note for Bill as Amended by Committee Amendment '^
+Committee: Energy, Utilities and Technology
+Fiscal Note Required: Yes
+Fiscal Note
+Minor cost increase - Other Special Revenue Funds
+Fiscal Detail and Notes
+Any additional costs to the Public Utilities Commission to implement the provisions of this bill are expected to be
+minor and .can be absorbed within existing budgeted resources.
+LR2609(02) - Fiscal Note - Page 1 of 1

@@ -1,0 +1,401 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+CORRECTED FRONT PAGE
+February 21, 2024
+(PLEASE REPLACE
+THIS FRONT PAGE ONLY)
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2224
+S.P. 953 In Senate, February 22, 2024
+An Act to Strengthen Public Safety by Improving Maine's Firearm 
+Laws and Mental Health System
+Reference to the Committee on Judiciary suggested and ordered printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator ROTUNDO of Androscoggin.  (GOVERNOR'S BILL)
+Cosponsored by Representative CLOUTIER of Lewiston and
+Senators: DAUGHTRY of Cumberland, President JACKSON of Aroostook, VITELLI of 
+Sagadahoc, Representatives: Speaker TALBOT ROSS of Portland, TERRY of Gorham.
+
+Page 1 - 131LR3066(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  15 MRSA §393, sub-§1, ¶E-1, as enacted by PL 2019, c. 411, Pt. C, §2 
+3 and affected by Pt. D, §3, is amended to read:
+4 E-1.  Is currently a restricted person under  pursuant to Title 34‑B, section 3862‑A, 
+5 subsection 2 or Title 34-B, section 3862-A, subsection 6, paragraph D or a similar order 
+6 issued by another jurisdiction, except that the prohibition applies to possession and 
+7 control, and not ownership.  A permit issued pursuant to subsection 2 is not a defense 
+8 to a violation of this paragraph. Violation of this paragraph is a Class D crime;
+9Sec. 2.  15 MRSA §394, sub-§2, as enacted by PL 2023, c. 305, §1, is amended to 
+10 read:
+112.  Sale or transfer prohibited.  A person may not recklessly, knowingly or 
+12 intentionally sell or transfer a firearm to a person who is prohibited from owning, 
+13 possessing or having under that person's control a firearm pursuant to section 393 and who 
+14 does not have a permit issued under section 393. This subsection does not apply to the sale 
+15 or transfer of an antique firearm.
+16 Violation of this subsection is a Class D  C crime.
+17Sec. 3.  15 MRSA §395 is enacted to read:
+18§395.  Background checks of firearms buyers
+191.  Definitions.  As used in this section, unless the context otherwise indicates, the 
+20 following terms have the following meanings.
+21 A.  "Buy" means to acquire ownership for monetary or other consideration.
+22 B.  "Buyer" means a person who buys from a seller.
+23 C.  "Family member" means a spouse, domestic partner, parent, stepparent, foster 
+24 parent, child, stepchild, foster child or person related by consanguinity within the 2nd 
+25 degree.
+26 D.  "Federally licensed firearms dealer" or "dealer" means a person who is licensed or 
+27 is required to be licensed as a dealer under 18 United States Code, Section 923(a)(3).
+28 E.  "Firearm" has the same meaning as in Title 17-A, section 2, subsection 12-A.
+29 F.  "Gun show" means any gathering or exhibition at which any firearm is displayed 
+30 that is:
+31 (1)  Open to the public; 
+32 (2)  Not occurring on the permanent premises of a federally licensed firearms 
+33 dealer; and
+34 (3)  Conducted principally for the purposes of transactions.
+35 G.  "Sell" means to transfer ownership for monetary or other consideration.
+36 H.  "Seller" means a person who sells to a buyer.
+37 I. "Transaction" means the transfer of ownership of a firearm from a seller to a buyer.
+382.  Transactions covered by this section.   This section applies only to transactions in 
+39 which:
+Page 2 - 131LR3066(01)
+1 A.  A seller sells to a buyer at a gun show; or
+2 B.  A seller sells to a buyer as a result of an advertisement, posting, display or other 
+3 listing on the Internet or in a publication.
+43.  Transactions not covered by this section.  This section does not apply to 
+5 transactions in which:
+6 A.  The buyer and seller are family members; or
+7 B.  The transaction is for a firearm that is:
+8 (1)  A curio or relic, as defined in 27 Code of Federal Regulations, Section 478.11, 
+9 as in effect on November 19, 2019, and the sale, transfer or exchange is between 
+10 collectors as defined in 18 United States Code, Section 921(a)(13), as in effect on 
+11 June 25, 2022, who each have in their possession a valid collector of curios and 
+12 relics license issued by the United States Department of Justice, Bureau of Alcohol, 
+13 Tobacco, Firearms and Explosives; or
+14 (2)  An antique firearm, as defined in 18 United States Code, Section 921(a)(16), 
+15 as in effect on June 25, 2022.
+164.  Requirement for transactions covered by this section.  A seller who is not a 
+17 federally licensed firearms dealer may not complete a transaction to which this section 
+18 applies unless the seller facilitates the transaction through a federally licensed firearms 
+19 dealer.  The dealer shall perform a background check of the putative buyer by using the 
+20 Federal Bureau of Investigation, National Instant Criminal Background Check System in 
+21 the same manner as if the dealer were the seller of the firearm that is the subject of the 
+22 transaction.  If the background check reveals that the putative buyer is prohibited from 
+23 purchasing a firearm, the dealer shall notify the seller of that fact and of the fact that the 
+24 transaction may not proceed.  The dealer may charge a reasonable fee for serving as the 
+25 facilitator.  
+265.  Violations.  A person who sells a firearm in violation of this section commits a 
+27 Class C crime.
+28Sec. 4.  22-A MRSA §203, sub-§2, as enacted by PL 2003, c. 689, Pt. A, §1, is 
+29 amended to read:
+302.  Additional programs and services for children and families.  The department 
+31 shall provide children and families with additional programs and services to assist them in 
+32 meeting their needs, including, but not limited to:
+33 A.  Child welfare services;
+34 B.  Head Start and child care services;
+35 C.  Maternal and child health services, including home visiting programs;
+36 D.  Paternity establishment and child support enforcement services; and
+37 E.  Residential and long-term care services for children with disabilities. ; and
+38 F.  Injury and violence prevention programs, including data collection, synthesis and 
+39 evaluation.
+40Sec. 5.  25 MRSA §2804-C, sub-§2-E, as enacted by PL 2019, c. 411, Pt. C, §4 
+41 and affected by Pt. D, §3, is amended to read:
+Page 3 - 131LR3066(01)
+12-E.  Receipt of certain dangerous weapons; training; procedure; liability.  
+2 Beginning in 2020, the Maine Criminal Justice Academy Board of Trustees shall require 
+3 training as part of its mandated training schedule for municipal, county and state law 
+4 enforcement officers regarding the process for protection from substantial threats by a 
+5 restricted person  extreme risk protection orders and the proper handling, storage, 
+6 safekeeping and return of dangerous weapons received pursuant to an endorsement or court 
+7 order under Title 34‑B, section 3862‑A or 3873‑A.  The training must include education 
+8 concerning the prohibitions on the purchase, control or possession of dangerous weapons.  
+9 A law enforcement officer who receives custody of a dangerous weapon pursuant to Title 
+10 34‑B, section 3862‑A or 3873‑A shall exercise reasonable care to avoid loss, damage or 
+11 reduction in value of the weapon and may not permanently mark or fire the weapon unless 
+12 there is reasonable suspicion that the weapon has been used in the commission of a crime.  
+13 Any liability for damage or reduction in value to such a weapon is governed by Title 14, 
+14 chapter 741.
+15Sec. 6.  34-B MRSA §3613 is enacted to read:
+16§3613.  Crisis receiving centers
+171.  Definition.  As used in this section, unless the context otherwise indicates, "crisis 
+18 receiving center" means a center that provides immediate and short-term walk-in access to 
+19 an array of both clinical and nonclinical mental health and substance use disorder crisis 
+20 stabilization services to all individuals seeking care regardless of severity or insurance 
+21 coverage and within bounds of licensing.
+222.  Department to develop plan and serve as coordinator.  The department shall 
+23 develop a plan for a network of community-based crisis receiving centers across the State 
+24 to support both clinical and nonclinical mental health and substance use disorder crisis 
+25 stabilization services.  The department shall also coordinate meetings, technical assistance 
+26 and training and provide other assistance to help create, maintain and, as necessary, expand 
+27 the network.
+283.  Guidelines.  In carrying out its duties under subsection 2, the department shall: 
+29 A.  Consult with law enforcement agencies, municipalities, public health experts, 
+30 behavioral health care providers, other states and others as appropriate; 
+31 B.  Assess geographical locations for maximization of community impact; 
+32 C.  Provide technical assistance to persons and entities across the State and providers 
+33 interested in joining the network; 
+34 D.  Coordinate regular meetings with crisis receiving centers and provide technical 
+35 assistance to crisis receiving centers; and 
+36 E.  Engage in continual process improvement and planning updates.
+37Sec. 7.  34-B MRSA §3862-A, as enacted by PL 2019, c. 411, Pt. A, §1 and affected 
+38 by Pt. D, §3, is amended by amending the section headnote to read:
+39§3862-A.  Protection from substantial threats  Extreme risk protection orders
+40Sec. 8.  34-B MRSA §3862-A, sub-§1, ¶C, as enacted by PL 2019, c. 411, Pt. A, 
+41 §1 and affected by Pt. D, §3, is amended to read:
+Page 4 - 131LR3066(01)
+1 C.  "Initial restrictions" means the immediate and temporary 14‑day  30-day 
+2 threat‑based restrictions pursuant to subsection 4.
+3Sec. 9.  34-B MRSA §3862-A, sub-§2, ¶B, as enacted by PL 2019, c. 411, Pt. A, 
+4 §1 and affected by Pt. D, §3, is amended to read:
+5 B.  The medical practitioner under paragraph A  this subsection shall assess whether the 
+6 person presents a likelihood of foreseeable harm.  In assessing the person, a medical 
+7 practitioner may consult with other medical professionals as the medical practitioner 
+8 determines advisable.  If the medical practitioner finds that the person can benefit from 
+9 treatment and services, the medical practitioner shall refer the person to treatment and 
+10 services. The medical practitioner may rely on information provided by a 3rd party if 
+11 it reasonably appears that the 3rd party has had recent personal observations of or 
+12 conversations with the person being assessed.
+13Sec. 10.  34-B MRSA §3862-A, sub-§2, ¶C, as enacted by PL 2019, c. 411, Pt. A, 
+14 §1 and affected by Pt. D, §3, is amended to read:
+15 C.  Notwithstanding any provision of law to the contrary, an assessment pursuant to 
+16 this section may be performed at a health care facility but  or, when available and as 
+17 appropriate, must  may be performed at an alternative location. The assessment may be 
+18 facilitated using telehealth technology. If the assessment is provided at a health care 
+19 facility, law enforcement shall, upon request of the facility and consistent with section 
+20 3863, subsection 2‑A, absent compelling circumstances, assist the facility with the 
+21 security of the person awaiting the assessment under this section.
+22Sec. 11.  34-B MRSA §3862-A, sub-§2, ¶C-1 is enacted to read:
+23 C-1.  The assessment required by this subsection must be performed while the person 
+24 being assessed remains in protective custody, except that the assessment may be 
+25 performed within 24 hours after the person is released from protective custody if:
+26 (1)  The protective custody stemmed from a law enforcement officer's probable 
+27 cause to believe the person was mentally ill and presented a likelihood of serious 
+28 harm because the person possesses, controls or may acquire a dangerous weapon; 
+29 and
+30 (2)  An assessment under section 3863 has occurred.
+31Sec. 12.  34-B MRSA §3862-A, sub-§2-A is enacted to read:
+322-A.  Protective custody warrant for purposes of conducting an assessment.  If a 
+33 law enforcement officer is unable to take a person into protective custody to conduct an 
+34 assessment under this section, the law enforcement officer may apply for a protective 
+35 custody warrant.  The officer must submit an affidavit of probable cause for a protective 
+36 custody warrant to a Justice of the Superior Court or a Judge of the District Court.
+37 The justice or judge shall issue a protective custody warrant and promptly transmit that 
+38 warrant to the officer for execution upon finding the affidavit under this subsection is 
+39 sufficient to establish:
+40 A.  Probable cause to believe that the person is mentally ill and due to that condition 
+41 presents a likelihood of serious harm;
+Page 5 - 131LR3066(01)
+1 B.  Probable cause to believe that the person possesses, controls or may acquire a 
+2 dangerous weapon; and
+3 C.  That the officer has made reasonable attempts to take the person into custody 
+4 without a warrant.
+5 A warrant transmitted by facsimile machine or an electronic warrant transmitted by secure 
+6 electronic means has the same legal effect and validity as an original endorsement signed 
+7 by the justice or judge.  The electronic arrest warrant or paper arrest warrant may be 
+8 executed by a law enforcement officer authorized to take the person into protective custody 
+9 as provided in subsection 2.
+10Sec. 13.  34-B MRSA §3862-A, sub-§3, as enacted by PL 2019, c. 411, Pt. A, §1 
+11 and affected by Pt. D, §3, is amended to read:
+123.  Notification by medical practitioner and judicial endorsement.  A medical 
+13 practitioner shall notify in writing the law enforcement officer or law enforcement agency 
+14 that took the person into protective custody under subsection 2 that, based on the 
+15 assessment under subsection 2, paragraph B, the person is found to present a likelihood of 
+16 foreseeable harm.  If so notified, the law enforcement officer or law enforcement agency 
+17 shall as soon as practicable seek endorsement by a Superior Court Justice, District Court 
+18 Judge, judge of probate or justice of the peace  Justice of the Superior Court or a Judge of 
+19 the District Court of the medical practitioner's assessment and law enforcement's 
+20 declarations that the person was taken into protective custody and that the law enforcement 
+21 officer has probable cause to believe that the person possesses, controls or may acquire a 
+22 dangerous weapon. If a Judge of the District Court is not available in the division in which 
+23 a complaint requesting an endorsement is to be filed, the complaint may be presented to 
+24 another Judge of the District Court or to any Justice of the Superior Court.  A Justice of the 
+25 Superior Court has the same authority as a Judge of the District Court to grant or deny the 
+26 endorsement. The  judge  justice or  justice  judge shall promptly transmit to the law 
+27 enforcement officer or agency the decision to endorse or not endorse.  A decision 
+28 transmitted electronically has the same legal effect and validity as a signed original.  An 
+29 endorsement must authorize law enforcement to execute the authority in subsection 4.  This 
+30 section may not be construed to prevent law enforcement from accepting a voluntary 
+31 surrender of dangerous weapons.
+32Sec. 14.  34-B MRSA §3862-A, sub-§4, as enacted by PL 2019, c. 411, Pt. A, §1 
+33 and affected by Pt. D, §3, is amended to read:
+344.  Initial restrictions; notice by law enforcement.  A person whose assessment is 
+35 endorsed by a judicial officer under subsection 3 becomes, at the time of notice by a law 
+36 enforcement officer under paragraph B, a restricted person subject to initial restrictions and 
+37 subject to the prohibitions in Title 15, section 393, subsection 1, paragraphs E‑1 and E‑2 as 
+38 follows:
+39 A.  The restricted person, after notice under paragraph B:
+40 (1)  Is prohibited from possessing, controlling, acquiring or attempting to possess, 
+41 control or acquire a dangerous weapon pending the outcome of a judicial hearing;
+42 (2)  Shall immediately and temporarily surrender any weapons possessed, 
+43 controlled or acquired by the restricted person to a law enforcement officer who 
+Page 6 - 131LR3066(01)
+44 has authority in the jurisdiction in which the weapons are located pending the 
+45 outcome of a judicial hearing; and
+3 (3)  Has a right to a judicial hearing within 14  30 days of notice under paragraph 
+4 B; and
+5 B.  A law enforcement officer shall, as soon as practicable, but no later than 24 hours 
+6 after the judicial endorsement, unless the restricted person is medically incapacitated, 
+7 in which case within 48 hours after the law enforcement officer has been notified that 
+8 the person is no longer medically incapacitated:
+9 (1)  Notify the restricted person that the restricted person:
+10 (a)  Is prohibited from possessing, controlling, acquiring or attempting to 
+11 possess, control or acquire a dangerous weapon pending the outcome of a 
+12 judicial hearing;
+13 (b)  Is required to immediately and temporarily surrender any weapons 
+14 possessed, controlled or acquired by the restricted person to a law enforcement 
+15 officer who has authority in the jurisdiction in which the weapons are located 
+16 pending the outcome of a judicial hearing; and
+17 (c)  Has a right to a judicial hearing within 14  30 days of the notice under this 
+18 paragraph;
+19 (2)  Notify the contact person, if any, disclosed by the restricted person to the 
+20 medical practitioner and the district attorney in the district of the restricted person's 
+21 residence  where the person was taken into protective custody of the person's 
+22 restricted status; and
+23 (3)  Report the person's restricted status to the Department of Public Safety as soon 
+24 as practicable.
+25Sec. 15.  34-B MRSA §3862-A, sub-§6, ¶A, as enacted by PL 2019, c. 411, Pt. A, 
+26 §1 and affected by Pt. D, §3, is amended to read:
+27 A.  Within 5  14 days of the date of the notice given to a restricted person under 
+28 subsection 4, paragraph B, the district attorney  the court shall schedule a hearing in the 
+29 district of the restricted person's residence shall file a petition for judicial review of the 
+30 initial restrictions by the district court.  The district attorney shall provide  where the 
+31 person was taken into protective custody and provide notice of the hearing to the 
+32 restricted person written notice of the petition and hearing at least 7 days prior to the 
+33 hearing.  The restricted person has the right to be represented by counsel at the hearing, 
+34 and the court may appoint counsel for an indigent party.  Upon a showing of good 
+35 cause, the court may extend the time to hold the hearing.
+36Sec. 16.  34-B MRSA §3862-A, sub-§6, ¶B, as enacted by PL 2019, c. 411, Pt. A, 
+37 §1 and affected by Pt. D, §3, is amended to read:
+38 B.  Within 14  30 days of the notice given under subsection 4, the court shall hold a 
+39 hearing to determine whether to dissolve or extend the initial restrictions.  In the 
+40 hearing determining whether to dissolve or extend the initial restrictions, the district 
+41 attorney has the burden to prove by clear and convincing evidence that the restricted 
+42 person presents a likelihood of foreseeable harm.  Upon a showing of good cause, the 
+43 court may extend the time to hold the hearing.
+1
+2
+Page 7 - 131LR3066(01)
+1Sec. 17.  34-B MRSA §3862-A, sub-§6, ¶C, as enacted by PL 2019, c. 411, Pt. A, 
+2 §1 and affected by Pt. D, §3, is amended to read:
+3 C.  In determining whether there are grounds to extend the initial restrictions, the court 
+4 shall consider all relevant evidence, including, but not limited to, recent threats or acts 
+5 of violence by the restricted person directed toward other persons; recent threats or acts 
+6 of violence by the restricted person directed toward the restricted person; recent acts of 
+7 unlawful abuse of animals by the restricted person; the reckless use or threatening 
+8 display of a dangerous weapon by the restricted person; a history of the use, attempted 
+9 use or threatened use of physical force by the restricted person against other persons; a 
+10 record of prior custodial events or restrictions under this section; prior involuntary 
+11 confinement of the restricted person in a hospital for persons with psychiatric 
+12 disabilities; prior protection from abuse and protection from harassment orders against 
+13 the restricted person or violations regarding protection from abuse or protection from 
+14 harassment by the restricted person; evidence of stalking behavior, severe obsession or 
+15 sexual violence by the restricted person; the illegal use of controlled substances by the 
+16 restricted person; and evidence of alcohol or drug abuse by the restricted person. The 
+17 court may consider affidavits and other reliable hearsay in making this determination. 
+18 The court shall also consider whether the restricted person is receiving treatment 
+19 responsive to that person's mental health or substance use needs.
+20Sec. 18.  34-B MRSA §3862-A, sub-§6, ¶D, as enacted by PL 2019, c. 411, Pt. A, 
+21 §1 and affected by Pt. D, §3, is amended by amending subparagraph (5) to read:
+22 (5)  A court shall electronically update or transmit to the Department of Public 
+23 Safety, Bureau of State Police an abstract of the order issued by the court pursuant 
+24 to this section that includes a prohibition on the possession of a dangerous weapon 
+25 within 72 hours of the order's being issued.  The abstract must include the name, 
+26 date of birth and gender of the person who is the subject of the order; the court's 
+27 order and the expiration date of that order; and a notation that the person has been 
+28 notified by the court.
+29 The abstract required by this subparagraph is confidential and is not a public record 
+30 as defined in Title 1, chapter 13; however, the information contained in the abstract 
+31 or a copy of the abstract may be provided by the Department of Public Safety to a 
+32 criminal justice agency for law enforcement purposes, to the Federal Bureau of 
+33 Investigation, National Instant Criminal Background Check System or to an 
+34 issuing authority for the purpose of processing concealed firearm permit 
+35 applications.  The Department of Public Safety shall, when the pertinent database 
+36 is developed, request that the Federal Bureau of Investigation ensure that, 
+37 immediately after the order expires, the National Instant Criminal Background 
+38 Check System no longer reflects that expired order as a ground for prohibiting the 
+39 subject of the order from possessing or acquiring a firearm.  For the purposes of 
+40 this subsection, "criminal justice agency" means a federal, state, tribal, district, 
+41 county or local government agency or any subunit of those entities that performs 
+42 the administration of criminal justice under a statute or executive order and that 
+43 allocates a substantial part of its annual budget to the administration of criminal 
+44 justice.  Courts and the Department of the Attorney General are considered 
+45 criminal justice agencies, as is any equivalent agency at any level of Canadian 
+46 government.
+Page 8 - 131LR3066(01)
+1Sec. 19.  34-B MRSA §3862-A, sub-§8, as enacted by PL 2019, c. 411, Pt. A, §1 
+2 and affected by Pt. D, §3, is amended to read:
+38.  Offense.  Possession of a dangerous weapon by a restricted person is a Class D  C 
+4 crime.
+5SUMMARY
+6 This bill does the following.
+7 1.  It provides that a person may not own, possess or have under that person's control a 
+8 firearm if that person is a restricted person under an order issued by another jurisdiction 
+9 that is similar to an extreme risk protection order in this State. 
+10 2.  It provides that a person may not recklessly sell or transfer a firearm to a person 
+11 who is prohibited from owning, possessing or having under that person's control a firearm. 
+12 3.  It changes the classification of the crime of recklessly, knowingly or intentionally 
+13 selling or transferring a firearm to a person who is prohibited from owning, possessing or 
+14 having under that person's control a firearm from a Class D to a Class C crime.
+15 4.  It provides that a seller who is not a federally licensed firearms dealer and who 
+16 transfers ownership of a firearm to a buyer may not complete the transaction unless the 
+17 seller facilitates the transaction through a federally licensed firearms dealer.  The dealer 
+18 must perform a background check of the putative buyer by using the Federal Bureau of 
+19 Investigation, National Instant Criminal Background Check System in the same manner as 
+20 if the dealer were the seller of the firearm that is the subject of the transaction.  If the 
+21 background check reveals that the putative buyer is prohibited from purchasing a firearm, 
+22 the dealer must notify the seller of that fact and of the fact that the transaction may not 
+23 proceed.  The dealer may charge a reasonable fee for serving as the facilitator.  This 
+24 provision applies only to transactions in which a seller sells a firearm to a buyer at a gun 
+25 show or a seller sells a firearm to a buyer as a result of an advertisement, posting, display 
+26 or other listing on the Internet or in a publication.  This provision does not apply to a 
+27 transaction in which the buyer and seller are family members or a transaction for a firearm 
+28 that is a curio or relic if the sale, transfer or exchange is between collectors of firearms as 
+29 curios or relics who each have in their possession a valid collector of curios and relics 
+30 license issued by the United States Department of Justice, Bureau of Alcohol, Tobacco, 
+31 Firearms and Explosives or to a transaction for a firearm that is an antique firearm.
+32 5.  It provides that if a law enforcement officer is unable to take a person into protective 
+33 custody to conduct an assessment in connection with an extreme risk protection order, the 
+34 law enforcement officer may apply for a protective custody warrant.  The officer must 
+35 submit an affidavit of probable cause for a protective custody warrant to a Justice of the 
+36 Superior Court or a Judge of the District Court.  The justice or judge must issue a protective 
+37 custody warrant and promptly transmit that warrant to the officer for execution upon 
+38 finding the affidavit is sufficient to establish probable cause to believe that the person is 
+39 mentally ill and due to that condition presents a likelihood of serious harm; probable cause 
+40 to believe that the person possesses, controls or may acquire a dangerous weapon; and that 
+41 the officer has made reasonable attempts to take the person into custody without a warrant.  
+42 It also provides that an assessment performed in connection with an extreme risk protection 
+43 order may be facilitated using telehealth technology.  It changes the required timing of 
+44 certain events related to an extreme risk protection order.  It changes the classification of 
+6
+Page 9 - 131LR3066(01)
+45 the crime of possession of a dangerous weapon by a restricted person from a Class D to a 
+46 Class C crime.
+3 6.  It requires the Department of Health and Human Services to provide injury and 
+4 violence prevention programs, including data collection, synthesis and evaluation.
+5 7.  It requires the Department of Health and Human Services to plan for and assist a 
+6 statewide network of crisis receiving centers to provide immediate and short-term mental 
+7 health and substance use disorder crisis stabilization services.
+1
+2

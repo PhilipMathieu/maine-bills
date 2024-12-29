@@ -1,0 +1,118 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2272
+H.P. 1461 House of Representatives, March 20, 2024
+An Act Related to Airboats and Airboat Noise Limits
+(EMERGENCY)
+Reported by Representative LANDRY of Farmington for the Joint Standing Committee on 
+Inland Fisheries and Wildlife pursuant to Public Law 2021, chapter 585, section 2.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3128(01)
+1Emergency preamble.  Whereas, acts and resolves of the Legislature do not 
+2 become effective until 90 days after adjournment unless enacted as emergencies; and
+3Whereas, the Legislature enacted legislation in 2023 to extend the repeal date of the 
+4 provisions of law establishing airboat noise limits but this legislation did not take effect 
+5 before the provisions were repealed; and
+6Whereas, the stakeholder group on airboat noise issues convened pursuant to Public 
+7 Law 2021, chapter 166 and extended by Public Law 2021, chapter 585 and Public Law 
+8 2023, chapter 209 has recommended that the decibel level limits for airboats be 
+9 reestablished immediately; and
+10Whereas, in the judgment of the Legislature, these facts create an emergency within 
+11 the meaning of the Constitution of Maine and require the following legislation as 
+12 immediately necessary for the preservation of the public peace, health and safety; now, 
+13 therefore,
+14Be it enacted by the People of the State of Maine as follows:
+15Sec. 1.  12 MRSA §13068-A, sub-§10, ¶A, as amended by PL 2021, c. 166, §1, is 
+16 further amended by amending the first blocked paragraph to read:
+17 As used in this paragraph, "motorboat" does not include an "airboat, " which has the 
+18 same meaning as  defined in paragraph A‑2 subsection 10-A.
+19Sec. 2.  12 MRSA §13068-A, sub-§10-A is enacted to read:
+2010-A.  Operating airboat that exceeds noise limits.  The following provisions govern 
+21 airboat noise limits.
+22 A.  A person may not operate an airboat:
+23 (1)  If the noise level of the airboat exceeds 90 decibels as measured in a stationary 
+24 sound level test as prescribed by SAE standards J-2005;
+25 (2)  Between the hours of 7 p.m. and 7 a.m. in such a manner as to exceed a noise 
+26 level of 75 decibels on the "A" scale as measured by the SAE standards J-1970, 
+27 referred to in this paragraph as "the shoreline test," except to the extent necessary 
+28 to achieve headway speed when leaving a boat launch or to move the airboat from 
+29 a stationary position on a tidal flat; or
+30 (3)  After 7 a.m. and before 7 p.m. in such a manner as to exceed a noise level of 
+31 90 decibels as measured by the shoreline test, except to the extent necessary to 
+32 achieve headway speed when leaving a boat launch or to move the airboat from a 
+33 stationary position on a tidal flat. 
+34 B.  This subsection does not apply to the operation of an airboat by a marine patrol 
+35 officer appointed under section 6025, subsection 1, a game warden or a municipal law 
+36 enforcement officer. 
+37 C.  The following penalties apply to violations of this subsection. 
+38 (1)  A person who violates this subsection commits a civil violation for which a 
+39 fine of not less than $300 nor more than $500 may be adjudged.
+Page 2 - 131LR3128(01)
+1 (2)  A person who violates this subsection after having been adjudicated as having 
+2 committed 3 or more civil violations under this Part within the previous 5-year 
+3 period commits a Class E crime.
+4 For purposes of this subsection, "airboat" means a flat-bottomed watercraft propelled by 
+5 an aircraft-type propeller and powered by either an aircraft engine or an automotive engine 
+6 and "SAE standards" means technical standards adopted by the Society of Automotive 
+7 Engineers.
+8Emergency clause.  In view of the emergency cited in the preamble, this legislation 
+9 takes effect when approved.
+10SUMMARY
+11 This bill is reported out by the Joint Standing Committee on Inland Fisheries and 
+12 Wildlife pursuant to Public Law 2021, chapter 585.  The bill provides that a person may 
+13 not operate an airboat:
+14 1.  If the noise level of the airboat exceeds 90 decibels;
+15 2.  Between 7 p.m. and 7 a.m. if the noise level of the airboat exceeds 75 decibels, 
+16 except to the extent necessary to achieve headway speed when leaving a boat launch or to 
+17 move the airboat from a stationary position on a tidal flat; or
+18 3.  Between 7 a.m. and 7 p.m. if the noise level of the airboat exceeds 90 decibels, 
+19 except to the extent necessary to achieve headway speed when leaving a boat launch or to 
+20 move the airboat from a stationary position on a tidal flat.
+21 The bill also defines "airboat" and outlines penalties for violating these provisions and 
+22 provides exceptions for certain law enforcement officers.
+23FISCAL NOTE REQUIRED
+24(See attached)
+11
+12
+13
+23
+24
+Approved: 03/08/24
+LD  2272     LR 3128(01)
+Fiscal Detail and Notes
+Any additional costs to the Department of Inland Fisheries and Wildlife from the provisions of this bill are expected to 
+be minor and can be absorbed within existing budgeted resources.
+131st MAINE LEGISLATURE
+An Act Related to Airboats and Airboat Noise Limits
+Fiscal Note for Original Bill
+Committee: Inland Fisheries and Wildlife
+Fiscal Note Required: Yes
+Fiscal Note
+Minor cost increase - General Fund
+LR3128(01) - Fiscal Note - Page 1 of 1

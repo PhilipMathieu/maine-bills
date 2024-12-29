@@ -1,0 +1,126 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2085
+S.P. 878 In Senate, January 3, 2024
+An Act to Update Maine's Domestic Violence and Stalking Laws
+(EMERGENCY)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Reference to the Committee on Judiciary suggested and ordered printed.
+DAREK M. GRANT
+Secretary of the Senate
+Presented by Senator CARNEY of Cumberland.
+Cosponsored by Representative CLOUTIER of Lewiston and
+Senators: DAUGHTRY of Cumberland, LIBBY of Cumberland, RAFFERTY of York, 
+Representatives: ARATA of New Gloucester, HENDERSON of Rumford, KUHN of 
+Falmouth, LEE of Auburn, SHEEHAN of Biddeford.
+
+Page 1 - 131LR2832(01)
+1Emergency preamble.  Whereas, acts and resolves of the Legislature do not 
+2 become effective until 90 days after adjournment unless enacted as emergencies; and
+3Whereas, on June 27, 2023, the United States Supreme Court issued a decision in 
+4Counterman v. Colorado, which has raised questions as to the constitutionality of several 
+5 of Maine's statutes; and
+6Whereas, the statutes implicated include critical components of the State's public 
+7 safety response, specifically including its response to domestic violence and stalking; and
+8Whereas, citizens of the State rely on the Legislature to ensure a constitutionally 
+9 sound criminal and civil justice system and failure to timely align the statutes with the new 
+10 federal standard may result in unnecessary litigation in the State's already overburdened 
+11 state court system; and
+12Whereas, in the judgment of the Legislature, these facts create an emergency within 
+13 the meaning of the Constitution of Maine and require the following legislation as 
+14 immediately necessary for the preservation of the public peace, health and safety; now, 
+15 therefore,
+16Be it enacted by the People of the State of Maine as follows:
+17Sec. 1.  17-A MRSA §210, sub-§1, as amended by PL 2003, c. 143, §4, is further 
+18 amended to read:
+191.   A person is guilty of terrorizing if that person in fact  intentionally, knowingly or 
+20 recklessly communicates to any person a threat to commit or to cause to be committed a 
+21 crime of violence dangerous to human life, against the person to whom the communication 
+22 is made or another, and consciously disregarding a risk that the natural and probable 
+23 consequence of such a threat, whether or not such consequence in fact occurs, is:
+24 A.  To place the person to whom the threat is communicated or the person threatened 
+25 in reasonable fear that the crime will be committed.  Violation of this paragraph is a 
+26 Class D crime; or
+27 B.  To cause evacuation of a building, place of assembly or facility of public transport 
+28 or to cause the occupants of a building to be moved to or required to remain in a 
+29 designated secured area.  Violation of this paragraph is a Class C crime.
+30Sec. 2.  17-A MRSA §210-A, sub-§2, ¶A, as amended by PL 2007, c. 685, §1, is 
+31 repealed and the following enacted in its place:
+32 A.  "Course of conduct" means 2 or more acts, including but not limited to acts in which 
+33 the actor, by any action, method, device or means, directly or indirectly:
+34 (1)  Follows, monitors, tracks, observes, surveils or harasses a person;
+35 (2)  Interferes with a person's property;
+36 (3)  Threatens a person, consciously disregarding a risk that the actor's conduct 
+37 would cause a reasonable person to experience any of the effects identified in 
+38 subsection 1, paragraph A; or
+39 (4)  Communicates to or about a person, consciously disregarding a risk that the 
+40 actor's conduct would cause a reasonable person to experience any of the effects 
+41 identified in subsection 1, paragraph A. 
+Page 2 - 131LR2832(01)
+1 "Course of conduct" also includes, but is not limited to, threats implied by conduct and 
+2 gaining unauthorized access to personal, medical, financial or other identifying or 
+3 confidential information.  
+4Sec. 3.  17-A MRSA §506, sub-§1, ¶A, as amended by PL 2017, c. 397, §1, is 
+5 repealed and the following enacted in its place:
+6 A.  By means of telephone or electronic communication device the person 
+7 intentionally, knowingly or recklessly makes any comment, request, suggestion or 
+8 proposal without the consent of the person called or contacted:
+9 (1)  That is, in fact, obscene; or
+10 (2)  With conscious disregard of a risk that a reasonable person would find the 
+11 comment, request, suggestion or proposal offensively coarse.
+12 Violation of this paragraph is a Class E crime;
+13Sec. 4.  19-A MRSA §4102, sub-§1, ¶B, as enacted by PL 2021, c. 647, Pt. A, §3 
+14 and affected by Pt. B, §65, is amended to read:
+15 B.  Attempting to place or placing another in fear of bodily injury, regardless of intent, 
+16 through any course of conduct, including, but not limited to, threatening, harassing or 
+17 tormenting behavior.  When the course of conduct violates this paragraph based on the 
+18 content of the actor's speech, the actor must have consciously disregarded a risk that 
+19 the speech would place a reasonable person in fear of bodily injury;
+20Sec. 5.  19-A MRSA §4102, sub-§1, ¶E, as enacted by PL 2021, c. 647, Pt. A, §3 
+21 and affected by Pt. B, §65, is amended to read:
+22 E.  Communicating to a person a threat to commit, or to cause to be committed, a crime 
+23 of violence dangerous to human life against the person to whom the communication is 
+24 made or another, and with conscious disregard of a risk that the natural and probable 
+25 consequence of the threat, whether or not that consequence in fact occurs, is to place 
+26 the person to whom the threat is communicated, or the person against whom the threat 
+27 is made, in reasonable fear that the crime will be committed;  
+28Emergency clause.  In view of the emergency cited in the preamble, this legislation 
+29 takes effect when approved.
+30SUMMARY
+31 This bill aligns the laws of this State with the new federal standard set by Counterman 
+32v. Colorado, 600 U.S. 66 (2023). It amends relevant sections of the Maine Criminal Code 
+33 and the protection from abuse laws to provide that, with respect to a violation of the abuse 
+34 laws or the crime of terrorizing, stalking or harassment by telephone based on the content 
+35 of the actor's speech, the actor must have consciously disregarded a risk that the actor's 
+36 speech would place a reasonable person in fear of bodily injury.
+31
+32
+33
+34
+35
+36

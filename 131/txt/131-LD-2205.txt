@@ -1,0 +1,161 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2205
+H.P. 1413 House of Representatives, February 5, 2024
+Resolve, to Require the Public Utilities Commission to Initiate a 
+Feasibility Study to Evaluate Transmission Technologies and Siting 
+Locations for Any Future Electric Transmission Line Proposed 
+Pursuant to the Northern Maine Renewable Energy Development 
+Program
+(AFTER DEADLINE)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+205.
+Reference to the Committee on Energy, Utilities and Technology suggested and ordered 
+printed.
+ROBERT B. HUNT
+Clerk
+Presented by Representative CYRWAY of Albion.
+Cosponsored by President JACKSON of Aroostook and
+Representatives: DILL of Old Town, FOSTER of Dexter, HYMES of Waldo, PERKINS of 
+Dover-Foxcroft, Speaker TALBOT ROSS of Portland, Senators: CURRY of Waldo, FARRIN 
+of Somerset, STEWART of Aroostook.
+
+Page 1 - 131LR3013(01)
+1Sec. 1.  Feasibility study required.  Resolved:  That the Public Utilities 
+2 Commission, referred to in this resolve as "the commission," shall contract with an 
+3 independent engineering firm to perform a study concerning the feasibility of a 345-
+4 kilovolt or greater capacity electric transmission line designed pursuant to the Northern 
+5 Maine Renewable Energy Development Program, as established in the Maine Revised 
+6 Statutes, Title 35-A, section 3210-I, subsection 1, before the commission issues a new 
+7 request for proposals for development and construction of the electric transmission line 
+8 pursuant to Title 35-A, section 3210-I, subsection 2.
+9Sec. 2.  Administration of feasibility study; partners. Resolved:  That the 
+10 commission shall contract with an independent engineering firm to formulate and 
+11 administer the feasibility study. The commission may also contract or otherwise consult 
+12 with an organization or firm with expertise in public policy related to energy, public utilities 
+13 or infrastructure. The commission and its chosen partners for the feasibility study are 
+14 referred to in this resolve as "the project team."
+15Sec. 3.  Feasibility study; requirements. Resolved:  That, in designing the 
+16 feasibility study, the project team shall identify different technologies and methods for the 
+17 development and construction of the electric transmission line and possible routes for the 
+18 transmission corridor. With respect to each proposed solution, the project team shall 
+19 evaluate:
+20 1.  The extent to which the proposed electric transmission line would satisfy the 
+21 requirements of and advance the goals of the Northern Maine Renewable Energy 
+22 Development Program; 
+23 2.  The extent to which the proposed electric transmission line advances the clean 
+24 energy goals of the State; 
+25 3.  Infrastructure demands, including:
+26 A.  An analysis of the new infrastructure development necessary to complete the 
+27 proposed electric transmission line and connect the line to the proposed King Pine 
+28 Wind project in Aroostook County;
+29 B.  The necessity and feasibility of integrating the proposed electric transmission line 
+30 with existing infrastructure; and
+31 C.  Possible methods for integrating new or existing broadband infrastructure; 
+32 4.  Resources needed for and possible obstacles associated with successfully and 
+33 efficiently integrating with the electric grid; 
+34 5.  The extent to which the proposed electric transmission line would affect the land, 
+35 use of or enjoyment of the land, including:
+36 A.  Ecological and other environmental impacts; 
+37 B.  Impacts on scenic character;
+38 C.  Impacts on recreational uses of affected land;
+39 D.  Impacts on historical sites; 
+40 E.  The extent to which any proposed route would pass through privately owned land; 
+41 and
+Page 2 - 131LR3013(01)
+1 F.  The extent to which any proposed route would pass through a state-owned or 
+2 federally owned nature preserve.
+3 6. Economic impacts, including:
+4 A.  A cost-benefit analysis of the proposed electric transmission line; and
+5 B.  Economic impacts on the citizens, communities and municipalities affected by the 
+6 construction and operation of the proposed electric transmission line;
+7 7.  Public health and safety considerations;
+8 8.  Reliability and resiliency of the proposed electric transmission line when exposed 
+9 to inclement weather, natural disasters and other foreseeable stressors;
+10 9.  Long-term maintenance and repair; 
+11 10.  Regulatory and permitting challenges; 
+12 11.  Cost allocation; and
+13 12.  Community input. 
+14Sec. 4.  Deadline to complete feasibility study. Resolved:  That the project team 
+15 shall complete the feasibility study no later than January 1, 2026.
+16Sec. 5.  Report.  Resolved:  That, after completing the feasibility study, the 
+17 commission shall, no later than January 14, 2026, issue a report to the joint standing 
+18 committee of the Legislature having jurisdiction over energy, utilities and technology 
+19 matters.  The report must include: 
+20 1.  A summary of the feasibility study; and
+21 2.  The project team's recommendations based on the conclusions of the feasibility 
+22 study, including:
+23 A.  Preferred technologies;
+24 B.  Recommended siting locations, including any advice concerning particular routes 
+25 to be avoided; and
+26 C.  Any recommendations for additional legislation or further study.
+27 The joint standing committee may report out a bill related to the report to the Second 
+28 Regular Session of the 132nd Legislature. 
+29Sec. 6.  Further action by commission.  Resolved:  That the commission may 
+30 not resume the request-for-proposals process pursuant to the Maine Revised Statutes, Title 
+31 35-A, section 3210-I, subsection 2 or otherwise continue developing an electric 
+32 transmission line until the following conditions are met:
+33 1.  The feasibility study is completed; 
+34 2.  The commission submits its report to the joint standing committee of the Legislature 
+35 having jurisdiction over energy, utilities and technology matters pursuant to section 5; and
+36 3.  The Second Regular Session of the 132nd Legislature is adjourned. 
+Page 3 - 131LR3013(01)
+1SUMMARY
+2 This resolve requires the Public Utilities Commission to contract with one or more 
+3 partners to initiate a study evaluating the feasibility of alternative technologies and siting 
+4 routes for the development and construction of an electric transmission line pursuant to the 
+5 Northern Maine Renewable Energy Development Program. The feasibility study must 
+6 include an evaluation of a number of factors, including, but not limited to, economic 
+7 impacts, environmental impacts, public health concerns and a cost-benefit analysis of the 
+8 proposed electric transmission line and requires the commission to consider community 
+9 input. Upon conclusion of the feasibility study, the commission is required to issue a report 
+10 to the joint standing committee of the Legislature having jurisdiction over energy, utilities 
+11 and technology matters, which must include a summary of the feasibility study and any 
+12 recommendations by the commission and its partners. The resolve authorizes the 
+13 committee receiving the report to report out a bill related to the report to the Second Regular 
+14 Session of the 132nd Legislature. The commission may not resume the 
+15 request-for-proposals process or any other work on the electric transmission line until the 
+16 feasibility study has been completed, the report has been submitted to the joint standing 
+17 committee of the Legislature having jurisdiction over energy, utilities and technology 
+18 matters and the 132nd Legislature has adjourned.
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18

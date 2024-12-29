@@ -1,0 +1,95 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2234
+H.P. 1433 House of Representatives, February 28, 2024
+An Act to Require Telephone Solicitors to Use the Reassigned 
+Numbers Database
+Reported by Representative ZEIGLER of Montville for the Joint Standing Committee on 
+Energy, Utilities and Technology pursuant to Public Law 2023, chapter 144, section 6.
+Reference to the Committee on Energy, Utilities and Technology suggested and ordered 
+printed pursuant to Joint Rule 218.
+ROBERT B. HUNT
+Clerk
+
+Page 1 - 131LR3096(01)
+1Be it enacted by the People of the State of Maine as follows:
+2Sec. 1.  10 MRSA §1499-B, sub-§1, ¶D-2 is enacted to read:
+3 D-2.  "Reassigned numbers database" means a database created and maintained by the 
+4 Federal Communications Commission that identifies whether a telephone number has 
+5 been reassigned.
+6Sec. 2.  10 MRSA §1499-B, sub-§6, as amended by PL 2007, c. 489, §3, is further 
+7 amended to read:
+86.  Telephone solicitation violations.  It is a violation of this section for a telephone 
+9 solicitor to initiate a telephone sales call to a consumer if that consumer's telephone number 
+10 has been on the national or state do-not-call registry, established by the Federal Trade 
+11 Commission, for at least 3 months prior to the date the call is made or to fail to use the 
+12 reassigned numbers database to verify that a consumer's telephone number has not been 
+13 reassigned prior to initiating a telephone sales call to that consumer. A telephone solicitor 
+14 is not liable for violating this section if the telephone solicitor can demonstrate that:
+15 A.  As part of the telephone solicitor's routine business practice, the telephone solicitor 
+16 has established and implemented written procedures to comply with this section;
+17 B.  As part of the telephone solicitor's routine business practice, the telephone solicitor 
+18 has trained its personnel, and any entity assisting in its compliance, in the procedures 
+19 established pursuant to paragraph A;
+20 C.  As part of the telephone solicitor's routine business practice, the telephone solicitor 
+21 or another person acting on behalf of the telephone solicitor has recorded and 
+22 maintained a list of telephone numbers the telephone solicitor may not contact;
+23 D.  As part of the telephone solicitor's routine business practice, the telephone solicitor 
+24 uses a process to prevent telemarketing to any telephone number on any list established 
+25 pursuant to paragraph C or on the national do-not-call registry, employing a version of 
+26 the national do-not-call registry obtained from the Federal Trade Commission no more 
+27 than 31 days prior to the date any call is made, and maintains records documenting this 
+28 process;
+29 E.  As part of the telephone solicitor's routine business practice, the telephone solicitor 
+30 or another person acting on behalf of the telephone solicitor monitors and enforces 
+31 compliance with the procedures established pursuant to paragraph A; and
+32 E-1.  As part of the telephone solicitor's routine business practice, the telephone 
+33 solicitor or another person acting on behalf of the telephone solicitor uses the 
+34 reassigned numbers database to verify that a consumer's telephone number has not been 
+35 reassigned prior to initiating a telephone sales call to that consumer; and
+36 F.  Any subsequent call otherwise violating this section is the result of error.
+37SUMMARY
+38 This bill is reported out by the Joint Standing Committee on Energy, Utilities and 
+39 Technology pursuant to Public Law 2023, chapter 144, section 6. The bill amends the law 
+40 related to telephone solicitations to require a telephone solicitor to use the Federal 
+41 Communications Commission's reassigned numbers database to verify that a consumer's 
+38
+39
+40
+41
+Page 2 - 131LR3096(01)
+42 telephone number has not been reassigned prior to initiating a telephone sales call to that 
+43 consumer.
+3 The committee has not taken a position on the substance of this bill.  By reporting this 
+4 bill out, the committee is not suggesting and does not intend to suggest that it agrees or 
+5 disagrees with any aspect of this bill.  The committee is reporting the bill out for the sole 
+6 purpose of having a bill printed that can be referred to the committee for an appropriate 
+7 public hearing and subsequent processing in the normal course. The committee is taking 
+8 this action to ensure clarity and transparency in the legislative review of the proposals 
+9 contained in the bill.
+1
+2

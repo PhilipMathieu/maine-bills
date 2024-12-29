@@ -1,0 +1,124 @@
+ 
+MAINE STATE LEGISLATURE 
+ 
+ 
+ 
+The following document is provided by the 
+LAW AND LEGISLATIVE DIGITAL LIBRARY 
+at the Maine State Law and Legislative Reference Library 
+http://legislature.maine.gov/lawlib 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reproduced from electronic originals 
+(may include minor formatting differences from printed original) 
+ 
+ 
+Printed on recycled paper
+131st MAINE LEGISLATURE
+SECOND REGULAR SESSION-2024
+Legislative Document No. 2075
+H.P. 1334 House of Representatives, December 22, 2023
+An Act to Protect Health Care Workers from HIV
+(EMERGENCY)
+Approved for introduction by a majority of the Legislative Council pursuant to Joint Rule 
+203.
+Received by the Clerk of the House on December 20, 2023.  Referred to the Committee on 
+Health Coverage, Insurance and Financial Services pursuant to Joint Rule 308.2 and ordered 
+printed pursuant to Joint Rule 401.
+ROBERT B. HUNT
+Clerk
+Presented by Representative PERRY of Calais.
+
+Page 1 - 131LR2789(01)
+1Emergency preamble.  Whereas, acts and resolves of the Legislature do not 
+2 become effective until 90 days after adjournment unless enacted as emergencies; and
+3Whereas, health care workers who are exposed to bodily fluids from patients are at 
+4 high risk of infection; and
+5Whereas, it is imperative that appropriate treatment following exposure be started as 
+6 soon as possible, which requires knowledge of the pathogen to which the health care worker 
+7 may have been exposed; and
+8Whereas, this legislation allows for a more rapid determination of whether a patient 
+9 may be positive for HIV and is necessary as quickly as possible to protect the health care 
+10 workers in the State; and
+11Whereas, in the judgment of the Legislature, these facts create an emergency within 
+12 the meaning of the Constitution of Maine and require the following legislation as 
+13 immediately necessary for the preservation of the public peace, health and safety; now, 
+14 therefore,
+15Be it enacted by the People of the State of Maine as follows:
+16Sec. 1.  5 MRSA §19203-A, sub-§4-A, as enacted by PL 1999, c. 429, §3, is 
+17 amended to read:
+184-A.  Occupational exposure in health care setting.  When a bona fide occupational 
+19 exposure occurs in a health care setting, a legal representative or administrator of that health 
+20 care setting shall seek authorization to test the source patient for HIV must be obtained 
+21 from that patient if the patient is present or can be contacted at the time of exposure and is 
+22 capable of providing consent.  At the time of exposure, if the source patient is not present 
+23 and can not  cannot be contacted or is incapacitated, then any reasonably available member 
+24 of the following classes of individuals who is present, in descending order of priority, may 
+25 authorize an HIV test on a blood or tissue sample from the source patient:
+26 A.  The patient's legal guardian;
+27 B.  An individual known to have power of attorney for health care for the patient;
+28 C.  An adult relative, by blood, marriage or adoption;
+29 D.  An adult with whom the patient has a meaningful social and emotional relationship; 
+30 and
+31 E.  A physician who is familiar with occupational exposures to HIV.
+32 The individual authorizing the HIV test must be informed of the nature, reliability and 
+33 significance of the HIV test and the confidential nature of the test.
+34 If the person contacted for authorization explicitly refuses to authorize the test, the test may 
+35 not be conducted unless consent is obtained from the source patient or from the court 
+36 pursuant to section 19203‑C.
+37 This subsection does not authorize a person described in paragraphs A to D to receive the 
+38 test result.  Test results must be given to the exposed person, to a personal physician if 
+39 designated by the exposed person and to either the physician who authorizes the test or the 
+40 health care provider who manages the occupational exposure.
+Page 2 - 131LR2789(01)
+1 The patient may choose not to be informed about the result of the HIV test.  Without express 
+2 patient authorization, the results of the HIV test and the fact that an HIV test was done as 
+3 a result of an occupational exposure in a health care setting may not appear in the patient's 
+4 health care records.  The exposed individual's occupational health care record may include 
+5 documentation of the occupational exposure and, if the record does not reveal the source 
+6 patient's identity, the results of the source patient's HIV test.
+7Sec. 2.  5 MRSA §19203-A, sub-§4-B is enacted to read:
+84-B.  Test without consent.  An HIV test may be administered without consent or 
+9 authorization if consent has not been obtained following a good faith effort to obtain 
+10 consent and at least 8 hours have passed since exposure because:
+11 A.  The source patient is incapacitated or is determined by that patient's attending health 
+12 care provider to lack the mental capacity to provide such consent;
+13 B.  The source patient is not expected to recover in time for the person who is exposed 
+14 to receive appropriate medical treatment; and
+15 C.  There is not a person immediately available who has legal authority to consent in 
+16 time for the person who is exposed to receive appropriate medical treatment.
+17 All other provisions of subsection 4-A regarding the administration of the HIV test and the 
+18 results and documentation of the HIV testing apply to an HIV test conducted pursuant to 
+19 this subsection.
+20Emergency clause.  In view of the emergency cited in the preamble, this legislation 
+21 takes effect when approved.
+22SUMMARY
+23 Under current law, if a person, while in the course of employment in a health care 
+24 setting or as an emergency services worker, is exposed to potentially infectious blood or 
+25 other bodily fluids of a patient in the course of employment, consent is required of the 
+26 patient before a test for HIV may be performed.  Consent may be provided by certain other 
+27 individuals if the patient is not present and cannot be contacted or is incapacitated.
+28 This bill clarifies that the consent must be sought by a legal representative or 
+29 administrator of the health care setting and that another individual who can authorize 
+30 consent must be present.  This bill also allows an HIV test to be conducted without consent 
+31 if, despite a good faith effort to obtain consent, at least 8 hours have passed since exposure 
+32 and:
+33 1.  The patient is incapacitated or is determined by that patient's attending health care 
+34 provider to lack the mental capacity to provide such consent;
+35 2.  The patient is not expected to recover in time for the person who is exposed to 
+36 receive appropriate medical treatment; and
+37 3.  There is not a person immediately available who has legal authority to consent in 
+38 time for the person who is exposed to receive appropriate medical treatment.
+23
+24
+25
+26
+27
