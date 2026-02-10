@@ -1,0 +1,42 @@
+name: Scrape Maine Bills
+
+on:
+  schedule:
+    # Run monthly on the first day of the month
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run tests
+        run: uv run pytest tests/ -v -m "not integration"
+
+      - name: Scrape current session
+        run: |
+          uv run maine-bills -s 131 -o ./data
+          uv run maine-bills -s 132 -o ./data || true
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "Maine Bills Bot"
+          git config user.email "bot@maine-bills.local"
+          git add data/
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "chore: update bills data"
+            git push
+          fi
