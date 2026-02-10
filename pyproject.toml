@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maine-bills"
+version = "2.0.0"
+description = "Scraper for Maine legislature bills"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Philip Mathieu"}]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "pypdf>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.11.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+maine-bills = "maine_bills.cli:main"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=src/maine_bills --cov-report=term-out --cov-report=html -m 'not integration'"
+markers = [
+    "integration: marks tests as integration tests that hit external services",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # Allow long lines (handled by formatter)
