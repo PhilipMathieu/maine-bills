@@ -1,52 +1,95 @@
 # Maine Bills Repository
 
-This repository contains text extracted from the PDFs of bills hosted by 
+This repository contains text extracted from the PDFs of bills hosted by the [Maine Legislature Law Library](https://legislature.maine.gov/lawLibrary).
+
+## Quick Start
+
+### Prerequisites
+- Python 3.9+
+- [uv](https://astral.sh/uv/) for Python package management
+
+### Installation
+
+```bash
+git clone https://github.com/PhilipMathieu/maine-bills.git
+cd maine-bills
+uv sync
+```
+
+### Running the Scraper
+
+Scrape the default session (131):
+```bash
+uv run maine-bills
+```
+
+Scrape a specific session:
+```bash
+uv run maine-bills -s 132 -o ./data
+```
+
+For full documentation, see [DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
 ## Using This Data
 
-I recommend pulling this data into your project one of two ways.
-
-### Option 1: Clone
-
-Clone the full repository to a location of your choice:
-```
+### Option 1: Clone the Repository
+```bash
 git clone https://github.com/PhilipMathieu/maine-bills.git
 ```
 
-### Option 2: Use a Git Submodule
-
-This method will maintain the connection between the dataset and this original repository, allowing you to pull updates as they are made. To clone the repository into a subdirectory called "data", for example, run the following:
-
-```
+### Option 2: Use as a Git Submodule
+```bash
 cd [your project directory]
-mkdir data
-git submodule add [https://github.com/PhilipMathieu/maine-bills](https://github.com/PhilipMathieu/maine-bills) data
+git submodule add https://github.com/PhilipMathieu/maine-bills data/maine-bills
 ```
 
-For more on Git Submodules, see [this GitHub blog post](https://github.blog/2016-02-01-working-with-submodules/).
+## Data Structure
+
+Bills are organized by legislative session:
+```
+data/
+├── 130/txt/           # Session 130 bills
+├── 131/txt/           # Session 131 bills
+└── 132/txt/           # Session 132 bills (if available)
+```
+
+Each text file is named by legislative document number (e.g., `131-LD-0001.txt`).
 
 ## How It Works
 
-### src/scraper.py
+### Overview
+The scraper (`src/maine_bills/scraper.py`) performs these steps:
 
-This script does the bulk of the work downloading the PDFs, extracting the text, and saving the output. I suggest reading through the script to understand more about how this works.
+1. Fetches the list of available bills from the Maine Legislature website
+2. Downloads each bill PDF
+3. Extracts text using `pypdf`
+4. Saves text to a `.txt` file
+5. Cleans up the temporary PDF
 
-### .github/workflows/run-with-conda.yml
-This is a [GitHub Actions](https://docs.github.com/en/actions) workflow that sets up a Linux environment, installs Conda, and runs the scraper. I suggest reading the yml file to understand more about how this works.
+### Architecture
+- `TextExtractor`: Handles PDF text extraction
+- `BillScraper`: Manages the download and processing workflow
+- `cli`: Command-line interface
+
+### CI/CD
+The GitHub Actions workflow (`.github/workflows/scraper-uv.yml`) periodically runs the scraper to fetch new bills.
 
 ## Contributing
 
-If you think of a useful improvement to this project, please feel free to fork and pull request or create an issue.
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests: `uv run pytest tests/`
+5. Submit a pull request
+
+See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for more details on development setup and testing.
 
 ## License
-The data in this repository is extracted from the PDFs provided by the State of Maine's [Law and Legislative Reference Library](https://legislature.maine.gov/lawLibrary). To the best of my knowledge, this project does not violate any terms of use or copyright law. However, please be aware that this project is neither supported nor explicitely authorized by the Library or by the Maine State Legislature.
 
-All other content, including code, is licensed under the MIT License:
+The data extracted from Maine Legislature PDFs is used in accordance with the terms of the Law and Legislative Reference Library. This project is not officially affiliated with the Maine State Legislature.
 
-Copyright 2023 Philip Mathieu
+The code is licensed under the MIT License (see LICENSE file).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Copyright 2023-2026 Philip Mathieu
