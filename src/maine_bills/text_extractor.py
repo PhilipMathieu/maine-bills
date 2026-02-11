@@ -152,15 +152,20 @@ class TextExtractor:
         Args:
             output_path: Path where JSON file should be written
             bill_doc: BillDocument to save
+
+        Raises:
+            IOError: If file write fails
+            PermissionError: If directory creation fails
         """
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Convert dataclass to dict
         doc_dict = dataclasses.asdict(bill_doc)
 
-        # Serialize dates to ISO format
-        if doc_dict.get('introduced_date'):
-            doc_dict['introduced_date'] = doc_dict['introduced_date'].isoformat()
+        # Serialize all date fields to ISO format
+        for key, value in doc_dict.items():
+            if isinstance(value, date):
+                doc_dict[key] = value.isoformat()
 
         with open(output_path, 'w') as f:
             json.dump(doc_dict, f, indent=2)
