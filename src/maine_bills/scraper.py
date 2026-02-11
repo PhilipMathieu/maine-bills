@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Optional
 import requests
 from bs4 import BeautifulSoup
-from .text_extractor import TextExtractor
+from .text_extractor import TextExtractor, BillDocument
 
 
 class BillScraper:
@@ -99,7 +99,7 @@ class BillScraper:
 
     def _process_bill(self, bill_id: str) -> bool:
         """
-        Process a single bill: download PDF, extract text, clean up.
+        Process a single bill: download PDF, extract structured data, save.
 
         Args:
             bill_id: Legislative document number
@@ -118,17 +118,36 @@ class BillScraper:
 
         try:
             pdf_path = self.pdf_dir / f"{bill_id}.pdf"
-            text = TextExtractor.extract_from_pdf(pdf_path)
-            txt_path = self.txt_dir / f"{bill_id}.txt"
-            TextExtractor.save_text(txt_path, text)
 
-            pdf_path.unlink()  # Remove PDF after extraction
+            # Extract as structured BillDocument
+            bill_doc = TextExtractor.extract_bill_document(pdf_path)
+
+            # Save outputs
+            self._save_bill_document(bill_doc)
+
+            # Remove PDF after successful extraction
+            pdf_path.unlink()
             self.logger.debug(f"Extracted and cleaned up {bill_id}")
             return True
 
         except Exception as e:
             self.logger.error(f"Error processing {bill_id}: {e}")
             return False
+
+    def _save_bill_document(self, bill_doc: BillDocument) -> None:
+        """
+        Save bill document outputs (text and metadata).
+
+        Args:
+            bill_doc: BillDocument to save
+        """
+        # Save clean body text
+        txt_path = self.txt_dir / f"{bill_doc.bill_id}.txt"
+        TextExtractor.save_text(txt_path, bill_doc.body_text)
+
+        # Save metadata + full document as JSON
+        json_path = self.txt_dir / f"{bill_doc.bill_id}.json"
+        TextExtractor.save_bill_document_json(json_path, bill_doc)
 
     def scrape_session(self) -> int:
         """
