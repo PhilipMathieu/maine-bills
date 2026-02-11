@@ -232,14 +232,29 @@ class TextExtractor:
         normalized_text = ' '.join(search_text.split())
 
         # Title filter - exclude these common false positives
-        title_words = {'President', 'Speaker', 'Secretary', 'State', 'States', 'Clerk'}
+        title_words = {
+            # Leadership titles
+            'President', 'Speaker', 'Secretary', 'Clerk',
+            # Government entities
+            'State', 'States', 'Department', 'Senate', 'House',
+            # Document references
+            'Session', 'Regular', 'Special', 'Legislature', 'Legislative'
+        }
+
+        # Helper function to validate names
+        def is_valid_name(name: str) -> bool:
+            """Check if extracted text is a valid legislator name."""
+            if not name or name in sponsors or len(name.split()) > 2:
+                return False
+            # Check if any word in the name is a title word (word-level filtering)
+            name_words = set(name.split())
+            return not name_words.intersection(title_words)
 
         # Pattern 1: "Presented by Senator/Representative NAME [of DISTRICT]"
         pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
         for match in re.finditer(pattern1, normalized_text):
             name = match.group(1).strip()
-            # Filter out titles and validate
-            if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
+            if is_valid_name(name):
                 sponsors.append(name)
 
         # Pattern 1b: "Presented by Senator/Representative NAME" (without district)
@@ -247,8 +262,7 @@ class TextExtractor:
         pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'
         for match in re.finditer(pattern1b, normalized_text):
             name = match.group(1).strip()
-            # Filter out titles and validate
-            if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
+            if is_valid_name(name):
                 sponsors.append(name)
 
         # Pattern 2: Cosponsorship block
@@ -260,14 +274,14 @@ class TextExtractor:
             person_pattern = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
             for match in re.finditer(person_pattern, cosp_block):
                 name = match.group(1).strip()
-                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
+                if is_valid_name(name):
                     sponsors.append(name)
 
             # Extract without "of" district
             person_pattern_no_district = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
             for match in re.finditer(person_pattern_no_district, cosp_block):
                 name = match.group(1).strip()
-                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
+                if is_valid_name(name):
                     sponsors.append(name)
 
             # Comma-separated names with districts
@@ -276,7 +290,7 @@ class TextExtractor:
             comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)
             for name in comma_separated:
                 name = name.strip()
-                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
+                if is_valid_name(name):
                     sponsors.append(name)
 
         # Remove duplicates while preserving order
