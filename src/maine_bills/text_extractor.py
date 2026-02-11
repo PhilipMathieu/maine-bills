@@ -179,3 +179,61 @@ class TextExtractor:
                     refs.append(ref)
 
         return refs
+
+    @staticmethod
+    def _is_line_number(line: str) -> bool:
+        """Check if line is just a line number."""
+        return bool(re.match(r'^\s+\d+\s*$', line))
+
+    @staticmethod
+    def _is_header_footer(line: str) -> bool:
+        """Check if line is a header or footer."""
+        line_stripped = line.strip()
+
+        # Page numbers and pagination
+        if re.match(r'^Page\s+\d+', line_stripped, re.IGNORECASE):
+            return True
+
+        # Bill IDs
+        if re.match(r'^\d{2,3}-LD-\d{4}$', line_stripped):
+            return True
+
+        # Common headers
+        if re.match(r'^(STATE OF MAINE|MAINE LEGISLATURE)', line_stripped, re.IGNORECASE):
+            return True
+
+        return False
+
+    @staticmethod
+    def _clean_body_text(text: str, metadata: dict) -> str:
+        """
+        Clean extracted text by removing:
+        - Line numbers
+        - Page headers/footers
+        - Excessive whitespace
+        """
+        lines = text.split('\n')
+        cleaned_lines = []
+
+        for line in lines:
+            # Skip line number patterns (just whitespace and number)
+            if TextExtractor._is_line_number(line):
+                continue
+
+            # Skip headers/footers
+            if TextExtractor._is_header_footer(line):
+                continue
+
+            # Remove leading line numbers from lines with content
+            # Pattern: leading whitespace + digits + more content
+            line_cleaned = re.sub(r'^\s+\d+\s+', '', line)
+
+            # Keep non-empty lines
+            if line_cleaned.strip():
+                cleaned_lines.append(line_cleaned)
+
+        # Join and normalize excessive blank lines (max 2 consecutive)
+        body_text = '\n'.join(cleaned_lines)
+        body_text = re.sub(r'\n\n\n+', '\n\n', body_text)
+
+        return body_text.strip()
