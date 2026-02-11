@@ -235,13 +235,15 @@ class TextExtractor:
         title_words = {
             # Leadership titles
             'President', 'Speaker', 'Secretary', 'Clerk', 'Chief',
-            'Governor', 'Mayor', 'Attorney', 'General', 'Commissioner',
+            'Governor', 'Mayor', 'Attorney', 'General', 'Commissioner', 'Treasurer',
             # Government entities
             'State', 'States', 'Department', 'Senate', 'House', 'Bureau',
-            'Office', 'Committee', 'Government', 'Council', 'Commission',
+            'Office', 'Committee', 'Government', 'Council', 'Commission', 'Administration',
             # Document references
             'Session', 'Regular', 'Special', 'Legislature', 'Legislative',
-            'Constitution', 'People', 'Law', 'Code'
+            'Constitution', 'People', 'Law', 'Code', 'Rules',
+            # Generic/Article words
+            'The', 'Maine', 'Number'
         }
 
         # Helper function to validate names
@@ -253,16 +255,16 @@ class TextExtractor:
             name_words = set(name.split())
             return not name_words.intersection(title_words)
 
-        # Pattern 1: "Presented by Senator/Representative NAME [of DISTRICT]"
-        pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
+        # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
+        pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
         for match in re.finditer(pattern1, normalized_text):
             name = match.group(1).strip()
             if is_valid_name(name):
                 sponsors.append(name)
 
-        # Pattern 1b: "Presented by Senator/Representative NAME" (without district)
+        # Pattern 1b: "Presented by Senator/Representative/President/Speaker NAME" (without district)
         # Use lookahead to stop at keywords that indicate end of sponsor name
-        pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'
+        pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'
         for match in re.finditer(pattern1b, normalized_text):
             name = match.group(1).strip()
             if is_valid_name(name):
@@ -273,23 +275,23 @@ class TextExtractor:
         if cosp_block_match:
             cosp_block = ' '.join(cosp_block_match.group(1).split())
 
-            # Extract from "Representative/Senator NAME of DISTRICT" pattern
-            person_pattern = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
+            # Extract from "Representative/Senator/President/Speaker NAME of DISTRICT" pattern
+            person_pattern = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
             for match in re.finditer(person_pattern, cosp_block):
                 name = match.group(1).strip()
                 if is_valid_name(name):
                     sponsors.append(name)
 
             # Extract without "of" district
-            person_pattern_no_district = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
+            person_pattern_no_district = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
             for match in re.finditer(person_pattern_no_district, cosp_block):
                 name = match.group(1).strip()
                 if is_valid_name(name):
                     sponsors.append(name)
 
             # Comma-separated names with districts
-            # Remove "Senator/Representative NAME" patterns first to prevent capturing title words
-            cleaned_block = re.sub(r'\b(?:Senator|Representative)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)
+            # Remove "Senator/Representative/President/Speaker NAME" patterns first to prevent capturing title words
+            cleaned_block = re.sub(r'\b(?:Senator|Representative|President|Speaker)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)
             comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)
             for name in comma_separated:
                 name = name.strip()
