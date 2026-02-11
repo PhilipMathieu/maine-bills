@@ -1,0 +1,143 @@
+{
+  "bill_id": "131-LD-1693",
+  "bill_title": "An Act to Amend the Kennebunk Sewer District Charter",
+  "test_date": "2026-02-11",
+  "extraction_improvements": {
+    "methods_modified": [
+      "_extract_bill_id",
+      "_extract_session",
+      "_extract_sponsors",
+      "_extract_committee",
+      "_extract_date"
+    ],
+    "total_methods_modified": 5
+  },
+  "baseline_metrics": {
+    "fields_extracted": 1,
+    "fields_total": 7,
+    "extraction_rate": 0.1429,
+    "critical_fields_extracted": 0,
+    "critical_fields_total": 2,
+    "critical_extraction_rate": 0.0,
+    "optional_fields_extracted": 0,
+    "optional_fields_total": 5,
+    "optional_extraction_rate": 0.0,
+    "extracted_fields": [
+      "title"
+    ],
+    "missing_fields": [
+      "bill_id",
+      "session",
+      "sponsors",
+      "introduced_date",
+      "committee"
+    ],
+    "extraction_confidence": 0.7836
+  },
+  "improved_metrics": {
+    "fields_extracted": 6,
+    "fields_total": 7,
+    "extraction_rate": 0.8571,
+    "critical_fields_extracted": 2,
+    "critical_fields_total": 2,
+    "critical_extraction_rate": 1.0,
+    "optional_fields_extracted": 4,
+    "optional_fields_total": 5,
+    "optional_extraction_rate": 0.8,
+    "extracted_fields": [
+      "title",
+      "bill_id",
+      "session",
+      "sponsors",
+      "introduced_date",
+      "committee"
+    ],
+    "missing_fields": [
+      "amended_code_refs"
+    ],
+    "extraction_confidence": 0.7836
+  },
+  "improvements": {
+    "fields_extracted_improvement": 5,
+    "extraction_rate_improvement": 0.7142,
+    "critical_extraction_improvement": 2,
+    "critical_extraction_rate_improvement": 1.0,
+    "optional_extraction_improvement": 4,
+    "optional_extraction_rate_improvement": 0.8
+  },
+  "detailed_field_comparison": {
+    "bill_id": {
+      "baseline": null,
+      "improved": "131-LD-1693",
+      "status": "fixed",
+      "importance": "critical"
+    },
+    "session": {
+      "baseline": null,
+      "improved": "131",
+      "status": "fixed",
+      "importance": "critical"
+    },
+    "title": {
+      "baseline": "An Act to Amend the Kennebunk Sewer District Charter",
+      "improved": "An Act to Amend the Kennebunk Sewer District Charter",
+      "status": "unchanged",
+      "importance": "critical"
+    },
+    "sponsors": {
+      "baseline": [],
+      "improved": ["RAFFERTY", "GERE", "SAYRE"],
+      "status": "fixed",
+      "importance": "optional",
+      "count_baseline": 0,
+      "count_improved": 3
+    },
+    "introduced_date": {
+      "baseline": null,
+      "improved": "2023-04-18",
+      "status": "fixed",
+      "importance": "optional"
+    },
+    "committee": {
+      "baseline": null,
+      "improved": "Energy, Utilities and Technology",
+      "status": "fixed",
+      "importance": "optional"
+    },
+    "amended_code_refs": {
+      "baseline": [],
+      "improved": [],
+      "status": "unchanged",
+      "importance": "optional"
+    }
+  },
+  "root_causes_fixed": [
+    {
+      "field": "bill_id",
+      "cause": "Fallback pattern did not handle ordinal session format with flexible spacing",
+      "fix": "Whitespace normalization + improved LD number regex"
+    },
+    {
+      "field": "session",
+      "cause": "Line breaks and extra spaces prevented ordinal format matching",
+      "fix": "Whitespace normalization on first 1000 chars"
+    },
+    {
+      "field": "sponsors",
+      "cause": "Multi-line sponsor blocks with 'and' separators not handled",
+      "fix": "Normalized whitespace + improved patterns for 'Representative:' with colon"
+    },
+    {
+      "field": "committee",
+      "cause": "Pattern stopped prematurely when encountering commas in committee name",
+      "fix": "Updated lookahead to delimit on 'suggested' keyword instead of comma"
+    },
+    {
+      "field": "introduced_date",
+      "cause": "Line breaks and whitespace prevented pattern matching",
+      "fix": "Whitespace normalization + optional prefix matching for 'In Senate,'"
+    }
+  ],
+  "key_improvement_pattern": "Whitespace normalization using ' '.join(text.split()) to handle multi-line text",
+  "summary": "Successfully fixed 5 of 5 failing extraction methods. Critical fields now at 100% extraction rate. Optional fields at 80% extraction rate. Key innovation: whitespace normalization enables robust pattern matching across multi-line PDF content."
+}

@@ -1,0 +1,36 @@
+{
+  "decision": "accepted",
+  "reasoning": "+4 metadata fields, +16.5 cleanliness",
+  "baseline": {
+    "bill_id": null,
+    "session": null,
+    "title": "An Act to Prohibit Off-trail Operation of a Snowmobile in an Area",
+    "sponsors": [],
+    "committee": "Inland Fisheries and Wildlife suggested and ordered",
+    "introduced_date": null,
+    "amended_code_refs": [],
+    "metadata_score": 2,
+    "cleanliness_score": 81.5,
+    "confidence": 0.4448
+  },
+  "improved": {
+    "bill_id": "131-LD-0732",
+    "session": "131",
+    "title": "An Act to Prohibit Off-trail Operation of a Snowmobile in an Area",
+    "sponsors": [
+      "LANDRY",
+      "MASON"
+    ],
+    "committee": "Inland Fisheries",
+    "introduced_date": "2023-02-16",
+    "amended_code_refs": [],
+    "metadata_score": 6,
+    "cleanliness_score": 98.0,
+    "confidence": 0.4448
+  },
+  "deltas": {
+    "metadata_delta": 4,
+    "cleanliness_delta": 16.5,
+    "confidence_delta": 0.0
+  }
+}

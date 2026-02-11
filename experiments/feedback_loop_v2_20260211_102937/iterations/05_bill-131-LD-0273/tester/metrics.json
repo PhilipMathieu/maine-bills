@@ -1,0 +1,223 @@
+{
+  "test_date": "2026-02-11",
+  "bill": {
+    "id": "131-LD-0273",
+    "title": "An Act to Provide Funds to the Malaga 1912 Scholarship Fund",
+    "session": 131
+  },
+  "extraction_results": {
+    "baseline": {
+      "bill_id": {
+        "expected": "131-LD-0273",
+        "actual": null,
+        "extracted": false,
+        "correct": false
+      },
+      "session": {
+        "expected": "131",
+        "actual": null,
+        "extracted": false,
+        "correct": false
+      },
+      "title": {
+        "expected": "An Act to Provide Funds to the Malaga 1912 Scholarship Fund",
+        "actual": "An Act to Provide Funds to the Malaga 1912 Scholarship Fund",
+        "extracted": true,
+        "correct": true
+      },
+      "sponsors": {
+        "expected": [
+          "ZAGER",
+          "BRENNAN",
+          "DODGE",
+          "MILLETT",
+          "MURPHY",
+          "RIELLY",
+          "SARGENT",
+          "PIERCE"
+        ],
+        "actual": [],
+        "extracted": false,
+        "correct": false,
+        "expected_count": 8,
+        "actual_count": 0
+      },
+      "introduced_date": {
+        "expected": "2023-01-26",
+        "actual": null,
+        "extracted": false,
+        "correct": false
+      },
+      "committee": {
+        "expected": "Education and Cultural Affairs",
+        "actual": "Education and Cultural Affairs suggested and ordered",
+        "extracted": true,
+        "correct": false,
+        "issue": "Contains trailing text"
+      },
+      "amended_code_refs": {
+        "expected": [],
+        "actual": [],
+        "extracted": true,
+        "correct": true
+      }
+    },
+    "improved": {
+      "bill_id": {
+        "expected": "131-LD-0273",
+        "actual": "131-LD-0273",
+        "extracted": true,
+        "correct": true
+      },
+      "session": {
+        "expected": "131",
+        "actual": "131",
+        "extracted": true,
+        "correct": true
+      },
+      "title": {
+        "expected": "An Act to Provide Funds to the Malaga 1912 Scholarship Fund",
+        "actual": "An Act to Provide Funds to the Malaga 1912 Scholarship Fund",
+        "extracted": true,
+        "correct": true
+      },
+      "sponsors": {
+        "expected": [
+          "ZAGER",
+          "BRENNAN",
+          "DODGE",
+          "MILLETT",
+          "MURPHY",
+          "RIELLY",
+          "SARGENT",
+          "PIERCE"
+        ],
+        "actual": [
+          "ZAGER",
+          "BRENNAN",
+          "DODGE",
+          "MILLETT",
+          "MURPHY",
+          "RIELLY",
+          "SARGENT",
+          "PIERCE"
+        ],
+        "extracted": true,
+        "correct": true,
+        "expected_count": 8,
+        "actual_count": 8
+      },
+      "introduced_date": {
+        "expected": "2023-01-26",
+        "actual": "2023-01-26",
+        "extracted": true,
+        "correct": true
+      },
+      "committee": {
+        "expected": "Education and Cultural Affairs",
+        "actual": "Education and Cultural Affairs",
+        "extracted": true,
+        "correct": true
+      },
+      "amended_code_refs": {
+        "expected": [],
+        "actual": [],
+        "extracted": true,
+        "correct": true
+      }
+    }
+  },
+  "summary_metrics": {
+    "baseline": {
+      "fields_with_data": 3,
+      "fields_correct": 2,
+      "fields_partially_correct": 1,
+      "fields_missing": 3,
+      "extraction_rate": 0.43,
+      "correctness_rate": 0.29,
+      "confidence_score": 0.4352
+    },
+    "improved": {
+      "fields_with_data": 7,
+      "fields_correct": 7,
+      "fields_partially_correct": 0,
+      "fields_missing": 0,
+      "extraction_rate": 1.0,
+      "correctness_rate": 1.0,
+      "confidence_score": 0.82
+    }
+  },
+  "improvements": {
+    "extraction_rate_improvement": 0.57,
+    "correctness_rate_improvement": 0.71,
+    "confidence_score_improvement": 0.3848,
+    "fields_fixed": 5,
+    "fields_improved": 1
+  },
+  "extraction_method_changes": {
+    "_extract_bill_id": {
+      "status": "IMPROVED",
+      "changes": [
+        "Added whitespace normalization before regex matching",
+        "Improved fallback to extract bill_id from separate components (session + LD number)",
+        "Better detection of ordinal session format (131st, 132nd, etc.)",
+        "Added zero-padding logic for LD numbers"
+      ],
+      "impact": "Now extracts from separated components instead of only combined format"
+    },
+    "_extract_session": {
+      "status": "IMPROVED",
+      "changes": [
+        "Added whitespace normalization on first 1000 chars",
+        "Ordinal format pattern more robust (131st, 132nd, etc.)",
+        "Better handling of line breaks in 'MAINE LEGISLATURE'"
+      ],
+      "impact": "Successfully handles multi-line session declarations"
+    },
+    "_extract_sponsors": {
+      "status": "IMPROVED",
+      "changes": [
+        "Added simpler pattern for comma-separated names in cosponsorship",
+        "Improved multi-line sponsor block parsing",
+        "Better handling of different representative prefixes",
+        "Increased search window from 2000 to 2500 chars"
+      ],
+      "impact": "Extracts all 8 sponsors vs 0 in baseline"
+    },
+    "_extract_committee": {
+      "status": "IMPROVED",
+      "changes": [
+        "Added whitespace normalization",
+        "Proper delimiter using trailing keywords (suggested, ordered, referred, assigned)",
+        "Supports commas within committee names",
+        "Increased search window to 2500 chars"
+      ],
+      "impact": "Removes extraneous trailing text, properly delimits committee name"
+    },
+    "_extract_date": {
+      "status": "IMPROVED",
+      "changes": [
+        "Whitespace normalization enables month pattern matching",
+        "Better handling of contextual phrases like 'House of Representatives,'",
+        "Increased search window to 2500 chars",
+        "Improved group index handling"
+      ],
+      "impact": "Successfully extracts dates from full contextual phrases"
+    }
+  },
+  "root_causes_addressed": {
+    "bill_id": "Pattern-only approach failed; added component extraction fallback",
+    "session": "Line breaks broke regex; added whitespace normalization",
+    "sponsors": "Multi-line format + comma separators broke simple patterns; added multiple complementary patterns",
+    "committee": "Greedy pattern captured trailing text; added non-greedy matching with lookahead",
+    "introduced_date": "Context-dependent pattern; whitespace normalization enables broader pattern matching"
+  },
+  "test_statistics": {
+    "total_fields_tested": 7,
+    "baseline_success_rate": 0.29,
+    "improved_success_rate": 1.0,
+    "success_rate_improvement": 0.71,
+    "regression_risk": 0.0,
+    "fields_worsened": 0
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "iteration": 0.4448,
+  "bill_id": "131-LD-0732",
+  "methods_modified": [
+    "_extract_bill_id",
+    "_extract_session",
+    "_extract_sponsors",
+    "_extract_date",
+    "_extract_committee",
+    "_clean_body_text",
+    "_is_header_footer"
+  ],
+  "summary": "Enhanced extraction with multi-fallback patterns for bill_id/session, Maine-specific sponsor formats (Presented by/Cosponsored by), month-name date parsing, improved committee extraction, and aggressive boilerplate removal",
+  "improvements": {
+    "bill_id": {
+      "current_status": "null",
+      "target_status": "131-LD-0732",
+      "approach": "Multi-fallback: direct pattern → session+LD parsing → bill reference format"
+    },
+    "session": {
+      "current_status": "null",
+      "target_status": "131",
+      "approach": "Multiple pattern sources: bill ID → legislature line → bill reference"
+    },
+    "sponsors": {
+      "current_status": "[]",
+      "target_status": "[\"BLACK\", \"LANDRY\", \"MASON\", \"WOOD\"]",
+      "approach": "Enhanced patterns for Presented by/Cosponsored by formats with town parsing"
+    },
+    "introduced_date": {
+      "current_status": "null",
+      "target_status": "2023-02-16",
+      "approach": "Added month-name pattern (February 16, 2023) as primary pattern"
+    },
+    "committee": {
+      "current_status": "Inland Fisheries and Wildlife suggested and ordered",
+      "target_status": "Inland Fisheries and Wildlife",
+      "approach": "Precise word boundary matching with context keyword detection"
+    },
+    "body_text": {
+      "current_status": "Contains boilerplate headers and footers",
+      "target_status": "Clean text from 'Be it enacted' onwards",
+      "approach": "Boilerplate block removal + aggressive footer/header filtering"
+    }
+  },
+  "test_case": "131-LD-0732.pdf - An Act to Prohibit Off-trail Operation of a Snowmobile",
+  "notes": [
+    "Bill ID and session can be reliably extracted from filename as 131-LD-0732, confirming hybrid metadata approach",
+    "Maine bills consistently use 'Presented by' for primary sponsor and 'Cosponsored by' for additional sponsors",
+    "Natural language dates (month names) are primary format in Maine legislature documents",
+    "Library boilerplate is extensive and significantly impacts text cleanliness",
+    "Multiple data sources provide redundancy (filename, legislature line, bill reference format)"
+  ]
+}
