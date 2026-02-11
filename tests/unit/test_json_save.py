@@ -51,3 +51,30 @@ def test_save_bill_document_json_date_serialization(tmp_path):
 
     # Date should be serialized as ISO string
     assert data["introduced_date"] == "2023-06-15"
+
+
+def test_save_bill_document_json_with_none_values(tmp_path):
+    """Test that None values are properly serialized."""
+    doc = BillDocument(
+        bill_id="131-LD-0001",
+        title="Test",
+        session="131",
+        body_text="Text",
+        extraction_confidence=0.9,
+        introduced_date=None,  # None value
+        committee=None  # None value
+    )
+
+    output_path = tmp_path / "bill.json"
+    TextExtractor.save_bill_document_json(output_path, doc)
+
+    assert output_path.exists()
+
+    with open(output_path) as f:
+        data = json.load(f)
+
+    # Verify None values are preserved
+    assert data["introduced_date"] is None
+    assert data["committee"] is None
+    assert data["bill_id"] == "131-LD-0001"
+    assert data["extraction_confidence"] == 0.9
