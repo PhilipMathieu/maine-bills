@@ -53,14 +53,10 @@ class TextExtractor:
         if not pdf_path.exists():
             raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
-        doc = fitz.open(pdf_path)
-
-        # Extract text from all pages
-        full_text = ""
-        for page in doc:
-            full_text += page.get_text() + "\n"
-
-        doc.close()
+        with fitz.open(pdf_path) as doc:
+            # Extract text from all pages using list comprehension
+            pages = [page.get_text() for page in doc]
+            full_text = '\n'.join(pages) + '\n'
 
         # Parse metadata
         metadata = {
@@ -77,7 +73,7 @@ class TextExtractor:
         body_text = TextExtractor._clean_body_text(full_text, metadata)
 
         # Estimate confidence
-        confidence = TextExtractor._estimate_confidence(doc, full_text)
+        confidence = TextExtractor._estimate_confidence(full_text)
 
         return BillDocument(
             body_text=body_text,
@@ -86,7 +82,7 @@ class TextExtractor:
         )
 
     @staticmethod
-    def _estimate_confidence(doc: object, text: str) -> float:
+    def _estimate_confidence(text: str) -> float:
         """
         Estimate extraction confidence (0.0-1.0).
 

@@ -26,6 +26,8 @@ An Act Relating to Education
     mock_doc = Mock()
     mock_doc.page_count = 1
     mock_doc.__iter__ = Mock(return_value=iter([mock_page]))
+    mock_doc.__enter__ = Mock(return_value=mock_doc)
+    mock_doc.__exit__ = Mock(return_value=False)
 
     pdf_path = tmp_path / "test.pdf"
     pdf_path.touch()
@@ -37,6 +39,18 @@ An Act Relating to Education
         assert result.bill_id == "131-LD-0001"
         assert "AMENDMENT" in result.body_text or "Title 20" in result.body_text
         assert 0.0 <= result.extraction_confidence <= 1.0
+        # Verify context manager was used (close called via __exit__)
+        mock_doc.__exit__.assert_called_once()
+
+
+def test_extract_bill_document_corrupted_pdf(tmp_path):
+    """Test that extraction fails gracefully with corrupted PDF."""
+    pdf_path = tmp_path / "corrupted.pdf"
+    pdf_path.touch()
+
+    with patch('maine_bills.text_extractor.fitz.open', side_effect=Exception("PDF parsing failed")):
+        with pytest.raises(Exception, match="PDF parsing failed"):
+            TextExtractor.extract_bill_document(pdf_path)
 
 
 def test_save_text_creates_file(tmp_path):
