@@ -172,9 +172,36 @@ class TextExtractor:
 
     @staticmethod
     def _extract_bill_id(text: str) -> Optional[str]:
-        """Extract bill ID from text (e.g., '131-LD-0001')."""
-        match = re.search(r'(\d{2,3}-LD-\d{4})', text)
-        return match.group(1) if match else None
+        """
+        Extract bill ID from text (e.g., '131-LD-0001').
+
+        Uses multi-fallback approach:
+        1. Try direct pattern match (fastest)
+        2. Try component extraction from session + LD number (flexible)
+        """
+        # Primary: Try standard format first: "131-LD-1693"
+        match = re.search(r'(\d{2,3})-LD-(\d{3,4})', text)
+        if match:
+            return match.group(0)
+
+        # Fallback: Extract from separate components
+        # Normalize whitespace to handle line breaks
+        normalized_text = ' '.join(text.split())
+
+        # Extract session from ordinal format: "131st MAINE LEGISLATURE"
+        session_match = re.search(r'(\d{2,3})(?:st|nd|rd|th)\s+(?:MAINE\s+)?LEGISLATURE', normalized_text)
+
+        # Extract LD number from various patterns
+        ld_match = re.search(r'(?:Legislative\s+Document|Document)\s+No\.?\s+(\d{3,4})', normalized_text)
+        if not ld_match:
+            ld_match = re.search(r'No\.?\s+(\d{3,4})', normalized_text)
+
+        if session_match and ld_match:
+            session = session_match.group(1)
+            ld_number = ld_match.group(1).zfill(4)  # Zero-pad to 4 digits
+            return f"{session}-LD-{ld_number}"
+
+        return None
 
     @staticmethod
     def _extract_title(text: str) -> str:
@@ -194,81 +221,243 @@ class TextExtractor:
 
     @staticmethod
     def _extract_sponsors(text: str) -> List[str]:
-        """Extract legislator names (sponsors) from text."""
-        sponsors = []
-        # Look for "by Representative/Senator NAME" patterns
-        # Updated regex supports apostrophes and hyphens in names (e.g., O'BRIEN, JEAN-PAUL)
-        patterns = [
-            r'(?:Introduced by|by)\s+(?:Representative|Rep\.)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)*?)(?:\n|$)',
-            r'(?:Cosponsored by|by)\s+(?:Senator|Sen\.)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)*?)(?:\n|$)',
-        ]
+        """
+        Extract legislator names (sponsors) from text.
 
-        for pattern in patterns:
-            matches = re.findall(pattern, text[:1000])  # Search first 1000 chars
-            sponsors.extend([m.strip() for m in matches])
+        Handles multi-line sponsor blocks and comma-separated lists.
+        """
+        sponsors = []
+        search_text = text[:2500]
+        normalized_text = ' '.join(search_text.split())
+
+        # Pattern 1: "Presented by Senator/Representative NAME [of DISTRICT]"
+        pattern1 = r'Presented by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
+        for match in re.finditer(pattern1, normalized_text):
+            name = match.group(1).strip()
+            if name and name not in sponsors and len(name.split()) <= 2:
+                sponsors.append(name)
+
+        # Pattern 1b: "Presented by Senator/Representative NAME" (without district)
+        pattern1b = r'Presented by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b'
+        for match in re.finditer(pattern1b, normalized_text):
+            name = match.group(1).strip()
+            if name and name not in sponsors and len(name.split()) <= 2:
+                sponsors.append(name)
+
+        # Pattern 2: Cosponsorship block
+        cosp_block_match = re.search(r'Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|$)', normalized_text, re.DOTALL)
+        if cosp_block_match:
+            cosp_block = ' '.join(cosp_block_match.group(1).split())
+
+            # Extract from "Representative/Senator NAME of DISTRICT" pattern
+            person_pattern = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
+            for match in re.finditer(person_pattern, cosp_block):
+                name = match.group(1).strip()
+                if name and name not in sponsors and len(name.split()) <= 2:
+                    sponsors.append(name)
+
+            # Extract without "of" district
+            person_pattern_no_district = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
+            for match in re.finditer(person_pattern_no_district, cosp_block):
+                name = match.group(1).strip()
+                if name and name not in sponsors and len(name.split()) <= 2:
+                    sponsors.append(name)
+
+            # Comma-separated names with districts
+            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cosp_block)
+            for name in comma_separated:
+                name = name.strip()
+                if name and name not in sponsors and len(name.split()) <= 2:
+                    sponsors.append(name)
 
         # Remove duplicates while preserving order
         seen = set()
         unique = []
         for s in sponsors:
-            if s not in seen:
-                unique.append(s)
-                seen.add(s)
+            normalized = s.strip()
+            if normalized and normalized not in seen:
+                unique.append(normalized)
+                seen.add(normalized)
 
         return unique
 
     @staticmethod
     def _extract_session(text: str) -> Optional[str]:
-        """Extract legislative session number from text."""
+        """
+        Extract legislative session number from text.
+
+        Supports multiple formats with whitespace normalization.
+        """
+        # First try full bill ID format
         match = re.search(r'(\d{2,3})-LD-\d{4}', text)
-        return match.group(1) if match else None
+        if match:
+            return match.group(1)
+
+        # Normalize whitespace to handle line breaks
+        search_text = ' '.join(text[:2000].split())
+
+        # Ordinal format: "131st MAINE LEGISLATURE"
+        match = re.search(r'(\d{2,3})(?:st|nd|rd|th)\s+(?:MAINE\s+)?LEGISLATURE', search_text)
+        if match:
+            return match.group(1)
+
+        # Fallback: Ordinal without "LEGISLATURE"
+        match = re.search(r'(\d{2,3})(?:st|nd|rd|th)\s+(?:Maine|MAINE)', search_text)
+        if match:
+            return match.group(1)
+
+        return None
 
     @staticmethod
     def _extract_date(text: str) -> Optional[date]:
-        """Extract introduced date from text."""
-        # Look for date patterns (optional - may not always be present)
-        patterns = [
-            r'(\d{1,2})/(\d{1,2})/(\d{4})',  # MM/DD/YYYY
-            r'(\d{4})-(\d{1,2})-(\d{1,2})',  # YYYY-MM-DD
-        ]
+        """
+        Extract introduced date from text.
 
-        for pattern in patterns:
-            match = re.search(pattern, text[:2000])
-            if match:
+        Supports multiple date formats including month names.
+        """
+        months = {
+            'January': 1, 'February': 2, 'March': 3, 'April': 4,
+            'May': 5, 'June': 6, 'July': 7, 'August': 8,
+            'September': 9, 'October': 10, 'November': 11, 'December': 12,
+            'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4,
+            'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8,
+            'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12,
+        }
+
+        search_text = text[:2500]
+        normalized_search = ' '.join(search_text.split())
+
+        # Pattern 1: "House/Senate of Representatives, January 26, 2023"
+        match = re.search(
+            r'(?:House|Senate) of Representatives,\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',
+            normalized_search
+        )
+        if match:
+            month_name, day, year = match.groups()
+            month = months.get(month_name)
+            if month:
                 try:
-                    if '/' in pattern:
-                        m, d, y = match.groups()
-                        return date(int(y), int(m), int(d))
-                    else:
-                        y, m, d = match.groups()
-                        return date(int(y), int(m), int(d))
+                    return date(int(year), month, int(day))
                 except ValueError:
-                    continue
+                    pass
+
+        # Pattern 2: "In Senate, January 26, 2023"
+        match = re.search(
+            r'In\s+(?:Senate|House),\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',
+            normalized_search
+        )
+        if match:
+            month_name, day, year = match.groups()
+            month = months.get(month_name)
+            if month:
+                try:
+                    return date(int(year), month, int(day))
+                except ValueError:
+                    pass
+
+        # Pattern 3: General written date format
+        match = re.search(
+            r'(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',
+            normalized_search
+        )
+        if match:
+            month_name, day, year = match.groups()
+            month = months.get(month_name)
+            if month:
+                try:
+                    return date(int(year), month, int(day))
+                except ValueError:
+                    pass
+
+        # Pattern 4: MM/DD/YYYY
+        match = re.search(r'(\d{1,2})/(\d{1,2})/(\d{4})', normalized_search)
+        if match:
+            m, d, y = match.groups()
+            try:
+                return date(int(y), int(m), int(d))
+            except ValueError:
+                pass
+
+        # Pattern 5: YYYY-MM-DD
+        match = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})', normalized_search)
+        if match:
+            y, m, d = match.groups()
+            try:
+                return date(int(y), int(m), int(d))
+            except ValueError:
+                pass
 
         return None
 
     @staticmethod
     def _extract_committee(text: str) -> Optional[str]:
-        """Extract assigned committee from text."""
-        # Look for "Committee on..." pattern
-        match = re.search(r'(?:Committee on|Referred to|Assigned to)\s+([A-Za-z\s&]+?)(?:\n|$)', text[:2000])
-        return match.group(1).strip() if match else None
+        """
+        Extract assigned committee from text.
+
+        Uses non-greedy matching with keyword delimiters to avoid
+        capturing trailing action text like "suggested and ordered".
+        """
+        search_text = text[:2500]
+        normalized_text = ' '.join(search_text.split())
+
+        # Pattern 1: "Reference to the Committee on COMMITTEE_NAME"
+        # Use lookahead to stop at action keywords
+        match = re.search(
+            r'Reference to the Committee on\s+([A-Za-z\s&,]+?)(?=\s+(?:suggested|ordered|referred|assigned|printed))',
+            normalized_text
+        )
+        if match:
+            committee = match.group(1).strip()
+            if committee:
+                return committee
+
+        # Pattern 2: With period or end of text
+        match = re.search(
+            r'Reference to the Committee on\s+([A-Za-z\s&,]+?)(?:\.|$)',
+            normalized_text
+        )
+        if match:
+            committee = match.group(1).strip()
+            # Clean up any trailing markers
+            committee = re.sub(r'\s+(?:suggested|ordered|referred|assigned).*$', '', committee, flags=re.IGNORECASE)
+            if committee:
+                return committee
+
+        # Pattern 3: Alternative patterns
+        match = re.search(
+            r'(?:Committee on|Referred to|Assigned to)\s+([A-Za-z\s&,]+?)(?:\s+(?:suggested|ordered|referred|assigned)|\.|\s+printed|$)',
+            normalized_text
+        )
+        if match:
+            committee = match.group(1).strip()
+            if committee:
+                return committee
+
+        return None
 
     @staticmethod
     def _extract_amended_codes(text: str) -> List[str]:
-        """Extract Maine state code references being amended."""
-        refs = []
-        # Look for patterns like "Title 20, Section 1" or "Title 20-A, § 101"
-        patterns = [
-            r'Title\s+(\d+(?:-[A-Z])?),\s*(?:Section|§)\s+(\d+)',
-        ]
+        """
+        Extract Maine state code references being amended.
 
-        for pattern in patterns:
-            matches = re.findall(pattern, text)
-            for match in matches:
-                ref = f"Title {match[0]}, Section {match[1]}"
-                if ref not in refs:
-                    refs.append(ref)
+        Supports both traditional "Title X, Section Y" format
+        and MRSA (Maine Revised Statutes Annotated) format.
+        """
+        refs = []
+
+        # Pattern 1: Traditional Title format "Title 20, Section 1" or "Title 20-A, § 101"
+        title_pattern = r'Title\s+(\d+(?:-[A-Z])?),\s*(?:Section|§)\s+(\d+)'
+        for match in re.finditer(title_pattern, text):
+            ref = f"Title {match.group(1)}, Section {match.group(2)}"
+            if ref not in refs:
+                refs.append(ref)
+
+        # Pattern 2: MRSA format "35-A MRSA §4002" or "5 MRSA §12004-G"
+        mrsa_pattern = r'(\d+(?:-[A-Z])?)\s+MRSA\s+§(\d+(?:-[A-Z])?)'
+        for match in re.finditer(mrsa_pattern, text):
+            ref = f"{match.group(1)} MRSA §{match.group(2)}"
+            if ref not in refs:
+                refs.append(ref)
 
         return refs
 
