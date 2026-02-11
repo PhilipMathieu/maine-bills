@@ -105,9 +105,10 @@ class TextExtractor:
         """Extract legislator names (sponsors) from text."""
         sponsors = []
         # Look for "by Representative/Senator NAME" patterns
+        # Updated regex supports apostrophes and hyphens in names (e.g., O'BRIEN, JEAN-PAUL)
         patterns = [
-            r'(?:Introduced by|Rep\.|Representative)\s+([A-Z][A-Za-z\s]+)',
-            r'(?:by|Cosponsored by|Senator|Sen\.)\s+([A-Z][A-Za-z\s]+)',
+            r'(?:Introduced by|by)\s+(?:Representative|Rep\.)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)*?)(?:\n|$)',
+            r'(?:Cosponsored by|by)\s+(?:Senator|Sen\.)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)*?)(?:\n|$)',
         ]
 
         for pattern in patterns:
