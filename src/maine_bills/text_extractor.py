@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import List, Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date
 from pypdf import PdfReader
 
@@ -12,15 +12,23 @@ class BillDocument:
     # Metadata
     bill_id: str                          # e.g., "131-LD-0001"
     title: str                            # Bill's descriptive title
-    sponsors: List[str]                   # Legislator names
     session: str                          # Legislative session number
-    introduced_date: Optional[date]       # When bill was introduced
-    committee: Optional[str]              # Assigned committee
-    amended_code_refs: List[str]         # Maine state code sections being amended
-
-    # Content
     body_text: str                        # Clean, extracted bill text
     extraction_confidence: float          # 0.0-1.0 confidence score
+
+    # Optional metadata
+    sponsors: List[str] = field(default_factory=list)  # Legislator names
+    introduced_date: Optional[date] = None  # When bill was introduced
+    committee: Optional[str] = None  # Assigned committee
+    amended_code_refs: List[str] = field(default_factory=list)  # Maine state code sections being amended
+
+    def __post_init__(self):
+        """Validate extraction_confidence is between 0.0 and 1.0."""
+        if not 0.0 <= self.extraction_confidence <= 1.0:
+            raise ValueError(
+                f"extraction_confidence must be between 0.0 and 1.0, "
+                f"got {self.extraction_confidence}"
+            )
 
 
 class TextExtractor:
