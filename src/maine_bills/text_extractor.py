@@ -5,6 +5,8 @@ from datetime import date
 from pypdf import PdfReader
 import fitz  # PyMuPDF
 import re
+import json
+import dataclasses
 
 
 @dataclass
@@ -141,6 +143,27 @@ class TextExtractor:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, 'w') as f:
             f.write(text)
+
+    @staticmethod
+    def save_bill_document_json(output_path: Path, bill_doc: BillDocument) -> None:
+        """
+        Save BillDocument to JSON file.
+
+        Args:
+            output_path: Path where JSON file should be written
+            bill_doc: BillDocument to save
+        """
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Convert dataclass to dict
+        doc_dict = dataclasses.asdict(bill_doc)
+
+        # Serialize dates to ISO format
+        if doc_dict.get('introduced_date'):
+            doc_dict['introduced_date'] = doc_dict['introduced_date'].isoformat()
+
+        with open(output_path, 'w') as f:
+            json.dump(doc_dict, f, indent=2)
 
     @staticmethod
     def _extract_bill_id(text: str) -> Optional[str]:
