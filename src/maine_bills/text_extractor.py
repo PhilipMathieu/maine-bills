@@ -234,11 +234,14 @@ class TextExtractor:
         # Title filter - exclude these common false positives
         title_words = {
             # Leadership titles
-            'President', 'Speaker', 'Secretary', 'Clerk',
+            'President', 'Speaker', 'Secretary', 'Clerk', 'Chief',
+            'Governor', 'Mayor', 'Attorney', 'General', 'Commissioner',
             # Government entities
-            'State', 'States', 'Department', 'Senate', 'House',
+            'State', 'States', 'Department', 'Senate', 'House', 'Bureau',
+            'Office', 'Committee', 'Government', 'Council', 'Commission',
             # Document references
-            'Session', 'Regular', 'Special', 'Legislature', 'Legislative'
+            'Session', 'Regular', 'Special', 'Legislature', 'Legislative',
+            'Constitution', 'People', 'Law', 'Code'
         }
 
         # Helper function to validate names
