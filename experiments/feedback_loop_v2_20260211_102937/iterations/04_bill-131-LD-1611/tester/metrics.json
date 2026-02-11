@@ -1,0 +1,42 @@
+{
+  "decision": "accepted",
+  "reasoning": "+4 metadata fields, +40 cleanliness, enables code amendment tracking",
+  "baseline": {
+    "bill_id": null,
+    "session": null,
+    "title": "An Act to Create the Pine Tree Power Company, a Nonprofit,",
+    "sponsors": [],
+    "committee": null,
+    "introduced_date": null,
+    "amended_code_refs": [],
+    "metadata_score": 1,
+    "cleanliness_score": 60.0,
+    "confidence": 1.0
+  },
+  "improved": {
+    "bill_id": "131-LD-1611",
+    "session": "131",
+    "title": "An Act to Create the Pine Tree Power Company, a Nonprofit,",
+    "sponsors": [],
+    "committee": null,
+    "introduced_date": "2023-04-11",
+    "amended_code_refs": [
+      "5 MRSA §12004-G",
+      "35-A MRSA §4002",
+      "21-A MRSA §354",
+      "21-A MRSA §1011",
+      "35-A MRSA §1511-A",
+      "35-A MRSA §3501",
+      "35-A MRSA §3502",
+      "35-A MRSA §3506"
+    ],
+    "metadata_score": 5,
+    "cleanliness_score": 100.0,
+    "confidence": 1.0
+  },
+  "deltas": {
+    "metadata_delta": 4,
+    "cleanliness_delta": 40.0,
+    "confidence_delta": 0.0
+  }
+}

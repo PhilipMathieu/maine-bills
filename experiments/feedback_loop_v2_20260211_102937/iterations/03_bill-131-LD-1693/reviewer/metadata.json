@@ -1,0 +1,45 @@
+{
+  "iteration": 0.7836000000000001,
+  "bill_id": "131-LD-1693",
+  "methods_modified": [
+    "_extract_bill_id",
+    "_extract_session",
+    "_extract_sponsors",
+    "_extract_committee",
+    "_extract_date"
+  ],
+  "summary": "Improved whitespace normalization and multi-line pattern matching to correctly extract all metadata fields (bill_id, session, sponsors, committee, introduced_date) from documents with line breaks and complex formatting.",
+  "expected_improvements": {
+    "bill_id": {
+      "before": null,
+      "expected": "131-LD-1693",
+      "issue": "Fallback logic for reconstructing ID from 'No. 1693' + ordinal session format"
+    },
+    "session": {
+      "before": null,
+      "expected": "131",
+      "issue": "Whitespace handling in ordinal format detection"
+    },
+    "sponsors": {
+      "before": [],
+      "expected": ["RAFFERTY", "GERE", "SAYRE"],
+      "issue": "Multi-line cosponsorship parsing and 'and' separator handling"
+    },
+    "committee": {
+      "before": null,
+      "expected": "Energy, Utilities and Technology",
+      "issue": "Line break normalization in 'Reference to the Committee on' pattern"
+    },
+    "introduced_date": {
+      "before": null,
+      "expected": "2023-04-18",
+      "issue": "Context-aware date extraction from 'In Senate, April 18, 2023'"
+    }
+  },
+  "root_cause": "Regex patterns designed for single-line matching fail when metadata spans multiple lines or contains excessive whitespace. Solution: normalize text by joining split lines before pattern application.",
+  "confidence_improvement": {
+    "before": 0.7836000000000001,
+    "expected_after": 0.95,
+    "basis": "5 out of 5 major metadata fields will extract correctly"
+  }
+}

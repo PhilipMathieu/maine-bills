@@ -1,0 +1,98 @@
+{
+  "test_version": "2.0",
+  "bill_id": "131-LD-0765",
+  "timestamp": "2026-02-11T10:45:00Z",
+  "extraction_metrics": {
+    "bill_id": {
+      "baseline": null,
+      "improved": "131-LD-0765",
+      "improvement": "FIXED",
+      "score": {
+        "baseline": 0,
+        "improved": 1
+      }
+    },
+    "session": {
+      "baseline": null,
+      "improved": "131",
+      "improvement": "FIXED",
+      "score": {
+        "baseline": 0,
+        "improved": 1
+      }
+    },
+    "title": {
+      "baseline_length": 66,
+      "improved_length": 78,
+      "baseline_value": "An Act to Permit Recordings of a Protected Person ...",
+      "improved_value": "An Act to Permit Recordings of a Protected Person ...",
+      "improvement": "IMPROVED",
+      "score": {
+        "baseline": 0.84,
+        "improved": 1.0
+      }
+    },
+    "sponsors": {
+      "baseline_count": 0,
+      "improved_count": 10,
+      "baseline_value": [],
+      "improved_value": [
+        "CARNEY",
+        "HENDERSON",
+        "BEEBE-CENTER",
+        "BENNETT",
+        "DUSON",
+        "CLOUTIER",
+        "LEE",
+        "MILLETT",
+        "MOONEN",
+        "POIRIER"
+      ],
+      "improvement": "IMPROVED",
+      "score": {
+        "baseline": 0.0,
+        "improved": 1.0
+      }
+    },
+    "committee": {
+      "baseline": null,
+      "improved": "Judiciary",
+      "improvement": "FIXED",
+      "score": {
+        "baseline": 0,
+        "improved": 1
+      }
+    },
+    "introduced_date": {
+      "baseline": null,
+      "improved": "2023-02-21",
+      "improvement": "FIXED",
+      "score": {
+        "baseline": 0,
+        "improved": 1
+      }
+    },
+    "amended_code_refs": {
+      "baseline_count": 0,
+      "improved_count": 0,
+      "improvement": "UNCHANGED",
+      "score": {
+        "baseline": 0.0,
+        "improved": 0.0
+      }
+    }
+  },
+  "aggregated_scores": {
+    "baseline_total": 0.84,
+    "improved_total": 6.0,
+    "improvement_count": 6,
+    "metrics_evaluated": 7
+  },
+  "summary": {
+    "fixed_failures": 4,
+    "improved_metrics": 2,
+    "unchanged_metrics": 1,
+    "total_improvement_percentage": 85.71428571428571,
+    "recommendation": "APPROVED for deployment"
+  }
+}

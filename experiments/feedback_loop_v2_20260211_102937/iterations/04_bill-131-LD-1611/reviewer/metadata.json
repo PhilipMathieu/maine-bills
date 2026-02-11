@@ -1,0 +1,37 @@
+{
+  "iteration": 1.0,
+  "bill_id": "131-LD-1611",
+  "methods_modified": [
+    "_extract_bill_id",
+    "_extract_session",
+    "_extract_date",
+    "_extract_amended_codes",
+    "_extract_sponsors",
+    "_is_bill_initiated"
+  ],
+  "summary": "Enhanced extraction methods to handle bill ID/session fallback properly, improve date pattern matching for 'House of Representatives' context, expand MRSA code reference detection, and add initiated bill detection.",
+  "issues_addressed": [
+    {
+      "issue": "Bill ID and Session Extraction Failure",
+      "root_cause": "Fallback component extraction logic exists but may not be properly triggered or validated",
+      "fix": "Ensured fallback logic is always attempted and improved session extraction with better ordinal format handling"
+    },
+    {
+      "issue": "Introduced Date Not Extracted",
+      "root_cause": "Date appears after 'House of Representatives,' context which wasn't explicitly handled",
+      "fix": "Expanded date patterns to recognize dates after chamber location markers like 'House of Representatives,' in addition to 'In House,'"
+    },
+    {
+      "issue": "Amended Code References Incomplete",
+      "root_cause": "MRSA references like '35-A MRSA §4002' not captured, only Title/Section format supported",
+      "fix": "Added MRSA pattern matching with § symbol and section variations like '5 MRSA §12004-G'"
+    },
+    {
+      "issue": "Sponsors Extraction for Initiated Bills Ambiguous",
+      "root_cause": "Empty sponsors list could mean either no sponsors found or initiated bill with no sponsors",
+      "fix": "Added helper method _is_bill_initiated() to explicitly detect initiated bills marked as 'I.B. X'"
+    }
+  ],
+  "testing_notes": "This bill 131-LD-1611 is an initiated bill (I.B. 2) with no legislator sponsors. It contains numerous MRSA references throughout (35-A MRSA, 5 MRSA, 21-A MRSA, etc.). The date 'April 11, 2023' appears after 'House of Representatives,' not 'In House,'. The session '131st' and LD number '1611' appear separately in the document header.",
+  "confidence_improvement": "Expected to achieve ~0.95+ confidence with these improvements, capturing all major metadata fields present in this bill type"
+}

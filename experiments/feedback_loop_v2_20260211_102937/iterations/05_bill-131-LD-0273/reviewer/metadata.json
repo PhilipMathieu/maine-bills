@@ -1,0 +1,12 @@
+{
+  "iteration": 0.4352,
+  "bill_id": "131-LD-0273",
+  "methods_modified": [
+    "_extract_bill_id",
+    "_extract_sponsors",
+    "_extract_session",
+    "_extract_date",
+    "_extract_committee"
+  ],
+  "summary": "Improved regex patterns and whitespace handling to extract session, bill ID, sponsors, date, and committee metadata from Maine Legislature bills"
+}

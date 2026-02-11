@@ -1,0 +1,35 @@
+{
+  "iteration": 1.0,
+  "bill_id": "131-LD-0765",
+  "methods_modified": [
+    "_extract_session",
+    "_extract_date",
+    "_extract_sponsors",
+    "_extract_committee",
+    "_extract_title",
+    "_is_header_footer",
+    "_clean_body_text",
+    "_extract_bill_id"
+  ],
+  "summary": "Enhanced metadata extraction to handle format variations (ordinal sessions, written dates, multi-line sponsors) and improved text cleaning to remove institutional boilerplate",
+  "improvements": {
+    "_extract_session": "Added support for ordinal format (131st MAINE LEGISLATURE) in addition to bill ID format",
+    "_extract_date": "Added support for written month format (e.g., 'February 21, 2023') in addition to numeric formats",
+    "_extract_sponsors": "Improved to handle 'Presented by' syntax, multi-line cosponsorship blocks, and complex formatting",
+    "_extract_committee": "Enhanced patterns to handle trailing phrases like 'suggested and ordered printed'",
+    "_extract_title": "Added logic to continue reading next line if title appears incomplete",
+    "_is_header_footer": "Expanded to catch library reference boilerplate and institutional headers",
+    "_clean_body_text": "Added skip logic for document preamble to better separate metadata from content",
+    "_extract_bill_id": "Added fallback method to combine session and LD number from separate document sections"
+  },
+  "expected_improvements": {
+    "bill_id": "null → '131-LD-0765'",
+    "session": "null → '131'",
+    "title": "incomplete → 'An Act to Permit Recordings of a Protected Person to Be Admissible in Evidence'",
+    "sponsors": "[] → ['CARNEY', 'HENDERSON', 'BEEBE-CENTER', 'BENNETT', 'DUSON', 'CLOUTIER', 'LEE', 'MILLETT', 'MOONEN', 'POIRIER']",
+    "committee": "null → 'Judiciary'",
+    "introduced_date": "null → 2023-02-21",
+    "body_text_quality": "improved - less boilerplate, cleaner structure"
+  },
+  "testing_notes": "These changes should be tested against the full dataset to ensure they don't break existing extractions while improving coverage for bills with format variations"
+}
