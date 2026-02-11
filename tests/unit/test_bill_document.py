@@ -1,4 +1,7 @@
+import dataclasses
 from datetime import date
+import pytest
+
 from maine_bills.text_extractor import BillDocument
 
 
@@ -25,15 +28,10 @@ def test_bill_document_creation():
 
 def test_bill_document_asdict():
     """Test BillDocument can be converted to dict."""
-    import dataclasses
     doc = BillDocument(
         bill_id="131-LD-0001",
         title="Test Bill",
-        sponsors=[],
         session="131",
-        introduced_date=None,
-        committee=None,
-        amended_code_refs=[],
         body_text="Text",
         extraction_confidence=0.9
     )
@@ -41,3 +39,15 @@ def test_bill_document_asdict():
     doc_dict = dataclasses.asdict(doc)
     assert isinstance(doc_dict, dict)
     assert doc_dict["bill_id"] == "131-LD-0001"
+
+
+def test_bill_document_confidence_validation():
+    """Test that invalid confidence values raise ValueError."""
+    with pytest.raises(ValueError, match="extraction_confidence must be between"):
+        BillDocument(
+            bill_id="131-LD-0001",
+            title="Test",
+            session="131",
+            body_text="Text",
+            extraction_confidence=1.5  # Invalid
+        )
