@@ -225,27 +225,34 @@ class TextExtractor:
         Extract legislator names (sponsors) from text.
 
         Handles multi-line sponsor blocks and comma-separated lists.
+        Supports both "Presented by" (real bills) and "Introduced by" (some bills/tests).
         """
         sponsors = []
         search_text = text[:2500]
         normalized_text = ' '.join(search_text.split())
 
+        # Title filter - exclude these common false positives
+        title_words = {'President', 'Speaker', 'Secretary', 'State', 'States', 'Clerk'}
+
         # Pattern 1: "Presented by Senator/Representative NAME [of DISTRICT]"
-        pattern1 = r'Presented by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
+        pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
         for match in re.finditer(pattern1, normalized_text):
             name = match.group(1).strip()
-            if name and name not in sponsors and len(name.split()) <= 2:
+            # Filter out titles and validate
+            if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
                 sponsors.append(name)
 
         # Pattern 1b: "Presented by Senator/Representative NAME" (without district)
-        pattern1b = r'Presented by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b'
+        # Use lookahead to stop at keywords that indicate end of sponsor name
+        pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'
         for match in re.finditer(pattern1b, normalized_text):
             name = match.group(1).strip()
-            if name and name not in sponsors and len(name.split()) <= 2:
+            # Filter out titles and validate
+            if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
                 sponsors.append(name)
 
         # Pattern 2: Cosponsorship block
-        cosp_block_match = re.search(r'Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|$)', normalized_text, re.DOTALL)
+        cosp_block_match = re.search(r'Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|Introduced by|$)', normalized_text, re.DOTALL)
         if cosp_block_match:
             cosp_block = ' '.join(cosp_block_match.group(1).split())
 
@@ -253,21 +260,23 @@ class TextExtractor:
             person_pattern = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
             for match in re.finditer(person_pattern, cosp_block):
                 name = match.group(1).strip()
-                if name and name not in sponsors and len(name.split()) <= 2:
+                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
                     sponsors.append(name)
 
             # Extract without "of" district
             person_pattern_no_district = r'(?:Senator|Representative)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
             for match in re.finditer(person_pattern_no_district, cosp_block):
                 name = match.group(1).strip()
-                if name and name not in sponsors and len(name.split()) <= 2:
+                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
                     sponsors.append(name)
 
             # Comma-separated names with districts
-            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cosp_block)
+            # Remove "Senator/Representative NAME" patterns first to prevent capturing title words
+            cleaned_block = re.sub(r'\b(?:Senator|Representative)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)
+            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)
             for name in comma_separated:
                 name = name.strip()
-                if name and name not in sponsors and len(name.split()) <= 2:
+                if name and name not in sponsors and len(name.split()) <= 2 and name not in title_words:
                     sponsors.append(name)
 
         # Remove duplicates while preserving order
