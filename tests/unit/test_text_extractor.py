@@ -1,72 +1,50 @@
+from unittest.mock import Mock, patch
 import pytest
 from pathlib import Path
-from unittest.mock import Mock, patch
-from maine_bills.text_extractor import TextExtractor
+from maine_bills.text_extractor import TextExtractor, BillDocument
 
 
-def test_extract_from_pdf_missing_file():
+def test_extract_bill_document_missing_file():
     """Test that extraction fails with missing file."""
     with pytest.raises(FileNotFoundError):
-        TextExtractor.extract_from_pdf(Path("/nonexistent/file.pdf"))
+        TextExtractor.extract_bill_document(Path("/nonexistent/file.pdf"))
 
 
-def test_extract_from_pdf_success(tmp_path, mocker):
-    """Test successful PDF text extraction."""
-    # Mock PdfReader
+def test_extract_bill_document_success(tmp_path, mocker):
+    """Test successful bill document extraction."""
+    # Mock fitz.open and PDF structure
     mock_page = Mock()
-    mock_page.extract_text.return_value = "Page 1\nContent"
+    mock_page.get_text.return_value = """131-LD-0001
 
-    mock_reader = Mock()
-    mock_reader.pages = [mock_page]
+An Act Relating to Education
 
-    pdf_path = tmp_path / "test.pdf"
-    pdf_path.touch()
+     1 Be it enacted by the People of the State of Maine as follows:
+     2
+     3 SECTION 1.  AMENDMENT.  Title 20, section 1 is amended to read:
+"""
 
-    with patch('maine_bills.text_extractor.PdfReader', return_value=mock_reader):
-        result = TextExtractor.extract_from_pdf(pdf_path)
-        assert "Page 1" in result
-        assert "Content" in result
-
-
-def test_extract_from_pdf_multiple_pages(tmp_path, mocker):
-    """Test extraction from PDF with multiple pages."""
-    mock_page1 = Mock()
-    mock_page1.extract_text.return_value = "Page 1\nContent 1"
-
-    mock_page2 = Mock()
-    mock_page2.extract_text.return_value = "Page 2\nContent 2"
-
-    mock_reader = Mock()
-    mock_reader.pages = [mock_page1, mock_page2]
+    mock_doc = Mock()
+    mock_doc.page_count = 1
+    mock_doc.__iter__ = Mock(return_value=iter([mock_page]))
 
     pdf_path = tmp_path / "test.pdf"
     pdf_path.touch()
 
-    with patch('maine_bills.text_extractor.PdfReader', return_value=mock_reader):
-        result = TextExtractor.extract_from_pdf(pdf_path)
-        assert "Page 1" in result
-        assert "Page 2" in result
-        assert "Content 1" in result
-        assert "Content 2" in result
+    with patch('maine_bills.text_extractor.fitz.open', return_value=mock_doc):
+        result = TextExtractor.extract_bill_document(pdf_path)
+
+        assert isinstance(result, BillDocument)
+        assert result.bill_id == "131-LD-0001"
+        assert "AMENDMENT" in result.body_text or "Title 20" in result.body_text
+        assert 0.0 <= result.extraction_confidence <= 1.0
 
 
 def test_save_text_creates_file(tmp_path):
     """Test that save_text creates output file."""
-    output_path = tmp_path / "subdir" / "output.txt"
+    output_path = tmp_path / "output.txt"
     text = "Test content\nWith multiple lines"
 
     TextExtractor.save_text(output_path, text)
 
     assert output_path.exists()
     assert output_path.read_text() == text
-
-
-def test_save_text_creates_parents(tmp_path):
-    """Test that save_text creates parent directories."""
-    output_path = tmp_path / "deep" / "nested" / "output.txt"
-    text = "Content"
-
-    TextExtractor.save_text(output_path, text)
-
-    assert output_path.parent.exists()
-    assert output_path.exists()

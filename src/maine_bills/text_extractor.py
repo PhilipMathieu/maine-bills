@@ -3,6 +3,7 @@ from typing import List, Optional
 from dataclasses import dataclass, field
 from datetime import date
 from pypdf import PdfReader
+import fitz  # PyMuPDF
 import re
 
 
@@ -34,6 +35,73 @@ class BillDocument:
 
 class TextExtractor:
     """Extracts text from PDF bill documents."""
+
+    @staticmethod
+    def extract_bill_document(pdf_path: Path) -> BillDocument:
+        """
+        Extract structured bill data from PDF using PyMuPDF.
+
+        Args:
+            pdf_path: Path to the PDF file
+
+        Returns:
+            BillDocument with metadata and clean body text
+
+        Raises:
+            FileNotFoundError: If PDF file doesn't exist
+        """
+        if not pdf_path.exists():
+            raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+        doc = fitz.open(pdf_path)
+
+        # Extract text from all pages
+        full_text = ""
+        for page in doc:
+            full_text += page.get_text() + "\n"
+
+        doc.close()
+
+        # Parse metadata
+        metadata = {
+            'bill_id': TextExtractor._extract_bill_id(full_text),
+            'title': TextExtractor._extract_title(full_text),
+            'sponsors': TextExtractor._extract_sponsors(full_text),
+            'session': TextExtractor._extract_session(full_text),
+            'introduced_date': TextExtractor._extract_date(full_text),
+            'committee': TextExtractor._extract_committee(full_text),
+            'amended_code_refs': TextExtractor._extract_amended_codes(full_text),
+        }
+
+        # Clean body text
+        body_text = TextExtractor._clean_body_text(full_text, metadata)
+
+        # Estimate confidence
+        confidence = TextExtractor._estimate_confidence(doc, full_text)
+
+        return BillDocument(
+            body_text=body_text,
+            extraction_confidence=confidence,
+            **metadata
+        )
+
+    @staticmethod
+    def _estimate_confidence(doc: object, text: str) -> float:
+        """
+        Estimate extraction confidence (0.0-1.0).
+
+        Simple heuristic: higher confidence if text is substantial
+        and contains expected keywords.
+        """
+        # Base confidence on text length
+        confidence = min(1.0, len(text) / 5000.0)
+
+        # Boost confidence if bill structure keywords found
+        keywords = ['AMENDMENT', 'SECTION', 'enacted', 'Title']
+        found_keywords = sum(1 for kw in keywords if kw in text)
+        confidence += (found_keywords * 0.05)
+
+        return min(1.0, confidence)
 
     @staticmethod
     def extract_from_pdf(pdf_path: Path) -> str:
