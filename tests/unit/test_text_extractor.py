@@ -98,3 +98,25 @@ def test_bill_document_title_can_be_none(tmp_path, mocker):
         result = TextExtractor.extract_bill_document(pdf_path)
 
     assert result.title is None
+
+
+# --- _estimate_confidence tests ---
+
+
+@pytest.mark.parametrize(
+    "metadata, expected",
+    [
+        ({}, 0.5),
+        ({"bill_id": "131-LD-0001"}, 0.7),
+        (  # noqa: E501
+            {"bill_id": "131-LD-0001", "title": "An Act", "session": "131", "sponsors": ["SMITH"]},
+            1.0,
+        ),
+        ({"title": "An Act", "sponsors": []}, 0.6),  # sponsors empty = falsy
+        ({"bill_id": "131-LD-0001", "session": "131"}, 0.8),
+    ],
+    ids=["no-metadata", "bill-id-only", "all-fields", "title-only", "bill-id-and-session"],
+)
+def test_estimate_confidence(metadata, expected):
+    result = TextExtractor._estimate_confidence(metadata)
+    assert result == pytest.approx(expected)

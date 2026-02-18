@@ -59,6 +59,9 @@ class TextExtractor:
             pages = [page.get_text() for page in doc]
             full_text = '\n'.join(pages) + '\n'
 
+        # Strip the library preamble before any other processing
+        full_text = TextExtractor._strip_preamble(full_text)
+
         # Parse metadata
         metadata = {
             'bill_id': TextExtractor._extract_bill_id(full_text),
@@ -74,7 +77,7 @@ class TextExtractor:
         body_text = TextExtractor._clean_body_text(full_text, metadata)
 
         # Estimate confidence
-        confidence = TextExtractor._estimate_confidence(full_text)
+        confidence = TextExtractor._estimate_confidence(metadata)
 
         return BillDocument(
             body_text=body_text,
@@ -83,22 +86,27 @@ class TextExtractor:
         )
 
     @staticmethod
-    def _estimate_confidence(text: str) -> float:
+    def _estimate_confidence(metadata: dict) -> float:
         """
-        Estimate extraction confidence (0.0-1.0).
+        Estimate extraction confidence (0.0-1.0) based on metadata completeness.
 
-        Simple heuristic: higher confidence if text is substantial
-        and contains expected keywords.
+        Scoring:
+        - 0.5 base (we extracted text)
+        - +0.2 if bill_id was found
+        - +0.1 if title was found
+        - +0.1 if session was found
+        - +0.1 if sponsors were found
         """
-        # Base confidence on text length
-        confidence = min(1.0, len(text) / 5000.0)
-
-        # Boost confidence if bill structure keywords found
-        keywords = ['AMENDMENT', 'SECTION', 'enacted', 'Title']
-        found_keywords = sum(1 for kw in keywords if kw in text)
-        confidence += (found_keywords * 0.05)
-
-        return min(1.0, confidence)
+        confidence = 0.5
+        if metadata.get("bill_id"):
+            confidence += 0.2
+        if metadata.get("title"):
+            confidence += 0.1
+        if metadata.get("session"):
+            confidence += 0.1
+        if metadata.get("sponsors"):
+            confidence += 0.1
+        return confidence
 
     @staticmethod
     def extract_from_pdf(pdf_path: Path) -> str:
@@ -201,18 +209,25 @@ class TextExtractor:
 
     @staticmethod
     def _extract_title(text: str) -> str | None:
-        """Extract bill title from beginning of text."""
+        """Extract bill title from beginning of text.
+
+        Handles three cases:
+        - "An Act ..." on its own line (most bills)
+        - "Resolve, ..." on its own line (resolve documents)
+        - "An Act" embedded in an amendment header line — extracts just
+          the "An Act ..." portion, stripping the amendment preamble
+        """
         lines = text.split('\n')
         for i, line in enumerate(lines):
             stripped = line.strip()
-            # Skip empty lines and numbers
+            # Skip empty lines and pure line numbers
             if stripped and not re.match(r'^\d+$', stripped):
-                # Title usually starts with "An Act"
-                if "An Act" in stripped:
-                    return stripped
-                # Otherwise take first non-empty line after bill ID
-                if i > 0 and re.search(r'\d{2,3}-LD-\d{4}', lines[i-1]):
-                    return stripped
+                # Title starts with "An Act" or "Resolve"
+                for starter in ("An Act", "Resolve"):
+                    if starter in stripped:
+                        idx = stripped.index(starter)
+                        title = stripped[idx:].strip().strip('"').strip("'")
+                        return title
         return None
 
     @staticmethod
@@ -239,7 +254,9 @@ class TextExtractor:
             'Session', 'Regular', 'Special', 'Legislature', 'Legislative',
             'Constitution', 'People', 'Law', 'Code', 'Rules',
             # Generic/Article words
-            'The', 'Maine', 'Number'
+            'The', 'Maine', 'Number',
+            # Location/collective nouns that appear near sponsor blocks
+            'Town', 'Houses', 'Hall', 'Chamber', 'County', 'District',
         }
 
         # Helper function to validate names
@@ -379,10 +396,11 @@ class TextExtractor:
                 except ValueError:
                     pass
 
-        # Pattern 3: General written date format
+        # Pattern 3: General written date format (header area only — first 800 chars)
+        header_text = ' '.join(text[:800].split())
         match = re.search(
             r'(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',
-            normalized_search
+            header_text
         )
         if match:
             month_name, day, year = match.groups()
@@ -392,24 +410,6 @@ class TextExtractor:
                     return date(int(year), month, int(day))
                 except ValueError:
                     pass
-
-        # Pattern 4: MM/DD/YYYY
-        match = re.search(r'(\d{1,2})/(\d{1,2})/(\d{4})', normalized_search)
-        if match:
-            m, d, y = match.groups()
-            try:
-                return date(int(y), int(m), int(d))
-            except ValueError:
-                pass
-
-        # Pattern 5: YYYY-MM-DD
-        match = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})', normalized_search)
-        if match:
-            y, m, d = match.groups()
-            try:
-                return date(int(y), int(m), int(d))
-            except ValueError:
-                pass
 
         return None
 
@@ -486,9 +486,40 @@ class TextExtractor:
         return refs
 
     @staticmethod
+    def _strip_preamble(text: str) -> str:
+        """Strip the Law and Legislative Digital Library preamble block.
+
+        Every Maine Legislature PDF begins with a fixed library header.
+        This method finds where actual bill content starts — the first line
+        matching the legislative session ordinal (e.g. "131st MAINE LEGISLATURE")
+        — and discards everything before it.
+
+        For scanned PDFs the ordinal line may carry a line-number prefix
+        (e.g. "7 131ST LEGISLATURE"), so the search is done on stripped lines.
+
+        If no session ordinal is found the text is returned unchanged.
+        """
+        session_pattern = re.compile(
+            r'^\d+(?:st|nd|rd|th|ST|ND|RD|TH)\s+(?:MAINE\s+)?LEGISLATURE',
+            re.IGNORECASE,
+        )
+        lines = text.split('\n')
+        for i, line in enumerate(lines):
+            # Check both the raw line and the line with an optional leading
+            # line-number prefix stripped (scanned format: "7 131ST LEGISLATURE")
+            candidates = [line.strip(), re.sub(r'^\d{1,3}\s+', '', line).strip()]
+            if any(session_pattern.match(c) for c in candidates):
+                return '\n'.join(lines[i:])
+        return text
+
+    @staticmethod
     def _is_line_number(line: str) -> bool:
-        """Check if line is just a line number."""
-        return bool(re.match(r'^\s+\d+\s*$', line))
+        """Check if line is just a line number.
+
+        Handles both electronic PDFs (leading whitespace + 1-3 digits)
+        and scanned PDFs (bare 1-3 digits, no leading whitespace).
+        """
+        return bool(re.match(r'^\s*\d{1,3}\s*$', line))
 
     @staticmethod
     def _is_header_footer(line: str) -> bool:
@@ -507,6 +538,14 @@ class TextExtractor:
         if re.match(r'^(STATE OF MAINE|MAINE LEGISLATURE)', line_stripped, re.IGNORECASE):
             return True
 
+        # Scanned-PDF session header lines (appear after line-number stripping)
+        if re.match(r'^HOUSE OF REPRESENTATIVES\s*$', line_stripped, re.IGNORECASE):
+            return True
+        if re.match(r'^\d+(?:ST|ND|RD|TH)\s+(?:MAINE\s+)?LEGISLATURE\s*$', line_stripped, re.IGNORECASE):
+            return True
+        if re.match(r'^(?:FIRST|SECOND|THIRD)\s+(?:REGULAR|SPECIAL)\s+SESSION', line_stripped, re.IGNORECASE):
+            return True
+
         return False
 
     @staticmethod
@@ -521,17 +560,20 @@ class TextExtractor:
         cleaned_lines = []
 
         for line in lines:
-            # Skip line number patterns (just whitespace and number)
+            # Skip pure line-number lines (just whitespace and 1-3 digits)
             if TextExtractor._is_line_number(line):
                 continue
 
-            # Skip headers/footers
-            if TextExtractor._is_header_footer(line):
-                continue
+            # Strip leading line-number prefix before any other checks.
+            # Handles electronic PDFs ("   5 Be it enacted") and scanned PDFs
+            # ("5 STATE OF MAINE"). Limit to 1-3 digits to avoid stripping years.
+            line_cleaned = re.sub(r'^\s*\d{1,3}\s+', '', line)
 
-            # Remove leading line numbers from lines with content
-            # Pattern: leading whitespace + digits + more content
-            line_cleaned = re.sub(r'^\s+\d+\s+', '', line)
+            # Skip headers/footers — checked on the stripped line so that
+            # scanned lines like "5 STATE OF MAINE" become "STATE OF MAINE"
+            # before the header pattern is tested.
+            if TextExtractor._is_header_footer(line_cleaned):
+                continue
 
             # Keep non-empty lines
             if line_cleaned.strip():
