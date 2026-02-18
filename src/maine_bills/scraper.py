@@ -7,6 +7,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
+from tqdm import tqdm
 
 from .schema import FILENAME_PATTERN, BillRecord
 from .text_extractor import TextExtractor
@@ -83,13 +84,15 @@ class BillScraper:
         records = []
         with ThreadPoolExecutor(max_workers=self.workers) as pool:
             futures = {pool.submit(self._download_and_extract_bill, f): f for f in valid}
-            for future in as_completed(futures):
-                filename = futures[future]
-                try:
-                    record = future.result()
-                    records.append(record.__dict__)
-                except Exception:
-                    self.logger.exception(f"Failed to process {filename!r}; skipping")
+            with tqdm(total=len(valid), desc=f"Session {self.session}", unit="bill") as pbar:
+                for future in as_completed(futures):
+                    filename = futures[future]
+                    try:
+                        record = future.result()
+                        records.append(record.__dict__)
+                    except Exception:
+                        self.logger.exception(f"Failed to process {filename!r}; skipping")
+                    pbar.update(1)
 
         self.logger.info(f"Successfully processed {len(records)} bills")
         return pd.DataFrame(records)
