@@ -14,7 +14,7 @@ class BillDocument:
 
     # Metadata
     bill_id: str                          # e.g., "131-LD-0001"
-    title: str                            # Bill's descriptive title
+    title: str | None                     # Bill's descriptive title
     session: str                          # Legislative session number
     body_text: str                        # Clean, extracted bill text
     extraction_confidence: float          # 0.0-1.0 confidence score
@@ -200,7 +200,7 @@ class TextExtractor:
         return None
 
     @staticmethod
-    def _extract_title(text: str) -> str:
+    def _extract_title(text: str) -> str | None:
         """Extract bill title from beginning of text."""
         lines = text.split('\n')
         for i, line in enumerate(lines):
@@ -213,7 +213,7 @@ class TextExtractor:
                 # Otherwise take first non-empty line after bill ID
                 if i > 0 and re.search(r'\d{2,3}-LD-\d{4}', lines[i-1]):
                     return stripped
-        return "Unknown Title"
+        return None
 
     @staticmethod
     def _extract_sponsors(text: str) -> list[str]:
