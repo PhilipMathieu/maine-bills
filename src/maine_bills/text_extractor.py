@@ -241,6 +241,8 @@ class TextExtractor:
         sponsors = []
         search_text = text[:2500]
         normalized_text = ' '.join(search_text.split())
+        # Normalize stray spaces around hyphens in names (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
+        normalized_text = re.sub(r'([A-Z])\s*-\s*([A-Z])', r'\1-\2', normalized_text)
 
         # Title filter - exclude these common false positives
         title_words = {
@@ -302,6 +304,9 @@ class TextExtractor:
                 if is_valid_name(name):
                     sponsors.append(name)
 
+
+        # Normalize hyphenated names with stray spaces (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
+        sponsors = [re.sub(r'\s*-\s*', '-', s) for s in sponsors]
 
         # Remove duplicates while preserving order
         seen = set()
