@@ -302,14 +302,6 @@ class TextExtractor:
                 if is_valid_name(name):
                     sponsors.append(name)
 
-            # Comma-separated names with districts
-            # Remove "Senator/Representative/President/Speaker NAME" patterns first to prevent capturing title words  # noqa: E501
-            cleaned_block = re.sub(r'\b(?:Senator|Representative|President|Speaker)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)  # noqa: E501
-            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)  # noqa: E501
-            for name in comma_separated:
-                name = name.strip()
-                if is_valid_name(name):
-                    sponsors.append(name)
 
         # Remove duplicates while preserving order
         seen = set()
