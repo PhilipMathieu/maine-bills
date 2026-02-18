@@ -9,13 +9,18 @@ from datetime import datetime, timezone
 from typing import List, Optional
 
 
-# Filename pattern supporting both single and double amendments
+# Filename pattern supporting both single and double amendments with version letters
+# Format: TYPE_VERSION_CHAMBER+NUMBER or TYPE_VERSION_TYPE_VERSION_CHAMBER+NUMBER
+# where VERSION is A-Z (A=first version, B=second version, etc.)
+#
 # Examples:
 #   - Original: 131-LD-0001
-#   - Single amendment: 131-LD-0686-CA_A_H0266 (pattern: TYPE_A_CHAMBER+NUMBER)
-#   - Double amendment: 132-LD-0004-CA_A_SA_A_S337 (pattern: TYPE_A_TYPE_A_CHAMBER+NUMBER)
+#   - Single amendment: 131-LD-0686-CA_A_H0266 (Committee Amendment v.A, House #266)
+#   - Single amendment v.B: 131-LD-1621-CA_B_H0319 (Committee Amendment v.B, House #319)
+#   - Double amendment: 132-LD-0004-CA_A_SA_A_S337 (Senate Amendment v.A to Committee Amendment v.A)
+#   - Double amendment mixed: 131-LD-0424-CA_A_SA_B_S0014 (Senate Amendment v.B to Committee Amendment v.A)
 FILENAME_PATTERN = re.compile(
-    r"^(?P<session>\d+)-LD-(?P<ld>\d+)(?:-(?P<amendment>[A-Z]{2}_A_(?:[HS]\d+|[A-Z]{2}_A_[HS]\d+)))?$"
+    r"^(?P<session>\d+)-LD-(?P<ld>\d+)(?:-(?P<amendment>[A-Z]{2}_[A-Z]_(?:[HS]\d+|[A-Z]{2}_[A-Z]_[HS]\d+)))?$"
 )
 
 # Amendment type prefixes
