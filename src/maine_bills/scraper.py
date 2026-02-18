@@ -31,8 +31,11 @@ class BillScraper:
         res.raise_for_status()
 
         soup = BeautifulSoup(res.content, features="html.parser")
-        hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]]
-        filenames = [href.split("/")[-1].removesuffix(".pdf") for href in hrefs]
+        filenames = []
+        for a in soup.find_all("a"):
+            href = a.get("href", "")
+            if href.endswith(".pdf"):
+                filenames.append(href.split("/")[-1].removesuffix(".pdf"))
 
         self.logger.info(f"Found {len(filenames)} bills in session {self.session}")
         return filenames

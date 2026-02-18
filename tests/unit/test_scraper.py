@@ -33,6 +33,8 @@ def test_fetch_bill_list_returns_filenames(scraper, mocker):
         <a href="../">Parent</a>
         <a href="131-LD-0001.pdf">Link 1</a>
         <a href="131-LD-0002.pdf">Link 2</a>
+        <a href="index.html">Index</a>
+        <a>No href at all</a>
     </html>
     """
     mock_response = Mock()
