@@ -258,7 +258,7 @@ class TextExtractor:
             # Generic/Article words
             'The', 'Maine', 'Number',
             # Location/collective nouns that appear near sponsor blocks
-            'Town', 'Houses', 'Hall', 'Chamber', 'County', 'District',
+            'Town', 'Houses', 'Hall', 'Chamber', 'County', 'District', 'Districts',
         }
 
         # Helper function to validate names
