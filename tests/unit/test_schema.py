@@ -127,6 +127,32 @@ class TestParseFilename:
             assert result["amendment_type"] == expected_type
             assert result["chamber"] == expected_chamber
 
+    def test_parse_amendment_version_b(self):
+        """Test parsing amendments with version B."""
+        result = parse_filename("131-LD-1621-CA_B_H0319")
+        assert result["amendment_code"] == "CA_B_H0319"
+        assert result["amendment_type"] == "Committee Amendment"
+        assert result["chamber"] == "House"
+
+    def test_parse_amendment_version_c(self):
+        """Test parsing amendments with version C."""
+        result = parse_filename("131-LD-0428-CA_C_H0125")
+        assert result["amendment_code"] == "CA_C_H0125"
+        assert result["amendment_type"] == "Committee Amendment"
+        assert result["chamber"] == "House"
+
+    def test_parse_double_amendment_mixed_versions(self):
+        """Test parsing double amendments with different versions."""
+        result = parse_filename("131-LD-0424-CA_A_SA_B_S0014")
+        assert result["amendment_code"] == "CA_A_SA_B_S0014"
+        assert result["amendment_type"] == "Committee Amendment"
+        assert result["chamber"] == "Senate"
+
+        result2 = parse_filename("131-LD-0424-CA_A_HA_E_H0019")
+        assert result2["amendment_code"] == "CA_A_HA_E_H0019"
+        assert result2["amendment_type"] == "Committee Amendment"
+        assert result2["chamber"] == "House"
+
     def test_parse_invalid_filename_raises_error(self):
         """Test that invalid filenames raise ValueError."""
         with pytest.raises(ValueError, match="Unexpected filename format"):
