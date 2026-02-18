@@ -1,12 +1,11 @@
-from pathlib import Path
-from typing import List, Optional
+import dataclasses
+import json
+import re
 from dataclasses import dataclass, field
 from datetime import date
-from pypdf import PdfReader
+from pathlib import Path
+
 import fitz  # PyMuPDF
-import re
-import json
-import dataclasses
 
 
 @dataclass
@@ -21,10 +20,10 @@ class BillDocument:
     extraction_confidence: float          # 0.0-1.0 confidence score
 
     # Optional metadata
-    sponsors: List[str] = field(default_factory=list)  # Legislator names
-    introduced_date: Optional[date] = None  # When bill was introduced
-    committee: Optional[str] = None  # Assigned committee
-    amended_code_refs: List[str] = field(default_factory=list)  # Maine state code sections being amended
+    sponsors: list[str] = field(default_factory=list)  # Legislator names
+    introduced_date: date | None = None  # When bill was introduced
+    committee: str | None = None  # Assigned committee
+    amended_code_refs: list[str] = field(default_factory=list)  # Maine state code sections being amended  # noqa: E501
 
     def __post_init__(self):
         """Validate extraction_confidence is between 0.0 and 1.0."""
@@ -119,13 +118,10 @@ class TextExtractor:
         if not pdf_path.exists():
             raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
-        reader = PdfReader(pdf_path)
-        lines: List[str] = []
-
-        for page in reader.pages:
-            text_all = page.extract_text()
-            lines.extend(text_all.split('\n'))
-
+        with fitz.open(pdf_path) as doc:
+            lines: list[str] = []
+            for page in doc:
+                lines.extend(page.get_text().split('\n'))
         return '\n'.join(lines)
 
     @staticmethod
@@ -171,7 +167,7 @@ class TextExtractor:
             json.dump(doc_dict, f, indent=2)
 
     @staticmethod
-    def _extract_bill_id(text: str) -> Optional[str]:
+    def _extract_bill_id(text: str) -> str | None:
         """
         Extract bill ID from text (e.g., '131-LD-0001').
 
@@ -189,10 +185,10 @@ class TextExtractor:
         normalized_text = ' '.join(text.split())
 
         # Extract session from ordinal format: "131st MAINE LEGISLATURE"
-        session_match = re.search(r'(\d{2,3})(?:st|nd|rd|th)\s+(?:MAINE\s+)?LEGISLATURE', normalized_text)
+        session_match = re.search(r'(\d{2,3})(?:st|nd|rd|th)\s+(?:MAINE\s+)?LEGISLATURE', normalized_text)  # noqa: E501
 
         # Extract LD number from various patterns
-        ld_match = re.search(r'(?:Legislative\s+Document|Document)\s+No\.?\s+(\d{3,4})', normalized_text)
+        ld_match = re.search(r'(?:Legislative\s+Document|Document)\s+No\.?\s+(\d{3,4})', normalized_text)  # noqa: E501
         if not ld_match:
             ld_match = re.search(r'No\.?\s+(\d{3,4})', normalized_text)
 
@@ -220,7 +216,7 @@ class TextExtractor:
         return "Unknown Title"
 
     @staticmethod
-    def _extract_sponsors(text: str) -> List[str]:
+    def _extract_sponsors(text: str) -> list[str]:
         """
         Extract legislator names (sponsors) from text.
 
@@ -256,43 +252,43 @@ class TextExtractor:
             return not name_words.intersection(title_words)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
-        pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'
+        pattern1 = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+'  # noqa: E501
         for match in re.finditer(pattern1, normalized_text):
             name = match.group(1).strip()
             if is_valid_name(name):
                 sponsors.append(name)
 
-        # Pattern 1b: "Presented by Senator/Representative/President/Speaker NAME" (without district)
+        # Pattern 1b: "Presented by Senator/Representative/President/Speaker NAME" (without district)  # noqa: E501
         # Use lookahead to stop at keywords that indicate end of sponsor name
-        pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'
+        pattern1b = r'(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)'  # noqa: E501
         for match in re.finditer(pattern1b, normalized_text):
             name = match.group(1).strip()
             if is_valid_name(name):
                 sponsors.append(name)
 
         # Pattern 2: Cosponsorship block
-        cosp_block_match = re.search(r'Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|Introduced by|$)', normalized_text, re.DOTALL)
+        cosp_block_match = re.search(r'Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|Introduced by|$)', normalized_text, re.DOTALL)  # noqa: E501
         if cosp_block_match:
             cosp_block = ' '.join(cosp_block_match.group(1).split())
 
             # Extract from "Representative/Senator/President/Speaker NAME of DISTRICT" pattern
-            person_pattern = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'
+            person_pattern = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?'  # noqa: E501
             for match in re.finditer(person_pattern, cosp_block):
                 name = match.group(1).strip()
                 if is_valid_name(name):
                     sponsors.append(name)
 
             # Extract without "of" district
-            person_pattern_no_district = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'
+            person_pattern_no_district = r'(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)'  # noqa: E501
             for match in re.finditer(person_pattern_no_district, cosp_block):
                 name = match.group(1).strip()
                 if is_valid_name(name):
                     sponsors.append(name)
 
             # Comma-separated names with districts
-            # Remove "Senator/Representative/President/Speaker NAME" patterns first to prevent capturing title words
-            cleaned_block = re.sub(r'\b(?:Senator|Representative|President|Speaker)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)
-            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)
+            # Remove "Senator/Representative/President/Speaker NAME" patterns first to prevent capturing title words  # noqa: E501
+            cleaned_block = re.sub(r'\b(?:Senator|Representative|President|Speaker)\s+[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?\b', '', cosp_block)  # noqa: E501
+            comma_separated = re.findall(r'([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+', cleaned_block)  # noqa: E501
             for name in comma_separated:
                 name = name.strip()
                 if is_valid_name(name):
@@ -310,7 +306,7 @@ class TextExtractor:
         return unique
 
     @staticmethod
-    def _extract_session(text: str) -> Optional[str]:
+    def _extract_session(text: str) -> str | None:
         """
         Extract legislative session number from text.
 
@@ -337,7 +333,7 @@ class TextExtractor:
         return None
 
     @staticmethod
-    def _extract_date(text: str) -> Optional[date]:
+    def _extract_date(text: str) -> date | None:
         """
         Extract introduced date from text.
 
@@ -348,7 +344,7 @@ class TextExtractor:
             'May': 5, 'June': 6, 'July': 7, 'August': 8,
             'September': 9, 'October': 10, 'November': 11, 'December': 12,
             'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4,
-            'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8,
+            'Jun': 6, 'Jul': 7, 'Aug': 8,
             'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12,
         }
 
@@ -357,7 +353,7 @@ class TextExtractor:
 
         # Pattern 1: "House/Senate of Representatives, January 26, 2023"
         match = re.search(
-            r'(?:House|Senate) of Representatives,\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',
+            r'(?:House|Senate) of Representatives,\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2}),?\s+(\d{4})',  # noqa: E501
             normalized_search
         )
         if match:
@@ -418,7 +414,7 @@ class TextExtractor:
         return None
 
     @staticmethod
-    def _extract_committee(text: str) -> Optional[str]:
+    def _extract_committee(text: str) -> str | None:
         """
         Extract assigned committee from text.
 
@@ -431,7 +427,7 @@ class TextExtractor:
         # Pattern 1: "Reference to the Committee on COMMITTEE_NAME"
         # Use lookahead to stop at action keywords
         match = re.search(
-            r'Reference to the Committee on\s+([A-Za-z\s&,]+?)(?=\s+(?:suggested|ordered|referred|assigned|printed))',
+            r'Reference to the Committee on\s+([A-Za-z\s&,]+?)(?=\s+(?:suggested|ordered|referred|assigned|printed))',  # noqa: E501
             normalized_text
         )
         if match:
@@ -447,13 +443,13 @@ class TextExtractor:
         if match:
             committee = match.group(1).strip()
             # Clean up any trailing markers
-            committee = re.sub(r'\s+(?:suggested|ordered|referred|assigned).*$', '', committee, flags=re.IGNORECASE)
+            committee = re.sub(r'\s+(?:suggested|ordered|referred|assigned).*$', '', committee, flags=re.IGNORECASE)  # noqa: E501
             if committee:
                 return committee
 
         # Pattern 3: Alternative patterns
         match = re.search(
-            r'(?:Committee on|Referred to|Assigned to)\s+([A-Za-z\s&,]+?)(?:\s+(?:suggested|ordered|referred|assigned)|\.|\s+printed|$)',
+            r'(?:Committee on|Referred to|Assigned to)\s+([A-Za-z\s&,]+?)(?:\s+(?:suggested|ordered|referred|assigned)|\.|\s+printed|$)',  # noqa: E501
             normalized_text
         )
         if match:
@@ -464,7 +460,7 @@ class TextExtractor:
         return None
 
     @staticmethod
-    def _extract_amended_codes(text: str) -> List[str]:
+    def _extract_amended_codes(text: str) -> list[str]:
         """
         Extract Maine state code references being amended.
 

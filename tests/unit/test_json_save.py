@@ -1,7 +1,7 @@
-from pathlib import Path
-from datetime import date
 import json
-from maine_bills.text_extractor import TextExtractor, BillDocument
+from datetime import date
+
+from maine_bills.text_extractor import BillDocument, TextExtractor
 
 
 def test_save_bill_document_json(tmp_path):

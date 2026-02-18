@@ -1,173 +1,92 @@
 import logging
+import tempfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import List, Optional
+
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from .text_extractor import TextExtractor, BillDocument
+from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
+
+from .schema import FILENAME_PATTERN, BillRecord
+from .text_extractor import TextExtractor
 
 
 class BillScraper:
-    """Scrapes Maine legislature bills from the official website."""
+    """Scrapes Maine legislature bills and produces structured records."""
 
     BASE_URL = "http://lldc.mainelegislature.org/Open/LDs"
     TIMEOUT = 10
 
-    def __init__(self, session: str, output_dir: Path, logger: Optional[logging.Logger] = None):
-        """
-        Initialize the bill scraper.
-
-        Args:
-            session: Legislative session number (e.g., "131")
-            output_dir: Base directory for storing bills
-            logger: Optional logger instance
-        """
+    def __init__(self, session: int, workers: int = 8, logger: logging.Logger | None = None):
         self.session = session
-        self.output_dir = Path(output_dir)
+        self.workers = workers
         self.logger = logger or logging.getLogger(__name__)
         self.session_url = f"{self.BASE_URL}/{session}/"
-        self.pdf_dir = self.output_dir / "pdf"
-        self.txt_dir = self.output_dir / "txt"
 
-    def _ensure_directories(self) -> None:
-        """Create necessary directories if they don't exist."""
-        self.pdf_dir.mkdir(parents=True, exist_ok=True)
-        self.txt_dir.mkdir(parents=True, exist_ok=True)
-
-    def _bill_already_processed(self, bill_id: str) -> bool:
-        """
-        Check if a bill has already been processed.
-
-        Args:
-            bill_id: Legislative document number
-
-        Returns:
-            True if text file exists, False otherwise
-        """
-        return (self.txt_dir / f"{bill_id}.txt").exists()
-
-    def _fetch_bill_list(self) -> List[str]:
-        """
-        Fetch list of bill IDs from the legislature website.
-
-        Returns:
-            List of bill IDs (e.g., ["131-LD-0001", "131-LD-0002", ...])
-
-        Raises:
-            requests.RequestException: If fetching fails
-        """
+    def _fetch_bill_list(self) -> list[str]:
+        """Fetch list of bill filenames (without .pdf extension)."""
         self.logger.debug(f"Fetching bill list from {self.session_url}")
         res = requests.get(self.session_url, timeout=self.TIMEOUT)
         res.raise_for_status()
 
         soup = BeautifulSoup(res.content, features="html.parser")
         hrefs = [a.attrs["href"] for a in soup.find_all("a")[1:]]
-        bill_ids = [href.split('/')[-1][:-4] for href in hrefs]
+        filenames = [href.split("/")[-1].removesuffix(".pdf") for href in hrefs]
 
-        self.logger.info(f"Found {len(bill_ids)} bills in session {self.session}")
-        return bill_ids
+        self.logger.info(f"Found {len(filenames)} bills in session {self.session}")
+        return filenames
 
-    def _download_bill_pdf(self, bill_id: str) -> bool:
+    @retry(
+        retry=retry_if_exception_type(requests.exceptions.Timeout),
+        wait=wait_exponential(multiplier=1, min=2, max=30),
+        stop=stop_after_attempt(3),
+        reraise=True,
+    )
+    def _download_and_extract_bill(self, filename: str) -> BillRecord:
+        """Download a bill PDF, extract text, and return a BillRecord.
+
+        Retries up to 3 times on timeout with exponential backoff (2s, 4s).
         """
-        Download a single bill PDF.
+        pdf_url = f"{self.session_url}{filename}.pdf"
 
-        Args:
-            bill_id: Legislative document number
+        response = requests.get(pdf_url, timeout=self.TIMEOUT)
+        response.raise_for_status()
 
-        Returns:
-            True if successful, False otherwise
-        """
-        pdf_url = f"{self.session_url}{bill_id}.pdf"
-        pdf_path = self.pdf_dir / f"{bill_id}.pdf"
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+            tmp.write(response.content)
+            tmp_path = Path(tmp.name)
 
         try:
-            self.logger.debug(f"Downloading PDF for {bill_id}")
-            res = requests.get(pdf_url, timeout=self.TIMEOUT)
-            res.raise_for_status()
+            bill_doc = TextExtractor.extract_bill_document(tmp_path)
+            return BillRecord.from_filename_and_bill_document(
+                filename=filename,
+                bill_doc=bill_doc,
+                base_url=self.session_url,
+            )
+        finally:
+            tmp_path.unlink(missing_ok=True)
 
-            with open(pdf_path, 'wb') as f:
-                f.write(res.content)
+    def scrape_session(self) -> pd.DataFrame:
+        """Scrape all bills in session and return a DataFrame of BillRecords."""
+        self.logger.info(f"=== Scraping session {self.session} (workers={self.workers}) ===")
 
-            self.logger.debug(f"Successfully downloaded {bill_id}")
-            return True
+        filenames = self._fetch_bill_list()
+        valid = [f for f in filenames if FILENAME_PATTERN.match(f)]
+        skipped = len(filenames) - len(valid)
+        if skipped:
+            self.logger.warning(f"Skipping {skipped} unrecognized filenames")
 
-        except requests.exceptions.RequestException as e:
-            self.logger.warning(f"Download error for {bill_id}: {e}")
-            return False
-        except IOError as e:
-            self.logger.warning(f"Could not write PDF for {bill_id}: {e}")
-            return False
+        records = []
+        with ThreadPoolExecutor(max_workers=self.workers) as pool:
+            futures = {pool.submit(self._download_and_extract_bill, f): f for f in valid}
+            for future in as_completed(futures):
+                filename = futures[future]
+                try:
+                    record = future.result()
+                    records.append(record.__dict__)
+                except Exception:
+                    self.logger.exception(f"Failed to process {filename!r}; skipping")
 
-    def _process_bill(self, bill_id: str) -> bool:
-        """
-        Process a single bill: download PDF, extract structured data, save.
-
-        Args:
-            bill_id: Legislative document number
-
-        Returns:
-            True if successful, False otherwise
-        """
-        if self._bill_already_processed(bill_id):
-            self.logger.debug(f"{bill_id} already in corpus")
-            return False
-
-        self.logger.info(f"Processing {bill_id}")
-
-        if not self._download_bill_pdf(bill_id):
-            return False
-
-        try:
-            pdf_path = self.pdf_dir / f"{bill_id}.pdf"
-
-            # Extract as structured BillDocument
-            bill_doc = TextExtractor.extract_bill_document(pdf_path)
-
-            # Save outputs
-            self._save_bill_document(bill_doc)
-
-            # Remove PDF after successful extraction
-            pdf_path.unlink()
-            self.logger.debug(f"Extracted and cleaned up {bill_id}")
-            return True
-
-        except Exception as e:
-            self.logger.error(f"Error processing {bill_id}: {e}")
-            return False
-
-    def _save_bill_document(self, bill_doc: BillDocument) -> None:
-        """
-        Save bill document outputs (text and metadata).
-
-        Args:
-            bill_doc: BillDocument to save
-        """
-        # Save clean body text
-        txt_path = self.txt_dir / f"{bill_doc.bill_id}.txt"
-        TextExtractor.save_text(txt_path, bill_doc.body_text)
-
-        # Save metadata + full document as JSON
-        json_path = self.txt_dir / f"{bill_doc.bill_id}.json"
-        TextExtractor.save_bill_document_json(json_path, bill_doc)
-
-    def scrape_session(self) -> int:
-        """
-        Scrape all bills in the configured session.
-
-        Returns:
-            Number of newly processed bills
-
-        Raises:
-            requests.RequestException: If fetching bill list fails
-        """
-        self._ensure_directories()
-        self.logger.info(f"######### NEW RUN: Session {self.session} #########")
-
-        bill_ids = self._fetch_bill_list()
-        new_count = 0
-
-        for bill_id in bill_ids:
-            if self._process_bill(bill_id):
-                new_count += 1
-
-        self.logger.info(f"Added {new_count} new bills to corpus")
-        return new_count
+        self.logger.info(f"Successfully processed {len(records)} bills")
+        return pd.DataFrame(records)

@@ -1,42 +1,33 @@
+from datetime import UTC
+from unittest.mock import MagicMock, Mock
+
+import pandas as pd
 import pytest
-from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+
 from maine_bills.scraper import BillScraper
 
 
 @pytest.fixture
-def scraper(tmp_path):
-    """Create a BillScraper instance for testing."""
-    return BillScraper("131", tmp_path)
+def scraper():
+    return BillScraper(131, workers=2)
 
 
-def test_scraper_init(scraper, tmp_path):
-    """Test scraper initialization."""
-    assert scraper.session == "131"
-    assert scraper.output_dir == tmp_path
-    assert scraper.pdf_dir == tmp_path / "pdf"
-    assert scraper.txt_dir == tmp_path / "txt"
+# --- Initialization ---
+
+def test_scraper_init(scraper):
+    assert scraper.session == 131
+    assert scraper.session_url == "http://lldc.mainelegislature.org/Open/LDs/131/"
+    assert scraper.workers == 2
 
 
-def test_ensure_directories(scraper):
-    """Test that directory creation works."""
-    scraper._ensure_directories()
-    assert scraper.pdf_dir.exists()
-    assert scraper.txt_dir.exists()
+def test_scraper_default_workers():
+    s = BillScraper(131)
+    assert s.workers >= 4  # sensible default for parallel downloads
 
 
-def test_bill_already_processed(scraper, tmp_path):
-    """Test checking if bill was already processed."""
-    # Create a txt file to simulate processed bill
-    scraper._ensure_directories()
-    (scraper.txt_dir / "131-LD-0001.txt").touch()
+# --- _fetch_bill_list ---
 
-    assert scraper._bill_already_processed("131-LD-0001") is True
-    assert scraper._bill_already_processed("131-LD-0002") is False
-
-
-def test_fetch_bill_list_success(scraper, mocker):
-    """Test successful bill list fetching."""
+def test_fetch_bill_list_returns_filenames(scraper, mocker):
     mock_html = """
     <html>
         <a href="../">Parent</a>
@@ -44,163 +35,219 @@ def test_fetch_bill_list_success(scraper, mocker):
         <a href="131-LD-0002.pdf">Link 2</a>
     </html>
     """
-
     mock_response = Mock()
     mock_response.content = mock_html.encode()
-
-    mocker.patch('maine_bills.scraper.requests.get', return_value=mock_response)
+    mocker.patch("maine_bills.scraper.requests.get", return_value=mock_response)
 
     result = scraper._fetch_bill_list()
 
-    assert len(result) == 2
-    assert "131-LD-0001" in result
-    assert "131-LD-0002" in result
+    assert result == ["131-LD-0001", "131-LD-0002"]
 
 
-def test_fetch_bill_list_failure(scraper, mocker):
-    """Test bill list fetching with network error."""
+def test_fetch_bill_list_raises_on_network_error(scraper, mocker):
     import requests
-
     mocker.patch(
-        'maine_bills.scraper.requests.get',
-        side_effect=requests.RequestException("Network error")
+        "maine_bills.scraper.requests.get",
+        side_effect=requests.RequestException("Network error"),
     )
-
     with pytest.raises(requests.RequestException):
         scraper._fetch_bill_list()
 
 
-def test_download_bill_pdf_success(scraper, mocker):
-    """Test successful PDF download."""
-    scraper._ensure_directories()
+# --- _download_and_extract_bill ---
+
+def test_download_and_extract_bill_returns_bill_record(scraper, mocker):
+    from maine_bills.schema import BillRecord
 
     mock_response = Mock()
-    mock_response.content = b"PDF content"
+    mock_response.content = b"%PDF fake content"
+    mocker.patch("maine_bills.scraper.requests.get", return_value=mock_response)
 
-    mocker.patch('maine_bills.scraper.requests.get', return_value=mock_response)
+    mock_doc = MagicMock()
+    mock_doc.body_text = "Bill text"
+    mock_doc.extraction_confidence = 0.9
+    mock_doc.title = "An Act"
+    mock_doc.sponsors = []
+    mock_doc.committee = None
+    mock_doc.amended_code_refs = []
+    mocker.patch("maine_bills.scraper.TextExtractor.extract_bill_document", return_value=mock_doc)
 
-    result = scraper._download_bill_pdf("131-LD-0001")
+    result = scraper._download_and_extract_bill("131-LD-0001")
 
-    assert result is True
-    assert (scraper.pdf_dir / "131-LD-0001.pdf").exists()
-
-
-def test_download_bill_pdf_failure(scraper, mocker):
-    """Test PDF download failure."""
-    import requests
-
-    scraper._ensure_directories()
-
-    mocker.patch(
-        'maine_bills.scraper.requests.get',
-        side_effect=requests.RequestException("Download failed")
-    )
-
-    result = scraper._download_bill_pdf("131-LD-0001")
-
-    assert result is False
+    assert isinstance(result, BillRecord)
+    assert result.session == 131
+    assert result.ld_number == "0001"
+    assert result.text == "Bill text"
 
 
-def test_process_bill_already_processed(scraper):
-    """Test that already-processed bills are skipped."""
-    scraper._ensure_directories()
-    (scraper.txt_dir / "131-LD-0001.txt").touch()
+def test_download_retries_on_timeout(scraper, mocker):
+    """A transient timeout should be retried, succeeding on the second attempt."""
+    import requests as req
 
-    result = scraper._process_bill("131-LD-0001")
+    call_count = 0
 
-    assert result is False
+    def flaky_get(url, timeout):
+        nonlocal call_count
+        call_count += 1
+        if call_count == 1:
+            raise req.exceptions.ConnectTimeout("timeout")
+        m = Mock()
+        m.content = b"%PDF fake"
+        return m
+
+    mocker.patch("maine_bills.scraper.requests.get", side_effect=flaky_get)
+    mocker.patch("maine_bills.scraper.TextExtractor.extract_bill_document",
+                 return_value=MagicMock(body_text="", extraction_confidence=0.0,
+                                       title=None, sponsors=[], committee=None,
+                                       amended_code_refs=[]))
+
+    result = scraper._download_and_extract_bill("131-LD-0001")
+
+    assert call_count == 2
+    assert result is not None
 
 
-def test_process_bill_success(scraper, mocker):
-    """Test successful bill processing."""
-    from maine_bills.text_extractor import BillDocument
-    from datetime import date
+def test_download_fails_after_max_retries(scraper, mocker):
+    """Persistent timeouts should eventually raise and be skipped by scrape_session."""
+    import requests as req
 
-    scraper._ensure_directories()
+    mocker.patch("maine_bills.scraper.requests.get",
+                 side_effect=req.exceptions.ConnectTimeout("always fails"))
 
-    # Mock download
+    with pytest.raises(Exception):
+        scraper._download_and_extract_bill("131-LD-0001")
+
+
+def test_download_and_extract_bill_cleans_up_temp_file(scraper, mocker):
+    """Temp PDF file should be deleted after extraction."""
     mock_response = Mock()
-    mock_response.content = b"PDF"
-    mocker.patch('maine_bills.scraper.requests.get', return_value=mock_response)
+    mock_response.content = b"%PDF fake"
+    mocker.patch("maine_bills.scraper.requests.get", return_value=mock_response)
 
-    # Mock BillDocument extraction
-    mock_doc = BillDocument(
-        bill_id="131-LD-0001",
-        title="Test Bill",
-        session="131",
-        body_text="Extracted text",
-        extraction_confidence=0.95,
-        sponsors=[],
-        introduced_date=None,
-        committee=None,
-        amended_code_refs=[]
-    )
+    captured_paths = []
 
-    # Mock structured extraction and saving
-    mocker.patch(
-        'maine_bills.scraper.TextExtractor.extract_bill_document',
-        return_value=mock_doc
-    )
-    mocker.patch('maine_bills.scraper.TextExtractor.save_text')
-    mocker.patch('maine_bills.scraper.TextExtractor.save_bill_document_json')
+    def capture_and_mock(path):
+        captured_paths.append(path)
+        return MagicMock(body_text="", extraction_confidence=0.0,
+                         title=None, sponsors=[], committee=None, amended_code_refs=[])
 
-    result = scraper._process_bill("131-LD-0001")
+    mocker.patch("maine_bills.scraper.TextExtractor.extract_bill_document",
+                 side_effect=capture_and_mock)
 
-    assert result is True
+    scraper._download_and_extract_bill("131-LD-0001")
+
+    assert len(captured_paths) == 1
+    assert not captured_paths[0].exists(), "Temp file should be deleted after extraction"
 
 
-def test_scrape_session_complete(scraper, mocker):
-    """Test complete scraping session."""
-    scraper._ensure_directories()
+# --- scrape_session ---
 
-    # Mock bill list
-    mocker.patch.object(
-        scraper,
-        '_fetch_bill_list',
-        return_value=["131-LD-0001", "131-LD-0002"]
-    )
+def test_scrape_session_returns_dataframe(scraper, mocker):
+    from datetime import datetime
 
-    # Mock process_bill to succeed twice
-    mocker.patch.object(scraper, '_process_bill', return_value=True)
+    from maine_bills.schema import BillRecord
+
+    mocker.patch.object(scraper, "_fetch_bill_list", return_value=["131-LD-0001", "131-LD-0002"])
+
+    def make_record(filename):
+        return BillRecord(
+            session=131, ld_number=filename.split("-")[2], document_type="bill",
+            amendment_code=None, amendment_type=None, chamber=None,
+            text="text", extraction_confidence=0.9,
+            source_filename=filename, source_url="http://example.com",
+            scraped_at=datetime.now(UTC).isoformat(),
+        )
+
+    mocker.patch.object(scraper, "_download_and_extract_bill", side_effect=make_record)
 
     result = scraper.scrape_session()
 
-    assert result == 2
+    assert isinstance(result, pd.DataFrame)
+    assert len(result) == 2
+    assert "session" in result.columns
+    assert "ld_number" in result.columns
+    assert "text" in result.columns
 
 
-def test_process_bill_with_structured_extraction(tmp_path, mocker):
-    """Test that _process_bill saves both JSON and TXT files."""
-    from maine_bills.text_extractor import BillDocument
-    from datetime import date
+def test_scrape_session_skips_unrecognized_filenames(scraper, mocker):
+    mocker.patch.object(scraper, "_fetch_bill_list",
+                        return_value=["131-LD-0001", "not-a-valid-name"])
 
-    # Mock BillDocument extraction
-    mock_doc = BillDocument(
-        bill_id="131-LD-0001",
-        title="Test Bill",
-        session="131",
-        body_text="Extracted bill text",
-        extraction_confidence=0.95,
-        sponsors=["Rep. Test"],
-        introduced_date=date(2023, 1, 1),
-        committee="Committee",
-        amended_code_refs=[]
-    )
+    from datetime import datetime
 
-    scraper = BillScraper("131", tmp_path)
+    from maine_bills.schema import BillRecord
 
-    # Mock PDF download and extraction
-    mocker.patch.object(scraper, '_download_bill_pdf', return_value=True)
-    mocker.patch.object(scraper, '_bill_already_processed', return_value=False)
-    mocker.patch('maine_bills.scraper.TextExtractor.extract_bill_document', return_value=mock_doc)
-    mocker.patch.object(Path, 'unlink')  # Mock PDF deletion
+    def make_record(filename):
+        return BillRecord(
+            session=131, ld_number="0001", document_type="bill",
+            amendment_code=None, amendment_type=None, chamber=None,
+            text="text", extraction_confidence=0.9,
+            source_filename=filename, source_url="",
+            scraped_at=datetime.now(UTC).isoformat(),
+        )
 
-    result = scraper._process_bill("131-LD-0001")
+    mocker.patch.object(scraper, "_download_and_extract_bill", side_effect=make_record)
 
-    assert result == True
+    result = scraper.scrape_session()
 
-    # Verify both TXT and JSON were saved
-    txt_file = tmp_path / "txt" / "131-LD-0001.txt"
-    json_file = tmp_path / "txt" / "131-LD-0001.json"
+    assert len(result) == 1
 
-    # Note: In mock environment, files won't actually exist, but
-    # verify that save methods were called properly in implementation
+
+def test_scrape_session_processes_all_bills_in_parallel(mocker):
+    """Workers > 1 should still return all records (order may vary)."""
+    import time
+
+    scraper = BillScraper(131, workers=4)
+    filenames = [f"131-LD-{str(i).zfill(4)}" for i in range(1, 9)]
+    mocker.patch.object(scraper, "_fetch_bill_list", return_value=filenames)
+
+    from datetime import datetime
+
+    from maine_bills.schema import BillRecord
+
+    def slow_make_record(filename):
+        time.sleep(0.01)
+        return BillRecord(
+            session=131, ld_number=filename.split("-")[2], document_type="bill",
+            amendment_code=None, amendment_type=None, chamber=None,
+            text="text", extraction_confidence=0.9,
+            source_filename=filename, source_url="",
+            scraped_at=datetime.now(UTC).isoformat(),
+        )
+
+    mocker.patch.object(scraper, "_download_and_extract_bill", side_effect=slow_make_record)
+
+    result = scraper.scrape_session()
+
+    assert len(result) == 8
+    assert set(result["ld_number"]) == {str(i).zfill(4) for i in range(1, 9)}
+
+
+def test_scrape_session_continues_after_individual_failure(scraper, mocker):
+    mocker.patch.object(scraper, "_fetch_bill_list",
+                        return_value=["131-LD-0001", "131-LD-0002"])
+
+    call_count = 0
+
+    def fail_first(filename):
+        nonlocal call_count
+        call_count += 1
+        if call_count == 1:
+            raise RuntimeError("Download failed")
+        from datetime import datetime
+
+        from maine_bills.schema import BillRecord
+        return BillRecord(
+            session=131, ld_number="0002", document_type="bill",
+            amendment_code=None, amendment_type=None, chamber=None,
+            text="text", extraction_confidence=0.9,
+            source_filename=filename, source_url="",
+            scraped_at=datetime.now(UTC).isoformat(),
+        )
+
+    mocker.patch.object(scraper, "_download_and_extract_bill", side_effect=fail_first)
+
+    result = scraper.scrape_session()
+
+    assert len(result) == 1
+    assert result.iloc[0]["ld_number"] == "0002"
