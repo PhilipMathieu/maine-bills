@@ -1,42 +1,39 @@
-name: Scrape Maine Bills
+name: Scrape and Publish
 
 on:
   schedule:
-    # Run monthly on the first day of the month
-    - cron: '0 0 1 * *'
+    # Weekly on Sunday at 06:00 UTC
+    - cron: "0 6 * * 0"
   workflow_dispatch:
+    inputs:
+      sessions:
+        description: "Space-separated session numbers to scrape (e.g. '131 132')"
+        required: false
+        default: "132"
+
+permissions:
+  contents: read
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+        uses: astral-sh/setup-uv@v4
 
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --extra dev
 
       - name: Run tests
         run: uv run pytest tests/ -v -m "not integration"
 
-      - name: Scrape current session
+      - name: Scrape and publish
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          uv run maine-bills -s 131 -o ./data
-          uv run maine-bills -s 132 -o ./data || true
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "Maine Bills Bot"
-          git config user.email "bot@maine-bills.local"
-          git add data/
-          if ! git diff-index --quiet HEAD --; then
-            git commit -m "chore: update bills data"
-            git push
-          fi
+          SESSIONS="${{ github.event.inputs.sessions || '132' }}"
+          uv run maine-bills --sessions $SESSIONS --publish

@@ -3,19 +3,19 @@ from maine_bills.text_extractor import TextExtractor
 
 def test_is_line_number():
     """Test detection of line number patterns."""
-    assert TextExtractor._is_line_number("    1") == True
-    assert TextExtractor._is_line_number("   42") == True
-    assert TextExtractor._is_line_number("     123") == True
-    assert TextExtractor._is_line_number("Some text with 123") == False
-    assert TextExtractor._is_line_number("Text") == False
+    assert TextExtractor._is_line_number("    1")
+    assert TextExtractor._is_line_number("   42")
+    assert TextExtractor._is_line_number("     123")
+    assert not TextExtractor._is_line_number("Some text with 123")
+    assert not TextExtractor._is_line_number("Text")
 
 
 def test_is_header_footer():
     """Test detection of header/footer patterns."""
-    assert TextExtractor._is_header_footer("Page 1") == True
-    assert TextExtractor._is_header_footer("Page 42 of 100") == True
-    assert TextExtractor._is_header_footer("131-LD-0001") == True
-    assert TextExtractor._is_header_footer("Some bill text") == False
+    assert TextExtractor._is_header_footer("Page 1")
+    assert TextExtractor._is_header_footer("Page 42 of 100")
+    assert TextExtractor._is_header_footer("131-LD-0001")
+    assert not TextExtractor._is_header_footer("Some bill text")
 
 
 def test_clean_body_text():

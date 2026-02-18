@@ -1,18 +1,32 @@
-# Maine Bills Dataset
+# maine-bills
 
-High-quality text and metadata extraction from Maine Legislature bills. Ready for HuggingFace dataset migration with **80-100% sponsor extraction accuracy** and **zero quality issues** across 15 years of legislative history (2011-2026).
+Scraper and dataset publisher for Maine Legislature bill text. Downloads PDFs from the [Maine Law and Legislative Reference Library](https://lldc.mainelegislature.org/Open/LDs/), extracts clean text and metadata, and publishes structured data to HuggingFace.
 
-**Status:** Production-ready extraction system validated across 4 legislative sessions.
+## Using the Dataset
 
-Data extracted from PDFs hosted by the [Maine Legislature Law Library](https://legislature.maine.gov/lawLibrary).
+```python
+from datasets import load_dataset
 
-## Quick Start
+# Load all sessions (default)
+ds = load_dataset("pem207/maine-bills")
+
+# Load a specific legislative session
+ds = load_dataset("pem207/maine-bills", "132")
+
+# Stream without downloading everything
+ds = load_dataset("pem207/maine-bills", streaming=True)
+```
+
+Dataset: [huggingface.co/datasets/pem207/maine-bills](https://huggingface.co/datasets/pem207/maine-bills)
+
+## Running the Scraper
 
 ### Prerequisites
-- Python 3.9+
-- [uv](https://astral.sh/uv/) for Python package management
 
-### Installation
+- Python 3.11+
+- [uv](https://astral.sh/uv/)
+
+### Setup
 
 ```bash
 git clone https://github.com/PhilipMathieu/maine-bills.git
@@ -20,119 +34,65 @@ cd maine-bills
 uv sync
 ```
 
-### Running the Scraper
+### Scrape locally (saves parquet to `./data/`)
 
-Scrape the default session (131):
 ```bash
-uv run maine-bills
+uv run maine-bills --sessions 132
+uv run maine-bills --sessions 130 131 132   # multiple sessions
 ```
 
-Scrape a specific session:
+### Scrape and publish to HuggingFace
+
 ```bash
-uv run maine-bills -s 132 -o ./data
+HF_TOKEN=hf_... uv run maine-bills --sessions 132 --publish
 ```
-
-For full documentation, see [DEVELOPMENT.md](docs/DEVELOPMENT.md).
-
-## Using This Data
-
-### Option 1: Clone the Repository
-```bash
-git clone https://github.com/PhilipMathieu/maine-bills.git
-```
-
-### Option 2: Use as a Git Submodule
-```bash
-cd [your project directory]
-git submodule add https://github.com/PhilipMathieu/maine-bills data/maine-bills
-```
-
-## Data Structure
-
-Bills are organized by legislative session:
-```
-data/
-├── 130/txt/           # Session 130 bills
-├── 131/txt/           # Session 131 bills
-└── 132/txt/           # Session 132 bills (if available)
-```
-
-Each text file is named by legislative document number (e.g., `131-LD-0001.txt`).
-
-## Quality Metrics
-
-**Production-Ready Extraction System** (validated 2026-02-11):
-- **Sponsor Extraction:** 80-100% on main bills (target: 60%)
-- **False Positive Rate:** 0%
-- **Sessions Validated:** 125, 130, 131, 132 (spanning 2011-2026)
-- **Unit Test Coverage:** 54/54 tests passing (100%)
-- **Quality Grade:** A+ across all sessions
-
-See [QUALITY-IMPROVEMENT-HISTORY.md](docs/QUALITY-IMPROVEMENT-HISTORY.md) for complete quality validation details.
 
 ## How It Works
 
-### Overview
-The scraper (`src/maine_bills/scraper.py`) performs these steps:
-
-1. Fetches the list of available bills from the Maine Legislature website
-2. Downloads each bill PDF
-3. Extracts text and metadata using PyMuPDF (fitz)
-4. Applies intelligent text cleaning (removes line numbers, headers, footers)
-5. Extracts structured metadata (sponsors, title, committee, session)
-6. Saves text to `.txt` file and metadata to `.json` file
-
-### Architecture
+```
+Website → PDF list → Download PDF → TextExtractor → BillDocument
+  → BillRecord (adds filename metadata: session, LD number, amendment info)
+  → DataFrame → Parquet → HuggingFace Hub
+```
 
 **Three main components:**
 
-1. **`TextExtractor`** - Advanced PDF extraction with metadata parsing
-   - PyMuPDF-based extraction with text cleaning
-   - Regex-based metadata extraction (sponsors, title, committee)
-   - Word-level filtering to prevent false positives
-   - Supports Senator, Representative, President, Speaker titles
+- **`text_extractor.py`** — PyMuPDF-based PDF extraction with text cleaning and content metadata parsing (sponsors, title, committee)
+- **`schema.py`** — `BillRecord` dataclass combining filename-parsed metadata (session, LD number, amendment type) with extracted content
+- **`scraper.py`** — Downloads PDFs, calls TextExtractor, returns a `pd.DataFrame` of BillRecords
+- **`publish.py`** — Writes per-session parquet files and uploads to HuggingFace via direct `HfApi.upload_file()`, with auto-generated dataset card
 
-2. **`BillScraper`** - Download and processing workflow orchestration
-   - Manages PDF downloads and extraction pipeline
-   - Skips already-processed bills
-   - Handles both main bills and amendments
+CI runs weekly via GitHub Actions (`.github/workflows/scraper-uv.yml`), uploading fresh parquet for session 132. Historical sessions can be backfilled manually via `workflow_dispatch`.
 
-3. **`cli`** - Command-line interface
-   - Session selection (`-s/--session`)
-   - Output directory configuration (`-o/--output-dir`)
+## Testing
 
-### CI/CD
-The GitHub Actions workflow (`.github/workflows/scraper-uv.yml`) periodically runs the scraper to fetch new bills.
+```bash
+uv sync --extra dev
+uv run pytest tests/              # unit tests (default, fast)
+uv run pytest tests/ -m ""        # all tests including integration
+uv run ruff check src/ tests/     # lint
+```
 
-## Documentation
+## Schema
 
-### Essential Docs
-- **[DEVELOPMENT.md](docs/DEVELOPMENT.md)** - Development setup, testing, and commands
-- **[ERROR-PATTERNS-CATALOG.md](docs/ERROR-PATTERNS-CATALOG.md)** - Comprehensive error pattern reference (856 lines)
-- **[QUALITY-IMPROVEMENT-HISTORY.md](docs/QUALITY-IMPROVEMENT-HISTORY.md)** - Quality validation timeline and results
-
-### Plans
-- **[HuggingFace Migration Plan](docs/plans/2026-02-10-convert-to-hf.md)** - Complete migration roadmap
-- **[Quality Gate Specification](docs/plans/phase-1.5-quality-gate.md)** - Quality validation criteria
-
-All documentation in `docs/` directory with dated plans in `docs/plans/`.
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests: `uv run pytest tests/`
-5. Submit a pull request
-
-See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for more details on development setup and testing.
+| Column | Type | Description |
+|---|---|---|
+| `session` | int | Legislative session number |
+| `ld_number` | string | Legislative Document number (zero-padded) |
+| `document_type` | string | Currently always `"bill"` |
+| `amendment_code` | string | e.g. `CA_A_H0266`, or null for main bills |
+| `amendment_type` | string | `"Committee Amendment"` / `"House Amendment"` / `"Senate Amendment"` or null |
+| `chamber` | string | `"House"` or `"Senate"` (derived from amendment), or null |
+| `text` | string | Full extracted and cleaned bill text |
+| `title` | string | Bill title extracted from content, or null |
+| `sponsors` | list | Sponsor names extracted from content |
+| `committee` | string | Referred committee, or null |
+| `source_url` | string | Direct URL to the original PDF |
+| `source_filename` | string | Original filename without extension |
+| `scraped_at` | string | ISO 8601 extraction timestamp |
 
 ## License
 
-The data extracted from Maine Legislature PDFs is used in accordance with the terms of the Law and Legislative Reference Library. This project is not officially affiliated with the Maine State Legislature.
-
-The code is licensed under the MIT License (see LICENSE file).
+Bill text is extracted from public government documents. Code is MIT-licensed.
 
 Copyright 2023-2026 Philip Mathieu

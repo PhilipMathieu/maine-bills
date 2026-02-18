@@ -1,7 +1,9 @@
-from unittest.mock import Mock, patch
-import pytest
 from pathlib import Path
-from maine_bills.text_extractor import TextExtractor, BillDocument
+from unittest.mock import Mock, patch
+
+import pytest
+
+from maine_bills.text_extractor import BillDocument, TextExtractor
 
 
 def test_extract_bill_document_missing_file():

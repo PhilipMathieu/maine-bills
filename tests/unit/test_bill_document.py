@@ -1,5 +1,6 @@
 import dataclasses
 from datetime import date
+
 import pytest
 
 from maine_bills.text_extractor import BillDocument

@@ -54,13 +54,13 @@ class TestCommonNonNameWords:
         text = "ROBERT B. HUNT Clerk States Department of Administrative Services"
         result = TextExtractor._extract_sponsors(text)
         assert "Department" not in result, f"'Department' should be filtered, got {result}"
-        assert "States Department" not in result, f"'States Department' should be filtered, got {result}"
+        assert "States Department" not in result, f"'States Department' should be filtered, got {result}"  # noqa: E501
 
     def test_regular_session_filtered(self):
         """Regular Session should not be extracted."""
         text = "First Regular Session of the 131st Legislature"
         result = TextExtractor._extract_sponsors(text)
-        assert "Regular Session" not in result, f"'Regular Session' should be filtered, got {result}"
+        assert "Regular Session" not in result, f"'Regular Session' should be filtered, got {result}"  # noqa: E501
         assert "Regular" not in result, f"'Regular' should be filtered, got {result}"
         assert "Session" not in result, f"'Session' should be filtered, got {result}"
 

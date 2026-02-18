@@ -1,5 +1,7 @@
-import pytest
 from pathlib import Path
+
+import pytest
+
 from maine_bills.scraper import BillScraper
 
 
