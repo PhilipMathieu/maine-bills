@@ -70,6 +70,7 @@ maine-bills/
 │   ├── __init__.py           # Package initialization
 │   ├── cli.py                # Command-line interface
 │   ├── scraper.py            # BillScraper class
+│   ├── schema.py             # Filename parsing and BillRecord dataclass
 │   └── text_extractor.py     # TextExtractor class
 ├── tests/
 │   ├── unit/                 # Unit tests (mocked)
@@ -81,6 +82,24 @@ maine-bills/
 ├── pyproject.toml            # Project configuration
 └── uv.lock                   # Dependency lock file
 ```
+
+## Filename Format
+
+Maine legislative bill filenames follow a consistent pattern:
+
+- **Original bills:** `{session}-LD-{number}` (e.g., `131-LD-0001`)
+- **Single amendments:** `{session}-LD-{number}-{type}_{version}_{chamber}{number}` (e.g., `131-LD-0686-CA_A_H0266`)
+- **Double amendments:** `{session}-LD-{number}-{type}_{version}_{type}_{version}_{chamber}{number}` (e.g., `132-LD-0004-CA_A_SA_A_S337`)
+
+Where:
+- `type` = CA (Committee Amendment), HA (House Amendment), or SA (Senate Amendment)
+- `version` = A, B, C, etc. (represents different versions of the same amendment)
+- `chamber` = H (House) or S (Senate)
+
+The `schema.py` module provides:
+- `parse_filename()` function to extract metadata from filenames
+- `BillRecord` dataclass to combine filename metadata with extracted content
+- Support for both single-level and nested (double) amendments
 
 ## Adding a New Legislative Session
 
