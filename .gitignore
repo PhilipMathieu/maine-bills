@@ -162,3 +162,7 @@ cython_debug/
 
 # Git worktrees
 .worktrees/
+
+# Local data and experiment outputs
+data/
+experiments/
