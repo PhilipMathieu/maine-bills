@@ -180,3 +180,135 @@ class TestEdgeCases:
         result = TextExtractor._extract_sponsors(text)
         # "President SMITH" should be filtered because "President" is a title word
         assert result == [] or "President SMITH" not in result
+
+
+class TestCommaSeparatedFalsePositives:
+    """Test that garbage names from comma-separated fallback are not extracted.
+
+    The comma-separated fallback pattern matches 'NAME of PLACE', which can
+    pick up phrases like 'Town of Cumberland', 'University of Maine', etc.
+    These should NOT appear as sponsors.
+    """
+
+    def _make_bill_text(self, cosponsor_block: str) -> str:
+        """Create realistic bill text with a given cosponsorship block."""
+        return (
+            "Presented by Representative SMITH of Cumberland\n"
+            f"Cosponsored by {cosponsor_block}\n\n"
+            "Be it enacted by the People of the State of Maine as follows:"
+        )
+
+    def test_town_not_extracted(self):
+        """'Town' in 'Town of Cumberland' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the Town of Cumberland"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "Town" not in result, f"'Town' should not be a sponsor, got {result}"
+
+    def test_university_not_extracted(self):
+        """'University' in 'University of Maine' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Representative BROWN of Penobscot, the University of Maine"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "University" not in result, f"'University' should not be a sponsor, got {result}"
+
+    def test_board_not_extracted(self):
+        """'Board' in 'Board of Education' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the Board of Education"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "Board" not in result, f"'Board' should not be a sponsor, got {result}"
+
+    def test_american_society_not_extracted(self):
+        """'American Society' in 'American Society of Engineers' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Representative BROWN of Penobscot, the American Society of Engineers"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "American Society" not in result, f"'American Society' should not be a sponsor, got {result}"  # noqa: E501
+        assert "American" not in result, f"'American' should not be a sponsor, got {result}"
+
+    def test_national_association_not_extracted(self):
+        """'National Association' in 'National Association of Counties' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the National Association of Counties"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "National Association" not in result, f"'National Association' should not be a sponsor, got {result}"  # noqa: E501
+        assert "National" not in result, f"'National' should not be a sponsor, got {result}"
+
+    def test_finance_authority_not_extracted(self):
+        """'Finance Authority' in 'Finance Authority of Maine' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Representative BROWN of Penobscot, the Finance Authority of Maine"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "Finance Authority" not in result, f"'Finance Authority' should not be a sponsor, got {result}"  # noqa: E501
+        assert "Finance" not in result, f"'Finance' should not be a sponsor, got {result}"
+
+    def test_justices_not_extracted(self):
+        """'Justices' in 'Justices of the Supreme' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the Justices of the Supreme Judicial Court"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "Justices" not in result, f"'Justices' should not be a sponsor, got {result}"
+
+    def test_resources_not_extracted(self):
+        """'Resources' in 'Resources of the State' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Representative BROWN of Penobscot, Natural Resources of the State"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "Resources" not in result, f"'Resources' should not be a sponsor, got {result}"
+        assert "Natural Resources" not in result, f"'Natural Resources' should not be a sponsor, got {result}"  # noqa: E501
+
+    def test_district_not_extracted(self):
+        """'District' in 'District of Columbia' should not be a sponsor."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the District of Columbia"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "District" not in result, f"'District' should not be a sponsor, got {result}"
+
+    def test_valid_sponsors_still_extracted(self):
+        """Valid sponsors should still be extracted alongside garbage text."""
+        text = self._make_bill_text(
+            "Senator JONES of York, the Town of Cumberland, "
+            "Representative BROWN of Penobscot"
+        )
+        result = TextExtractor._extract_sponsors(text)
+        assert "SMITH" in result, f"'SMITH' should be a sponsor, got {result}"
+        assert "JONES" in result, f"'JONES' should be a sponsor, got {result}"
+        assert "BROWN" in result, f"'BROWN' should be a sponsor, got {result}"
+        assert "Town" not in result, f"'Town' should not be a sponsor, got {result}"
+
+
+class TestHyphenatedNameSpaceBug:
+    """Test that hyphenated names with spaces around the hyphen are normalized.
+
+    In some PDFs, line breaks cause names like 'BEEBE-CENTER' to appear as
+    'BEEBE- CENTER' (space after hyphen). These should be normalized.
+    """
+
+    def test_space_after_hyphen_normalized(self):
+        """'BEEBE- CENTER' should be normalized to 'BEEBE-CENTER'."""
+        text = "Presented by Representative BEEBE- CENTER of Rockland"
+        result = TextExtractor._extract_sponsors(text)
+        assert "BEEBE-CENTER" in result, f"Expected 'BEEBE-CENTER', got {result}"
+        assert "BEEBE- CENTER" not in result, f"Should not contain space in hyphenated name, got {result}"  # noqa: E501
+
+    def test_space_before_hyphen_normalized(self):
+        """'BEEBE -CENTER' should be normalized to 'BEEBE-CENTER'."""
+        text = "Presented by Representative BEEBE -CENTER of Rockland"
+        result = TextExtractor._extract_sponsors(text)
+        assert "BEEBE-CENTER" in result, f"Expected 'BEEBE-CENTER', got {result}"
+
+    def test_spaces_around_hyphen_normalized(self):
+        """'BEEBE - CENTER' should be normalized to 'BEEBE-CENTER'."""
+        text = "Presented by Representative BEEBE - CENTER of Rockland"
+        result = TextExtractor._extract_sponsors(text)
+        assert "BEEBE-CENTER" in result, f"Expected 'BEEBE-CENTER', got {result}"
