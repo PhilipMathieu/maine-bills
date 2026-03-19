@@ -166,3 +166,7 @@ cython_debug/
 # Local data and experiment outputs
 data/
 experiments/
+
+# Scraped bill text (now on HuggingFace at pem207/maine-bills)
+[0-9][0-9][0-9]/
+*.log
