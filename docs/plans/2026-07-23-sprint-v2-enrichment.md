@@ -1,73 +1,74 @@
-# Sprint Plan: Dataset v2+ — Enrichment, Actions, Votes, Automation, Search
+# Sprint Plan: Dataset v2+ — Dependency Graph, 7-Node Critical Path
 
-**Dates:** Thu 2026-07-24 → Wed 2026-07-30 (7 days)
-**Posture:** Maximal scope, executed almost entirely by LLM agents in parallel. Human approval gates protect only irreversible/outward-facing actions (HuggingFace publishes, schema, governance, CI). Everything else proceeds without waiting. Scale-back happens at explicit gates, never by default.
+**Dates:** Thu 2026-07-24 → Wed 2026-07-30 (7 daily ticks)
+**Model:** The sprint is a dependency graph, not a schedule. The only scarce serial resource is the daily ~30-min human window; agent labor parallelizes. Therefore: the **critical path may contain at most 7 nodes** (one per tick), every node off the critical path runs in a parallel track, and human approvals **piggyback** — any window clears *all* queued Tier-1 items, not just its critical-path node. Days are just ticks; if a window clears two gates, downstream nodes pull forward.
 
-**End-of-week target state:**
-1. **v2 published:** sponsor enrichment (OpenStates ID, party, district, confidence) across sessions 121–132.
-2. **v2.1 published:** `actions` table — full legislative history (referrals, committee/floor actions, final outcome) for every bill, all sessions.
-3. **v2.2 (stretch):** `votes` table — roll-call votes where the legislature site provides them.
-4. **Automation live:** scheduled GitHub Action re-scrapes the active session weekly and opens a publish-ready PR.
-5. **Semantic search demo:** embeddings + HF Space over the full dataset.
+**End-of-week target:** v2 (sponsor enrichment) + v2.1 (actions table) + v2.2 (votes table) published; weekly automation live; semantic-search Space deployed.
 
-## Constraints
+## The graph
 
-- One Claude Max $100/mo plan; ~30 min/day human input. Enrichment/matching works off existing parquet (no PDF re-processing). Grind work (batch scraping, backfills) runs on cheap low-effort subagents; high effort reserved for design and verification. All external API/page fetches cached to disk once.
-- **Tier-1 (human approval required):** HF publishes, dataset schema changes, governance/CI changes, secrets, dependency additions. **Tier-2 (independent agent review + green CI):** everything else. Convention doc lands Day 1, first item in the approval queue.
+```mermaid
+graph LR
+    subgraph critical["CRITICAL PATH (≤7 nodes)"]
+        N1["N1 Foundation stack:<br/>governance + roster +<br/>matcher + schema v2"] --> N2["N2 🚪 v2 publish"]
+        N2 --> N3["N3 Actions backfill<br/>(all sessions, fan-out)"]
+        N3 --> N4["N4 🚪 v2.1 publish"]
+        N4 --> N5["N5 Votes backfill"]
+        N5 --> N6["N6 🚪 v2.2 publish"]
+        N6 --> N7["N7 Close-out:<br/>docs, retro, final queue"]
+    end
+    subgraph tracks["PARALLEL TRACKS (piggyback any window)"]
+        A1["A1 Actions parser<br/>recon + validate (s132)"] --> N3
+        V1["V1 Votes parser<br/>recon + validate (s132)"] --> N5
+        GA["GA GitHub Action<br/>weekly re-scrape"] -.gate.-> N2
+        E1["E1 Embeddings +<br/>HF Space build"] -.gate.-> N4
+        OPP["OPP Opportunistic:<br/>pre-121 probe, bill linkage,<br/>analysis notebook"] -.-> N7
+    end
+    N1 -.schema known.-> GA
+    N2 -.data live.-> E1
+```
 
-## Day 1 (Thu) — v2 complete, end to end
+Solid arrows are hard dependencies. Dotted arrows mean "approval piggybacks that window" or "informed by, not blocked by."
 
-All of this lands in one day as a stack of PRs; only the *publish* waits on you.
+## Critical path nodes
 
-1. `docs/GOVERNANCE.md` + tier labels (Tier-1, first in queue).
-2. `openstates.py`: legislator roster per session via GraphQL (env key) with bulk-CSV no-key fallback; cached JSON.
-3. Two-pass matcher (exact normalized last-name → rapidfuzz fallback, first-initial disambiguation), run across all 12 sessions; per-session match-rate report + unmatched/ambiguous list.
-4. Schema v2: additive aligned-list fields (`sponsor_ids`, `sponsor_parties`, `sponsor_districts`, `sponsor_match_confidence`); original strings untouched. Publish pipeline + dataset card updated. Full tests, CI green.
-5. **🚪 GATE A (your ~30 min):** approve governance + schema, skim fuzzy-match sample and match-rate report (target ≥95%; below that, high-confidence-only enrichment ships and the tail becomes issues), then **approve → v2 publishes same day**. If the OpenStates key isn't ready, the CSV fallback keeps this on schedule.
+| # | Node | Work (all agent-parallel internally) | Gate at end of tick |
+|---|------|--------------------------------------|---------------------|
+| N1 | **Foundation stack** | Four concurrent PRs: `docs/GOVERNANCE.md` + tier labels; `openstates.py` roster (GraphQL + no-key CSV fallback, cached); two-pass matcher (exact → rapidfuzz) run over all 12 sessions with match-rate report; schema v2 additive fields (`sponsor_ids/parties/districts/match_confidence`) + publish pipeline + tests | — |
+| N2 | **🚪 v2 publish** | Window: approve governance + schema, skim fuzzy-match sample (≥95% target; below → high-confidence-only ships, tail becomes issues) → publish | ✅ |
+| N3 | **Actions backfill** | Fan-out agents scrape legislative history for every bill in scope (parser already validated in track A1); per-session validation reports; raw HTML cached, resumable | — |
+| N4 | **🚪 v2.1 publish** | Window: skim validation sample → publish `actions` config | ✅ |
+| N5 | **Votes backfill** | Roll-call votes for all sessions where pages are structured (parser from track V1) | — |
+| N6 | **🚪 v2.2 publish** | Window: approve `votes` config publish | ✅ |
+| N7 | **Close-out** | CLAUDE.md/README/quality-history updates, dataset card methodology section, sprint retro, drain Tier-1 queue | ✅ final |
 
-## Day 2 (Fri) — actions scraper + automation, in parallel
+Three ticks of the seven are pure approval nodes. If a window clears the next gate early (e.g., N2's window also approves GA, or backfill finishes ahead of tick), **the whole path compresses** — 7 is the ceiling, not the plan. Slack absorbs a failed gate without pushing past Wednesday.
 
-Two independent workstreams, separate agent sessions:
+## Parallel tracks (never on the critical path)
 
-- **A. Actions scraper:** recon of legislature bill-status pages; parser producing an `actions` table (bill_id → [{date, chamber, action, outcome}]) as a separate dataset config — independent publish decision, no main-schema risk. Validated against ~20 human-checkable bills for session 132.
-- **B. GitHub Action:** weekly scheduled workflow — re-scrape active session, re-run enrichment, open a diff-summary PR (publish still Tier-1). Lands for approval today.
-- **🚪 GATE B:** if status pages are inconsistent across eras, scope the backfill (Day 3) to whatever range parses cleanly (minimum: sessions 128–132); cut only if session 132 itself is shaky.
+- **A1 — Actions parser** (starts tick 1, zero dependencies): recon of bill-status pages, parser producing `actions` as a separate dataset config (bill_id → [{date, chamber, action, outcome}]), validated on ~20 checkable session-132 bills. Must merge before N3 starts — it has a full tick of float.
+- **V1 — Votes parser** (starts tick 2, informed by A1's page knowledge): same pattern for roll-calls; two ticks of float before N5.
+- **GA — GitHub Action** (starts once schema shape is known, tick 1–2): weekly scheduled re-scrape of active session + enrichment, opens diff-summary PR; publish stays Tier-1. Approval piggybacks the N2 window.
+- **E1 — Embeddings + HF Space** (starts after v2 data is live, tick 2–3): embeddings over titles/summaries, semantic-search Space. Space deploy approval piggybacks N4's window.
+- **OPP — Opportunistic** (any idle agent capacity): pre-121 coverage probe, cross-session bill linkage, sponsorship-network analysis notebook for the dataset card.
 
-## Day 3–4 (Sat–Sun) — actions backfill + votes recon
+## Scale-back = pruning, not delay
 
-1. **Backfill:** parallel agent fan-out scrapes actions for every bill across the in-scope sessions; per-session validation reports; cached raw HTML so re-runs are free.
-2. **Votes recon (v2.2 stretch):** while backfill grinds, a separate session investigates roll-call vote pages; if structured enough, build the `votes` table parser for session 132.
-3. **🚪 GATE C (weekend window optional):** approve **v2.1 publish** of the actions table whenever the validation report looks right — Sunday or Monday, your pick. If you're offline all weekend, everything queues; nothing blocks.
+A gate never pushes the path past 7 ticks; it prunes the graph instead:
 
-## Day 5 (Mon) — votes backfill + semantic search
+- **A1 fails wide** (status pages inconsistent across eras) → N3 narrows to sessions that parse cleanly (floor: 128–132); v2.1 ships partial, gaps documented in the card.
+- **V1 fails** → N5/N6 drop out; N7 pulls forward; freed capacity goes to OPP.
+- **Budget hot** (checked at every window) → OPP dies first, then E1 downgrades Space → notebook, then V-track prunes before anything on the v2/v2.1 path.
+- **OpenStates key delayed** → CSV fallback keeps N1 whole; key-based refresh becomes a post-sprint issue.
+- **Weekend window missed** → publishes queue; N3/N5 and all tracks keep running — only the publish nodes themselves wait, and doubled-up approvals in the next window restore the path.
 
-1. Votes backfill (if Gate C recon passed) → **v2.2 publish queued**.
-2. **Embeddings + HF Space:** compute embeddings over titles/summaries, build a semantic-search Space over the dataset. Space deployment is Tier-1.
-3. **🚪 GATE D (budget check):** if Max plan usage is running hot, votes backfill narrows to session 132 and the Space falls back to a notebook demo.
+## Standing window agenda (any tick)
 
-## Day 6 (Tue) — polish + opportunistic scope
+1. Clear the **entire** Tier-1 queue (each item carries a one-paragraph agent-written risk summary) — critical-path gate plus any piggybacked track approvals.
+2. Answer batched decision questions; agents never block mid-tick on a human.
+3. Spot-check when a gate calls for it (N2: fuzzy matches; N4: actions sample).
 
-1. Clear agent-review backlog; harden anything flaky from the weekend backfills.
-2. **Opportunistic (only if ahead of schedule and under budget):** pre-121 session coverage probe, or cross-session bill linkage (same bill re-introduced across sessions), or an example analysis notebook (e.g., sponsorship networks) showcased in the dataset card.
-3. Dataset card gets a full methodology section covering enrichment, actions, and votes provenance.
+## Tier convention (lands in N1, first item in first window)
 
-## Day 7 (Wed) — buffer + close
-
-1. Buffer for slippage; final Tier-1 queue cleared.
-2. CLAUDE.md, README, QUALITY-IMPROVEMENT-HISTORY.md updated; sprint retro (what each gate decided and why).
-
-## Daily human window (30 min) — standing agenda
-
-1. Approve/reject queued Tier-1 PRs (agents keep the queue annotated with a one-paragraph risk summary each).
-2. Answer batched decision questions — agents never block mid-day on you; they queue and keep moving on parallel work.
-3. Gate-day spot checks: Day 1 fuzzy matches, Day 3/4 actions validation sample.
-
-## Risks
-
-| Risk | Mitigation |
-|---|---|
-| OpenStates key delayed | Bulk CSV fallback built into Day 1 |
-| Older sessions missing from OpenStates / status pages | Per-session partial shipping; gaps documented in the card, never blocking newer sessions |
-| Weekend approval unavailable | All publishes queue; agents continue on non-gated work |
-| Token budget exhaustion | Gate D narrows scope; backfills cache raw fetches so nothing is paid for twice |
-| Backfill scraping load on legislature site | Rate-limited, cached, resumable — same politeness settings as existing scraper |
+- **Tier-1 (human):** HF publishes, dataset schema changes, governance/CI changes, secrets, dependency additions, Space deploys.
+- **Tier-2 (independent agent review + green CI):** everything else, including backfill code and parsers.
