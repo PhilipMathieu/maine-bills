@@ -62,11 +62,15 @@ A gate never pushes the path past 7 ticks; it prunes the graph instead:
 - **OpenStates key delayed** → CSV fallback keeps N1 whole; key-based refresh becomes a post-sprint issue.
 - **Weekend window missed** → publishes queue; N3/N5 and all tracks keep running — only the publish nodes themselves wait, and doubled-up approvals in the next window restore the path.
 
+## Review tooling: sample-feedback UI
+
+Gate spot-checks (N2 fuzzy matches, N4 actions sample, and any track validation) should not mean scrolling raw parquet or JSON. Where it pays off, agents spin up a lightweight review UI — a static HTML artifact or tiny local page — that shows, per record: the extracted/enriched fields side-by-side with the source evidence (PDF text snippet or status-page excerpt), with ✓/✗/flag buttons whose output lands as a JSON verdict file the agents consume. Two sampling modes every time: **targeted** (lowest-confidence matches, disagreements, edge cases the agents are unsure about) and **random** (unbiased accuracy estimate). Verdicts feed back into thresholds and become regression test cases. Build cost must stay trivial (< 1 agent-hour per UI) — this is disposable tooling in service of a 30-min window, not a product.
+
 ## Standing window agenda (any tick)
 
 1. Clear the **entire** Tier-1 queue (each item carries a one-paragraph agent-written risk summary) — critical-path gate plus any piggybacked track approvals.
 2. Answer batched decision questions; agents never block mid-tick on a human.
-3. Spot-check when a gate calls for it (N2: fuzzy matches; N4: actions sample).
+3. Spot-check when a gate calls for it (N2: fuzzy matches; N4: actions sample) — via the sample-feedback UI, not raw files.
 
 ## Tier convention (lands in N1, first item in first window)
 
