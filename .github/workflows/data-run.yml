@@ -118,7 +118,9 @@ jobs:
         run: |
           if [ -f scripts/run_matching_report.py ]; then
             uv run python scripts/run_matching_report.py \
-              --sessions ${{ inputs.sessions }} ${{ inputs.extra_args }}
+              --sessions ${{ inputs.sessions }} \
+              --parquet-source hf://datasets/pem207/maine-bills \
+              --output report ${{ inputs.extra_args }}
           else
             echo "::notice::scripts/run_matching_report.py not found on this ref (built on a parallel branch); skipping."
             mkdir -p report
