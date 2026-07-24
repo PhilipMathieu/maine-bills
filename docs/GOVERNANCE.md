@@ -26,7 +26,7 @@ Everything else: extraction/matching/scraper code, tests, refactors, docs (other
 **Requirements to merge:**
 1. Required CI checks green: unit tests (`pytest -m "not integration"`) **and** lint (`ruff check`), as run by `.github/workflows/ci.yml`.
 2. An **independent agent review** — a reviewer session/agent that did not author the change reads the diff and approves. The author agent may not approve its own work.
-3. The review is submitted as a formal GitHub PR review with an **Approve** verdict (not a free-form comment), containing this structured checklist:
+3. The review is submitted as a formal GitHub PR review with an **Approve** verdict, containing the structured checklist below. Mechanical caveat: agent sessions authenticate as the repo owner's account, and GitHub forbids Approve/Request-Changes events on one's own PRs — in that case the reviewer submits a comment-event PR review whose body opens with an explicit, unambiguous verdict line (**APPROVE** or **REQUEST CHANGES**); that verdict line is authoritative. Checklist:
    - **Tier decision:** confirmed Tier 2, with one line on why no Tier-1 surface is touched.
    - **Risk:** what could break and blast radius.
    - **Checks:** tests/lint status and any manual verification performed.
