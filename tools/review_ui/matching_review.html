@@ -25,6 +25,7 @@
   .card.decided-correct { border-left:4px solid var(--ok); }
   .card.decided-incorrect { border-left:4px solid var(--bad); }
   .card.decided-flag { border-left:4px solid var(--flag); }
+  .card.focused { outline:2px solid #0969da; outline-offset:1px; }
   .pair { flex:1; min-width:260px; }
   .pair .from { font-weight:600; }
   .pair .to { color:var(--muted); }
@@ -96,8 +97,15 @@ function persist() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({ generated_at: report.generated_at, verdicts }));
 }
 
+// Intentionally omits bill_id for fuzzy entries: the sponsor-string → legislator
+// pair is the semantic unit under review, so one verdict covers all its bills.
 function keyOf(item, type) {
   return type + "|" + item.session + "|" + (item.sponsor || item.name) + "|" + (item.openstates_id || "");
+}
+
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
 function renderSessions() {
@@ -146,28 +154,41 @@ function renderCards() {
     const k = keyOf(item, item._type);
     const v = verdicts[k];
     const decided = v ? " decided-" + v.verdict : "";
+    const focused = i === focusIdx ? " focused" : "";
     const body = item._type === "fuzzy"
-      ? `<div class="pair"><span class="from">${item.sponsor}</span> →
-           <span class="to">${item.canonical_name}</span><br>
-           <span class="hint">${item.openstates_id}</span></div>
+      ? `<div class="pair"><span class="from">${esc(item.sponsor)}</span> →
+           <span class="to">${esc(item.canonical_name)}</span><br>
+           <span class="hint">${esc(item.openstates_id)}</span></div>
          <span class="conf">${(item.confidence * 100).toFixed(0)}%</span>
-         <span class="meta">s${item.session} · ${item.bill_id}</span>`
-      : `<div class="pair"><span class="from">${item.name}</span></div>
-         <span class="meta">s${item.session} · ${item.bill_count} bill(s)</span>`;
+         <span class="meta">s${esc(item.session)} · ${esc(item.bill_id)}</span>`
+      : `<div class="pair"><span class="from">${esc(item.name)}</span></div>
+         <span class="meta">s${esc(item.session)} · ${esc(item.bill_count)} bill(s)</span>`;
     const btn = (verdict, label) =>
       `<button class="${v && v.verdict === verdict ? "sel-" + verdict : ""}"
-        onclick="decide(${i},'${verdict}')">${label}</button>`;
-    return `<div class="card${decided}" id="card-${i}" tabindex="0">${body}
+        onclick="event.stopPropagation();decide(${i},'${verdict}')">${label}</button>`;
+    return `<div class="card${decided}${focused}" id="card-${i}" tabindex="0"
+      onclick="setFocus(${i})">${body}
       <span class="btns">${btn("correct", "✓")}${btn("incorrect", "✗")}${btn("flag", "⚑")}</span>
       <input class="note ${v && v.note ? "show" : ""}" placeholder="note (optional)"
-        value="${v && v.note ? v.note.replace(/"/g, "&quot;") : ""}"
+        value="${v && v.note ? esc(v.note) : ""}"
+        onclick="event.stopPropagation()"
         onchange="noteChange(${i}, this.value)"></div>`;
   }).join("") || "<p class='hint'>Nothing in this bucket.</p>";
   updateProgress(items);
 }
 
+function setFocus(i) {
+  if (i === focusIdx) return;
+  const prev = document.getElementById("card-" + focusIdx);
+  if (prev) prev.classList.remove("focused");
+  focusIdx = i;
+  const cur = document.getElementById("card-" + focusIdx);
+  if (cur) cur.classList.add("focused");
+}
+
 function decide(i, verdict) {
   const item = tabItems()[i];
+  if (!item) return; // past the last card, or empty tab
   const k = keyOf(item, item._type);
   verdicts[k] = { ...(verdicts[k] || {}), item: strip(item), verdict };
   if (verdict === "flag") setTimeout(() => {
@@ -192,6 +213,7 @@ function updateProgress(items) {
 
 document.addEventListener("keydown", e => {
   if (!report || e.target.tagName === "INPUT") return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return; // never shadow Ctrl/Cmd+F etc.
   const map = { y: "correct", n: "incorrect", f: "flag" };
   if (map[e.key]) { e.preventDefault(); decide(focusIdx, map[e.key]); }
 });
