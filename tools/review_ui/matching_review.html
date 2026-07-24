@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sponsor Matching Review</title>
+<style>
+  :root { --ok:#1a7f37; --bad:#cf222e; --flag:#9a6700; --muted:#57606a; --border:#d0d7de; --bg:#f6f8fa; }
+  * { box-sizing:border-box; }
+  body { font:14px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin:0; color:#1f2328; }
+  header { padding:12px 20px; border-bottom:1px solid var(--border); display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  h1 { font-size:16px; margin:0; }
+  main { padding:16px 20px; max-width:1000px; }
+  .drop { border:2px dashed var(--border); border-radius:8px; padding:32px; text-align:center; color:var(--muted); margin:24px 0; }
+  .drop.hover { background:var(--bg); }
+  table { border-collapse:collapse; width:100%; margin:8px 0 20px; }
+  th, td { border:1px solid var(--border); padding:4px 10px; text-align:right; }
+  th:first-child, td:first-child { text-align:left; }
+  .bar { display:inline-block; height:8px; background:var(--ok); border-radius:4px; vertical-align:middle; }
+  .warn { color:var(--bad); font-weight:600; }
+  .tabs { display:flex; gap:4px; margin:16px 0 8px; border-bottom:1px solid var(--border); }
+  .tabs button { border:1px solid var(--border); border-bottom:none; background:var(--bg); padding:6px 14px; border-radius:6px 6px 0 0; cursor:pointer; font-size:13px; }
+  .tabs button.active { background:#fff; font-weight:600; }
+  .card { border:1px solid var(--border); border-radius:8px; padding:12px 16px; margin:10px 0; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .card.decided-correct { border-left:4px solid var(--ok); }
+  .card.decided-incorrect { border-left:4px solid var(--bad); }
+  .card.decided-flag { border-left:4px solid var(--flag); }
+  .pair { flex:1; min-width:260px; }
+  .pair .from { font-weight:600; }
+  .pair .to { color:var(--muted); }
+  .conf { font-variant-numeric:tabular-nums; color:var(--muted); min-width:70px; }
+  .meta { color:var(--muted); font-size:12px; min-width:160px; }
+  .btns button { border:1px solid var(--border); background:#fff; border-radius:6px; padding:4px 10px; cursor:pointer; margin-left:4px; font-size:13px; }
+  .btns button.sel-correct { background:var(--ok); color:#fff; border-color:var(--ok); }
+  .btns button.sel-incorrect { background:var(--bad); color:#fff; border-color:var(--bad); }
+  .btns button.sel-flag { background:var(--flag); color:#fff; border-color:var(--flag); }
+  .note { width:100%; border:1px solid var(--border); border-radius:6px; padding:4px 8px; font-size:13px; display:none; }
+  .note.show { display:block; }
+  .progress { color:var(--muted); font-size:13px; }
+  .primary { background:#1f883d; color:#fff; border:none; border-radius:6px; padding:6px 14px; cursor:pointer; font-size:13px; }
+  .hint { color:var(--muted); font-size:12px; }
+  #filecheck { display:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Sponsor → OpenStates Matching Review</h1>
+  <span class="progress" id="progress"></span>
+  <span style="flex:1"></span>
+  <span class="hint">keys: <b>y</b> correct · <b>n</b> incorrect · <b>f</b> flag</span>
+  <button class="primary" id="export" hidden>Export verdicts JSON</button>
+</header>
+<main>
+  <div class="drop" id="drop">
+    Drop <code>matching_report.json</code> here or
+    <label style="color:#0969da;cursor:pointer"><u>choose file</u><input type="file" id="filecheck" accept=".json"></label>
+    — the artifact from the <code>data-run.yml → run-matching</code> workflow.
+  </div>
+  <div id="app" hidden>
+    <h2 style="font-size:15px">Per-session match rates <span class="hint">(Gate A target: ≥95% matched = exact + fuzzy)</span></h2>
+    <div id="sessions"></div>
+    <div class="tabs" id="tabs"></div>
+    <div id="cards"></div>
+  </div>
+</main>
+<script>
+"use strict";
+let report = null, verdicts = {}, activeTab = "fuzzy", focusIdx = 0;
+const STORAGE_KEY = "matching-review-verdicts";
+
+const drop = document.getElementById("drop");
+drop.addEventListener("dragover", e => { e.preventDefault(); drop.classList.add("hover"); });
+drop.addEventListener("dragleave", () => drop.classList.remove("hover"));
+drop.addEventListener("drop", e => { e.preventDefault(); drop.classList.remove("hover"); loadFile(e.dataTransfer.files[0]); });
+document.getElementById("filecheck").addEventListener("change", e => loadFile(e.target.files[0]));
+
+function loadFile(file) {
+  if (!file) return;
+  file.text().then(t => {
+    report = JSON.parse(t);
+    verdicts = restore();
+    drop.hidden = true;
+    document.getElementById("app").hidden = false;
+    document.getElementById("export").hidden = false;
+    render();
+  }).catch(err => alert("Could not parse report JSON: " + err));
+}
+
+function restore() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return saved.generated_at === report.generated_at ? saved.verdicts : {};
+  } catch { return {}; }
+}
+function persist() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ generated_at: report.generated_at, verdicts }));
+}
+
+function keyOf(item, type) {
+  return type + "|" + item.session + "|" + (item.sponsor || item.name) + "|" + (item.openstates_id || "");
+}
+
+function renderSessions() {
+  const rows = report.sessions.map(s => {
+    const matched = (s.rates.exact || 0) + (s.rates.fuzzy || 0);
+    const pct = (matched * 100).toFixed(1);
+    const cls = matched >= 0.95 ? "" : "warn";
+    return `<tr><td>${s.session}</td><td>${s.bills}</td><td>${s.sponsor_mentions}</td>
+      <td>${(s.rates.exact*100).toFixed(1)}%</td><td>${(s.rates.fuzzy*100).toFixed(1)}%</td>
+      <td>${s.counts.ambiguous}</td><td>${s.counts.unmatched}</td>
+      <td class="${cls}">${pct}% <span class="bar" style="width:${Math.round(matched*60)}px"></span></td></tr>`;
+  }).join("");
+  document.getElementById("sessions").innerHTML =
+    `<table><tr><th>Session</th><th>Bills</th><th>Mentions</th><th>Exact</th><th>Fuzzy</th>
+     <th>Ambig.</th><th>Unmatched</th><th>Matched</th></tr>${rows}</table>`;
+}
+
+function tabItems() {
+  if (activeTab === "fuzzy") return report.fuzzy_sample.map(m => ({ ...m, _type: "fuzzy" }));
+  const field = activeTab; // "unmatched" | "ambiguous"
+  const out = [];
+  for (const s of report.sessions)
+    for (const n of s[field]) out.push({ session: s.session, name: n.name, bill_count: n.bill_count, _type: field });
+  return out.sort((a, b) => b.bill_count - a.bill_count);
+}
+
+function renderTabs() {
+  const counts = {
+    fuzzy: report.fuzzy_sample.length,
+    unmatched: report.sessions.reduce((n, s) => n + s.unmatched.length, 0),
+    ambiguous: report.sessions.reduce((n, s) => n + s.ambiguous.length, 0),
+  };
+  document.getElementById("tabs").innerHTML = [
+    ["fuzzy", `Fuzzy sample (${counts.fuzzy})`],
+    ["unmatched", `Unmatched names (${counts.unmatched})`],
+    ["ambiguous", `Ambiguous names (${counts.ambiguous})`],
+  ].map(([id, label]) =>
+    `<button class="${id === activeTab ? "active" : ""}" onclick="switchTab('${id}')">${label}</button>`).join("");
+}
+
+function switchTab(id) { activeTab = id; focusIdx = 0; render(); }
+
+function renderCards() {
+  const items = tabItems();
+  document.getElementById("cards").innerHTML = items.map((item, i) => {
+    const k = keyOf(item, item._type);
+    const v = verdicts[k];
+    const decided = v ? " decided-" + v.verdict : "";
+    const body = item._type === "fuzzy"
+      ? `<div class="pair"><span class="from">${item.sponsor}</span> →
+           <span class="to">${item.canonical_name}</span><br>
+           <span class="hint">${item.openstates_id}</span></div>
+         <span class="conf">${(item.confidence * 100).toFixed(0)}%</span>
+         <span class="meta">s${item.session} · ${item.bill_id}</span>`
+      : `<div class="pair"><span class="from">${item.name}</span></div>
+         <span class="meta">s${item.session} · ${item.bill_count} bill(s)</span>`;
+    const btn = (verdict, label) =>
+      `<button class="${v && v.verdict === verdict ? "sel-" + verdict : ""}"
+        onclick="decide(${i},'${verdict}')">${label}</button>`;
+    return `<div class="card${decided}" id="card-${i}" tabindex="0">${body}
+      <span class="btns">${btn("correct", "✓")}${btn("incorrect", "✗")}${btn("flag", "⚑")}</span>
+      <input class="note ${v && v.note ? "show" : ""}" placeholder="note (optional)"
+        value="${v && v.note ? v.note.replace(/"/g, "&quot;") : ""}"
+        onchange="noteChange(${i}, this.value)"></div>`;
+  }).join("") || "<p class='hint'>Nothing in this bucket.</p>";
+  updateProgress(items);
+}
+
+function decide(i, verdict) {
+  const item = tabItems()[i];
+  const k = keyOf(item, item._type);
+  verdicts[k] = { ...(verdicts[k] || {}), item: strip(item), verdict };
+  if (verdict === "flag") setTimeout(() => {
+    const note = document.querySelector(`#card-${i} .note`);
+    note.classList.add("show"); note.focus();
+  });
+  focusIdx = i + 1;
+  persist(); render();
+  const next = document.getElementById("card-" + focusIdx);
+  if (next) next.scrollIntoView({ block: "center" });
+}
+function noteChange(i, value) {
+  const k = keyOf(tabItems()[i], tabItems()[i]._type);
+  if (verdicts[k]) { verdicts[k].note = value; persist(); }
+}
+function strip(item) { const { _type, ...rest } = item; return { type: _type, ...rest }; }
+
+function updateProgress(items) {
+  const done = items.filter(it => verdicts[keyOf(it, it._type)]).length;
+  document.getElementById("progress").textContent = `${done}/${items.length} reviewed in this tab`;
+}
+
+document.addEventListener("keydown", e => {
+  if (!report || e.target.tagName === "INPUT") return;
+  const map = { y: "correct", n: "incorrect", f: "flag" };
+  if (map[e.key]) { e.preventDefault(); decide(focusIdx, map[e.key]); }
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const payload = {
+    reviewed_at: new Date().toISOString(),
+    report_generated_at: report.generated_at,
+    verdicts: Object.values(verdicts),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "matching_verdicts.json";
+  a.click();
+});
+
+function render() { renderSessions(); renderTabs(); renderCards(); }
+</script>
+</body>
+</html>
