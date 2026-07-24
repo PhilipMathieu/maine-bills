@@ -226,3 +226,39 @@ def test_match_all_with_chamber_hint(matcher):
 def test_empty_roster_everything_unmatched():
     matcher = SponsorMatcher([])
     assert matcher.match("DAUGHTRY").method == "unmatched"
+
+
+class TestMatchSponsorsAdapter:
+    """Module-level match_sponsors(), the entry point enrichment.load_matcher uses."""
+
+    def _seed_cache(self, tmp_path):
+        import json
+
+        cache = tmp_path / "cache"
+        cache.mkdir()
+        (cache / "roster_132.json").write_text(json.dumps([e.to_dict() for e in FIXTURE_ROSTER]))
+        return cache
+
+    def test_matched_and_unmatched_alignment(self, tmp_path):
+        from maine_bills.sponsor_matching import match_sponsors
+
+        cache = self._seed_cache(tmp_path)
+        results = match_sponsors(
+            ["DAUGHTRY", "NOT A LEGISLATOR", "LIBBY"], session=132, cache_dir=cache
+        )
+        assert len(results) == 3
+        assert results[0].openstates_id == "ocd-person/daughtry"
+        assert results[0].method == "exact"
+        assert results[1] is None  # unmatched -> None so enrichment stays null
+        assert results[2] is None  # ambiguous (shared surname) -> None
+
+    def test_matcher_is_cached_per_session(self, tmp_path):
+        from maine_bills import sponsor_matching
+        from maine_bills.sponsor_matching import match_sponsors
+
+        cache = self._seed_cache(tmp_path)
+        sponsor_matching._MATCHERS.clear()
+        match_sponsors(["DAUGHTRY"], session=132, cache_dir=cache)
+        (cache / "roster_132.json").unlink()  # would break a rebuild
+        results = match_sponsors(["BEEBE-CENTER"], session=132, cache_dir=cache)
+        assert results[0].openstates_id == "ocd-person/beebe-center"

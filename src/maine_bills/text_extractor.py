@@ -538,9 +538,13 @@ class TextExtractor:
         # Scanned-PDF session header lines (appear after line-number stripping)
         if re.match(r'^HOUSE OF REPRESENTATIVES\s*$', line_stripped, re.IGNORECASE):
             return True
-        if re.match(r'^\d+(?:ST|ND|RD|TH)\s+(?:MAINE\s+)?LEGISLATURE\s*$', line_stripped, re.IGNORECASE):  # noqa: E501
+        if re.match(
+            r'^\d+(?:ST|ND|RD|TH)\s+(?:MAINE\s+)?LEGISLATURE\s*$', line_stripped, re.IGNORECASE
+        ):
             return True
-        if re.match(r'^(?:FIRST|SECOND|THIRD)\s+(?:REGULAR|SPECIAL)\s+SESSION', line_stripped, re.IGNORECASE):  # noqa: E501
+        if re.match(
+            r'^(?:FIRST|SECOND|THIRD)\s+(?:REGULAR|SPECIAL)\s+SESSION', line_stripped, re.IGNORECASE
+        ):
             return True
 
         return False

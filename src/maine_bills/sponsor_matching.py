@@ -16,10 +16,11 @@ Pass 2: rapidfuzz fallback (token_sort_ratio) with a confidence threshold
 import re
 import unicodedata
 from dataclasses import dataclass, field
+from pathlib import Path
 
 from rapidfuzz import fuzz
 
-from .openstates import RosterEntry
+from .openstates import RosterEntry, get_roster
 
 DEFAULT_FUZZY_THRESHOLD = 88.0
 
@@ -178,3 +179,31 @@ class SponsorMatcher:
             confidence=round(best_score / 100.0, 4),
             method=METHOD_FUZZY,
         )
+
+
+_MATCHERS: dict[tuple, SponsorMatcher] = {}
+
+
+def match_sponsors(
+    sponsors: list[str],
+    session: int,
+    cache_dir: Path | str | None = None,
+    fuzzy_threshold: float = DEFAULT_FUZZY_THRESHOLD,
+) -> list[MatchResult | None]:
+    """Match sponsors for one session; the entry point enrichment.load_matcher uses.
+
+    Builds a SponsorMatcher from the session roster (cached per session for the
+    process lifetime; roster fetches cache to disk via openstates.get_roster) and
+    returns a list aligned with ``sponsors``. Entries are None where no single
+    legislator was identified ("ambiguous"/"unmatched"), so the enrichment
+    columns stay null for those sponsors.
+    """
+    key = (session, str(cache_dir) if cache_dir is not None else None, fuzzy_threshold)
+    matcher = _MATCHERS.get(key)
+    if matcher is None:
+        roster_kwargs = {"cache_dir": Path(cache_dir)} if cache_dir is not None else {}
+        roster = get_roster(session, **roster_kwargs)
+        matcher = SponsorMatcher(roster, fuzzy_threshold=fuzzy_threshold)
+        _MATCHERS[key] = matcher
+    results = matcher.match_all(sponsors)
+    return [r if r.method in (METHOD_EXACT, METHOD_FUZZY) else None for r in results]
