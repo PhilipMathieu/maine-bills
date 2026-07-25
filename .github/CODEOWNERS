@@ -1,0 +1,9 @@
+# Tier-1 surfaces (docs/GOVERNANCE.md): changes here require the repo owner's review.
+# Enforced via branch ruleset "require review from Code Owners".
+
+/.github/                       @PhilipMathieu
+/docs/GOVERNANCE.md             @PhilipMathieu
+/src/maine_bills/schema.py      @PhilipMathieu
+/src/maine_bills/publish.py     @PhilipMathieu
+/pyproject.toml                 @PhilipMathieu
+/uv.lock                        @PhilipMathieu
