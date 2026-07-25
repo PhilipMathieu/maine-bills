@@ -94,8 +94,15 @@ def enrich_dataframe(df: pd.DataFrame, matcher_fn) -> pd.DataFrame:
     if df.empty:
         return df
 
-    params = inspect.signature(matcher_fn).parameters
-    accepts_session = "session" in params or any(p.kind == p.VAR_KEYWORD for p in params.values())
+    try:
+        params = inspect.signature(matcher_fn).parameters
+        accepts_session = "session" in params or any(
+            p.kind == p.VAR_KEYWORD for p in params.values()
+        )
+    except (TypeError, ValueError):
+        # Some callables (e.g. C-implemented) aren't introspectable; assume the
+        # simpler contract rather than aborting enrichment.
+        accepts_session = False
 
     ids_col, parties_col, districts_col, confidence_col = [], [], [], []
     matched = total = 0
@@ -110,10 +117,16 @@ def enrich_dataframe(df: pd.DataFrame, matcher_fn) -> pd.DataFrame:
             raise ValueError(
                 f"Matcher returned {len(matches)} matches for {len(sponsors)} sponsors"
             )
-        ids_col.append([_match_value(m, "openstates_id") if m else None for m in matches])
-        parties_col.append([_match_value(m, "party") if m else None for m in matches])
-        districts_col.append([_match_value(m, "district") if m else None for m in matches])
-        confidence_col.append([_match_value(m, "confidence") if m else None for m in matches])
+        ids_col.append(
+            [_match_value(m, "openstates_id") if m is not None else None for m in matches]
+        )
+        parties_col.append([_match_value(m, "party") if m is not None else None for m in matches])
+        districts_col.append(
+            [_match_value(m, "district") if m is not None else None for m in matches]
+        )
+        confidence_col.append(
+            [_match_value(m, "confidence") if m is not None else None for m in matches]
+        )
         total += len(sponsors)
         matched += sum(1 for m in matches if m is not None)
 

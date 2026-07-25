@@ -79,10 +79,10 @@ endorsed by nor affiliated with the Maine State Legislature.
 | `text` | string | Full extracted text of the document |
 | `title` | string | Bill title extracted from content, or null |
 | `sponsors` | list | Sponsor names extracted from content (verbatim; provenance) |
-| `sponsor_ids` | list | OpenStates person IDs, aligned with `sponsors`; null if unmatched |
-| `sponsor_parties` | list | Party affiliations, aligned with `sponsors`; null if unmatched |
-| `sponsor_districts` | list | Legislative districts, aligned with `sponsors`; null if unmatched |
-| `sponsor_match_confidence` | list | Match confidence (0-1), aligned with `sponsors`; or null |
+| `sponsor_ids` | list | OpenStates person IDs, aligned with `sponsors`; nulls where unmatched |
+| `sponsor_parties` | list | Party affiliations, aligned with `sponsors`; nulls where unmatched |
+| `sponsor_districts` | list | Districts, aligned with `sponsors`; nulls where unmatched |
+| `sponsor_match_confidence` | list | Confidence 0-1, aligned; nulls where unmatched |
 | `committee` | string | Referred committee, or null |
 | `source_url` | string | Direct URL to the original PDF |
 | `source_filename` | string | Original filename without extension |

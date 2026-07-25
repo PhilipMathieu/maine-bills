@@ -199,3 +199,46 @@ class TestLoadMatcher:
         logger = MagicMock()
         assert load_matcher(logger) is None
         logger.warning.assert_called_once()
+
+
+class TestMatcherContractEdgeCases:
+    """Regression tests for review findings on falsy matches and introspection."""
+
+    def test_falsy_match_object_is_not_treated_as_unmatched(self):
+        """A match with a falsy __bool__ must still populate enrichment columns."""
+
+        class FalsyMatch:
+            openstates_id = "ocd-person/x1"
+            party = "Democratic"
+            district = "23"
+            confidence = 1.0
+
+            def __bool__(self):
+                return False
+
+        df = pd.DataFrame([{"session": 132, "sponsors": ["DAUGHTRY"]}])
+        out = enrich_dataframe(df, lambda sponsors: [FalsyMatch()])
+        assert out["sponsor_ids"][0] == ["ocd-person/x1"]
+        assert out["sponsor_parties"][0] == ["Democratic"]
+        assert out["sponsor_match_confidence"][0] == [1.0]
+
+    def test_empty_dict_match_is_not_treated_as_unmatched(self):
+        """An empty dict is falsy but present; its (absent) fields read as None."""
+        df = pd.DataFrame([{"session": 132, "sponsors": ["DAUGHTRY"]}])
+        out = enrich_dataframe(df, lambda sponsors: [{}])
+        assert out["sponsor_ids"][0] == [None]
+
+    def test_uninspectable_matcher_falls_back_instead_of_raising(self):
+        """inspect.signature() raising must not abort enrichment."""
+
+        class NoSignature:
+            def __call__(self, sponsors):
+                return [None] * len(sponsors)
+
+            @property
+            def __signature__(self):
+                raise ValueError("not introspectable")
+
+        df = pd.DataFrame([{"session": 132, "sponsors": ["DAUGHTRY"]}])
+        out = enrich_dataframe(df, NoSignature())
+        assert out["sponsor_ids"][0] == [None]
