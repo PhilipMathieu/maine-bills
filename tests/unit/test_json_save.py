@@ -15,7 +15,7 @@ def test_save_bill_document_json(tmp_path):
         sponsors=["Rep. Smith"],
         introduced_date=date(2023, 1, 15),
         committee="Committee on Education",
-        amended_code_refs=["Title 20, Section 1"]
+        amended_code_refs=["Title 20, Section 1"],
     )
 
     output_path = tmp_path / "bill.json"
@@ -40,7 +40,7 @@ def test_save_bill_document_json_date_serialization(tmp_path):
         session="131",
         body_text="Text",
         extraction_confidence=0.9,
-        introduced_date=date(2023, 6, 15)
+        introduced_date=date(2023, 6, 15),
     )
 
     output_path = tmp_path / "bill.json"
@@ -62,7 +62,7 @@ def test_save_bill_document_json_with_none_values(tmp_path):
         body_text="Text",
         extraction_confidence=0.9,
         introduced_date=None,  # None value
-        committee=None  # None value
+        committee=None,  # None value
     )
 
     output_path = tmp_path / "bill.json"

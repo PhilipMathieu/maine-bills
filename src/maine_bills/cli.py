@@ -59,6 +59,7 @@ def main() -> int:
 
             if args.publish:
                 from .publish import publish_session, sync_dataset_card
+
                 publish_session(df, session, args.repo_id, args.local_dir)
             else:
                 out_dir = args.local_dir / str(session)
@@ -69,6 +70,7 @@ def main() -> int:
 
         if args.publish:
             from .publish import sync_dataset_card
+
             sync_dataset_card(args.repo_id)
 
         return 0

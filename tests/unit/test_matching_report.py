@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from maine_bills.openstates import RosterEntry
+from maine_bills.openstates import RosterEntry, roster_cache_path
 from maine_bills.sponsor_matching import SponsorMatcher
 
 SCRIPT_PATH = Path(__file__).resolve().parents[2] / "scripts" / "run_matching_report.py"
@@ -189,7 +189,7 @@ def test_main_writes_reports_from_cached_roster(report_mod, tmp_path):
     cache_dir = tmp_path / "cache"
     cache_dir.mkdir()
     roster_json = [entry.to_dict() for entry in ROSTER]
-    (cache_dir / "roster_132.json").write_text(json.dumps(roster_json))
+    roster_cache_path(cache_dir, 132).write_text(json.dumps(roster_json))
 
     # Local parquet source
     data_dir = tmp_path / "data"

@@ -14,6 +14,7 @@ from maine_bills.openstates import (
     RosterProvider,
     fetch_all_legislators,
     get_roster,
+    roster_cache_path,
     roster_for_session,
     session_biennium,
 )
@@ -353,7 +354,7 @@ def test_fetch_all_legislators_caches_to_json(tmp_path, fake_provider):
 def test_get_roster_caches_per_session(tmp_path, fake_provider):
     roster = get_roster(132, provider=fake_provider, cache_dir=tmp_path)
     assert len(roster) == 1
-    assert (tmp_path / "roster_132.json").exists()
+    assert roster_cache_path(tmp_path, 132, fake_provider).exists()
 
     # Second call reads the per-session cache (no new fetch)
     again = get_roster(132, provider=fake_provider, cache_dir=tmp_path)
@@ -372,3 +373,33 @@ def test_get_roster_excludes_out_of_biennium(tmp_path, fake_provider):
     """Daughtry's role starts 2022-12-07, so she is absent from session 125."""
     roster = get_roster(125, provider=fake_provider, cache_dir=tmp_path)
     assert roster == []
+
+
+def test_roster_cache_is_keyed_by_provider(tmp_path, fake_provider):
+    """Rosters from different providers must not share a cache file.
+
+    Regression: a provider switch (e.g. OPENSTATES_API_KEY becoming set) would
+    otherwise silently reuse the previous provider's roster.
+    """
+    other = FakeProvider(
+        [
+            _legislator(
+                "Someone Else",
+                "Else",
+                [Role("House", "99", "2024-12-04", None)],
+                os_id="ocd-person/other",
+            )
+        ]
+    )
+    other.name = "other_fake"
+
+    first = get_roster(132, provider=fake_provider, cache_dir=tmp_path)
+    second = get_roster(132, provider=other, cache_dir=tmp_path)
+
+    path_a = roster_cache_path(tmp_path, 132, fake_provider)
+    path_b = roster_cache_path(tmp_path, 132, other)
+    assert path_a != path_b
+    assert path_a.exists() and path_b.exists()
+    # The second provider actually fetched rather than reusing the first's roster
+    assert other.fetch_count == 1
+    assert first[0].openstates_id != second[0].openstates_id

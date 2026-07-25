@@ -428,6 +428,20 @@ def fetch_all_legislators(
     return legislators
 
 
+def roster_cache_path(
+    cache_dir: Path | str, session: int, provider: "RosterProvider | None" = None
+) -> Path:
+    """Cache file for one session's roster, keyed by provider identity.
+
+    The provider is part of the key because rosters differ by source: the v3
+    API exposes only current roles, while the people repo carries full history.
+    Sharing one file would let a provider switch (e.g. OPENSTATES_API_KEY being
+    set) silently reuse the other provider's roster.
+    """
+    provider = provider or default_provider()
+    return Path(cache_dir) / f"roster_{provider.name}_{session}.json"
+
+
 def get_roster(
     session: int,
     provider: RosterProvider | None = None,
@@ -436,7 +450,8 @@ def get_roster(
 ) -> list[RosterEntry]:
     """Get the legislator roster for one session, using/populating the cache.
 
-    Rosters are cached one JSON file per session (``roster_{session}.json``).
+    Rosters are cached one file per provider and session
+    (``roster_{provider}_{session}.json``).
 
     Args:
         session: Legislative session number (e.g., 132)
@@ -449,7 +464,8 @@ def get_roster(
         List of RosterEntry for legislators serving during the session's biennium
     """
     cache_dir = Path(cache_dir)
-    roster_path = cache_dir / f"roster_{session}.json"
+    provider = provider or default_provider()
+    roster_path = roster_cache_path(cache_dir, session, provider)
     if roster_path.exists() and not refresh:
         logger.debug(f"Loading session {session} roster from cache: {roster_path}")
         return [RosterEntry(**d) for d in _load_json(roster_path)]

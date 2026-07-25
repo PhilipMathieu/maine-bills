@@ -1,4 +1,5 @@
 """Tests for sponsor validation against known legislator lists."""
+
 from maine_bills.sponsor_validation import validate_sponsors
 
 

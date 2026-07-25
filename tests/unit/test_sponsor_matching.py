@@ -2,7 +2,7 @@
 
 import pytest
 
-from maine_bills.openstates import RosterEntry
+from maine_bills.openstates import RosterEntry, roster_cache_path
 from maine_bills.sponsor_matching import MatchResult, SponsorMatcher, normalize_name
 
 
@@ -236,7 +236,7 @@ class TestMatchSponsorsAdapter:
 
         cache = tmp_path / "cache"
         cache.mkdir()
-        (cache / "roster_132.json").write_text(json.dumps([e.to_dict() for e in FIXTURE_ROSTER]))
+        roster_cache_path(cache, 132).write_text(json.dumps([e.to_dict() for e in FIXTURE_ROSTER]))
         return cache
 
     def test_matched_and_unmatched_alignment(self, tmp_path):
@@ -259,6 +259,6 @@ class TestMatchSponsorsAdapter:
         cache = self._seed_cache(tmp_path)
         sponsor_matching._MATCHERS.clear()
         match_sponsors(["DAUGHTRY"], session=132, cache_dir=cache)
-        (cache / "roster_132.json").unlink()  # would break a rebuild
+        roster_cache_path(cache, 132).unlink()  # would break a rebuild
         results = match_sponsors(["BEEBE-CENTER"], session=132, cache_dir=cache)
         assert results[0].openstates_id == "ocd-person/beebe-center"

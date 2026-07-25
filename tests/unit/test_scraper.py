@@ -14,6 +14,7 @@ def scraper():
 
 # --- Initialization ---
 
+
 def test_scraper_init(scraper):
     assert scraper.session == 131
     assert scraper.session_url == "http://lldc.mainelegislature.org/Open/LDs/131/"
@@ -26,6 +27,7 @@ def test_scraper_default_workers():
 
 
 # --- _fetch_bill_list ---
+
 
 def test_fetch_bill_list_returns_filenames(scraper, mocker):
     mock_html = """
@@ -48,6 +50,7 @@ def test_fetch_bill_list_returns_filenames(scraper, mocker):
 
 def test_fetch_bill_list_raises_on_network_error(scraper, mocker):
     import requests
+
     mocker.patch(
         "maine_bills.scraper.requests.get",
         side_effect=requests.RequestException("Network error"),
@@ -57,6 +60,7 @@ def test_fetch_bill_list_raises_on_network_error(scraper, mocker):
 
 
 # --- _download_and_extract_bill ---
+
 
 def test_download_and_extract_bill_returns_bill_record(scraper, mocker):
     from maine_bills.schema import BillRecord
@@ -98,10 +102,17 @@ def test_download_retries_on_timeout(scraper, mocker):
         return m
 
     mocker.patch("maine_bills.scraper.requests.get", side_effect=flaky_get)
-    mocker.patch("maine_bills.scraper.TextExtractor.extract_bill_document",
-                 return_value=MagicMock(body_text="", extraction_confidence=0.0,
-                                       title=None, sponsors=[], committee=None,
-                                       amended_code_refs=[]))
+    mocker.patch(
+        "maine_bills.scraper.TextExtractor.extract_bill_document",
+        return_value=MagicMock(
+            body_text="",
+            extraction_confidence=0.0,
+            title=None,
+            sponsors=[],
+            committee=None,
+            amended_code_refs=[],
+        ),
+    )
 
     result = scraper._download_and_extract_bill("131-LD-0001")
 
@@ -113,8 +124,10 @@ def test_download_fails_after_max_retries(scraper, mocker):
     """Persistent timeouts should eventually raise and be skipped by scrape_session."""
     import requests as req
 
-    mocker.patch("maine_bills.scraper.requests.get",
-                 side_effect=req.exceptions.ConnectTimeout("always fails"))
+    mocker.patch(
+        "maine_bills.scraper.requests.get",
+        side_effect=req.exceptions.ConnectTimeout("always fails"),
+    )
 
     with pytest.raises(Exception):
         scraper._download_and_extract_bill("131-LD-0001")
@@ -130,11 +143,18 @@ def test_download_and_extract_bill_cleans_up_temp_file(scraper, mocker):
 
     def capture_and_mock(path):
         captured_paths.append(path)
-        return MagicMock(body_text="", extraction_confidence=0.0,
-                         title=None, sponsors=[], committee=None, amended_code_refs=[])
+        return MagicMock(
+            body_text="",
+            extraction_confidence=0.0,
+            title=None,
+            sponsors=[],
+            committee=None,
+            amended_code_refs=[],
+        )
 
-    mocker.patch("maine_bills.scraper.TextExtractor.extract_bill_document",
-                 side_effect=capture_and_mock)
+    mocker.patch(
+        "maine_bills.scraper.TextExtractor.extract_bill_document", side_effect=capture_and_mock
+    )
 
     scraper._download_and_extract_bill("131-LD-0001")
 
@@ -143,6 +163,7 @@ def test_download_and_extract_bill_cleans_up_temp_file(scraper, mocker):
 
 
 # --- scrape_session ---
+
 
 def test_scrape_session_returns_dataframe(scraper, mocker):
     from datetime import datetime
@@ -153,10 +174,16 @@ def test_scrape_session_returns_dataframe(scraper, mocker):
 
     def make_record(filename):
         return BillRecord(
-            session=131, ld_number=filename.split("-")[2], document_type="bill",
-            amendment_code=None, amendment_type=None, chamber=None,
-            text="text", extraction_confidence=0.9,
-            source_filename=filename, source_url="http://example.com",
+            session=131,
+            ld_number=filename.split("-")[2],
+            document_type="bill",
+            amendment_code=None,
+            amendment_type=None,
+            chamber=None,
+            text="text",
+            extraction_confidence=0.9,
+            source_filename=filename,
+            source_url="http://example.com",
             scraped_at=datetime.now(UTC).isoformat(),
         )
 
@@ -172,8 +199,9 @@ def test_scrape_session_returns_dataframe(scraper, mocker):
 
 
 def test_scrape_session_skips_unrecognized_filenames(scraper, mocker):
-    mocker.patch.object(scraper, "_fetch_bill_list",
-                        return_value=["131-LD-0001", "not-a-valid-name"])
+    mocker.patch.object(
+        scraper, "_fetch_bill_list", return_value=["131-LD-0001", "not-a-valid-name"]
+    )
 
     from datetime import datetime
 
@@ -181,10 +209,16 @@ def test_scrape_session_skips_unrecognized_filenames(scraper, mocker):
 
     def make_record(filename):
         return BillRecord(
-            session=131, ld_number="0001", document_type="bill",
-            amendment_code=None, amendment_type=None, chamber=None,
-            text="text", extraction_confidence=0.9,
-            source_filename=filename, source_url="",
+            session=131,
+            ld_number="0001",
+            document_type="bill",
+            amendment_code=None,
+            amendment_type=None,
+            chamber=None,
+            text="text",
+            extraction_confidence=0.9,
+            source_filename=filename,
+            source_url="",
             scraped_at=datetime.now(UTC).isoformat(),
         )
 
@@ -210,10 +244,16 @@ def test_scrape_session_processes_all_bills_in_parallel(mocker):
     def slow_make_record(filename):
         time.sleep(0.01)
         return BillRecord(
-            session=131, ld_number=filename.split("-")[2], document_type="bill",
-            amendment_code=None, amendment_type=None, chamber=None,
-            text="text", extraction_confidence=0.9,
-            source_filename=filename, source_url="",
+            session=131,
+            ld_number=filename.split("-")[2],
+            document_type="bill",
+            amendment_code=None,
+            amendment_type=None,
+            chamber=None,
+            text="text",
+            extraction_confidence=0.9,
+            source_filename=filename,
+            source_url="",
             scraped_at=datetime.now(UTC).isoformat(),
         )
 
@@ -226,8 +266,7 @@ def test_scrape_session_processes_all_bills_in_parallel(mocker):
 
 
 def test_scrape_session_continues_after_individual_failure(scraper, mocker):
-    mocker.patch.object(scraper, "_fetch_bill_list",
-                        return_value=["131-LD-0001", "131-LD-0002"])
+    mocker.patch.object(scraper, "_fetch_bill_list", return_value=["131-LD-0001", "131-LD-0002"])
 
     call_count = 0
 
@@ -239,11 +278,18 @@ def test_scrape_session_continues_after_individual_failure(scraper, mocker):
         from datetime import datetime
 
         from maine_bills.schema import BillRecord
+
         return BillRecord(
-            session=131, ld_number="0002", document_type="bill",
-            amendment_code=None, amendment_type=None, chamber=None,
-            text="text", extraction_confidence=0.9,
-            source_filename=filename, source_url="",
+            session=131,
+            ld_number="0002",
+            document_type="bill",
+            amendment_code=None,
+            amendment_type=None,
+            chamber=None,
+            text="text",
+            extraction_confidence=0.9,
+            source_filename=filename,
+            source_url="",
             scraped_at=datetime.now(UTC).isoformat(),
         )
 

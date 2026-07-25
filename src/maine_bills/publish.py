@@ -110,9 +110,7 @@ def sync_dataset_card(repo_id: str) -> None:
 
     repo_items = api.list_repo_tree(repo_id, repo_type="dataset", path_in_repo="data")
     sessions = sorted(
-        int(item.path.split("/")[-1])
-        for item in repo_items
-        if item.path.split("/")[-1].isdigit()
+        int(item.path.split("/")[-1]) for item in repo_items if item.path.split("/")[-1].isdigit()
     )
 
     if not sessions:
@@ -121,24 +119,23 @@ def sync_dataset_card(repo_id: str) -> None:
 
     session_config_lines = []
     for s in sessions:
-        session_config_lines.extend([
-            f'  - config_name: "{s}"',
-            "    data_files:",
-            "      - split: train",
-            f'        path: "data/{s}/*.parquet"',
-        ])
+        session_config_lines.extend(
+            [
+                f'  - config_name: "{s}"',
+                "    data_files:",
+                "      - split: train",
+                f'        path: "data/{s}/*.parquet"',
+            ]
+        )
 
-    readme_content = DATASET_CARD_TEMPLATE.format(
-        session_configs="\n".join(session_config_lines)
-    )
+    readme_content = DATASET_CARD_TEMPLATE.format(session_configs="\n".join(session_config_lines))
     api.upload_file(
         path_or_fileobj=readme_content.encode("utf-8"),
         path_in_repo="README.md",
         repo_id=repo_id,
         repo_type="dataset",
         commit_message=(
-            f"Sync dataset card: {len(sessions)} sessions "
-            f"({sessions[0]}–{sessions[-1]})"
+            f"Sync dataset card: {len(sessions)} sessions ({sessions[0]}–{sessions[-1]})"
         ),
     )
     logger.info(f"Dataset card updated with {len(sessions)} session configs")
