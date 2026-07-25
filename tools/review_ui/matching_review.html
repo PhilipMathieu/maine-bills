@@ -94,7 +94,13 @@ function restore() {
   } catch { return {}; }
 }
 function persist() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ generated_at: report.generated_at, verdicts }));
+  // Storage can be disabled, full, or blocked under file:// — a failed save
+  // must not stop the review; verdicts stay in memory and still export.
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ generated_at: report.generated_at, verdicts }));
+  } catch (err) {
+    if (!persist.warned) { persist.warned = true; console.warn("Progress not saved locally:", err); }
+  }
 }
 
 // Intentionally omits bill_id for fuzzy entries: the sponsor-string → legislator
@@ -163,11 +169,13 @@ function renderCards() {
          <span class="meta">s${esc(item.session)} · ${esc(item.bill_id)}</span>`
       : `<div class="pair"><span class="from">${esc(item.name)}</span></div>
          <span class="meta">s${esc(item.session)} · ${esc(item.bill_count)} bill(s)</span>`;
+    const LABELS = { correct: "Mark correct", incorrect: "Mark incorrect", flag: "Flag for follow-up" };
     const btn = (verdict, label) =>
       `<button class="${v && v.verdict === verdict ? "sel-" + verdict : ""}"
+        aria-label="${LABELS[verdict]}" title="${LABELS[verdict]}"
         onclick="event.stopPropagation();decide(${i},'${verdict}')">${label}</button>`;
     return `<div class="card${decided}${focused}" id="card-${i}" tabindex="0"
-      onclick="setFocus(${i})">${body}
+      onclick="setFocus(${i})" onfocus="setFocus(${i})">${body}
       <span class="btns">${btn("correct", "✓")}${btn("incorrect", "✗")}${btn("flag", "⚑")}</span>
       <input class="note ${v && v.note ? "show" : ""}" placeholder="note (optional)"
         value="${v && v.note ? esc(v.note) : ""}"
@@ -193,6 +201,7 @@ function decide(i, verdict) {
   verdicts[k] = { ...(verdicts[k] || {}), item: strip(item), verdict };
   if (verdict === "flag") setTimeout(() => {
     const note = document.querySelector(`#card-${i} .note`);
+    if (!note) return; // tab switched or list re-rendered before this ran
     note.classList.add("show"); note.focus();
   });
   focusIdx = i + 1;
@@ -226,9 +235,11 @@ document.getElementById("export").addEventListener("click", () => {
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
+  const url = URL.createObjectURL(blob);
+  a.href = url;
   a.download = "matching_verdicts.json";
   a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
 });
 
 function render() { renderSessions(); renderTabs(); renderCards(); }
