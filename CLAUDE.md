@@ -7,13 +7,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A Python scraper for Maine Legislature bills that extracts text and metadata from PDFs and publishes structured Parquet files to HuggingFace Hub at `pem207/maine-bills`.
 
 **Current state:** Production pipeline covering sessions 121-132 (2003-2026)
-**Dataset:** `pem207/maine-bills` on HuggingFace Hub
+**Dataset:** `pem207/maine-bills` on HuggingFace Hub — **v2** (sponsor enrichment)
 
-**Quality Status (2026-02-18):**
-- 151 unit tests passing, 88% coverage
-- Sponsor extraction: ~98% accuracy against OpenStates, 0 garbage false positives
-- Validated across sessions 121-132
-- Progress bars via tqdm for long scrape runs
+**Quality Status (2026-07-26):**
+- 290 unit tests passing
+- v2 adds five sponsor columns aligned with `sponsors`: `sponsor_chambers`,
+  `sponsor_ids`, `sponsor_parties`, `sponsor_districts`, `sponsor_match_confidence`
+- Sponsor→OpenStates match rate: 59.7% of mentions overall — 84% for sessions
+  125-132, 16.5% for 121-124 (roster coverage gap; see issue #13)
+- Unmatched and ambiguous sponsors are published as nulls, never guessed;
+  extracted `sponsors` strings are never modified by enrichment
+- PR approval tiers are defined in `docs/GOVERNANCE.md`; HuggingFace publishing
+  is gated by the `huggingface-publish` environment
+- See `docs/plans/2026-07-26-sprint-status.md` for the current handoff notes
 
 ## Essential Commands
 
