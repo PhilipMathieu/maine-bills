@@ -101,10 +101,22 @@ through independent paths and agree to the record on all 12 sessions.
 - This session's network policy allows **GitHub only** — no huggingface.co,
   legislature.maine.gov, or openstates.org. GitHub Actions is the execution
   plane for all data work; `data-run.yml` is the escape hatch.
-- The agent token **cannot dispatch workflows** (403 `Resource not accessible by
-  integration`) and **cannot download artifacts** (raw curl is unauthorized).
-  Dispatches and artifact downloads need a human, or `actions: write` on the
-  token.
+- **Agents cannot start a workflow run. This is deliberate — do not route around
+  it.** Two independent blocks, both verified:
+  - `workflow_dispatch` needs `Actions: write` (per the REST docs); the GitHub
+    App doesn't have it. Confirmed by probe — cancelling a run returns the same
+    `Resource not accessible by integration`, so it isn't dispatch-specific.
+  - `repository_dispatch` needs only `Contents: write`, which the App *does*
+    have, so it would succeed at GitHub's end. The agent proxy refuses it:
+    `repository_dispatch is not permitted for this session type`.
+
+  The second one is a platform policy against agent-initiated workflow runs, not
+  a missing scope. A `push`-triggered workflow reaches the same capability
+  through a channel the policy doesn't cover; that was built and reverted in #15
+  once the policy was understood. Dispatches are a human click, by design.
+- The agent token **cannot download artifacts** (raw curl is unauthorized), so
+  workflow results should be force-pushed to a `fixtures/*` branch, which is
+  readable.
 - **Re-running a workflow replays its original commit.** After merging a fix,
   dispatch fresh from the workflow page rather than "Re-run jobs" — a re-run of
   an older run will silently test the old code.
