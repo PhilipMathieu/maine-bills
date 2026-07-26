@@ -165,7 +165,13 @@ def _sample(by_filename: pd.DataFrame, name: str, session: int, bucket: str) -> 
     row = by_filename.loc[name]
     if isinstance(row, pd.DataFrame):  # duplicate filenames, if any
         row = row.iloc[0]
-    text = row.get("text") or ""
+    # Same guard analyze_zero_sponsor_docs uses, and for the same reason: a null
+    # text cell is not always None. `pd.NA or ""` raises (its truth value is
+    # ambiguous), and NaN is *truthy*, so `or ""` hands back the float and the
+    # slice below fails instead. isinstance covers both.
+    text = row.get("text")
+    if not isinstance(text, str):
+        text = ""
     return {
         "session": session,
         "source_filename": name,

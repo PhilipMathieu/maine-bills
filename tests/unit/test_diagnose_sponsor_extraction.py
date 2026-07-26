@@ -234,6 +234,24 @@ def test_no_healthy_samples_when_nothing_has_sponsors(diag):
     assert [s for s in samples if s["bucket"].startswith("has_sponsors")] == []
 
 
+@pytest.mark.parametrize("null_text", [None, pd.NA, np.nan])
+def test_sampling_survives_a_null_text_cell(diag, null_text):
+    """A sponsored bill with null text must not crash the sampler.
+
+    `pd.NA or ""` raises outright; NaN is truthy, so `or ""` yields the float
+    and the text slice fails instead. Both reach _sample only through the
+    has-sponsors path, which cannot pre-filter on text the way the zero-sponsor
+    buckets do.
+    """
+    df = pd.DataFrame([_row("132-LD-0030", ["DAUGHTRY"], null_text)])
+    _, samples = diag.diagnose_session(df, 132, samples=3)
+
+    sample = next(s for s in samples if s["bucket"] == "has_sponsors_low")
+    assert sample["text_head"] == ""
+    assert sample["reextracted"] == []
+    assert sample["stored_sponsors"] == ["DAUGHTRY"]
+
+
 def test_sample_count_is_capped(diag):
     rows = [_row(f"132-LD-{i:04d}", [], SPONSOR_BLOCK) for i in range(20)]
     _, samples = diag.diagnose_session(pd.DataFrame(rows), 132, samples=3)
