@@ -36,6 +36,21 @@ def _match_value(match, name: str):
     return getattr(match, name, None)
 
 
+def as_aligned_list(value) -> list | None:
+    """Coerce a parquet list-column cell to a list, or None if it isn't one.
+
+    Nulls arrive as None, NaN, or pd.NA depending on dtype — none of which are
+    iterable — and list columns round-trip as numpy arrays. Strings are treated
+    as absent rather than exploded into characters.
+    """
+    if value is None or isinstance(value, str):
+        return None
+    try:
+        return list(value)
+    except TypeError:
+        return None
+
+
 def apply_enrichment(record: BillRecord, matches: list) -> BillRecord:
     """Apply sponsor match results to a BillRecord in place.
 
@@ -113,9 +128,9 @@ def enrich_dataframe(df: pd.DataFrame, matcher_fn) -> pd.DataFrame:
         if accepts_session:
             kwargs["session"] = row["session"]
         if accepts_chambers:
-            chambers = row.get("sponsor_chambers")
-            if chambers is not None and len(list(chambers)) == len(sponsors):
-                kwargs["chambers"] = list(chambers)
+            chambers = as_aligned_list(row.get("sponsor_chambers"))
+            if chambers is not None and len(chambers) == len(sponsors):
+                kwargs["chambers"] = chambers
         matches = matcher_fn(sponsors, **kwargs)
         if len(matches) != len(sponsors):
             raise ValueError(

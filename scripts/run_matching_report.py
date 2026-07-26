@@ -47,6 +47,7 @@ from maine_bills.sponsor_matching import (  # noqa: E402
     METHOD_UNMATCHED,
     SponsorMatcher,
 )
+from maine_bills.enrichment import as_aligned_list
 from maine_bills.text_extractor import TextExtractor
 
 logger = logging.getLogger("run_matching_report")
@@ -132,9 +133,9 @@ def chambers_for_row(row, sponsors: list[str]) -> list[str | None]:
     bill sponsored by two legislators sharing a surname in different chambers
     has only one entry; it takes that surname's first-mentioned chamber.
     """
-    stored = row.get("sponsor_chambers")
-    if stored is not None and len(list(stored)) == len(sponsors):
-        return list(stored)
+    stored = as_aligned_list(row.get("sponsor_chambers"))
+    if stored is not None and len(stored) == len(sponsors):
+        return stored
 
     text = row.get("text")
     if not isinstance(text, str) or not text:

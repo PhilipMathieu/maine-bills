@@ -263,3 +263,14 @@ def test_analyze_session_uses_hints_to_resolve_ambiguity(report_mod):
     stats = report_mod.analyze_session(df_with_text, SponsorMatcher(ROSTER), 132)
     assert stats["counts"]["ambiguous"] == 0
     assert stats["counts"]["exact"] == 1
+
+
+def test_chambers_null_column_falls_back_to_text(report_mod):
+    """Regression: a NaN sponsor_chambers cell must not raise."""
+    import numpy as np
+
+    row = {
+        "sponsor_chambers": np.nan,
+        "text": "Presented by Senator LIBBY of Androscoggin.\nBe it enacted",
+    }
+    assert report_mod.chambers_for_row(row, ["LIBBY"]) == ["Senate"]
