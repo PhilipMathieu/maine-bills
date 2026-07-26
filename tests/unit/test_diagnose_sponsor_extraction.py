@@ -175,12 +175,63 @@ def test_diagnose_session_buckets_only_originals(diag):
 
 def test_diagnose_session_samples_the_problem_buckets(diag):
     _, samples = diag.diagnose_session(_session_frame(), 132, samples=5)
-    assert [s["source_filename"] for s in samples] == ["132-LD-0002"]
-    sample = samples[0]
+    problem = [s for s in samples if s["bucket"] in ("recoverable", "marker_only")]
+    assert [s["source_filename"] for s in problem] == ["132-LD-0002"]
+    sample = problem[0]
     assert sample["bucket"] == "recoverable"
     assert sample["session"] == 132
     assert ("DAUGHTRY", "Senate") in [tuple(m) for m in sample["reextracted"]]
     assert sample["text_head"].startswith("STATE OF MAINE")
+
+
+# --- sampling bills that DO have sponsors ---
+
+
+def _mixed_frame():
+    """Three sponsored bills with 1, 2 and 4 stored sponsors."""
+    return pd.DataFrame(
+        [
+            _row("132-LD-0010", ["ONLYONE"], SPONSOR_BLOCK),
+            _row("132-LD-0011", ["A", "B"], SPONSOR_BLOCK),
+            _row("132-LD-0012", ["A", "B", "C", "D"], SPONSOR_BLOCK),
+            _row("132-LD-0013", [], "Be it enacted."),
+        ]
+    )
+
+
+def test_low_sponsor_samples_lead_with_the_fewest(diag):
+    _, samples = diag.diagnose_session(_mixed_frame(), 132, samples=1)
+    low = [s for s in samples if s["bucket"] == "has_sponsors_low"]
+    assert [s["source_filename"] for s in low] == ["132-LD-0010"]
+    assert low[0]["stored_sponsors"] == ["ONLYONE"]
+
+
+def test_high_sponsor_control_is_included(diag):
+    _, samples = diag.diagnose_session(_mixed_frame(), 132, samples=1)
+    high = [s for s in samples if s["bucket"] == "has_sponsors_high"]
+    assert [s["source_filename"] for s in high] == ["132-LD-0011", "132-LD-0012"]
+
+
+def test_samples_expose_stored_vs_reextracted(diag):
+    """The whole point: what the record holds, next to what the text says."""
+    _, samples = diag.diagnose_session(_mixed_frame(), 132, samples=1)
+    low = next(s for s in samples if s["bucket"] == "has_sponsors_low")
+    assert low["stored_sponsors"] == ["ONLYONE"]
+    # The text names two people, so the record is demonstrably losing sponsors.
+    assert len(low["reextracted"]) == 2
+    assert low["text_head"].startswith("STATE OF MAINE")
+
+
+def test_unsponsored_bills_are_never_sampled_as_healthy(diag):
+    _, samples = diag.diagnose_session(_mixed_frame(), 132, samples=1)
+    healthy = [s for s in samples if s["bucket"].startswith("has_sponsors")]
+    assert "132-LD-0013" not in [s["source_filename"] for s in healthy]
+
+
+def test_no_healthy_samples_when_nothing_has_sponsors(diag):
+    df = pd.DataFrame([_row("132-LD-0020", [], "Be it enacted.")])
+    _, samples = diag.diagnose_session(df, 132, samples=3)
+    assert [s for s in samples if s["bucket"].startswith("has_sponsors")] == []
 
 
 def test_sample_count_is_capped(diag):
