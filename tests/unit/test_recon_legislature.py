@@ -346,3 +346,47 @@ def test_seeds_are_formatted_with_the_session(recon, tmp_path, monkeypatch):
     index = json.loads((tmp_path / "session-121" / "recon-index.json").read_text())
     assert any("snum=121" in seed for seed in index["seeds"])
     assert not any("{session}" in seed for seed in index["seeds"])
+
+
+# --- robots.txt capture ---
+
+
+def test_directive_reads_crawl_delay(recon):
+    body = "User-agent: *\nCrawl-delay: 10\nDisallow: /LawMakerWeb/\n"
+    assert recon._directive(body, "crawl-delay") == "10"
+    assert recon._directive(body, "request-rate") is None
+
+
+def test_directive_ignores_comments_and_case(recon):
+    body = "# Crawl-delay: 99\nUser-agent: *\nCRAWL-DELAY: 5  # be nice\n"
+    assert recon._directive(body, "crawl-delay") == "5"
+
+
+def test_robots_policy_keeps_the_raw_text(recon):
+    robots_url = "https://legislature.maine.gov/robots.txt"
+    body = "User-agent: *\nCrawl-delay: 10\nDisallow: /LawMakerWeb/\n"
+    http = FakeSession({robots_url: FakeResponse(robots_url, text=body)})
+    policy = recon.RobotsPolicy(http)
+    policy.allows("https://legislature.maine.gov/a")
+    assert policy.raw["legislature.maine.gov"] == body
+
+
+def test_main_records_and_saves_robots(recon, tmp_path, monkeypatch):
+    robots_url = "https://legislature.maine.gov/robots.txt"
+    body = "User-agent: *\nCrawl-delay: 10\n"
+    monkeypatch.setattr(
+        recon.requests,
+        "Session",
+        lambda: FakeSession({robots_url: FakeResponse(robots_url, text=body)}),
+    )
+    monkeypatch.setattr(
+        recon.sys,
+        "argv",
+        ["recon_legislature.py", "--session", "132", "--out", str(tmp_path), "--delay", "0"],
+    )
+    recon.main()
+
+    out = tmp_path / "session-132"
+    index = json.loads((out / "recon-index.json").read_text())
+    assert index["robots"]["legislature.maine.gov"]["crawl_delay"] == "10"
+    assert (out / "robots-legislature.maine.gov.txt").read_text() == body

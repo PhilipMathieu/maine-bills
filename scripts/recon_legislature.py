@@ -164,6 +164,16 @@ def extract_links(html: str, base_url: str) -> list[dict]:
     return links
 
 
+def _directive(robots_text: str, name: str) -> str | None:
+    """First value of a robots.txt directive, e.g. Crawl-delay, or None."""
+    for line in robots_text.splitlines():
+        line = line.split("#", 1)[0].strip()
+        key, _, value = line.partition(":")
+        if key.strip().lower() == name and value.strip():
+            return value.strip()
+    return None
+
+
 def page_title(html: str) -> str:
     soup = BeautifulSoup(html, features="html.parser")
     return soup.title.get_text(strip=True)[:200] if soup.title else ""
@@ -176,6 +186,10 @@ class RobotsPolicy:
         self._http = http
         self._respect = respect
         self._parsers: dict[str, urllib.robotparser.RobotFileParser | None] = {}
+        # Raw text per host, kept so a run can report the site's own stated
+        # crawl policy. Crawl-delay in particular decides our request rate, and
+        # that decision should come from the site rather than from our judgment.
+        self.raw: dict[str, str] = {}
 
     def allows(self, url: str) -> bool:
         if not self._respect:
@@ -193,6 +207,7 @@ class RobotsPolicy:
             res = self._http.get(robots_url, timeout=REQUEST_TIMEOUT)
             if res.status_code != 200:
                 return None
+            self.raw[parsed.netloc.lower()] = res.text
             parser = urllib.robotparser.RobotFileParser()
             parser.parse(res.text.splitlines())
             return parser
@@ -305,8 +320,10 @@ def main() -> int:
         "pages": [],
     }
 
+    # Bound before the try so the finally block can always read it.
+    robots = RobotsPolicy(http, respect=not args.ignore_robots)
+
     try:
-        robots = RobotsPolicy(http, respect=not args.ignore_robots)
         if args.focus == "all":
             # Two phases with a reserved budget rather than one queue. A single
             # BFS starves the rosters: the bill directory's depth-1 links are
@@ -346,6 +363,19 @@ def main() -> int:
         summary["fatal_error"] = f"{type(e).__name__}: {e}"
         print(f"Unexpected error: {e}", file=sys.stderr)
     finally:
+        # The site's stated policy, verbatim and parsed. Crawl-delay decides our
+        # request rate for the bill-status backfill; taking it from robots.txt
+        # rather than picking a number ourselves is both correct and checkable.
+        summary["robots"] = {
+            host: {
+                "crawl_delay": _directive(text, "crawl-delay"),
+                "request_rate": _directive(text, "request-rate"),
+            }
+            for host, text in robots.raw.items()
+        }
+        for host, text in robots.raw.items():
+            (out_dir / f"robots-{host}.txt").write_text(text, encoding="utf-8")
+
         fetched = [p for p in summary["pages"] if p.get("file")]
         summary["fetched_count"] = len(fetched)
         summary["by_category"] = {
