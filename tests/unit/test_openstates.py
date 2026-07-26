@@ -17,6 +17,7 @@ from maine_bills.openstates import (
     roster_cache_path,
     roster_for_session,
     session_biennium,
+    session_window,
 )
 
 # --- session_biennium ---
@@ -34,40 +35,69 @@ def test_session_125_is_2011_2012():
     assert session_biennium(125) == (2011, 2012)
 
 
-# --- Role.overlaps_biennium ---
+# --- session_window / Role.overlaps_window ---
+
+# Real Maine swearing-in dates: the first Wednesday of December in even years.
+TERM_129TH = ("2018-12-05", "2020-12-02")
+TERM_130TH = ("2020-12-02", "2022-12-07")
+TERM_131ST = ("2022-12-07", "2024-12-04")
+TERM_132ND = ("2024-12-04", None)
 
 
-def test_role_within_biennium_overlaps():
-    role = Role(chamber="Senate", start_date="2003-01-08", end_date="2004-12-01")
-    assert role.overlaps_biennium(2003, 2004)
+def test_session_window_brackets_the_december_handoff():
+    assert session_window(132) == ("2024-12-15", "2026-12-01")
+    assert session_window(121) == ("2002-12-15", "2004-12-01")
 
 
-def test_role_sworn_in_december_before_biennium_overlaps():
-    """Maine legislators are sworn in early December of the election year."""
+def test_only_the_sitting_legislature_is_in_the_window():
+    """Regression: the calendar-year window pulled in adjacent legislatures.
+
+    Session 130's window used to run to 2022-12-31, which included the
+    131st Legislature's swearing-in on 2022-12-07 — so every newly elected
+    member of the next legislature landed in the 130th's roster, inflating it
+    by 30-50% and manufacturing same-chamber surname collisions.
+    """
+    window = session_window(130)
+    matches = {
+        label: Role(chamber="House", start_date=s, end_date=e).overlaps_window(*window)
+        for label, (s, e) in {
+            "129th": TERM_129TH,
+            "130th": TERM_130TH,
+            "131st": TERM_131ST,
+            "132nd": TERM_132ND,
+        }.items()
+    }
+    assert matches == {"129th": False, "130th": True, "131st": False, "132nd": False}
+
+
+def test_role_sworn_in_december_before_the_session_overlaps():
+    """A term starting in the December before the biennium is this session's."""
     role = Role(chamber="House", start_date="2002-12-04", end_date="2004-12-01")
-    assert role.overlaps_biennium(2003, 2004)
+    assert role.overlaps_window(*session_window(121))
 
 
-def test_role_ending_before_biennium_does_not_overlap():
-    role = Role(chamber="House", start_date="2000-12-06", end_date="2002-12-04")
-    assert not role.overlaps_biennium(2003, 2004)
+def test_role_ending_at_the_handoff_does_not_overlap_the_next_session():
+    """The outgoing legislature's final days must not count for the new session."""
+    role = Role(chamber="House", start_date=TERM_130TH[0], end_date=TERM_130TH[1])
+    assert not role.overlaps_window(*session_window(131))
 
 
-def test_role_starting_after_biennium_does_not_overlap():
-    role = Role(chamber="Senate", start_date="2025-01-01", end_date=None)
-    assert not role.overlaps_biennium(2023, 2024)
+def test_mid_term_replacement_is_included():
+    """A member seated mid-biennium is genuinely part of that roster."""
+    role = Role(chamber="House", start_date="2021-06-01", end_date="2022-12-07")
+    assert role.overlaps_window(*session_window(130))
 
 
-def test_open_ended_role_overlaps_current_biennium():
-    role = Role(chamber="Senate", start_date="2023-12-06", end_date=None)
-    assert role.overlaps_biennium(2025, 2026)
+def test_open_ended_role_overlaps_current_session():
+    role = Role(chamber="Senate", start_date="2024-12-04", end_date=None)
+    assert role.overlaps_window(*session_window(132))
 
 
 def test_undated_role_overlaps_everything():
-    """v3 API roles carry no dates; they must count for any queried biennium."""
+    """v3 API roles carry no dates; they must count for any queried session."""
     role = Role(chamber="House")
-    assert role.overlaps_biennium(2003, 2004)
-    assert role.overlaps_biennium(2025, 2026)
+    assert role.overlaps_window(*session_window(121))
+    assert role.overlaps_window(*session_window(132))
 
 
 # --- roster_for_session ---
@@ -403,3 +433,53 @@ def test_roster_cache_is_keyed_by_provider(tmp_path, fake_provider):
     # The second provider actually fetched rather than reusing the first's roster
     assert other.fetch_count == 1
     assert first[0].openstates_id != second[0].openstates_id
+
+
+def test_roster_excludes_the_incoming_legislature():
+    """End-to-end: the next legislature's freshmen must not inflate this roster.
+
+    Mirrors the real failure — session 130's roster came back with 279 seats
+    against Maine's 186, because the whole incoming 131st class leaked in.
+    """
+    sitting = _legislator(
+        "Anne Perry",
+        "Perry",
+        [Role("House", "9", *TERM_130TH)],
+        os_id="ocd-person/perry-a",
+    )
+    incoming = _legislator(
+        "Newly Elected",
+        "Elected",
+        [Role("House", "9", *TERM_131ST)],
+        os_id="ocd-person/newcomer",
+    )
+    outgoing = _legislator(
+        "Former Member",
+        "Former",
+        [Role("House", "9", *TERM_129TH)],
+        os_id="ocd-person/former",
+    )
+    replacement = _legislator(
+        "Mid Term",
+        "Midterm",
+        [Role("House", "42", "2021-06-01", "2022-12-07")],
+        os_id="ocd-person/midterm",
+    )
+
+    roster = roster_for_session([sitting, incoming, outgoing, replacement], 130)
+    ids = {entry.openstates_id for entry in roster}
+
+    assert ids == {"ocd-person/perry-a", "ocd-person/midterm"}
+
+
+def test_consecutive_sessions_do_not_share_a_seat_holder():
+    """One person serving two consecutive terms appears in both, once each."""
+    two_termer = _legislator(
+        "Long Serving",
+        "Serving",
+        [Role("Senate", "3", *TERM_130TH), Role("Senate", "3", *TERM_131ST)],
+        os_id="ocd-person/long",
+    )
+    for session, expected in ((130, 1), (131, 1), (132, 0)):
+        roster = roster_for_session([two_termer], session)
+        assert len(roster) == expected, session

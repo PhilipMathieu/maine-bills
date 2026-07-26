@@ -15,7 +15,9 @@ the full parsed legislator list per provider, plus one roster file per session.
 
 Session -> biennium mapping: Maine session 121 = 2003-2004; each session +1 adds
 2 years. A legislator belongs to a session's roster if any of their legislative
-roles overlaps that biennium.
+roles overlaps that session's *sitting period* (see :func:`session_window`) —
+not the calendar years, which would include the December swearing-in of the
+following legislature and pull its entire freshman class into this roster.
 """
 
 import json
@@ -65,6 +67,33 @@ def session_biennium(session: int) -> tuple[int, int]:
     return start_year, start_year + 1
 
 
+# A Maine Legislature is sworn in on the first Wednesday of December in an
+# even-numbered year and sits until its successor is sworn in two years later.
+# The sitting period therefore straddles calendar years: the 132nd began
+# 2024-12-04 and runs to early December 2026.
+#
+# These bounds bracket that handoff. The window opens after the swearing-in
+# (so the *outgoing* legislature, whose terms end that same week, is excluded)
+# and closes before the next one (so the *incoming* legislature is excluded).
+# Using plain calendar years instead pulls the entire incoming class into the
+# previous session's roster — which inflated historical rosters by 30-50%
+# and manufactured surname collisions that chamber hints cannot resolve.
+_TERM_START_AFTER = "12-15"  # mid-December: after this session was sworn in
+_TERM_END_BEFORE = "12-01"  # start of December: before the successor is sworn in
+
+
+def session_window(session: int) -> tuple[str, str]:
+    """ISO date bounds of a session's sitting period.
+
+    Session 132 -> ("2024-12-15", "2026-12-01").
+
+    Returns:
+        (window_start, window_end) as ISO date strings
+    """
+    start_year, end_year = session_biennium(session)
+    return f"{start_year - 1}-{_TERM_START_AFTER}", f"{end_year}-{_TERM_END_BEFORE}"
+
+
 @dataclass(frozen=True)
 class Role:
     """A single legislative role (one stint in one chamber)."""
@@ -74,15 +103,16 @@ class Role:
     start_date: str | None = None  # ISO date string, None = unknown/open
     end_date: str | None = None  # ISO date string, None = ongoing
 
-    def overlaps_biennium(self, start_year: int, end_year: int) -> bool:
-        """Check whether this role overlaps a biennium window.
+    def overlaps_window(self, window_start: str, window_end: str) -> bool:
+        """Check whether this role overlaps a session's sitting period.
 
-        The window is treated as ``start_year-01-01`` through ``end_year-12-31``.
+        Bounds are ISO date strings from :func:`session_window`, which brackets
+        the December handoff so neither the outgoing nor the incoming
+        legislature leaks into this session's roster.
+
         Missing start/end dates are treated as unbounded on that side, so a role
         with no dates (e.g., a current role from the v3 API) overlaps everything.
         """
-        window_start = f"{start_year}-01-01"
-        window_end = f"{end_year}-12-31"
         # ISO date strings compare correctly as strings
         if self.start_date and self.start_date > window_end:
             return False
@@ -367,16 +397,16 @@ def default_provider() -> RosterProvider:
 
 
 def roster_for_session(legislators: list[Legislator], session: int) -> list[RosterEntry]:
-    """Build a session roster from legislators via biennium role overlap.
+    """Build a session roster from legislators serving during the session.
 
     A legislator appears once per chamber they served in during the biennium.
     If they held multiple districts in one chamber within the biennium, the
     most recent role's district is used.
     """
-    start_year, end_year = session_biennium(session)
+    window_start, window_end = session_window(session)
     entries = []
     for legislator in legislators:
-        overlapping = [r for r in legislator.roles if r.overlaps_biennium(start_year, end_year)]
+        overlapping = [r for r in legislator.roles if r.overlaps_window(window_start, window_end)]
         # One entry per chamber; last-listed overlapping role per chamber wins
         by_chamber: dict[str, Role] = {}
         for role in overlapping:
