@@ -3,6 +3,13 @@
 # The sprint dev environment sits behind a proxy that only allows GitHub, so
 # anything that must reach huggingface.co, legislature.maine.gov, or
 # openstates.org runs here instead. Dispatch-only; never scheduled.
+#
+# Dispatch inputs are passed to steps through `env:` and quoted on use, never
+# interpolated into a `run:` block -- `${{ inputs.x }}` inside `run:` is
+# substituted before the shell sees it, so a crafted input becomes shell code.
+# `sessions` is additionally validated as digits-and-spaces. The `custom` task
+# is the deliberate exception: running an arbitrary command *is* its purpose,
+# and dispatch requires write access to the repository.
 name: Data Run
 
 on:
@@ -12,13 +19,14 @@ on:
         description: "Which task to run"
         type: choice
         required: true
-        default: fetch-status-sample
+        default: recon-legislature
         options:
+          - recon-legislature
           - fetch-status-sample
           - run-matching
           - custom
       sessions:
-        description: "Space-separated session numbers (e.g. '132')"
+        description: "Space-separated session numbers (e.g. '132' or '132 121')"
         type: string
         required: false
         default: "132"
@@ -32,9 +40,111 @@ permissions:
   contents: read
 
 jobs:
+  # Map the legislature site so parsers can be written from the network-
+  # restricted dev environment. Unblocks two things at once: bill actions/status
+  # pages (sprint track A1 -> N3) and member rosters (issue #13 items 1 and 2).
+  #
+  # Run it for one recent and one old session -- the site's structure differs by
+  # era, which is exactly what the parsers need to know up front.
+  recon-legislature:
+    if: inputs.task == 'recon-legislature'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write # force-pushes the fixtures/recon branch
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync --extra dev
+
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
+      - name: Crawl
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          for session in $SESSIONS; do
+            echo "::group::session $session"
+            uv run python scripts/recon_legislature.py \
+              --session "$session" --out data/recon --max-pages 60
+            echo "::endgroup::"
+          done
+
+      - name: Summarize
+        if: always()
+        run: |
+          {
+            echo "## Recon results"
+            echo
+            for index in data/recon/session-*/recon-index.json; do
+              [ -f "$index" ] || continue
+              python3 - "$index" <<'PY'
+          import json, sys
+
+          data = json.load(open(sys.argv[1]))
+          print('### Session', data['session'], '-', data['fetched_count'], 'pages saved')
+          print()
+          for name, urls in data['by_category'].items():
+              print('- **' + name + '**: ' + str(len(urls)) + ' link(s)')
+          print()
+          PY
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish fixtures branch
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -e
+          if [ ! -d data/recon ] || [ -z "$(ls -A data/recon 2>/dev/null)" ]; then
+            echo "Nothing collected; skipping fixtures branch."
+            exit 0
+          fi
+          # Orphan branch containing only the fixtures, force-pushed so each run
+          # replaces it wholesale -- raw HTML must never enter main's history.
+          TMP="$(mktemp -d)"
+          cp -r data/recon/. "$TMP/"
+          cd "$TMP"
+          git init -b fixtures/recon
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fixtures: legislature site recon (data-run ${RUN_ID})"
+          git push --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "HEAD:refs/heads/fixtures/recon"
+          echo "Pushed fixtures/recon"
+
+      - name: Upload recon artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recon
+          path: data/recon/
+          if-no-files-found: warn
+
   # Fetch ~25 bill status pages from the Maine Legislature site and stash the
   # raw HTML on a fixtures branch so the network-restricted dev environment
   # can develop parsers against real pages.
+  #
+  # Prefer `recon-legislature` first: this task probes a fixed list of *guessed*
+  # URL patterns, which is only worth running once recon has confirmed one.
   fetch-status-sample:
     if: inputs.task == 'fetch-status-sample'
     runs-on: ubuntu-latest
@@ -51,12 +161,25 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
       - name: Fetch status page sample
         # The script probes candidate URL patterns first, then fetches with the
         # winner at 1 req/sec. It always writes probe-results.json and exits 0
         # so partial results still get committed/uploaded.
+        env:
+          SESSIONS: ${{ inputs.sessions }}
         run: |
-          SESSION=$(echo "${{ inputs.sessions }}" | awk '{print $1}')
+          SESSION=$(echo "$SESSIONS" | awk '{print $1}')
           uv run python scripts/fetch_status_samples.py \
             --session "$SESSION" --count 25 --out data/status-samples
 
@@ -64,9 +187,11 @@ jobs:
         if: always()
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          SESSIONS: ${{ inputs.sessions }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           set -e
-          SESSION=$(echo "${{ inputs.sessions }}" | awk '{print $1}')
+          SESSION=$(echo "$SESSIONS" | awk '{print $1}')
           BRANCH="fixtures/status-pages-${SESSION}"
           if [ ! -d data/status-samples ] || [ -z "$(ls -A data/status-samples 2>/dev/null)" ]; then
             echo "Nothing fetched; skipping fixtures branch."
@@ -81,7 +206,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "fixtures: status pages for session ${SESSION} (data-run ${{ github.run_id }})"
+          git commit -m "fixtures: status pages for session ${SESSION} (data-run ${RUN_ID})"
           git push --force \
             "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
             "HEAD:refs/heads/${BRANCH}"
@@ -95,9 +220,7 @@ jobs:
           path: data/status-samples/
           if-no-files-found: warn
 
-  # Run the sponsor-matching report (script being built on a parallel branch;
-  # skips cleanly if it hasn't merged yet). Expects the script to write its
-  # output under report/ (override via extra_args if its interface differs).
+  # Run the sponsor-matching report over the published parquet.
   run-matching:
     if: inputs.task == 'run-matching'
     runs-on: ubuntu-latest
@@ -112,20 +235,27 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
       - name: Run matching report
         env:
           OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
+          SESSIONS: ${{ inputs.sessions }}
+          EXTRA_ARGS: ${{ inputs.extra_args }}
         run: |
-          if [ -f scripts/run_matching_report.py ]; then
-            uv run python scripts/run_matching_report.py \
-              --sessions ${{ inputs.sessions }} \
-              --parquet-source hf://datasets/pem207/maine-bills \
-              --output report ${{ inputs.extra_args }}
-          else
-            echo "::notice::scripts/run_matching_report.py not found on this ref (built on a parallel branch); skipping."
-            mkdir -p report
-            echo "run_matching_report.py not present on this ref; nothing was run." > report/SKIPPED.txt
-          fi
+          uv run python scripts/run_matching_report.py \
+            --sessions $SESSIONS \
+            --parquet-source hf://datasets/pem207/maine-bills \
+            --output report $EXTRA_ARGS
 
       - name: Upload report artifact
         if: always()
@@ -137,7 +267,7 @@ jobs:
 
   # Escape hatch: run an arbitrary `uv run <extra_args>` command with full
   # network access. Dispatch-only, so only collaborators with write access can
-  # trigger it; extra_args is interpolated into the shell deliberately.
+  # trigger it; running arbitrary input is the point of this job.
   custom:
     if: inputs.task == 'custom'
     runs-on: ubuntu-latest
@@ -153,12 +283,14 @@ jobs:
         run: uv sync --extra dev
 
       - name: Run custom command
+        env:
+          EXTRA_ARGS: ${{ inputs.extra_args }}
         run: |
-          if [ -z "${{ inputs.extra_args }}" ]; then
+          if [ -z "$EXTRA_ARGS" ]; then
             echo "::error::task=custom requires extra_args (the command to run via 'uv run')."
             exit 1
           fi
-          uv run ${{ inputs.extra_args }}
+          uv run $EXTRA_ARGS
 
       - name: Upload output artifact (if any)
         if: always()
