@@ -34,7 +34,7 @@ An Act Relating to Education
     pdf_path = tmp_path / "test.pdf"
     pdf_path.touch()
 
-    with patch('maine_bills.text_extractor.fitz.open', return_value=mock_doc):
+    with patch("maine_bills.text_extractor.fitz.open", return_value=mock_doc):
         result = TextExtractor.extract_bill_document(pdf_path)
 
         assert isinstance(result, BillDocument)
@@ -50,7 +50,7 @@ def test_extract_bill_document_corrupted_pdf(tmp_path):
     pdf_path = tmp_path / "corrupted.pdf"
     pdf_path.touch()
 
-    with patch('maine_bills.text_extractor.fitz.open', side_effect=Exception("PDF parsing failed")):
+    with patch("maine_bills.text_extractor.fitz.open", side_effect=Exception("PDF parsing failed")):
         with pytest.raises(Exception, match="PDF parsing failed"):
             TextExtractor.extract_bill_document(pdf_path)
 
@@ -94,7 +94,7 @@ def test_bill_document_title_can_be_none(tmp_path, mocker):
     pdf_path = tmp_path / "test.pdf"
     pdf_path.touch()
 
-    with patch('maine_bills.text_extractor.fitz.open', return_value=mock_doc):
+    with patch("maine_bills.text_extractor.fitz.open", return_value=mock_doc):
         result = TextExtractor.extract_bill_document(pdf_path)
 
     assert result.title is None

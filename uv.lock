@@ -1296,6 +1296,8 @@ dependencies = [
     { name = "pandas" },
     { name = "pyarrow" },
     { name = "pymupdf" },
+    { name = "pyyaml" },
+    { name = "rapidfuzz" },
     { name = "requests" },
     { name = "tenacity" },
     { name = "tqdm" },
@@ -1314,7 +1316,6 @@ dev = [
 dev = [
     { name = "jupyter" },
     { name = "python-dotenv" },
-    { name = "rapidfuzz" },
 ]
 
 [package.metadata]
@@ -1328,6 +1329,8 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.1.0" },
     { name = "pytest-mock", marker = "extra == 'dev'", specifier = ">=3.11.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "rapidfuzz", specifier = ">=3.14.3" },
     { name = "requests", specifier = ">=2.31" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.8" },
     { name = "tenacity", specifier = ">=9.0" },
@@ -1339,7 +1342,6 @@ provides-extras = ["dev"]
 dev = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
-    { name = "rapidfuzz", specifier = ">=3.14.3" },
 ]
 
 [[package]]

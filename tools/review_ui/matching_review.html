@@ -116,16 +116,19 @@ function esc(value) {
 
 function renderSessions() {
   const rows = report.sessions.map(s => {
-    const matched = (s.rates.exact || 0) + (s.rates.fuzzy || 0);
+    // Derived from the unmatched side so new match methods (e.g. "ocr") count
+    // automatically instead of silently under-reporting the matched rate.
+    const matched = 1 - ((s.rates.ambiguous || 0) + (s.rates.unmatched || 0));
     const pct = (matched * 100).toFixed(1);
     const cls = matched >= 0.95 ? "" : "warn";
     return `<tr><td>${s.session}</td><td>${s.bills}</td><td>${s.sponsor_mentions}</td>
-      <td>${(s.rates.exact*100).toFixed(1)}%</td><td>${(s.rates.fuzzy*100).toFixed(1)}%</td>
+      <td>${(s.rates.exact*100).toFixed(1)}%</td><td>${((s.rates.ocr||0)*100).toFixed(1)}%</td>
+      <td>${(s.rates.fuzzy*100).toFixed(1)}%</td>
       <td>${s.counts.ambiguous}</td><td>${s.counts.unmatched}</td>
       <td class="${cls}">${pct}% <span class="bar" style="width:${Math.round(matched*60)}px"></span></td></tr>`;
   }).join("");
   document.getElementById("sessions").innerHTML =
-    `<table><tr><th>Session</th><th>Bills</th><th>Mentions</th><th>Exact</th><th>Fuzzy</th>
+    `<table><tr><th>Session</th><th>Bills</th><th>Mentions</th><th>Exact</th><th>OCR</th><th>Fuzzy</th>
      <th>Ambig.</th><th>Unmatched</th><th>Matched</th></tr>${rows}</table>`;
 }
 
@@ -165,7 +168,7 @@ function renderCards() {
       ? `<div class="pair"><span class="from">${esc(item.sponsor)}</span> →
            <span class="to">${esc(item.canonical_name)}</span><br>
            <span class="hint">${esc(item.openstates_id)}</span></div>
-         <span class="conf">${(item.confidence * 100).toFixed(0)}%</span>
+         <span class="conf">${(item.confidence * 100).toFixed(0)}%${item.method === "ocr" ? " ocr" : ""}</span>
          <span class="meta">s${esc(item.session)} · ${esc(item.bill_id)}</span>`
       : `<div class="pair"><span class="from">${esc(item.name)}</span></div>
          <span class="meta">s${esc(item.session)} · ${esc(item.bill_count)} bill(s)</span>`;

@@ -10,9 +10,9 @@ from src.maine_bills.text_extractor import TextExtractor
 
 def demo_bill_extraction(session: str, bill_id: str) -> None:
     """Download and extract a bill, displaying results."""
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"DEMO: {bill_id}")
-    print(f"{'='*80}")
+    print(f"{'=' * 80}")
 
     # Download PDF
     url = f"http://lldc.mainelegislature.org/Open/LDs/{session}/{bill_id}.pdf"
@@ -23,7 +23,7 @@ def demo_bill_extraction(session: str, bill_id: str) -> None:
         response.raise_for_status()
 
         # Save to temp file
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp.write(response.content)
             pdf_path = Path(tmp.name)
 
@@ -39,7 +39,9 @@ def demo_bill_extraction(session: str, bill_id: str) -> None:
         print(f"Title: {bill_doc.title or '(not found)'}")
         print(f"Sponsors: {', '.join(bill_doc.sponsors) if bill_doc.sponsors else '(not found)'}")
         print(f"Committee: {bill_doc.committee or '(not found)'}")
-        print(f"Amended Code References: {', '.join(bill_doc.amended_code_refs) if bill_doc.amended_code_refs else '(none)'}")
+        print(
+            f"Amended Code References: {', '.join(bill_doc.amended_code_refs) if bill_doc.amended_code_refs else '(none)'}"
+        )
         print(f"Extraction Confidence: {bill_doc.extraction_confidence:.2f}")
 
         print(f"\n--- BODY TEXT (first 500 chars) ---")
@@ -52,11 +54,11 @@ def demo_bill_extraction(session: str, bill_id: str) -> None:
         # Show JSON serialization
         print(f"\n--- JSON SERIALIZATION (metadata only) ---")
         metadata_dict = {
-            'bill_id': bill_doc.bill_id,
-            'title': bill_doc.title,
-            'sponsors': bill_doc.sponsors,
-            'committee': bill_doc.committee,
-            'amended_code_refs': bill_doc.amended_code_refs
+            "bill_id": bill_doc.bill_id,
+            "title": bill_doc.title,
+            "sponsors": bill_doc.sponsors,
+            "committee": bill_doc.committee,
+            "amended_code_refs": bill_doc.amended_code_refs,
         }
         print(json.dumps(metadata_dict, indent=2))
 

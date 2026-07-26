@@ -21,10 +21,7 @@ def _write_session(data_dir: Path, session: int, rows: list[dict]) -> None:
 
 def _rows(*specs: tuple[str, str, str | None]) -> list[dict]:
     """Each spec is (source_filename, text, amendment_code)."""
-    return [
-        {"source_filename": f, "text": t, "amendment_code": a}
-        for f, t, a in specs
-    ]
+    return [{"source_filename": f, "text": t, "amendment_code": a} for f, t, a in specs]
 
 
 @pytest.fixture

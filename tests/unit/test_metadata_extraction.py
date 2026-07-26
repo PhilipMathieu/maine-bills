@@ -135,10 +135,7 @@ def test_extract_committee():
 
 def test_extract_sponsors_excludes_houses():
     """'Houses' is noise text that should not appear as a sponsor name."""
-    text = (
-        "Presented by Representative SMITH of Houses\n"
-        "Cosponsored by Senator JONES of District 5"
-    )
+    text = "Presented by Representative SMITH of Houses\nCosponsored by Senator JONES of District 5"
     result = TextExtractor._extract_sponsors(text)
     assert "Houses" not in result
 

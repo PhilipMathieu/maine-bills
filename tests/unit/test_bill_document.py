@@ -17,7 +17,7 @@ def test_bill_document_creation():
         committee="Committee on Education",
         amended_code_refs=["Title 20, Section 1", "Title 20, Section 5"],
         body_text="The body of the bill goes here.",
-        extraction_confidence=0.95
+        extraction_confidence=0.95,
     )
 
     assert doc.bill_id == "131-LD-0001"
@@ -34,7 +34,7 @@ def test_bill_document_asdict():
         title="Test Bill",
         session="131",
         body_text="Text",
-        extraction_confidence=0.9
+        extraction_confidence=0.9,
     )
 
     doc_dict = dataclasses.asdict(doc)
@@ -50,5 +50,5 @@ def test_bill_document_confidence_validation():
             title="Test",
             session="131",
             body_text="Text",
-            extraction_confidence=1.5  # Invalid
+            extraction_confidence=1.5,  # Invalid
         )
