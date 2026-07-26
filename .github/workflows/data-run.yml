@@ -2,27 +2,17 @@
 #
 # The sprint dev environment sits behind a proxy that only allows GitHub, so
 # anything that must reach huggingface.co, legislature.maine.gov, or
-# openstates.org runs here instead. Never scheduled.
+# openstates.org runs here instead. Dispatch-only; never scheduled.
 #
-# Two ways in:
-#
-# 1. **workflow_dispatch** -- a human picks a task in the Actions UI.
-# 2. **push to `run/**`** -- the branch carries a `run-request.json` at the repo
-#    root naming the task. This exists because the agent environment's token can
-#    push branches but cannot dispatch workflows (403 Resource not accessible by
-#    integration), which otherwise makes every data run wait on a human. The
-#    push path is restricted to the fixed data tasks; `custom` (arbitrary command
-#    execution) is dispatch-only, so a branch push can never run one.
-#
-# Inputs from either path are resolved and validated once in the `resolve` job,
-# then passed to steps through `env:` -- never interpolated into a `run:` block,
-# since `${{ inputs.x }}` inside `run:` is substituted before the shell sees it
-# and a crafted value becomes shell source.
+# Dispatch inputs are passed to steps through `env:` and quoted on use, never
+# interpolated into a `run:` block -- `${{ inputs.x }}` inside `run:` is
+# substituted before the shell sees it, so a crafted input becomes shell code.
+# `sessions` is additionally validated as digits-and-spaces. The `custom` task
+# is the deliberate exception: running an arbitrary command *is* its purpose,
+# and dispatch requires write access to the repository.
 name: Data Run
 
 on:
-  push:
-    branches: ["run/**"]
   workflow_dispatch:
     inputs:
       task:
@@ -51,76 +41,6 @@ permissions:
   contents: read
 
 jobs:
-  # Single place where a request becomes trusted values. Both entry paths land
-  # here, both get the same validation, and every downstream job reads these
-  # outputs instead of touching `inputs` or the request file itself.
-  resolve:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    outputs:
-      task: ${{ steps.request.outputs.task }}
-      sessions: ${{ steps.request.outputs.sessions }}
-      extra_args: ${{ steps.request.outputs.extra_args }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Resolve and validate the request
-        id: request
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          INPUT_TASK: ${{ inputs.task }}
-          INPUT_SESSIONS: ${{ inputs.sessions }}
-          INPUT_EXTRA_ARGS: ${{ inputs.extra_args }}
-        run: |
-          set -eu
-          if [ "$EVENT_NAME" = "push" ]; then
-            if [ ! -f run-request.json ]; then
-              echo "::error::a run/** push needs run-request.json at the repo root"
-              exit 1
-            fi
-            read_field() {
-              python3 -c "import json,sys;print(json.load(open('run-request.json')).get(sys.argv[1],''))" "$1"
-            }
-            task="$(read_field task)"
-            sessions="$(read_field sessions)"
-            extra_args="$(read_field extra_args)"
-            # `custom` runs an arbitrary command; it must stay dispatch-only, so
-            # that pushing a branch can never escalate into shell execution.
-            case "$task" in
-              recon-legislature | diagnose-sponsors | fetch-status-sample | run-matching) ;;
-              *)
-                echo "::error::task '$task' cannot be triggered by a branch push"
-                exit 1
-                ;;
-            esac
-          else
-            task="$INPUT_TASK"
-            sessions="$INPUT_SESSIONS"
-            extra_args="$INPUT_EXTRA_ARGS"
-          fi
-
-          case "$sessions" in
-            "" | *[!0-9\ ]*)
-              echo "::error::sessions must be space-separated digits; got '$sessions'"
-              exit 1
-              ;;
-          esac
-          # Also keeps newlines out of the values written to GITHUB_OUTPUT.
-          case "$extra_args" in
-            *[!A-Za-z0-9\ ._=-]*)
-              echo "::error::extra_args may only contain letters, digits, space, and . _ = -"
-              exit 1
-              ;;
-          esac
-
-          echo "Resolved task=$task sessions=$sessions"
-          {
-            echo "task=$task"
-            echo "sessions=$sessions"
-            echo "extra_args=$extra_args"
-          } >> "$GITHUB_OUTPUT"
-
   # Map the legislature site so parsers can be written from the network-
   # restricted dev environment. Unblocks two things at once: bill actions/status
   # pages (sprint track A1 -> N3) and member rosters (issue #13 items 1 and 2).
@@ -128,8 +48,7 @@ jobs:
   # Run it for one recent and one old session -- the site's structure differs by
   # era, which is exactly what the parsers need to know up front.
   recon-legislature:
-    if: needs.resolve.outputs.task == 'recon-legislature'
-    needs: resolve
+    if: inputs.task == 'recon-legislature'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -144,9 +63,20 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
       - name: Crawl
         env:
-          SESSIONS: ${{ needs.resolve.outputs.sessions }}
+          SESSIONS: ${{ inputs.sessions }}
         run: |
           for session in $SESSIONS; do
             echo "::group::session $session"
@@ -217,8 +147,7 @@ jobs:
   #
   # Pass the suspect session and a healthy one -- the comparison is the finding.
   diagnose-sponsors:
-    if: needs.resolve.outputs.task == 'diagnose-sponsors'
-    needs: resolve
+    if: inputs.task == 'diagnose-sponsors'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -233,9 +162,20 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
       - name: Diagnose
         env:
-          SESSIONS: ${{ needs.resolve.outputs.sessions }}
+          SESSIONS: ${{ inputs.sessions }}
         run: |
           uv run python scripts/diagnose_sponsor_extraction.py \
             --sessions $SESSIONS \
@@ -290,8 +230,7 @@ jobs:
   # Prefer `recon-legislature` first: this task probes a fixed list of *guessed*
   # URL patterns, which is only worth running once recon has confirmed one.
   fetch-status-sample:
-    if: needs.resolve.outputs.task == 'fetch-status-sample'
-    needs: resolve
+    if: inputs.task == 'fetch-status-sample'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -306,12 +245,23 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
       - name: Fetch status page sample
         # The script probes candidate URL patterns first, then fetches with the
         # winner at 1 req/sec. It always writes probe-results.json and exits 0
         # so partial results still get committed/uploaded.
         env:
-          SESSIONS: ${{ needs.resolve.outputs.sessions }}
+          SESSIONS: ${{ inputs.sessions }}
         run: |
           SESSION=$(echo "$SESSIONS" | awk '{print $1}')
           uv run python scripts/fetch_status_samples.py \
@@ -321,7 +271,7 @@ jobs:
         if: always()
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          SESSIONS: ${{ needs.resolve.outputs.sessions }}
+          SESSIONS: ${{ inputs.sessions }}
           RUN_ID: ${{ github.run_id }}
         run: |
           set -e
@@ -356,8 +306,7 @@ jobs:
 
   # Run the sponsor-matching report over the published parquet.
   run-matching:
-    if: needs.resolve.outputs.task == 'run-matching'
-    needs: resolve
+    if: inputs.task == 'run-matching'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -370,17 +319,39 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
-      # extra_args is charset-validated in `resolve`. Not because unquoted
-      # expansion of an env var is injectable -- it does word splitting and
-      # globbing only, and the shell does not re-parse ';' or '$()' out of a
-      # variable's value -- but because this job holds OPENSTATES_API_KEY and an
-      # unconstrained value can still glob against the workspace or smuggle
-      # unintended flags into the script.
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
+      - name: Validate extra_args
+        # Defense in depth. Unquoted expansion of an env var does word splitting
+        # and globbing only -- the shell does not re-parse ';' or '$()' out of a
+        # variable's *value*, so this is not an injection hole the way inline
+        # `${{ inputs.extra_args }}` was. But this job holds OPENSTATES_API_KEY,
+        # and an unconstrained value can still glob against the workspace or
+        # smuggle unintended flags into the script, so pin it to flag syntax.
+        env:
+          EXTRA_ARGS: ${{ inputs.extra_args }}
+        run: |
+          case "$EXTRA_ARGS" in
+            *[!A-Za-z0-9\ ._=-]*)
+              echo "::error::extra_args may only contain letters, digits, space, and . _ = -"
+              exit 1
+              ;;
+          esac
+
       - name: Run matching report
         env:
           OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
-          SESSIONS: ${{ needs.resolve.outputs.sessions }}
-          EXTRA_ARGS: ${{ needs.resolve.outputs.extra_args }}
+          SESSIONS: ${{ inputs.sessions }}
+          EXTRA_ARGS: ${{ inputs.extra_args }}
         run: |
           uv run python scripts/run_matching_report.py \
             --sessions $SESSIONS \
@@ -399,10 +370,7 @@ jobs:
   # network access. Dispatch-only, so only collaborators with write access can
   # trigger it; running arbitrary input is the point of this job.
   custom:
-    # Belt and braces: `resolve` already refuses to emit task=custom for a push,
-    # and this repeats the constraint at the job that would actually run it.
-    if: needs.resolve.outputs.task == 'custom' && github.event_name == 'workflow_dispatch'
-    needs: resolve
+    if: inputs.task == 'custom'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -417,7 +385,7 @@ jobs:
 
       - name: Run custom command
         env:
-          EXTRA_ARGS: ${{ needs.resolve.outputs.extra_args }}
+          EXTRA_ARGS: ${{ inputs.extra_args }}
         run: |
           if [ -z "$EXTRA_ARGS" ]; then
             echo "::error::task=custom requires extra_args (the command to run via 'uv run')."
