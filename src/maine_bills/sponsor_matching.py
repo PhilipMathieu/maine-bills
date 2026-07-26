@@ -25,9 +25,13 @@ from .openstates import RosterEntry, get_roster
 DEFAULT_FUZZY_THRESHOLD = 88.0
 
 METHOD_EXACT = "exact"
+METHOD_OCR = "ocr"
 METHOD_FUZZY = "fuzzy"
 METHOD_AMBIGUOUS = "ambiguous"
 METHOD_UNMATCHED = "unmatched"
+
+# Methods that identify exactly one legislator (i.e. produce enrichment values)
+MATCHED_METHODS = (METHOD_EXACT, METHOD_OCR, METHOD_FUZZY)
 
 
 @dataclass(frozen=True)
@@ -45,7 +49,7 @@ class MatchResult:
     district: str | None
     chamber: str | None
     confidence: float
-    method: str  # "exact" | "fuzzy" | "ambiguous" | "unmatched"
+    method: str  # "exact" | "ocr" | "fuzzy" | "ambiguous" | "unmatched"
 
 
 _NO_MATCH_FIELDS = dict(
@@ -72,6 +76,47 @@ def normalize_name(name: str) -> str:
     return re.sub(r"\s+", " ", ascii_name)
 
 
+# Characters a scanner commonly swaps, folded to one representative per class.
+# Applied to BOTH the extracted string and roster names, so folding can only
+# merge confusable forms — it can never break a match that already worked.
+#
+# Folding happens AFTER uppercasing, which makes the L/I class case-insensitive.
+# That matters: roster names are mixed-case ("Vitelli") while extracted sponsors
+# are usually uppercase ("VITELLl"), so folding lowercase "l" alone would treat
+# the two sides differently and defeat the purpose.
+_OCR_DIGRAPHS = (("RN", "M"), ("VV", "W"))
+_OCR_CHARS = str.maketrans(
+    {
+        "L": "I",
+        "1": "I",
+        "|": "I",
+        "!": "I",
+        "0": "O",
+        "5": "S",
+        "8": "B",
+        "6": "G",
+        "2": "Z",
+        "4": "A",
+        "7": "T",
+    }
+)
+
+OCR_CONFIDENCE = 0.95
+
+
+def ocr_canonical(name: str) -> str:
+    """Normalize a name with OCR-confusable characters folded together.
+
+    Catches single-character substitutions ("GROHOSKl" -> "GROHOSKI") regardless
+    of name length, where a similarity ratio would miss short names: at
+    threshold 88, one wrong character only clears the bar at 9+ characters.
+    """
+    canonical = normalize_name(name)
+    for digraph, replacement in _OCR_DIGRAPHS:
+        canonical = canonical.replace(digraph, replacement)
+    return canonical.translate(_OCR_CHARS)
+
+
 @dataclass
 class SponsorMatcher:
     """Matches extracted sponsor strings to a session roster in two passes."""
@@ -82,11 +127,14 @@ class SponsorMatcher:
     # Built in __post_init__
     _by_last_name: dict[str, list[RosterEntry]] = field(init=False, default_factory=dict)
     _by_full_name: dict[str, list[RosterEntry]] = field(init=False, default_factory=dict)
+    _by_ocr: dict[str, list[RosterEntry]] = field(init=False, default_factory=dict)
 
     def __post_init__(self):
         for entry in self.roster:
             self._by_last_name.setdefault(normalize_name(entry.family_name), []).append(entry)
             self._by_full_name.setdefault(normalize_name(entry.name), []).append(entry)
+            for value in (entry.family_name, entry.name):
+                self._by_ocr.setdefault(ocr_canonical(value), []).append(entry)
 
     def match(self, sponsor: str, chamber: str | None = None) -> MatchResult:
         """Match one extracted sponsor string.
@@ -109,7 +157,15 @@ class SponsorMatcher:
         if candidates:
             return self._resolve_candidates(candidates, chamber)
 
-        # Pass 2: fuzzy fallback
+        # Pass 2: OCR-confusable characters folded (catches short names that a
+        # similarity ratio cannot rescue)
+        ocr_candidates = self._by_ocr.get(ocr_canonical(sponsor))
+        if ocr_candidates:
+            return self._resolve_candidates(
+                ocr_candidates, chamber, confidence=OCR_CONFIDENCE, method=METHOD_OCR
+            )
+
+        # Pass 3: fuzzy fallback
         return self._fuzzy_match(normalized, chamber)
 
     def match_all(self, sponsors: list[str], chamber: str | None = None) -> list[MatchResult]:
@@ -206,4 +262,4 @@ def match_sponsors(
         matcher = SponsorMatcher(roster, fuzzy_threshold=fuzzy_threshold)
         _MATCHERS[key] = matcher
     results = matcher.match_all(sponsors)
-    return [r if r.method in (METHOD_EXACT, METHOD_FUZZY) else None for r in results]
+    return [r if r.method in MATCHED_METHODS else None for r in results]

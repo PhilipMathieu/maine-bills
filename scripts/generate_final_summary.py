@@ -19,13 +19,15 @@ for i in range(1, 6):
         pdf_files = list(iter_dir.glob("*.pdf"))
         bill_id = pdf_files[0].stem if pdf_files else "unknown"
 
-        results.append({
-            "iteration": i,
-            "bill_id": bill_id,
-            "accepted": result["accepted"],
-            "reasoning": result["reasoning"],
-            "metrics": result.get("deltas", {})
-        })
+        results.append(
+            {
+                "iteration": i,
+                "bill_id": bill_id,
+                "accepted": result["accepted"],
+                "reasoning": result["reasoning"],
+                "metrics": result.get("deltas", {}),
+            }
+        )
 
 # Generate summary
 summary_path = experiment_dir / "FINAL_SUMMARY.md"
@@ -35,7 +37,12 @@ accepted = sum(1 for r in results if r["accepted"])
 success_rate = (accepted / total * 100) if total > 0 else 0
 
 # Find best improvement
-best = max(results, key=lambda r: r["metrics"].get("metadata_delta", 0) + r["metrics"].get("cleanliness_delta", 0) / 10)
+best = max(
+    results,
+    key=lambda r: (
+        r["metrics"].get("metadata_delta", 0) + r["metrics"].get("cleanliness_delta", 0) / 10
+    ),
+)
 
 report = f"""# Extraction Feedback Loop - FINAL SUMMARY
 
@@ -50,10 +57,10 @@ report = f"""# Extraction Feedback Loop - FINAL SUMMARY
 
 ## 🏆 Best Improvement
 
-**Iteration {best['iteration']}** - Bill {best['bill_id']}
-- Metadata: +{best['metrics'].get('metadata_delta', 0)} fields
-- Cleanliness: +{best['metrics'].get('cleanliness_delta', 0):.1f} points
-- Reasoning: {best['reasoning']}
+**Iteration {best["iteration"]}** - Bill {best["bill_id"]}
+- Metadata: +{best["metrics"].get("metadata_delta", 0)} fields
+- Cleanliness: +{best["metrics"].get("cleanliness_delta", 0):.1f} points
+- Reasoning: {best["reasoning"]}
 
 ## 📊 All Iterations
 
@@ -61,10 +68,10 @@ report = f"""# Extraction Feedback Loop - FINAL SUMMARY
 
 for r in results:
     status = "✅ ACCEPTED" if r["accepted"] else "❌ REJECTED"
-    report += f"""### Iteration {r['iteration']} - {status}
-- Bill: {r['bill_id']}
-- Reasoning: {r['reasoning']}
-- Deltas: metadata={r['metrics'].get('metadata_delta', 0)}, cleanliness={r['metrics'].get('cleanliness_delta', 0):.1f}
+    report += f"""### Iteration {r["iteration"]} - {status}
+- Bill: {r["bill_id"]}
+- Reasoning: {r["reasoning"]}
+- Deltas: metadata={r["metrics"].get("metadata_delta", 0)}, cleanliness={r["metrics"].get("cleanliness_delta", 0):.1f}
 
 """
 
@@ -89,8 +96,8 @@ report += f"""## 💡 Key Insights
 ## 🔍 Metrics Summary
 
 **Average improvements per cycle:**
-- Metadata fields: +{sum(r['metrics'].get('metadata_delta', 0) for r in results) / total:.1f}
-- Cleanliness: +{sum(r['metrics'].get('cleanliness_delta', 0) for r in results) / total:.1f} points
+- Metadata fields: +{sum(r["metrics"].get("metadata_delta", 0) for r in results) / total:.1f}
+- Cleanliness: +{sum(r["metrics"].get("cleanliness_delta", 0) for r in results) / total:.1f} points
 
 ## 📁 Next Steps
 

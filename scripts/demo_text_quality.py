@@ -9,9 +9,9 @@ from src.maine_bills.text_extractor import TextExtractor
 
 def show_text_quality(session: str, bill_id: str) -> None:
     """Download and show cleaned vs raw text comparison."""
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"TEXT QUALITY DEMO: {bill_id}")
-    print(f"{'='*80}")
+    print(f"{'=' * 80}")
 
     url = f"http://lldc.mainelegislature.org/Open/LDs/{session}/{bill_id}.pdf"
 
@@ -19,7 +19,7 @@ def show_text_quality(session: str, bill_id: str) -> None:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp.write(response.content)
             pdf_path = Path(tmp.name)
 

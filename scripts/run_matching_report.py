@@ -43,13 +43,14 @@ from maine_bills.sponsor_matching import (  # noqa: E402
     METHOD_AMBIGUOUS,
     METHOD_EXACT,
     METHOD_FUZZY,
+    METHOD_OCR,
     METHOD_UNMATCHED,
     SponsorMatcher,
 )
 
 logger = logging.getLogger("run_matching_report")
 
-METHODS = (METHOD_EXACT, METHOD_FUZZY, METHOD_AMBIGUOUS, METHOD_UNMATCHED)
+METHODS = (METHOD_EXACT, METHOD_OCR, METHOD_FUZZY, METHOD_AMBIGUOUS, METHOD_UNMATCHED)
 FUZZY_SAMPLE_SIZE = 30
 
 
@@ -139,7 +140,7 @@ def analyze_session(df: pd.DataFrame, matcher: SponsorMatcher, session: int) -> 
                 unmatched_bills.setdefault(sponsor, set()).add(bill_id)
             elif result.method == METHOD_AMBIGUOUS:
                 ambiguous_bills.setdefault(sponsor, set()).add(bill_id)
-            elif result.method == METHOD_FUZZY:
+            elif result.method in (METHOD_FUZZY, METHOD_OCR):
                 fuzzy_matches.append(
                     {
                         "session": session,
@@ -148,6 +149,7 @@ def analyze_session(df: pd.DataFrame, matcher: SponsorMatcher, session: int) -> 
                         "canonical_name": result.canonical_name,
                         "openstates_id": result.openstates_id,
                         "confidence": result.confidence,
+                        "method": result.method,
                     }
                 )
 

@@ -262,3 +262,73 @@ class TestMatchSponsorsAdapter:
         roster_cache_path(cache, 132).unlink()  # would break a rebuild
         results = match_sponsors(["BEEBE-CENTER"], session=132, cache_dir=cache)
         assert results[0].openstates_id == "ocd-person/beebe-center"
+
+
+class TestOCRCanonicalMatching:
+    """Pass 2: OCR-confusable character folding, for names a ratio can't rescue."""
+
+    def test_lowercase_l_for_i_matches(self, matcher):
+        """VITELLl -> VITELLI: one wrong character, too short for the ratio."""
+        result = matcher.match("VITELLl")
+        assert result.method == "ocr"
+        assert result.canonical_name == "Eloise Vitelli"
+        assert result.confidence == 0.95
+
+    def test_short_name_digit_substitutions(self, matcher):
+        """Digit-for-letter swaps on short names, exactly where the ratio fails."""
+        for extracted, expected in (
+            ("5MITH", None),  # ambiguous: two Smiths
+            ("CARNEV", None),  # V/Y not in the map -> not an OCR match
+            ("JACK5ON", "ocd-person/jackson"),
+            ("R0TUND0", "ocd-person/rotundo"),
+            ("GATT1NE", "ocd-person/gattine"),
+        ):
+            result = matcher.match(extracted)
+            if expected:
+                assert result.method == "ocr", extracted
+                assert result.openstates_id == expected, extracted
+            else:
+                assert result.openstates_id is None, extracted
+
+    def test_ratio_would_have_missed_these(self, matcher):
+        """Confirms the gap being closed: these score below the fuzzy threshold."""
+        from rapidfuzz import fuzz
+
+        for extracted, roster_name in (("JACK5ON", "JACKSON"), ("GATT1NE", "GATTINE")):
+            assert fuzz.token_sort_ratio(extracted, roster_name) < 88, extracted
+            assert matcher.match(extracted).method == "ocr", extracted
+
+    def test_ocr_pass_does_not_shadow_exact(self, matcher):
+        """A clean name still resolves as exact, not ocr."""
+        assert matcher.match("DAUGHTRY").method == "exact"
+        assert matcher.match("JACKSON").method == "exact"
+
+    def test_ocr_ambiguity_is_reported_not_guessed(self, matcher):
+        """Folding must not silently pick one of two shared-surname legislators."""
+        assert matcher.match("PERRV").openstates_id is None
+        assert matcher.match("5MITH").method == "ambiguous"
+
+    def test_canonicalization_is_symmetric(self):
+        """Folding applies to roster names too, so it never breaks a match."""
+        roster = [_entry("ocd-person/c", "Jane O'Neil1", "O'Neil1", "Democratic", "House", "3")]
+        m = SponsorMatcher(roster)
+        assert m.match("O'NEILI").openstates_id == "ocd-person/c"
+
+    def test_digraph_rn_to_m(self):
+        roster = [_entry("ocd-person/d", "Sam Thames", "Thames", "Democratic", "House", "4")]
+        m = SponsorMatcher(roster)
+        assert m.match("Tharnes").method == "ocr"
+
+    def test_ocr_matches_produce_enrichment_values(self, tmp_path):
+        """match_sponsors() must not drop OCR matches as unmatched."""
+        import json
+
+        from maine_bills.openstates import roster_cache_path
+        from maine_bills.sponsor_matching import match_sponsors
+
+        cache = tmp_path / "cache"
+        cache.mkdir()
+        roster_cache_path(cache, 132).write_text(json.dumps([e.to_dict() for e in FIXTURE_ROSTER]))
+        results = match_sponsors(["JACK5ON"], session=132, cache_dir=cache)
+        assert results[0] is not None
+        assert results[0].openstates_id == "ocd-person/jackson"

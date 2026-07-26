@@ -81,7 +81,7 @@ def test_analyze_session_counts_and_rates(report_mod):
     assert stats["session"] == 132
     assert stats["bills"] == 4
     assert stats["sponsor_mentions"] == 6
-    assert stats["counts"] == {"exact": 2, "fuzzy": 1, "ambiguous": 2, "unmatched": 1}
+    assert stats["counts"] == {"exact": 2, "ocr": 0, "fuzzy": 1, "ambiguous": 2, "unmatched": 1}
     assert stats["rates"]["exact"] == pytest.approx(2 / 6, abs=1e-4)
     assert stats["rates"]["unmatched"] == pytest.approx(1 / 6, abs=1e-4)
 
