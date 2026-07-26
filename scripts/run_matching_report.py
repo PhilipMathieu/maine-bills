@@ -55,6 +55,16 @@ logger = logging.getLogger("run_matching_report")
 METHODS = (METHOD_EXACT, METHOD_OCR, METHOD_FUZZY, METHOD_AMBIGUOUS, METHOD_UNMATCHED)
 FUZZY_SAMPLE_SIZE = 30
 
+# Column headings for the per-session table, keyed by method so adding a method
+# cannot silently shift the columns out of alignment with the data rows.
+_METHOD_HEADINGS = {
+    METHOD_EXACT: "Exact",
+    METHOD_OCR: "OCR",
+    METHOD_FUZZY: "Fuzzy",
+    METHOD_AMBIGUOUS: "Ambiguous",
+    METHOD_UNMATCHED: "Unmatched",
+}
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Sponsor -> OpenStates matching report")
@@ -235,8 +245,9 @@ def render_markdown(report: dict) -> str:
         "",
         "## Per-session match rates",
         "",
-        "| Session | Bills | Mentions | Exact | Fuzzy | Ambiguous | Unmatched |",
-        "|---------|-------|----------|-------|-------|-----------|-----------|",
+        # Derived from METHODS so a new match method can't silently shift columns
+        "| Session | Bills | Mentions | " + " | ".join(_METHOD_HEADINGS[m] for m in METHODS) + " |",
+        "|---------|-------|----------|" + "|".join(["-------"] * len(METHODS)) + "|",
     ]
     for stats in report["sessions"]:
         rates = stats["rates"]
