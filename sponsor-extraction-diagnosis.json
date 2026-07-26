@@ -1,0 +1,109 @@
+[
+  {
+    "session": 132,
+    "all": {
+      "documents": 3375,
+      "mentions": 2770,
+      "mentions_per_doc": 0.82,
+      "zero_sponsor_docs": 1587,
+      "zero_sponsor_share": 0.4702
+    },
+    "originals": {
+      "documents": 1866,
+      "mentions": 2770,
+      "mentions_per_doc": 1.48,
+      "zero_sponsor_docs": 78,
+      "zero_sponsor_share": 0.0418
+    },
+    "amendments": {
+      "documents": 1509,
+      "mentions": 0,
+      "mentions_per_doc": 0.0,
+      "zero_sponsor_docs": 1509,
+      "zero_sponsor_share": 1.0
+    },
+    "zero_sponsor_originals": {
+      "recoverable": {
+        "count": 0,
+        "examples": []
+      },
+      "marker_only": {
+        "count": 3,
+        "examples": [
+          "132-LD-1378",
+          "132-LD-1984",
+          "132-LD-2153"
+        ]
+      },
+      "no_marker": {
+        "count": 75,
+        "examples": [
+          "132-LD-0270",
+          "132-LD-0271",
+          "132-LD-0310",
+          "132-LD-0730",
+          "132-LD-0729",
+          "132-LD-0750",
+          "132-LD-0751",
+          "132-LD-0979",
+          "132-LD-1149",
+          "132-LD-1796"
+        ]
+      }
+    }
+  },
+  {
+    "session": 131,
+    "all": {
+      "documents": 4072,
+      "mentions": 11520,
+      "mentions_per_doc": 2.83,
+      "zero_sponsor_docs": 1884,
+      "zero_sponsor_share": 0.4627
+    },
+    "originals": {
+      "documents": 2291,
+      "mentions": 11520,
+      "mentions_per_doc": 5.03,
+      "zero_sponsor_docs": 103,
+      "zero_sponsor_share": 0.045
+    },
+    "amendments": {
+      "documents": 1781,
+      "mentions": 0,
+      "mentions_per_doc": 0.0,
+      "zero_sponsor_docs": 1781,
+      "zero_sponsor_share": 1.0
+    },
+    "zero_sponsor_originals": {
+      "recoverable": {
+        "count": 0,
+        "examples": []
+      },
+      "marker_only": {
+        "count": 4,
+        "examples": [
+          "131-LD-1610",
+          "131-LD-2010",
+          "131-LD-2209",
+          "131-LD-2219"
+        ]
+      },
+      "no_marker": {
+        "count": 99,
+        "examples": [
+          "131-LD-0071",
+          "131-LD-0072",
+          "131-LD-0136",
+          "131-LD-0137",
+          "131-LD-0196",
+          "131-LD-0374",
+          "131-LD-0375",
+          "131-LD-0390",
+          "131-LD-0391",
+          "131-LD-0392"
+        ]
+      }
+    }
+  }
+]
