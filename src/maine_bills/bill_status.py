@@ -55,8 +55,28 @@ _GOVERNOR = re.compile(
 _DATE_FORMAT = "%b %d, %Y"
 
 
+LD_NUMBER_WIDTH = 4
+
+
+def normalize_ld(ld: int | str) -> str:
+    """Zero-pad an LD number to the width `schema.parse_filename` produces.
+
+    Filenames carry "132-LD-0001", so `BillRecord.ld_number` is "0001", while
+    the status page's title says "LD 1". Storing what the page says would make
+    every join against the published dataset miss: "1" != "0001". Padding here
+    keeps the two keyable against each other.
+
+    Note the deliberate asymmetry with `status_url`, which strips the padding —
+    the site wants `LD=1`, not `LD=0001`.
+    """
+    return str(ld).strip().lstrip("0").zfill(LD_NUMBER_WIDTH) or "0".zfill(LD_NUMBER_WIDTH)
+
+
 def status_url(session: int, ld: int | str) -> str:
-    """URL of the status page for one bill."""
+    """URL of the status page for one bill.
+
+    Takes a padded or unpadded LD; the site expects it unpadded.
+    """
     return STATUS_URL.format(ld=int(ld), session=int(session))
 
 
@@ -198,7 +218,7 @@ def parse_status_page(html: str, session: int | None = None, ld: str | None = No
 
     status = BillStatus(
         session=int(resolved_session),
-        ld_number=str(resolved_ld),
+        ld_number=normalize_ld(resolved_ld),
         paper=paper,
         source_url=status_url(int(resolved_session), resolved_ld),
     )

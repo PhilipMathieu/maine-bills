@@ -11,11 +11,13 @@ from bs4 import BeautifulSoup
 
 from maine_bills.bill_status import (
     BillAction,
+    normalize_ld,
     parse_actions,
     parse_date,
     parse_status_page,
     status_url,
 )
+from maine_bills.schema import parse_filename
 
 
 def page(
@@ -159,13 +161,36 @@ def test_title_falls_back_when_there_is_no_h2():
 
 def test_identifiers_come_from_the_title_since_the_boxes_are_script_filled():
     status = parse_status_page(page(ld="1", paper="SP 29", session="132nd"))
-    assert (status.session, status.ld_number, status.paper) == (132, "1", "SP 29")
+    assert (status.session, status.ld_number, status.paper) == (132, "0001", "SP 29")
 
 
 def test_overrides_win_over_the_page_title():
-    status = parse_status_page(page(), session=131, ld="0042")
+    status = parse_status_page(page(), session=131, ld="42")
     assert status.session == 131
     assert status.ld_number == "0042"
+
+
+# --- ld_number must key against the published dataset ---
+
+
+@pytest.mark.parametrize(
+    "raw,expected",
+    [(1, "0001"), ("1", "0001"), ("0001", "0001"), (42, "0042"), ("2196", "2196"), (" 7 ", "0007")],
+)
+def test_normalize_ld_pads_to_the_schema_width(raw, expected):
+    assert normalize_ld(raw) == expected
+
+
+def test_ld_number_joins_against_parse_filename():
+    """The page title says "LD 1"; BillRecord.ld_number is "0001". Storing the
+    page's form would make every join against the published dataset miss."""
+    status = parse_status_page(page(ld="1", session="132nd"))
+    assert status.ld_number == parse_filename("132-LD-0001")["ld_number"]
+
+
+def test_status_url_still_strips_the_padding():
+    """Deliberate asymmetry: the site wants LD=1, not LD=0001."""
+    assert status_url(132, "0001").endswith("LD=1&snum=132")
 
 
 def test_unrecognisable_page_raises_rather_than_guessing():
