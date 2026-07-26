@@ -274,3 +274,20 @@ def test_chambers_null_column_falls_back_to_text(report_mod):
         "text": "Presented by Senator LIBBY of Androscoggin.\nBe it enacted",
     }
     assert report_mod.chambers_for_row(row, ["LIBBY"]) == ["Senate"]
+
+
+def test_markdown_header_matches_data_columns(report_mod):
+    """Regression: adding the ocr method shifted every column after Exact.
+
+    The header was hardcoded with four method columns while rows emitted one
+    per METHODS entry, so published reports mislabelled unmatched as fuzzy.
+    """
+    report = report_mod.build_report(
+        [report_mod.analyze_session(_bills_df(), SponsorMatcher(ROSTER), 132)], seed=1
+    )
+    lines = report_mod.render_markdown(report).splitlines()
+    header = next(line for line in lines if line.startswith("| Session"))
+    data = next(line for line in lines if line.startswith("| 132 "))
+
+    assert header.count("|") == data.count("|")
+    assert "OCR" in header
