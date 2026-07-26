@@ -42,6 +42,8 @@ logger = logging.getLogger("enrich_published")
 # duplicating them; it is a script, not a package module.
 _REPORT = Path(__file__).with_name("run_matching_report.py")
 _spec = importlib.util.spec_from_file_location("_matching_report", _REPORT)
+if _spec is None or _spec.loader is None:  # pragma: no cover - path/packaging error
+    raise ImportError(f"Cannot load the matching report helpers from {_REPORT}")
 _report = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_report)
 
