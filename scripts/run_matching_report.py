@@ -47,6 +47,8 @@ from maine_bills.sponsor_matching import (  # noqa: E402
     METHOD_UNMATCHED,
     SponsorMatcher,
 )
+from maine_bills.enrichment import as_aligned_list
+from maine_bills.text_extractor import TextExtractor
 
 logger = logging.getLogger("run_matching_report")
 
@@ -118,6 +120,34 @@ def load_session_bills(parquet_source: str, session: int) -> pd.DataFrame:
     return pd.concat([pd.read_parquet(p) for p in paths], ignore_index=True)
 
 
+def chambers_for_row(row, sponsors: list[str]) -> list[str | None]:
+    """Chamber hint per sponsor, aligned with ``sponsors``.
+
+    Prefers the ``sponsor_chambers`` column when the data was extracted with
+    chamber capture. Otherwise derives it from the bill ``text``, which retains
+    the "Presented by Senator X of Y" block (text cleaning only strips line
+    numbers and page furniture) — so published v1 data can be matched with
+    hints without re-scraping any PDFs.
+
+    Caveat for the derived path: v1 ``sponsors`` was deduplicated by name, so a
+    bill sponsored by two legislators sharing a surname in different chambers
+    has only one entry; it takes that surname's first-mentioned chamber.
+    """
+    stored = as_aligned_list(row.get("sponsor_chambers"))
+    if stored is not None and len(stored) == len(sponsors):
+        return stored
+
+    text = row.get("text")
+    if not isinstance(text, str) or not text:
+        return [None] * len(sponsors)
+
+    by_name: dict[str, str] = {}
+    for name, chamber in TextExtractor._extract_sponsor_mentions(text):
+        if chamber and name not in by_name:
+            by_name[name] = chamber
+    return [by_name.get(sponsor) for sponsor in sponsors]
+
+
 def analyze_session(df: pd.DataFrame, matcher: SponsorMatcher, session: int) -> dict:
     """Match every sponsor mention in a session and aggregate statistics.
 
@@ -134,7 +164,8 @@ def analyze_session(df: pd.DataFrame, matcher: SponsorMatcher, session: int) -> 
         raw_sponsors = row.get("sponsors")
         sponsors = [] if raw_sponsors is None else list(raw_sponsors)
         bill_id = row.get("source_filename") or f"{session}-LD-{row.get('ld_number', '?')}"
-        for sponsor, result in zip(sponsors, matcher.match_all(sponsors)):
+        chambers = chambers_for_row(row, sponsors)
+        for sponsor, result in zip(sponsors, matcher.match_all(sponsors, chambers=chambers)):
             method_counts[result.method] += 1
             if result.method == METHOD_UNMATCHED:
                 unmatched_bills.setdefault(sponsor, set()).add(bill_id)

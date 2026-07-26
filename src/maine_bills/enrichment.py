@@ -36,6 +36,21 @@ def _match_value(match, name: str):
     return getattr(match, name, None)
 
 
+def as_aligned_list(value) -> list | None:
+    """Coerce a parquet list-column cell to a list, or None if it isn't one.
+
+    Nulls arrive as None, NaN, or pd.NA depending on dtype — none of which are
+    iterable — and list columns round-trip as numpy arrays. Strings are treated
+    as absent rather than exploded into characters.
+    """
+    if value is None or isinstance(value, str):
+        return None
+    try:
+        return list(value)
+    except TypeError:
+        return None
+
+
 def apply_enrichment(record: BillRecord, matches: list) -> BillRecord:
     """Apply sponsor match results to a BillRecord in place.
 
@@ -96,23 +111,27 @@ def enrich_dataframe(df: pd.DataFrame, matcher_fn) -> pd.DataFrame:
 
     try:
         params = inspect.signature(matcher_fn).parameters
-        accepts_session = "session" in params or any(
-            p.kind == p.VAR_KEYWORD for p in params.values()
-        )
+        has_var_kwargs = any(p.kind == p.VAR_KEYWORD for p in params.values())
+        accepts_session = "session" in params or has_var_kwargs
+        accepts_chambers = "chambers" in params or has_var_kwargs
     except (TypeError, ValueError):
         # Some callables (e.g. C-implemented) aren't introspectable; assume the
         # simpler contract rather than aborting enrichment.
-        accepts_session = False
+        accepts_session = accepts_chambers = False
 
     ids_col, parties_col, districts_col, confidence_col = [], [], [], []
     matched = total = 0
 
     for _, row in df.iterrows():
         sponsors = list(row["sponsors"])
+        kwargs = {}
         if accepts_session:
-            matches = matcher_fn(sponsors, session=row["session"])
-        else:
-            matches = matcher_fn(sponsors)
+            kwargs["session"] = row["session"]
+        if accepts_chambers:
+            chambers = as_aligned_list(row.get("sponsor_chambers"))
+            if chambers is not None and len(chambers) == len(sponsors):
+                kwargs["chambers"] = chambers
+        matches = matcher_fn(sponsors, **kwargs)
         if len(matches) != len(sponsors):
             raise ValueError(
                 f"Matcher returned {len(matches)} matches for {len(sponsors)} sponsors"

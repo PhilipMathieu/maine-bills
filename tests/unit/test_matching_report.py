@@ -216,3 +216,61 @@ def test_main_writes_reports_from_cached_roster(report_mod, tmp_path):
     assert report["sessions"][0]["counts"]["exact"] == 2
     markdown = (output_dir / "matching_report.md").read_text()
     assert "Sponsor -> OpenStates Matching Report" in markdown
+
+
+# --- chamber hints ---
+
+
+def test_chambers_from_stored_column(report_mod):
+    """When data was extracted with chamber capture, use it directly."""
+    row = {"sponsor_chambers": ["House", "Senate"], "text": "irrelevant"}
+    assert report_mod.chambers_for_row(row, ["PERRY", "PERRY"]) == ["House", "Senate"]
+
+
+def test_chambers_derived_from_published_text(report_mod):
+    """v1 data has no chamber column, but the text retains the sponsor block."""
+    row = {
+        "text": (
+            "An Act to Test\nPresented by Senator LIBBY of Androscoggin.\n"
+            "Cosponsored by Representative CARNEY of Cape Elizabeth.\nBe it enacted"
+        )
+    }
+    assert report_mod.chambers_for_row(row, ["LIBBY", "CARNEY"]) == ["Senate", "House"]
+
+
+def test_chambers_absent_when_no_text(report_mod):
+    assert report_mod.chambers_for_row({}, ["LIBBY"]) == [None]
+
+
+def test_misaligned_stored_column_falls_back(report_mod):
+    """A stale/misaligned column must not be zipped against sponsors."""
+    row = {"sponsor_chambers": ["House"], "text": "Presented by Senator LIBBY of X.\nBe it"}
+    assert report_mod.chambers_for_row(row, ["LIBBY", "CARNEY"]) == ["Senate", None]
+
+
+def test_analyze_session_uses_hints_to_resolve_ambiguity(report_mod):
+    """End to end: the ambiguous LIBBY resolves once the text supplies a chamber."""
+    df_no_text = pd.DataFrame(
+        [{"session": 132, "ld_number": "1", "source_filename": "132-LD-1", "sponsors": ["LIBBY"]}]
+    )
+    assert (
+        report_mod.analyze_session(df_no_text, SponsorMatcher(ROSTER), 132)["counts"]["ambiguous"]
+        == 1
+    )
+
+    df_with_text = df_no_text.copy()
+    df_with_text["text"] = ["Presented by Senator LIBBY of Androscoggin.\nBe it enacted"]
+    stats = report_mod.analyze_session(df_with_text, SponsorMatcher(ROSTER), 132)
+    assert stats["counts"]["ambiguous"] == 0
+    assert stats["counts"]["exact"] == 1
+
+
+def test_chambers_null_column_falls_back_to_text(report_mod):
+    """Regression: a NaN sponsor_chambers cell must not raise."""
+    import numpy as np
+
+    row = {
+        "sponsor_chambers": np.nan,
+        "text": "Presented by Senator LIBBY of Androscoggin.\nBe it enacted",
+    }
+    assert report_mod.chambers_for_row(row, ["LIBBY"]) == ["Senate"]

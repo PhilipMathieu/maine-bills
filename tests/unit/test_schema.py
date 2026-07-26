@@ -287,6 +287,7 @@ class TestBillRecord:
         bill_doc.extraction_confidence = 0.9
         bill_doc.title = "An Act To Test"
         bill_doc.sponsors = ["Senator Test"]
+        bill_doc.sponsor_chambers = [None] * len(["Senator Test"])
         bill_doc.committee = "Test Committee"
         bill_doc.amended_code_refs = ["Title 1"]
 
@@ -314,6 +315,7 @@ class TestBillRecord:
         bill_doc.extraction_confidence = 0.85
         bill_doc.title = "Committee Amendment A"
         bill_doc.sponsors = []
+        bill_doc.sponsor_chambers = [None] * len([])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
 
@@ -337,6 +339,7 @@ class TestBillRecord:
         bill_doc.extraction_confidence = 0.88
         bill_doc.title = "Senate Amendment to Committee Amendment"
         bill_doc.sponsors = []
+        bill_doc.sponsor_chambers = [None] * len([])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
 
@@ -361,6 +364,7 @@ class TestBillRecord:
         bill_doc.extraction_confidence = 0.9
         bill_doc.title = None
         bill_doc.sponsors = []
+        bill_doc.sponsor_chambers = [None] * len([])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
 
@@ -378,6 +382,7 @@ class TestBillRecord:
         bill_doc.extraction_confidence = 0.9
         bill_doc.title = None
         bill_doc.sponsors = []
+        bill_doc.sponsor_chambers = [None] * len([])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
 
@@ -463,6 +468,7 @@ class TestSponsorEnrichmentFields:
         bill_doc.extraction_confidence = 0.9
         bill_doc.title = None
         bill_doc.sponsors = ["Senator Test", "Representative Other"]
+        bill_doc.sponsor_chambers = [None] * len(["Senator Test", "Representative Other"])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
 
@@ -555,6 +561,7 @@ class TestBillRecordDocumentType:
         bill_doc.extraction_confidence = 0.9
         bill_doc.title = None
         bill_doc.sponsors = []
+        bill_doc.sponsor_chambers = [None] * len([])
         bill_doc.committee = None
         bill_doc.amended_code_refs = []
         return bill_doc

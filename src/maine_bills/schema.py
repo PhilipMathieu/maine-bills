@@ -158,6 +158,10 @@ class BillRecord:
     # Content-based metadata (optional, from text extraction)
     title: str | None = None
     sponsors: list[str] = field(default_factory=list)
+    # Chamber per sponsor from the Senator/Representative title in the bill
+    # text, aligned with `sponsors`; None where no title was present. Extracted
+    # (not enriched) data — it disambiguates legislators sharing a surname.
+    sponsor_chambers: list[str | None] = field(default_factory=list)
     committee: str | None = None
     amended_code_refs: list[str] = field(default_factory=list)
 
@@ -172,6 +176,10 @@ class BillRecord:
     source_filename: str = ""
     scraped_at: str = ""
 
+    # Aligned with `sponsors` and padded the same way, but extracted rather
+    # than enriched, so it is not cleared or written by enrichment.
+    ALIGNED_EXTRACTED_FIELDS = ("sponsor_chambers",)
+
     ENRICHMENT_FIELDS = (
         "sponsor_ids",
         "sponsor_parties",
@@ -185,14 +193,14 @@ class BillRecord:
         Empty enrichment lists (the default, and the v1 case) are padded with
         None to len(sponsors). Non-empty lists must already match len(sponsors).
         """
-        for field_name in self.ENRICHMENT_FIELDS:
+        for field_name in self.ENRICHMENT_FIELDS + self.ALIGNED_EXTRACTED_FIELDS:
             values = getattr(self, field_name)
             if not values:
                 setattr(self, field_name, [None] * len(self.sponsors))
             elif len(values) != len(self.sponsors):
                 raise ValueError(
                     f"{field_name} has {len(values)} entries but there are "
-                    f"{len(self.sponsors)} sponsors; enrichment lists must "
+                    f"{len(self.sponsors)} sponsors; aligned lists must "
                     "align index-wise with sponsors"
                 )
 
@@ -231,6 +239,7 @@ class BillRecord:
             # Content-based metadata
             title=bill_doc.title,
             sponsors=bill_doc.sponsors,
+            sponsor_chambers=list(bill_doc.sponsor_chambers),
             committee=bill_doc.committee,
             amended_code_refs=bill_doc.amended_code_refs,
             # Provenance

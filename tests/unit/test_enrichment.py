@@ -272,3 +272,63 @@ class TestMatcherContractEdgeCases:
         df = pd.DataFrame([{"session": 132, "sponsors": ["DAUGHTRY"]}])
         out = enrich_dataframe(df, NoSignature())
         assert out["sponsor_ids"][0] == [None]
+
+
+class TestAsAlignedList:
+    """Parquet null cells are not iterable; coercion must not raise."""
+
+    def test_null_forms_return_none(self):
+        import numpy as np
+
+        from maine_bills.enrichment import as_aligned_list
+
+        for null in (None, np.nan, pd.NA):
+            assert as_aligned_list(null) is None
+
+    def test_list_and_array_pass_through(self):
+        import numpy as np
+
+        from maine_bills.enrichment import as_aligned_list
+
+        assert as_aligned_list(["House", None]) == ["House", None]
+        assert as_aligned_list(np.array(["House", "Senate"])) == ["House", "Senate"]
+
+    def test_string_is_not_exploded(self):
+        from maine_bills.enrichment import as_aligned_list
+
+        assert as_aligned_list("House") is None
+
+    def test_enrichment_survives_null_chambers_cell(self):
+        """Regression: a NaN sponsor_chambers cell must not abort enrichment."""
+        import numpy as np
+
+        def matcher(sponsors, session=None, chambers=None):
+            return [None] * len(sponsors)
+
+        df = pd.DataFrame(
+            [
+                {"session": 132, "sponsors": ["DAUGHTRY"], "sponsor_chambers": np.nan},
+                {"session": 132, "sponsors": ["PERRY"], "sponsor_chambers": ["House"]},
+            ]
+        )
+        out = enrich_dataframe(df, matcher)
+        assert out["sponsor_ids"][0] == [None]
+
+    def test_chambers_forwarded_when_present(self):
+        seen = {}
+
+        def matcher(sponsors, session=None, chambers=None):
+            seen["chambers"] = chambers
+            return [None] * len(sponsors)
+
+        df = pd.DataFrame(
+            [
+                {
+                    "session": 132,
+                    "sponsors": ["PERRY", "LIBBY"],
+                    "sponsor_chambers": ["House", "Senate"],
+                }
+            ]
+        )
+        enrich_dataframe(df, matcher)
+        assert seen["chambers"] == ["House", "Senate"]

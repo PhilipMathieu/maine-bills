@@ -79,6 +79,7 @@ endorsed by nor affiliated with the Maine State Legislature.
 | `text` | string | Full extracted text of the document |
 | `title` | string | Bill title extracted from content, or null |
 | `sponsors` | list | Sponsor names extracted from content (verbatim; provenance) |
+| `sponsor_chambers` | list | Chamber per sponsor from the bill's title prefix; nulls where absent |
 | `sponsor_ids` | list | OpenStates person IDs, aligned with `sponsors`; nulls where unmatched |
 | `sponsor_parties` | list | Party affiliations, aligned with `sponsors`; nulls where unmatched |
 | `sponsor_districts` | list | Districts, aligned with `sponsors`; nulls where unmatched |

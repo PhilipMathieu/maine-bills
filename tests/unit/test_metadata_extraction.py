@@ -169,3 +169,52 @@ def test_extract_title_no_fallback_guess():
     text = "131-LD-0001\nSome random committee text here\nBe it enacted"
     result = TextExtractor._extract_title(text)
     assert result is None
+
+
+class TestSponsorChamberCapture:
+    """The Senator/Representative title is captured as a chamber hint."""
+
+    PRESENTED = (
+        "Presented by Senator DAUGHTRY of Cumberland.\n"
+        "Cosponsored by Representative PERRY of Calais, Senator PERRY of Bangor, "
+        "Representative BEEBE-CENTER of Rockland and Speaker FECTEAU of Biddeford.\n"
+        "Be it enacted by the People of the State of Maine as follows:"
+    )
+
+    def test_titles_map_to_chambers(self):
+        mentions = TextExtractor._extract_sponsor_mentions(self.PRESENTED)
+        assert ("DAUGHTRY", "Senate") in mentions
+        assert ("BEEBE-CENTER", "House") in mentions
+        # Speaker is Speaker of the House
+        assert ("FECTEAU", "House") in mentions
+
+    def test_two_legislators_sharing_a_surname_are_both_kept(self):
+        """Name-only dedup would drop one of these; they are different people."""
+        mentions = TextExtractor._extract_sponsor_mentions(self.PRESENTED)
+        perrys = [(n, c) for n, c in mentions if n == "PERRY"]
+        assert sorted(c for _n, c in perrys) == ["House", "Senate"]
+
+    def test_same_person_mentioned_twice_is_not_duplicated(self):
+        text = (
+            "Presented by Senator DAUGHTRY of Cumberland.\n"
+            "Cosponsored by Senator DAUGHTRY of Cumberland and "
+            "Representative GATTINE of Westbrook.\nBe it enacted"
+        )
+        mentions = TextExtractor._extract_sponsor_mentions(text)
+        assert [n for n, _c in mentions].count("DAUGHTRY") == 1
+
+    def test_president_maps_to_senate(self):
+        text = "Presented by President JACKSON of Aroostook.\nBe it enacted"
+        assert TextExtractor._extract_sponsor_mentions(text) == [("JACKSON", "Senate")]
+
+    def test_sponsors_wrapper_returns_names_only(self):
+        names = TextExtractor._extract_sponsors(self.PRESENTED)
+        assert all(isinstance(n, str) for n in names)
+        assert "DAUGHTRY" in names
+
+    def test_bill_document_exposes_aligned_chambers(self):
+        doc_text = "An Act to Test\n" + self.PRESENTED
+        mentions = TextExtractor._extract_sponsor_mentions(doc_text)
+        names = [n for n, _c in mentions]
+        chambers = [c for _n, c in mentions]
+        assert len(names) == len(chambers)
