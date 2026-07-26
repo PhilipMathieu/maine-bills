@@ -70,6 +70,27 @@ def test_only_the_sitting_legislature_is_in_the_window():
     assert matches == {"129th": False, "130th": True, "131st": False, "132nd": False}
 
 
+def test_swearing_in_exactly_on_window_end_is_excluded():
+    """window_end is exclusive, because the handoff can land exactly on it.
+
+    The first Wednesday of December is Dec 1 in 2032, so the 136th Legislature
+    is sworn in on the same date that closes session 135's window. An inclusive
+    bound would let that entire incoming class back into the 135th's roster.
+    """
+    _start, window_end = session_window(135)
+    assert window_end == "2032-12-01"
+
+    incoming = Role(chamber="House", start_date="2032-12-01", end_date="2034-12-06")
+    assert not incoming.overlaps_window(*session_window(135))
+    assert incoming.overlaps_window(*session_window(136))
+
+
+def test_session_member_serving_to_the_handoff_still_counts():
+    """The sitting legislature's own term ends on that date and must be kept."""
+    sitting = Role(chamber="House", start_date="2030-12-04", end_date="2032-12-01")
+    assert sitting.overlaps_window(*session_window(135))
+
+
 def test_role_sworn_in_december_before_the_session_overlaps():
     """A term starting in the December before the biennium is this session's."""
     role = Role(chamber="House", start_date="2002-12-04", end_date="2004-12-01")

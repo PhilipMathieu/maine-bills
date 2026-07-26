@@ -108,13 +108,17 @@ class Role:
 
         Bounds are ISO date strings from :func:`session_window`, which brackets
         the December handoff so neither the outgoing nor the incoming
-        legislature leaks into this session's roster.
+        legislature leaks into this session's roster. The start bound is
+        inclusive, the end bound exclusive.
 
         Missing start/end dates are treated as unbounded on that side, so a role
         with no dates (e.g., a current role from the v3 API) overlaps everything.
         """
-        # ISO date strings compare correctly as strings
-        if self.start_date and self.start_date > window_end:
+        # ISO date strings compare correctly as strings. window_end is
+        # EXCLUSIVE: the successor's swearing-in can land exactly on it (the
+        # first Wednesday of December is Dec 1 in 2032), and that class belongs
+        # to the next session, not this one.
+        if self.start_date and self.start_date >= window_end:
             return False
         if self.end_date and self.end_date < window_start:
             return False
@@ -152,7 +156,7 @@ class Legislator:
 class RosterEntry:
     """One legislator's seat in a specific session's roster.
 
-    A legislator who served in both chambers during one biennium produces one
+    A legislator who served in both chambers during one session produces one
     entry per chamber.
     """
 
@@ -399,9 +403,9 @@ def default_provider() -> RosterProvider:
 def roster_for_session(legislators: list[Legislator], session: int) -> list[RosterEntry]:
     """Build a session roster from legislators serving during the session.
 
-    A legislator appears once per chamber they served in during the biennium.
-    If they held multiple districts in one chamber within the biennium, the
-    most recent role's district is used.
+    A legislator appears once per chamber they served in during the session's
+    sitting period (see :func:`session_window`). If they held multiple districts
+    in one chamber within that period, the most recent role's district is used.
     """
     window_start, window_end = session_window(session)
     entries = []
@@ -491,7 +495,7 @@ def get_roster(
         refresh: If True, ignore caches and re-fetch
 
     Returns:
-        List of RosterEntry for legislators serving during the session's biennium
+        List of RosterEntry for legislators serving during the session
     """
     cache_dir = Path(cache_dir)
     provider = provider or default_provider()
