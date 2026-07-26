@@ -22,6 +22,7 @@ on:
         default: recon-legislature
         options:
           - recon-legislature
+          - diagnose-sponsors
           - fetch-status-sample
           - run-matching
           - custom
@@ -137,6 +138,89 @@ jobs:
         with:
           name: recon
           path: data/recon/
+          if-no-files-found: warn
+
+  # Issue #13 item 4: session 132 extracts 0.8 sponsor mentions per document
+  # against ~2.8 for session 131. Reads the published parquet (no PDFs) and
+  # splits the causes: composition (amendments carry no sponsor block),
+  # extraction regression, or a missing block in the source text.
+  #
+  # Pass the suspect session and a healthy one -- the comparison is the finding.
+  diagnose-sponsors:
+    if: inputs.task == 'diagnose-sponsors'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # force-pushes the fixtures/diagnosis branch
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync --extra dev
+
+      - name: Validate sessions input
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+
+      - name: Diagnose
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          uv run python scripts/diagnose_sponsor_extraction.py \
+            --sessions $SESSIONS \
+            --parquet-source hf://datasets/pem207/maine-bills \
+            --output report
+
+      - name: Summarize
+        if: always()
+        run: |
+          if [ -f report/sponsor-extraction-diagnosis.md ]; then
+            cat report/sponsor-extraction-diagnosis.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Publish results branch
+        # Artifacts cannot be downloaded with the dev environment's token, and
+        # job summaries are not exposed by the API. A branch is readable.
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -e
+          if [ ! -d report ] || [ -z "$(ls -A report 2>/dev/null)" ]; then
+            echo "Nothing produced; skipping results branch."
+            exit 0
+          fi
+          TMP="$(mktemp -d)"
+          cp -r report/. "$TMP/"
+          cd "$TMP"
+          git init -b fixtures/diagnosis
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "diagnosis: sponsor extraction (data-run ${RUN_ID})"
+          git push --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "HEAD:refs/heads/fixtures/diagnosis"
+          echo "Pushed fixtures/diagnosis"
+
+      - name: Upload diagnosis artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sponsor-extraction-diagnosis
+          path: report/
           if-no-files-found: warn
 
   # Fetch ~25 bill status pages from the Maine Legislature site and stash the
