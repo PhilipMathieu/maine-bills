@@ -174,26 +174,56 @@ class TestEnrichDataframe:
 
 
 class TestLoadMatcher:
-    def test_returns_none_and_warns_when_module_missing(self):
-        """sponsor_matching is built on a parallel branch; absence must no-op."""
+    """load_matcher() resolves maine_bills.sponsor_matching lazily.
+
+    Note: `from . import sponsor_matching` resolves the attribute on the
+    package, so patching sys.modules alone does not intercept it once the
+    real module exists — these tests patch the package attribute too.
+    """
+
+    def test_returns_the_real_matcher_when_available(self):
+        """Now that both modules ship together, the default path must work."""
+        from maine_bills import sponsor_matching
+
         logger = MagicMock()
         matcher_fn = load_matcher(logger)
 
-        # The module does not exist on this branch
-        assert matcher_fn is None
+        assert matcher_fn is sponsor_matching.match_sponsors
+        logger.warning.assert_not_called()
+
+    def test_returns_none_and_warns_when_module_missing(self, monkeypatch):
+        """A stripped install without sponsor_matching must no-op, not crash.
+
+        `from . import X` short-circuits on the package attribute, so the
+        attribute must be removed as well as the sys.modules entry nulled.
+        """
+        import sys
+
+        import maine_bills
+
+        monkeypatch.delattr(maine_bills, "sponsor_matching", raising=False)
+        monkeypatch.setitem(sys.modules, "maine_bills.sponsor_matching", None)
+        logger = MagicMock()
+
+        assert load_matcher(logger) is None
         logger.warning.assert_called_once()
         assert "sponsor_matching" in logger.warning.call_args.args[0]
 
     def test_returns_match_function_when_module_present(self, mocker):
+        import maine_bills
+
         fake_module = MagicMock()
         fake_module.match_sponsors = lambda sponsors: [None] * len(sponsors)
+        mocker.patch.object(maine_bills, "sponsor_matching", fake_module)
         mocker.patch.dict("sys.modules", {"maine_bills.sponsor_matching": fake_module})
 
-        matcher_fn = load_matcher(MagicMock())
-        assert matcher_fn is fake_module.match_sponsors
+        assert load_matcher(MagicMock()) is fake_module.match_sponsors
 
     def test_warns_when_module_lacks_match_function(self, mocker):
+        import maine_bills
+
         fake_module = MagicMock(spec=[])  # no match_sponsors attribute
+        mocker.patch.object(maine_bills, "sponsor_matching", fake_module)
         mocker.patch.dict("sys.modules", {"maine_bills.sponsor_matching": fake_module})
 
         logger = MagicMock()
