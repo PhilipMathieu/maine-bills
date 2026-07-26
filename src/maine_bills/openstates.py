@@ -394,9 +394,14 @@ def _family_name_from_full(name: str) -> str:
 
 
 def default_provider() -> RosterProvider:
-    """Pick a provider: the v3 API if an API key is configured, else bulk data."""
-    if os.environ.get(OPENSTATES_API_KEY_ENV):
-        return OpenStatesAPIProvider()
+    """The people-repo provider, which is correct for every session.
+
+    Deliberately does NOT switch to the v3 API when OPENSTATES_API_KEY is set.
+    The v3 people endpoint reports only each person's *current* role, so using
+    it for a historical session silently builds that session's roster out of
+    today's membership. Merely configuring a key must not change how past
+    sessions are matched; callers who want the API provider pass it explicitly.
+    """
     return PeopleRepoProvider()
 
 

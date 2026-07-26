@@ -504,3 +504,18 @@ def test_consecutive_sessions_do_not_share_a_seat_holder():
     for session, expected in ((130, 1), (131, 1), (132, 0)):
         roster = roster_for_session([two_termer], session)
         assert len(roster) == expected, session
+
+
+def test_default_provider_ignores_the_api_key(monkeypatch):
+    """A configured key must not silently change historical roster construction.
+
+    The v3 API reports only current roles, so selecting it for session 121
+    would build a 2003 roster from today's membership.
+    """
+    from maine_bills.openstates import default_provider
+
+    monkeypatch.setenv("OPENSTATES_API_KEY", "some-key")
+    assert isinstance(default_provider(), PeopleRepoProvider)
+
+    monkeypatch.delenv("OPENSTATES_API_KEY", raising=False)
+    assert isinstance(default_provider(), PeopleRepoProvider)

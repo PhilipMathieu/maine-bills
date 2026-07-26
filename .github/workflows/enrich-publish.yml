@@ -1,0 +1,98 @@
+# Enrich the published dataset with sponsor matches and publish v2.
+#
+# Enrichment reads the parquet already on HuggingFace and fills the v2 sponsor
+# columns; it does not re-scrape. A full re-scrape of sessions 121-132 is about
+# 43,000 PDF downloads and cannot finish in one job, and enrichment needs none
+# of it — `sponsors` is published, and chamber hints come from the published
+# `text`.
+#
+# Publishing is gated by the `huggingface-publish` environment (required
+# reviewer), so the enriched parquet can be downloaded and inspected before
+# anything reaches the Hub.
+name: Enrich and Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      sessions:
+        description: "Space-separated sessions to enrich"
+        required: false
+        default: "121 122 123 124 125 126 127 128 129 130 131 132"
+      repo_id:
+        description: "HuggingFace dataset repo"
+        required: false
+        default: "pem207/maine-bills"
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Enrich published sessions
+        run: |
+          uv run python scripts/enrich_published.py \
+            --sessions ${{ inputs.sessions }} \
+            --parquet-source hf://datasets/${{ inputs.repo_id }} \
+            --output data
+
+      - name: Write job summary
+        run: |
+          echo "## Sponsor enrichment" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Session | Mentions | Matched | Rate |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---------|----------|---------|------|" >> "$GITHUB_STEP_SUMMARY"
+          uv run python -c "
+          import json, pathlib
+          for s in json.loads(pathlib.Path('data/enrichment_summary.json').read_text()):
+              print(f\"| {s['session']} | {s['mentions']} | {s['matched']} | {s['rate']:.1%} |\")
+          " >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload enriched parquet
+        uses: actions/upload-artifact@v4
+        with:
+          name: enriched-parquet
+          path: data/
+          if-no-files-found: error
+          retention-days: 90
+
+  # Human gate: waits for a required reviewer on the `huggingface-publish`
+  # environment, then publishes exactly the artifact reviewed above.
+  publish:
+    needs: enrich
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: huggingface-publish
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Download enriched parquet
+        uses: actions/download-artifact@v4
+        with:
+          name: enriched-parquet
+          path: data/
+
+      - name: Publish to HuggingFace
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          uv run python scripts/publish_from_artifact.py \
+            --data-dir data --repo-id ${{ inputs.repo_id }}
