@@ -25,6 +25,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -92,7 +93,11 @@ def slugify_url(url: str) -> str:
         raw = f"{raw}__{parsed.query}"
     slug = _SLUG_RE.sub("-", raw).strip("-")
     if len(slug) > 120:
-        slug = f"{slug[:100]}--{abs(hash(url)) % 10**8:08d}"
+        # sha256, not hash(): PYTHONHASHSEED randomization would give the same
+        # URL a different filename each run, and these land on a force-pushed
+        # fixtures branch that should stay diffable between runs.
+        digest = hashlib.sha256(url.encode()).hexdigest()[:8]
+        slug = f"{slug[:100]}--{digest}"
     return f"{slug or 'index'}.html"
 
 

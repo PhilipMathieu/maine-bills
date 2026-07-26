@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -41,9 +42,35 @@ def _row(filename, sponsors, text, amendment_code=None):
 # --- sponsor_count ---
 
 
-@pytest.mark.parametrize("value,expected", [(None, 0), (float("nan"), 0), ([], 0), (["A", "B"], 2)])
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (None, 0),
+        (float("nan"), 0),
+        (np.nan, 0),
+        (pd.NA, 0),  # not a float, so an isinstance(value, float) guard misses it
+        (np.array(["A", "B"], dtype=object), 2),  # list columns round-trip as ndarrays
+        ("DAUGHTRY", 0),  # a bare string must not be exploded into characters
+        ([], 0),
+        (["A", "B"], 2),
+    ],
+)
 def test_sponsor_count_tolerates_null_forms(diag, value, expected):
     assert diag.sponsor_count(value) == expected
+
+
+def test_null_sponsors_do_not_crash_a_real_frame(diag):
+    """Regression: a session slice with null sponsor cells must still summarize."""
+    df = pd.DataFrame(
+        [
+            _row("a", ["X"], "t"),
+            _row("b", None, "t"),
+            _row("c", pd.NA, "t"),
+        ]
+    )
+    summary = diag.summarize_group(df)
+    assert summary["mentions"] == 1
+    assert summary["zero_sponsor_docs"] == 2
 
 
 # --- summarize_group ---

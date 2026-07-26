@@ -6,6 +6,9 @@ a fake requests.Session, and the parsing helpers are pure.
 
 import importlib.util
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -70,6 +73,30 @@ def test_long_urls_are_truncated_but_stay_unique(recon):
     long_b = "https://legislature.maine.gov/" + "a" * 301
     assert len(recon.slugify_url(long_a)) <= 130
     assert recon.slugify_url(long_a) != recon.slugify_url(long_b)
+
+
+def test_truncated_slugs_are_stable_across_processes(recon):
+    """PYTHONHASHSEED randomizes hash(), which would rename fixtures each run."""
+    url = "https://legislature.maine.gov/" + "a" * 300
+    expected = recon.slugify_url(url)
+    script = (
+        "import importlib.util,sys;"
+        f"spec=importlib.util.spec_from_file_location('r', {str(SCRIPT)!r});"
+        "m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);"
+        f"print(m.slugify_url({url!r}))"
+    )
+    seeds = ["0", "1", "12345"]
+    outputs = {
+        subprocess.run(
+            [sys.executable, "-c", script],
+            capture_output=True,
+            text=True,
+            check=True,
+            env={**os.environ, "PYTHONHASHSEED": seed},
+        ).stdout.strip()
+        for seed in seeds
+    }
+    assert outputs == {expected}
 
 
 # --- classify ---

@@ -37,6 +37,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from maine_bills.enrichment import as_aligned_list
 from maine_bills.text_extractor import TextExtractor
 
 logger = logging.getLogger("diagnose_sponsor_extraction")
@@ -58,10 +59,15 @@ DEFAULT_SAMPLES = 15
 
 
 def sponsor_count(value) -> int:
-    """Length of a stored sponsors cell, tolerating None/NaN/ndarray."""
-    if value is None or isinstance(value, float):
-        return 0
-    return len(value)
+    """Length of a stored sponsors cell, tolerating every null form parquet emits.
+
+    Nulls arrive as None, NaN, or pd.NA depending on dtype -- pd.NA is not a
+    float, so an isinstance check misses it and len() raises. as_aligned_list
+    already handles all three (plus the numpy arrays list columns round-trip
+    as), and it is the coercion the enrichment path uses, so share it rather
+    than growing a second null policy.
+    """
+    return len(as_aligned_list(value) or [])
 
 
 def summarize_group(df: pd.DataFrame) -> dict:

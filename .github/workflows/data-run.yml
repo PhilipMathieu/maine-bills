@@ -330,6 +330,23 @@ jobs:
               ;;
           esac
 
+      - name: Validate extra_args
+        # Defense in depth. Unquoted expansion of an env var does word splitting
+        # and globbing only -- the shell does not re-parse ';' or '$()' out of a
+        # variable's *value*, so this is not an injection hole the way inline
+        # `${{ inputs.extra_args }}` was. But this job holds OPENSTATES_API_KEY,
+        # and an unconstrained value can still glob against the workspace or
+        # smuggle unintended flags into the script, so pin it to flag syntax.
+        env:
+          EXTRA_ARGS: ${{ inputs.extra_args }}
+        run: |
+          case "$EXTRA_ARGS" in
+            *[!A-Za-z0-9\ ._=-]*)
+              echo "::error::extra_args may only contain letters, digits, space, and . _ = -"
+              exit 1
+              ;;
+          esac
+
       - name: Run matching report
         env:
           OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
