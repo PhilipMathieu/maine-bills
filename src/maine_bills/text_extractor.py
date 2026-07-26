@@ -16,6 +16,51 @@ _CHAMBER_BY_TITLE = {
     "Speaker": "House",
 }
 
+# How far into the document to look for the sponsor block. A bill cosponsored by
+# most of a chamber runs to ~100 entries of roughly 30 characters each, so the
+# old 2,500-character window truncated the list itself: LD 2007 of session 131
+# has 99 cosponsors and its block alone exceeds 3,000 characters.
+_SPONSOR_WINDOW = 8000
+
+# Where the sponsor block ends. Worth being explicit now that the window is wide
+# -- without these the block would run to the window edge and the title-adjoining
+# patterns could pick up "Senator X of Y" out of the bill's body text.
+_COSPONSOR_BLOCK = re.compile(
+    r"Cosponsored by\s+(.+?)"
+    r"(?=Be it enacted|Emergency preamble|Preamble\.|Resolved:|SUMMARY"
+    r"|Sec\.\s*\d|Presented by|Introduced by|$)",
+    re.DOTALL,
+)
+
+# "Senators:" / "Representatives:" opens a run of bare surnames belonging to that
+# chamber, and runs until the next such label.
+_ROSTER_SEGMENTS = re.compile(r"\b(Senators|Representatives)\s*:")
+
+# One roster entry: an optional individual title (leaders keep theirs inside the
+# list), a one- or two-word surname, then the mandatory " of <locality>". The
+# locality is what makes an entry an entry -- requiring it is what keeps this
+# from matching ordinary prose.
+_ROSTER_ENTRY = re.compile(
+    r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
+    r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
+    r"\s+of\s+\S"
+)
+
+
+def _roster_segments(block: str) -> list[tuple[str, str]]:
+    """Split a cosponsor block into (singular chamber title, segment) pairs.
+
+    Returns nothing when the block has no plural labels, which is the common
+    case: most bills list a handful of cosponsors, each with its own title.
+    """
+    matches = list(_ROSTER_SEGMENTS.finditer(block))
+    segments = []
+    for i, match in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(block)
+        label = match.group(1).rstrip("s")  # "Senators" -> "Senator"
+        segments.append((label, block[match.end() : end]))
+    return segments
+
 
 @dataclass
 class BillDocument:
@@ -263,7 +308,7 @@ class TextExtractor:
         Supports both "Presented by" (real bills) and "Introduced by" (some bills/tests).
         """
         sponsors: list[tuple[str, str | None]] = []
-        search_text = text[:2500]
+        search_text = text[:_SPONSOR_WINDOW]
         normalized_text = " ".join(search_text.split())
         # Normalize stray spaces around hyphens in names (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
         normalized_text = re.sub(r"([A-Z])\s*-\s*([A-Z])", r"\1-\2", normalized_text)
@@ -348,11 +393,7 @@ class TextExtractor:
                 sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
         # Pattern 2: Cosponsorship block
-        cosp_block_match = re.search(
-            r"Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|Introduced by|$)",
-            normalized_text,
-            re.DOTALL,
-        )  # noqa: E501
+        cosp_block_match = _COSPONSOR_BLOCK.search(normalized_text)
         if cosp_block_match:
             cosp_block = " ".join(cosp_block_match.group(1).split())
 
@@ -369,6 +410,32 @@ class TextExtractor:
                 name = match.group("name").strip()
                 if is_valid_name(name):
                     sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
+
+            # Roster lists: "Senators: BAILEY of York, BALDACCI of Penobscot, ..."
+            #
+            # Widely cosponsored bills label the chamber ONCE and then list bare
+            # surnames, so the patterns above — which need a title adjoining each
+            # name — collect only the handful carrying their own (President,
+            # Speaker). On a 99-cosponsor bill that is 2 names out of 99.
+            #
+            # A bare-name sweep was removed in 300cd207 for producing garbage: it
+            # matched any "Capitalized of Somewhere" anywhere in the block. This
+            # is anchored instead — names are only read inside a segment opened by
+            # a plural chamber label, which both bounds the search and supplies
+            # the chamber, so these entries arrive better identified than the ones
+            # the old sweep produced.
+            for label, segment in _roster_segments(cosp_block):
+                segment_chamber = _CHAMBER_BY_TITLE[label]
+                for entry in segment.split(","):
+                    entry_match = _ROSTER_ENTRY.match(entry.strip())
+                    if not entry_match:
+                        continue
+                    name = entry_match.group("name").strip()
+                    if not is_valid_name(name):
+                        continue
+                    title = entry_match.group("title")
+                    chamber = _CHAMBER_BY_TITLE.get(title) if title else segment_chamber
+                    sponsors.append((name, chamber))
 
         # Normalize hyphenated names with stray spaces (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
         sponsors = [(re.sub(r"\s*-\s*", "-", name), chamber) for name, chamber in sponsors]

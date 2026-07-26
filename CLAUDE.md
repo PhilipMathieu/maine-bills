@@ -87,7 +87,16 @@ Website → PDF list → Download PDF → TextExtractor → BillDocument
 
 ### Sponsor Extraction
 
-All sponsor patterns require a `Senator/Representative/President/Speaker` prefix — this prevents false positives from bill text like "Town of Brunswick" or "University of Maine".
+Sponsor patterns require a `Senator/Representative/President/Speaker` prefix —
+this prevents false positives from bill text like "Town of Brunswick" or
+"University of Maine".
+
+**Exception — roster lists.** Widely cosponsored bills name the chamber once and
+then list bare surnames: `Senators: BAILEY of York, BALDACCI of Penobscot, ...`.
+Those entries are read without an adjoining title, but only inside a segment
+opened by a `Senators:`/`Representatives:` label, and only when followed by
+` of <locality>`. The label also supplies the chamber. Without this, a
+99-cosponsor bill yields 2 sponsors — see `tests/unit/test_sponsor_roster_lists.py`.
 
 **Key details:**
 - Title filter: 34 words blocking false positives (leadership titles, government entities, etc.)
