@@ -204,6 +204,57 @@ def test_crawl_respects_the_page_cap(recon, tmp_path):
     assert len(records) == 5
 
 
+def test_focus_confines_the_crawl_to_one_category(recon, tmp_path):
+    """The first run spent 42 of 60 pages on the bill directory and never
+    reached a member list; --focus roster is what prevents that."""
+    root = "https://legislature.maine.gov/senate/senators/9536"
+    roster = "https://legislature.maine.gov/senate/district-listing/9526"
+    bills = "https://legislature.maine.gov/bills/billdirectory_ps.asp?snum=132&ldFrom=0"
+    html = (
+        f'<html><title>Senators</title><body><a href="{roster}">Senators by District</a>'
+        f'<a href="{bills}">Bill Directory</a></body></html>'
+    )
+    pages = {
+        root: FakeResponse(root, text=html),
+        roster: FakeResponse(roster, text="<html><title>Districts</title></html>"),
+        bills: FakeResponse(bills, text="<html><title>Bills</title></html>"),
+    }
+
+    unfocused_dir = tmp_path / "unfocused"
+    focused_dir = tmp_path / "focused"
+    unfocused_dir.mkdir()
+    focused_dir.mkdir()
+
+    http = FakeSession(pages)
+    unfocused = recon.crawl([root], http, unfocused_dir, max_pages=10, delay=0, robots=_AllowAll())
+    assert bills in [r["url"] for r in unfocused]
+
+    http = FakeSession(pages)
+    focused = recon.crawl(
+        [root],
+        http,
+        focused_dir,
+        max_pages=10,
+        delay=0,
+        robots=_AllowAll(),
+        categories={"roster"},
+    )
+    urls = [r["url"] for r in focused]
+    assert roster in urls
+    assert bills not in urls
+
+
+def test_party_caucus_links_count_as_roster(recon):
+    """Caucus pages carry the member lists but their text says "House Democrats"."""
+    for href, text in [
+        ("https://legislature.maine.gov/housedems/", "House Democrats"),
+        ("/house-independents/house-independents/9453", "House Independents"),
+        ("/senate/find-your-state-senator/9392", "Senators Listed by Municipality"),
+        ("/senate/district-listing/9526", "Senators Listed by Senate District"),
+    ]:
+        assert "roster" in recon.classify(href, text), href
+
+
 def test_crawl_records_failures_without_raising(recon, tmp_path):
     missing = "https://legislature.maine.gov/legis/nope/"
     http = FakeSession({})
