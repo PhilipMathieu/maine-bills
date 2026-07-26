@@ -38,6 +38,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=8,
         help="Number of parallel download workers (default: 8)",
     )
+    parser.add_argument(
+        "--enrich",
+        action="store_true",
+        help=(
+            "Enrich sponsors against the OpenStates roster (v2 fields: "
+            "sponsor_ids, sponsor_parties, sponsor_districts, "
+            "sponsor_match_confidence); no-ops with a warning if the "
+            "matching module/data is unavailable"
+        ),
+    )
     return parser
 
 
@@ -51,11 +61,22 @@ def main() -> int:
 
     args = build_parser().parse_args()
 
+    matcher_fn = None
+    if args.enrich:
+        from .enrichment import load_matcher
+
+        matcher_fn = load_matcher(logger)
+
     try:
         for session in args.sessions:
             scraper = BillScraper(session, workers=args.workers, logger=logger)
             df = scraper.scrape_session()
             logger.info(f"Session {session}: {len(df)} records")
+
+            if matcher_fn is not None:
+                from .enrichment import enrich_dataframe
+
+                df = enrich_dataframe(df, matcher_fn)
 
             if args.publish:
                 from .publish import publish_session, sync_dataset_card

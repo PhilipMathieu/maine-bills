@@ -394,6 +394,131 @@ class TestBillRecord:
         datetime.fromisoformat(record.scraped_at)
 
 
+class TestSponsorEnrichmentFields:
+    """Test v2 sponsor enrichment fields on BillRecord."""
+
+    def _make_record(self, sponsors=None, **overrides):
+        kwargs = dict(
+            session=131,
+            ld_number="0001",
+            document_type="bill",
+            amendment_code=None,
+            amendment_type=None,
+            chamber=None,
+            text="Bill text",
+            extraction_confidence=0.9,
+            sponsors=sponsors if sponsors is not None else ["Senator Smith", "Rep. Jones"],
+        )
+        kwargs.update(overrides)
+        return BillRecord(**kwargs)
+
+    def test_defaults_are_none_padded_to_sponsors(self):
+        """V1-style construction leaves aligned all-None enrichment lists."""
+        record = self._make_record()
+        assert record.sponsor_ids == [None, None]
+        assert record.sponsor_parties == [None, None]
+        assert record.sponsor_districts == [None, None]
+        assert record.sponsor_match_confidence == [None, None]
+
+    def test_defaults_empty_when_no_sponsors(self):
+        """Records without sponsors get empty enrichment lists."""
+        record = self._make_record(sponsors=[])
+        assert record.sponsor_ids == []
+        assert record.sponsor_parties == []
+        assert record.sponsor_districts == []
+        assert record.sponsor_match_confidence == []
+
+    def test_explicit_enrichment_values_preserved(self):
+        """Explicitly provided enrichment lists are kept as-is."""
+        record = self._make_record(
+            sponsor_ids=["ocd-person/abc", None],
+            sponsor_parties=["Democratic", None],
+            sponsor_districts=["12", None],
+            sponsor_match_confidence=[1.0, None],
+        )
+        assert record.sponsor_ids == ["ocd-person/abc", None]
+        assert record.sponsor_parties == ["Democratic", None]
+        assert record.sponsor_districts == ["12", None]
+        assert record.sponsor_match_confidence == [1.0, None]
+
+    def test_aligned_list_invariant(self):
+        """Enrichment lists always have the same length as sponsors."""
+        for sponsors in ([], ["Senator A"], ["Senator A", "Rep. B", "Rep. C"]):
+            record = self._make_record(sponsors=sponsors)
+            for field_name in BillRecord.ENRICHMENT_FIELDS:
+                assert len(getattr(record, field_name)) == len(record.sponsors)
+
+    def test_misaligned_enrichment_raises(self):
+        """Non-empty enrichment lists of the wrong length are rejected."""
+        with pytest.raises(ValueError, match="align index-wise"):
+            self._make_record(sponsor_ids=["ocd-person/abc"])  # 1 id, 2 sponsors
+
+        with pytest.raises(ValueError, match="align index-wise"):
+            self._make_record(sponsor_match_confidence=[1.0, 0.9, 0.8])
+
+    def test_from_filename_and_bill_document_defaults(self):
+        """Factory-built records get aligned null enrichment (v1 compatible)."""
+        bill_doc = Mock()
+        bill_doc.body_text = "Text"
+        bill_doc.extraction_confidence = 0.9
+        bill_doc.title = None
+        bill_doc.sponsors = ["Senator Test", "Representative Other"]
+        bill_doc.committee = None
+        bill_doc.amended_code_refs = []
+
+        record = BillRecord.from_filename_and_bill_document(
+            "131-LD-0001", bill_doc, "http://example.com/"
+        )
+        assert record.sponsors == ["Senator Test", "Representative Other"]
+        assert record.sponsor_ids == [None, None]
+        assert record.sponsor_parties == [None, None]
+        assert record.sponsor_districts == [None, None]
+        assert record.sponsor_match_confidence == [None, None]
+
+    def test_parquet_round_trip_without_enrichment(self, tmp_path):
+        """Records without enrichment survive a DataFrame -> parquet round trip."""
+        import pandas as pd
+
+        record = self._make_record()
+        df = pd.DataFrame([record.__dict__])
+        path = tmp_path / "bills.parquet"
+        df.to_parquet(path, index=False)
+
+        loaded = pd.read_parquet(path)
+        row = loaded.iloc[0]
+        assert list(row["sponsors"]) == ["Senator Smith", "Rep. Jones"]
+        assert len(row["sponsor_ids"]) == 2
+        assert all(pd.isna(v) for v in row["sponsor_ids"])
+        assert len(row["sponsor_match_confidence"]) == 2
+        assert all(pd.isna(v) for v in row["sponsor_match_confidence"])
+
+    def test_parquet_round_trip_with_enrichment(self, tmp_path):
+        """Enriched records survive a DataFrame -> parquet round trip."""
+        import pandas as pd
+
+        record = self._make_record(
+            sponsor_ids=["ocd-person/abc", None],
+            sponsor_parties=["Democratic", None],
+            sponsor_districts=["12", None],
+            sponsor_match_confidence=[0.97, None],
+        )
+        df = pd.DataFrame([record.__dict__])
+        path = tmp_path / "bills.parquet"
+        df.to_parquet(path, index=False)
+
+        loaded = pd.read_parquet(path)
+        row = loaded.iloc[0]
+        # Original sponsors untouched (provenance)
+        assert list(row["sponsors"]) == ["Senator Smith", "Rep. Jones"]
+        assert row["sponsor_ids"][0] == "ocd-person/abc"
+        assert pd.isna(row["sponsor_ids"][1])
+        assert row["sponsor_parties"][0] == "Democratic"
+        assert row["sponsor_districts"][0] == "12"
+        confidences = row["sponsor_match_confidence"]
+        assert confidences[0] == pytest.approx(0.97)
+        assert pd.isna(confidences[1])
+
+
 class TestAmendmentConstants:
     """Test amendment type and chamber mapping constants."""
 

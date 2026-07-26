@@ -135,6 +135,12 @@ class BillRecord:
 
     Merges filename-based metadata (always present) with content-based metadata
     (extracted from bill text, may be None/empty).
+
+    Sponsor enrichment fields (dataset v2) are additive and nullable: each is a
+    list aligned index-wise with ``sponsors`` (entry i describes sponsors[i]),
+    with None where no match was found. Records without enrichment default to
+    all-None entries, so v1-style construction remains valid. The original
+    ``sponsors`` strings are provenance and are never modified by enrichment.
     """
 
     # Filename-based metadata (always present)
@@ -155,10 +161,40 @@ class BillRecord:
     committee: str | None = None
     amended_code_refs: list[str] = field(default_factory=list)
 
+    # Sponsor enrichment (v2, additive; aligned index-wise with `sponsors`)
+    sponsor_ids: list[str | None] = field(default_factory=list)
+    sponsor_parties: list[str | None] = field(default_factory=list)
+    sponsor_districts: list[str | None] = field(default_factory=list)
+    sponsor_match_confidence: list[float | None] = field(default_factory=list)
+
     # Provenance
     source_url: str = ""
     source_filename: str = ""
     scraped_at: str = ""
+
+    ENRICHMENT_FIELDS = (
+        "sponsor_ids",
+        "sponsor_parties",
+        "sponsor_districts",
+        "sponsor_match_confidence",
+    )
+
+    def __post_init__(self):
+        """Normalize enrichment lists to stay aligned with `sponsors`.
+
+        Empty enrichment lists (the default, and the v1 case) are padded with
+        None to len(sponsors). Non-empty lists must already match len(sponsors).
+        """
+        for field_name in self.ENRICHMENT_FIELDS:
+            values = getattr(self, field_name)
+            if not values:
+                setattr(self, field_name, [None] * len(self.sponsors))
+            elif len(values) != len(self.sponsors):
+                raise ValueError(
+                    f"{field_name} has {len(values)} entries but there are "
+                    f"{len(self.sponsors)} sponsors; enrichment lists must "
+                    "align index-wise with sponsors"
+                )
 
     @classmethod
     def from_filename_and_bill_document(

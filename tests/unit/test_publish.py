@@ -95,6 +95,54 @@ def test_sync_dataset_card_readme_contains_session_configs(mocker):
     assert "data/131/*.parquet" in readme
 
 
+def _sync_card_and_get_readme(mocker):
+    """Run sync_dataset_card against a mocked HfApi and return the README text."""
+    from maine_bills.publish import sync_dataset_card
+
+    mock_api_instance = MagicMock()
+    mocker.patch("maine_bills.publish.HfApi", return_value=mock_api_instance)
+
+    item = MagicMock(spec=["path"])
+    item.path = "data/132"
+    mock_api_instance.list_repo_tree.return_value = [item]
+
+    sync_dataset_card("pem207/maine-bills")
+
+    readme_bytes = mock_api_instance.upload_file.call_args.kwargs["path_or_fileobj"]
+    return readme_bytes.decode("utf-8")
+
+
+def test_sync_dataset_card_documents_v2_enrichment_columns(mocker):
+    """Dataset card schema table includes all four v2 enrichment columns."""
+    readme = _sync_card_and_get_readme(mocker)
+
+    assert "`sponsor_ids`" in readme
+    assert "`sponsor_parties`" in readme
+    assert "`sponsor_districts`" in readme
+    assert "`sponsor_match_confidence`" in readme
+    # Original sponsors column stays documented as provenance
+    assert "`sponsors`" in readme
+    assert "provenance" in readme
+
+
+def test_sync_dataset_card_includes_methodology_section(mocker):
+    """Dataset card documents the two-pass matching methodology."""
+    readme = _sync_card_and_get_readme(mocker)
+
+    assert "## Sponsor enrichment methodology" in readme
+    assert "OpenStates" in readme
+    assert "rapidfuzz" in readme
+    assert "threshold" in readme
+    # Unmatched sponsors are left null
+    assert "null" in readme
+
+
+def test_sync_dataset_card_includes_version_note(mocker):
+    """Dataset card carries a v2 version note."""
+    readme = _sync_card_and_get_readme(mocker)
+    assert "v2" in readme
+
+
 def test_sync_dataset_card_skips_non_session_entries(mocker):
     from maine_bills.publish import sync_dataset_card
 
