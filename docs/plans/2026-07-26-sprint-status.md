@@ -101,19 +101,22 @@ through independent paths and agree to the record on all 12 sessions.
 - This session's network policy allows **GitHub only** — no huggingface.co,
   legislature.maine.gov, or openstates.org. GitHub Actions is the execution
   plane for all data work; `data-run.yml` is the escape hatch.
-- **Agents cannot start a workflow run. This is deliberate — do not route around
-  it.** Two independent blocks, both verified:
-  - `workflow_dispatch` needs `Actions: write` (per the REST docs); the GitHub
-    App doesn't have it. Confirmed by probe — cancelling a run returns the same
-    `Resource not accessible by integration`, so it isn't dispatch-specific.
-  - `repository_dispatch` needs only `Contents: write`, which the App *does*
-    have, so it would succeed at GitHub's end. The agent proxy refuses it:
-    `repository_dispatch is not permitted for this session type`.
+- **Agents can dispatch workflows** as of 2026-07-26, via the GitHub MCP tool
+  (`actions_run_trigger` → `run_workflow`). The repo owner granted the Claude
+  App `Actions: write`, which is the permission the REST docs require for
+  "Create a workflow dispatch event". Verified: cancelling a completed run now
+  returns `409 Cannot cancel a workflow run that is completed` instead of `403
+  Resource not accessible by integration`, and a dispatch with a bad choice
+  value returns `422 Provided value ... not in the list of allowed values`.
 
-  The second one is a platform policy against agent-initiated workflow runs, not
-  a missing scope. A `push`-triggered workflow reaches the same capability
-  through a channel the policy doesn't cover; that was built and reverted in #15
-  once the policy was understood. Dispatches are a human click, by design.
+  Use `workflow_dispatch` — it is the sanctioned path. Do **not** reach for
+  alternatives if it ever fails again:
+  - `repository_dispatch` needs only `Contents: write` and would work at
+    GitHub's end, but the agent proxy refuses it by policy
+    (`repository_dispatch is not permitted for this session type`).
+  - A `push`-triggered workflow reaches the same capability through a channel
+    that policy doesn't cover. That was built and reverted in #15; a 403 is a
+    signal to ask for the permission, not to find another door.
 - The agent token **cannot download artifacts** (raw curl is unauthorized), so
   workflow results should be force-pushed to a `fixtures/*` branch, which is
   readable.
