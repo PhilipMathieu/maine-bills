@@ -112,6 +112,10 @@ INTEREST_PATTERNS: list[tuple[str, str]] = [
 # billdirectory_ps.asp and never reached a single member list.
 FOCUS_CATEGORIES = {"roster": {"roster"}}
 
+# Share of the page budget reserved for rosters in a default (focus=all) run,
+# so the two targets cannot starve each other.
+ROSTER_BUDGET_SHARE = 0.4
+
 _SLUG_RE = re.compile(r"[^A-Za-z0-9._-]+")
 
 
@@ -303,15 +307,41 @@ def main() -> int:
 
     try:
         robots = RobotsPolicy(http, respect=not args.ignore_robots)
-        summary["pages"] = crawl(
-            seeds,
-            http,
-            out_dir,
-            args.max_pages,
-            args.delay,
-            robots,
-            categories=FOCUS_CATEGORIES.get(args.focus),
-        )
+        if args.focus == "all":
+            # Two phases with a reserved budget rather than one queue. A single
+            # BFS starves the rosters: the bill directory's depth-1 links are
+            # queued ahead of the roster seeds' and there are hundreds of them,
+            # which is how the first run spent 42 of 60 pages on
+            # billdirectory_ps.asp and reached no member list at all.
+            roster_budget = max(1, int(args.max_pages * ROSTER_BUDGET_SHARE))
+            roster_seeds = [t.format(session=args.session) for t in ROSTER_SEED_TEMPLATES]
+            summary["seeds"] = roster_seeds + seeds
+
+            print(f"=== phase 1: rosters (budget {roster_budget}) ===")
+            roster_pages = crawl(
+                roster_seeds,
+                http,
+                out_dir,
+                roster_budget,
+                args.delay,
+                robots,
+                categories={"roster"},
+            )
+            remaining = args.max_pages - len(roster_pages)
+            print(f"=== phase 2: everything else (budget {remaining}) ===")
+            summary["pages"] = roster_pages + crawl(
+                seeds, http, out_dir, remaining, args.delay, robots
+            )
+        else:
+            summary["pages"] = crawl(
+                seeds,
+                http,
+                out_dir,
+                args.max_pages,
+                args.delay,
+                robots,
+                categories=FOCUS_CATEGORIES.get(args.focus),
+            )
     except Exception as e:  # noqa: BLE001 -- degrade gracefully, always write the index
         summary["fatal_error"] = f"{type(e).__name__}: {e}"
         print(f"Unexpected error: {e}", file=sys.stderr)
