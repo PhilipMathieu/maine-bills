@@ -103,8 +103,18 @@ through independent paths and agree to the record on all 12 sessions.
   plane for all data work; `data-run.yml` is the escape hatch.
 - The agent token **cannot dispatch workflows** (403 `Resource not accessible by
   integration`) and **cannot download artifacts** (raw curl is unauthorized).
-  Dispatches and artifact downloads need a human, or `actions: write` on the
-  token.
+  It *can* push branches, so `data-run.yml` also triggers on a push to `run/**`
+  carrying a `run-request.json` at the repo root:
+
+  ```json
+  { "task": "recon-legislature", "sessions": "132 121", "extra_args": "" }
+  ```
+
+  That is how an agent starts a data run without waiting on a human window.
+  Only the fixed data tasks are reachable this way — `custom`, which runs an
+  arbitrary command, stays dispatch-only. Results come back on a `fixtures/*`
+  branch rather than an artifact, since branches are readable and artifacts
+  are not.
 - **Re-running a workflow replays its original commit.** After merging a fix,
   dispatch fresh from the workflow page rather than "Re-run jobs" — a re-run of
   an older run will silently test the old code.
