@@ -332,3 +332,53 @@ class TestOCRCanonicalMatching:
         results = match_sponsors(["JACK5ON"], session=132, cache_dir=cache)
         assert results[0] is not None
         assert results[0].openstates_id == "ocd-person/jackson"
+
+
+class TestChamberHint:
+    """Per-sponsor chamber hints resolve legislators who share a surname."""
+
+    def test_shared_surname_resolves_with_per_sponsor_chambers(self, matcher):
+        """The Gate A fix: two Perrys on one bill, each resolved by chamber."""
+        sponsors = ["PERRY", "PERRY", "DAUGHTRY"]
+        chambers = ["House", "Senate", "Senate"]
+        results = matcher.match_all(sponsors, chambers=chambers)
+
+        assert [r.method for r in results] == ["exact", "exact", "exact"]
+        assert results[0].openstates_id == "ocd-person/perry-a"
+        assert results[1].openstates_id == "ocd-person/perry-j"
+
+    def test_same_sponsors_are_ambiguous_without_hints(self, matcher):
+        """Baseline: without chambers these are exactly the ambiguous case."""
+        results = matcher.match_all(["PERRY", "PERRY"])
+        assert [r.method for r in results] == ["ambiguous", "ambiguous"]
+
+    def test_none_entries_fall_back_to_no_hint(self, matcher):
+        """A missing hint must not break the others on the same bill."""
+        results = matcher.match_all(["PERRY", "DAUGHTRY"], chambers=[None, "Senate"])
+        assert results[0].method == "ambiguous"
+        assert results[1].method == "exact"
+
+    def test_misaligned_chambers_rejected(self, matcher):
+        with pytest.raises(ValueError, match="chambers has 1 entries"):
+            matcher.match_all(["PERRY", "DAUGHTRY"], chambers=["House"])
+
+    def test_wrong_hint_does_not_invent_a_match(self, matcher):
+        """A hint naming a chamber the surname isn't in must not force a pick."""
+        # Both Smiths are in the House; a Senate hint leaves them unresolved
+        result = matcher.match("SMITH", chamber="Senate")
+        assert result.openstates_id is None
+
+    def test_match_sponsors_forwards_chambers(self, tmp_path):
+        import json
+
+        from maine_bills.openstates import roster_cache_path
+        from maine_bills.sponsor_matching import match_sponsors
+
+        cache = tmp_path / "cache"
+        cache.mkdir()
+        roster_cache_path(cache, 132).write_text(json.dumps([e.to_dict() for e in FIXTURE_ROSTER]))
+        results = match_sponsors(
+            ["PERRY", "PERRY"], session=132, cache_dir=cache, chambers=["House", "Senate"]
+        )
+        assert results[0].openstates_id == "ocd-person/perry-a"
+        assert results[1].openstates_id == "ocd-person/perry-j"

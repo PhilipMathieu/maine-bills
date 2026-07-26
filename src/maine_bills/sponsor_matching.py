@@ -1,9 +1,10 @@
 """Two-pass matching of extracted sponsor names to OpenStates legislators.
 
 Extracted sponsors are surname-style strings (e.g., "DAUGHTRY", "BEEBE-CENTER",
-occasionally "Talbot Ross") with no chamber attached — the extraction pipeline
-(text_extractor.py) drops the Senator/Representative prefix — so matching runs
-without a chamber hint by default, but accepts one when available.
+occasionally "Talbot Ross"). Extraction also captures the Senator/Representative
+title as a chamber hint, which is what resolves legislators sharing a surname
+(Anne Perry, House vs. Joseph Perry, Senate). The hint is optional: older data
+extracted before it existed matches without one.
 
 Pass 1: normalized exact last-name match (uppercase, accents stripped, hyphen
 spacing collapsed). Multiple distinct roster candidates sharing a last name are
@@ -168,9 +169,29 @@ class SponsorMatcher:
         # Pass 3: fuzzy fallback
         return self._fuzzy_match(normalized, chamber)
 
-    def match_all(self, sponsors: list[str], chamber: str | None = None) -> list[MatchResult]:
-        """Match a bill's sponsor list, preserving order and length."""
-        return [self.match(sponsor, chamber) for sponsor in sponsors]
+    def match_all(
+        self,
+        sponsors: list[str],
+        chamber: str | None = None,
+        chambers: list[str | None] | None = None,
+    ) -> list[MatchResult]:
+        """Match a bill's sponsor list, preserving order and length.
+
+        Args:
+            sponsors: Extracted sponsor strings
+            chamber: One hint applied to every sponsor
+            chambers: Per-sponsor hints aligned with ``sponsors``; takes
+                precedence over ``chamber``. Sponsors on one bill can sit in
+                different chambers, which is exactly what disambiguates
+                legislators sharing a surname.
+        """
+        if chambers is None:
+            return [self.match(sponsor, chamber) for sponsor in sponsors]
+        if len(chambers) != len(sponsors):
+            raise ValueError(
+                f"chambers has {len(chambers)} entries but there are {len(sponsors)} sponsors"
+            )
+        return [self.match(s, c or chamber) for s, c in zip(sponsors, chambers)]
 
     def _resolve_candidates(
         self,
@@ -245,6 +266,7 @@ def match_sponsors(
     session: int,
     cache_dir: Path | str | None = None,
     fuzzy_threshold: float = DEFAULT_FUZZY_THRESHOLD,
+    chambers: list[str | None] | None = None,
 ) -> list[MatchResult | None]:
     """Match sponsors for one session; the entry point enrichment.load_matcher uses.
 
@@ -253,6 +275,9 @@ def match_sponsors(
     returns a list aligned with ``sponsors``. Entries are None where no single
     legislator was identified ("ambiguous"/"unmatched"), so the enrichment
     columns stay null for those sponsors.
+
+    ``chambers`` carries the Senator/Representative hint per sponsor (aligned
+    with ``sponsors``) and is what resolves shared surnames.
     """
     key = (session, str(cache_dir) if cache_dir is not None else None, fuzzy_threshold)
     matcher = _MATCHERS.get(key)
@@ -261,5 +286,5 @@ def match_sponsors(
         roster = get_roster(session, **roster_kwargs)
         matcher = SponsorMatcher(roster, fuzzy_threshold=fuzzy_threshold)
         _MATCHERS[key] = matcher
-    results = matcher.match_all(sponsors)
+    results = matcher.match_all(sponsors, chambers=chambers)
     return [r if r.method in MATCHED_METHODS else None for r in results]

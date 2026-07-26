@@ -7,6 +7,15 @@ from pathlib import Path
 
 import fitz  # PyMuPDF
 
+# The title preceding a sponsor's name identifies their chamber. President is
+# President of the Senate; Speaker is Speaker of the House.
+_CHAMBER_BY_TITLE = {
+    "Senator": "Senate",
+    "President": "Senate",
+    "Representative": "House",
+    "Speaker": "House",
+}
+
 
 @dataclass
 class BillDocument:
@@ -21,6 +30,9 @@ class BillDocument:
 
     # Optional metadata
     sponsors: list[str] = field(default_factory=list)  # Legislator names
+    # Chamber per sponsor, aligned with `sponsors`; None where the bill text
+    # carried no title. Disambiguates legislators sharing a surname.
+    sponsor_chambers: list[str | None] = field(default_factory=list)
     introduced_date: date | None = None  # When bill was introduced
     committee: str | None = None  # Assigned committee
     amended_code_refs: list[str] = field(
@@ -68,12 +80,17 @@ class TextExtractor:
         metadata = {
             "bill_id": TextExtractor._extract_bill_id(full_text),
             "title": TextExtractor._extract_title(full_text),
-            "sponsors": TextExtractor._extract_sponsors(full_text),
+            "sponsor_mentions": TextExtractor._extract_sponsor_mentions(full_text),
             "session": TextExtractor._extract_session(full_text),
             "introduced_date": TextExtractor._extract_date(full_text),
             "committee": TextExtractor._extract_committee(full_text),
             "amended_code_refs": TextExtractor._extract_amended_codes(full_text),
         }
+
+        # Split sponsor mentions into the two aligned fields BillDocument exposes
+        mentions = metadata.pop("sponsor_mentions")
+        metadata["sponsors"] = [name for name, _chamber in mentions]
+        metadata["sponsor_chambers"] = [chamber for _name, chamber in mentions]
 
         # Clean body text
         body_text = TextExtractor._clean_body_text(full_text, metadata)
@@ -233,14 +250,19 @@ class TextExtractor:
         return None
 
     @staticmethod
-    def _extract_sponsors(text: str) -> list[str]:
+    def _extract_sponsor_mentions(text: str) -> list[tuple[str, str | None]]:
         """
-        Extract legislator names (sponsors) from text.
+        Extract (name, chamber) pairs for sponsors mentioned in the text.
+
+        The Senator/Representative/President/Speaker prefix each pattern already
+        requires is captured rather than discarded, because it is what
+        disambiguates legislators who share a surname (e.g. Anne Perry, House
+        vs. Joseph Perry, Senate). Chamber is None when the title is absent.
 
         Handles multi-line sponsor blocks and comma-separated lists.
         Supports both "Presented by" (real bills) and "Introduced by" (some bills/tests).
         """
-        sponsors = []
+        sponsors: list[tuple[str, str | None]] = []
         search_text = text[:2500]
         normalized_text = " ".join(search_text.split())
         # Normalize stray spaces around hyphens in names (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
@@ -301,26 +323,29 @@ class TextExtractor:
         # Helper function to validate names
         def is_valid_name(name: str) -> bool:
             """Check if extracted text is a valid legislator name."""
-            if not name or name in sponsors or len(name.split()) > 2:
+            # Deduplication is handled once, after collection, keyed on
+            # (name, chamber) — checking names here would reject a second
+            # legislator who shares a surname but sits in the other chamber.
+            if not name or len(name.split()) > 2:
                 return False
             # Check if any word in the name is a title word (word-level filtering)
             name_words = set(name.split())
             return not name_words.intersection(title_words)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
-        pattern1 = r"(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+"  # noqa: E501
+        pattern1 = r"(?:Presented|Introduced) by\s+(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+"  # noqa: E501
         for match in re.finditer(pattern1, normalized_text):
-            name = match.group(1).strip()
+            name = match.group("name").strip()
             if is_valid_name(name):
-                sponsors.append(name)
+                sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
         # Pattern 1b: "Presented by Senator/Representative/President/Speaker NAME" (without district)  # noqa: E501
         # Use lookahead to stop at keywords that indicate end of sponsor name
-        pattern1b = r"(?:Presented|Introduced) by\s+(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)"  # noqa: E501
+        pattern1b = r"(?:Presented|Introduced) by\s+(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)(?=\s+(?:Cosponsored|Be it|of|and|,)|$)"  # noqa: E501
         for match in re.finditer(pattern1b, normalized_text):
-            name = match.group(1).strip()
+            name = match.group("name").strip()
             if is_valid_name(name):
-                sponsors.append(name)
+                sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
         # Pattern 2: Cosponsorship block
         cosp_block_match = re.search(
@@ -332,32 +357,51 @@ class TextExtractor:
             cosp_block = " ".join(cosp_block_match.group(1).split())
 
             # Extract from "Representative/Senator/President/Speaker NAME of DISTRICT" pattern
-            person_pattern = r"(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?"  # noqa: E501
+            person_pattern = r"(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+(?:\s+and)?"  # noqa: E501
             for match in re.finditer(person_pattern, cosp_block):
-                name = match.group(1).strip()
+                name = match.group("name").strip()
                 if is_valid_name(name):
-                    sponsors.append(name)
+                    sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
             # Extract without "of" district
-            person_pattern_no_district = r"(?:Senator|Representative|President|Speaker)\s+([A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)"  # noqa: E501
+            person_pattern_no_district = r"(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\b(?:\s+(?:and|of)|,|$)"  # noqa: E501
             for match in re.finditer(person_pattern_no_district, cosp_block):
-                name = match.group(1).strip()
+                name = match.group("name").strip()
                 if is_valid_name(name):
-                    sponsors.append(name)
+                    sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
         # Normalize hyphenated names with stray spaces (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
-        sponsors = [re.sub(r"\s*-\s*", "-", s) for s in sponsors]
+        sponsors = [(re.sub(r"\s*-\s*", "-", name), chamber) for name, chamber in sponsors]
 
-        # Remove duplicates while preserving order
-        seen = set()
-        unique = []
-        for s in sponsors:
-            normalized = s.strip()
-            if normalized and normalized not in seen:
-                unique.append(normalized)
-                seen.add(normalized)
+        # Remove duplicates while preserving order, keyed on (name, chamber) —
+        # NOT name alone. A bill can be sponsored by two legislators sharing a
+        # surname in different chambers (e.g. Representative Perry of Calais and
+        # Senator Perry of Bangor); collapsing those by name would drop one.
+        # A mention with no title merges into a titled one for the same name.
+        positions: dict[tuple[str, str | None], int] = {}
+        unique: list[tuple[str, str | None]] = []
+        for name, chamber in sponsors:
+            normalized = name.strip()
+            if not normalized or (normalized, chamber) in positions:
+                continue
+            untitled = positions.get((normalized, None))
+            if chamber and untitled is not None:
+                # Upgrade the earlier untitled mention rather than duplicating it
+                unique[untitled] = (normalized, chamber)
+                positions[(normalized, chamber)] = untitled
+                del positions[(normalized, None)]
+            elif chamber is None and any(n == normalized for n, _c in unique):
+                continue  # already recorded, with or without a chamber
+            else:
+                positions[(normalized, chamber)] = len(unique)
+                unique.append((normalized, chamber))
 
         return unique
+
+    @staticmethod
+    def _extract_sponsors(text: str) -> list[str]:
+        """Sponsor names only, without chamber (kept for callers that don't need it)."""
+        return [name for name, _chamber in TextExtractor._extract_sponsor_mentions(text)]
 
     @staticmethod
     def _extract_session(text: str) -> str | None:

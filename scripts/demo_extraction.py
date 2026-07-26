@@ -4,7 +4,9 @@
 import json
 import tempfile
 from pathlib import Path
+
 import requests
+
 from src.maine_bills.text_extractor import TextExtractor
 
 
@@ -28,11 +30,11 @@ def demo_bill_extraction(session: str, bill_id: str) -> None:
             pdf_path = Path(tmp.name)
 
         # Extract
-        print(f"\nExtracting with PyMuPDF...")
+        print("\nExtracting with PyMuPDF...")
         bill_doc = TextExtractor.extract_bill_document(pdf_path)
 
         # Display results
-        print(f"\n--- METADATA ---")
+        print("\n--- METADATA ---")
         print(f"Bill ID (from filename): {bill_id}")
         print(f"Bill ID (extracted from PDF): {bill_doc.bill_id or '(not found)'}")
         print(f"Session: {bill_doc.session or '(not found)'}")
@@ -44,15 +46,15 @@ def demo_bill_extraction(session: str, bill_id: str) -> None:
         )
         print(f"Extraction Confidence: {bill_doc.extraction_confidence:.2f}")
 
-        print(f"\n--- BODY TEXT (first 500 chars) ---")
+        print("\n--- BODY TEXT (first 500 chars) ---")
         print(bill_doc.body_text[:500] + "...")
 
-        print(f"\n--- TEXT STATISTICS ---")
+        print("\n--- TEXT STATISTICS ---")
         print(f"Total length: {len(bill_doc.body_text)} characters")
         print(f"Lines: {len(bill_doc.body_text.splitlines())}")
 
         # Show JSON serialization
-        print(f"\n--- JSON SERIALIZATION (metadata only) ---")
+        print("\n--- JSON SERIALIZATION (metadata only) ---")
         metadata_dict = {
             "bill_id": bill_doc.bill_id,
             "title": bill_doc.title,
