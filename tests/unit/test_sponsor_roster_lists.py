@@ -376,3 +376,115 @@ def test_an_agency_acronym_inside_the_roster_run_is_not_separable_by_shape():
         "Be it enacted by the People of the State of Maine as follows:\n"
     )
     assert names(text) == ["BAILEY", "DHHS"]
+
+
+# --- round 3: each guard isolated, so removing it turns a test red ---
+#
+# The tests above were written to lock in specific guards and did not: the
+# prefix-parse change subsumed them, so deleting the capitals guard, the
+# `Amend the ...` terminator, the lettered-section terminator, or the
+# prefix-branch stop left the whole suite green. Each fixture below is built so
+# that ONE guard is the only thing between the parser and a bad capture.
+
+
+def test_the_capitals_guard_is_load_bearing():
+    """Isolates _ROSTER_SURNAME.
+
+    The noun has to be Title Case (so the capitals guard is what rejects it) and
+    NOT on the denylist (so is_valid_name is not what rejects it) -- otherwise
+    the fixture passes with the capitals guard deleted and proves nothing.
+    """
+    text = (
+        "Cosponsored by Senators: BAILEY of York, Meadow of Islesboro, Harbor of Cutler.\n"
+        "The department shall consider each application on its merits.\n"
+    )
+    assert names(text) == ["BAILEY"]
+
+
+def test_the_denylist_is_load_bearing_in_capitals():
+    """Isolates is_valid_name on the roster path, which is ALL CAPS by
+    construction. The list is written in Title Case and was compared
+    case-sensitively, so every word on it passed in capitals -- COUNTY,
+    DEPARTMENT, SENATE and LEGISLATURE were all reachable as "sponsors" while
+    the list that names them looked like it was doing the work."""
+    for noun in ("COUNTY", "DEPARTMENT", "SENATE", "LEGISLATURE", "CITY", "UNIVERSITY"):
+        text = f"Cosponsored by Senators: BAILEY of York, {noun} of Cumberland.\nBe it enacted:\n"
+        assert names(text) == ["BAILEY"], noun
+
+
+def test_the_amend_terminator_is_load_bearing():
+    """Isolates `Amend the (bill|resolve|amendment)`.
+
+    The bad text has to sit behind a SECOND plural label. _roster_segments
+    splits the block on those labels and each segment starts a fresh run, so a
+    label after the directive is reachable even though the prose before it
+    would have stopped the first run. Without the terminator the block extends
+    to include that second label; with it, the block is cut first.
+    """
+    for directive in ("Amend the bill", "Amend the resolve", "Amend the amendment"):
+        text = (
+            f"Cosponsored by Representatives: ABDI of Lewiston, BOYLE of Gorham. "
+            f"{directive} by adding, Senators: MARTIN of Eagle Lake, GRANT of Gardiner.\n"
+        )
+        assert names(text) == ["ABDI", "BOYLE"], directive
+
+
+def test_the_lettered_section_terminator_is_load_bearing():
+    """Isolates `Sec.\\s*[A-Za-z0-9]`; same construction as above, since the
+    digits-only form let the block run past `Sec. A-1` into the body."""
+    text = (
+        "Cosponsored by Senators: BRENNER of Cumberland, BAILEY of York. "
+        "Sec. A-1. 5 MRSA 12004 is amended by adding, "
+        "Representatives: MARTIN of Eagle Lake, GRANT of Gardiner.\n"
+    )
+    assert names(text) == ["BRENNER", "BAILEY"]
+
+
+def test_the_prefix_branch_stops_the_run():
+    """Isolates the `return` after a partially-consumed cell. With `continue`
+    the run steps over the prose and keeps harvesting the cells behind it."""
+    text = (
+        "Cosponsored by Senators: BAILEY of York. The department shall report, "
+        "MARTIN of Eagle Lake, GRANT of Gardiner.\n"
+    )
+    assert names(text) == ["BAILEY"]
+
+
+def test_a_locality_must_end_the_cell_not_run_into_a_clause():
+    """A roster cell is a noun phrase; "MDOT of Augusta shall study the matter"
+    is a clause. Both fit the four-word ceiling, so the sentence boundary is
+    what separates them."""
+    for clause in (
+        "MDOT of Augusta shall study the matter.",
+        "MRSA of Title 5 is amended to read as follows.",
+        "PART A of Chapter 12 takes effect on July 1.",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {clause}\n"
+        assert names(text) == ["BAILEY"], clause
+
+
+def test_a_short_clause_that_reads_as_a_locality_is_not_separable():
+    """The other half of the known limit, recorded rather than asserted away.
+
+    "USDA of Washington provides the funds." is a clause, but "Washington
+    provides the funds" fits the four-word ceiling and ends in a period, so it
+    is shape-identical to a long locality. The boundary closes clauses that run
+    LONGER than a locality; it cannot close ones that do not.
+
+    Bounded: at most one bogus name per roster segment, only when the block is
+    unterminated, and enrichment publishes it with a null id and null
+    confidence rather than a guessed identity.
+    """
+    text = "Cosponsored by Senators: BAILEY of York, USDA of Washington provides the funds.\n"
+    assert names(text) == ["BAILEY", "USDA"]
+
+
+def test_abbreviated_place_names_survive_the_sentence_boundary():
+    """The period in "St. Albans" must not read as the end of the cell, or the
+    roster stops one town early."""
+    text = (
+        "Cosponsored by Senators: SMYTH of St. Albans, PIERCE of St. George, "
+        "JONES of Isle au Haut, DANA of the Passamaquoddy Tribe.\n"
+        "Be it enacted:\n"
+    )
+    assert names(text) == ["SMYTH", "PIERCE", "JONES", "DANA"]

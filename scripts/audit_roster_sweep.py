@@ -11,16 +11,26 @@ constructed prose" (it can) but "does real bill text defeat it". That is an
 empirical question about the corpus, and this script answers it.
 
 Method: extract each session's sponsors twice, once with the sweep live and
-once with it disabled, and diff. The difference is exactly what the sweep
-contributed. Each contributed name is then matched against the OpenStates
-roster for that session -- a real surname matches a sitting legislator, an
-agency acronym does not -- and the unmatched names are printed in full so a
-human can see what they are.
+once with it disabled, and diff. Each contributed name is then matched against
+the OpenStates roster for that session -- a real surname matches a sitting
+legislator, an agency acronym does not -- and the unmatched names are printed
+in full so a human can see what they are.
 
-An unmatched name is not automatically a false positive: roster coverage for
-sessions 121-124 is poor (issue #13), so an unmatched name there is more
-likely a coverage gap than a bad extraction. Read the per-session split, not
-the total.
+**What this does and does not establish.** Three limits worth stating, because
+the numbers are easy to over-read:
+
+* The control is "this PR minus the roster sweep", NOT `main`. The wider
+  sponsor window and the rewritten block terminators are present in BOTH arms,
+  so their contribution is attributed to neither and is not measured here.
+* A zero unmatched count means "every contributed name matched the OpenStates
+  roster", not "no junk was captured". ``SponsorMatcher`` has a fuzzy fallback,
+  so a short token that happens to clear its threshold against some surname is
+  recorded as matched and never appears in the unmatched list. Reading
+  ``all_names`` is what would establish the stronger claim.
+* An unmatched name is not automatically a false positive: roster coverage for
+  sessions 121-124 is poor (issue #13), so an unmatched name there is more
+  likely a coverage gap than a bad extraction. Read the per-session split, not
+  the total.
 
 Usage:
     uv run python scripts/audit_roster_sweep.py --sessions 131 132
@@ -79,7 +89,11 @@ def audit_session(parquet_source: str, session: int) -> dict:
     contributed = Counter()
     bills_affected = 0
     for got, base in zip(with_sweep, without_sweep):
-        extra = [n for n in got if n not in set(base)]
+        # Multiset difference, not membership. `_extract_sponsors` dedupes on
+        # (name, chamber), so the same surname can legitimately appear twice --
+        # Representative PERRY of Calais and Senator PERRY of Bangor. A set
+        # comparison hid the second one and made every count a floor.
+        extra = Counter(got) - Counter(base)
         if extra:
             bills_affected += 1
             contributed.update(extra)

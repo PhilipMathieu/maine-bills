@@ -44,14 +44,17 @@ _ROSTER_SEGMENTS = re.compile(r"\b(Senators|Representatives)\s*:")
 # TALBOT ROSS, DHALAC. Requiring two adjacent capitals is a positive shape test
 # on the name itself, which is what the sweep actually needs.
 #
-# Anchoring to the plural label was NOT sufficient on its own: the only other
-# guard was is_valid_name, a 34-word denylist that does not contain City,
-# Village, Board, University, Nation or Region -- the vocabulary of bill body
-# text. So the sweep was safe only while the cosponsor block terminated before
-# the body, and the terminator list is a denylist with reachable gaps:
-# amendments open "Amend the bill by", which matches none of them, and
-# amendments are ~45% of a session's documents. Verified: an amendment fixture
-# captured ("Village", "House") as a sponsor before this guard.
+# Anchoring to the plural label was NOT sufficient on its own, and neither was
+# is_valid_name: that denylist is written in Title Case and was compared
+# case-sensitively, so on this path -- which is ALL CAPS by construction -- it
+# matched nothing at all. Both guards now do real work: is_valid_name compares
+# case-folded and has been extended with the institutional vocabulary (City,
+# Village, Board, University, Nation, Region, Part, Chapter, ...), and this
+# pattern rejects the Title Case forms, which have no two adjacent capitals.
+#
+# Each is isolated by a test that goes red when only that guard is removed --
+# an earlier round's fixtures were subsumed by the prefix parse and passed with
+# either guard deleted.
 _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 
 # One roster entry: an optional individual title (leaders keep theirs inside the
@@ -69,14 +72,35 @@ _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 # deciding whether to CONTINUE, which _roster_names handles: a cell the entry
 # does not consume ends the run after its name is taken.
 #
-# The locality is bounded by WORD COUNT rather than by capitalization. Requiring
-# every word to be capitalized looked tidier and rejected real places -- "Isle
-# au Haut" has a lowercase particle -- while a four-word ceiling still excludes
-# the prose runs this is guarding against.
+# The locality is bounded by word count rather than by capitalization --
+# requiring every word to be capitalized rejects real places, since "Isle au
+# Haut" has a lowercase particle -- AND it must end at a sentence period or the
+# end of the cell. That boundary is what separates a locality from a sentence
+# that merely begins like one:
+#
+#     BAILEY of York, MDOT of Augusta shall study the matter.
+#
+# "Augusta shall study the matter" is inside the four-word ceiling, so without
+# the boundary MDOT is taken as a cosponsor. With it, the cell does not match at
+# all and the run stops -- which is the correct reading, because a roster cell
+# is a noun phrase and this one is a clause.
+#
+# The leading "St.|Mt.|Ft." arm keeps abbreviated place names whole: "St.
+# Albans", "St. George", "Mt. Desert". Without it the period inside the
+# abbreviation reads as the sentence boundary and the roster stops one town
+# early.
+#
+# It is an explicit list, not a general "period then capitalised word". The
+# general form re-opens the hole the boundary was added to close, because
+# ". The" satisfies it -- so "BAILEY of York. The department shall report"
+# matches as ONE complete cell, the run never stops, and every cell behind the
+# prose is harvested. Caught by test_the_prefix_branch_stops_the_run.
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
     r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
-    r"\s+of\s+(?:the\s+)?[A-Z][\w.'\-]*(?:\s+[\w.'\-]+){0,3}\s*\.?"
+    r"\s+of\s+(?:the\s+)?"
+    r"(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,3}"
+    r"\s*(?:\.|$)"
 )
 
 
@@ -432,7 +456,40 @@ class TextExtractor:
             "County",
             "District",
             "Districts",
+            # Institutional and structural nouns. These reach the roster path
+            # because it is all-caps and the entry pattern only requires
+            # "<CAPS> of <Place>" -- "CITY of Portland" and "PART A of Chapter
+            # 12" are both well-formed entries by shape. The comment on
+            # _ROSTER_SURNAME used to claim that guard covered this vocabulary;
+            # it does not, since an all-caps common noun has two adjacent
+            # capitals like any surname.
+            #
+            # Chosen to exclude anything plausible as a Maine surname. "Hall"
+            # and "Chamber" above already make that tradeoff; these do not --
+            # no Maine legislator is surnamed City, Village or University.
+            "City",
+            "Village",
+            "Board",
+            "University",
+            "Nation",
+            "Region",
+            "Authority",
+            "Agency",
+            "Division",
+            "Institute",
+            "Association",
+            "Foundation",
+            "Corporation",
+            "Part",
+            "Chapter",
+            "Section",
+            "Subsection",
+            "Title",
+            "Article",
+            "Paragraph",
         }
+
+        _TITLE_WORDS_FOLDED = {word.casefold() for word in title_words}
 
         # Helper function to validate names
         def is_valid_name(name: str) -> bool:
@@ -442,9 +499,15 @@ class TextExtractor:
             # legislator who shares a surname but sits in the other chamber.
             if not name or len(name.split()) > 2:
                 return False
-            # Check if any word in the name is a title word (word-level filtering)
-            name_words = set(name.split())
-            return not name_words.intersection(title_words)
+            # Compared case-INSENSITIVELY. title_words is written in Title Case
+            # and rosters print surnames in capitals, so a case-sensitive
+            # intersection made this filter structurally inert on the roster
+            # path -- every word on the list passed in caps. COUNTY, DEPARTMENT,
+            # SENATE, LEGISLATURE, UNIVERSITY and NATION were all reachable as
+            # "sponsors" while the list that names them looked like it was doing
+            # the work.
+            name_words = {word.casefold() for word in name.split()}
+            return not name_words.intersection(_TITLE_WORDS_FOLDED)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
         pattern1 = r"(?:Presented|Introduced) by\s+(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+"  # noqa: E501
