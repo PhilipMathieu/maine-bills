@@ -326,7 +326,10 @@ def backfill(
     # summary has to say which it is. Without `complete` and `not_attempted`,
     # a run that aborted at LD 40 of 2,000 produces a file that looks like a
     # small session.
-    not_attempted = max(0, len(todo) - attempted)
+    # Measured against the FULL LD set, not against `todo`. Deriving it from
+    # `todo` made a --limit smoke test report complete: the run finishes
+    # everything it was asked for while thousands of bills remain unfetched.
+    outstanding = [ld for ld in ld_numbers if ld not in records and ld not in missing]
     summary = {
         "session": session,
         "lds_total": len(ld_numbers),
@@ -334,15 +337,15 @@ def backfill(
         "no_status_page": len(missing),
         "failed": len(failed),
         "failed_lds": failed,
-        "not_attempted": not_attempted,
+        "not_attempted": len(outstanding),
         "aborted": aborted,
-        "complete": not aborted and not_attempted == 0 and not failed,
+        "complete": not aborted and not outstanding,
         "actions_total": sum(r["action_count"] for r in records.values()),
     }
     logger.info(
         f"Session {session}: {summary['records']} records, "
         f"{summary['actions_total']} actions, {summary['no_status_page']} without a page, "
-        f"{summary['failed']} failed, {not_attempted} not attempted"
+        f"{summary['failed']} failed, {len(outstanding)} not attempted"
         f"{' (ABORTED)' if aborted else ''}"
     )
     return summary

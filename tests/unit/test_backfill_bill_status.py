@@ -271,7 +271,9 @@ def test_sustained_failure_aborts_instead_of_running_the_whole_session(
 
     assert summary["aborted"] is True
     assert len(http.requested) == backfill_mod.MAX_CONSECUTIVE_FAILURES
-    assert summary["not_attempted"] == 500 - backfill_mod.MAX_CONSECUTIVE_FAILURES
+    # All 500 remain outstanding: the 10 we did try failed, so they still need
+    # fetching too. "Not attempted" counts what a rerun must still do.
+    assert summary["not_attempted"] == 500
     assert summary["complete"] is False
 
 
@@ -593,6 +595,20 @@ def test_a_crash_still_leaves_a_summary_saying_it_failed(
     summary = json.loads((tmp_path / "summary-132.json").read_text())
     assert summary["complete"] is False
     assert "KeyboardInterrupt" in summary["error"]
+
+
+def test_a_limited_smoke_test_does_not_claim_the_session_is_complete(
+    backfill_mod, fake_http, tmp_path
+):
+    """Completeness is measured against the full LD set. Derived from the run's
+    own todo list, --limit reported complete: the run finished everything it was
+    asked for while thousands of bills remained unfetched."""
+    fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    lds = [f"{i:04d}" for i in range(1, 101)]
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0, limit=3)
+    assert summary["records"] == 3
+    assert summary["not_attempted"] == 97
+    assert summary["complete"] is False
 
 
 def test_limit_caps_the_run_for_a_smoke_test(backfill_mod, fake_http, tmp_path):
