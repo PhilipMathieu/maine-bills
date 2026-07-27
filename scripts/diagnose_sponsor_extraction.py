@@ -139,23 +139,67 @@ def diagnose_session(df: pd.DataFrame, session: int, samples: int) -> tuple[dict
     # Sample the two buckets that indicate a real problem, in that order.
     interesting = buckets["marker_only"] + buckets["recoverable"]
     by_filename = originals.set_index("source_filename", drop=False)
-    text_samples = []
-    for name in interesting[:samples]:
-        row = by_filename.loc[name]
-        if isinstance(row, pd.DataFrame):  # duplicate filenames, if any
-            row = row.iloc[0]
-        text = row.get("text") or ""
-        text_samples.append(
-            {
-                "session": session,
-                "source_filename": name,
-                "bucket": "marker_only" if name in buckets["marker_only"] else "recoverable",
-                "reextracted": TextExtractor._extract_sponsor_mentions(text)[:10],
-                "text_head": text[:SAMPLE_CHARS],
-            }
+    text_samples = [
+        _sample(
+            by_filename,
+            name,
+            session,
+            "marker_only" if name in buckets["marker_only"] else "recoverable",
         )
+        for name in interesting[:samples]
+    ]
+
+    # Bills that *do* have sponsors, which the buckets above never show. A
+    # session can extract cleanly on every bill and still lose most sponsors if
+    # the block lists more names than the patterns pick up -- and re-running the
+    # same extractor cannot detect that, because it is what produced the counts.
+    # So the mentions/doc gap between sessions is only interpretable next to the
+    # raw block. Lowest counts first: one stored sponsor on a bill whose text
+    # names five is exactly the failure this is looking for.
+    text_samples += _low_sponsor_samples(originals, by_filename, session, samples)
 
     return result, text_samples
+
+
+def _sample(by_filename: pd.DataFrame, name: str, session: int, bucket: str) -> dict:
+    row = by_filename.loc[name]
+    if isinstance(row, pd.DataFrame):  # duplicate filenames, if any
+        row = row.iloc[0]
+    # Same guard analyze_zero_sponsor_docs uses, and for the same reason: a null
+    # text cell is not always None. `pd.NA or ""` raises (its truth value is
+    # ambiguous), and NaN is *truthy*, so `or ""` hands back the float and the
+    # slice below fails instead. isinstance covers both.
+    text = row.get("text")
+    if not isinstance(text, str):
+        text = ""
+    return {
+        "session": session,
+        "source_filename": name,
+        "bucket": bucket,
+        "stored_sponsors": as_aligned_list(row.get("sponsors")) or [],
+        "reextracted": TextExtractor._extract_sponsor_mentions(text)[:20],
+        "text_head": text[:SAMPLE_CHARS],
+    }
+
+
+def _low_sponsor_samples(
+    originals: pd.DataFrame, by_filename: pd.DataFrame, session: int, samples: int
+) -> list[dict]:
+    """Sampled bills that have sponsors, fewest first, then a high-count control."""
+    counts = originals["sponsors"].map(sponsor_count)
+    with_sponsors = originals[counts > 0].assign(_n=counts[counts > 0])
+    if with_sponsors.empty:
+        return []
+
+    ordered = with_sponsors.sort_values(["_n", "source_filename"])
+    low = list(ordered["source_filename"].head(samples))
+    # A couple of high-count bills from the same session as a control: if those
+    # parse fully, the format is fine and low counts are real.
+    high = list(ordered["source_filename"].tail(2))
+
+    return [_sample(by_filename, n, session, "has_sponsors_low") for n in low] + [
+        _sample(by_filename, n, session, "has_sponsors_high") for n in high
+    ]
 
 
 def format_markdown(results: list[dict]) -> str:
