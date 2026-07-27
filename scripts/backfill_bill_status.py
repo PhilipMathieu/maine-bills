@@ -62,12 +62,21 @@ MAX_ATTEMPTS = 3
 # would be exactly that.
 MAX_CONSECUTIVE_FAILURES = 10
 
-# A long enough run of "no such bill" is not a sparse session, it is a systemic
-# problem. Enumeration comes from the parquet, so every LD we ask about is one
-# we already hold a document for -- a missing status page is anomalous BY
-# CONSTRUCTION. A wrong session number is the concrete case: the site answers
-# the identical not-found body for every LD, which without this guard produces
-# 2,000 requests, an empty actions table, and a green check.
+# A long run of "no such bill" WITH NOTHING RECORDED YET is a systemic problem,
+# not a sparse session. The concrete case is a wrong session number: the site
+# answers the identical not-found body for every LD, which without this guard
+# produced 2,000 requests, an empty actions table, and a green check.
+#
+# The `and not records` half matters. An earlier version aborted on the run
+# length alone, justified by "enumeration comes from the parquet, so every LD
+# we ask about is one we hold a document for". That reasoning is wrong: the
+# documents come from lldc.mainelegislature.org and the status pages from
+# legislature.maine.gov, which are independent systems. Review found session
+# 124 has a real page at LD 1800 and none at LD 1850 -- so a contiguous gap
+# where the document repository outruns the status application is a normal
+# thing that would have aborted a perfectly healthy session. Requiring zero
+# records keeps the wrong-session protection intact (that case never records
+# anything) while making a mid-session gap harmless.
 MAX_CONSECUTIVE_MISSING = 50
 
 # A Retry-After longer than this ends the session rather than being slept
@@ -346,13 +355,12 @@ def backfill(
             # abort. It gets its own, looser breaker instead.
             consecutive_failures = 0
             consecutive_missing += 1
-            if consecutive_missing >= MAX_CONSECUTIVE_MISSING:
+            if consecutive_missing >= MAX_CONSECUTIVE_MISSING and not records:
                 logger.error(
-                    f"Session {session}: {consecutive_missing} consecutive bills with no "
-                    f"status page; stopping after {i}/{len(todo)}. Every LD here comes "
-                    f"from the published parquet, so this many in a row means the "
-                    f"session number is wrong or the site has changed, not that the "
-                    f"bills are absent."
+                    f"Session {session}: {consecutive_missing} bills with no status page "
+                    f"and not one real page yet; stopping after {i}/{len(todo)}. That "
+                    f"pattern means the session number is wrong or the site has changed, "
+                    f"not that these particular bills are absent."
                 )
                 aborted = True
                 abort_reason = f"{consecutive_missing} consecutive bills with no status page"
@@ -493,11 +501,17 @@ def main(argv=None) -> int:
     signal.signal(signal.SIGTERM, _exit_on_sigterm)
     args = parse_args(argv)
 
-    ld_numbers = session_ld_numbers(args.parquet_source, args.session)
     out_path = args.output / f"actions-{args.session}.json"
     summary_path = args.output / f"summary-{args.session}.json"
 
+    # Inside the try as well: enumeration reads the published parquet over the
+    # network, and a session missing from it raised before any summary existed
+    # -- the one hole in "a run always leaves a summary saying what happened".
+    # Bound first so the handler can report it even when enumeration is what
+    # failed.
+    ld_numbers: list[str] = []
     try:
+        ld_numbers = session_ld_numbers(args.parquet_source, args.session)
         summary = backfill(
             args.session,
             ld_numbers,

@@ -384,6 +384,65 @@ def test_a_missing_bill_resets_the_failure_streak(backfill_mod, fake_http, tmp_p
     assert summary["aborted"] is False
 
 
+def test_a_gap_in_a_working_session_does_not_abort_it(backfill_mod, fake_http, tmp_path):
+    """The missing breaker requires that NOTHING has been recorded yet.
+
+    The documents come from lldc.mainelegislature.org and the status pages from
+    legislature.maine.gov — independent systems — so a contiguous stretch where
+    the document repository outruns the status application is normal. Session
+    124 has a real page at LD 1800 and none at LD 1850. Aborting on the run
+    length alone would kill a healthy session for it.
+    """
+    good, gone = FakeResponse(200, status_page()), FakeResponse(200, not_found_page())
+    # One real bill, then a gap three times longer than the breaker's threshold.
+    sequence = [good] + [gone] * (backfill_mod.MAX_CONSECUTIVE_MISSING * 3)
+    http = fake_http(FakeSession(sequence=sequence))
+    lds = [f"{i:04d}" for i in range(1, len(sequence) + 1)]
+    summary = backfill_mod.backfill(124, lds, tmp_path / "a.json", delay=0)
+
+    assert summary["aborted"] is False
+    assert len(http.requested) == len(lds)
+    assert summary["records"] == 1
+    assert summary["complete"] is True
+
+
+def test_a_missing_bill_does_not_reset_the_failure_streak_counter(
+    backfill_mod, fake_http, tmp_path
+):
+    """The failure branch clears `consecutive_missing`. Without it, missing
+    bills scattered between failures accumulate toward the missing breaker and
+    could abort a run where they were never consecutive at all."""
+    gone, bad = FakeResponse(200, not_found_page()), FakeResponse(403, "")
+    sequence = []
+    for _ in range(30):
+        sequence.extend([gone] * 5 + [bad])
+    fake_http(FakeSession(sequence=sequence))
+    lds = [f"{i:04d}" for i in range(1, 181)]
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0)
+    assert summary["abort_reason"] is None or "consecutive failures" in summary["abort_reason"]
+
+
+def test_the_missing_breaker_records_why_it_stopped(backfill_mod, fake_http, tmp_path):
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    lds = [f"{i:04d}" for i in range(1, 201)]
+    summary = backfill_mod.backfill(140, lds, tmp_path / "a.json", delay=0)
+    assert summary["aborted"] is True
+    assert "no status page" in summary["abort_reason"]
+
+
+def test_a_retry_after_exactly_at_the_threshold_is_slept_not_aborted(
+    backfill_mod, fake_http, sleeps, tmp_path
+):
+    """Pins the boundary: the abort is for a wait LONGER than we will sit
+    through, so the threshold value itself is still honored normally."""
+    busy = FakeResponse(503, "")
+    busy.headers = {"Retry-After": str(int(backfill_mod.RETRY_AFTER_ABORT))}
+    fake_http(FakeSession(sequence=[busy, FakeResponse(200, status_page())]))
+    summary = backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
+    assert summary["aborted"] is False
+    assert backfill_mod.RETRY_AFTER_ABORT in sleeps
+
+
 def test_missing_bills_do_not_trip_the_breaker(backfill_mod, fake_http, tmp_path):
     """A session with a long run of nonexistent LDs is normal, not a refusal."""
     fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
@@ -765,6 +824,10 @@ def test_sigterm_still_leaves_a_summary(tmp_path):
     summary = json.loads(summary_path.read_text())
     assert summary["complete"] is False
     assert summary["aborted"] is True
+    # The signal path bypasses main()'s `return 1` entirely, so the exit code is
+    # whatever the handler names. 128+SIGTERM by convention; without this
+    # assertion the handler could exit 0 and report a killed job as a success.
+    assert proc.returncode == 143
 
 
 def test_a_crash_still_leaves_a_summary_saying_it_failed(
