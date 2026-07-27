@@ -22,6 +22,7 @@ on:
         default: recon-legislature
         options:
           - recon-legislature
+          - backfill-status
           - diagnose-sponsors
           - fetch-status-sample
           - run-matching
@@ -138,6 +139,92 @@ jobs:
         with:
           name: recon
           path: data/recon/
+          if-no-files-found: warn
+
+  # Sprint node N3: fetch and parse every bill's status page for a session,
+  # producing the `actions` legislative-history records.
+  #
+  # THROTTLE. robots.txt for legislature.maine.gov states no Crawl-delay and no
+  # Request-rate, so the rate is our restraint rather than the site's
+  # instruction. One request per second per session, and max-parallel caps how
+  # many sessions run at once: all twelve would mean twelve sustained requests
+  # per second against a state government server. Agreed with the repo owner at
+  # 3-4 concurrent; 3 is set here. Do not raise either without asking.
+  plan-backfill:
+    if: inputs.task == 'backfill-status'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      sessions: ${{ steps.plan.outputs.sessions }}
+    steps:
+      - name: Validate and build the session matrix
+        id: plan
+        env:
+          SESSIONS: ${{ inputs.sessions }}
+        run: |
+          case "$SESSIONS" in
+            "" | *[!0-9\ ]*)
+              echo "::error::sessions must be space-separated digits; got '$SESSIONS'"
+              exit 1
+              ;;
+          esac
+          MATRIX=$(printf '%s' "$SESSIONS" | tr ' ' '\n' | grep -v '^$' \
+            | python3 -c 'import json,sys; print(json.dumps([int(x) for x in sys.stdin.read().split()]))')
+          echo "sessions=$MATRIX" >> "$GITHUB_OUTPUT"
+          echo "Matrix: $MATRIX"
+
+  backfill-status:
+    if: inputs.task == 'backfill-status'
+    needs: plan-backfill
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write # force-pushes the fixtures/actions branch
+    strategy:
+      max-parallel: 3
+      fail-fast: false
+      matrix:
+        session: ${{ fromJSON(needs.plan-backfill.outputs.sessions) }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync --extra dev
+
+      - name: Backfill
+        env:
+          SESSION: ${{ matrix.session }}
+        run: |
+          uv run python scripts/backfill_bill_status.py \
+            --session "$SESSION" \
+            --parquet-source hf://datasets/pem207/maine-bills \
+            --output data/actions
+
+      - name: Summarize
+        if: always()
+        env:
+          SESSION: ${{ matrix.session }}
+        run: |
+          F="data/actions/summary-$SESSION.json"
+          if [ -f "$F" ]; then
+            {
+              echo "### Session $SESSION"
+              echo '```json'
+              cat "$F"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: actions-${{ matrix.session }}
+          path: data/actions/
           if-no-files-found: warn
 
   # Issue #13 item 4: session 132 extracts 0.8 sponsor mentions per document
