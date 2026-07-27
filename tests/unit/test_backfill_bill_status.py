@@ -192,7 +192,9 @@ def test_server_errors_are_retried_then_reported_as_failed(backfill_mod, fake_ht
     http = fake_http(FakeSession(default=FakeResponse(503, "busy")))
     summary = backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=0)
     assert summary["failed"] == 1
-    assert len(http.requested) == backfill_mod.MAX_ATTEMPTS
+    # MAX_ATTEMPTS in the main loop, then the end-of-run retry pass tries the
+    # same bill once more with its own attempts.
+    assert len(http.requested) == backfill_mod.MAX_ATTEMPTS * 2
 
 
 def test_a_transient_error_recovers_on_retry(backfill_mod, fake_http, tmp_path):
@@ -207,7 +209,10 @@ def test_a_200_that_is_not_a_status_page_is_not_recorded(backfill_mod, fake_http
     page — it already has the identifiers. Without a shape check the run would
     record an all-null row and call it a success."""
     good = FakeResponse(200, status_page())
-    fake_http(FakeSession(sequence=[FakeResponse(200, "<html><title>Error</title></html>"), good]))
+    bad = FakeResponse(200, "<html><title>Error</title></html>")
+    # `default` set so the retry pass sees the same unrecognized page rather
+    # than falling off the end of the sequence.
+    fake_http(FakeSession(sequence=[bad, good], default=bad))
     summary = backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=0)
     assert summary["failed"] == 1
     assert summary["records"] == 1
@@ -313,7 +318,9 @@ def test_scattered_failures_do_not_abort_a_healthy_run(backfill_mod, fake_http, 
     """
     good, bad = FakeResponse(200, status_page()), FakeResponse(403, "")
     sequence = [bad if i % 10 == 0 else good for i in range(300)]
-    fake_http(FakeSession(sequence=sequence))
+    # `default` keeps the retry pass failing too, so the assertions below are
+    # about the breaker rather than about the fake running out of responses.
+    fake_http(FakeSession(sequence=sequence, default=bad))
     summary = backfill_mod.backfill(
         132, [f"{i:04d}" for i in range(1, 301)], tmp_path / "a.json", 0
     )
@@ -348,8 +355,9 @@ def test_no_backoff_sleep_after_the_final_attempt(backfill_mod, fake_http, sleep
     backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
     # Backoff before attempts 2 and 3, none after 3, then the inter-bill delay.
     # Asserted as an exact sequence: filtering by value silently dropped the
-    # first backoff, which happens to equal the inter-bill delay.
-    assert sleeps == [2.0, 4.0, 1.0]
+    # first backoff, which happens to equal the inter-bill delay. The retry
+    # pass repeats the same shape, so only the first pass is pinned here.
+    assert sleeps[:3] == [2.0, 4.0, 1.0]
 
 
 def test_no_backoff_sleep_after_the_final_attempt_on_a_network_error(
@@ -364,7 +372,7 @@ def test_no_backoff_sleep_after_the_final_attempt_on_a_network_error(
 
     fake_http(ExplodingSession())
     backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
-    assert sleeps == [1.0, 2.0, 1.0]
+    assert sleeps[:3] == [1.0, 2.0, 1.0]
 
 
 def test_a_missing_bill_resets_the_failure_streak(backfill_mod, fake_http, tmp_path):
@@ -867,3 +875,74 @@ def test_limit_caps_the_run_for_a_smoke_test(backfill_mod, fake_http, tmp_path):
     http = fake_http(FakeSession(default=FakeResponse(200, status_page())))
     backfill_mod.backfill(132, ["0001", "0002", "0003"], tmp_path / "a.json", delay=0, limit=2)
     assert len(http.requested) == 2
+
+
+# --- the end-of-run retry pass, added after the smoke run ---
+
+
+def test_a_transient_tail_of_failures_is_retried_and_the_session_completes(
+    backfill_mod, fake_http, tmp_path
+):
+    """The case the smoke run actually hit.
+
+    Sessions 132 and 121 each finished 2034/2041 and 1957/1965, failing only on
+    a handful of read timeouts, and each reported incomplete and exited 1 over
+    them. A CI job cannot resume, so recovering seven bills would have meant
+    refetching two thousand pages — worse for us and ruder to the site than
+    seven requests at the end of the run.
+    """
+    good, flaky = FakeResponse(200, status_page()), FakeResponse(503, "")
+    # Bill 3 fails its three attempts, then succeeds on the retry pass.
+    sequence = [good, good, flaky, flaky, flaky, good, good]
+    fake_http(FakeSession(sequence=sequence, default=good))
+    summary = backfill_mod.backfill(
+        132, ["0001", "0002", "0003", "0004"], tmp_path / "a.json", delay=0
+    )
+
+    assert summary["failed"] == 0
+    assert summary["records"] == 4
+    assert summary["complete"] is True
+
+
+def test_the_retry_pass_does_not_re_drive_a_session_that_failed_in_bulk(
+    backfill_mod, fake_http, tmp_path
+):
+    """Bounded on purpose: a session failing at scale has something actually
+    wrong with it, and re-driving all of it is what the breakers exist to
+    prevent. Only a transient-looking tail is retried."""
+    lds = [f"{i:04d}" for i in range(1, 401)]
+    # Alternate so the consecutive-failure breaker never fires but the failure
+    # count climbs past the retry ceiling.
+    good, bad = FakeResponse(200, status_page()), FakeResponse(403, "")
+    fake_http(FakeSession(sequence=[bad if i % 2 else good for i in range(400)], default=good))
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0)
+
+    assert summary["failed"] > backfill_mod.MAX_RETRY_PASS
+    assert summary["complete"] is False
+
+
+def test_an_aborted_run_is_not_retried(backfill_mod, fake_http, tmp_path):
+    """If the breaker stopped us, going back for more is exactly wrong."""
+    http = fake_http(FakeSession(default=FakeResponse(403, "blocked")))
+    lds = [f"{i:04d}" for i in range(1, 101)]
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0)
+    assert summary["aborted"] is True
+    assert len(http.requested) == backfill_mod.MAX_CONSECUTIVE_FAILURES
+
+
+def test_the_retry_pass_records_a_bill_that_turns_out_to_be_missing(
+    backfill_mod, fake_http, tmp_path
+):
+    """A retried bill answering "no such bill" belongs in the sidecar, not the
+    failed list — otherwise it is refetched forever."""
+    good, flaky = FakeResponse(200, status_page()), FakeResponse(503, "")
+    fake_http(
+        FakeSession(
+            sequence=[good, flaky, flaky, flaky],
+            default=FakeResponse(200, not_found_page()),
+        )
+    )
+    summary = backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=0)
+    assert summary["failed"] == 0
+    assert summary["no_status_page"] == 1
+    assert json.loads((tmp_path / "a-missing.json").read_text()) == ["0002"]

@@ -84,6 +84,12 @@ MAX_CONSECUTIVE_MISSING = 50
 # failed to fire inside the job timeout.
 RETRY_AFTER_ABORT = 120.0
 
+# How many failures a single end-of-run retry pass will take on. Sized to catch
+# the transient tail -- the smoke run finished sessions 132 and 121 with exactly
+# 7 read timeouts each out of ~2,000 -- while refusing to re-drive a session
+# that failed in bulk, which is what the breakers are for.
+MAX_RETRY_PASS = 50
+
 
 class SiteRefusing(Exception):
     """The site asked us to go away for longer than this run should wait."""
@@ -318,32 +324,37 @@ def backfill(
     aborted = False
     abort_reason: str | None = None
 
+    def fetch_one(ld: str) -> str:
+        """Fetch, classify and record one bill. Returns its outcome.
+
+        Raises SiteRefusing, which the caller turns into an abort.
+        """
+        html, code = fetch_status(http_session(), session, ld, delay)
+        if html is None:
+            # Retained for correctness on a host that does hard-404, though
+            # legislature.maine.gov does not -- see NOT_FOUND_MARKER.
+            return "missing" if code == 404 else "failed"
+        try:
+            status = parse_status_page(html, session=session, ld=ld)
+        except ValueError as e:
+            # A page that does not parse is a data problem worth seeing, not
+            # a reason to abandon the remaining bills.
+            logger.warning(f"LD {ld}: unparseable ({e})")
+            return "failed"
+        outcome = classify_page(html, status)
+        if outcome == "ok":
+            records[ld] = to_record(status)
+        elif outcome == "unrecognized":
+            logger.warning(f"LD {ld}: 200 but not a recognizable page")
+        return outcome
+
     for i, ld in enumerate(todo, start=1):
         try:
-            html, code = fetch_status(http_session(), session, ld, delay)
+            outcome = fetch_one(ld)
         except SiteRefusing as e:
             logger.error(f"Session {session}: {e}; stopping after {i - 1}/{len(todo)}")
             aborted, abort_reason = True, str(e)
             break
-        outcome = "failed"
-
-        if html is None:
-            # Retained for correctness on a host that does hard-404, though
-            # legislature.maine.gov does not -- see NOT_FOUND_MARKER.
-            outcome = "missing" if code == 404 else "failed"
-        else:
-            try:
-                status = parse_status_page(html, session=session, ld=ld)
-            except ValueError as e:
-                # A page that does not parse is a data problem worth seeing, not
-                # a reason to abandon the remaining bills.
-                logger.warning(f"LD {ld}: unparseable ({e})")
-            else:
-                outcome = classify_page(html, status)
-                if outcome == "ok":
-                    records[ld] = to_record(status)
-                elif outcome == "unrecognized":
-                    logger.warning(f"LD {ld}: 200 but not a recognizable page")
 
         if outcome == "ok":
             missing.discard(ld)
@@ -384,6 +395,39 @@ def backfill(
             write_missing(miss_path, missing)
             logger.info(f"  {i}/{len(todo)} ({len(records)} records)")
         time.sleep(delay)
+
+    # One sweep back over the failures before giving up on them.
+    #
+    # The smoke run made the case: sessions 132 and 121 each finished with 2034
+    # of 2041 and 1957 of 1965, failing only on a handful of read timeouts --
+    # and each reported incomplete and exited 1 over them. Because a CI job
+    # cannot resume, recovering those seven would have meant refetching two
+    # thousand pages. Seven requests here instead is both the cheaper and the
+    # more considerate answer.
+    #
+    # Bounded deliberately: one pass, and only when the failures are few enough
+    # to look transient. A session that failed in bulk has something actually
+    # wrong with it, and retrying all of it is the behaviour the breakers exist
+    # to prevent.
+    if failed and not aborted and len(failed) <= MAX_RETRY_PASS:
+        retrying, failed = failed, []
+        logger.info(f"Session {session}: retrying {len(retrying)} failed bills")
+        for ld in retrying:
+            try:
+                outcome = fetch_one(ld)
+            except SiteRefusing as e:
+                logger.error(f"Session {session}: {e} (during retry pass)")
+                aborted, abort_reason = True, str(e)
+                failed.extend(retrying[retrying.index(ld) :])
+                break
+            if outcome == "missing":
+                missing.add(ld)
+            elif outcome != "ok":
+                failed.append(ld)
+            time.sleep(delay)
+        logger.info(
+            f"Session {session}: retry recovered {len(retrying) - len(failed)} of {len(retrying)}"
+        )
 
     write_output(out_path, records)
     write_missing(miss_path, missing)
