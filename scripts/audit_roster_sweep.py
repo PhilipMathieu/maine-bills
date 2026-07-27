@@ -107,9 +107,12 @@ def audit_session(parquet_source: str, session: int) -> dict:
         "unmatched_mentions": sum(unmatched.values()),
         "unmatched_rate": round(sum(unmatched.values()) / total, 4) if total else None,
         "roster_available": matcher is not None,
-        # The whole point of the audit: a human reads this list and decides
-        # whether these are legislators the roster is missing, or junk.
+        # The whole point of the audit: a human reads these and decides whether
+        # they are legislators the roster is missing, or junk. `all_names` is
+        # what makes the audit useful without a roster at all -- an agency
+        # acronym is obvious on sight next to a column of Maine surnames.
         "unmatched_names": [n for n, _c in unmatched.most_common()],
+        "all_names": [[n, c] for n, c in contributed.most_common()],
     }
 
 
@@ -138,6 +141,10 @@ def main(argv=None) -> int:
         )
         if result["unmatched_names"]:
             logger.info(f"  unmatched: {', '.join(result['unmatched_names'][:40])}")
+        elif not result["roster_available"]:
+            # No roster to check against, so the names themselves are the
+            # finding -- print them rather than reporting a silent zero.
+            logger.info(f"  names: {', '.join(n for n, _c in result['all_names'][:60])}")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(results, indent=2))
