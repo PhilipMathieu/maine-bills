@@ -29,6 +29,8 @@ Usage:
 import argparse
 import json
 import logging
+import os
+import signal
 import sys
 import time
 from pathlib import Path
@@ -59,6 +61,24 @@ MAX_ATTEMPTS = 3
 # script's throttle is not to be a burden; continuing past a sustained refusal
 # would be exactly that.
 MAX_CONSECUTIVE_FAILURES = 10
+
+# A long enough run of "no such bill" is not a sparse session, it is a systemic
+# problem. Enumeration comes from the parquet, so every LD we ask about is one
+# we already hold a document for -- a missing status page is anomalous BY
+# CONSTRUCTION. A wrong session number is the concrete case: the site answers
+# the identical not-found body for every LD, which without this guard produces
+# 2,000 requests, an empty actions table, and a green check.
+MAX_CONSECUTIVE_MISSING = 50
+
+# A Retry-After longer than this ends the session rather than being slept
+# through. Sitting out a 300s wait three times per bill is how the breaker
+# failed to fire inside the job timeout.
+RETRY_AFTER_ABORT = 120.0
+
+
+class SiteRefusing(Exception):
+    """The site asked us to go away for longer than this run should wait."""
+
 
 # The site does NOT return 404 for a bill that does not exist. It answers 200
 # with a normal-looking page whose only tell is this heading. Verified against
@@ -117,11 +137,17 @@ def fetch_status(
         return None, None
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
+        last = attempt == MAX_ATTEMPTS
         try:
             res = http.get(url, timeout=REQUEST_TIMEOUT)
         except requests.RequestException as e:
             logger.warning(f"LD {ld}: {type(e).__name__}: {e} (attempt {attempt})")
-            time.sleep(delay * attempt)
+            # Never sleep after the final attempt: the wait is a backoff before
+            # a retry, and there is no retry left. Sleeping anyway is pure
+            # dead time, and with a long Retry-After it was enough to keep the
+            # circuit breaker from ever firing inside the job timeout.
+            if not last:
+                time.sleep(delay * attempt)
             continue
 
         if res.status_code == 200:
@@ -129,11 +155,22 @@ def fetch_status(
         if res.status_code not in RETRY_STATUSES:
             return None, res.status_code
 
+        wait = retry_after(res, delay * attempt * 2)
+        if wait > RETRY_AFTER_ABORT:
+            # The server has named a wait longer than we are willing to sit
+            # through. Waiting it out would park the job; ignoring it would be
+            # rude. Stopping is the honest reading of what it asked for.
+            raise SiteRefusing(
+                f"HTTP {res.status_code} with Retry-After {wait:.0f}s on LD {ld}; "
+                f"the site is asking us to back off for longer than this run should wait"
+            )
+
         logger.warning(f"LD {ld}: HTTP {res.status_code} (attempt {attempt})")
         # Back off proportionally rather than hammering a server already
         # signalling distress -- and when it has told us exactly how long to
         # wait, wait that long instead of guessing.
-        time.sleep(retry_after(res, delay * attempt * 2))
+        if not last:
+            time.sleep(wait)
 
     return None, None
 
@@ -268,12 +305,17 @@ def backfill(
 
     failed: list[str] = []
     consecutive_failures = 0
+    consecutive_missing = 0
     aborted = False
-    attempted = 0
+    abort_reason: str | None = None
 
     for i, ld in enumerate(todo, start=1):
-        attempted = i
-        html, code = fetch_status(http_session(), session, ld, delay)
+        try:
+            html, code = fetch_status(http_session(), session, ld, delay)
+        except SiteRefusing as e:
+            logger.error(f"Session {session}: {e}; stopping after {i - 1}/{len(todo)}")
+            aborted, abort_reason = True, str(e)
+            break
         outcome = "failed"
 
         if html is None:
@@ -296,14 +338,28 @@ def backfill(
 
         if outcome == "ok":
             missing.discard(ld)
-            consecutive_failures = 0
+            consecutive_failures = consecutive_missing = 0
         elif outcome == "missing":
             missing.add(ld)
             # Not a failure: the site answered us plainly. It must not count
-            # toward the breaker, or a session with many gaps would abort.
+            # toward the failure breaker, or a session with genuine gaps would
+            # abort. It gets its own, looser breaker instead.
             consecutive_failures = 0
+            consecutive_missing += 1
+            if consecutive_missing >= MAX_CONSECUTIVE_MISSING:
+                logger.error(
+                    f"Session {session}: {consecutive_missing} consecutive bills with no "
+                    f"status page; stopping after {i}/{len(todo)}. Every LD here comes "
+                    f"from the published parquet, so this many in a row means the "
+                    f"session number is wrong or the site has changed, not that the "
+                    f"bills are absent."
+                )
+                aborted = True
+                abort_reason = f"{consecutive_missing} consecutive bills with no status page"
+                break
         else:
             failed.append(ld)
+            consecutive_missing = 0
             consecutive_failures += 1
             if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
                 logger.error(
@@ -312,6 +368,7 @@ def backfill(
                     f"continuing would be {len(todo) - i} more requests at it."
                 )
                 aborted = True
+                abort_reason = f"{consecutive_failures} consecutive failures"
                 break
 
         if i % checkpoint_every == 0:
@@ -330,6 +387,10 @@ def backfill(
     # `todo` made a --limit smoke test report complete: the run finishes
     # everything it was asked for while thousands of bills remain unfetched.
     outstanding = [ld for ld in ld_numbers if ld not in records and ld not in missing]
+    # `records` must be non-empty. Without it, a run where EVERY bill came back
+    # "no such bill" has nothing outstanding and reports success: a wrong
+    # session number does exactly that, since the site answers the identical
+    # not-found body for every LD. Green check, empty actions table.
     summary = {
         "session": session,
         "lds_total": len(ld_numbers),
@@ -339,7 +400,8 @@ def backfill(
         "failed_lds": failed,
         "not_attempted": len(outstanding),
         "aborted": aborted,
-        "complete": not aborted and not outstanding,
+        "abort_reason": abort_reason,
+        "complete": not aborted and not outstanding and bool(records),
         "actions_total": sum(r["action_count"] for r in records.values()),
     }
     logger.info(
@@ -371,7 +433,12 @@ def write_json(path: Path, payload) -> None:
     already fetched.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(f"{path.suffix}.tmp")
+    # PID in the temp name: two processes writing the same session would
+    # otherwise share one temp path, interleave into the same file, and rename
+    # corrupt JSON into place — defeating the point of writing atomically. The
+    # matrix dedupe prevents that within one dispatch, but not across two, nor
+    # a local run alongside CI.
+    tmp = path.with_suffix(f"{path.suffix}.{os.getpid()}.tmp")
     tmp.write_text(json.dumps(payload, indent=1))
     tmp.replace(path)
 
@@ -409,8 +476,21 @@ def parse_args(argv=None):
     return parser.parse_args(argv)
 
 
+def _exit_on_sigterm(_signum, _frame):
+    """Turn SIGTERM into SystemExit so the summary still gets written.
+
+    Python's default SIGTERM disposition terminates the process outright — it
+    does not raise, so `except BaseException` never runs and a job killed at
+    its timeout left a partial actions table with no summary at all, which is
+    indistinguishable from a small complete session. 143 is the conventional
+    128+SIGTERM exit code.
+    """
+    sys.exit(143)
+
+
 def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+    signal.signal(signal.SIGTERM, _exit_on_sigterm)
     args = parse_args(argv)
 
     ld_numbers = session_ld_numbers(args.parquet_source, args.session)

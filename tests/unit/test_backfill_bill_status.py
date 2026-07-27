@@ -6,6 +6,10 @@ the rate limit doesn't make the suite slow.
 
 import importlib.util
 import json
+import os
+import subprocess
+import sys
+import time
 from pathlib import Path
 
 import pytest
@@ -110,6 +114,27 @@ def test_the_delay_is_honored_at_other_rates(backfill_mod, fake_http, sleeps, tm
     fake_http(FakeSession(default=FakeResponse(200, status_page())))
     backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=2.5)
     assert sleeps == [2.5, 2.5]
+
+
+def test_the_default_rate_is_one_request_per_second(backfill_mod):
+    """The workflow passes no --delay, so the argparse default IS the production
+    rate against a state government server. Every other delay assertion passes
+    the value explicitly, which left this one number — the number the whole
+    design is about — with nothing behind it."""
+    args = backfill_mod.parse_args(
+        ["--session", "132", "--parquet-source", "x", "--output", "/tmp/x"]
+    )
+    assert args.delay == 1.0
+    assert backfill_mod.DEFAULT_DELAY == 1.0
+
+
+def test_the_workflow_relies_on_that_default():
+    """If the workflow ever starts passing --delay, this test should be replaced
+    by one asserting the value it passes. Until then the default is the rate."""
+    workflow = Path(__file__).resolve().parents[2] / ".github" / "workflows" / "data-run.yml"
+    body = workflow.read_text()
+    backfill_step = body.split("scripts/backfill_bill_status.py")[1][:400]
+    assert "--delay" not in backfill_step
 
 
 def test_requests_carry_a_contactable_user_agent(backfill_mod):
@@ -279,14 +304,83 @@ def test_sustained_failure_aborts_instead_of_running_the_whole_session(
 
 def test_scattered_failures_do_not_abort_a_healthy_run(backfill_mod, fake_http, tmp_path):
     """The breaker is for a site that has stopped answering, not for one bad
-    bill every so often."""
-    good, bad = FakeResponse(200, status_page()), FakeResponse(500, "")
+    bill every so often.
+
+    Deliberately more scattered failures (30) than the threshold (10), spread
+    over 300 bills. An earlier version used 6 failures over 30 bills — under
+    the threshold, so it passed even with the on-success counter reset deleted,
+    which is the one line that makes the breaker safe for a healthy run.
+    """
+    good, bad = FakeResponse(200, status_page()), FakeResponse(403, "")
+    sequence = [bad if i % 10 == 0 else good for i in range(300)]
+    fake_http(FakeSession(sequence=sequence))
+    summary = backfill_mod.backfill(
+        132, [f"{i:04d}" for i in range(1, 301)], tmp_path / "a.json", 0
+    )
+    assert summary["aborted"] is False
+    assert summary["failed"] == 30
+    assert summary["records"] == 270
+
+
+def test_a_long_retry_after_stops_the_session_rather_than_sitting_it_out(
+    backfill_mod, fake_http, sleeps, tmp_path
+):
+    """A rate limiter naming a 300s wait, honored three times per bill, meant a
+    single LD cost ~900s. Ten of those is 150 minutes against a 120-minute job
+    timeout, so the breaker could never fire — the job just slept until it was
+    killed. A wait we are not willing to sit through ends the run instead."""
+    busy = FakeResponse(429, "")
+    busy.headers = {"Retry-After": "300"}
+    http = fake_http(FakeSession(default=busy))
+    summary = backfill_mod.backfill(
+        132, [f"{i:04d}" for i in range(1, 501)], tmp_path / "a.json", delay=1.0
+    )
+    assert summary["aborted"] is True
+    assert "Retry-After" in summary["abort_reason"]
+    assert len(http.requested) == 1, "it should stop on the first such answer"
+    assert max(sleeps, default=0) <= backfill_mod.RETRY_AFTER_ABORT
+
+
+def test_no_backoff_sleep_after_the_final_attempt(backfill_mod, fake_http, sleeps, tmp_path):
+    """The wait is a backoff before a retry. After the last attempt there is no
+    retry, so sleeping is pure dead time against the job's clock."""
+    fake_http(FakeSession(default=FakeResponse(503, "")))
+    backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
+    # Backoff before attempts 2 and 3, none after 3, then the inter-bill delay.
+    # Asserted as an exact sequence: filtering by value silently dropped the
+    # first backoff, which happens to equal the inter-bill delay.
+    assert sleeps == [2.0, 4.0, 1.0]
+
+
+def test_no_backoff_sleep_after_the_final_attempt_on_a_network_error(
+    backfill_mod, fake_http, sleeps, tmp_path
+):
+    """Same rule on the connection-error path, which has its own sleep."""
+
+    class ExplodingSession(FakeSession):
+        def get(self, url, timeout=None):
+            self.requested.append(url)
+            raise backfill_mod.requests.ConnectionError("refused")
+
+    fake_http(ExplodingSession())
+    backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
+    assert sleeps == [1.0, 2.0, 1.0]
+
+
+def test_a_missing_bill_resets_the_failure_streak(backfill_mod, fake_http, tmp_path):
+    """The two breakers count separately. A site answering "no such bill" in
+    between failures is still answering, so the failure streak must reset — or
+    scattered failures with normal gaps between them accumulate to an abort
+    that never actually happened consecutively."""
+    bad, gap = FakeResponse(403, ""), FakeResponse(200, not_found_page())
+    # Nine failures, then a plain answer, repeated: never ten in a row.
     sequence = []
-    for i in range(30):
-        sequence.append(bad if i % 5 == 0 else good)
-    # A 500 is retried MAX_ATTEMPTS times, so pad the sequence generously.
-    fake_http(FakeSession(sequence=sequence + [good] * 200))
-    summary = backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 31)], tmp_path / "a.json", 0)
+    for _ in range(12):
+        sequence.extend([bad] * 9 + [gap])
+    fake_http(FakeSession(sequence=sequence))
+    summary = backfill_mod.backfill(
+        132, [f"{i:04d}" for i in range(1, 121)], tmp_path / "a.json", delay=0
+    )
     assert summary["aborted"] is False
 
 
@@ -480,6 +574,23 @@ def test_a_truncated_checkpoint_does_not_discard_the_session(backfill_mod, fake_
     assert http.requested == []
 
 
+def test_the_temp_file_is_private_to_this_process(backfill_mod, monkeypatch, tmp_path):
+    """Two runs of the same session sharing one temp path interleave into the
+    same file and can rename corrupt JSON into place — defeating the point of
+    writing atomically. The matrix dedupe covers one dispatch, not two, nor a
+    local run alongside CI."""
+    seen = []
+    real_replace = Path.replace
+
+    def spy(self, target):
+        seen.append(self.name)
+        return real_replace(self, target)
+
+    monkeypatch.setattr(Path, "replace", spy)
+    backfill_mod.write_json(tmp_path / "a.json", [])
+    assert seen and str(os.getpid()) in seen[0]
+
+
 def test_a_write_that_dies_partway_leaves_the_previous_file_intact(
     backfill_mod, monkeypatch, tmp_path
 ):
@@ -555,15 +666,57 @@ def test_a_clean_run_exits_zero(backfill_mod, monkeypatch, fake_http, tmp_path):
     assert summary["complete"] is True
 
 
-def test_a_session_of_nonexistent_bills_still_exits_zero(
+def test_some_missing_bills_do_not_make_the_session_incomplete(
     backfill_mod, monkeypatch, fake_http, tmp_path
 ):
-    """Missing bills are a plain answer from the site, not a failure."""
-    code, summary = run_main(
-        backfill_mod, monkeypatch, fake_http, tmp_path, FakeResponse(200, not_found_page())
+    """A missing bill is a plain answer from the site, not a failure."""
+    monkeypatch.setattr(backfill_mod, "session_ld_numbers", lambda _src, _s: ["0001", "0002"])
+    fake_http(
+        FakeSession(
+            sequence=[FakeResponse(200, not_found_page()), FakeResponse(200, status_page())]
+        )
     )
+    code = backfill_mod.main(
+        ["--session", "132", "--parquet-source", "u", "--output", str(tmp_path), "--delay", "0"]
+    )
+    summary = json.loads((tmp_path / "summary-132.json").read_text())
     assert code == 0
+    assert (summary["records"], summary["no_status_page"]) == (1, 1)
     assert summary["complete"] is True
+
+
+def test_a_session_where_every_bill_is_missing_is_not_a_success(
+    backfill_mod, monkeypatch, fake_http, tmp_path
+):
+    """A wrong session number returns the identical not-found body for every LD.
+    Nothing is then outstanding, so the run reported complete with an empty
+    actions table and a green check. Enumeration comes from the parquet, so
+    every LD asked about is one we hold a document for — this many misses in a
+    row is systemic, not a sparse session."""
+    lds = [f"{i:04d}" for i in range(1, 201)]
+    http = fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    monkeypatch.setattr(backfill_mod, "session_ld_numbers", lambda _src, _s: lds)
+    code = backfill_mod.main(
+        ["--session", "140", "--parquet-source", "u", "--output", str(tmp_path), "--delay", "0"]
+    )
+    summary = json.loads((tmp_path / "summary-140.json").read_text())
+
+    assert code == 1
+    assert summary["complete"] is False
+    assert summary["aborted"] is True
+    assert len(http.requested) == backfill_mod.MAX_CONSECUTIVE_MISSING
+    assert json.loads((tmp_path / "actions-140.json").read_text()) == []
+
+
+def test_an_empty_ld_set_is_not_a_success(backfill_mod, monkeypatch, fake_http, tmp_path):
+    """A session absent from the parquet has nothing outstanding either."""
+    monkeypatch.setattr(backfill_mod, "session_ld_numbers", lambda _src, _s: [])
+    fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    code = backfill_mod.main(
+        ["--session", "133", "--parquet-source", "u", "--output", str(tmp_path)]
+    )
+    assert code == 1
+    assert json.loads((tmp_path / "summary-133.json").read_text())["complete"] is False
 
 
 def test_a_blocked_run_exits_non_zero(backfill_mod, monkeypatch, fake_http, tmp_path):
@@ -576,6 +729,42 @@ def test_a_blocked_run_exits_non_zero(backfill_mod, monkeypatch, fake_http, tmp_
     assert code == 1
     assert summary["aborted"] is True
     assert summary["complete"] is False
+
+
+def test_sigterm_still_leaves_a_summary(tmp_path):
+    """The job timeout kills with SIGTERM, and Python's default disposition
+    terminates the process WITHOUT raising — so `except BaseException` never
+    ran and a timed-out job left a partial actions table and no summary, which
+    is indistinguishable from a small complete session.
+
+    Has to be a real subprocess: the whole point is what the signal does to a
+    normal interpreter, which an in-process fake cannot show.
+    """
+    driver = tmp_path / "driver.py"
+    driver.write_text(
+        "import importlib.util, sys, time, os\n"
+        f"spec = importlib.util.spec_from_file_location('bf', {str(SCRIPT)!r})\n"
+        "bf = importlib.util.module_from_spec(spec); spec.loader.exec_module(bf)\n"
+        "bf.session_ld_numbers = lambda *_a: ['0001']\n"
+        "bf.backfill = lambda *a, **k: time.sleep(60)\n"
+        f"sys.exit(bf.main(['--session','132','--parquet-source','u','--output',{str(tmp_path)!r}]))\n"
+    )
+    proc = subprocess.Popen(
+        [sys.executable, str(driver)], stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    summary_path = tmp_path / "summary-132.json"
+    deadline = time.time() + 20
+    while not proc.poll() and time.time() < deadline:
+        time.sleep(0.1)
+        if (tmp_path / "driver.py").exists() and time.time() > deadline - 18:
+            break
+    proc.terminate()
+    proc.wait(timeout=15)
+
+    assert summary_path.exists(), "SIGTERM must not lose the summary"
+    summary = json.loads(summary_path.read_text())
+    assert summary["complete"] is False
+    assert summary["aborted"] is True
 
 
 def test_a_crash_still_leaves_a_summary_saying_it_failed(
