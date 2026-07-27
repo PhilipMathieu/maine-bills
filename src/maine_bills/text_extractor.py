@@ -28,18 +28,30 @@ _SPONSOR_WINDOW = 8000
 _COSPONSOR_BLOCK = re.compile(
     r"Cosponsored by\s+(.+?)"
     r"(?=Be it enacted|Emergency preamble|Preamble\.|Resolved:|SUMMARY"
-    r"|Sec\.\s*\d|Presented by|Introduced by|$)",
-    re.DOTALL,
+    r"|Sec\.\s*\d|Amend the bill|Amend the amendment|Presented by|Introduced by|$)",
+    re.DOTALL | re.IGNORECASE,
 )
 
 # "Senators:" / "Representatives:" opens a run of bare surnames belonging to that
 # chamber, and runs until the next such label.
 _ROSTER_SEGMENTS = re.compile(r"\b(Senators|Representatives)\s*:")
 
+# Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER, LaFOUNTAIN,
+# TALBOT ROSS, DHALAC. Requiring two adjacent capitals is a positive shape test
+# on the name itself, which is what the sweep actually needs.
+#
+# Anchoring to the plural label was NOT sufficient on its own: the only other
+# guard was is_valid_name, a 34-word denylist that does not contain City,
+# Village, Board, University, Nation or Region -- the vocabulary of bill body
+# text. So the sweep was safe only while the cosponsor block terminated before
+# the body, and the terminator list is a denylist with reachable gaps:
+# amendments open "Amend the bill by", which matches none of them, and
+# amendments are ~45% of a session's documents. Verified: an amendment fixture
+# captured ("Village", "House") as a sponsor before this guard.
+_ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
+
 # One roster entry: an optional individual title (leaders keep theirs inside the
-# list), a one- or two-word surname, then the mandatory " of <locality>". The
-# locality is what makes an entry an entry -- requiring it is what keeps this
-# from matching ordinary prose.
+# list), a one- or two-word surname, then the mandatory " of <locality>".
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
     r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
@@ -431,7 +443,7 @@ class TextExtractor:
                     if not entry_match:
                         continue
                     name = entry_match.group("name").strip()
-                    if not is_valid_name(name):
+                    if not is_valid_name(name) or not _ROSTER_SURNAME.search(name):
                         continue
                     title = entry_match.group("title")
                     chamber = _CHAMBER_BY_TITLE.get(title) if title else segment_chamber

@@ -208,3 +208,81 @@ def test_dedup_still_collapses_a_repeated_name():
         "Be it enacted by the People of the State of Maine as follows:\n"
     )
     assert names(text) == ["BAILEY", "CURRY"]
+
+
+# --- the sweep must not depend on the terminator list being exhaustive ---
+#
+# Review finding on #16: anchoring to the plural label is not by itself what
+# bounds the sweep — the block terminators are, and they are a denylist with
+# reachable gaps. `is_valid_name` is a 34-word denylist that omits City,
+# Village, Board, University, Nation, Region: the vocabulary of bill body text.
+
+
+def test_amendment_body_is_not_swept_for_sponsors():
+    """Amendments open "Amend the bill", which no terminator matched, so the
+    block ran the full window into body text. ~45% of a session's documents."""
+    text = (
+        "Presented by Representative ABDI of Lewiston.\n"
+        "Cosponsored by Representatives: BOYLE of Gorham, CRAVEN of Lewiston.\n"
+        "Amend the bill in section 1 by inserting: This applies to the "
+        "City of Portland, Village of Kingfield, and the Board of Trustees of "
+        "the University of Maine System.\n"
+    )
+    assert names(text) == ["ABDI", "BOYLE", "CRAVEN"]
+
+
+def test_uppercase_resolved_terminates_the_block():
+    """Resolutions print RESOLVED:; the terminator was case-sensitive."""
+    text = (
+        "Presented by Senator BRENNER of Cumberland.\n"
+        "Cosponsored by Senators: BAILEY of York, CURRY of Waldo.\n"
+        "RESOLVED: That we recognize the Penobscot Nation of Indian Island "
+        "and the City of Bangor.\n"
+    )
+    assert names(text) == ["BRENNER", "BAILEY", "CURRY"]
+
+
+def test_title_case_nouns_are_rejected_even_in_an_unterminated_block():
+    """The guard that actually holds: rosters print surnames in capitals, and
+    every false positive is Title Case. This block never terminates at all."""
+    filler = "The department shall consider each application on its merits. " * 60
+    text = (
+        "Presented by Senator BRENNER of Cumberland.\n"
+        "Cosponsored by Senators: BAILEY of York.\n"
+        + filler
+        + "reports from the Region of Downeast Maine, the Coalition of Towns, "
+        "and the Friends of Acadia.\n"
+    )
+    assert names(text) == ["BRENNER", "BAILEY"]
+
+
+def test_a_stray_plural_label_in_body_text_opens_no_segment_of_substance():
+    text = (
+        "Presented by Senator BRENNER of Cumberland.\n"
+        "Cosponsored by Senators: BAILEY of York.\n"
+        "Amend the bill by inserting: the panel consists of the following "
+        "Representatives: Jane of Portland, John of Bangor.\n"
+    )
+    assert names(text) == ["BRENNER", "BAILEY"]
+
+
+def test_all_real_surname_shapes_survive_the_capitals_guard():
+    """Guard must not cost legitimate names: hyphenated, mixed-case, two-word,
+    and leadership titles inside a list."""
+    text = (
+        "Presented by Senator BRENNER of Cumberland.\n"
+        "Cosponsored by Senators: BEEBE-CENTER of Knox, LaFOUNTAIN of Kennebec, "
+        "President JACKSON of Aroostook, "
+        "Representatives: TALBOT ROSS of Portland, DHALAC of South Portland, "
+        "DANA of the Passamaquoddy Tribe.\n"
+        "Be it enacted by the People of the State of Maine as follows:\n"
+    )
+    assert names(text) == [
+        "BRENNER",
+        "JACKSON",
+        "BEEBE-CENTER",
+        "LaFOUNTAIN",
+        "TALBOT ROSS",
+        "DHALAC",
+        "DANA",
+    ]
