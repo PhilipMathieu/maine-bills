@@ -1,0 +1,149 @@
+"""Measure what the roster sweep contributes, and whether any of it is junk.
+
+The sweep reads bare surnames out of a "Senators:" / "Representatives:" roster
+in a cosponsor block. It is bounded by shape: a roster is a contiguous
+comma-delimited run of ``NAME of LOCALITY`` cells, and the first cell that is
+not one ends it.
+
+Shape alone cannot tell a surname from an acronym -- "DHHS of Augusta" parses
+exactly like "BAILEY of York". So the guard is not "can this be defeated by
+constructed prose" (it can) but "does real bill text defeat it". That is an
+empirical question about the corpus, and this script answers it.
+
+Method: extract each session's sponsors twice, once with the sweep live and
+once with it disabled, and diff. The difference is exactly what the sweep
+contributed. Each contributed name is then matched against the OpenStates
+roster for that session -- a real surname matches a sitting legislator, an
+agency acronym does not -- and the unmatched names are printed in full so a
+human can see what they are.
+
+An unmatched name is not automatically a false positive: roster coverage for
+sessions 121-124 is poor (issue #13), so an unmatched name there is more
+likely a coverage gap than a bad extraction. Read the per-session split, not
+the total.
+
+Usage:
+    uv run python scripts/audit_roster_sweep.py --sessions 131 132
+"""
+
+import argparse
+import importlib.util
+import json
+import logging
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from maine_bills import text_extractor as tx  # noqa: E402
+from maine_bills.openstates import get_roster  # noqa: E402
+from maine_bills.sponsor_matching import METHOD_UNMATCHED, SponsorMatcher  # noqa: E402
+
+logger = logging.getLogger("audit_roster_sweep")
+
+# A pattern that cannot match, used to switch the sweep off for the control run.
+_NEVER = re.compile(r"(?!x)x")
+
+
+def load_session_bills(parquet_source: str, session: int):
+    report_path = Path(__file__).with_name("run_matching_report.py")
+    spec = importlib.util.spec_from_file_location("_matching_report", report_path)
+    if spec is None or spec.loader is None:  # pragma: no cover - packaging error
+        raise ImportError(f"Cannot load the parquet loader from {report_path}")
+    report = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(report)
+    return report.load_session_bills(parquet_source, session)
+
+
+def sponsors_for(texts, sweep: bool) -> list[list[str]]:
+    """Extract sponsors for every text, with the roster sweep on or off."""
+    extractor = tx.TextExtractor()
+    original = tx._ROSTER_SEGMENTS
+    if not sweep:
+        tx._ROSTER_SEGMENTS = _NEVER
+    try:
+        return [extractor._extract_sponsors(t if isinstance(t, str) else "") or [] for t in texts]
+    finally:
+        tx._ROSTER_SEGMENTS = original
+
+
+def audit_session(parquet_source: str, session: int) -> dict:
+    df = load_session_bills(parquet_source, session)
+    texts = list(df["text"])
+
+    with_sweep = sponsors_for(texts, sweep=True)
+    without_sweep = sponsors_for(texts, sweep=False)
+
+    contributed = Counter()
+    bills_affected = 0
+    for got, base in zip(with_sweep, without_sweep):
+        extra = [n for n in got if n not in set(base)]
+        if extra:
+            bills_affected += 1
+            contributed.update(extra)
+
+    try:
+        matcher = SponsorMatcher(roster=get_roster(session))
+    except Exception as e:
+        logger.warning(f"Session {session}: no roster ({type(e).__name__}: {e})")
+        matcher = None
+
+    unmatched = Counter()
+    if matcher is not None:
+        for name, count in contributed.items():
+            if matcher.match(name).method == METHOD_UNMATCHED:
+                unmatched[name] = count
+
+    total = sum(contributed.values())
+    return {
+        "session": session,
+        "bills": len(df),
+        "bills_gaining_sponsors": bills_affected,
+        "names_contributed": total,
+        "distinct_names": len(contributed),
+        "unmatched_distinct": len(unmatched),
+        "unmatched_mentions": sum(unmatched.values()),
+        "unmatched_rate": round(sum(unmatched.values()) / total, 4) if total else None,
+        "roster_available": matcher is not None,
+        # The whole point of the audit: a human reads this list and decides
+        # whether these are legislators the roster is missing, or junk.
+        "unmatched_names": [n for n, _c in unmatched.most_common()],
+    }
+
+
+def parse_args(argv=None):
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--sessions", type=int, nargs="+", required=True)
+    p.add_argument("--parquet-source", default="hf://datasets/pem207/maine-bills")
+    p.add_argument("--output", type=Path, default=Path("report/roster-sweep-audit.json"))
+    return p.parse_args(argv)
+
+
+def main(argv=None) -> int:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+    args = parse_args(argv)
+
+    results = []
+    for session in args.sessions:
+        logger.info(f"Auditing session {session}")
+        result = audit_session(args.parquet_source, session)
+        results.append(result)
+        logger.info(
+            f"  +{result['names_contributed']} names on "
+            f"{result['bills_gaining_sponsors']} bills; "
+            f"{result['unmatched_mentions']} unmatched "
+            f"({result['unmatched_rate']})"
+        )
+        if result["unmatched_names"]:
+            logger.info(f"  unmatched: {', '.join(result['unmatched_names'][:40])}")
+
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(results, indent=2))
+    logger.info(f"Wrote {args.output}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

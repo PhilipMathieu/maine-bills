@@ -286,3 +286,93 @@ def test_all_real_surname_shapes_survive_the_capitals_guard():
         "DHALAC",
         "DANA",
     ]
+
+
+# --- second review round: bounding the sweep positively ---
+#
+# The reviewer's point was that anchoring to the plural label does not bound the
+# sweep; only the terminators do, and those are a denylist with reachable gaps.
+# The fix is to make the roster a bounded positive parse: a contiguous
+# comma-delimited run of "NAME of LOCALITY" cells, ended by the first cell that
+# is not one.
+
+
+def test_an_amendment_directive_terminates_the_block():
+    """Amendments open "Amend the bill/resolve/amendment by", which was not in
+    the terminator list -- so on an amendment the block ran to the window edge."""
+    for directive in ("Amend the bill", "Amend the resolve", "Amend the amendment"):
+        text = (
+            "Cosponsored by Representatives: ABDI of Lewiston, BOYLE of Gorham.\n"
+            f"{directive} by inserting after section 1 the following: "
+            "the LURC of Augusta shall report.\n"
+        )
+        assert names(text) == ["ABDI", "BOYLE"], directive
+
+
+def test_a_lettered_section_terminates_the_block():
+    """Terminator was Sec.\\s*\\d, so the lettered form "Sec. A-1" slipped past."""
+    text = (
+        "Cosponsored by Senators: BRENNER of Cumberland, BAILEY of York.\n"
+        "Sec. A-1. 5 MRSA 12004 is amended. The Board of Trustees of Orono "
+        "and the Council of Elders of Indian Township shall meet.\n"
+    )
+    assert names(text) == ["BRENNER", "BAILEY"]
+
+
+def test_a_prose_cosponsored_by_does_not_open_a_block():
+    """Case-insensitivity belongs on the terminators, not the opener. Applied to
+    the whole pattern it let a lowercase "cosponsored by" inside the window open
+    a block where the bill had none."""
+    text = (
+        "Be it enacted by the People of the State of Maine as follows:\n"
+        "The report shall list each measure cosponsored by Senators: "
+        "BRENNER of Cumberland, GRANT of Gardiner.\n"
+    )
+    assert names(text) == []
+
+
+def test_a_cell_that_is_not_a_clean_entry_ends_the_roster():
+    """Skipping bad cells (continue) let body text far past the end of the
+    roster still be harvested, because prose always intervenes and was simply
+    stepped over. The first bad cell must end the run."""
+    text = (
+        "Cosponsored by Senators: BAILEY of York, CURRY of Waldo, "
+        "and the department shall report to the joint standing committee, "
+        "MARTIN of Eagle Lake.\n"
+    )
+    assert names(text) == ["BAILEY", "CURRY"]
+    assert "MARTIN" not in names(text)
+
+
+def test_a_long_roster_is_not_truncated_by_the_entry_guard():
+    """The guard must not cost a widely cosponsored bill its list -- recovering
+    those was the entire point of the change."""
+    roster = ", ".join(f"NAME{c} of Town" for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    # Real rosters print surnames in capitals with no digits; this stands in for
+    # a 26-name list without inventing 26 plausible Maine surnames.
+    roster = roster.replace("NAME", "SMYTH").replace("0", "")
+    text = f"Cosponsored by Senators: {roster}.\nBe it enacted:\n"
+    assert len(names(text)) == 26
+
+
+def test_an_agency_acronym_inside_the_roster_run_is_not_separable_by_shape():
+    """Known limit, recorded deliberately rather than papered over.
+
+    "DHHS of Augusta" is grammatically identical to "BAILEY of York" -- same
+    capitals, same "of LOCALITY". No shape test can separate them, so a cell
+    like this, appearing *inside* an unterminated roster run, is read as a name.
+
+    What bounds it in practice is that real bill text following a roster starts
+    with a terminator (the enacting clause, a preamble, a section, an amendment
+    directive), and the sweep stops there. The corpus audit
+    (scripts/audit_roster_sweep.py) measures whether that holds.
+
+    The downstream defence is enrichment: an unmatched name publishes with a
+    null sponsor_id and null confidence rather than a guessed identity, so a
+    stray acronym is visible in the data rather than silently wrong.
+    """
+    text = (
+        "Cosponsored by Senators: BAILEY of York, DHHS of Augusta.\n"
+        "Be it enacted by the People of the State of Maine as follows:\n"
+    )
+    assert names(text) == ["BAILEY", "DHHS"]

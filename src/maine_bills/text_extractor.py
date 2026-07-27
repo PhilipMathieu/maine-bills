@@ -27,9 +27,13 @@ _SPONSOR_WINDOW = 8000
 # patterns could pick up "Senator X of Y" out of the bill's body text.
 _COSPONSOR_BLOCK = re.compile(
     r"Cosponsored by\s+(.+?)"
-    r"(?=Be it enacted|Emergency preamble|Preamble\.|Resolved:|SUMMARY"
-    r"|Sec\.\s*\d|Amend the bill|Amend the amendment|Presented by|Introduced by|$)",
-    re.DOTALL | re.IGNORECASE,
+    # Case-insensitivity is scoped to the terminators alone. Applied to the
+    # whole pattern it widened the OPENER too, so a prose "cosponsored by"
+    # inside the window opened a block where none existed.
+    r"(?=(?i:Be it enacted|Emergency preamble|Preamble\.|Resolved:|SUMMARY"
+    r"|Sec\.\s*[A-Za-z0-9]|Amend the (?:bill|resolve|amendment))"
+    r"|Presented by|Introduced by|$)",
+    re.DOTALL,
 )
 
 # "Senators:" / "Representatives:" opens a run of bare surnames belonging to that
@@ -52,11 +56,64 @@ _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 
 # One roster entry: an optional individual title (leaders keep theirs inside the
 # list), a one- or two-word surname, then the mandatory " of <locality>".
+#
+# Matched as a PREFIX of its cell, not end-anchored. End-anchoring is the
+# obvious reading of "the locality must consume the cell", and it is wrong: when
+# a block does not terminate, the last cell of the roster always runs on into
+# the following prose with no comma to bound it --
+#
+#     Cosponsored by Senators: BAILEY of York. The department shall consider...
+#
+# so end-anchoring silently dropped the last name of every unterminated roster,
+# and the whole list where there was only one. What the cell boundary is for is
+# deciding whether to CONTINUE, which _roster_names handles: a cell the entry
+# does not consume ends the run after its name is taken.
+#
+# The locality is bounded by WORD COUNT rather than by capitalization. Requiring
+# every word to be capitalized looked tidier and rejected real places -- "Isle
+# au Haut" has a lowercase particle -- while a four-word ceiling still excludes
+# the prose runs this is guarding against.
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
     r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
-    r"\s+of\s+\S"
+    r"\s+of\s+(?:the\s+)?[A-Z][\w.'\-]*(?:\s+[\w.'\-]+){0,3}\s*\.?"
 )
+
+
+def _roster_names(segment: str, is_valid_name):
+    """Yield (name, title) for the roster run at the start of ``segment``.
+
+    ``is_valid_name`` is the caller's title-word filter, which is built from the
+    per-call title_words set and so cannot live at module scope.
+
+    A roster is a CONTIGUOUS comma-delimited run: the run ends at the first cell
+    that is not a clean "NAME of LOCALITY". Three outcomes per cell:
+
+    * consumed entirely  -> a clean entry; take it and keep going
+    * matched as a prefix -> the roster's last entry, with prose behind it; take
+      it and stop, so the prose is never read
+    * no match            -> not an entry; stop without taking anything
+
+    Skipping bad cells instead of stopping is what let body text far past the
+    end of the roster still be harvested, because prose always intervenes and
+    was simply stepped over.
+    """
+    for cell in segment.split(","):
+        cell = cell.strip()
+        match = _ROSTER_ENTRY.match(cell)
+        if not match:
+            return
+        name = match.group("name").strip()
+        # Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER,
+        # LaFOUNTAIN, TALBOT ROSS, DHALAC. Two adjacent capitals is a positive
+        # shape test on the name itself, which is what the sweep actually needs;
+        # is_valid_name alone is a 34-word denylist that does not contain City,
+        # Village, Board, University, Nation or Region.
+        if not is_valid_name(name) or not _ROSTER_SURNAME.search(name):
+            return
+        yield name, match.group("title")
+        if match.end() < len(cell):
+            return
 
 
 def _roster_segments(block: str) -> list[tuple[str, str]]:
@@ -438,14 +495,7 @@ class TextExtractor:
             # the old sweep produced.
             for label, segment in _roster_segments(cosp_block):
                 segment_chamber = _CHAMBER_BY_TITLE[label]
-                for entry in segment.split(","):
-                    entry_match = _ROSTER_ENTRY.match(entry.strip())
-                    if not entry_match:
-                        continue
-                    name = entry_match.group("name").strip()
-                    if not is_valid_name(name) or not _ROSTER_SURNAME.search(name):
-                        continue
-                    title = entry_match.group("title")
+                for name, title in _roster_names(segment, is_valid_name):
                     chamber = _CHAMBER_BY_TITLE.get(title) if title else segment_chamber
                     sponsors.append((name, chamber))
 
