@@ -73,14 +73,48 @@ SEED_TEMPLATES: list[str] = [
     "https://legislature.maine.gov/legis/",
 ]
 
+# Roster-only seeds, used by --focus roster. These are the real pages the first
+# crawl surfaced as links but never had budget to fetch -- the bill directory
+# ate it. "Senators Listed by Municipality" is the locality -> legislator map
+# issue #13 item 2 needs and OpenStates does not provide.
+ROSTER_SEED_TEMPLATES: list[str] = [
+    "https://legislature.maine.gov/senate/find-your-state-senator/9392",
+    "https://legislature.maine.gov/senate/district-listing/9526",
+    "https://legislature.maine.gov/senate/senators/9536",
+    "https://legislature.maine.gov/house/house/",
+    "https://legislature.maine.gov/housedems/",
+    "https://legislature.maine.gov/house-independents/house-independents/9453",
+    # Historical rosters are the open question -- sessions 121-124 predate the
+    # current site. LawMakerWeb is the era-appropriate application, so probe it.
+    "https://legislature.maine.gov/LawMakerWeb/sponsors.asp?SessionID={session}",
+    "https://legislature.maine.gov/legis/house/hbiolist.htm",
+    "https://legislature.maine.gov/legis/senate/sbiolist.htm",
+]
+
 # Link text/href fragments worth spending the page budget on. Ordered roughly by
 # how directly they bear on the two parsers.
 INTEREST_PATTERNS: list[tuple[str, str]] = [
     ("bill_status", r"display_ps|paper\s*status|legislative\s*history|bill\s*status|summary\.asp"),
     ("bill_search", r"lawmakerweb|searchresults|billtracking|/bills?/"),
-    ("roster", r"memberprofile|listalpha|listdistrict|senators|representatives|roster|members?\b"),
+    (
+        "roster",
+        # Party caucus pages carry the member lists, and their links say
+        # "House Democrats" rather than anything with "member" in it.
+        r"memberprofile|listalpha|listdistrict|senators?|representatives?|roster|members?\b"
+        r"|housedems|househsubmit|democrats|republicans|independents|unenrolled"
+        r"|district-listing|find-your-state|biolist",
+    ),
     ("session_index", r"snum=|sessionid=|session\s*\d{3}"),
 ]
+
+# --focus roster confines the crawl to roster links. Without it the bill
+# directory absorbs the page budget: the first run spent 42 of 60 pages on
+# billdirectory_ps.asp and never reached a single member list.
+FOCUS_CATEGORIES = {"roster": {"roster"}}
+
+# Share of the page budget reserved for rosters in a default (focus=all) run,
+# so the two targets cannot starve each other.
+ROSTER_BUDGET_SHARE = 0.4
 
 _SLUG_RE = re.compile(r"[^A-Za-z0-9._-]+")
 
@@ -130,6 +164,16 @@ def extract_links(html: str, base_url: str) -> list[dict]:
     return links
 
 
+def _directive(robots_text: str, name: str) -> str | None:
+    """First value of a robots.txt directive, e.g. Crawl-delay, or None."""
+    for line in robots_text.splitlines():
+        line = line.split("#", 1)[0].strip()
+        key, _, value = line.partition(":")
+        if key.strip().lower() == name and value.strip():
+            return value.strip()
+    return None
+
+
 def page_title(html: str) -> str:
     soup = BeautifulSoup(html, features="html.parser")
     return soup.title.get_text(strip=True)[:200] if soup.title else ""
@@ -142,6 +186,10 @@ class RobotsPolicy:
         self._http = http
         self._respect = respect
         self._parsers: dict[str, urllib.robotparser.RobotFileParser | None] = {}
+        # Raw text per host, kept so a run can report the site's own stated
+        # crawl policy. Crawl-delay in particular decides our request rate, and
+        # that decision should come from the site rather than from our judgment.
+        self.raw: dict[str, str] = {}
 
     def allows(self, url: str) -> bool:
         if not self._respect:
@@ -159,6 +207,7 @@ class RobotsPolicy:
             res = self._http.get(robots_url, timeout=REQUEST_TIMEOUT)
             if res.status_code != 200:
                 return None
+            self.raw[parsed.netloc.lower()] = res.text
             parser = urllib.robotparser.RobotFileParser()
             parser.parse(res.text.splitlines())
             return parser
@@ -189,6 +238,7 @@ def crawl(
     max_pages: int,
     delay: float,
     robots: RobotsPolicy,
+    categories: set[str] | None = None,
 ) -> list[dict]:
     """Breadth-first crawl from the seeds, saving HTML and recording link maps.
 
@@ -223,6 +273,8 @@ def crawl(
             record["links"] = links
             record["interesting"] = [link for link in links if link["categories"]]
             for link in record["interesting"]:
+                if categories and not categories.intersection(link["categories"]):
+                    continue
                 if link["url"] not in visited:
                     queue.append((link["url"], depth + 1))
 
@@ -244,6 +296,13 @@ def main() -> int:
         action="store_true",
         help="Skip robots.txt checks (default: honor them)",
     )
+    parser.add_argument(
+        "--focus",
+        choices=["all", "roster"],
+        default="all",
+        help="'roster' seeds and follows member lists only, so the bill directory "
+        "cannot absorb the page budget",
+    )
     args = parser.parse_args()
 
     out_dir = args.out / f"session-{args.session}"
@@ -252,7 +311,8 @@ def main() -> int:
     http = requests.Session()
     http.headers.update({"User-Agent": USER_AGENT})
 
-    seeds = [template.format(session=args.session) for template in SEED_TEMPLATES]
+    templates = ROSTER_SEED_TEMPLATES if args.focus == "roster" else SEED_TEMPLATES
+    seeds = [template.format(session=args.session) for template in templates]
     summary: dict = {
         "session": args.session,
         "seeds": seeds,
@@ -260,13 +320,62 @@ def main() -> int:
         "pages": [],
     }
 
+    # Bound before the try so the finally block can always read it.
+    robots = RobotsPolicy(http, respect=not args.ignore_robots)
+
     try:
-        robots = RobotsPolicy(http, respect=not args.ignore_robots)
-        summary["pages"] = crawl(seeds, http, out_dir, args.max_pages, args.delay, robots)
+        if args.focus == "all":
+            # Two phases with a reserved budget rather than one queue. A single
+            # BFS starves the rosters: the bill directory's depth-1 links are
+            # queued ahead of the roster seeds' and there are hundreds of them,
+            # which is how the first run spent 42 of 60 pages on
+            # billdirectory_ps.asp and reached no member list at all.
+            roster_budget = max(1, int(args.max_pages * ROSTER_BUDGET_SHARE))
+            roster_seeds = [t.format(session=args.session) for t in ROSTER_SEED_TEMPLATES]
+            summary["seeds"] = roster_seeds + seeds
+
+            print(f"=== phase 1: rosters (budget {roster_budget}) ===")
+            roster_pages = crawl(
+                roster_seeds,
+                http,
+                out_dir,
+                roster_budget,
+                args.delay,
+                robots,
+                categories={"roster"},
+            )
+            remaining = args.max_pages - len(roster_pages)
+            print(f"=== phase 2: everything else (budget {remaining}) ===")
+            summary["pages"] = roster_pages + crawl(
+                seeds, http, out_dir, remaining, args.delay, robots
+            )
+        else:
+            summary["pages"] = crawl(
+                seeds,
+                http,
+                out_dir,
+                args.max_pages,
+                args.delay,
+                robots,
+                categories=FOCUS_CATEGORIES.get(args.focus),
+            )
     except Exception as e:  # noqa: BLE001 -- degrade gracefully, always write the index
         summary["fatal_error"] = f"{type(e).__name__}: {e}"
         print(f"Unexpected error: {e}", file=sys.stderr)
     finally:
+        # The site's stated policy, verbatim and parsed. Crawl-delay decides our
+        # request rate for the bill-status backfill; taking it from robots.txt
+        # rather than picking a number ourselves is both correct and checkable.
+        summary["robots"] = {
+            host: {
+                "crawl_delay": _directive(text, "crawl-delay"),
+                "request_rate": _directive(text, "request-rate"),
+            }
+            for host, text in robots.raw.items()
+        }
+        for host, text in robots.raw.items():
+            (out_dir / f"robots-{host}.txt").write_text(text, encoding="utf-8")
+
         fetched = [p for p in summary["pages"] if p.get("file")]
         summary["fetched_count"] = len(fetched)
         summary["by_category"] = {
