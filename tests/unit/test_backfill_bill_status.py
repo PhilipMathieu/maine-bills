@@ -24,8 +24,17 @@ def backfill_mod():
 
 
 @pytest.fixture(autouse=True)
-def no_sleep(monkeypatch, backfill_mod):
-    monkeypatch.setattr(backfill_mod.time, "sleep", lambda _s: None)
+def sleeps(monkeypatch, backfill_mod):
+    """Record sleeps instead of taking them.
+
+    A `lambda _s: None` that recorded nothing left the rate limit untested:
+    deleting `time.sleep(delay)` from the request loop entirely kept the whole
+    suite green. Politeness is the one behaviour here with an outside party, so
+    it gets asserted.
+    """
+    taken: list[float] = []
+    monkeypatch.setattr(backfill_mod.time, "sleep", taken.append)
+    return taken
 
 
 def status_page(session=132, ld="1", paper="SP 29", rows=(("Jan 15, 2025", "Voted", "OTP"),)):
@@ -85,6 +94,46 @@ def test_requests_go_to_the_robots_allowed_path(backfill_mod, fake_http, tmp_pat
     backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=0)
     assert all("display_ps.asp" in u for u in http.requested)
     assert not any("default_ps" in u or "LawMakerWeb" in u for u in http.requested)
+
+
+def test_every_request_is_followed_by_the_configured_delay(
+    backfill_mod, fake_http, sleeps, tmp_path
+):
+    """The 1 req/sec is the design, per the module docstring and the workflow
+    comment. Deleting it must not be invisible."""
+    fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    backfill_mod.backfill(132, ["0001", "0002", "0003"], tmp_path / "a.json", delay=1.0)
+    assert sleeps == [1.0, 1.0, 1.0]
+
+
+def test_the_delay_is_honored_at_other_rates(backfill_mod, fake_http, sleeps, tmp_path):
+    fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=2.5)
+    assert sleeps == [2.5, 2.5]
+
+
+def test_requests_carry_a_contactable_user_agent(backfill_mod):
+    """A state server should be able to tell who is asking and why."""
+    backfill_mod._HTTP = None
+    try:
+        agent = backfill_mod.http_session().headers["User-Agent"]
+    finally:
+        backfill_mod._HTTP = None
+    assert "github.com/PhilipMathieu/maine-bills" in agent
+
+
+def test_requests_use_a_timeout(backfill_mod, fake_http, tmp_path):
+    """Without one a hung connection stalls the whole session indefinitely."""
+    seen = {}
+
+    class RecordingSession(FakeSession):
+        def get(self, url, timeout=None):
+            seen["timeout"] = timeout
+            return super().get(url, timeout=timeout)
+
+    fake_http(RecordingSession(default=FakeResponse(200, status_page())))
+    backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=0)
+    assert seen["timeout"] == backfill_mod.REQUEST_TIMEOUT
 
 
 def test_one_request_per_bill(backfill_mod, fake_http, tmp_path):
@@ -149,6 +198,127 @@ def test_a_bill_with_no_docket_is_still_a_valid_record(backfill_mod, fake_http, 
     assert json.loads((tmp_path / "a.json").read_text())[0]["action_count"] == 0
 
 
+# --- the site soft-404s, which is the whole shape of "no such bill" here ---
+
+
+def not_found_page():
+    """The real not-found page: 200, normal chrome, no paper number.
+
+    Captured from display_ps.asp?LD=9999&snum=132. The heading is what
+    _parse_bill_title's longest-heading fallback picks up.
+    """
+    return (
+        "<html><head><title>Maine Legislature</title></head><body>"
+        "<h1>Cannot find requested paper,<br> please provide a Paper or LD "
+        "number in the box to the left.</h1>"
+        "<p>Please call Legislative Information at 287-1692 for assistance.</p>"
+        "</body></html>"
+    )
+
+
+def test_the_soft_404_is_not_recorded_as_a_bill(backfill_mod, fake_http, tmp_path):
+    """The site answers 200 for a nonexistent LD. Accepting `paper or title`
+    let the error heading through as an act title, so every nonexistent LD in
+    every session would have been stored as a real bill titled "Cannot find
+    requested paper..." and the run would have reported success."""
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    summary = backfill_mod.backfill(132, ["9999"], tmp_path / "a.json", delay=0)
+    assert summary["records"] == 0
+    assert summary["no_status_page"] == 1
+    assert summary["failed"] == 0, "a plain answer from the site is not a failure"
+    assert json.loads((tmp_path / "a.json").read_text()) == []
+
+
+def test_the_soft_404_is_persisted_like_a_hard_404(backfill_mod, fake_http, tmp_path):
+    """Since this host never hard-404s, persistence has to key off the soft one
+    or the resume optimization does nothing at all in practice."""
+    out = tmp_path / "a.json"
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, ["9999"], out, delay=0)
+    assert json.loads((tmp_path / "a-missing.json").read_text()) == ["9999"]
+
+    http2 = fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, ["9999"], out, delay=0)
+    assert http2.requested == []
+
+
+def test_an_unrecognized_200_is_a_failure_not_a_missing_bill(backfill_mod, fake_http, tmp_path):
+    """A WAF challenge or outage page is transient. Recording it as "this bill
+    does not exist" would persist it and never ask again."""
+    fake_http(FakeSession(default=FakeResponse(200, "<html><body>Access denied</body></html>")))
+    summary = backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=0)
+    assert summary["failed"] == 1
+    assert summary["no_status_page"] == 0
+    assert (
+        not (tmp_path / "a-missing.json").exists()
+        or json.loads((tmp_path / "a-missing.json").read_text()) == []
+    )
+
+
+# --- the circuit breaker: not being a burden when the site says stop ---
+
+
+def test_sustained_failure_aborts_instead_of_running_the_whole_session(
+    backfill_mod, fake_http, tmp_path
+):
+    """Per-LD retry alone means a blocked run still issues one request per
+    remaining bill. Against a state server that has already refused, times
+    three concurrent sessions, that is the exact harm the throttle exists to
+    avoid."""
+    http = fake_http(FakeSession(default=FakeResponse(403, "blocked")))
+    lds = [f"{i:04d}" for i in range(1, 501)]
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0)
+
+    assert summary["aborted"] is True
+    assert len(http.requested) == backfill_mod.MAX_CONSECUTIVE_FAILURES
+    assert summary["not_attempted"] == 500 - backfill_mod.MAX_CONSECUTIVE_FAILURES
+    assert summary["complete"] is False
+
+
+def test_scattered_failures_do_not_abort_a_healthy_run(backfill_mod, fake_http, tmp_path):
+    """The breaker is for a site that has stopped answering, not for one bad
+    bill every so often."""
+    good, bad = FakeResponse(200, status_page()), FakeResponse(500, "")
+    sequence = []
+    for i in range(30):
+        sequence.append(bad if i % 5 == 0 else good)
+    # A 500 is retried MAX_ATTEMPTS times, so pad the sequence generously.
+    fake_http(FakeSession(sequence=sequence + [good] * 200))
+    summary = backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 31)], tmp_path / "a.json", 0)
+    assert summary["aborted"] is False
+
+
+def test_missing_bills_do_not_trip_the_breaker(backfill_mod, fake_http, tmp_path):
+    """A session with a long run of nonexistent LDs is normal, not a refusal."""
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    lds = [f"{i:04d}" for i in range(1, 41)]
+    summary = backfill_mod.backfill(132, lds, tmp_path / "a.json", delay=0)
+    assert summary["aborted"] is False
+    assert summary["no_status_page"] == 40
+
+
+def test_retry_after_is_honored_over_our_own_backoff(backfill_mod, fake_http, sleeps, tmp_path):
+    busy = FakeResponse(503, "")
+    busy.headers = {"Retry-After": "7"}
+    fake_http(FakeSession(sequence=[busy, FakeResponse(200, status_page())]))
+    backfill_mod.backfill(132, ["0001"], tmp_path / "a.json", delay=1.0)
+    assert 7.0 in sleeps, "the server told us how long to wait"
+
+
+def test_an_absurd_retry_after_is_capped(backfill_mod):
+    class R:
+        headers = {"Retry-After": "999999"}
+
+    assert backfill_mod.retry_after(R(), 2.0) == 300.0
+
+
+def test_a_junk_retry_after_falls_back_to_our_backoff(backfill_mod):
+    class R:
+        headers = {"Retry-After": "Wed, 21 Oct 2026 07:28:00 GMT"}
+
+    assert backfill_mod.retry_after(R(), 2.0) == 2.0
+
+
 # --- resumability, which is what makes a 40-minute job restartable ---
 
 
@@ -209,6 +379,41 @@ def test_recheck_missing_reopens_the_known_404s(backfill_mod, fake_http, tmp_pat
     assert summary["no_status_page"] == 0
 
 
+def test_an_incomplete_recheck_does_not_forget_the_rest_of_the_missing_set(
+    backfill_mod, fake_http, tmp_path
+):
+    """Regression: --recheck-missing started from an empty set and overwrote the
+    sidecar with only what it re-reached, so a recheck cut short by --limit, a
+    crash, or the job timeout erased every LD it had not got to yet. The next
+    normal run then re-asked the site for all of them."""
+    out = tmp_path / "a.json"
+    lds = [f"{i:04d}" for i in range(1, 6)]
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, lds, out, delay=0)
+    assert len(json.loads((tmp_path / "a-missing.json").read_text())) == 5
+
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, lds, out, delay=0, recheck_missing=True, limit=1)
+    assert json.loads((tmp_path / "a-missing.json").read_text()) == lds, (
+        "the four LDs this run never reached must still be recorded as missing"
+    )
+
+    http = fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, lds, out, delay=0)
+    assert http.requested == [], "a normal resume must not refetch them"
+
+
+def test_a_recheck_that_finds_a_page_removes_only_that_ld(backfill_mod, fake_http, tmp_path):
+    out = tmp_path / "a.json"
+    lds = ["0001", "0002", "0003"]
+    fake_http(FakeSession(default=FakeResponse(200, not_found_page())))
+    backfill_mod.backfill(132, lds, out, delay=0)
+
+    fake_http(FakeSession(sequence=[FakeResponse(200, status_page())]))
+    backfill_mod.backfill(132, lds, out, delay=0, recheck_missing=True, limit=1)
+    assert json.loads((tmp_path / "a-missing.json").read_text()) == ["0002", "0003"]
+
+
 def test_the_missing_sidecar_does_not_pollute_the_actions_table(backfill_mod, fake_http, tmp_path):
     out = tmp_path / "a.json"
     fake_http(FakeSession(sequence=[FakeResponse(404, ""), FakeResponse(200, status_page())]))
@@ -236,11 +441,61 @@ def test_a_corrupt_output_file_restarts_rather_than_crashing(backfill_mod, fake_
 
 
 def test_progress_is_checkpointed_mid_run(backfill_mod, fake_http, tmp_path):
-    """A crash at bill 900 of 2500 must not discard the first 899."""
+    """A crash at bill 900 of 2500 must not discard the first 899.
+
+    Asserted DURING the run: checking the file afterwards passes even with
+    checkpointing deleted entirely, because the final write produces the same
+    result. The whole point is what is on disk before the run ends.
+    """
+    out = tmp_path / "a.json"
+    on_disk = []
+
+    class WatchingSession(FakeSession):
+        def get(self, url, timeout=None):
+            on_disk.append(len(json.loads(out.read_text())) if out.exists() else 0)
+            return super().get(url, timeout=timeout)
+
+    fake_http(WatchingSession(default=FakeResponse(200, status_page())))
+    backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 7)], out, delay=0, checkpoint_every=2)
+
+    assert len(json.loads(out.read_text())) == 6
+    # Before requests 3 and 5 the first 2 and 4 records must already be saved.
+    assert on_disk == [0, 0, 2, 2, 4, 4]
+
+
+def test_a_truncated_checkpoint_does_not_discard_the_session(backfill_mod, fake_http, tmp_path):
+    """A kill mid-write used to leave half a JSON file, which load_existing
+    treats as "start fresh" — silently re-requesting ~2000 already-fetched
+    pages. Writes go through a temp file and a rename instead."""
     out = tmp_path / "a.json"
     fake_http(FakeSession(default=FakeResponse(200, status_page())))
-    backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 7)], out, delay=0, checkpoint_every=2)
-    assert len(json.loads(out.read_text())) == 6
+    backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 5)], out, delay=0)
+
+    # Nothing should be left behind that a resume would trip over.
+    assert list(tmp_path.glob("*.tmp")) == []
+    http = fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    backfill_mod.backfill(132, [f"{i:04d}" for i in range(1, 5)], out, delay=0)
+    assert http.requested == []
+
+
+def test_a_write_that_dies_partway_leaves_the_previous_file_intact(
+    backfill_mod, monkeypatch, tmp_path
+):
+    """The property atomicity actually buys. A plain write_text truncates the
+    destination before the new bytes land, so a kill during a checkpoint costs
+    the whole session; writing to a temp file and renaming cannot.
+    """
+    out = tmp_path / "a.json"
+    backfill_mod.write_json(out, [{"ld_number": "0001"}])
+
+    def die(self, target):
+        raise OSError("killed during rename")
+
+    monkeypatch.setattr(Path, "replace", die)
+    with pytest.raises(OSError):
+        backfill_mod.write_json(out, [{"ld_number": "9999"}])
+
+    assert json.loads(out.read_text()) == [{"ld_number": "0001"}]
 
 
 # --- the record shape the actions config will be built from ---
@@ -267,6 +522,77 @@ def test_summary_totals_actions_across_bills(backfill_mod, fake_http, tmp_path):
     fake_http(FakeSession(default=FakeResponse(200, status_page(rows=rows))))
     summary = backfill_mod.backfill(132, ["0001", "0002"], tmp_path / "a.json", delay=0)
     assert summary["actions_total"] == 4
+
+
+# --- the exit code, which is how a dispatched run reports itself ---
+
+
+def run_main(backfill_mod, monkeypatch, fake_http, tmp_path, response, lds=("0001",)):
+    monkeypatch.setattr(backfill_mod, "session_ld_numbers", lambda _src, _s: list(lds))
+    fake_http(FakeSession(default=response))
+    code = backfill_mod.main(
+        [
+            "--session",
+            "132",
+            "--parquet-source",
+            "unused",
+            "--output",
+            str(tmp_path),
+            "--delay",
+            "0",
+        ]
+    )
+    return code, json.loads((tmp_path / "summary-132.json").read_text())
+
+
+def test_a_clean_run_exits_zero(backfill_mod, monkeypatch, fake_http, tmp_path):
+    code, summary = run_main(
+        backfill_mod, monkeypatch, fake_http, tmp_path, FakeResponse(200, status_page())
+    )
+    assert code == 0
+    assert summary["complete"] is True
+
+
+def test_a_session_of_nonexistent_bills_still_exits_zero(
+    backfill_mod, monkeypatch, fake_http, tmp_path
+):
+    """Missing bills are a plain answer from the site, not a failure."""
+    code, summary = run_main(
+        backfill_mod, monkeypatch, fake_http, tmp_path, FakeResponse(200, not_found_page())
+    )
+    assert code == 0
+    assert summary["complete"] is True
+
+
+def test_a_blocked_run_exits_non_zero(backfill_mod, monkeypatch, fake_http, tmp_path):
+    """Returning 0 unconditionally meant a run blocked at request one produced a
+    green check and an empty artifact — indistinguishable from success."""
+    lds = [f"{i:04d}" for i in range(1, 60)]
+    code, summary = run_main(
+        backfill_mod, monkeypatch, fake_http, tmp_path, FakeResponse(403, "blocked"), lds=lds
+    )
+    assert code == 1
+    assert summary["aborted"] is True
+    assert summary["complete"] is False
+
+
+def test_a_crash_still_leaves_a_summary_saying_it_failed(
+    backfill_mod, monkeypatch, fake_http, tmp_path
+):
+    """Otherwise the artifact holds a partial actions table and no summary,
+    which looks exactly like a small complete session."""
+    monkeypatch.setattr(backfill_mod, "session_ld_numbers", lambda _src, _s: ["0001"])
+
+    def boom(*_a, **_k):
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(backfill_mod, "backfill", boom)
+    with pytest.raises(KeyboardInterrupt):
+        backfill_mod.main(["--session", "132", "--parquet-source", "u", "--output", str(tmp_path)])
+
+    summary = json.loads((tmp_path / "summary-132.json").read_text())
+    assert summary["complete"] is False
+    assert "KeyboardInterrupt" in summary["error"]
 
 
 def test_limit_caps_the_run_for_a_smoke_test(backfill_mod, fake_http, tmp_path):

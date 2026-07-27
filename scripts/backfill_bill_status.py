@@ -51,6 +51,25 @@ DEFAULT_DELAY = 1.0
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 MAX_ATTEMPTS = 3
 
+# Stop the session after this many consecutive failures. Per-LD retry alone is
+# not enough: if the site starts refusing -- a WAF block, a rate limiter, an
+# outage -- every remaining LD is still attempted at the full request rate, so a
+# 2,000-bill session becomes 2,000 futile requests against a server that has
+# already said stop, times however many sessions run at once. The point of this
+# script's throttle is not to be a burden; continuing past a sustained refusal
+# would be exactly that.
+MAX_CONSECUTIVE_FAILURES = 10
+
+# The site does NOT return 404 for a bill that does not exist. It answers 200
+# with a normal-looking page whose only tell is this heading. Verified against
+# LD=9999 and LD=99999 on session 132, and every real page sampled across
+# sessions 121-132 carries a paper number while this one does not.
+#
+# This matters more than it looks: it means the HTTP-404 path below is
+# effectively dead code on this host, and every nonexistent LD arrives as a 200
+# that must be classified by shape instead.
+NOT_FOUND_MARKER = "Cannot find requested paper"
+
 
 def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
     """Every distinct LD number published for a session, in order."""
@@ -69,11 +88,34 @@ def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
     return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
 
 
+def retry_after(response, default: float) -> float:
+    """Honor a ``Retry-After`` header, capped so a silly value cannot stall us.
+
+    Only the delta-seconds form is handled; the HTTP-date form is rare and a
+    miss just falls back to our own backoff.
+    """
+    raw = getattr(response, "headers", {}).get("Retry-After")
+    if not raw:
+        return default
+    try:
+        return min(max(float(raw), 0.0), 300.0)
+    except (TypeError, ValueError):
+        return default
+
+
 def fetch_status(
     http: requests.Session, session: int, ld: str, delay: float
 ) -> tuple[str | None, int | None]:
     """Fetch one status page. Returns (html, status_code); html is None on failure."""
-    url = status_url(session, ld)
+    try:
+        url = status_url(session, ld)
+    except ValueError as e:
+        # normalize_ld int-casts. Unreachable through the parquet enumeration
+        # (schema.FILENAME_PATTERN constrains the number to \d+), but a bad LD
+        # here would otherwise kill the whole session having written nothing.
+        logger.warning(f"LD {ld!r}: not a usable LD number ({e})")
+        return None, None
+
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             res = http.get(url, timeout=REQUEST_TIMEOUT)
@@ -89,8 +131,9 @@ def fetch_status(
 
         logger.warning(f"LD {ld}: HTTP {res.status_code} (attempt {attempt})")
         # Back off proportionally rather than hammering a server already
-        # signalling distress.
-        time.sleep(delay * attempt * 2)
+        # signalling distress -- and when it has told us exactly how long to
+        # wait, wait that long instead of guessing.
+        time.sleep(retry_after(res, delay * attempt * 2))
 
     return None, None
 
@@ -122,14 +165,38 @@ def to_record(status: BillStatus) -> dict:
 def is_status_page(status: BillStatus) -> bool:
     """Whether a parsed page is actually a bill's status page.
 
-    Deliberately lenient: it rejects only a page carrying *neither* the paper
-    number (from ``<title>``) nor the act title (from ``<h2>``). A real status
-    page always has at least one, whatever else is missing — a bill can
-    legitimately have no docket rows and no disposition — while an error or
-    redirect page has neither. Requiring both would discard real bills whose
-    page omits one of the two.
+    Keys on the paper number specifically. An earlier version accepted ``paper
+    or title``, which the site's not-found page defeats: ``_parse_bill_title``
+    falls back to the longest heading, so "Cannot find requested paper, please
+    provide a Paper or LD number in the box to the left." was read as an act
+    title and the page recorded as a real bill. Every nonexistent LD in every
+    session would have landed in the actions table titled with an error
+    message, and the run would have reported complete success.
+
+    Every real page sampled across sessions 121-132 carries a paper number
+    (SP 29, HP 1287, ...) whatever else is missing — a bill can legitimately
+    have no docket rows and no disposition — and the not-found page carries
+    none.
     """
-    return bool(status.paper or status.title)
+    return bool(status.paper)
+
+
+def classify_page(html: str, status: BillStatus) -> str:
+    """One of "ok", "missing", or "unrecognized".
+
+    The distinction that matters is definitive-vs-transient. "missing" is the
+    site telling us this LD does not exist, which is permanent and worth
+    remembering. "unrecognized" is a 200 we cannot account for — a WAF
+    challenge, an outage page, a redirect to a portal — which may well clear on
+    a later run, so it counts as a failure and is never persisted as missing.
+    Collapsing the two would let a transient block be recorded as "this bill
+    does not exist" and never asked about again.
+    """
+    if is_status_page(status):
+        return "ok"
+    if NOT_FOUND_MARKER in html:
+        return "missing"
+    return "unrecognized"
 
 
 def load_existing(path: Path) -> dict[str, dict]:
@@ -175,13 +242,21 @@ def backfill(
     """Fetch and parse every LD's status page, writing progress as it goes."""
     records = load_existing(out_path)
     miss_path = missing_path_for(out_path)
-    # A 404 is definitive — the site has no page for that LD and will not grow
-    # one mid-run — so it is persisted and skipped on resume. Server errors are
+    # "No such bill" is definitive — the site will not grow a page for it
+    # mid-run — so it is persisted and skipped on resume. Failures are
     # deliberately NOT persisted: those are transient, and retrying them is the
     # main thing a resumed run is for.
-    missing: set[str] = set() if recheck_missing else load_missing(miss_path)
+    #
+    # Under --recheck-missing the known set is still LOADED, and entries are
+    # removed only when the site is observed to answer for them. Starting from
+    # an empty set instead means a recheck that does not finish -- a --limit, a
+    # crash, the job timeout -- rewrites the sidecar with only what it happened
+    # to re-reach and forgets the rest.
+    known_missing = load_missing(miss_path)
+    missing: set[str] = set(known_missing)
 
-    todo = [ld for ld in ld_numbers if ld not in records and ld not in missing]
+    skip = set(records) if recheck_missing else set(records) | missing
+    todo = [ld for ld in ld_numbers if ld not in skip]
     if limit is not None:
         todo = todo[:limit]
 
@@ -192,13 +267,19 @@ def backfill(
     )
 
     failed: list[str] = []
+    consecutive_failures = 0
+    aborted = False
+    attempted = 0
+
     for i, ld in enumerate(todo, start=1):
+        attempted = i
         html, code = fetch_status(http_session(), session, ld, delay)
+        outcome = "failed"
+
         if html is None:
-            if code == 404:
-                missing.add(ld)
-            else:
-                failed.append(ld)
+            # Retained for correctness on a host that does hard-404, though
+            # legislature.maine.gov does not -- see NOT_FOUND_MARKER.
+            outcome = "missing" if code == 404 else "failed"
         else:
             try:
                 status = parse_status_page(html, session=session, ld=ld)
@@ -206,18 +287,32 @@ def backfill(
                 # A page that does not parse is a data problem worth seeing, not
                 # a reason to abandon the remaining bills.
                 logger.warning(f"LD {ld}: unparseable ({e})")
-                failed.append(ld)
             else:
-                if not is_status_page(status):
-                    # Passing session/ld as overrides means parse_status_page
-                    # cannot raise on an error page — it has the identifiers it
-                    # needs from us. Without this check the run would happily
-                    # record an all-null row for every 200-that-isn't-a-bill and
-                    # report success.
-                    logger.warning(f"LD {ld}: 200 but not a status page; skipping")
-                    failed.append(ld)
-                else:
+                outcome = classify_page(html, status)
+                if outcome == "ok":
                     records[ld] = to_record(status)
+                elif outcome == "unrecognized":
+                    logger.warning(f"LD {ld}: 200 but not a recognizable page")
+
+        if outcome == "ok":
+            missing.discard(ld)
+            consecutive_failures = 0
+        elif outcome == "missing":
+            missing.add(ld)
+            # Not a failure: the site answered us plainly. It must not count
+            # toward the breaker, or a session with many gaps would abort.
+            consecutive_failures = 0
+        else:
+            failed.append(ld)
+            consecutive_failures += 1
+            if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+                logger.error(
+                    f"Session {session}: {consecutive_failures} consecutive failures; "
+                    f"stopping after {i}/{len(todo)}. The site is not answering, and "
+                    f"continuing would be {len(todo) - i} more requests at it."
+                )
+                aborted = True
+                break
 
         if i % checkpoint_every == 0:
             write_output(out_path, records)
@@ -227,19 +322,28 @@ def backfill(
 
     write_output(out_path, records)
     write_missing(miss_path, missing)
+    # A partial actions table is shape-identical to a complete one, so the
+    # summary has to say which it is. Without `complete` and `not_attempted`,
+    # a run that aborted at LD 40 of 2,000 produces a file that looks like a
+    # small session.
+    not_attempted = max(0, len(todo) - attempted)
     summary = {
         "session": session,
         "lds_total": len(ld_numbers),
         "records": len(records),
         "no_status_page": len(missing),
         "failed": len(failed),
-        "failed_lds": failed[:50],
+        "failed_lds": failed,
+        "not_attempted": not_attempted,
+        "aborted": aborted,
+        "complete": not aborted and not_attempted == 0 and not failed,
         "actions_total": sum(r["action_count"] for r in records.values()),
     }
     logger.info(
         f"Session {session}: {summary['records']} records, "
         f"{summary['actions_total']} actions, {summary['no_status_page']} without a page, "
-        f"{summary['failed']} failed"
+        f"{summary['failed']} failed, {not_attempted} not attempted"
+        f"{' (ABORTED)' if aborted else ''}"
     )
     return summary
 
@@ -255,14 +359,26 @@ def http_session() -> requests.Session:
     return _HTTP
 
 
-def write_output(path: Path, records: dict[str, dict]) -> None:
+def write_json(path: Path, payload) -> None:
+    """Write atomically, so a kill mid-checkpoint cannot truncate the file.
+
+    A bare ``write_text`` leaves a half-written file if the process dies during
+    it, and ``load_existing`` treats an unparseable file as "start fresh" —
+    which at session scale means silently re-requesting ~2,000 pages that were
+    already fetched.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["ld_number"]), indent=1))
+    tmp = path.with_suffix(f"{path.suffix}.tmp")
+    tmp.write_text(json.dumps(payload, indent=1))
+    tmp.replace(path)
+
+
+def write_output(path: Path, records: dict[str, dict]) -> None:
+    write_json(path, sorted(records.values(), key=lambda r: r["ld_number"]))
 
 
 def write_missing(path: Path, missing: set[str]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(sorted(missing), indent=1))
+    write_json(path, sorted(missing))
 
 
 def parse_args(argv=None):
@@ -296,16 +412,46 @@ def main(argv=None) -> int:
 
     ld_numbers = session_ld_numbers(args.parquet_source, args.session)
     out_path = args.output / f"actions-{args.session}.json"
-    summary = backfill(
-        args.session,
-        ld_numbers,
-        out_path,
-        args.delay,
-        args.limit,
-        recheck_missing=args.recheck_missing,
-    )
+    summary_path = args.output / f"summary-{args.session}.json"
 
-    (args.output / f"summary-{args.session}.json").write_text(json.dumps(summary, indent=2))
+    try:
+        summary = backfill(
+            args.session,
+            ld_numbers,
+            out_path,
+            args.delay,
+            args.limit,
+            recheck_missing=args.recheck_missing,
+        )
+    except BaseException as e:
+        # Including KeyboardInterrupt and the job timeout's SIGTERM: an
+        # interrupted run must still say it was interrupted. Without this the
+        # artifact holds a partial actions table and no summary at all, which
+        # is indistinguishable from a small complete session.
+        write_json(
+            summary_path,
+            {
+                "session": args.session,
+                "lds_total": len(ld_numbers),
+                "complete": False,
+                "aborted": True,
+                "error": f"{type(e).__name__}: {e}",
+            },
+        )
+        raise
+
+    write_json(summary_path, summary)
+
+    # Exit non-zero on an incomplete run. Returning 0 unconditionally meant a
+    # session that was blocked at request one produced a green check, an empty
+    # artifact, and a summary nobody is obliged to read — indistinguishable
+    # from a successful backfill.
+    if not summary["complete"]:
+        logger.error(
+            f"Session {args.session} incomplete: {summary['failed']} failed, "
+            f"{summary['not_attempted']} not attempted"
+        )
+        return 1
     return 0
 
 

@@ -168,8 +168,15 @@ jobs:
               exit 1
               ;;
           esac
-          MATRIX=$(printf '%s' "$SESSIONS" | tr ' ' '\n' | grep -v '^$' \
-            | python3 -c 'import json,sys; print(json.dumps([int(x) for x in sys.stdin.read().split()]))')
+          # Deduplicated: a repeated session would otherwise start two jobs
+          # requesting the SAME urls concurrently -- redundant load on the site
+          # and an upload-artifact name collision.
+          MATRIX=$(printf '%s' "$SESSIONS" \
+            | python3 -c 'import json,sys; print(json.dumps(sorted({int(x) for x in sys.stdin.read().split()})))')
+          if [ "$MATRIX" = "[]" ]; then
+            echo "::error::sessions resolved to an empty matrix; got '$SESSIONS'"
+            exit 1
+          fi
           echo "sessions=$MATRIX" >> "$GITHUB_OUTPUT"
           echo "Matrix: $MATRIX"
 
@@ -197,6 +204,17 @@ jobs:
       - name: Install dependencies
         run: uv sync --extra dev
 
+      # The script is resumable, but a CI job is not: `data/` is gitignored and
+      # every run starts from a fresh checkout, so the resume state only ever
+      # helps someone running the script locally. Re-running a failed job
+      # refetches its session from LD 1.
+      #
+      # Accepted rather than fixed. A session is ~2,000 bills at 1/sec, ~35
+      # minutes against a 120-minute timeout, so a run that needs resuming is a
+      # run that hit a real problem -- and the circuit breaker stops that after
+      # 10 consecutive failures rather than burning the remaining requests.
+      # Restoring the prior artifact would need a cross-run download and an
+      # `actions: read` grant, which is more surface than the case warrants.
       - name: Backfill
         env:
           SESSION: ${{ matrix.session }}
