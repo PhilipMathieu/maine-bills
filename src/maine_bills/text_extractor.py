@@ -38,7 +38,14 @@ _COSPONSOR_BLOCK = re.compile(
 
 # "Senators:" / "Representatives:" opens a run of bare surnames belonging to that
 # chamber, and runs until the next such label.
-_ROSTER_SEGMENTS = re.compile(r"\b(Senators|Representatives)\s*:")
+#
+# The SINGULAR forms count too. Maine routinely closes a roster with a
+# one-member trailing label -- "..., MAXMIN of Nobleboro, Senator: BLACK of
+# Franklin." -- and matching only the plural cost that entry AND terminated the
+# run before it, because "Senator: BLACK of Franklin" is not a well-formed cell.
+# Measured over 296 real bills this was the single largest loss class: 55 of 68
+# affected bills. rstrip("s") still yields the right singular chamber label.
+_ROSTER_SEGMENTS = re.compile(r"\b(Senators?|Representatives?)\s*:")
 
 # Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER, LaFOUNTAIN,
 # TALBOT ROSS, DHALAC. Requiring two adjacent capitals is a positive shape test
@@ -98,10 +105,35 @@ _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
     r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
-    r"\s+of\s+(?:the\s+)?"
-    r"(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,3}"
-    r"\s*(?:\.|$)"
+    r"\s+of\s+(?:"
+    r"the\s+(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,5}"
+    r"|(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,3}"
+    r")\s*(?:\.|$)"
 )
+
+
+# Words on the general title_words denylist that ARE real Maine surnames, and
+# so must not be filtered on the roster path.
+#
+# The denylist exists for the title-adjoining patterns, where "Hall" appears as
+# "City Hall". Inside a roster the same token is positionally a surname -- Rep.
+# Hall of Wilton sat in session 129 -- and the roster is already anchored to a
+# chamber label, so the false-positive risk that justifies the denylist
+# elsewhere is not present here.
+#
+# This became reachable only when the denylist was case-folded: before that it
+# matched nothing at all on this all-caps path, so activating it correctly also
+# activated this collision.
+_ROSTER_NAME_ALLOW = {"hall"}
+
+
+def _roster_name_ok(name: str, is_valid_name) -> bool:
+    """Whether a roster cell's name should be kept."""
+    if not _ROSTER_SURNAME.search(name):
+        return False
+    if name.casefold() in _ROSTER_NAME_ALLOW:
+        return True
+    return is_valid_name(name)
 
 
 def _roster_names(segment: str, is_valid_name):
@@ -130,11 +162,17 @@ def _roster_names(segment: str, is_valid_name):
         name = match.group("name").strip()
         # Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER,
         # LaFOUNTAIN, TALBOT ROSS, DHALAC. Two adjacent capitals is a positive
-        # shape test on the name itself, which is what the sweep actually needs;
-        # is_valid_name alone is a 34-word denylist that does not contain City,
-        # Village, Board, University, Nation or Region.
-        if not is_valid_name(name) or not _ROSTER_SURNAME.search(name):
-            return
+        # shape test on the name itself, which is what the sweep actually needs.
+        #
+        # A rejection here SKIPS the cell; it does not end the run. The cell
+        # matched _ROSTER_ENTRY, so we are still plainly inside a roster -- only
+        # this one name looked wrong. Ending the run instead was a cascade: on
+        # session 129 HP0037 the real entry "HALL of Wilton" hit the denylist
+        # and took HICKMAN, INGWERSEN, MAXMIN, O'NEIL and BLACK down with it,
+        # six lost from one collision. The run-ending cases are the two above --
+        # a cell that is not an entry at all, and a cell with prose behind it.
+        if not _roster_name_ok(name, is_valid_name):
+            continue
         yield name, match.group("title")
         if match.end() < len(cell):
             return

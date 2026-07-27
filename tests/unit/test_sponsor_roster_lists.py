@@ -471,12 +471,22 @@ def test_a_short_clause_that_reads_as_a_locality_is_not_separable():
     is shape-identical to a long locality. The boundary closes clauses that run
     LONGER than a locality; it cannot close ones that do not.
 
-    Bounded: at most one bogus name per roster segment, only when the block is
-    unterminated, and enrichment publishes it with a null id and null
-    confidence rather than a guessed identity.
+    NOT bounded to one per segment — an earlier version of this docstring
+    claimed that and it was false. A fully-consumed bogus cell leaves
+    ``match.end() == len(cell)``, so the run CONTINUES and the next such cell is
+    read too. What actually bounds it is that every cell in the run must keep
+    fitting the shape, and that enrichment publishes an unmatched name with a
+    null id and null confidence rather than a guessed identity.
     """
     text = "Cosponsored by Senators: BAILEY of York, USDA of Washington provides the funds.\n"
     assert names(text) == ["BAILEY", "USDA"]
+
+    # Three, not one — the case the old docstring said could not happen.
+    run_on = (
+        "Cosponsored by Senators: BAILEY of York, DHHS of Augusta shall report, "
+        "DOE of Portland shall assist, EPA of Maine is repealed.\n"
+    )
+    assert names(run_on) == ["BAILEY", "DHHS", "DOE", "EPA"]
 
 
 def test_abbreviated_place_names_survive_the_sentence_boundary():
@@ -488,3 +498,104 @@ def test_abbreviated_place_names_survive_the_sentence_boundary():
         "Be it enacted:\n"
     )
     assert names(text) == ["SMYTH", "PIERCE", "JONES", "DANA"]
+
+
+# --- round 4: losses measured against 296 real bills, sessions 125-132 ---
+
+
+def test_a_singular_trailing_chamber_label_opens_a_segment():
+    """Maine routinely closes a roster with a one-member label. Matching only
+    the plural cost that entry AND terminated the run before it, since
+    "Representative: STUCKEY of Portland" is not a well-formed cell. Largest
+    single loss class in the corpus: 55 of 68 affected bills."""
+    text = (
+        "Cosponsored by Senators: FARNSWORTH of Cumberland, ALFOND of Cumberland, "
+        "Representative: STUCKEY of Portland.\nBe it enacted:\n"
+    )
+    assert names(text) == ["FARNSWORTH", "ALFOND", "STUCKEY"]
+
+
+def test_the_singular_label_still_carries_its_chamber():
+    text = (
+        "Cosponsored by Representatives: BERRY of Bowdoinham, "
+        "Senator: BLACK of Franklin.\nBe it enacted:\n"
+    )
+    by_name = mentions(text)
+    assert by_name["BERRY"] == "House"
+    assert by_name["BLACK"] == "Senate"
+
+
+def test_a_denylisted_name_does_not_take_the_rest_of_the_roster_with_it():
+    """Session 129 HP0037, real text. "HALL of Wilton" is a real legislator who
+    collides with the denylist; ending the run on a rejection took HICKMAN,
+    INGWERSEN, MAXMIN, O'NEIL and BLACK down with him — six lost from one
+    collision. A rejection skips the cell now; only a cell that is not an entry
+    at all, or one with prose behind it, ends the run."""
+    text = (
+        "Cosponsored by Representatives: BERRY of Bowdoinham, DUNPHY of Old Town, "
+        "HALL of Wilton, HICKMAN of Winthrop, INGWERSEN of Arundel, "
+        "MAXMIN of Nobleboro, O'NEIL of Saco, Senator: BLACK of Franklin.\n"
+        "Be it enacted:\n"
+    )
+    assert names(text) == [
+        "BERRY",
+        "DUNPHY",
+        "HALL",
+        "HICKMAN",
+        "INGWERSEN",
+        "MAXMIN",
+        "O'NEIL",
+        "BLACK",
+    ]
+
+
+def test_hall_is_a_surname_on_the_roster_path():
+    """The denylist exists for the title-adjoining patterns, where "Hall" is
+    "City Hall". Inside a chamber-anchored roster it is positionally a surname.
+    This only became reachable when the denylist was case-folded."""
+    text = "Cosponsored by Senators: HALL of Wilton, BAILEY of York.\nBe it enacted:\n"
+    assert names(text) == ["HALL", "BAILEY"]
+
+
+def test_a_denylisted_noun_is_still_dropped_just_not_cascading():
+    text = (
+        "Cosponsored by Senators: BAILEY of York, COUNTY of Cumberland, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    assert names(text) == ["BAILEY", "CURRY"]
+
+
+def test_tribal_designations_exceed_the_ordinary_locality_ceiling():
+    """Session 127 HP0013, real text. "of the Houlton Band of Maliseet Indians"
+    is five words; at a four-word ceiling the cell failed, and because it sorts
+    first alphabetically the whole roster died — 0 of 8. The Maliseet seat was
+    refilled in May 2025, so this is session 132 and in scope."""
+    text = (
+        "Cosponsored by Senator DILL of Penobscot and Representatives: "
+        "BEAR of the Houlton Band of Maliseet Indians, BECK of Waterville, "
+        "DANA of the Passamaquoddy Tribe, DION of Portland, MARTIN of Eagle Lake, "
+        "ROTUNDO of Lewiston, SCHNECK of Bangor.\nBe it enacted:\n"
+    )
+    assert names(text) == [
+        "DILL",
+        "BEAR",
+        "BECK",
+        "DANA",
+        "DION",
+        "MARTIN",
+        "ROTUNDO",
+        "SCHNECK",
+    ]
+
+
+def test_the_longer_ceiling_is_gated_on_the_article():
+    """The extra room is for "of THE <tribal designation>", which is what the
+    long real localities look like. Ungated it re-accepts the clause class —
+    "of Augusta shall study the matter" is five words too."""
+    for clause in (
+        "MDOT of Augusta shall study the matter.",
+        "MRSA of Title 5 is amended to read as follows.",
+        "PART A of Chapter 12 takes effect on July 1.",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {clause}\n"
+        assert names(text) == ["BAILEY"], clause
