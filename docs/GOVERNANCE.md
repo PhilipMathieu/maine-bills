@@ -35,6 +35,10 @@ Everything else: extraction/matching/scraper code, tests, refactors, docs (other
 
 A human may always review, request changes on, or revert a Tier-2 PR; agent-merge authority is a default, not an exclusion.
 
+**Standing authorization.** The repo owner has authorized the author agent to spawn reviewer subagents to satisfy requirement 2. No per-PR permission is needed. The reviewer must receive the diff and this checklist and must not inherit the author's reasoning history — that separation is the property this requirement is actually after. Be honest about its strength: a reviewer subagent is the same model on the same repo, so it is weaker than a second human or an unrelated session, and it catches what fresh eyes catch rather than what different expertise would.
+
+**Sequencing.** Wait for the automated code review (Copilot) to land and address its findings *before* spawning a reviewer agent. Running them in parallel spends an agent review on a diff that is about to change, and the second review then has to be redone. Order: open PR → CI green → automated review → fix findings → reviewer agent → merge.
+
 ### Escalation rule
 
 If an agent is unsure which tier applies, the PR is Tier 1. A PR that mixes tiers is Tier 1. Reviewers who discover hidden Tier-1 surface (e.g. a "test fix" that alters schema) re-label and stop the merge.
