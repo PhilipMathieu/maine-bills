@@ -143,16 +143,21 @@ def _roster_names(segment: str, is_valid_name):
     per-call title_words set and so cannot live at module scope.
 
     A roster is a CONTIGUOUS comma-delimited run: the run ends at the first cell
-    that is not a clean "NAME of LOCALITY". Three outcomes per cell:
+    that is not a clean "NAME of LOCALITY". Four outcomes per cell:
 
-    * consumed entirely  -> a clean entry; take it and keep going
-    * matched as a prefix -> the roster's last entry, with prose behind it; take
-      it and stop, so the prose is never read
+    * consumed entirely, name kept    -> a clean entry; take it and keep going
+    * consumed entirely, name rejected -> skip the cell, keep going: the cell
+      IS an entry, only this one name looked wrong, and ending the run here
+      cascades (see the HALL case below)
+    * matched as a prefix -> prose behind it. Take the name if it passed, then
+      stop either way, so the prose is never read
     * no match            -> not an entry; stop without taking anything
 
-    Skipping bad cells instead of stopping is what let body text far past the
-    end of the roster still be harvested, because prose always intervenes and
-    was simply stepped over.
+    The prefix case must stop EVEN WHEN THE NAME WAS REJECTED. Ordering the
+    rejection first skipped that stop, so a rejected name on a prose-trailing
+    cell let the run continue into body text -- which is precisely what the
+    stop exists to prevent. Zero occurrences in 271 real bills, but the
+    docstring above claimed prose is never read, and it has to be true.
     """
     for cell in segment.split(","):
         cell = cell.strip()
@@ -172,6 +177,9 @@ def _roster_names(segment: str, is_valid_name):
         # six lost from one collision. The run-ending cases are the two above --
         # a cell that is not an entry at all, and a cell with prose behind it.
         if not _roster_name_ok(name, is_valid_name):
+            # Still honour the prose-behind-it stop; only the NAME is skipped.
+            if match.end() < len(cell):
+                return
             continue
         yield name, match.group("title")
         if match.end() < len(cell):
@@ -181,8 +189,10 @@ def _roster_names(segment: str, is_valid_name):
 def _roster_segments(block: str) -> list[tuple[str, str]]:
     """Split a cosponsor block into (singular chamber title, segment) pairs.
 
-    Returns nothing when the block has no plural labels, which is the common
-    case: most bills list a handful of cosponsors, each with its own title.
+    Returns nothing when the block has no chamber labels at all, which is the
+    common case: most bills list a handful of cosponsors, each carrying its own
+    title. Both the plural and singular forms open a segment -- Maine closes a
+    roster with a one-member "Senator: BLACK of Franklin".
     """
     matches = list(_ROSTER_SEGMENTS.finditer(block))
     segments = []

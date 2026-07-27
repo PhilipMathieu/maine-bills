@@ -102,6 +102,10 @@ opened by a `Senators:`/`Representatives:` label, and only when followed by
 - Title filter: 34 words blocking false positives (leadership titles, government entities, etc.)
 - Word-level filtering via `is_valid_name()` checks each word against title_words set
 - Hyphenated names normalized (stray spaces collapsed: `BEEBE- CENTER` → `BEEBE-CENTER`)
+- Roster lists: a chamber label (`Senators:` / `Representatives:`, singular or
+  plural) opens a contiguous comma-delimited run of bare surnames, which is how
+  widely cosponsored bills are printed. The run ends at the first cell that is
+  not a clean `NAME of LOCALITY`.
 - `sponsor_validation.py`: optional post-processing to filter against known legislator lists (e.g., OpenStates)
 
 ### Text Cleaning

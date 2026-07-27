@@ -599,3 +599,70 @@ def test_the_longer_ceiling_is_gated_on_the_article():
     ):
         text = f"Cosponsored by Senators: BAILEY of York, {clause}\n"
         assert names(text) == ["BAILEY"], clause
+
+
+# --- round 5: the prefix stop must survive a rejected name ---
+
+
+def test_a_rejected_name_on_a_prose_cell_still_stops_the_run():
+    """Ordering the guard rejection before the prefix-stop skipped that stop, so
+    a rejected name on a cell with prose behind it let the run continue into
+    body text — exactly what the stop exists to prevent. Zero occurrences in 271
+    real bills, but the docstring claimed prose is never read."""
+    text = (
+        "Presented by Senator BAILEY of York.\n"
+        "Cosponsored by Senators: DAUGHTRY of Cumberland, COUNTY of Cumberland. "
+        "Notwithstanding any other provision of law, MDOT of Augusta, "
+        "GROHOSKI of Hancock.\nBe it enacted:\n"
+    )
+    assert names(text) == ["BAILEY", "DAUGHTRY"]
+
+
+def test_a_rejected_name_on_a_clean_cell_still_skips_rather_than_stops():
+    """The other half: the non-cascading skip must survive the fix above."""
+    text = (
+        "Cosponsored by Senators: BAILEY of York, COUNTY of Cumberland, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    assert names(text) == ["BAILEY", "CURRY"]
+
+
+# --- guards the round-5 mutation pass found unconstrained ---
+
+
+def test_the_label_requires_its_colon():
+    """ "Senators" without a colon is prose, not a roster opener. Real rosters
+    always carry it; dropping the requirement lets a bare plural in running
+    text open a segment."""
+    text = (
+        "Cosponsored by Senator BAILEY of York and the Senators "
+        "MARTIN of Eagle Lake, GRANT of Gardiner.\n"
+    )
+    assert names(text) == ["BAILEY"]
+
+
+def test_the_label_is_word_bounded():
+    """Without \\b the label matches as a substring and opens a bogus segment."""
+    text = (
+        "Cosponsored by Senator BAILEY of York. "
+        "CoSenators: MARTIN of Eagle Lake, GRANT of Gardiner.\n"
+    )
+    assert names(text) == ["BAILEY"]
+
+
+def test_an_individual_title_inside_a_roster_keeps_its_own_chamber():
+    """A Speaker listed inside a "Senators:" run is still House.
+
+    Note this is NOT isolating _ROSTER_ENTRY's title group: the title-adjoining
+    patterns match "Speaker FECTEAU of Biddeford" independently, so the chamber
+    is right either way and neutering the group changes nothing observable.
+    Kept as a behavioural assertion, not claimed as a guard test.
+    """
+    text = (
+        "Cosponsored by Senators: BAILEY of York, Speaker FECTEAU of Biddeford, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    by_name = mentions(text)
+    assert by_name["BAILEY"] == "Senate"
+    assert by_name["FECTEAU"] == "House"
+    assert by_name["CURRY"] == "Senate"
