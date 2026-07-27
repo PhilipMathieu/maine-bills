@@ -43,19 +43,38 @@ _HEADING = re.compile(
 _DISTRICT = re.compile(r"District\s+(?P<number>\d+)\s*:\s*(?P<body>.+?)(?=Mailing Address|$)", re.S)
 
 # "Legislative Service : Senate 130-132; House 128-129."
-_SERVICE = re.compile(r"Legislative Service\s*:\s*(?P<body>.+?)(?:\.|Committee Assignments)", re.S)
+#
+# The heading that follows is published both plural and singular, and not every
+# page ends the service line with a period -- District 10 runs straight on:
+#   "Legislative Service : Senate 132; House 128-131 Committee Assignment : ..."
+# Requiring the plural silently produced an empty service list for a sitting
+# senator, so accept either and stop at whichever terminator comes first.
+_SERVICE = re.compile(
+    r"Legislative Service\s*:\s*(?P<body>.+?)(?:\.|Committee\s+Assignments?)",
+    re.S,
+)
 _SERVICE_TERM = re.compile(r"(?P<chamber>Senate|House)\s+(?P<first>\d+)\s*(?:-\s*(?P<last>\d+))?")
 
 # "In Aroostook County: Amity; Bancroft Township; ..." — repeated per county.
 _COUNTY_NAME = r"[A-Z][A-Za-z .'-]+?"
+# A town list runs until the next county block or a whole-county clause. Without
+# the "All of" arm, a page mixing the two forms glues the second onto the last
+# town: "...; and Owls Head. All of Waldo County".
 _COUNTY_BLOCK = re.compile(
     rf"In\s+(?P<county>{_COUNTY_NAME})\s+County\s*:\s*(?P<towns>[^:]+?)"
-    rf"(?=In\s+{_COUNTY_NAME}\s+County\s*:|$)",
+    rf"(?=In\s+{_COUNTY_NAME}\s+County\s*:|All of\s+{_COUNTY_NAME}\s+County|$)",
     re.S,
 )
 
 # "All of Waldo County."
 _WHOLE_COUNTY = re.compile(r"All of\s+(?P<county>[A-Z][A-Za-z .'-]+?)\s+County")
+
+# The site writes town lists with a serial conjunction: "A; B; and C." and, when
+# a county has only two, with no semicolon at all: "Bangor and Hermon." Splitting
+# on ";" alone yields "and Weston" (16 of 235 localities across the district
+# pages) and loses Bangor entirely. No Maine municipality name contains " and ",
+# so it is safe to treat as a separator wherever it appears.
+_LIST_SEPARATOR = re.compile(r";|\band\b")
 
 _CHAMBER_BY_TITLE = {"Sen": "Senate", "Rep": "House"}
 
@@ -95,9 +114,23 @@ class MemberProfile:
     localities: list[str] = field(default_factory=list)
     service: list[ServiceTerm] = field(default_factory=list)
     source_url: str = ""
+    # Raw text of the service line when one was published. Lets a caller tell
+    # "this member has no service line" from "the line was there and we failed
+    # to parse it" -- served_in() collapses both to False, which is how a
+    # sitting senator silently read as never having served.
+    service_raw: str | None = None
+
+    @property
+    def service_unparsed(self) -> bool:
+        """A service line was published but yielded no terms."""
+        return self.service_raw is not None and not self.service
 
     def served_in(self, session: int) -> bool:
-        """Whether this member sat in the given session, per their service line."""
+        """Whether this member sat in the given session, per their service line.
+
+        False also when the line failed to parse; check ``service_unparsed``
+        before treating a False as evidence of absence.
+        """
         return any(term.covers(session) for term in self.service)
 
     def chamber_in(self, session: int) -> str | None:
@@ -119,9 +152,20 @@ def family_name_of(full_name: str) -> str:
     with two-word surnames (Talbot Ross), so taking only the last token would
     fail to match them. Taking everything after the given name matches those
     correctly and mis-handles only a middle name, which these pages do not use.
+
+    Known gap: a published middle initial or a suffix comes through attached --
+    "H. Scott Landry" -> "Scott Landry", "Anne Perry Jr." -> "Perry Jr." Maine
+    does seat members published with a middle initial, so this needs a guard
+    before the values feed sponsor_matching.
     """
     parts = full_name.split()
     return " ".join(parts[1:]) if len(parts) > 1 else full_name
+
+
+def service_text(text: str) -> str | None:
+    """The raw service line, or None if the page publishes none."""
+    match = _SERVICE.search(text)
+    return match.group("body").strip() if match else None
 
 
 def parse_service(text: str) -> list[ServiceTerm]:
@@ -146,21 +190,31 @@ def parse_service(text: str) -> list[ServiceTerm]:
 def parse_localities(body: str) -> list[str]:
     """Municipalities in a district description, in page order.
 
-    Handles both published forms: an enumerated list per county
-    ("In Aroostook County: Amity; Bancroft Township; ...") and a whole county
-    ("All of Waldo County."), which yields the county as the single locality
-    since no town list is given.
+    Both published forms are handled, and a page may use both. An enumerated
+    list per county:
+
+        In Aroostook County: Amity; Bancroft Township; ... and Weston.
+
+    and a whole county, which yields the county itself since no towns are given:
+
+        All of Waldo County.
+
+    Entries are split on the serial conjunction as well as the semicolon.
+    Splitting on ";" alone leaves the last town of every block prefixed "and "
+    -- a plausible-looking string that never joins to anything -- and drops the
+    second town outright where a county lists two without a semicolon.
     """
     localities: list[str] = []
     for block in _COUNTY_BLOCK.finditer(body):
-        for town in block.group("towns").split(";"):
+        for town in _LIST_SEPARATOR.split(block.group("towns")):
             cleaned = re.sub(r"\s+", " ", town).strip(" .,")
             if cleaned:
                 localities.append(cleaned)
 
-    if not localities:
-        for whole in _WHOLE_COUNTY.finditer(body):
-            localities.append(f"All of {whole.group('county').strip()} County")
+    # Unconditional, not a fallback: a district can enumerate towns in one
+    # county and take another whole.
+    for whole in _WHOLE_COUNTY.finditer(body):
+        localities.append(f"All of {whole.group('county').strip()} County")
 
     return localities
 
@@ -196,5 +250,6 @@ def parse_member_page(html: str, district: int | str | None = None) -> MemberPro
         district=resolved_district,
         localities=parse_localities(district_match.group("body")) if district_match else [],
         service=parse_service(text),
+        service_raw=service_text(text),
         source_url=member_url(resolved_district) if resolved_district else "",
     )

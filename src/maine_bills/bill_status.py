@@ -69,7 +69,8 @@ def normalize_ld(ld: int | str) -> str:
     Note the deliberate asymmetry with `status_url`, which strips the padding —
     the site wants `LD=1`, not `LD=0001`.
     """
-    return str(ld).strip().lstrip("0").zfill(LD_NUMBER_WIDTH) or "0".zfill(LD_NUMBER_WIDTH)
+    # "".zfill(4) is already "0000", so no empty-string fallback is needed.
+    return str(ld).strip().lstrip("0").zfill(LD_NUMBER_WIDTH)
 
 
 def status_url(session: int, ld: int | str) -> str:
