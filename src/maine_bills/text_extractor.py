@@ -16,6 +16,192 @@ _CHAMBER_BY_TITLE = {
     "Speaker": "House",
 }
 
+# How far into the document to look for the sponsor block. A bill cosponsored by
+# most of a chamber runs to ~100 entries of roughly 30 characters each, so the
+# old 2,500-character window truncated the list itself: LD 2007 of session 131
+# has 99 cosponsors and its block alone exceeds 3,000 characters.
+_SPONSOR_WINDOW = 8000
+
+# Where the sponsor block ends. Worth being explicit now that the window is wide
+# -- without these the block would run to the window edge and the title-adjoining
+# patterns could pick up "Senator X of Y" out of the bill's body text.
+_COSPONSOR_BLOCK = re.compile(
+    r"Cosponsored by\s+(.+?)"
+    # Case-insensitivity is scoped to the terminators alone. Applied to the
+    # whole pattern it widened the OPENER too, so a prose "cosponsored by"
+    # inside the window opened a block where none existed.
+    r"(?=(?i:Be it enacted|Emergency preamble|Preamble\.|Resolved:|SUMMARY"
+    r"|Sec\.\s*[A-Za-z0-9]|Amend the (?:bill|resolve|amendment))"
+    r"|Presented by|Introduced by|$)",
+    re.DOTALL,
+)
+
+# "Senators:" / "Representatives:" opens a run of bare surnames belonging to that
+# chamber, and runs until the next such label.
+#
+# The SINGULAR forms count too. Maine routinely closes a roster with a
+# one-member trailing label -- "..., MAXMIN of Nobleboro, Senator: BLACK of
+# Franklin." -- and matching only the plural cost that entry AND terminated the
+# run before it, because "Senator: BLACK of Franklin" is not a well-formed cell.
+# Measured over 296 real bills this was the single largest loss class: 55 of 68
+# affected bills. rstrip("s") still yields the right singular chamber label.
+_ROSTER_SEGMENTS = re.compile(r"\b(Senators?|Representatives?)\s*:")
+
+# Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER, LaFOUNTAIN,
+# TALBOT ROSS, DHALAC. Requiring two adjacent capitals is a positive shape test
+# on the name itself, which is what the sweep actually needs.
+#
+# Anchoring to the plural label was NOT sufficient on its own, and neither was
+# is_valid_name: that denylist is written in Title Case and was compared
+# case-sensitively, so on this path -- which is ALL CAPS by construction -- it
+# matched nothing at all. Both guards now do real work: is_valid_name compares
+# case-folded and has been extended with the institutional vocabulary (City,
+# Village, Board, University, Nation, Region, Part, Chapter, ...), and this
+# pattern rejects the Title Case forms, which have no two adjacent capitals.
+#
+# Each is isolated by a test that goes red when only that guard is removed --
+# an earlier round's fixtures were subsumed by the prefix parse and passed with
+# either guard deleted.
+_ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
+
+# One roster entry: an optional individual title (leaders keep theirs inside the
+# list), a one- or two-word surname, then the mandatory " of <locality>".
+#
+# Matched as a PREFIX of its cell, not end-anchored. End-anchoring is the
+# obvious reading of "the locality must consume the cell", and it is wrong: when
+# a block does not terminate, the last cell of the roster always runs on into
+# the following prose with no comma to bound it --
+#
+#     Cosponsored by Senators: BAILEY of York. The department shall consider...
+#
+# so end-anchoring silently dropped the last name of every unterminated roster,
+# and the whole list where there was only one. What the cell boundary is for is
+# deciding whether to CONTINUE, which _roster_names handles: a cell the entry
+# does not consume ends the run after its name is taken.
+#
+# The locality is bounded by word count rather than by capitalization --
+# requiring every word to be capitalized rejects real places, since "Isle au
+# Haut" has a lowercase particle -- AND it must end at a sentence period or the
+# end of the cell. That boundary is what separates a locality from a sentence
+# that merely begins like one:
+#
+#     BAILEY of York, MDOT of Augusta shall study the matter.
+#
+# "Augusta shall study the matter" is inside the four-word ceiling, so without
+# the boundary MDOT is taken as a cosponsor. With it, the cell does not match at
+# all and the run stops -- which is the correct reading, because a roster cell
+# is a noun phrase and this one is a clause.
+#
+# The leading "St.|Mt.|Ft." arm keeps abbreviated place names whole: "St.
+# Albans", "St. George", "Mt. Desert". Without it the period inside the
+# abbreviation reads as the sentence boundary and the roster stops one town
+# early.
+#
+# It is an explicit list, not a general "period then capitalised word". The
+# general form re-opens the hole the boundary was added to close, because
+# ". The" satisfies it -- so "BAILEY of York. The department shall report"
+# matches as ONE complete cell, the run never stops, and every cell behind the
+# prose is harvested. Caught by test_the_prefix_branch_stops_the_run.
+_ROSTER_ENTRY = re.compile(
+    r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
+    r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
+    r"\s+of\s+(?:"
+    r"the\s+(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,5}"
+    r"|(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,3}"
+    r")\s*(?:\.|$)"
+)
+
+
+# Words on the general title_words denylist that ARE real Maine surnames, and
+# so must not be filtered on the roster path.
+#
+# The denylist exists for the title-adjoining patterns, where "Hall" appears as
+# "City Hall". Inside a roster the same token is positionally a surname -- Rep.
+# Hall of Wilton sat in session 129 -- and the roster is already anchored to a
+# chamber label, so the false-positive risk that justifies the denylist
+# elsewhere is not present here.
+#
+# This became reachable only when the denylist was case-folded: before that it
+# matched nothing at all on this all-caps path, so activating it correctly also
+# activated this collision.
+_ROSTER_NAME_ALLOW = {"hall"}
+
+
+def _roster_name_ok(name: str, is_valid_name) -> bool:
+    """Whether a roster cell's name should be kept."""
+    if not _ROSTER_SURNAME.search(name):
+        return False
+    if name.casefold() in _ROSTER_NAME_ALLOW:
+        return True
+    return is_valid_name(name)
+
+
+def _roster_names(segment: str, is_valid_name):
+    """Yield (name, title) for the roster run at the start of ``segment``.
+
+    ``is_valid_name`` is the caller's title-word filter, which is built from the
+    per-call title_words set and so cannot live at module scope.
+
+    A roster is a CONTIGUOUS comma-delimited run: the run ends at the first cell
+    that is not a clean "NAME of LOCALITY". Four outcomes per cell:
+
+    * consumed entirely, name kept    -> a clean entry; take it and keep going
+    * consumed entirely, name rejected -> skip the cell, keep going: the cell
+      IS an entry, only this one name looked wrong, and ending the run here
+      cascades (see the HALL case below)
+    * matched as a prefix -> prose behind it. Take the name if it passed, then
+      stop either way, so the prose is never read
+    * no match            -> not an entry; stop without taking anything
+
+    The prefix case must stop EVEN WHEN THE NAME WAS REJECTED. Ordering the
+    rejection first skipped that stop, so a rejected name on a prose-trailing
+    cell let the run continue into body text -- which is precisely what the
+    stop exists to prevent. Zero occurrences in 271 real bills, but the
+    docstring above claimed prose is never read, and it has to be true.
+    """
+    for cell in segment.split(","):
+        cell = cell.strip()
+        match = _ROSTER_ENTRY.match(cell)
+        if not match:
+            return
+        name = match.group("name").strip()
+        # Rosters print surnames in capitals -- BAILEY, BEEBE-CENTER,
+        # LaFOUNTAIN, TALBOT ROSS, DHALAC. Two adjacent capitals is a positive
+        # shape test on the name itself, which is what the sweep actually needs.
+        #
+        # A rejection here SKIPS the cell; it does not end the run. The cell
+        # matched _ROSTER_ENTRY, so we are still plainly inside a roster -- only
+        # this one name looked wrong. Ending the run instead was a cascade: on
+        # session 129 HP0037 the real entry "HALL of Wilton" hit the denylist
+        # and took HICKMAN, INGWERSEN, MAXMIN, O'NEIL and BLACK down with it,
+        # six lost from one collision. The run-ending cases are the two above --
+        # a cell that is not an entry at all, and a cell with prose behind it.
+        if not _roster_name_ok(name, is_valid_name):
+            # Still honour the prose-behind-it stop; only the NAME is skipped.
+            if match.end() < len(cell):
+                return
+            continue
+        yield name, match.group("title")
+        if match.end() < len(cell):
+            return
+
+
+def _roster_segments(block: str) -> list[tuple[str, str]]:
+    """Split a cosponsor block into (singular chamber title, segment) pairs.
+
+    Returns nothing when the block has no chamber labels at all, which is the
+    common case: most bills list a handful of cosponsors, each carrying its own
+    title. Both the plural and singular forms open a segment -- Maine closes a
+    roster with a one-member "Senator: BLACK of Franklin".
+    """
+    matches = list(_ROSTER_SEGMENTS.finditer(block))
+    segments = []
+    for i, match in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(block)
+        label = match.group(1).rstrip("s")  # "Senators" -> "Senator"
+        segments.append((label, block[match.end() : end]))
+    return segments
+
 
 @dataclass
 class BillDocument:
@@ -263,7 +449,7 @@ class TextExtractor:
         Supports both "Presented by" (real bills) and "Introduced by" (some bills/tests).
         """
         sponsors: list[tuple[str, str | None]] = []
-        search_text = text[:2500]
+        search_text = text[:_SPONSOR_WINDOW]
         normalized_text = " ".join(search_text.split())
         # Normalize stray spaces around hyphens in names (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
         normalized_text = re.sub(r"([A-Z])\s*-\s*([A-Z])", r"\1-\2", normalized_text)
@@ -318,7 +504,40 @@ class TextExtractor:
             "County",
             "District",
             "Districts",
+            # Institutional and structural nouns. These reach the roster path
+            # because it is all-caps and the entry pattern only requires
+            # "<CAPS> of <Place>" -- "CITY of Portland" and "PART A of Chapter
+            # 12" are both well-formed entries by shape. The comment on
+            # _ROSTER_SURNAME used to claim that guard covered this vocabulary;
+            # it does not, since an all-caps common noun has two adjacent
+            # capitals like any surname.
+            #
+            # Chosen to exclude anything plausible as a Maine surname. "Hall"
+            # and "Chamber" above already make that tradeoff; these do not --
+            # no Maine legislator is surnamed City, Village or University.
+            "City",
+            "Village",
+            "Board",
+            "University",
+            "Nation",
+            "Region",
+            "Authority",
+            "Agency",
+            "Division",
+            "Institute",
+            "Association",
+            "Foundation",
+            "Corporation",
+            "Part",
+            "Chapter",
+            "Section",
+            "Subsection",
+            "Title",
+            "Article",
+            "Paragraph",
         }
+
+        _TITLE_WORDS_FOLDED = {word.casefold() for word in title_words}
 
         # Helper function to validate names
         def is_valid_name(name: str) -> bool:
@@ -328,9 +547,15 @@ class TextExtractor:
             # legislator who shares a surname but sits in the other chamber.
             if not name or len(name.split()) > 2:
                 return False
-            # Check if any word in the name is a title word (word-level filtering)
-            name_words = set(name.split())
-            return not name_words.intersection(title_words)
+            # Compared case-INSENSITIVELY. title_words is written in Title Case
+            # and rosters print surnames in capitals, so a case-sensitive
+            # intersection made this filter structurally inert on the roster
+            # path -- every word on the list passed in caps. COUNTY, DEPARTMENT,
+            # SENATE, LEGISLATURE, UNIVERSITY and NATION were all reachable as
+            # "sponsors" while the list that names them looked like it was doing
+            # the work.
+            name_words = {word.casefold() for word in name.split()}
+            return not name_words.intersection(_TITLE_WORDS_FOLDED)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
         pattern1 = r"(?:Presented|Introduced) by\s+(?P<title>Senator|Representative|President|Speaker)\s+(?P<name>[A-Z][A-Za-z\'\-]+(?:\s+[A-Z][A-Za-z\'\-]+)?)\s+of\s+[A-Za-z\s]+"  # noqa: E501
@@ -348,11 +573,7 @@ class TextExtractor:
                 sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
 
         # Pattern 2: Cosponsorship block
-        cosp_block_match = re.search(
-            r"Cosponsored by\s+(.+?)(?=\n\n|Be it enacted|Presented by|Introduced by|$)",
-            normalized_text,
-            re.DOTALL,
-        )  # noqa: E501
+        cosp_block_match = _COSPONSOR_BLOCK.search(normalized_text)
         if cosp_block_match:
             cosp_block = " ".join(cosp_block_match.group(1).split())
 
@@ -369,6 +590,25 @@ class TextExtractor:
                 name = match.group("name").strip()
                 if is_valid_name(name):
                     sponsors.append((name, _CHAMBER_BY_TITLE.get(match.group("title"))))
+
+            # Roster lists: "Senators: BAILEY of York, BALDACCI of Penobscot, ..."
+            #
+            # Widely cosponsored bills label the chamber ONCE and then list bare
+            # surnames, so the patterns above — which need a title adjoining each
+            # name — collect only the handful carrying their own (President,
+            # Speaker). On a 99-cosponsor bill that is 2 names out of 99.
+            #
+            # A bare-name sweep was removed in 300cd207 for producing garbage: it
+            # matched any "Capitalized of Somewhere" anywhere in the block. This
+            # is anchored instead — names are only read inside a segment opened by
+            # a plural chamber label, which both bounds the search and supplies
+            # the chamber, so these entries arrive better identified than the ones
+            # the old sweep produced.
+            for label, segment in _roster_segments(cosp_block):
+                segment_chamber = _CHAMBER_BY_TITLE[label]
+                for name, title in _roster_names(segment, is_valid_name):
+                    chamber = _CHAMBER_BY_TITLE.get(title) if title else segment_chamber
+                    sponsors.append((name, chamber))
 
         # Normalize hyphenated names with stray spaces (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
         sponsors = [(re.sub(r"\s*-\s*", "-", name), chamber) for name, chamber in sponsors]
