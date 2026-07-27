@@ -24,7 +24,11 @@ jobs:
         run: uv sync --extra dev
 
       - name: Ruff lint
-        run: uv run ruff check src/ tests/
+        # `scripts/` is in scope deliberately. It was not, and the backfill --
+        # 460 lines that run unattended against a state government server --
+        # was therefore never linted by CI at all. GOVERNANCE.md's Tier-2 bar
+        # says "lint green", which should mean the code that actually ships.
+        run: uv run ruff check src/ tests/ scripts/
 
       - name: Unit tests
         run: uv run pytest tests/ -v -m "not integration"

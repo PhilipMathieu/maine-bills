@@ -37,6 +37,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+from maine_bills.enrichment import as_aligned_list
 from maine_bills.openstates import get_roster  # noqa: E402
 from maine_bills.sponsor_matching import (  # noqa: E402
     DEFAULT_FUZZY_THRESHOLD,
@@ -47,7 +48,6 @@ from maine_bills.sponsor_matching import (  # noqa: E402
     METHOD_UNMATCHED,
     SponsorMatcher,
 )
-from maine_bills.enrichment import as_aligned_list
 from maine_bills.text_extractor import TextExtractor
 
 logger = logging.getLogger("run_matching_report")

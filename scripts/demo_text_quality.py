@@ -3,7 +3,9 @@
 
 import tempfile
 from pathlib import Path
+
 import requests
+
 from src.maine_bills.text_extractor import TextExtractor
 
 
@@ -26,12 +28,12 @@ def show_text_quality(session: str, bill_id: str) -> None:
         # Extract
         bill_doc = TextExtractor.extract_bill_document(pdf_path)
 
-        print(f"\n--- CLEANED BODY TEXT (lines 100-130) ---")
+        print("\n--- CLEANED BODY TEXT (lines 100-130) ---")
         lines = bill_doc.body_text.splitlines()
         for i, line in enumerate(lines[100:130], start=100):
             print(f"{i:3}: {line}")
 
-        print(f"\n--- FULL TEXT SAMPLE (showing the cleaning effect) ---")
+        print("\n--- FULL TEXT SAMPLE (showing the cleaning effect) ---")
         sample = bill_doc.body_text[1000:2000]
         print(sample)
 
