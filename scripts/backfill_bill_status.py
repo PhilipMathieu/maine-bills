@@ -122,9 +122,12 @@ def to_record(status: BillStatus) -> dict:
 def is_status_page(status: BillStatus) -> bool:
     """Whether a parsed page is actually a bill's status page.
 
-    Every real one carries the paper number in its ``<title>`` and the act title
-    in its ``<h2>``, whatever else is missing — a bill can legitimately have no
-    docket rows and no disposition. An error or redirect page has neither.
+    Deliberately lenient: it rejects only a page carrying *neither* the paper
+    number (from ``<title>``) nor the act title (from ``<h2>``). A real status
+    page always has at least one, whatever else is missing — a bill can
+    legitimately have no docket rows and no disposition — while an error or
+    redirect page has neither. Requiring both would discard real bills whose
+    page omits one of the two.
     """
     return bool(status.paper or status.title)
 
@@ -140,6 +143,26 @@ def load_existing(path: Path) -> dict[str, dict]:
         return {}
 
 
+def missing_path_for(out_path: Path) -> Path:
+    """Sidecar listing LDs the site has no status page for.
+
+    Kept beside the records rather than inside them so the output file stays a
+    clean actions table with no null-filled placeholder rows.
+    """
+    return out_path.with_name(f"{out_path.stem}-missing.json")
+
+
+def load_missing(path: Path) -> set[str]:
+    """LDs already known to 404, so a resumed run does not ask again."""
+    if not path.exists():
+        return set()
+    try:
+        return set(json.loads(path.read_text()))
+    except (json.JSONDecodeError, TypeError):
+        logger.warning(f"{path} is unreadable; will refetch missing LDs")
+        return set()
+
+
 def backfill(
     session: int,
     ld_numbers: list[str],
@@ -147,23 +170,35 @@ def backfill(
     delay: float,
     limit: int | None = None,
     checkpoint_every: int = 50,
+    recheck_missing: bool = False,
 ) -> dict:
     """Fetch and parse every LD's status page, writing progress as it goes."""
     records = load_existing(out_path)
-    todo = [ld for ld in ld_numbers if ld not in records]
+    miss_path = missing_path_for(out_path)
+    # A 404 is definitive — the site has no page for that LD and will not grow
+    # one mid-run — so it is persisted and skipped on resume. Server errors are
+    # deliberately NOT persisted: those are transient, and retrying them is the
+    # main thing a resumed run is for.
+    missing: set[str] = set() if recheck_missing else load_missing(miss_path)
+
+    todo = [ld for ld in ld_numbers if ld not in records and ld not in missing]
     if limit is not None:
         todo = todo[:limit]
 
     logger.info(
         f"Session {session}: {len(ld_numbers)} LDs, {len(records)} already fetched, "
+        f"{len(missing)} known to have no page, "
         f"{len(todo)} to go at {delay}s/request (~{len(todo) * delay / 60:.0f} min)"
     )
 
-    missing, failed = [], []
+    failed: list[str] = []
     for i, ld in enumerate(todo, start=1):
         html, code = fetch_status(http_session(), session, ld, delay)
         if html is None:
-            (missing if code == 404 else failed).append(ld)
+            if code == 404:
+                missing.add(ld)
+            else:
+                failed.append(ld)
         else:
             try:
                 status = parse_status_page(html, session=session, ld=ld)
@@ -186,10 +221,12 @@ def backfill(
 
         if i % checkpoint_every == 0:
             write_output(out_path, records)
+            write_missing(miss_path, missing)
             logger.info(f"  {i}/{len(todo)} ({len(records)} records)")
         time.sleep(delay)
 
     write_output(out_path, records)
+    write_missing(miss_path, missing)
     summary = {
         "session": session,
         "lds_total": len(ld_numbers),
@@ -223,6 +260,11 @@ def write_output(path: Path, records: dict[str, dict]) -> None:
     path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["ld_number"]), indent=1))
 
 
+def write_missing(path: Path, missing: set[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(sorted(missing), indent=1))
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--session", type=int, required=True)
@@ -238,6 +280,13 @@ def parse_args(argv=None):
     parser.add_argument(
         "--limit", type=int, default=None, help="Fetch at most N bills (smoke test)"
     )
+    parser.add_argument(
+        "--recheck-missing",
+        action="store_true",
+        help="Retry LDs previously recorded as having no status page. Needed only "
+        "for a session still in progress, where a newly filed bill can gain a page "
+        "after we looked.",
+    )
     return parser.parse_args(argv)
 
 
@@ -247,7 +296,14 @@ def main(argv=None) -> int:
 
     ld_numbers = session_ld_numbers(args.parquet_source, args.session)
     out_path = args.output / f"actions-{args.session}.json"
-    summary = backfill(args.session, ld_numbers, out_path, args.delay, args.limit)
+    summary = backfill(
+        args.session,
+        ld_numbers,
+        out_path,
+        args.delay,
+        args.limit,
+        recheck_missing=args.recheck_missing,
+    )
 
     (args.output / f"summary-{args.session}.json").write_text(json.dumps(summary, indent=2))
     return 0

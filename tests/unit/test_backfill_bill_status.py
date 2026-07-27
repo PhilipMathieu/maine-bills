@@ -166,6 +166,68 @@ def test_an_existing_output_is_resumed_not_refetched(backfill_mod, fake_http, tm
     assert summary["records"] == 3
 
 
+def test_a_404_is_persisted_so_a_resumed_run_does_not_ask_again(backfill_mod, fake_http, tmp_path):
+    """Without this, every resume re-asks the site for pages known not to exist —
+    wasted requests against a state server, which is the whole thing this script
+    is careful about."""
+    out = tmp_path / "a.json"
+    http = fake_http(FakeSession(default=FakeResponse(404, "nope")))
+    backfill_mod.backfill(132, ["0001", "0002"], out, delay=0)
+    assert len(http.requested) == 2
+
+    http2 = fake_http(FakeSession(default=FakeResponse(404, "nope")))
+    summary = backfill_mod.backfill(132, ["0001", "0002"], out, delay=0)
+    assert http2.requested == []
+    assert summary["no_status_page"] == 2, "the count must survive the resume too"
+
+
+def test_server_errors_are_not_persisted_and_are_retried_on_resume(
+    backfill_mod, fake_http, tmp_path
+):
+    """A 503 is transient. Retrying it is the main reason to resume at all, so it
+    must not be recorded alongside the definitive 404s."""
+    out = tmp_path / "a.json"
+    fake_http(FakeSession(default=FakeResponse(503, "busy")))
+    backfill_mod.backfill(132, ["0001"], out, delay=0)
+
+    http2 = fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    summary = backfill_mod.backfill(132, ["0001"], out, delay=0)
+    assert len(http2.requested) == 1
+    assert summary["records"] == 1
+
+
+def test_recheck_missing_reopens_the_known_404s(backfill_mod, fake_http, tmp_path):
+    """A session still in progress can gain a page after we looked."""
+    out = tmp_path / "a.json"
+    fake_http(FakeSession(default=FakeResponse(404, "nope")))
+    backfill_mod.backfill(132, ["0001"], out, delay=0)
+
+    http2 = fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    summary = backfill_mod.backfill(132, ["0001"], out, delay=0, recheck_missing=True)
+    assert len(http2.requested) == 1
+    assert summary["records"] == 1
+    assert summary["no_status_page"] == 0
+
+
+def test_the_missing_sidecar_does_not_pollute_the_actions_table(backfill_mod, fake_http, tmp_path):
+    out = tmp_path / "a.json"
+    fake_http(FakeSession(sequence=[FakeResponse(404, ""), FakeResponse(200, status_page())]))
+    backfill_mod.backfill(132, ["0001", "0002"], out, delay=0)
+
+    assert [r["ld_number"] for r in json.loads(out.read_text())] == ["0002"]
+    assert json.loads((tmp_path / "a-missing.json").read_text()) == ["0001"]
+
+
+def test_a_corrupt_missing_sidecar_refetches_rather_than_crashing(
+    backfill_mod, fake_http, tmp_path
+):
+    out = tmp_path / "a.json"
+    (tmp_path / "a-missing.json").write_text("{ not json")
+    http = fake_http(FakeSession(default=FakeResponse(200, status_page())))
+    assert backfill_mod.backfill(132, ["0001"], out, delay=0)["records"] == 1
+    assert len(http.requested) == 1
+
+
 def test_a_corrupt_output_file_restarts_rather_than_crashing(backfill_mod, fake_http, tmp_path):
     out = tmp_path / "a.json"
     out.write_text("{ this is not json")

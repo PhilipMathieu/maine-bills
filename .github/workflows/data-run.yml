@@ -179,7 +179,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
-      contents: write # force-pushes the fixtures/actions branch
+      # Read-only: unlike the recon and status-sample jobs, this one publishes
+      # its output as a workflow artifact and pushes nothing.
+      contents: read
     strategy:
       max-parallel: 3
       fail-fast: false
