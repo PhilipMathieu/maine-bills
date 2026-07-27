@@ -126,6 +126,10 @@ def parse_args(argv=None):
 
 def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
+    # One signed CDN URL per parquet range request, several per session, each
+    # hundreds of characters. They bury the only output anyone reads.
+    for noisy in ("httpx", "huggingface_hub", "urllib3", "filelock"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
     args = parse_args(argv)
 
     results = []
@@ -148,6 +152,22 @@ def main(argv=None) -> int:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(results, indent=2))
+
+    # Repeated at the end as a table: this is the finding, and scrolling back
+    # through per-session logs to reassemble it is how it gets misread.
+    logger.info("=" * 72)
+    logger.info(
+        f"{'session':>8} {'bills':>7} {'+names':>8} {'distinct':>9} {'unmatched':>10} {'rate':>7}"
+    )
+    for r in results:
+        rate = "n/a" if r["unmatched_rate"] is None else f"{r['unmatched_rate']:.4f}"
+        flag = "" if r["roster_available"] else "  (no roster)"
+        logger.info(
+            f"{r['session']:>8} {r['bills']:>7} {r['names_contributed']:>8} "
+            f"{r['distinct_names']:>9} {r['unmatched_mentions']:>10} {rate:>7}{flag}"
+        )
+    total_unmatched = sum(r["unmatched_mentions"] for r in results)
+    logger.info(f"Total unmatched across all sessions: {total_unmatched}")
     logger.info(f"Wrote {args.output}")
     return 0
 
