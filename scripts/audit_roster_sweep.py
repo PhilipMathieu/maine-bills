@@ -113,6 +113,12 @@ def audit_session(parquet_source: str, session: int) -> dict:
         # acronym is obvious on sight next to a column of Maine surnames.
         "unmatched_names": [n for n, _c in unmatched.most_common()],
         "all_names": [[n, c] for n, c in contributed.most_common()],
+        # Names seen once or twice in a whole session. A sitting legislator
+        # cosponsors far more than that, so this tail is where a misparse
+        # shows up -- and unlike the roster check it works for 121-124, where
+        # OpenStates coverage is too poor to judge anything.
+        "singleton_names": sorted(n for n, c in contributed.items() if c == 1),
+        "rare_names": [f"{n}({c})" for n, c in contributed.most_common()[-25:]],
     }
 
 
@@ -149,6 +155,15 @@ def main(argv=None) -> int:
             # No roster to check against, so the names themselves are the
             # finding -- print them rather than reporting a silent zero.
             logger.info(f"  names: {', '.join(n for n, _c in result['all_names'][:60])}")
+
+        # The rare tail is where junk lives. A sitting legislator cosponsors
+        # many bills a session; a misparse appears once or twice. This is the
+        # roster-independent check, which matters because the OpenStates
+        # rosters are poor for 121-124 and cannot be used to judge those.
+        logger.info(
+            f"  distinct={result['distinct_names']} (chamber has ~186 seats); "
+            f"rarest: {result['rare_names']}"
+        )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(results, indent=2))
