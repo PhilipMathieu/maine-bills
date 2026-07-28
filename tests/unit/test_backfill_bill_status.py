@@ -946,3 +946,79 @@ def test_the_retry_pass_records_a_bill_that_turns_out_to_be_missing(
     assert summary["failed"] == 0
     assert summary["no_status_page"] == 1
     assert json.loads((tmp_path / "a-missing.json").read_text()) == ["0002"]
+
+
+# --- enumeration rate limit, from the first full backfill ---
+
+HF_429 = (
+    "(Request ID: Root=1-6a67de23)\n\n"
+    "429 Too Many Requests: you have reached your 'api' rate limit.\n"
+    "Retry after 61 seconds (0/500 requests remaining in current 300s window).\n"
+    "Url: https://huggingface.co/api/datasets/pem207/maine-bills.\n"
+    "We had to rate limit your IP (52.154.130.210)."
+)
+
+
+def test_a_huggingface_rate_limit_is_recognised_and_its_wait_honoured(backfill_mod):
+    """Verbatim body from the session-126 failure."""
+    assert backfill_mod._hf_retry_after(RuntimeError(HF_429)) == 61.0
+
+
+def test_an_unrelated_error_is_not_treated_as_a_rate_limit(backfill_mod):
+    """Only a rate limit should be retried; a missing session must surface."""
+    assert (
+        backfill_mod._hf_retry_after(FileNotFoundError("No parquet files for session 999")) is None
+    )
+
+
+def test_an_absurd_hf_wait_is_capped(backfill_mod):
+    assert (
+        backfill_mod._hf_retry_after(RuntimeError("429 rate limit. Retry after 99999 seconds"))
+        == 300.0
+    )
+
+
+def test_a_rate_limited_enumeration_is_retried_not_lost(backfill_mod, monkeypatch, sleeps):
+    """Session 126 of the first full backfill died four seconds in on this,
+    losing a healthy session. Three sessions start at once on one runner IP and
+    the anonymous HF budget is 500 requests per 300s."""
+    calls = {"n": 0}
+
+    class FakeReport:
+        @staticmethod
+        def load_session_bills(_src, _session):
+            calls["n"] += 1
+            if calls["n"] < 3:
+                raise RuntimeError(HF_429)
+            import pandas as pd
+
+            return pd.DataFrame({"ld_number": ["1", "2", "2"]})
+
+    monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: FakeReport)
+    assert backfill_mod.session_ld_numbers("hf://x", 126) == ["0001", "0002"]
+    assert calls["n"] == 3
+    assert sleeps == [61.0, 61.0]
+
+
+def test_a_persistent_rate_limit_eventually_surfaces(backfill_mod, monkeypatch):
+    """It must not retry forever — the job has a timeout and a summary to write."""
+
+    class AlwaysLimited:
+        @staticmethod
+        def load_session_bills(_src, _session):
+            raise RuntimeError(HF_429)
+
+    monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: AlwaysLimited)
+    with pytest.raises(RuntimeError, match="rate limit"):
+        backfill_mod.session_ld_numbers("hf://x", 126, attempts=2)
+
+
+def test_a_missing_session_is_not_retried(backfill_mod, monkeypatch):
+    class NoSuchSession:
+        @staticmethod
+        def load_session_bills(_src, _session):
+            raise FileNotFoundError("No parquet files for session 999")
+
+    monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: NoSuchSession)
+    with pytest.raises(FileNotFoundError):
+        backfill_mod.session_ld_numbers("hf://x", 999)

@@ -30,6 +30,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import signal
 import sys
 import time
@@ -90,6 +91,13 @@ RETRY_AFTER_ABORT = 120.0
 # that failed in bulk, which is what the breakers are for.
 MAX_RETRY_PASS = 50
 
+# Enumeration is a single anonymous HuggingFace API call per session, made at
+# job start. Several sessions launching together on one runner IP can exhaust
+# the anonymous budget (500 requests per 300s), which killed session 126 of the
+# first full backfill four seconds in. The retry is generous because the window
+# is short and the alternative is losing the whole session.
+ENUMERATION_ATTEMPTS = 4
+
 
 class SiteRefusing(Exception):
     """The site asked us to go away for longer than this run should wait."""
@@ -106,8 +114,12 @@ class SiteRefusing(Exception):
 NOT_FOUND_MARKER = "Cannot find requested paper"
 
 
-def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
-    """Every distinct LD number published for a session, in order."""
+def _load_report_module():
+    """The parquet loader from run_matching_report.py.
+
+    Separate from its caller so a test can substitute it without a network or a
+    real parquet file.
+    """
     import importlib.util
 
     report_path = Path(__file__).with_name("run_matching_report.py")
@@ -116,11 +128,60 @@ def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
         raise ImportError(f"Cannot load the parquet loader from {report_path}")
     report = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(report)
+    return report
 
-    df = report.load_session_bills(parquet_source, session)
-    # Amendments share their parent bill's LD, so distinct LDs are what we want:
-    # the status page describes the bill, not each printed document.
-    return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
+
+def _hf_retry_after(error: Exception) -> float | None:
+    """Seconds HuggingFace asked us to wait, if this is a rate limit.
+
+    The 429 body carries "Retry after N seconds"; the header is not always
+    present on the exception, so the message is the reliable source.
+    """
+    text = str(error)
+    if "429" not in text and "rate limit" not in text.lower():
+        return None
+    match = re.search(r"Retry after (\d+) second", text)
+    return min(float(match.group(1)), 300.0) if match else 60.0
+
+
+def session_ld_numbers(
+    parquet_source: str, session: int, attempts: int = ENUMERATION_ATTEMPTS
+) -> list[str]:
+    """Every distinct LD number published for a session, in order.
+
+    Retries a HuggingFace rate limit. Enumeration is one anonymous API call per
+    session at job start, and with several sessions launching at once on a
+    shared runner IP that is enough to exhaust the anonymous budget: session
+    126 of the first full backfill died four seconds in with "429 ... 0/500
+    requests remaining in current 300s window", losing an otherwise healthy
+    session's worth of work.
+
+    Deliberately not solved with a token. HF_TOKEN is scoped to the
+    `huggingface-publish` environment so it is only ever exposed to approved
+    publish runs (docs/GOVERNANCE.md); handing it to an ungated read job to
+    dodge a rate limit would trade a publish-gate guarantee for a retry loop.
+    """
+    report = _load_report_module()
+
+    for attempt in range(1, attempts + 1):
+        try:
+            df = report.load_session_bills(parquet_source, session)
+        except Exception as e:
+            wait = _hf_retry_after(e)
+            if wait is None or attempt == attempts:
+                raise
+            logger.warning(
+                f"Session {session}: enumeration rate-limited, waiting {wait:.0f}s "
+                f"(attempt {attempt}/{attempts})"
+            )
+            time.sleep(wait)
+        else:
+            # Amendments share their parent bill's LD, so distinct LDs are what
+            # we want: the status page describes the bill, not each printed
+            # document.
+            return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
+
+    raise RuntimeError(f"Session {session}: enumeration failed after {attempts} attempts")
 
 
 def retry_after(response, default: float) -> float:
