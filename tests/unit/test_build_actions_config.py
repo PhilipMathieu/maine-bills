@@ -132,3 +132,37 @@ def test_main_returns_zero_and_writes_a_summary_on_a_clean_build(build_mod, tmp_
     assert build_mod.main(["--input", str(src), "--output", str(out)]) == 0
     summary = json.loads((out / "build-summary.json").read_text())
     assert summary["per_session"] == [{"session": 132, "rows": 4, "actions": 4}]
+
+
+def test_a_summary_with_no_records_is_caught_not_silently_skipped(build_mod, tmp_path):
+    """Session 126 of the first full backfill: it crashed during enumeration and
+    uploaded a summary with no actions file. Globbing for records alone cannot
+    see that, so the build would quietly produce one session fewer and report
+    success — the same silent gap the completeness check exists to prevent,
+    arriving by the one route that check cannot cover."""
+    src, out = tmp_path / "in", tmp_path / "out"
+    artifact(src, 131)
+    (src / "summary-126.json").write_text(
+        json.dumps({"session": 126, "complete": False, "aborted": True, "error": "HfHubHTTPError"})
+    )
+    with pytest.raises(ActionsConfigError, match="126"):
+        build_mod.build(src, out)
+
+
+def test_an_orphan_summary_is_reported_under_no_strict(build_mod, tmp_path):
+    src, out = tmp_path / "in", tmp_path / "out"
+    artifact(src, 131)
+    (src / "summary-126.json").write_text(json.dumps({"session": 126, "complete": False}))
+
+    summary = build_mod.build(src, out, strict=False)
+    assert summary["sessions_built"] == 1
+    assert "session-126" in summary["sessions_skipped"]
+
+
+def test_orphan_detection_finds_nested_artifacts_too(build_mod, tmp_path):
+    src, out = tmp_path / "in", tmp_path / "out"
+    artifact(src, 131, nested=True)
+    (src / "actions-126").mkdir(parents=True)
+    (src / "actions-126" / "summary-126.json").write_text(json.dumps({"session": 126}))
+    with pytest.raises(ActionsConfigError, match="126"):
+        build_mod.build(src, out)

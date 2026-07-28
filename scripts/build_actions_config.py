@@ -24,7 +24,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from maine_bills.actions_config import ActionsConfigError, build_session  # noqa: E402
+from maine_bills.actions_config import (  # noqa: E402
+    ActionsConfigError,
+    build_session,
+    orphan_summaries,
+)
 
 logger = logging.getLogger("build_actions_config")
 
@@ -45,7 +49,23 @@ def build(input_dir: Path, output_dir: Path, strict: bool = True) -> dict:
     if not artifacts:
         raise ActionsConfigError(f"No actions-*.json under {input_dir}")
 
-    built, skipped, total_rows, total_actions = [], [], 0, 0
+    # A crashed run uploads a summary with no records beside it. Globbing for
+    # records alone cannot see that, so the build would silently produce one
+    # session fewer and report success.
+    orphans = orphan_summaries(input_dir)
+    if orphans:
+        message = (
+            f"Sessions {orphans} have a summary but no records — their runs did not get "
+            f"far enough to write one. Re-run the backfill for them before building."
+        )
+        if strict:
+            raise ActionsConfigError(message)
+        logger.error(message)
+        skipped_orphans = [f"session-{s}" for s in orphans]
+    else:
+        skipped_orphans = []
+
+    built, skipped, total_rows, total_actions = [], list(skipped_orphans), 0, 0
     for path in artifacts:
         try:
             frame = build_session(path)

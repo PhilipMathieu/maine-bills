@@ -34,7 +34,7 @@ on:
         required: false
         default: "132"
       run_id:
-        description: "For build-actions: the workflow run id holding the actions-<session> artifacts"
+        description: "For build-actions: space-separated run id(s) holding the actions-<session> artifacts"
         type: string
         required: false
         default: ""
@@ -508,22 +508,34 @@ jobs:
           RUN_ID: ${{ inputs.run_id }}
         run: |
           case "$RUN_ID" in
-            "" | *[!0-9]*)
-              echo "::error::build-actions needs run_id: the numeric id of the run holding the actions-<session> artifacts"
+            "" | *[!0-9\ ]*)
+              echo "::error::build-actions needs run_id: space-separated numeric run id(s) holding the actions-<session> artifacts"
               exit 1
               ;;
           esac
 
+      # Several run ids, because the twelve sessions do not have to come from
+      # one run: a session that failed and was re-dispatched has its artifact
+      # on a different run, and re-running all twelve to consolidate them would
+      # mean 24,000 more requests at the state's server to avoid a loop here.
+      #
+      # `gh run download` rather than actions/download-artifact, which takes a
+      # single run-id. Each artifact lands in its own directory, which
+      # session_artifacts() finds recursively. A later run wins on collision,
+      # which is what re-running a session is for.
       - name: Download the backfill artifacts
-        uses: actions/download-artifact@v4
-        with:
-          # Each session uploaded its own `actions-<session>` artifact; the
-          # pattern collects them all into per-artifact subdirectories, which
-          # session_artifacts() searches recursively.
-          pattern: actions-*
-          path: data/actions
-          run-id: ${{ inputs.run_id }}
-          github-token: ${{ github.token }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_IDS: ${{ inputs.run_id }}
+        run: |
+          set -e
+          mkdir -p data/actions
+          for id in $RUN_IDS; do
+            echo "::group::run $id"
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" --pattern 'actions-*' --dir data/actions
+            echo "::endgroup::"
+          done
+          find data/actions -name 'actions-*.json' -o -name 'summary-*.json' | sort
 
       - name: Build
         run: |

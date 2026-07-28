@@ -94,6 +94,27 @@ def load_backfill(path: Path) -> list[dict]:
     return records
 
 
+def orphan_summaries(input_dir: Path) -> list[int]:
+    """Sessions that have a summary but no records file.
+
+    This is what a crashed run leaves behind: session 126 of the first full
+    backfill died on a rate limit during enumeration and uploaded a summary
+    with no `actions-126.json` beside it. Globbing for records alone would not
+    find it, so the build would quietly produce eleven sessions and report
+    success — the exact silent gap the completeness check exists to prevent,
+    arriving through the one path that check cannot see.
+    """
+    missing = []
+    for summary_path in input_dir.rglob("summary-*.json"):
+        records_path = summary_path.with_name(summary_path.name.replace("summary-", "actions-"))
+        if not records_path.exists():
+            try:
+                missing.append(int(summary_path.stem.split("-")[-1]))
+            except ValueError:  # pragma: no cover - defensive
+                continue
+    return sorted(missing)
+
+
 def build_frame(records: list[dict]) -> pd.DataFrame:
     """One session's records as a DataFrame with the published column order."""
     if not records:
