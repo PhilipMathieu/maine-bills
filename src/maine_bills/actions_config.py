@@ -94,8 +94,50 @@ def load_backfill(path: Path) -> list[dict]:
     return records
 
 
+def session_of(path: Path) -> int | None:
+    """The session number in an `actions-<n>.json` / `summary-<n>.json` name."""
+    try:
+        return int(path.stem.split("-")[-1])
+    except ValueError:  # pragma: no cover - defensive
+        return None
+
+
+def is_complete(records_path: Path) -> bool:
+    """Whether this artifact's summary reports a finished session."""
+    summary_path = records_path.with_name(records_path.name.replace("actions-", "summary-"))
+    if not summary_path.exists():
+        return False
+    try:
+        return bool(json.loads(summary_path.read_text()).get("complete"))
+    except (json.JSONDecodeError, TypeError):
+        return False
+
+
+def resolve_sessions(input_dir: Path) -> dict[int, Path]:
+    """One records file per session, choosing between duplicates.
+
+    A session can appear more than once when artifacts come from several runs:
+    session 126 failed in the first full backfill and was re-dispatched, so
+    both runs carry an `actions-126` artifact. A complete copy always wins over
+    an incomplete one — that is what re-running a session means. Between two
+    equally complete copies the later path wins, which with per-run directories
+    is the later run.
+    """
+    candidates: dict[int, list[Path]] = {}
+    for path in sorted(input_dir.rglob("actions-*.json")):
+        session = session_of(path)
+        if session is not None:
+            candidates.setdefault(session, []).append(path)
+
+    resolved = {}
+    for session, paths in candidates.items():
+        complete = [p for p in paths if is_complete(p)]
+        resolved[session] = (complete or paths)[-1]
+    return resolved
+
+
 def orphan_summaries(input_dir: Path) -> list[int]:
-    """Sessions that have a summary but no records file.
+    """Sessions with a summary but no records file ANYWHERE in the input.
 
     This is what a crashed run leaves behind: session 126 of the first full
     backfill died on a rate limit during enumeration and uploaded a summary
@@ -103,15 +145,17 @@ def orphan_summaries(input_dir: Path) -> list[int]:
     find it, so the build would quietly produce eleven sessions and report
     success — the exact silent gap the completeness check exists to prevent,
     arriving through the one path that check cannot see.
+
+    Scoped across the whole input rather than per-directory, because a session
+    whose failed attempt is present alongside its successful re-run is not a
+    gap; it is the re-run working as intended.
     """
-    missing = []
-    for summary_path in input_dir.rglob("summary-*.json"):
-        records_path = summary_path.with_name(summary_path.name.replace("summary-", "actions-"))
-        if not records_path.exists():
-            try:
-                missing.append(int(summary_path.stem.split("-")[-1]))
-            except ValueError:  # pragma: no cover - defensive
-                continue
+    have_records = set(resolve_sessions(input_dir))
+    missing = {
+        session
+        for summary_path in input_dir.rglob("summary-*.json")
+        if (session := session_of(summary_path)) is not None and session not in have_records
+    }
     return sorted(missing)
 
 

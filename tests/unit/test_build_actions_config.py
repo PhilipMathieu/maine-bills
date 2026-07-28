@@ -166,3 +166,47 @@ def test_orphan_detection_finds_nested_artifacts_too(build_mod, tmp_path):
     (src / "actions-126" / "summary-126.json").write_text(json.dumps({"session": 126}))
     with pytest.raises(ActionsConfigError, match="126"):
         build_mod.build(src, out)
+
+
+def test_a_re_dispatched_session_supersedes_its_failed_attempt(build_mod, tmp_path):
+    """Session 126 failed in the first full backfill and was re-run, so
+    `actions-126` exists on two runs. The complete copy has to win, and the
+    failed one must not register as a gap."""
+    src, out = tmp_path / "in", tmp_path / "out"
+    failed_run, good_run = src / "run-1" / "actions-126", src / "run-2" / "actions-126"
+    failed_run.mkdir(parents=True)
+    (failed_run / "summary-126.json").write_text(
+        json.dumps({"session": 126, "complete": False, "aborted": True})
+    )
+    good_run.mkdir(parents=True)
+    artifact(good_run, 126, n=3)
+    # The good copy is written flat inside its own directory by `artifact`.
+
+    summary = build_mod.build(src, out)
+    assert summary["sessions_built"] == 1
+    assert summary["rows"] == 3
+    assert summary["sessions_skipped"] == []
+
+
+def test_the_complete_copy_wins_regardless_of_directory_order(build_mod, tmp_path):
+    """Even when the incomplete copy sorts last."""
+    src, out = tmp_path / "in", tmp_path / "out"
+    good, bad = src / "run-a", src / "run-z"
+    good.mkdir(parents=True)
+    bad.mkdir(parents=True)
+    artifact(good, 131, n=5)
+    artifact(bad, 131, n=1, complete=False)
+
+    summary = build_mod.build(src, out)
+    assert summary["per_session"] == [{"session": 131, "rows": 5, "actions": 5}]
+
+
+def test_a_session_failed_on_every_run_is_still_a_gap(build_mod, tmp_path):
+    src, out = tmp_path / "in", tmp_path / "out"
+    for run in ("run-1", "run-2"):
+        d = src / run
+        d.mkdir(parents=True)
+        (d / "summary-126.json").write_text(json.dumps({"session": 126, "complete": False}))
+    artifact(src / "run-1", 131)
+    with pytest.raises(ActionsConfigError, match="126"):
+        build_mod.build(src, out)

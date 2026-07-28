@@ -28,19 +28,22 @@ from maine_bills.actions_config import (  # noqa: E402
     ActionsConfigError,
     build_session,
     orphan_summaries,
+    resolve_sessions,
 )
 
 logger = logging.getLogger("build_actions_config")
 
 
 def session_artifacts(input_dir: Path) -> list[Path]:
-    """Every `actions-<session>.json` under the input directory, in order.
+    """One records file per session, in session order.
 
-    Searched recursively: downloading N artifacts from a workflow run gives
-    `<dir>/actions-<session>/actions-<session>.json`, while a local run writes
-    them flat. Both should work without the caller having to care.
+    Searched recursively: artifacts from a workflow run arrive nested, a local
+    run writes them flat, and several runs are downloaded into per-run
+    directories. Duplicates across runs are resolved by resolve_sessions --
+    a complete copy beats an incomplete one.
     """
-    return sorted(input_dir.rglob("actions-*.json"), key=lambda p: p.name)
+    resolved = resolve_sessions(input_dir)
+    return [resolved[session] for session in sorted(resolved)]
 
 
 def build(input_dir: Path, output_dir: Path, strict: bool = True) -> dict:

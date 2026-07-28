@@ -520,22 +520,28 @@ jobs:
       # mean 24,000 more requests at the state's server to avoid a loop here.
       #
       # `gh run download` rather than actions/download-artifact, which takes a
-      # single run-id. Each artifact lands in its own directory, which
-      # session_artifacts() finds recursively. A later run wins on collision,
-      # which is what re-running a session is for.
+      # single run-id.
+      #
+      # Each run gets its OWN directory. Two runs can carry an artifact of the
+      # same name -- session 126 failed in the first full backfill and was
+      # re-dispatched, so `actions-126` exists on both -- and gh refuses to
+      # extract over an existing file rather than overwriting it, which failed
+      # the whole download. resolve_sessions() picks the complete copy.
       - name: Download the backfill artifacts
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_IDS: ${{ inputs.run_id }}
         run: |
           set -e
-          mkdir -p data/actions
           for id in $RUN_IDS; do
             echo "::group::run $id"
-            gh run download "$id" --repo "$GITHUB_REPOSITORY" --pattern 'actions-*' --dir data/actions
+            mkdir -p "data/actions/run-$id"
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" \
+              --pattern 'actions-*' --dir "data/actions/run-$id"
             echo "::endgroup::"
           done
-          find data/actions -name 'actions-*.json' -o -name 'summary-*.json' | sort
+          echo "Collected:"
+          find data/actions -name 'actions-*.json' | sort
 
       - name: Build
         run: |
