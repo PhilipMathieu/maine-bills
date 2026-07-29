@@ -95,14 +95,17 @@ def reextract_session(df: pd.DataFrame, session: int) -> tuple[pd.DataFrame, dic
 
     out["sponsors"] = new_sponsors
     out["sponsor_chambers"] = new_chambers
+    # Created unconditionally, not only when the source already had them: a
+    # v1-era parquet without the enrichment columns would otherwise produce
+    # output missing them, breaking the "written in the published layout"
+    # contract and leaving enrich_published.py to discover the gap later.
     for column in (
         "sponsor_ids",
         "sponsor_parties",
         "sponsor_districts",
         "sponsor_match_confidence",
     ):
-        if column in out.columns:
-            out[column] = [[None] * len(n) for n in new_sponsors]
+        out[column] = [[None] * len(n) for n in new_sponsors]
 
     summary = {
         "session": session,
@@ -168,16 +171,23 @@ def main(argv=None) -> int:
 
     total_before = sum(s["mentions_before"] for s in summaries)
     total_after = sum(s["mentions_after"] for s in summaries)
-    total_lost = sum(s["distinct_lost"] for s in summaries)
+    # Summed per session, so a name lost in two sessions counts twice. That is
+    # the right unit for this warning -- each session is inspected and published
+    # separately -- but it must not be labelled "distinct names", which review
+    # of an earlier report read as a cross-session union and had to correct.
+    loss_events = sum(s["distinct_lost"] for s in summaries)
     logger.info(
         f"TOTAL: {sum(s['rows_changed'] for s in summaries)} rows changed, "
         f"{total_before} -> {total_after} mentions ({total_after - total_before:+d})"
     )
-    if total_lost:
+    if loss_events:
         # Losing names is not automatically wrong -- the old extractor captured
         # things that were not people -- but it is never routine, and a silent
         # loss is how a regression ships.
-        logger.warning(f"{total_lost} distinct names LOST; inspect top_lost before publishing")
+        logger.warning(
+            f"{loss_events} per-session distinct-name losses; "
+            f"inspect each session's top_lost before publishing"
+        )
     return 0
 
 

@@ -68,10 +68,43 @@ def test_enrichment_is_cleared_not_carried_across_the_rewrite(mod):
 
     sponsors = out["sponsors"].iloc[0]
     assert sponsors == ["BRENNER", "BAILEY", "CURRY"]
-    for column in ("sponsor_ids", "sponsor_parties", "sponsor_districts"):
+    # All FOUR enrichment columns — review caught sponsor_match_confidence
+    # missing from this loop, which left one v2 column's clearing unpinned.
+    for column in (
+        "sponsor_ids",
+        "sponsor_parties",
+        "sponsor_districts",
+        "sponsor_match_confidence",
+    ):
         assert out[column].iloc[0] == [None, None, None], column
     # ...and the cleared lists are aligned with the NEW sponsors, not the old.
     assert len(out["sponsor_ids"].iloc[0]) == len(sponsors)
+
+
+def test_a_source_without_enrichment_columns_still_gets_them(mod):
+    """A v1-era parquet has no enrichment columns. The output must carry the
+    published layout regardless — clearing only what already existed would
+    hand enrich_published.py a schema gap to discover later."""
+    v1 = frame(
+        [
+            {
+                "session": 132,
+                "ld_number": "0001",
+                "text": BILL,
+                "sponsors": ["OLD"],
+            }
+        ]
+    )
+    out, _ = mod.reextract_session(v1, 132)
+    for column in (
+        "sponsor_chambers",
+        "sponsor_ids",
+        "sponsor_parties",
+        "sponsor_districts",
+        "sponsor_match_confidence",
+    ):
+        assert column in out.columns, column
+        assert len(out[column].iloc[0]) == 3, column
 
 
 def test_chambers_are_rebuilt_alongside_the_names(mod):
