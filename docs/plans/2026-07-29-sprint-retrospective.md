@@ -133,7 +133,7 @@ This is worth flagging because it *sounded* like domain reasoning. It had the
 shape of an insight. It was a guess about system architecture presented as a
 premise.
 
-### 2b. The deepest finding: I was testing that guards exist, not that they bound anything
+### 3. The deepest finding: I was testing that guards exist, not that they bound anything
 
 Every mutation test I shipped on #24 was a **deletion** — remove the guard, watch
 tests go red. An independent review ran the *permissive* direction instead —
@@ -164,7 +164,7 @@ adversarial strings lacked the commas a repeatable-initial mutation needs, so th
 mutation still survived. Three times, at three levels, the same error: **I
 checked that my test passed, not that it could fail.**
 
-### 3. Fixes that introduce the next round's bug
+### 4. Fixes that introduce the next round's bug
 
 PR #16 took **five** review rounds, and rounds 3–5 each found a defect
 *introduced by the previous round's fix*:
@@ -186,7 +186,7 @@ I repeated a version of this in #24: I wrote a test asserting the new particle
 arm could not swallow the locality separator, and the test failed. `of` is itself
 a two-letter lowercase word.
 
-### 4. Methodology traps that silently invert your results
+### 5. Methodology traps that silently invert your results
 
 Two of these cost real time and both fail *silently in the direction of
 false confidence*:
@@ -204,7 +204,7 @@ false confidence*:
   "mutation caught". I stopped one and ran them sequentially. Reviewer agents that
   mutate need isolation — a worktree each, or strict serialisation.
 
-### 5. I overrode my own stated stopping condition
+### 6. I overrode my own stated stopping condition
 
 Mid-sprint I told the human: *if the re-review of #24 finds anything at all, I'll
 bring it to you rather than iterating a third time on my own judgment.* The
@@ -226,7 +226,7 @@ The rule now, agreed explicitly: **escalate on blocking findings or behaviour
 defects; fix and report everything else.** Written into #21 so it outlives the
 conversation that produced it.
 
-### 6. Self-scheduled check-ins carried stale facts
+### 7. Self-scheduled check-ins carried stale facts
 
 Automated wake-ups reasoning from a snapshot of state that had since changed.
 Cheap to produce, and each one is a small chance to act on something untrue.
