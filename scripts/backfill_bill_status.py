@@ -30,6 +30,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import signal
 import sys
 import time
@@ -90,6 +91,30 @@ RETRY_AFTER_ABORT = 120.0
 # that failed in bulk, which is what the breakers are for.
 MAX_RETRY_PASS = 50
 
+# Enumeration is a single anonymous HuggingFace API call per session, made at
+# job start. Session 126 of the first full backfill died four seconds in on
+# "429 ... 0/500 requests remaining in current 300s window", losing a healthy
+# session.
+#
+# Note what this comment used to claim: that our own sessions exhaust the
+# budget. They cannot -- max-parallel is 3 and enumeration is a handful of
+# requests, nowhere near 500 in 300s. The budget is per IP and shared with
+# whatever else that runner IP is doing, so the limit is someone else's and can
+# outlast our envelope. Worth being accurate about, because it means four
+# attempts is not obviously enough: when the server states no wait, the envelope
+# is 3 x 60s against a 300s window. Losing the session after that is the correct
+# outcome -- the alternative is sitting in a job that has a 120-minute timeout.
+ENUMERATION_ATTEMPTS = 4
+
+# Waits are floored so a "Retry-After: 0" cannot produce a tight retry loop,
+# capped because the anonymous window is 300s wide so nothing longer can be a
+# genuine wait for it, and defaulted when the server says nothing about timing.
+# A 429 that names no interval still has to back off; hammering is the one
+# failure mode here with an outside party.
+RATE_LIMIT_FLOOR = 1.0
+RATE_LIMIT_CAP = 300.0
+RATE_LIMIT_FALLBACK = 60.0
+
 
 class SiteRefusing(Exception):
     """The site asked us to go away for longer than this run should wait."""
@@ -106,8 +131,12 @@ class SiteRefusing(Exception):
 NOT_FOUND_MARKER = "Cannot find requested paper"
 
 
-def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
-    """Every distinct LD number published for a session, in order."""
+def _load_report_module():
+    """The parquet loader from run_matching_report.py.
+
+    Separate from its caller so a test can substitute it without a network or a
+    real parquet file.
+    """
     import importlib.util
 
     report_path = Path(__file__).with_name("run_matching_report.py")
@@ -116,11 +145,109 @@ def session_ld_numbers(parquet_source: str, session: int) -> list[str]:
         raise ImportError(f"Cannot load the parquet loader from {report_path}")
     report = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(report)
+    return report
 
-    df = report.load_session_bills(parquet_source, session)
-    # Amendments share their parent bill's LD, so distinct LDs are what we want:
-    # the status page describes the bill, not each printed document.
-    return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
+
+def _hf_retry_after(error: Exception) -> float | None:
+    """Seconds HuggingFace asked us to wait, or None if this is not a rate limit.
+
+    None is the signal to re-raise immediately: a missing session or a bad URL
+    must surface on the first attempt rather than being retried four times.
+
+    Three sources, in descending order of authority:
+
+    1. The ``Retry-After`` header, when the exception carries a response.
+       ``huggingface_hub`` raises ``HfHubHTTPError``, a ``requests.HTTPError``
+       subclass that keeps the response on ``.response`` -- so the header
+       usually IS available, and it is what the server actually said. Parsed by
+       the same ``retry_after`` used for the legislature site.
+    2. The 429 body, which states "Retry after N seconds". This is the fallback
+       for an error that reaches us without a response object -- a wrapped or
+       re-raised exception, or a transport that does not attach one.
+    3. A flat 60s, so a rate limit that says nothing about timing still backs
+       off rather than hammering.
+
+    Both parsed forms are capped at 300s: the anonymous window is 300s wide, so
+    nothing longer can be a genuine wait for it, and a silly value would stall
+    a job that has a timeout to respect.
+    """
+    response = getattr(error, "response", None)
+    text = str(error)
+
+    # The status code when we have it, the message only as a fallback. Matching
+    # "429" as a substring reads it out of HuggingFace's own Request ID --
+    # "404 Client Error. (Request ID: Root=1-68f429ab-...) Entry Not Found"
+    # contains it -- so a plain Entry-Not-Found would have been retried three
+    # times at 60s each before surfacing. \b anchors it to a standalone number.
+    status = getattr(response, "status_code", None)
+    if status is not None:
+        if status != 429:
+            return None
+    elif not re.search(r"\b429\b", text) and "rate limit" not in text.lower():
+        return None
+
+    if getattr(response, "headers", None) and response.headers.get("Retry-After"):
+        # Floored, not just capped. retry_after() clamps a negative value to
+        # 0.0, and "Retry-After: 0" is a legal thing for a server to send --
+        # which would put us in a tight loop of four requests against a host
+        # that has just said 429. The floor is the whole point of backing off.
+        return max(retry_after(response, default=RATE_LIMIT_FALLBACK), RATE_LIMIT_FLOOR)
+
+    match = re.search(r"Retry after (\d+) second", text)
+    if match:
+        return min(max(float(match.group(1)), RATE_LIMIT_FLOOR), RATE_LIMIT_CAP)
+    return RATE_LIMIT_FALLBACK
+
+
+def session_ld_numbers(
+    parquet_source: str, session: int, attempts: int = ENUMERATION_ATTEMPTS
+) -> list[str]:
+    """Every distinct LD number published for a session, ascending.
+
+    Sorted here rather than left in parquet order, so a caller can rely on the
+    ordering and a resumed run walks the session the same way as the first.
+
+    Retries a HuggingFace rate limit. Enumeration is one anonymous API call per
+    session at job start, and with several sessions launching at once on a
+    shared runner IP that is enough to exhaust the anonymous budget: session
+    126 of the first full backfill died four seconds in with "429 ... 0/500
+    requests remaining in current 300s window", losing an otherwise healthy
+    session's worth of work.
+
+    Deliberately not solved with a token. HF_TOKEN is scoped to the
+    `huggingface-publish` environment so it is only ever exposed to approved
+    publish runs (docs/GOVERNANCE.md); handing it to an ungated read job to
+    dodge a rate limit would trade a publish-gate guarantee for a retry loop.
+    """
+    report = _load_report_module()
+    # Zero or fewer would skip the loop entirely and fall through to the raise
+    # below, reporting "failed after 0 attempts" without ever having tried.
+    attempts = max(attempts, 1)
+
+    for attempt in range(1, attempts + 1):
+        try:
+            df = report.load_session_bills(parquet_source, session)
+        except Exception as e:
+            wait = _hf_retry_after(e)
+            if wait is None or attempt == attempts:
+                raise
+            logger.warning(
+                f"Session {session}: enumeration rate-limited, waiting {wait:.0f}s "
+                f"(attempt {attempt}/{attempts})"
+            )
+            time.sleep(wait)
+        else:
+            # Amendments share their parent bill's LD, so distinct LDs are what
+            # we want: the status page describes the bill, not each printed
+            # document.
+            return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
+
+    # Unreachable: the final iteration either returns or re-raises the original
+    # error, which is better diagnostics than this would be. Kept so the
+    # function cannot fall off the end returning None if that ever changes.
+    raise RuntimeError(  # pragma: no cover
+        f"Session {session}: enumeration failed after {attempts} attempts"
+    )
 
 
 def retry_after(response, default: float) -> float:
