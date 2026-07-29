@@ -752,26 +752,40 @@ def test_the_particle_arm_does_not_swallow_the_locality_separator():
 
 
 def test_the_particle_arm_does_not_re_open_the_clause_class():
-    """The cases the locality boundary was added to reject must stay rejected
-    now that the name may carry a lowercase middle word."""
+    """The clause class the locality boundary rejects must stay rejected when
+    the cell ALSO engages the particle arm.
+
+    An earlier version of this test used cells with no lowercase word between
+    two capitalised ones -- byte-identical to fixtures two sections up. The
+    locality boundary was rejecting them and the particle arm was never
+    reached, so it asserted nothing about the thing it is named for.
+    """
     for clause in (
-        "MDOT of Augusta shall study the matter.",
-        "PART A of Chapter 12 takes effect on July 1.",
-        "MRSA of Title 5 is amended to read as follows.",
+        "MDOT du BUREAU of Augusta shall study the matter.",
+        "PART de SECTION of Chapter 12 takes effect on July 1.",
+        "TITLE van CHAPTER of Maine is hereby amended.",
     ):
         text = f"Cosponsored by Senators: BAILEY of York, {clause}\n"
         assert names(text) == ["BAILEY"], clause
 
 
-def test_a_denylisted_noun_is_still_dropped_when_it_carries_a_particle():
-    """Widening the arity ceiling to 3 must not let a denylisted word through
-    on a longer name."""
-    text = (
-        "Cosponsored by Senators: BAILEY of York, BOARD of the City of Portland, "
-        "CURRY of Waldo.\nBe it enacted:\n"
-    )
-    assert "BOARD" not in " ".join(names(text))
-    assert names(text) == ["BAILEY", "CURRY"]
+def test_a_denylisted_word_anywhere_in_a_name_drops_it():
+    """The denylist checks every word, and nothing pinned that: mutating
+    is_valid_name to look at only the FIRST word of a multi-word name survived
+    the entire suite.
+
+    The previous fixture here was "BOARD of the City of Portland" -- a
+    one-word name with no particle, already covered by the single-word case
+    above, so neither the arity ceiling nor the particle arm was involved.
+    """
+    for cell in (
+        "SMITH BOARD of Portland",  # denylisted second word
+        "CORNELL du BOARD of Brunswick",  # ...behind a particle
+        "BOARD du CORNELL of Brunswick",  # ...and in front of one
+        "SMITH COUNTY of Portland",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}, CURRY of Waldo.\n"
+        assert names(text) == ["BAILEY", "CURRY"], cell
 
 
 def test_the_disambiguator_lookahead_does_not_glue_ordinary_cells_together():
@@ -943,6 +957,40 @@ def test_the_arity_cap_matches_what_the_pattern_can_emit():
     longest = _ROSTER_ENTRY.match("CORNELL du HOUX, J. of Brunswick")
     assert longest is not None, "the maximal shape must still be a well-formed entry"
     assert len(longest.group("name").split()) == _ROSTER_MAX_NAME_WORDS
+
+    # The other direction, which the first version of this test left open: it
+    # killed "raise the cap" but not "widen the pattern past the cap". Making
+    # the initial group repeatable survived — the exact drift this guards.
+    # Anything the pattern accepts must fit under the cap, or the surplus is
+    # matched and then silently discarded by is_valid_name.
+    for cell in (
+        "CORNELL du HOUX, J., K. of Brunswick",  # repeatable initial group
+        "CORNELL du de van HOUX of Brunswick",  # repeatable particle
+        "CORNELL du HOUX du MAINE of Brunswick",
+        "ONE TWO THREE FOUR of Augusta",
+        "SANBORN, H., J., K. of Cumberland",
+    ):
+        match = _ROSTER_ENTRY.match(cell)
+        if match is not None:
+            assert len(match.group("name").split()) <= _ROSTER_MAX_NAME_WORDS, cell
+
+
+def test_a_name_carries_at_most_one_particle_and_one_initial():
+    """Each is optional and singular. Making either repeatable stays under the
+    arity cap for the short shapes, so the cap alone does not pin it."""
+    from maine_bills.text_extractor import _ROSTER_ENTRY
+
+    for cell, expected in (
+        ("CORNELL du HOUX of Brunswick", "CORNELL du HOUX"),
+        ("SANBORN, H. of Cumberland", "SANBORN, H."),
+        ("CORNELL du de HOUX of Brunswick", None),  # two particles
+        # Two initials: the locality must follow the name immediately, so the
+        # whole cell fails rather than the surplus being trimmed.
+        ("SANBORN, H., J. of Cumberland", None),
+    ):
+        match = _ROSTER_ENTRY.match(cell)
+        got = match.group("name") if match else None
+        assert got == expected, cell
 
     # ...and it must survive the whole pipeline, not just the pattern.
     text = "Cosponsored by Senators: CORNELL du HOUX, J. of Brunswick.\n"

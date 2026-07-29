@@ -641,10 +641,15 @@ class TextExtractor:
             """Check if extracted text is a valid legislator name.
 
             ``max_words`` is 2 for the title-adjoining patterns, whose name
-            group cannot produce more. The roster path raises it to 3 because
-            its name group admits a lowercase particle -- "CORNELL du HOUX" --
-            and the arity cap would otherwise reject a name the pattern was
-            widened specifically to accept.
+            group cannot produce more. The roster path raises it to
+            _ROSTER_MAX_NAME_WORDS, because its name group admits a lowercase
+            particle and a trailing initial -- "CORNELL du HOUX, J." -- and the
+            cap would otherwise reject names the pattern was widened
+            specifically to accept.
+
+            Named rather than repeated as a literal: this docstring said "3"
+            after the constant had been corrected to 4, which is the same
+            comment-drifts-from-code failure the constant itself was fixed for.
             """
             # Deduplication is handled once, after collection, keyed on
             # (name, chamber) — checking names here would reject a second
