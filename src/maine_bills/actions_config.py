@@ -22,6 +22,7 @@ recorded as a failure and excluded rather than written as an empty row.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -55,6 +56,27 @@ class ActionsConfigError(ValueError):
     """A backfill artifact is not usable as a published config."""
 
 
+def _read_json(path: Path):
+    """Parse an artifact, reporting a bad one as an ActionsConfigError.
+
+    A truncated or half-written JSON file is one of the concrete things this
+    module exists to catch, and letting json.JSONDecodeError escape meant
+    catching it nowhere: the CLI only handles ActionsConfigError, so a
+    truncated artifact produced a bare traceback instead of a message naming
+    the file, and --no-strict could not skip past it to build the other
+    eleven sessions.
+    """
+    try:
+        return json.loads(path.read_text())
+    except json.JSONDecodeError as e:
+        raise ActionsConfigError(
+            f"{path}: not valid JSON ({e}). The artifact is truncated or was written "
+            f"by a run that died mid-write; re-run the backfill for this session."
+        ) from e
+    except OSError as e:
+        raise ActionsConfigError(f"{path}: cannot be read ({e})") from e
+
+
 def load_backfill(path: Path) -> list[dict]:
     """Read one session's backfill output, refusing anything incomplete.
 
@@ -63,7 +85,7 @@ def load_backfill(path: Path) -> list[dict]:
     is shape-identical to a complete one. Publishing that would silently ship a
     session with bills missing and no way to tell from the data.
     """
-    records = json.loads(path.read_text())
+    records = _read_json(path)
     if not isinstance(records, list):
         raise ActionsConfigError(f"{path}: expected a list of records")
 
@@ -75,7 +97,12 @@ def load_backfill(path: Path) -> list[dict]:
             f"finished run."
         )
 
-    summary = json.loads(summary_path.read_text())
+    summary = _read_json(summary_path)
+    if not isinstance(summary, dict):
+        raise ActionsConfigError(
+            f"{summary_path}: expected an object, not {type(summary).__name__}"
+        )
+
     if not summary.get("complete"):
         raise ActionsConfigError(
             f"{path}: session {summary.get('session')} is not complete "
@@ -109,8 +136,24 @@ def is_complete(records_path: Path) -> bool:
         return False
     try:
         return bool(json.loads(summary_path.read_text()).get("complete"))
-    except (json.JSONDecodeError, TypeError):
+    except (json.JSONDecodeError, TypeError, AttributeError, OSError):
+        # A summary that cannot be read is not evidence of completeness. The
+        # artifact still reaches load_backfill, which reports WHY.
         return False
+
+
+def _natural_key(path: Path) -> tuple:
+    """Sort key that orders embedded numbers numerically.
+
+    Plain lexicographic ordering puts `run-9` after `run-10`, so "the later run
+    wins" silently meant "the run whose id sorts last as text". Today's GitHub
+    run ids are all the same width, which hides the bug — a local input
+    directory numbered run-1..run-12 does not.
+    """
+    return tuple(
+        (1, int(part), "") if part.isdigit() else (0, 0, part)
+        for part in re.split(r"(\d+)", str(path))
+    )
 
 
 def resolve_sessions(input_dir: Path) -> dict[int, Path]:
@@ -120,11 +163,11 @@ def resolve_sessions(input_dir: Path) -> dict[int, Path]:
     session 126 failed in the first full backfill and was re-dispatched, so
     both runs carry an `actions-126` artifact. A complete copy always wins over
     an incomplete one — that is what re-running a session means. Between two
-    equally complete copies the later path wins, which with per-run directories
-    is the later run.
+    equally complete copies the later run wins, ordered numerically on the run
+    id in the path rather than as text.
     """
     candidates: dict[int, list[Path]] = {}
-    for path in sorted(input_dir.rglob("actions-*.json")):
+    for path in sorted(input_dir.rglob("actions-*.json"), key=_natural_key):
         session = session_of(path)
         if session is not None:
             candidates.setdefault(session, []).append(path)
@@ -159,10 +202,19 @@ def orphan_summaries(input_dir: Path) -> list[int]:
     return sorted(missing)
 
 
+# Columns whose dtype is pinned rather than inferred. Applied to the empty
+# frame too: pandas infers `object` for every column of an empty frame, so an
+# empty session written to parquet would carry a different schema than every
+# other session in the same config -- int64 vs object on the join key's
+# neighbours is exactly the kind of drift a reader hits only at load time.
+_DTYPES = {"session": "int64", "ld_number": "string", "action_count": "int64"}
+
+
 def build_frame(records: list[dict]) -> pd.DataFrame:
     """One session's records as a DataFrame with the published column order."""
     if not records:
-        return pd.DataFrame({name: pd.Series(dtype="object") for name in COLUMNS})
+        empty = pd.DataFrame({name: pd.Series(dtype="object") for name in COLUMNS})
+        return empty.astype(_DTYPES)
 
     rows = []
     for record in records:
@@ -180,19 +232,32 @@ def build_frame(records: list[dict]) -> pd.DataFrame:
         row["actions"] = [{f: a.get(f) for f in ACTION_FIELDS} for a in record["actions"]]
         rows.append(row)
 
-    frame = pd.DataFrame(rows, columns=COLUMNS)
-    frame["session"] = frame["session"].astype("int64")
-    frame["ld_number"] = frame["ld_number"].astype("string")
-    frame["action_count"] = frame["action_count"].astype("int64")
-    return frame
+    return pd.DataFrame(rows, columns=COLUMNS).astype(_DTYPES)
 
 
 def build_session(path: Path) -> pd.DataFrame:
-    """Load and validate one session's backfill artifact into a frame."""
+    """Load and validate one session's backfill artifact into a frame.
+
+    Never returns an empty frame. `build_frame([])` is a legitimate primitive
+    -- it is what gives an empty frame the published dtypes -- but a *session*
+    with no bills is not a small session, it is a broken run: enumeration reads
+    the LD set from the published parquet, so zero records means enumeration
+    came back empty and the backfill still declared itself complete. Publishing
+    that is the silent gap the completeness check exists to prevent, reaching
+    the same end by a different road.
+
+    Refusing here also keeps the builder simple: it can read the session number
+    off the frame without an empty-frame branch, and --no-strict downgrades
+    this to a skip like any other per-session refusal.
+    """
     frame = build_frame(load_backfill(path))
 
     if frame.empty:
-        return frame
+        raise ActionsConfigError(
+            f"{path}: complete but has no records. A Maine session has ~2,000 bills; "
+            f"zero means enumeration returned nothing and the run finished anyway. "
+            f"Re-run the backfill for this session."
+        )
 
     sessions = frame["session"].unique()
     if len(sessions) != 1:

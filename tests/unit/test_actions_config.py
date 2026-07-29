@@ -176,10 +176,60 @@ def test_nulls_are_preserved_rather_than_filled(tmp_path):
     assert frame["chaptered_law"].iloc[0] is None
 
 
-def test_an_empty_session_still_has_the_published_columns(tmp_path):
-    frame = build_session(write_session(tmp_path, records=[], summary={"records": 0}))
+def test_an_empty_frame_carries_the_published_columns_and_dtypes():
+    """pandas infers `object` for every column of an empty frame, so an empty
+    session written to parquet would carry a different schema than every other
+    session in the config."""
+    frame = build_frame([])
     assert list(frame.columns) == COLUMNS
     assert frame.empty
+    assert frame["session"].dtype == "int64"
+    assert frame["ld_number"].dtype == "string"
+    assert frame["action_count"].dtype == "int64"
+
+
+def test_the_empty_and_populated_frames_agree_on_dtype():
+    """The two paths build the frame differently; they must not disagree."""
+    populated = build_frame([record()])
+    empty = build_frame([])
+    for column in ("session", "ld_number", "action_count"):
+        assert empty[column].dtype == populated[column].dtype
+
+
+def test_a_complete_session_with_no_records_is_refused(tmp_path):
+    """Enumeration reads the LD set from the published parquet, so zero records
+    is not a small session — it is enumeration returning nothing and the run
+    declaring itself complete anyway."""
+    path = write_session(tmp_path, records=[], summary={"records": 0})
+    with pytest.raises(ActionsConfigError, match="no records"):
+        build_session(path)
+
+
+# --- artifacts that are damaged rather than incomplete ---
+
+
+def test_a_corrupt_records_file_is_reported_not_raised_raw(tmp_path):
+    """The CLI only handles ActionsConfigError, so a bare JSONDecodeError meant
+    a traceback instead of a message naming the file — and --no-strict could not
+    skip past it to build the other eleven sessions."""
+    write_session(tmp_path)
+    (tmp_path / "actions-132.json").write_text('[{"session": 132, ')
+    with pytest.raises(ActionsConfigError, match="not valid JSON"):
+        build_session(tmp_path / "actions-132.json")
+
+
+def test_a_corrupt_summary_is_reported_not_raised_raw(tmp_path):
+    path = write_session(tmp_path)
+    (tmp_path / "summary-132.json").write_text("{not json at all")
+    with pytest.raises(ActionsConfigError, match="not valid JSON"):
+        build_session(path)
+
+
+def test_a_summary_that_is_not_an_object_is_refused(tmp_path):
+    path = write_session(tmp_path)
+    (tmp_path / "summary-132.json").write_text('["complete"]')
+    with pytest.raises(ActionsConfigError, match="expected an object"):
+        build_session(path)
 
 
 def test_load_backfill_rejects_a_non_list(tmp_path):

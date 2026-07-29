@@ -201,6 +201,20 @@ def test_the_complete_copy_wins_regardless_of_directory_order(build_mod, tmp_pat
     assert summary["per_session"] == [{"session": 131, "rows": 5, "actions": 5}]
 
 
+def test_the_later_run_wins_when_both_copies_are_complete(build_mod, tmp_path):
+    """ "Later" has to mean numerically later. Lexicographic ordering puts
+    `run-9` after `run-10`, so the re-run would lose to the run it replaced --
+    invisible on GitHub's equal-width run ids, plain on a local run-1..run-12."""
+    src, out = tmp_path / "in", tmp_path / "out"
+    for run, rows in (("run-9", 5), ("run-10", 7)):
+        d = src / run
+        d.mkdir(parents=True)
+        artifact(d, 131, n=rows)
+
+    summary = build_mod.build(src, out)
+    assert summary["per_session"] == [{"session": 131, "rows": 7, "actions": 7}]
+
+
 def test_a_session_failed_on_every_run_is_still_a_gap(build_mod, tmp_path):
     src, out = tmp_path / "in", tmp_path / "out"
     for run in ("run-1", "run-2"):
