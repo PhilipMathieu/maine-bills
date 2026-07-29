@@ -26,12 +26,18 @@ on:
           - diagnose-sponsors
           - fetch-status-sample
           - run-matching
+          - build-actions
           - custom
       sessions:
         description: "Space-separated session numbers (e.g. '132' or '132 121')"
         type: string
         required: false
         default: "132"
+      run_id:
+        description: "For build-actions: space-separated run id(s) holding the actions-<session> artifacts"
+        type: string
+        required: false
+        default: ""
       extra_args:
         description: "Extra args (run-matching passthrough, or full command for 'custom': runs `uv run <extra_args>`)"
         type: string
@@ -476,6 +482,94 @@ jobs:
   # Escape hatch: run an arbitrary `uv run <extra_args>` command with full
   # network access. Dispatch-only, so only collaborators with write access can
   # trigger it; running arbitrary input is the point of this job.
+  # Turn the backfill artifacts into the published `actions` config. Separate
+  # from the backfill so a session can be re-run without rebuilding everything,
+  # and separate from publishing so a human sees the parquet before it ships --
+  # uploading is Tier-1 and goes through the huggingface-publish gate.
+  build-actions:
+    if: inputs.task == 'build-actions'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read # download-artifact needs this to reach ANOTHER run's artifacts
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync --extra dev
+
+      - name: Validate run_id
+        env:
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          case "$RUN_ID" in
+            "" | *[!0-9\ ]*)
+              echo "::error::build-actions needs run_id: space-separated numeric run id(s) holding the actions-<session> artifacts"
+              exit 1
+              ;;
+          esac
+
+      # Several run ids, because the twelve sessions do not have to come from
+      # one run: a session that failed and was re-dispatched has its artifact
+      # on a different run, and re-running all twelve to consolidate them would
+      # mean 24,000 more requests at the state's server to avoid a loop here.
+      #
+      # `gh run download` rather than actions/download-artifact, which takes a
+      # single run-id.
+      #
+      # Each run gets its OWN directory. Two runs can carry an artifact of the
+      # same name -- session 126 failed in the first full backfill and was
+      # re-dispatched, so `actions-126` exists on both -- and gh refuses to
+      # extract over an existing file rather than overwriting it, which failed
+      # the whole download. resolve_sessions() picks the complete copy.
+      - name: Download the backfill artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_IDS: ${{ inputs.run_id }}
+        run: |
+          set -e
+          for id in $RUN_IDS; do
+            echo "::group::run $id"
+            mkdir -p "data/actions/run-$id"
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" \
+              --pattern 'actions-*' --dir "data/actions/run-$id"
+            echo "::endgroup::"
+          done
+          echo "Collected:"
+          find data/actions -name 'actions-*.json' | sort
+
+      - name: Build
+        run: |
+          uv run python scripts/build_actions_config.py \
+            --input data/actions \
+            --output data/actions-parquet
+
+      - name: Summarize
+        if: always()
+        run: |
+          F="data/actions-parquet/build-summary.json"
+          if [ -f "$F" ]; then
+            {
+              echo "### actions config"
+              echo '```json'
+              cat "$F"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload the built config
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: actions-config
+          path: data/actions-parquet/
+          if-no-files-found: warn
+
   custom:
     if: inputs.task == 'custom'
     runs-on: ubuntu-latest
