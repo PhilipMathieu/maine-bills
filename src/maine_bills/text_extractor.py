@@ -211,7 +211,9 @@ _ROSTER_CELL_SPLIT = re.compile(r",(?!\s*[A-Z]\.\s+of\s)")
 
 # Words on the title_words denylist that ARE real Maine surnames, and so must
 # not reject a name that IS exactly that word. Rep. Hall of Wilton sat in
-# session 129, and session 121's published data carries 80 HALL mentions.
+# session 129, and this fix recovers HALL on 79 session-121 bills (76 via the
+# title-adjoining patterns, 3 via rosters -- measured, and independently
+# reproduced by review).
 #
 # Applied on EVERY path, not only inside rosters, and the history of that is
 # the point of the comment. When the denylist was case-folded (correctly -- it

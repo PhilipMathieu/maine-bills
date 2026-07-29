@@ -1039,7 +1039,11 @@ def test_the_allow_composes_with_a_disambiguating_initial():
 def test_the_allow_is_an_exact_match_not_a_word_match():
     """It must not weaken the word-level check that motivates the denylist:
     a phrase CONTAINING hall is not the surname Hall."""
-    for cell in ("CITY HALL of Portland", "HALL COUNTY of Somewhere"):
+    # "CHAMBER of Commerce" pins the allowlist's CONTENTS, not just its
+    # mechanism: review found that adding "chamber" to _NAME_ALLOW survived
+    # every test, and Chamber is the one other denylist word the code comment
+    # flags as surname-plausible. Accidental allowlist growth should fail here.
+    for cell in ("CITY HALL of Portland", "HALL COUNTY of Somewhere", "CHAMBER of Commerce"):
         text = f"Cosponsored by Senators: BAILEY of York, {cell}.\nBe it enacted:\n"
         assert names(text) == ["BAILEY"], cell
     # And prose around the title-adjoining patterns stays out: "City Hall"
