@@ -1051,3 +1051,83 @@ def test_the_allow_is_an_exact_match_not_a_word_match():
     # words themselves must still be rejected as bare names.
     text = "Cosponsored by Senators: BAILEY of York, COUNTY of Cumberland.\nBe it enacted:\n"
     assert names(text) == ["BAILEY"]
+
+
+# --- page furniture interleaved mid-roster ---
+#
+# Found sizing the issue-#13 re-extraction: session 127's entire 53-name loss
+# was ONE bill (LD 1673) where a page break dropped "Printed on recycled paper"
+# between two roster cells. 22 bills across sessions 125-128 carry the phrase
+# inside their cosponsor block. Not OCR damage -- these are clean digital PDFs.
+
+
+def test_a_page_footer_mid_roster_does_not_end_the_run():
+    """The real shape from 127 LD 1673: the footer lands between two cells, so
+    the next cell reads "Printed on recycled paper CAMPBELL of Newfield" and
+    the run died there, losing everything behind it."""
+    text = (
+        "Presented by Senator ALFOND of Cumberland.\n"
+        "Cosponsored by Representatives: BATTLE of South Portland, "
+        "BURSTEIN of Lincolnville, \nPrinted on recycled paper \n"
+        "CAMPBELL of Newfield, CHENETTE of Saco, DUNPHY of Old Town.\n"
+        "Be it enacted by the People of the State of Maine as follows:\n"
+    )
+    assert names(text) == [
+        "ALFOND",
+        "BATTLE",
+        "BURSTEIN",
+        "CAMPBELL",
+        "CHENETTE",
+        "DUNPHY",
+    ]
+
+
+def test_the_footer_before_the_block_is_harmless_too():
+    text = (
+        "Printed on recycled paper\n"
+        "Presented by Senator ALFOND of Cumberland.\n"
+        "Cosponsored by Senators: BAILEY of York, CURRY of Waldo.\nBe it enacted:\n"
+    )
+    assert names(text) == ["ALFOND", "BAILEY", "CURRY"]
+
+
+def test_the_furniture_strip_is_exact_not_a_pattern():
+    """Page furniture is the one vocabulary where an over-eager pattern could
+    eat bill text. A name or locality containing any of those words must
+    survive; only the exact phrase is removed.
+
+    Honest note on strength, from review: the all-caps fixtures below only
+    catch a CASE-INSENSITIVE widening on their own -- a case-sensitive
+    single-word widening slips past them and is killed instead by the
+    mid-roster test's leftover " on ". The mixed-case cell pins the
+    case-sensitive direction directly.
+    """
+    text = (
+        "Cosponsored by Senators: PAPER of Augusta, PRINTED of Bangor, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    # PAPER and PRINTED are fabricated surnames -- the point is that single
+    # words from the phrase are not stripped, so these cells stay intact and
+    # rise or fall on the ordinary guards, not on the furniture rule.
+    result = names(text)
+    assert "CURRY" in result
+    assert result == ["PAPER", "PRINTED", "CURRY"]
+
+
+def test_the_furniture_list_is_exactly_one_phrase():
+    """Pins the SCOPE of _PAGE_FURNITURE, not just its mechanism. Review grew
+    the pattern with "STATE OF MAINE" and every test stayed green -- the exact
+    over-eager growth the pattern's own comment warns against, unpinned. A
+    roster whose locality contains that header text must survive, and the
+    pattern must match nothing but the one footer."""
+    import re as _re
+
+    from maine_bills.text_extractor import _PAGE_FURNITURE
+
+    # The pattern is the one literal, case-sensitive.
+    assert _PAGE_FURNITURE.pattern == r"\bPrinted on recycled paper\b"
+    assert not _PAGE_FURNITURE.flags & _re.IGNORECASE
+
+    # And behaviourally: common page-header vocabulary is NOT furniture here.
+    for phrase in ("STATE OF MAINE", "Page 3", "printed on recycled paper"):
+        assert _PAGE_FURNITURE.search(phrase) is None, phrase
