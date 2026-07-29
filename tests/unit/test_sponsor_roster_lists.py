@@ -995,3 +995,55 @@ def test_a_name_carries_at_most_one_particle_and_one_initial():
     # ...and it must survive the whole pipeline, not just the pattern.
     text = "Cosponsored by Senators: CORNELL du HOUX, J. of Brunswick.\n"
     assert names(text) == ["CORNELL du HOUX, J."]
+
+
+# --- the HALL regression: a rescue scoped to where the symptom was seen ---
+#
+# Found by the issue-#13 re-extraction measurement: HALL was lost in EVERY
+# session, 80 mentions in 121 alone, because the roster-only allowlist assumed
+# a denylist-colliding surname could only appear inside a roster.
+
+
+def test_a_denylist_colliding_surname_survives_the_presented_by_pattern():
+    """The primary sponsor, on the oldest pattern in the file. This extracted
+    [] on main."""
+    text = "Presented by Representative HALL of Wilton.\nBe it enacted:\n"
+    assert names(text) == ["HALL"]
+    assert mentions(text)["HALL"] == "House"
+
+
+def test_a_denylist_colliding_surname_survives_the_cosponsored_by_pattern():
+    text = (
+        "Presented by Senator BAILEY of York.\n"
+        "Cosponsored by Representative HALL of Wilton and Senator CURRY of Waldo.\n"
+        "Be it enacted:\n"
+    )
+    assert names(text) == ["BAILEY", "HALL", "CURRY"]
+
+
+def test_the_allow_still_holds_inside_a_roster():
+    """The path the rescue was originally scoped to must not regress."""
+    text = "Cosponsored by Representatives: HALL of Wilton, CURRY of Waldo.\nBe it enacted:\n"
+    assert names(text) == ["HALL", "CURRY"]
+
+
+def test_the_allow_composes_with_a_disambiguating_initial():
+    """Two sitting Halls in one chamber. "HALL, A." is still Hall — the
+    trailing initial is part of the name string, not of the surname identity.
+    Found immaterial-but-real by the #24 re-review; free once the allow moved
+    to is_valid_name."""
+    text = "Cosponsored by Senators: HALL, A. of Wilton, CURRY of Waldo.\nBe it enacted:\n"
+    assert names(text) == ["HALL, A.", "CURRY"]
+
+
+def test_the_allow_is_an_exact_match_not_a_word_match():
+    """It must not weaken the word-level check that motivates the denylist:
+    a phrase CONTAINING hall is not the surname Hall."""
+    for cell in ("CITY HALL of Portland", "HALL COUNTY of Somewhere"):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}.\nBe it enacted:\n"
+        assert names(text) == ["BAILEY"], cell
+    # And prose around the title-adjoining patterns stays out: "City Hall"
+    # cannot reach them at all (they require a title prefix), but the denylist
+    # words themselves must still be rejected as bare names.
+    text = "Cosponsored by Senators: BAILEY of York, COUNTY of Cumberland.\nBe it enacted:\n"
+    assert names(text) == ["BAILEY"]

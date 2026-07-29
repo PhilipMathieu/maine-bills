@@ -209,27 +209,41 @@ _ROSTER_MAX_NAME_WORDS = 4
 _ROSTER_CELL_SPLIT = re.compile(r",(?!\s*[A-Z]\.\s+of\s)")
 
 
-# Words on the general title_words denylist that ARE real Maine surnames, and
-# so must not be filtered on the roster path.
+# Words on the title_words denylist that ARE real Maine surnames, and so must
+# not reject a name that IS exactly that word. Rep. Hall of Wilton sat in
+# session 129, and session 121's published data carries 80 HALL mentions.
 #
-# The denylist exists for the title-adjoining patterns, where "Hall" appears as
-# "City Hall". Inside a roster the same token is positionally a surname -- Rep.
-# Hall of Wilton sat in session 129 -- and the roster is already anchored to a
-# chamber label, so the false-positive risk that justifies the denylist
-# elsewhere is not present here.
+# Applied on EVERY path, not only inside rosters, and the history of that is
+# the point of the comment. When the denylist was case-folded (correctly -- it
+# had been structurally inert on the all-caps roster path), the collision with
+# Hall surfaced, and the rescue was scoped to the roster path on the reasoning
+# that the denylist "exists for the title-adjoining patterns". That reasoning
+# quietly assumed Hall could only appear in a roster. It cannot:
 #
-# This became reachable only when the denylist was case-folded: before that it
-# matched nothing at all on this all-caps path, so activating it correctly also
-# activated this collision.
-_ROSTER_NAME_ALLOW = {"hall"}
+#     Presented by Representative HALL of Wilton.    ->  []
+#
+# extracted NOTHING -- the bill's primary sponsor, on the oldest and most
+# reliable pattern in the file, dropped by a guard doing its job one path over.
+# Same defect class as the roster-only fixes before it: a rescue scoped to
+# where the symptom was seen rather than to where the rule applies.
+#
+# The allow is an exact whole-name match, so it cannot weaken the word-level
+# check that motivates the denylist: "City Hall" still fails on "city", and
+# any phrase containing a denylisted word alongside others still fails.
+# A trailing disambiguator is stripped first -- "HALL, A." is still Hall.
+_NAME_ALLOW = {"hall"}
+
+_NAME_DISAMBIGUATOR = re.compile(r",\s*[A-Z]\.$")
+
+
+def _allowed_name(name: str) -> bool:
+    return _NAME_DISAMBIGUATOR.sub("", name).casefold() in _NAME_ALLOW
 
 
 def _roster_name_ok(name: str, is_valid_name) -> bool:
     """Whether a roster cell's name should be kept."""
     if not _ROSTER_SURNAME.search(name):
         return False
-    if name.casefold() in _ROSTER_NAME_ALLOW:
-        return True
     return is_valid_name(name, max_words=_ROSTER_MAX_NAME_WORDS)
 
 
@@ -656,6 +670,12 @@ class TextExtractor:
             # legislator who shares a surname but sits in the other chamber.
             if not name or len(name.split()) > max_words:
                 return False
+            # A name that IS a real surname colliding with the denylist. Checked
+            # here rather than on any single calling path, because scoping it to
+            # where the collision was first seen is how "Presented by
+            # Representative HALL of Wilton" came to extract nothing.
+            if _allowed_name(name):
+                return True
             # Compared case-INSENSITIVELY. title_words is written in Title Case
             # and rosters print surnames in capitals, so a case-sensitive
             # intersection made this filter structurally inert on the roster
