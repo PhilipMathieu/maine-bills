@@ -102,14 +102,111 @@ _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 # ". The" satisfies it -- so "BAILEY of York. The department shall report"
 # matches as ONE complete cell, the run never stops, and every cell behind the
 # prose is harvested. Caught by test_the_prefix_branch_stops_the_run.
+#
+# The name itself is one or two capitalised words, optionally joined by a short
+# lowercase PARTICLE and optionally carrying a trailing disambiguating initial:
+#
+#     SANBORN                    BAILEY of York
+#     TALBOT ROSS                Speaker TALBOT ROSS of Portland
+#     CORNELL du HOUX            Representatives: CORNELL du HOUX of Brunswick
+#     SANBORN, H.                Senators: SANBORN, H. of Cumberland
+#
+# Requiring every word of a surname to be capitalised was the same mistake this
+# file already argues against for LOCALITIES, where "Isle au Haut" has a
+# lowercase particle -- and then made for names.
+#
+# The particle is an ALLOWLIST, and the first attempt at this got it wrong. It
+# used a shape rule -- "two or three lowercase letters" -- reasoning that a list
+# only ever covers the surnames already seen. That reasoning does not survive
+# contact with the vocabulary: [a-z]{2,3} is a superset of the English
+# connectives, so the rule had no discriminating power at all. Review ran these
+# through the extractor and every one became a sponsor:
+#
+#     MDOT and DHHS of Augusta      ->  "MDOT and DHHS"
+#     WAYS and MEANS of Funding     ->  "WAYS and MEANS"
+#     TAX on SALE of Goods          ->  "TAX on SALE"
+#     ONE per CENT of Revenue       ->  "ONE per CENT"
+#
+# "MDOT ... of Augusta" is the exact string the locality boundary above exists
+# to reject; a conjunction handed it straight back.
+#
+# The asymmetry that makes a list right here: surnames are open, but naming
+# PARTICLES are a closed class -- a few dozen across the European traditions,
+# and unchanged for centuries. A new legislator with a particle surname will use
+# one of these; a new legislator will not invent a particle.
+#
+# "of" is absent for a second, structural reason. It is the one lowercase token
+# in this grammar that means something, and when it was admitted the name arm
+# ate the separator whenever a second one followed:
+#
+#     BAILEY of York of Cumberland   ->  name "BAILEY of York", locality "Cumberland"
+#
+# Caught by a test written to assert this could not happen, which found that it did.
+#
+# The trailing ", H." is how Maine distinguishes two sitting members who share a
+# surname. It is part of the name, not a cell boundary, so the cell splitter
+# has to keep it attached -- see _ROSTER_CELL_SPLIT.
+_ROSTER_WORD = r"[A-Z][A-Za-z'\-]*"
+_ROSTER_PARTICLES = (
+    "du",
+    "de",
+    "del",
+    "della",
+    "den",
+    "der",
+    "di",
+    "da",
+    "das",
+    "dos",
+    "la",
+    "le",
+    "van",
+    "von",
+    "ten",
+    "ter",
+    "af",
+    "av",
+    "bin",
+    "al",
+)
+_ROSTER_PARTICLE = "|".join(sorted(_ROSTER_PARTICLES, key=len, reverse=True))
+
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
-    r"(?P<name>[A-Z][A-Za-z'\-]*(?:\s+[A-Z][A-Za-z'\-]*)?)"
+    rf"(?P<name>{_ROSTER_WORD}(?:\s+(?:(?:{_ROSTER_PARTICLE})\s+)?{_ROSTER_WORD})?"
+    r"(?:,\s*[A-Z]\.)?)"
     r"\s+of\s+(?:"
     r"the\s+(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,5}"
     r"|(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,3}"
     r")\s*(?:\.|$)"
 )
+
+# The longest name _ROSTER_ENTRY can produce is "CORNELL du HOUX, J." -- four
+# whitespace-separated tokens: two capitalised words, a particle, and a trailing
+# disambiguating initial. is_valid_name's default ceiling of two is right for
+# the title-adjoining patterns, which have neither a particle arm nor an initial.
+#
+# This said three, and was wrong rather than merely stale: the regex could
+# already produce four, so a particle surname carrying an initial was matched by
+# the pattern and then thrown away by the cap. Silently, and without ending the
+# run -- a name rejected on a clean cell is skipped, not cascaded -- so it would
+# have cost exactly one sponsor with nothing to show for it.
+#
+# Coupled to the pattern by test_the_arity_cap_matches_what_the_pattern_can_emit
+# rather than by this comment, which is what let the two drift apart.
+_ROSTER_MAX_NAME_WORDS = 4
+
+# Cells are comma-delimited, EXCEPT for the comma inside "SANBORN, H.".
+#
+# Splitting naively on every comma made that cell into "SANBORN" -- no locality,
+# so not an entry at all -- which ended the run and took the rest of the segment
+# with it. On session 129 HP0006 that is both names; the cascade is the real
+# cost, not the one entry.
+#
+# The lookahead is deliberately narrow: a single capital letter, a period, then
+# " of ". A locality cannot begin that way, because a locality only ever appears
+# after " of " itself. Anything else after a comma is a new cell.
+_ROSTER_CELL_SPLIT = re.compile(r",(?!\s*[A-Z]\.\s+of\s)")
 
 
 # Words on the general title_words denylist that ARE real Maine surnames, and
@@ -133,7 +230,7 @@ def _roster_name_ok(name: str, is_valid_name) -> bool:
         return False
     if name.casefold() in _ROSTER_NAME_ALLOW:
         return True
-    return is_valid_name(name)
+    return is_valid_name(name, max_words=_ROSTER_MAX_NAME_WORDS)
 
 
 def _roster_names(segment: str, is_valid_name):
@@ -159,7 +256,7 @@ def _roster_names(segment: str, is_valid_name):
     stop exists to prevent. Zero occurrences in 271 real bills, but the
     docstring above claimed prose is never read, and it has to be true.
     """
-    for cell in segment.split(","):
+    for cell in _ROSTER_CELL_SPLIT.split(segment):
         cell = cell.strip()
         match = _ROSTER_ENTRY.match(cell)
         if not match:
@@ -540,12 +637,24 @@ class TextExtractor:
         _TITLE_WORDS_FOLDED = {word.casefold() for word in title_words}
 
         # Helper function to validate names
-        def is_valid_name(name: str) -> bool:
-            """Check if extracted text is a valid legislator name."""
+        def is_valid_name(name: str, max_words: int = 2) -> bool:
+            """Check if extracted text is a valid legislator name.
+
+            ``max_words`` is 2 for the title-adjoining patterns, whose name
+            group cannot produce more. The roster path raises it to
+            _ROSTER_MAX_NAME_WORDS, because its name group admits a lowercase
+            particle and a trailing initial -- "CORNELL du HOUX, J." -- and the
+            cap would otherwise reject names the pattern was widened
+            specifically to accept.
+
+            Named rather than repeated as a literal: this docstring said "3"
+            after the constant had been corrected to 4, which is the same
+            comment-drifts-from-code failure the constant itself was fixed for.
+            """
             # Deduplication is handled once, after collection, keyed on
             # (name, chamber) — checking names here would reject a second
             # legislator who shares a surname but sits in the other chamber.
-            if not name or len(name.split()) > 2:
+            if not name or len(name.split()) > max_words:
                 return False
             # Compared case-INSENSITIVELY. title_words is written in Title Case
             # and rosters print surnames in capitals, so a case-sensitive
@@ -554,7 +663,14 @@ class TextExtractor:
             # SENATE, LEGISLATURE, UNIVERSITY and NATION were all reachable as
             # "sponsors" while the list that names them looked like it was doing
             # the work.
-            name_words = {word.casefold() for word in name.split()}
+            #
+            # Punctuation is stripped before the comparison, because a
+            # denylisted word carrying any is a DIFFERENT string and slips
+            # through: once the roster path started keeping the trailing
+            # disambiguator, "PART, A. of Chapter 12" split to {"part,", "a."}
+            # and "part," is not "part". That handed back the exact clause class
+            # the locality boundary above was built to reject.
+            name_words = {word.casefold().strip(".,'-") for word in name.split()}
             return not name_words.intersection(_TITLE_WORDS_FOLDED)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
