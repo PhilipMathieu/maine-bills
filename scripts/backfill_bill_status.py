@@ -92,11 +92,28 @@ RETRY_AFTER_ABORT = 120.0
 MAX_RETRY_PASS = 50
 
 # Enumeration is a single anonymous HuggingFace API call per session, made at
-# job start. Several sessions launching together on one runner IP can exhaust
-# the anonymous budget (500 requests per 300s), which killed session 126 of the
-# first full backfill four seconds in. The retry is generous because the window
-# is short and the alternative is losing the whole session.
+# job start. Session 126 of the first full backfill died four seconds in on
+# "429 ... 0/500 requests remaining in current 300s window", losing a healthy
+# session.
+#
+# Note what this comment used to claim: that our own sessions exhaust the
+# budget. They cannot -- max-parallel is 3 and enumeration is a handful of
+# requests, nowhere near 500 in 300s. The budget is per IP and shared with
+# whatever else that runner IP is doing, so the limit is someone else's and can
+# outlast our envelope. Worth being accurate about, because it means four
+# attempts is not obviously enough: when the server states no wait, the envelope
+# is 3 x 60s against a 300s window. Losing the session after that is the correct
+# outcome -- the alternative is sitting in a job that has a 120-minute timeout.
 ENUMERATION_ATTEMPTS = 4
+
+# Waits are floored so a "Retry-After: 0" cannot produce a tight retry loop,
+# capped because the anonymous window is 300s wide so nothing longer can be a
+# genuine wait for it, and defaulted when the server says nothing about timing.
+# A 429 that names no interval still has to back off; hammering is the one
+# failure mode here with an outside party.
+RATE_LIMIT_FLOOR = 1.0
+RATE_LIMIT_CAP = 300.0
+RATE_LIMIT_FALLBACK = 60.0
 
 
 class SiteRefusing(Exception):
@@ -154,16 +171,32 @@ def _hf_retry_after(error: Exception) -> float | None:
     nothing longer can be a genuine wait for it, and a silly value would stall
     a job that has a timeout to respect.
     """
+    response = getattr(error, "response", None)
     text = str(error)
-    if "429" not in text and "rate limit" not in text.lower():
+
+    # The status code when we have it, the message only as a fallback. Matching
+    # "429" as a substring reads it out of HuggingFace's own Request ID --
+    # "404 Client Error. (Request ID: Root=1-68f429ab-...) Entry Not Found"
+    # contains it -- so a plain Entry-Not-Found would have been retried three
+    # times at 60s each before surfacing. \b anchors it to a standalone number.
+    status = getattr(response, "status_code", None)
+    if status is not None:
+        if status != 429:
+            return None
+    elif not re.search(r"\b429\b", text) and "rate limit" not in text.lower():
         return None
 
-    response = getattr(error, "response", None)
     if getattr(response, "headers", None) and response.headers.get("Retry-After"):
-        return retry_after(response, default=60.0)
+        # Floored, not just capped. retry_after() clamps a negative value to
+        # 0.0, and "Retry-After: 0" is a legal thing for a server to send --
+        # which would put us in a tight loop of four requests against a host
+        # that has just said 429. The floor is the whole point of backing off.
+        return max(retry_after(response, default=RATE_LIMIT_FALLBACK), RATE_LIMIT_FLOOR)
 
     match = re.search(r"Retry after (\d+) second", text)
-    return min(float(match.group(1)), 300.0) if match else 60.0
+    if match:
+        return min(max(float(match.group(1)), RATE_LIMIT_FLOOR), RATE_LIMIT_CAP)
+    return RATE_LIMIT_FALLBACK
 
 
 def session_ld_numbers(
@@ -187,6 +220,9 @@ def session_ld_numbers(
     dodge a rate limit would trade a publish-gate guarantee for a retry loop.
     """
     report = _load_report_module()
+    # Zero or fewer would skip the loop entirely and fall through to the raise
+    # below, reporting "failed after 0 attempts" without ever having tried.
+    attempts = max(attempts, 1)
 
     for attempt in range(1, attempts + 1):
         try:
@@ -206,7 +242,12 @@ def session_ld_numbers(
             # document.
             return sorted({normalize_ld(ld) for ld in df["ld_number"].dropna().unique()})
 
-    raise RuntimeError(f"Session {session}: enumeration failed after {attempts} attempts")
+    # Unreachable: the final iteration either returns or re-raises the original
+    # error, which is better diagnostics than this would be. Kept so the
+    # function cannot fall off the end returning None if that ever changes.
+    raise RuntimeError(  # pragma: no cover
+        f"Session {session}: enumeration failed after {attempts} attempts"
+    )
 
 
 def retry_after(response, default: float) -> float:

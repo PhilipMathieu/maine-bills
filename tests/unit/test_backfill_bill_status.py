@@ -996,9 +996,15 @@ def test_an_absurd_retry_after_header_is_capped(backfill_mod):
 
 
 def test_a_response_on_a_non_rate_limit_error_is_still_not_retried(backfill_mod):
-    """The header must not turn an unrelated failure into a retry."""
+    """The header must not turn an unrelated failure into a retry.
+
+    The status here used to be 429, which made the fixture incoherent once the
+    status code became authoritative: a response saying 429 IS a rate limit,
+    whatever the exception type wrapping it. A server that sends Retry-After
+    alongside a 404 is the case this is actually about.
+    """
     error = FileNotFoundError("No parquet files for session 999")
-    error.response = FakeResponse(status_code=429, headers={"Retry-After": "7"})
+    error.response = FakeResponse(status_code=404, headers={"Retry-After": "7"})
     assert backfill_mod._hf_retry_after(error) is None
 
 
@@ -1060,3 +1066,106 @@ def test_a_missing_session_is_not_retried(backfill_mod, monkeypatch):
     monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: NoSuchSession)
     with pytest.raises(FileNotFoundError):
         backfill_mod.session_ld_numbers("hf://x", 999)
+
+
+# --- review of #23: the permissive direction, which was unpinned ---
+#
+# An independent review ran 22 mutations and five survived, all of them
+# LOOSENING something. The deletion mutations were all caught; nothing stopped
+# a constant or a predicate from drifting wider.
+
+
+def test_the_default_attempt_count_is_the_one_that_runs(backfill_mod, monkeypatch, sleeps):
+    """ENUMERATION_ATTEMPTS was pinned in neither direction: setting it to 3 or
+    to 99 left the whole suite green. 99 matters — at the 300s cap that is ~8
+    hours of sleeping inside a job with a 120-minute timeout."""
+    calls = {"n": 0}
+
+    class AlwaysLimited:
+        @staticmethod
+        def load_session_bills(_src, _session):
+            calls["n"] += 1
+            raise RuntimeError(HF_429)
+
+    monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: AlwaysLimited)
+    with pytest.raises(RuntimeError, match="rate limit"):
+        backfill_mod.session_ld_numbers("hf://x", 126)
+
+    assert calls["n"] == backfill_mod.ENUMERATION_ATTEMPTS
+    assert backfill_mod.ENUMERATION_ATTEMPTS == 4
+    # The whole retry envelope has to fit inside the job timeout.
+    worst_case = (backfill_mod.ENUMERATION_ATTEMPTS - 1) * backfill_mod.RATE_LIMIT_CAP
+    assert worst_case < 120 * 60
+
+
+def test_a_rate_limit_that_names_no_interval_still_backs_off(backfill_mod):
+    """The documented third source. Mutating the fallback to 0.0 survived every
+    test — and this is not hypothetical: hf_raise_for_status can produce
+    "429 Client Error: None for url: ..." with neither a header nor the HF body
+    prose, which lands exactly here."""
+    assert backfill_mod._hf_retry_after(RuntimeError("429 Client Error: None for url: x")) >= 1.0
+    assert backfill_mod._hf_retry_after(RuntimeError("429 Client Error: None for url: x")) == 60.0
+
+
+def test_a_zero_retry_after_header_does_not_become_a_tight_loop(backfill_mod):
+    """retry_after clamps negatives to 0.0 and "Retry-After: 0" is legal, so the
+    header branch could return 0.0 — four requests in a tight loop against a
+    host that has just said 429. Backing off is the entire point."""
+    for raw in ("0", "-5", "0.0"):
+        assert backfill_mod._hf_retry_after(rate_limited({"Retry-After": raw})) >= 1.0
+
+
+def test_a_body_stated_wait_is_floored_too(backfill_mod):
+    error = RuntimeError("429 rate limit. Retry after 0 seconds")
+    assert backfill_mod._hf_retry_after(error) >= 1.0
+
+
+def test_a_request_id_containing_429_is_not_a_rate_limit(backfill_mod):
+    """HuggingFace embeds a Request ID in every error, and hex digits spell 429
+    often enough to matter. Matching it as a substring meant a plain
+    Entry-Not-Found was retried three times at 60s each before surfacing."""
+    error = RuntimeError(
+        "404 Client Error. (Request ID: Root=1-68f429ab-3c2f) Entry Not Found "
+        "for url: https://huggingface.co/api/datasets/pem207/maine-bills"
+    )
+    assert backfill_mod._hf_retry_after(error) is None
+
+
+def test_the_status_code_outranks_the_message(backfill_mod):
+    """When the response is there, the code is authoritative — the message is
+    prose and can say anything."""
+    not_limited = RuntimeError("something about a rate limit, but a 500")
+    not_limited.response = FakeResponse(status_code=500, headers={"Retry-After": "7"})
+    assert backfill_mod._hf_retry_after(not_limited) is None
+
+    limited = RuntimeError("no useful words here")
+    limited.response = FakeResponse(status_code=429, headers={"Retry-After": "7"})
+    assert backfill_mod._hf_retry_after(limited) == 7.0
+
+
+def test_an_ordinary_error_is_not_retried_however_it_is_worded(backfill_mod):
+    """The negative side had exactly one bland fixture behind it, so widening
+    the predicate went undetected."""
+    for message in (
+        "No parquet files for session 999",
+        "Connection reset by peer",
+        "500 Server Error: Internal Server Error for url: x",
+        "404 Client Error. Entry Not Found",
+        "Error: something went wrong",
+    ):
+        assert backfill_mod._hf_retry_after(RuntimeError(message)) is None, message
+
+
+def test_a_nonpositive_attempt_count_still_tries_once(backfill_mod, monkeypatch):
+    """attempts=0 skipped the loop and reported "failed after 0 attempts"
+    without ever calling the loader."""
+
+    class Fine:
+        @staticmethod
+        def load_session_bills(_src, _session):
+            import pandas as pd
+
+            return pd.DataFrame({"ld_number": ["1"]})
+
+    monkeypatch.setattr(backfill_mod, "_load_report_module", lambda: Fine)
+    assert backfill_mod.session_ld_numbers("hf://x", 126, attempts=0) == ["0001"]
