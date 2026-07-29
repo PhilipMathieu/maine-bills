@@ -24,6 +24,14 @@ that PR's figures exactly from this column.
 reports what changed; publishing is Tier-1 and goes through the
 `huggingface-publish` gate.
 
+**Schema note.** The cleared enrichment columns are all-None lists, which
+parquet writes as `list<null>` where the published files carry `list<string>`
+(ids/parties/districts) and `list<double>` (confidence). Deliberate, not a
+defect: these files are intermediates, and re-running enrich_published.py --
+the documented, REQUIRED next step -- rewrites exactly those columns with
+their proper types. Do not diff these files against published parquet at the
+arrow-schema level before enrichment has run.
+
 Usage:
     uv run python scripts/reextract_sponsors.py \\
         --sessions 121 122 ... 132 \\
@@ -150,6 +158,17 @@ def main(argv=None) -> int:
             df = load_session(args.parquet_source, session)
         except Exception as e:
             logger.error(f"Session {session}: {type(e).__name__}: {e}")
+            # Keep what earlier sessions already established. Without this, a
+            # failure on session 2 of 3 discarded session 1's computed summary
+            # while LEAVING its parquet in --output -- partial files that could
+            # be mistaken for a run, with no record saying which sessions they
+            # cover. The summary is the record; write it before failing.
+            if summaries:
+                args.output.mkdir(parents=True, exist_ok=True)
+                (args.output / "reextract-summary.json").write_text(json.dumps(summaries, indent=2))
+                logger.error(
+                    f"Partial run: summary covers sessions {[s['session'] for s in summaries]} only"
+                )
             return 1
 
         frame, summary = reextract_session(df, session)

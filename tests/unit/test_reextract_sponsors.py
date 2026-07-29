@@ -193,3 +193,65 @@ def test_the_parquet_path_includes_the_data_segment(mod):
     real repo — this exact mistake cost a debugging round earlier tonight."""
     path = mod.PARQUET_TEMPLATE.format(source="hf://datasets/pem207/maine-bills", session=132)
     assert path == "hf://datasets/pem207/maine-bills/data/132/train-00000-of-00001.parquet"
+
+
+def test_a_same_length_swap_is_a_change_not_a_no_op(mod):
+    """Review mutation: keying rows_changed on len(published) != len(names)
+    survived the suite, because every changed-row fixture also changed the
+    count. A pure swap -- an old false positive out, a real name in, equal
+    counts -- must still be reported, or exactly the correction this script
+    exists to apply becomes invisible."""
+    _, summary = mod.reextract_session(frame([row(sponsors=("COUNTY", "BAILEY", "CURRY"))]), 132)
+    # published 3 -> extracted 3 (BRENNER, BAILEY, CURRY): counts equal.
+    assert summary["mentions_before"] == summary["mentions_after"] == 3
+    assert summary["rows_changed"] == 1
+    assert dict(summary["top_gained"]) == {"BRENNER": 1}
+    assert dict(summary["top_lost"]) == {"COUNTY": 1}
+
+
+def test_losses_produce_a_loud_warning(mod, tmp_path, monkeypatch, caplog):
+    """Hazard 3 in this file's preamble is "losing names silently" -- and
+    review found the warning itself could be deleted without a test noticing.
+    The warning IS the guard; pin it."""
+    import logging
+
+    monkeypatch.setattr(
+        mod, "load_session", lambda source, session: frame([row(sponsors=("GONE",) * 3)])
+    )
+    with caplog.at_level(logging.WARNING, logger="reextract_sponsors"):
+        mod.main(["--sessions", "132", "--output", str(tmp_path / "o"), "--report-only"])
+    assert any("losses" in r.message for r in caplog.records)
+
+
+def test_no_losses_means_no_warning(mod, tmp_path, monkeypatch, caplog):
+    import logging
+
+    monkeypatch.setattr(
+        mod,
+        "load_session",
+        lambda source, session: frame([row(sponsors=("BRENNER", "BAILEY", "CURRY"))]),
+    )
+    with caplog.at_level(logging.WARNING, logger="reextract_sponsors"):
+        mod.main(["--sessions", "132", "--output", str(tmp_path / "o"), "--report-only"])
+    assert not [r for r in caplog.records if "losses" in r.message]
+
+
+def test_a_mid_list_failure_keeps_the_completed_summaries(mod, tmp_path, monkeypatch):
+    """Session 2 of 3 failing used to discard session 1's computed summary
+    while leaving its parquet behind -- partial files with no record of which
+    sessions they covered. The summary is the record."""
+    calls = {"n": 0}
+
+    def load(source, session):
+        calls["n"] += 1
+        if session == 131:
+            raise FileNotFoundError("no parquet")
+        return frame([row()])
+
+    monkeypatch.setattr(mod, "load_session", load)
+    code = mod.main(["--sessions", "130", "131", "132", "--output", str(tmp_path / "o")])
+    assert code == 1
+    written = json.loads((tmp_path / "o" / "reextract-summary.json").read_text())
+    assert [s["session"] for s in written] == [130]
+    # ...and the run stopped at the failure rather than continuing past it.
+    assert calls["n"] == 2
