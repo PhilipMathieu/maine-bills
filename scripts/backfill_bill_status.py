@@ -132,14 +132,36 @@ def _load_report_module():
 
 
 def _hf_retry_after(error: Exception) -> float | None:
-    """Seconds HuggingFace asked us to wait, if this is a rate limit.
+    """Seconds HuggingFace asked us to wait, or None if this is not a rate limit.
 
-    The 429 body carries "Retry after N seconds"; the header is not always
-    present on the exception, so the message is the reliable source.
+    None is the signal to re-raise immediately: a missing session or a bad URL
+    must surface on the first attempt rather than being retried four times.
+
+    Three sources, in descending order of authority:
+
+    1. The ``Retry-After`` header, when the exception carries a response.
+       ``huggingface_hub`` raises ``HfHubHTTPError``, a ``requests.HTTPError``
+       subclass that keeps the response on ``.response`` -- so the header
+       usually IS available, and it is what the server actually said. Parsed by
+       the same ``retry_after`` used for the legislature site.
+    2. The 429 body, which states "Retry after N seconds". This is the fallback
+       for an error that reaches us without a response object -- a wrapped or
+       re-raised exception, or a transport that does not attach one.
+    3. A flat 60s, so a rate limit that says nothing about timing still backs
+       off rather than hammering.
+
+    Both parsed forms are capped at 300s: the anonymous window is 300s wide, so
+    nothing longer can be a genuine wait for it, and a silly value would stall
+    a job that has a timeout to respect.
     """
     text = str(error)
     if "429" not in text and "rate limit" not in text.lower():
         return None
+
+    response = getattr(error, "response", None)
+    if getattr(response, "headers", None) and response.headers.get("Retry-After"):
+        return retry_after(response, default=60.0)
+
     match = re.search(r"Retry after (\d+) second", text)
     return min(float(match.group(1)), 300.0) if match else 60.0
 
@@ -147,7 +169,10 @@ def _hf_retry_after(error: Exception) -> float | None:
 def session_ld_numbers(
     parquet_source: str, session: int, attempts: int = ENUMERATION_ATTEMPTS
 ) -> list[str]:
-    """Every distinct LD number published for a session, in order.
+    """Every distinct LD number published for a session, ascending.
+
+    Sorted here rather than left in parquet order, so a caller can rely on the
+    ordering and a resumed run walks the session the same way as the first.
 
     Retries a HuggingFace rate limit. Enumeration is one anonymous API call per
     session at job start, and with several sessions launching at once on a

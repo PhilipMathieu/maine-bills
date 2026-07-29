@@ -57,9 +57,10 @@ def status_page(session=132, ld="1", paper="SP 29", rows=(("Jan 15, 2025", "Vote
 
 
 class FakeResponse:
-    def __init__(self, status_code=200, text=""):
+    def __init__(self, status_code=200, text="", headers=None):
         self.status_code = status_code
         self.text = text
+        self.headers = headers or {}
 
 
 class FakeSession:
@@ -962,6 +963,43 @@ HF_429 = (
 def test_a_huggingface_rate_limit_is_recognised_and_its_wait_honoured(backfill_mod):
     """Verbatim body from the session-126 failure."""
     assert backfill_mod._hf_retry_after(RuntimeError(HF_429)) == 61.0
+
+
+def rate_limited(headers=None):
+    """The session-126 error as huggingface_hub raises it: an HTTPError-alike
+    carrying the response, so .headers is reachable."""
+    error = RuntimeError(HF_429)
+    error.response = FakeResponse(status_code=429, headers=headers)
+    return error
+
+
+def test_the_retry_after_header_outranks_the_body(backfill_mod):
+    """huggingface_hub raises HfHubHTTPError, a requests.HTTPError subclass that
+    keeps the response on .response — so the header the server actually sent is
+    usually available, and it outranks prose parsed out of the body."""
+    assert backfill_mod._hf_retry_after(rate_limited({"Retry-After": "7"})) == 7.0
+
+
+def test_the_body_is_used_when_the_error_carries_no_header(backfill_mod):
+    """A wrapped or re-raised exception can reach us without one."""
+    assert backfill_mod._hf_retry_after(rate_limited()) == 61.0
+
+
+def test_a_junk_retry_after_header_falls_back_rather_than_crashing(backfill_mod):
+    """The HTTP-date form is legal and unparsed; a miss must not lose the retry."""
+    header = {"Retry-After": "Wed, 21 Oct 2026 07:28:00 GMT"}
+    assert backfill_mod._hf_retry_after(rate_limited(header)) == 60.0
+
+
+def test_an_absurd_retry_after_header_is_capped(backfill_mod):
+    assert backfill_mod._hf_retry_after(rate_limited({"Retry-After": "99999"})) == 300.0
+
+
+def test_a_response_on_a_non_rate_limit_error_is_still_not_retried(backfill_mod):
+    """The header must not turn an unrelated failure into a retry."""
+    error = FileNotFoundError("No parquet files for session 999")
+    error.response = FakeResponse(status_code=429, headers={"Retry-After": "7"})
+    assert backfill_mod._hf_retry_after(error) is None
 
 
 def test_an_unrelated_error_is_not_treated_as_a_rate_limit(backfill_mod):
