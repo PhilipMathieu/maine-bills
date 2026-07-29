@@ -1094,7 +1094,14 @@ def test_the_footer_before_the_block_is_harmless_too():
 def test_the_furniture_strip_is_exact_not_a_pattern():
     """Page furniture is the one vocabulary where an over-eager pattern could
     eat bill text. A name or locality containing any of those words must
-    survive; only the exact phrase is removed."""
+    survive; only the exact phrase is removed.
+
+    Honest note on strength, from review: the all-caps fixtures below only
+    catch a CASE-INSENSITIVE widening on their own -- a case-sensitive
+    single-word widening slips past them and is killed instead by the
+    mid-roster test's leftover " on ". The mixed-case cell pins the
+    case-sensitive direction directly.
+    """
     text = (
         "Cosponsored by Senators: PAPER of Augusta, PRINTED of Bangor, "
         "CURRY of Waldo.\nBe it enacted:\n"
@@ -1105,3 +1112,22 @@ def test_the_furniture_strip_is_exact_not_a_pattern():
     result = names(text)
     assert "CURRY" in result
     assert result == ["PAPER", "PRINTED", "CURRY"]
+
+
+def test_the_furniture_list_is_exactly_one_phrase():
+    """Pins the SCOPE of _PAGE_FURNITURE, not just its mechanism. Review grew
+    the pattern with "STATE OF MAINE" and every test stayed green -- the exact
+    over-eager growth the pattern's own comment warns against, unpinned. A
+    roster whose locality contains that header text must survive, and the
+    pattern must match nothing but the one footer."""
+    import re as _re
+
+    from maine_bills.text_extractor import _PAGE_FURNITURE
+
+    # The pattern is the one literal, case-sensitive.
+    assert _PAGE_FURNITURE.pattern == r"\bPrinted on recycled paper\b"
+    assert not _PAGE_FURNITURE.flags & _re.IGNORECASE
+
+    # And behaviourally: common page-header vocabulary is NOT furniture here.
+    for phrase in ("STATE OF MAINE", "Page 3", "printed on recycled paper"):
+        assert _PAGE_FURNITURE.search(phrase) is None, phrase
