@@ -22,6 +22,27 @@ _CHAMBER_BY_TITLE = {
 # has 99 cosponsors and its block alone exceeds 3,000 characters.
 _SPONSOR_WINDOW = 8000
 
+# Page furniture that the PDF text layer interleaves MID-ROSTER when a long
+# cosponsor list crosses a page break. It lands between two cells:
+#
+#     ... BURSTEIN of Lincolnville,
+#     Printed on recycled paper
+#     CAMPBELL of Newfield, ...
+#
+# and after whitespace normalization the next cell reads "Printed on recycled
+# paper CAMPBELL of Newfield" -- not a well-formed entry, so the roster run
+# terminates there and every cosponsor behind it is lost. Session 127 LD 1673
+# loses 53 of its 79 sponsors to this one line; the phrase sits inside the
+# cosponsor block of 22 bills across sessions 125-128 (clean digital PDFs --
+# this is not OCR damage, see issue #31 for that).
+#
+# Removed BEFORE the block is parsed rather than tolerated by the grammar,
+# because the contiguity rule is load-bearing: teaching the sweep to skip
+# malformed cells is the old prose-harvesting sweep with extra steps. An exact
+# literal, not a pattern -- the phrase is fixed, and page furniture is the one
+# vocabulary where an over-eager pattern could eat bill text.
+_PAGE_FURNITURE = re.compile(r"\bPrinted on recycled paper\b")
+
 # Where the sponsor block ends. Worth being explicit now that the window is wide
 # -- without these the block would run to the window edge and the title-adjoining
 # patterns could pick up "Senator X of Y" out of the bill's body text.
@@ -566,6 +587,9 @@ class TextExtractor:
         normalized_text = " ".join(search_text.split())
         # Normalize stray spaces around hyphens in names (e.g., "BEEBE- CENTER" -> "BEEBE-CENTER")
         normalized_text = re.sub(r"([A-Z])\s*-\s*([A-Z])", r"\1-\2", normalized_text)
+        # Strip page furniture that a page break drops mid-roster; one such line
+        # otherwise terminates the run and costs every cosponsor behind it.
+        normalized_text = _PAGE_FURNITURE.sub(" ", normalized_text)
 
         # Title filter - exclude these common false positives
         title_words = {

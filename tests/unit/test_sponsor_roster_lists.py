@@ -1051,3 +1051,57 @@ def test_the_allow_is_an_exact_match_not_a_word_match():
     # words themselves must still be rejected as bare names.
     text = "Cosponsored by Senators: BAILEY of York, COUNTY of Cumberland.\nBe it enacted:\n"
     assert names(text) == ["BAILEY"]
+
+
+# --- page furniture interleaved mid-roster ---
+#
+# Found sizing the issue-#13 re-extraction: session 127's entire 53-name loss
+# was ONE bill (LD 1673) where a page break dropped "Printed on recycled paper"
+# between two roster cells. 22 bills across sessions 125-128 carry the phrase
+# inside their cosponsor block. Not OCR damage -- these are clean digital PDFs.
+
+
+def test_a_page_footer_mid_roster_does_not_end_the_run():
+    """The real shape from 127 LD 1673: the footer lands between two cells, so
+    the next cell reads "Printed on recycled paper CAMPBELL of Newfield" and
+    the run died there, losing everything behind it."""
+    text = (
+        "Presented by Senator ALFOND of Cumberland.\n"
+        "Cosponsored by Representatives: BATTLE of South Portland, "
+        "BURSTEIN of Lincolnville, \nPrinted on recycled paper \n"
+        "CAMPBELL of Newfield, CHENETTE of Saco, DUNPHY of Old Town.\n"
+        "Be it enacted by the People of the State of Maine as follows:\n"
+    )
+    assert names(text) == [
+        "ALFOND",
+        "BATTLE",
+        "BURSTEIN",
+        "CAMPBELL",
+        "CHENETTE",
+        "DUNPHY",
+    ]
+
+
+def test_the_footer_before_the_block_is_harmless_too():
+    text = (
+        "Printed on recycled paper\n"
+        "Presented by Senator ALFOND of Cumberland.\n"
+        "Cosponsored by Senators: BAILEY of York, CURRY of Waldo.\nBe it enacted:\n"
+    )
+    assert names(text) == ["ALFOND", "BAILEY", "CURRY"]
+
+
+def test_the_furniture_strip_is_exact_not_a_pattern():
+    """Page furniture is the one vocabulary where an over-eager pattern could
+    eat bill text. A name or locality containing any of those words must
+    survive; only the exact phrase is removed."""
+    text = (
+        "Cosponsored by Senators: PAPER of Augusta, PRINTED of Bangor, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    # PAPER and PRINTED are fabricated surnames -- the point is that single
+    # words from the phrase are not stripped, so these cells stay intact and
+    # rise or fall on the ordinary guards, not on the furniture rule.
+    result = names(text)
+    assert "CURRY" in result
+    assert result == ["PAPER", "PRINTED", "CURRY"]
