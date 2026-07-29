@@ -84,9 +84,11 @@ defect. Three consequences:
 2. The identified fix — scraping the Legislature's own member rosters (~190
    rows/session) — also supplies **town names**, which unlocks locality
    disambiguation for the 12–23% ambiguous mentions in 125–130. One scrape,
-   two problems. But the roster page URL scheme is *still not pinned down*
-   (the recon pass surfaced only generic links). This recon is the single
-   highest-leverage unstarted task in the repo.
+   two problems. The roster-page recon that was blocking this **was executed
+   2026-07-29** — sources are pinned down in Appendix A. The primary source
+   (the law library's Legislators' Biographical Database) sits on a host this
+   analysis session's proxy blocks, so the scrape itself runs through
+   `data-run` on GitHub Actions, which has open network.
 3. Two matcher gaps are queued and correctly scoped to ride the same
    enrichment re-run: #27 (disambiguating initials, `SANBORN, H.` — 164
    structurally resolvable mentions in session 129 alone) and #28 (denylist
@@ -233,8 +235,13 @@ actions config live; repo carries only active branches.
 
 The v3 quality release. Order matters and is dictated by #31's inversion.
 
-1. **Roster recon** (small, unblocks the most): pin down the Legislature's
-   member-roster URL scheme for sessions 121–132 via a `data-run` dispatch.
+1. **Roster recon — done 2026-07-29** (Appendix A). Primary source: the law
+   library's Legislators' Biographical Database
+   (`history.mainelegislature.org/Presto/...`); fallbacks: Wikipedia's
+   per-session Maine Senate rosters and the Legislative Record front matter
+   on `lldc.mainelegislature.org`. First task is a `data-run` probe of the
+   Presto database's search/export surface, since it was unreachable from
+   the analysis session's proxy.
 2. **`legislature_roster` historical provider:** scrape ~190 rows/session —
    name, chamber, district, **town**, party. Town is the disambiguation key
    OpenStates lacks. (Module scaffolding already exists.)
@@ -319,11 +326,24 @@ limitations without opening a GitHub issue.
    - **Cosponsorship networks:** party/chamber structure over 24 years —
      made honest for the first time by Phase 1's consistency work.
    - **Topic drift:** committee referral patterns over 12 sessions.
-2. **Related-work positioning:** state-level full-text corpora are rare;
-   position against OpenStates (metadata, no full text), LegiScan (API,
-   licensing limits), and congressional corpora (federal, different genre).
-   The 24-year × full-text × docket-actions × sponsor-resolution combination
-   is the contribution.
+2. **Related-work positioning** (grounded in a 2026-07-29 literature pass;
+   see Appendix B): position against OpenStates (metadata, no full text),
+   LegiScan (API, licensing limits), and congressional corpora (federal,
+   different genre). The published literature makes the case directly:
+   researchers studying state legislation repeatedly **hand-assemble** bill
+   histories and cosponsorship records at high cost — Thieme (2020) manually
+   collected bill histories and cosponsorship for three states over 2003–2016;
+   Parinandi et al. (2020) note "no database exists" for failed bills and
+   gathered cosponsorship from state archives by hand; Rosa (2024) hand-coded
+   273 state bills spanning 2003–2023, exactly this dataset's era. Huang et
+   al. (2013) document how shallow and inconsistent state legislative archives
+   are, and Cayton (2020) calls measuring the policy content of bills "one of
+   the major unsolved problems in legislative studies." Text-as-data work at
+   state scale exists (Linder et al. 2018's 500k-bill text-reuse corpus) but
+   as derived similarity scores, not a maintained full-text resource with
+   resolved sponsors and outcomes. The 24-year × full-text × docket-actions ×
+   sponsor-resolution combination for one state, with quantified extraction
+   quality, is the contribution.
 3. **Venue:** *Scientific Data* or NeurIPS Datasets & Benchmarks for the
    dataset-paper form; *State Politics & Policy Quarterly* if led by an
    application. The methodology story (measured extraction changes,
@@ -349,7 +369,7 @@ limitations without opening a GitHub issue.
 | Risk | Mitigation |
 |---|---|
 | Actions artifact expires before Tier-1 window | Phase 0 item 2 this week; else re-run backfill (known-good, ~0 failures) |
-| Roster page scheme unscrapeable for 2003-era sessions | Fallback documented on card: enrichment is a 125+ feature; 121–124 ship text-only with measured extraction quality |
+| Presto biographical database resists scraping (JS-heavy Inmagic UI) | Two fallbacks pinned in Appendix A: Wikipedia per-session Senate rosters + Legislative Record front-matter PDFs; last resort documented on card: enrichment is a 125+ feature |
 | OCR pre-pass reopens the prose-harvest hole | Contiguity rule stays; #24's measure-and-inspect standard is the merge bar; permissive-direction mutation tests required (#21 P2) |
 | Gold-labeling stalls in the 30-min/day budget | Sample sized to ~1 week of windows; targeted stratum first so the highest-information labels land early |
 | Card/license rewrite drifts from template | Card is generated from `publish.py` — all Phase 3 changes go through the template + tests, never hand-edits on the Hub |
@@ -366,3 +386,98 @@ Phase 4  paper + baselines         ── 2–4 wks, elastic
 
 Total: a citable, DOI-bearing v3 in roughly a month of the current working
 model; a submitted data paper in roughly two.
+
+---
+
+## Appendix A — Roster recon findings (2026-07-29)
+
+Executed live from the analysis session. First, a correction to the
+environment notes in `2026-07-26-sprint-status.md`: analysis sessions are no
+longer GitHub-only. Reachable through this session's proxy:
+`legislature.maine.gov`, `lldc.mainelegislature.org`, plus scholarly search
+(Scholar Gateway, alphaXiv). Still blocked (HTTP 403 at the proxy):
+`www.maine.gov`, `history.mainelegislature.org`, `en.wikipedia.org`,
+`web.archive.org`. GitHub Actions runners (`data-run`) have open network and
+remain the execution plane for anything the proxy blocks.
+
+**Sources for historical rosters (name, chamber, district, town, party),
+sessions 121–124, in preference order:**
+
+1. **Legislators' Biographical Database** —
+   `https://history.mainelegislature.org/Presto/home/home.aspx?ssid=Consolidated_Home_Page`,
+   linked as the canonical member database from the law library's Historical
+   Lists page (`legislature.maine.gov/lawlibrary/historical-lists/9140`).
+   Covers 1820–present. An Inmagic Presto instance — search/export surface
+   unprobed (host proxy-blocked from analysis sessions); first Phase-1 task
+   is a `data-run` probe.
+2. **Wikipedia per-session rosters** — structured articles exist per Senate
+   (`121st Maine Senate`, …) with member/party/district tables; House
+   equivalents are thinner. Useful as an independent cross-check even if not
+   the primary source; note CC-BY-SA attribution if data is ingested.
+3. **Legislative Record front matter** — per-session index pages at
+   `legislature.maine.gov/legis/lawlib/lldl/legisrecord{snum}.htm` link the
+   full digitized record (all PDFs on `lldc.mainelegislature.org/Open/`),
+   whose front matter and appendices carry member lists. OCR-era scans for
+   old sessions — same damage classes as #31, so this is the fallback, not
+   the plan.
+
+**Dead ends, so nobody re-walks them:** the House site's own historical
+dropdown (`/house/Documents/History`) reaches back only to the 131st; the
+lawlib `sessions.htm` page maps session numbers to years but links no
+per-session member lists; `www.maine.gov/legis/lio` cloture archives are
+proxy-blocked from analysis sessions (reachable from Actions).
+
+**Bonus finding for the automation track:** the House site exposes a
+machine-readable **current-session roster export** at
+`/house/Home/ExportActiveMembers` (CSV/Excel), plus town-keyed listings
+(`MemberProfiles/ListAlphaTown`, `ListDistrictTowns`) — the natural roster
+source for the weekly re-scrape of the active session, no PDF parsing
+involved.
+
+## Appendix B — Literature grounding for the data paper
+
+From a Scholar Gateway pass (15 passages, 10 articles, 2013–2024) on state
+legislative text datasets. What it establishes:
+
+**The gap is real and repeatedly paid for by hand.** Thieme (2020, *Leg.
+Studies Q.*, [10.1111/lsq.12315](https://doi.org/10.1111/lsq.12315))
+assembled roll-call, bill-history, and cosponsorship data for three states
+2003–2016 manually to study gatekeeping. Parinandi, Langehennig & Trautmann
+(2020, *Policy Studies J.*,
+[10.1111/psj.12414](https://doi.org/10.1111/psj.12414)) state outright that
+"no database exists identifying the names of unsuccessful … bills; we gather
+cosponsorship and … floor voting records … manually using state legislative
+websites." Rosa (2024, *Science Education*,
+[10.1002/sce.21907](https://doi.org/10.1002/sce.21907)) hand-identified and
+coded 273 state bills over 2003–2023 — precisely this dataset's window.
+Huang, Leal, Lee & Strube (2013, *Policy & Internet*,
+[10.1002/poi3.11](https://doi.org/10.1002/poi3.11)) document the wide
+variation and shallow archives of state legislative websites that force this
+manual work.
+
+**The methods literature is ready to consume it.** Linder, Desmarais,
+Burgess & Giraudy (2018, *Policy Studies J.*,
+[10.1111/psj.12257](https://doi.org/10.1111/psj.12257)) validate text-reuse
+similarity over ~500k state bills (a derived-scores corpus, not a maintained
+full-text one); Kroeger, Karch & Callaghan (2022, *Leg. Studies Q.*,
+[10.1111/lsq.12373](https://doi.org/10.1111/lsq.12373)) apply text analysis
+to model-bill diffusion; Chen et al. (2022, *Policy Studies J.*,
+[10.1111/psj.12457](https://doi.org/10.1111/psj.12457)) run institutional-
+grammar and NER pipelines over state bill text; Cheng et al. (2016, *Stat.
+Analysis & Data Mining*,
+[10.1002/sam.11309](https://doi.org/10.1002/sam.11309)) predict legislative
+votes from bill text plus legislator profiles — the exact join this
+dataset's sponsors/actions/votes configs enable. Cayton (2020, *Leg. Studies
+Q.*, [10.1111/lsq.12299](https://doi.org/10.1111/lsq.12299)) frames
+measuring policy content of bills as "one of the major unsolved problems in
+legislative studies"; cosponsorship-network methodology is active in
+statistics as well (Signorelli & Wit 2017, *JRSS-C*,
+[10.1111/rssc.12234](https://doi.org/10.1111/rssc.12234)).
+
+**Framing for the paper:** the dataset converts a recurring per-project
+manual cost, documented across this literature, into a maintained, versioned,
+quality-quantified resource for one state over 24 years — and the pipeline
+is a template for the other 49. The venue shortlist in Phase 4 stands;
+*Policy Studies Journal* and *Legislative Studies Quarterly* are where the
+consuming audience publishes, which argues for *Scientific Data* (dataset
+descriptor) plus an application-led companion aimed at one of those two.
