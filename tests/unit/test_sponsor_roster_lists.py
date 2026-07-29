@@ -738,9 +738,15 @@ def test_the_particle_rule_is_the_one_this_file_already_argues_for_localities():
 
 
 def test_the_particle_arm_does_not_swallow_the_locality_separator():
-    """A general "capital word, lowercase word, capital word" name could in
-    principle consume the " of " that bounds the locality. It cannot, because
-    the locality needs an " of " of its own."""
+    """ "of" is excluded from the particle set, and that exclusion is what
+    protects the separator.
+
+    This test was written with the opposite rationale — that a name could not
+    eat the " of " because the locality needs one of its own — and it failed:
+    "BAILEY of York of Cumberland" parsed as the name "BAILEY of York". The
+    original docstring is kept out of the codebase deliberately; it was wrong,
+    and it is the kind of wrong a future reader would have trusted.
+    """
     text = "Cosponsored by Senators: BAILEY of York of Cumberland.\nBe it enacted:\n"
     assert names(text) == ["BAILEY"]
 
@@ -783,3 +789,161 @@ def test_a_trailing_initial_still_requires_its_locality():
     shape — a cell that stops at the initial is still not an entry."""
     text = "Cosponsored by Senators: BAILEY of York, SANBORN, H.\nBe it enacted:\n"
     assert names(text) == ["BAILEY"]
+
+
+# --- review round 2 on #20: the widened patterns needed tests that fail when
+# they get LOOSER, not only when they are deleted.
+#
+# The first round shipped five mutation tests and every one of them was a
+# deletion. An independent review ran eighteen PERMISSIVE mutations against the
+# same suite and seventeen survived. For a construct whose entire recorded
+# history is over-capture regressions, that is the wrong half of the space to
+# have covered. Everything below pins an upper bound.
+
+
+def test_a_conjunction_is_not_a_name_particle():
+    """The first attempt used a shape rule, "two or three lowercase letters",
+    on the theory that an allowlist only covers surnames already seen. But
+    [a-z]{2,3} is a superset of the English connectives, so the rule had no
+    discriminating power: every one of these became a sponsor, including the
+    "MDOT ... of Augusta" that the locality boundary exists to reject."""
+    for cell in (
+        "MDOT and DHHS of Augusta.",
+        "WAYS and MEANS of Funding.",
+        "TAX on SALE of Goods.",
+        "ONE per CENT of Revenue.",
+        "PART or SECTION of Title 5.",
+        "FUNDS to TOWNS of Maine.",
+        "REPORT by BOARD of Portland.",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}\n"
+        assert names(text) == ["BAILEY"], cell
+
+
+def test_only_the_listed_particles_are_accepted():
+    """Surnames are an open class; naming particles are a closed one. That
+    asymmetry is the whole justification for the allowlist.
+
+    Honest note on strength: "the" here is NOT isolating the allowlist. Adding
+    "the" to _ROSTER_PARTICLES leaves this test green, because "The" is already
+    on the title_words denylist and is_valid_name rejects the name on the second
+    guard. That is defence in depth working, not a gap — but the mutation
+    survives, so this assertion cannot be claimed as evidence for the allowlist.
+    "xyz", "for" and "not" are the ones carrying that weight.
+    """
+    for particle in ("du", "de", "van", "von", "la", "le", "di", "da"):
+        text = f"Cosponsored by Senators: CORNELL {particle} HOUX of Brunswick.\n"
+        assert names(text) == [f"CORNELL {particle} HOUX"], particle
+    for junk in ("xyz", "and", "the", "for", "not", "per"):
+        text = f"Cosponsored by Senators: CORNELL {junk} HOUX of Brunswick.\n"
+        assert names(text) == [], junk
+
+
+def test_a_particle_cannot_open_or_close_a_name():
+    """It joins two capitalised words; on its own at either end it is prose."""
+    for cell in ("du HOUX of Brunswick.", "CORNELL du of Brunswick."):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}\n"
+        assert names(text) == ["BAILEY"], cell
+
+
+def test_the_denylist_still_applies_when_a_word_carries_punctuation():
+    """is_valid_name splits on whitespace, so a denylisted word with a comma
+    attached is a different string. Once the roster path started keeping the
+    trailing disambiguator, "PART, A." split to {"part,", "a."} and walked
+    straight through the filter — handing back the clause class the locality
+    boundary was built to reject."""
+    for cell in (
+        "PART, A. of Chapter 12.",
+        "CITY, A. of Portland.",
+        "TITLE, A. of Maine.",
+        "SECTION, B. of Title 5.",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}\n"
+        assert names(text) == ["BAILEY"], cell
+
+
+def test_the_entry_pattern_accepts_exactly_one_capital_initial():
+    """Asserted on _ROSTER_ENTRY directly, because the behavioural test below
+    cannot isolate it.
+
+    Review found that loosening this group in the pattern — two initials, no
+    period, a lowercase initial — changed no test result. The reason is that
+    _ROSTER_CELL_SPLIT rejects those shapes first, so the cell never reaches the
+    entry pattern intact and the behavioural assertion passes for a reason that
+    has nothing to do with what it claims to check. Two guards in series, and
+    only the outer one was pinned.
+    """
+    from maine_bills.text_extractor import _ROSTER_ENTRY
+
+    ok = _ROSTER_ENTRY.match("SANBORN, H. of Cumberland")
+    assert ok is not None and ok.group("name") == "SANBORN, H."
+
+    for cell in (
+        "SANBORN, H. J. of Cumberland",  # two initials
+        "SANBORN, h. of Cumberland",  # lowercase
+        "SANBORN, HH. of Cumberland",  # not an initial
+        "SANBORN, H of Cumberland",  # no period
+    ):
+        match = _ROSTER_ENTRY.match(cell)
+        assert match is None or match.group("name") == "SANBORN", cell
+
+    # No comma: the initial is not part of the name, so the cell is not an entry.
+    assert _ROSTER_ENTRY.match("SANBORN H. of Cumberland") is None
+
+
+def test_the_disambiguator_is_exactly_one_capital_letter_and_a_period():
+    """The end-to-end half. Kept alongside the pattern-level test above rather
+    than replaced by it: this is the behaviour that actually ships."""
+    for cell in (
+        "SANBORN, H. J. of Cumberland.",  # two initials
+        "SANBORN, h. of Cumberland.",  # lowercase
+        "SANBORN, H of Cumberland.",  # no period
+        "SANBORN H. of Cumberland.",  # no comma
+        "SANBORN, HH. of Cumberland.",  # not an initial
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {cell}\n"
+        assert "SANBORN" not in " ".join(names(text)), cell
+
+
+def test_a_name_is_at_most_two_capitalised_words():
+    """Three capitalised words in a row is a phrase, not a surname."""
+    text = "Cosponsored by Senators: BAILEY of York, ONE TWO THREE of Augusta.\n"
+    assert names(text) == ["BAILEY"]
+
+
+def test_the_cell_splitter_protects_only_the_disambiguating_comma():
+    """Asserted on the splitter itself. Going through _extract_sponsors cannot
+    isolate this: a cell the lookahead wrongly protected would also have to be a
+    well-formed entry to change the output, and the shapes that would prove the
+    point ("C. LEWIS of Auburn") fail the entry pattern for an unrelated
+    reason — which is exactly what the first version of this test measured."""
+    from maine_bills.text_extractor import _ROSTER_CELL_SPLIT as split
+
+    # Protected: the comma is inside the name.
+    assert split.split("SANBORN, H. of Cumberland") == ["SANBORN, H. of Cumberland"]
+
+    # Not protected: no " of " after the initial, so it is an ordinary boundary.
+    assert split.split("SANBORN, H. Cumberland") == ["SANBORN", " H. Cumberland"]
+    # Not an initial at all.
+    assert split.split("BAILEY of York, HH. of Cumberland") == [
+        "BAILEY of York",
+        " HH. of Cumberland",
+    ]
+    # An ordinary roster is untouched.
+    assert split.split("BAILEY of York, CURRY of Waldo") == ["BAILEY of York", " CURRY of Waldo"]
+
+
+def test_the_arity_cap_matches_what_the_pattern_can_emit():
+    """The cap and the pattern drifted apart once already: the comment claimed
+    three tokens while the regex could emit four ("CORNELL du HOUX, J."), so
+    that name matched and was then silently discarded by the cap. Derived from
+    the pattern here rather than asserted in a comment."""
+    from maine_bills.text_extractor import _ROSTER_ENTRY, _ROSTER_MAX_NAME_WORDS
+
+    longest = _ROSTER_ENTRY.match("CORNELL du HOUX, J. of Brunswick")
+    assert longest is not None, "the maximal shape must still be a well-formed entry"
+    assert len(longest.group("name").split()) == _ROSTER_MAX_NAME_WORDS
+
+    # ...and it must survive the whole pipeline, not just the pattern.
+    text = "Cosponsored by Senators: CORNELL du HOUX, J. of Brunswick.\n"
+    assert names(text) == ["CORNELL du HOUX, J."]

@@ -111,31 +111,69 @@ _ROSTER_SURNAME = re.compile(r"[A-Z]{2}")
 #     CORNELL du HOUX            Representatives: CORNELL du HOUX of Brunswick
 #     SANBORN, H.                Senators: SANBORN, H. of Cumberland
 #
-# The particle arm is a shape rule -- two or three lowercase letters flanked on
-# both sides by capitalised words -- rather than a list of known particles,
-# because a list only ever covers the surnames already seen. Requiring every
-# word of a surname to be capitalised was the same mistake this file already
-# argues against for LOCALITIES, where "Isle au Haut" has a lowercase particle
-# -- and then made for names.
+# Requiring every word of a surname to be capitalised was the same mistake this
+# file already argues against for LOCALITIES, where "Isle au Haut" has a
+# lowercase particle -- and then made for names.
 #
-# "of" is excluded, and that exclusion is load-bearing. It is the one lowercase
-# token in this grammar with structural meaning, and without the lookahead the
-# name arm eats the separator whenever a second one follows:
+# The particle is an ALLOWLIST, and the first attempt at this got it wrong. It
+# used a shape rule -- "two or three lowercase letters" -- reasoning that a list
+# only ever covers the surnames already seen. That reasoning does not survive
+# contact with the vocabulary: [a-z]{2,3} is a superset of the English
+# connectives, so the rule had no discriminating power at all. Review ran these
+# through the extractor and every one became a sponsor:
+#
+#     MDOT and DHHS of Augusta      ->  "MDOT and DHHS"
+#     WAYS and MEANS of Funding     ->  "WAYS and MEANS"
+#     TAX on SALE of Goods          ->  "TAX on SALE"
+#     ONE per CENT of Revenue       ->  "ONE per CENT"
+#
+# "MDOT ... of Augusta" is the exact string the locality boundary above exists
+# to reject; a conjunction handed it straight back.
+#
+# The asymmetry that makes a list right here: surnames are open, but naming
+# PARTICLES are a closed class -- a few dozen across the European traditions,
+# and unchanged for centuries. A new legislator with a particle surname will use
+# one of these; a new legislator will not invent a particle.
+#
+# "of" is absent for a second, structural reason. It is the one lowercase token
+# in this grammar that means something, and when it was admitted the name arm
+# ate the separator whenever a second one followed:
 #
 #     BAILEY of York of Cumberland   ->  name "BAILEY of York", locality "Cumberland"
 #
-# Caught by test_the_particle_arm_does_not_swallow_the_locality_separator, which
-# was written to assert this could not happen and found that it did.
+# Caught by a test written to assert this could not happen, which found that it did.
 #
 # The trailing ", H." is how Maine distinguishes two sitting members who share a
 # surname. It is part of the name, not a cell boundary, so the cell splitter
 # has to keep it attached -- see _ROSTER_CELL_SPLIT.
 _ROSTER_WORD = r"[A-Z][A-Za-z'\-]*"
-_ROSTER_PARTICLE = r"(?!of\b)[a-z]{2,3}"
+_ROSTER_PARTICLES = (
+    "du",
+    "de",
+    "del",
+    "della",
+    "den",
+    "der",
+    "di",
+    "da",
+    "das",
+    "dos",
+    "la",
+    "le",
+    "van",
+    "von",
+    "ten",
+    "ter",
+    "af",
+    "av",
+    "bin",
+    "al",
+)
+_ROSTER_PARTICLE = "|".join(sorted(_ROSTER_PARTICLES, key=len, reverse=True))
 
 _ROSTER_ENTRY = re.compile(
     r"^(?:(?P<title>Senator|Representative|President|Speaker)\s+)?"
-    rf"(?P<name>{_ROSTER_WORD}(?:\s+(?:{_ROSTER_PARTICLE}\s+)?{_ROSTER_WORD})?"
+    rf"(?P<name>{_ROSTER_WORD}(?:\s+(?:(?:{_ROSTER_PARTICLE})\s+)?{_ROSTER_WORD})?"
     r"(?:,\s*[A-Z]\.)?)"
     r"\s+of\s+(?:"
     r"the\s+(?:(?:St|Mt|Ft)\.\s+)?[A-Z][\w'\-]*(?:\s+[\w'\-]+){0,5}"
@@ -143,10 +181,20 @@ _ROSTER_ENTRY = re.compile(
     r")\s*(?:\.|$)"
 )
 
-# The longest name _ROSTER_ENTRY can produce is "CORNELL du HOUX" -- three
-# whitespace-separated tokens. is_valid_name's default ceiling of two is right
-# for the title-adjoining patterns, which have no particle arm.
-_ROSTER_MAX_NAME_WORDS = 3
+# The longest name _ROSTER_ENTRY can produce is "CORNELL du HOUX, J." -- four
+# whitespace-separated tokens: two capitalised words, a particle, and a trailing
+# disambiguating initial. is_valid_name's default ceiling of two is right for
+# the title-adjoining patterns, which have neither a particle arm nor an initial.
+#
+# This said three, and was wrong rather than merely stale: the regex could
+# already produce four, so a particle surname carrying an initial was matched by
+# the pattern and then thrown away by the cap. Silently, and without ending the
+# run -- a name rejected on a clean cell is skipped, not cascaded -- so it would
+# have cost exactly one sponsor with nothing to show for it.
+#
+# Coupled to the pattern by test_the_arity_cap_matches_what_the_pattern_can_emit
+# rather than by this comment, which is what let the two drift apart.
+_ROSTER_MAX_NAME_WORDS = 4
 
 # Cells are comma-delimited, EXCEPT for the comma inside "SANBORN, H.".
 #
@@ -610,7 +658,14 @@ class TextExtractor:
             # SENATE, LEGISLATURE, UNIVERSITY and NATION were all reachable as
             # "sponsors" while the list that names them looked like it was doing
             # the work.
-            name_words = {word.casefold() for word in name.split()}
+            #
+            # Punctuation is stripped before the comparison, because a
+            # denylisted word carrying any is a DIFFERENT string and slips
+            # through: once the roster path started keeping the trailing
+            # disambiguator, "PART, A. of Chapter 12" split to {"part,", "a."}
+            # and "part," is not "part". That handed back the exact clause class
+            # the locality boundary above was built to reject.
+            name_words = {word.casefold().strip(".,'-") for word in name.split()}
             return not name_words.intersection(_TITLE_WORDS_FOLDED)
 
         # Pattern 1: "Presented by Senator/Representative/President/Speaker NAME [of DISTRICT]"
