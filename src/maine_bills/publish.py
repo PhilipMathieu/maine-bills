@@ -3,8 +3,13 @@ from pathlib import Path
 
 import pandas as pd
 from huggingface_hub import HfApi
+from huggingface_hub.utils import EntryNotFoundError, RepositoryNotFoundError
 
 logger = logging.getLogger(__name__)
+
+# The only failures that mean "this directory is not there yet". Anything else —
+# auth, 5xx, DNS — must surface rather than be read as an empty repo.
+_NOT_FOUND = (EntryNotFoundError, RepositoryNotFoundError, FileNotFoundError)
 
 # Where each config lives in the repo.
 #
@@ -269,7 +274,12 @@ def _session_dirs(api: HfApi, repo_id: str, root: str) -> list[int]:
     """
     try:
         items = api.list_repo_tree(repo_id, repo_type="dataset", path_in_repo=root)
-    except Exception as e:  # EntryNotFoundError and its transport-specific kin
+    except _NOT_FOUND as e:
+        # ONLY not-found. Catching Exception here swallowed auth failures, 5xx
+        # and network errors as "directory missing", so a transient outage would
+        # publish a card with the actions configs quietly absent — and the job
+        # would still go green. A card that is wrong is worse than a job that
+        # fails, because nothing downstream re-checks it.
         logger.info(f"No {root}/ directory in {repo_id} ({type(e).__name__}); skipping its configs")
         return []
     return sorted(int(i.path.split("/")[-1]) for i in items if i.path.split("/")[-1].isdigit())

@@ -300,3 +300,27 @@ def test_the_card_is_still_correct_before_actions_is_ever_published(mocker):
     # The repo-wide `actions` config stays declared; it globs an empty
     # directory harmlessly and means publishing later needs no card change.
     assert 'config_name: "actions"' in front_matter
+
+
+def test_a_real_hub_failure_is_not_read_as_a_missing_directory(mocker):
+    """Catching Exception here swallowed auth failures, 5xx and network errors
+    as "directory missing", so a transient outage would publish a card with the
+    actions configs quietly absent — and the job would still go green. A wrong
+    card is worse than a failed job, because nothing downstream re-checks it."""
+    import pytest
+
+    from maine_bills.publish import sync_dataset_card
+
+    api = MagicMock()
+
+    def tree_or_fail(repo_id, repo_type, path_in_repo):
+        if path_in_repo == "actions":
+            raise ConnectionError("503 from the hub")
+        return tree(["data/132"])
+
+    api.list_repo_tree.side_effect = tree_or_fail
+    mocker.patch("maine_bills.publish.HfApi", return_value=api)
+
+    with pytest.raises(ConnectionError):
+        sync_dataset_card("pem207/maine-bills")
+    api.upload_file.assert_not_called()
