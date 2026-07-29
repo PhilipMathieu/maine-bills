@@ -666,3 +666,120 @@ def test_an_individual_title_inside_a_roster_keeps_its_own_chamber():
     assert by_name["BAILEY"] == "Senate"
     assert by_name["FECTEAU"] == "House"
     assert by_name["CURRY"] == "Senate"
+
+
+# --- issue #20: two real surname forms the sweep dropped ---
+#
+# Both were found by an independent review of #16 that ran the extractor over
+# 296 real bills via getPDF.asp, and both were deferred from that PR because
+# neither fix is a one-liner. Both cascade: the failing cell ends the run, so
+# every cosponsor behind it is lost too, which is the actual cost.
+
+
+def test_a_same_surname_disambiguator_is_part_of_the_name_not_a_cell_boundary():
+    """Session 129 HP0006, real text. Maine distinguishes two sitting members
+    who share a surname with a trailing initial. Splitting on every comma made
+    the first cell just "SANBORN" — no locality, so not an entry at all — which
+    ended the run and took VITELLI with it."""
+    text = (
+        "Cosponsored by Senators: SANBORN, H. of Cumberland, VITELLI of Sagadahoc.\n"
+        "Be it enacted:\n"
+    )
+    assert names(text) == ["SANBORN, H.", "VITELLI"]
+
+
+def test_the_disambiguator_is_kept_because_it_is_what_identifies_the_member():
+    """Dropping it back to "SANBORN" would merge two different legislators, and
+    the extracted string is supposed to be what the document says."""
+    text = "Cosponsored by Senators: SANBORN, H. of Cumberland.\nBe it enacted:\n"
+    assert names(text) == ["SANBORN, H."]
+
+
+def test_both_members_of_a_shared_surname_survive_as_separate_sponsors():
+    text = (
+        "Cosponsored by Senators: SANBORN, H. of Cumberland, "
+        "SANBORN, L. of Cumberland, VITELLI of Sagadahoc.\nBe it enacted:\n"
+    )
+    assert names(text) == ["SANBORN, H.", "SANBORN, L.", "VITELLI"]
+
+
+def test_a_surname_with_a_lowercase_particle_is_a_name():
+    """Session 125 HP0018, real text. The name group required every word
+    capitalised and allowed at most two, so "CORNELL du HOUX" failed — and it
+    is the FIRST cell, so all seven cosponsors were lost."""
+    text = (
+        "Cosponsored by Representatives: CORNELL du HOUX of Brunswick, "
+        "BEAULIEU of Auburn, BOLAND of Sanford, CAIN of Orono, CHASE of China, "
+        "DILL of Old Town, HUNT of Buxton.\nBe it enacted:\n"
+    )
+    assert names(text) == [
+        "CORNELL du HOUX",
+        "BEAULIEU",
+        "BOLAND",
+        "CAIN",
+        "CHASE",
+        "DILL",
+        "HUNT",
+    ]
+
+
+def test_the_particle_rule_is_the_one_this_file_already_argues_for_localities():
+    """text_extractor.py argues explicitly that localities must not require
+    every word capitalised, because "Isle au Haut" has a lowercase particle —
+    and then applied exactly that rule to surnames."""
+    text = (
+        "Cosponsored by Representatives: CORNELL du HOUX of Isle au Haut, "
+        "CAIN of Orono.\nBe it enacted:\n"
+    )
+    assert names(text) == ["CORNELL du HOUX", "CAIN"]
+
+
+# --- the widened patterns must not widen what they accept as a sponsor ---
+
+
+def test_the_particle_arm_does_not_swallow_the_locality_separator():
+    """A general "capital word, lowercase word, capital word" name could in
+    principle consume the " of " that bounds the locality. It cannot, because
+    the locality needs an " of " of its own."""
+    text = "Cosponsored by Senators: BAILEY of York of Cumberland.\nBe it enacted:\n"
+    assert names(text) == ["BAILEY"]
+
+
+def test_the_particle_arm_does_not_re_open_the_clause_class():
+    """The cases the locality boundary was added to reject must stay rejected
+    now that the name may carry a lowercase middle word."""
+    for clause in (
+        "MDOT of Augusta shall study the matter.",
+        "PART A of Chapter 12 takes effect on July 1.",
+        "MRSA of Title 5 is amended to read as follows.",
+    ):
+        text = f"Cosponsored by Senators: BAILEY of York, {clause}\n"
+        assert names(text) == ["BAILEY"], clause
+
+
+def test_a_denylisted_noun_is_still_dropped_when_it_carries_a_particle():
+    """Widening the arity ceiling to 3 must not let a denylisted word through
+    on a longer name."""
+    text = (
+        "Cosponsored by Senators: BAILEY of York, BOARD of the City of Portland, "
+        "CURRY of Waldo.\nBe it enacted:\n"
+    )
+    assert "BOARD" not in " ".join(names(text))
+    assert names(text) == ["BAILEY", "CURRY"]
+
+
+def test_the_disambiguator_lookahead_does_not_glue_ordinary_cells_together():
+    """Only "<single capital>. of " is an internal comma. Everything else after
+    a comma opens a new cell, including a name that merely starts with one."""
+    text = (
+        "Cosponsored by Senators: BAILEY of York, CURRY of Waldo, "
+        "GROHOSKI of Hancock.\nBe it enacted:\n"
+    )
+    assert names(text) == ["BAILEY", "CURRY", "GROHOSKI"]
+
+
+def test_a_trailing_initial_still_requires_its_locality():
+    """The disambiguator is part of the name, not a substitute for the entry
+    shape — a cell that stops at the initial is still not an entry."""
+    text = "Cosponsored by Senators: BAILEY of York, SANBORN, H.\nBe it enacted:\n"
+    assert names(text) == ["BAILEY"]
