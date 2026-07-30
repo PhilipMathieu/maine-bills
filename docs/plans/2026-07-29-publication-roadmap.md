@@ -474,10 +474,52 @@ legislative studies"; cosponsorship-network methodology is active in
 statistics as well (Signorelli & Wit 2017, *JRSS-C*,
 [10.1111/rssc.12234](https://doi.org/10.1111/rssc.12234)).
 
+**The NLP/ML side (companion scan, 2026-07-29, arXiv-focused).** The
+adjacent NLP-dataset landscape confirms the same gap from the other
+direction — state-level structured bill data is nearly absent:
+
+- **BillSum** (Kornilova & Eidelman 2019,
+  [arXiv:1910.00523](https://arxiv.org/abs/1910.00523)) is the closest
+  neighbor: 22,218 US Congress bills plus **1,237 California** bills for
+  summarization. That is the extent of state coverage in the standard
+  benchmarks — one state, one task, no sponsors or outcomes.
+- **Pile of Law** (Henderson et al. 2022,
+  [arXiv:2207.00220](https://arxiv.org/abs/2207.00220)) aggregates 256GB of
+  legal text including legislative records, but as bulk pretraining text —
+  no per-bill structure, sponsors, or docket actions. Same for legal-NLU
+  benchmarks (**LexGLUE**, Chalkidis et al. 2021,
+  [arXiv:2110.00976](https://arxiv.org/abs/2110.00976)), which contain no
+  state-legislature task at all.
+- Outcome/vote prediction from bill text is an established task hungry for
+  data: **DeepParliament** ([arXiv:2211.15424](https://arxiv.org/abs/2211.15424))
+  frames bill-status classification; Kornilova et al.'s "Party Matters"
+  ([arXiv:1805.08182](https://arxiv.org/abs/1805.08182)) predicts votes from
+  text plus sponsor party — exactly the columns this dataset publishes.
+- Recent siblings show the direction of travel: **LOCUS**, a US local-
+  ordinance corpus ([arXiv:2606.19334](https://arxiv.org/abs/2606.19334)),
+  and **CoCoHD** congressional hearings
+  ([arXiv:2410.03099](https://arxiv.org/abs/2410.03099)) — sub-federal and
+  non-bill legislative text is an active dataset-building frontier.
+
+Two methodology anchors for Phases 2–3, both standard citations reviewers
+will expect: **Datasheets for Datasets** (Gebru et al.,
+[arXiv:1803.09010](https://arxiv.org/abs/1803.09010)) plus Bender &
+Friedman's data statements for the Phase-3 card overhaul; and the
+OCR-impact literature — van Strien et al., "Assessing the Impact of OCR
+Quality on Downstream NLP Tasks," and "An Assessment of the Impact of OCR
+Noise on Language Models"
+([arXiv:2202.00470](https://arxiv.org/abs/2202.00470)) — which gives
+Phase 2's quality scoring an established measurement framing for the
+121–124 scanned-era sessions (issues #25/#31).
+
 **Framing for the paper:** the dataset converts a recurring per-project
 manual cost, documented across this literature, into a maintained, versioned,
 quality-quantified resource for one state over 24 years — and the pipeline
-is a template for the other 49. The venue shortlist in Phase 4 stands;
-*Policy Studies Journal* and *Legislative Studies Quarterly* are where the
-consuming audience publishes, which argues for *Scientific Data* (dataset
-descriptor) plus an application-led companion aimed at one of those two.
+is a template for the other 49. On the NLP side it is, to the scan's
+knowledge, the first state-legislature dataset combining full text with
+resolved sponsors and docket outcomes at multi-decade depth — BillSum's
+1,237 California summaries being the nearest prior art. The venue shortlist
+in Phase 4 stands; *Policy Studies Journal* and *Legislative Studies
+Quarterly* are where the consuming audience publishes, which argues for
+*Scientific Data* (dataset descriptor) plus an application-led companion
+aimed at one of those two, with NeurIPS D&B viable if the baselines lead.
