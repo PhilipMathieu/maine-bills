@@ -324,21 +324,21 @@ against gold like everything else (**D6**).
 
 ---
 
-## Decisions for the owner
+## Decisions (all resolved, owner review 2026-07-30)
 
 | # | Decision | Options | Recommendation |
 |---|---|---|---|
 | **D1** | **Gate Q thresholds** | **DECIDED: set after baseline measurement** — B3's table stands as a starting proposal; the owner ratifies final numbers in the B3 window once real baselines are known |
 | D2 | Actions config timing | **DECIDED: publish in M0** — different pipeline, no PDF extraction |
-| D3 | Governance enforcement: configure ruleset or rewrite doc | configure / rewrite | **Configure** (~15 min) |
-| D4 | Approve branch-deletion list (A5) | yes / edits | as listed, keeping the re-extraction branch |
+| D3 | Governance enforcement | **DECIDED: configure the branch ruleset** |
+| D4 | Branch sweep | **DECIDED: approved as listed** |
 | D5 | Gold-sample strata priorities (size now set by the calibration batch against the owner's dedicated hours — resolved question 4) | ordering of strata | **Hard strata + matching identities first**, random strata fill the remaining budget |
 | D6 | Staged 125–132 re-extraction | **DECIDED: hold for Gate Q**; A1's card disclosure covers users meanwhile |
-| D7 | If all roster sources fail for 121–124 | accept 125+ enrichment boundary / keep digging | **Accept**, documented |
-| D8 | `sponsor_localities` column in v3 or deferred | v3 / defer | **v3** — one schema review, and it's the disambiguation evidence |
+| D7 | Roster-source failure fallback | **DECIDED: accept the 125+ enrichment boundary**, documented |
+| D8 | `sponsor_localities` column | **DECIDED: ships in v3** |
 | D9 | Data license | **DECIDED: CC0-1.0** + government-edicts note; code stays MIT |
-| D10 | DOI minting | HF / Zenodo | **HF DOI** |
-| D11 | Venue | Scientific Data / NeurIPS D&B / PSJ-LSQ-led | **Scientific Data** descriptor + application companion later |
+| D10 | DOI minting | **DECIDED: HF DOI** |
+| D11 | Venue | **DECIDED: Scientific Data** descriptor + application companion later |
 
 ## Dependency graph
 
