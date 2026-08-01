@@ -178,7 +178,7 @@ labeling, then baseline measurement, then the gate.
   precision/recall (per era, Wilson CIs), text CER/WER bounds. Run it on
   current `main` **and** on the pre-#16 extractor for context. Then wire it
   into CI as a regression guard (Tier-1 `ci.yml` touch).
-- **Gate Q — proposed thresholds, for owner critique (D1):**
+- **Gate Q — starting proposal; final numbers set with the owner after baseline measurement (D1, decided 2026-07-30):**
   | Metric | Threshold to publish a session |
   |---|---|
   | Sponsor extraction precision | ≥ 0.98 per era |
@@ -328,15 +328,15 @@ against gold like everything else (**D6**).
 
 | # | Decision | Options | Recommendation |
 |---|---|---|---|
-| **D1** | **Gate Q thresholds** (B3's table) — the numbers that operationalize "maximally confident" | ratify / adjust | ratify as proposed; the 0.995 match-precision floor is the one doing the most work |
-| D2 | Does the actions config (A2) wait for Gate Q too? | publish in M0 / hold | **Publish in M0** — different pipeline, no PDF extraction; holding it gains no extraction confidence |
+| **D1** | **Gate Q thresholds** | **DECIDED: set after baseline measurement** — B3's table stands as a starting proposal; the owner ratifies final numbers in the B3 window once real baselines are known |
+| D2 | Actions config timing | **DECIDED: publish in M0** — different pipeline, no PDF extraction |
 | D3 | Governance enforcement: configure ruleset or rewrite doc | configure / rewrite | **Configure** (~15 min) |
 | D4 | Approve branch-deletion list (A5) | yes / edits | as listed, keeping the re-extraction branch |
 | D5 | Gold-sample strata priorities (size now set by the calibration batch against the owner's dedicated hours — resolved question 4) | ordering of strata | **Hard strata + matching identities first**, random strata fill the remaining budget |
-| D6 | Staged 125–132 re-extraction: still publish early (v1 plan), or hold for Gate Q with everything else? | early / hold | **Hold** — consistent with the operating principle; A1's card disclosure covers users meanwhile |
+| D6 | Staged 125–132 re-extraction | **DECIDED: hold for Gate Q**; A1's card disclosure covers users meanwhile |
 | D7 | If all roster sources fail for 121–124 | accept 125+ enrichment boundary / keep digging | **Accept**, documented |
 | D8 | `sponsor_localities` column in v3 or deferred | v3 / defer | **v3** — one schema review, and it's the disambiguation evidence |
-| D9 | Data license | CC0-1.0 / PDDL / other | **CC0-1.0** + government-edicts note; code stays MIT |
+| D9 | Data license | **DECIDED: CC0-1.0** + government-edicts note; code stays MIT |
 | D10 | DOI minting | HF / Zenodo | **HF DOI** |
 | D11 | Venue | Scientific Data / NeurIPS D&B / PSJ-LSQ-led | **Scientific Data** descriptor + application companion later |
 
