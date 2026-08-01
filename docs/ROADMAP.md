@@ -1,7 +1,8 @@
-# Plan: publication-ready academic dataset — DRAFT v2 for owner review
+# Roadmap: publication-ready academic dataset
 
-**Status:** DRAFT v2 — awaiting owner critique. Not yet a roadmap, not yet issues.
-**Date:** 2026-07-30 (v2, same day: quality-first reordering per owner feedback)
+**Status:** APPROVED 2026-07-30 — roadmap of record. All decisions resolved;
+issues filed (#35–#47 plus the existing issues each item names).
+**Date:** 2026-07-30
 **Basis:** the critical analysis in `docs/plans/2026-07-29-publication-roadmap.md`
 (state of the repo, recon in Appendix A, literature in Appendix B).
 
@@ -15,10 +16,9 @@ branch hygiene) proceeds in parallel. Two additions the reordering enables:
 matching ground truth (not just extraction) in the gold sample, and a
 text-fidelity check on the `text` column itself.
 
-**How this becomes real:** after critique, (1) this file is revised and
-renamed the roadmap of record, (2) each work item becomes a GitHub issue
-with its acceptance criteria as the definition of done, (3) existing issues
-are updated rather than duplicated — the mapping is explicit per item.
+**Issue map:** N0→#35, N1→#36, N2→#37, N3→#38, N4→#39, N5→#40, N6→#41,
+N7→#42, N8→#43, N9→#44, N10→#45, N11→#46, N12→#47. Existing issues reused:
+#13, #21, #25, #27, #28, #31, PR #29.
 
 ---
 
@@ -61,7 +61,7 @@ Everything here either doesn't touch extracted text, or discloses rather
 than changes it.
 
 ### A1. Known Issues section on the published card — NEW in v2
-- **New issue:** *N0 — "Disclose known data issues on the dataset card"*.
+- **New issue:** **#35**.
 - **Work:** via the `publish.py` template (never hand-edits on the Hub): a
   Known Issues section stating plainly (a) sessions were extracted under
   different extractor versions — cosponsor counts are not comparable across
@@ -103,8 +103,7 @@ than changes it.
 - **Human:** **Decision D3** + PR review, one window.
 
 ### A5. Branch sweep
-- **New issue:** *N1 — "Branch hygiene: delete merged/stale branches,
-  archive feature-testimony"*.
+- **New issue:** **#36**.
 - **Work:** delete 18 merged `claude/*` + `pr16-fix` + `copilot/*`, 3×
   `add-claude-github-actions-*`, `claude/sprint-planning-week-*`; tag
   `feature-testimony` as `archive/feature-testimony` before deleting; keep
@@ -133,8 +132,7 @@ labeling, then baseline measurement, then the gate.
   the owner is worried about gets oversampled by construction.
 
 ### B2. Gold-standard labeled sample — extraction AND matching
-- **New issue:** *N5 — "Gold-standard evaluation set: extraction, matching,
-  text fidelity"*.
+- **New issue:** **#40**.
 - **Design (expanded in v2):**
   - **Extraction labels** (~300–400 docs): true sponsors, title, committee,
     labeled from the source evidence shown in the review UI. Strata: era
@@ -172,7 +170,7 @@ labeling, then baseline measurement, then the gate.
   2026-07-30).
 
 ### B3. Baseline P/R measurement + Gate Q definition
-- **New issue:** *N6 — "Measure baseline P/R; define and wire Gate Q"*.
+- **New issue:** **#41**.
 - **Work:** script computes, from B2 fixtures, for any extractor/matcher
   commit: sponsor extraction P/R, title/committee accuracy, match
   precision/recall (per era, Wilson CIs), text CER/WER bounds. Run it on
@@ -198,8 +196,7 @@ labeling, then baseline measurement, then the gate.
   reproducibility break for consumers mid-analysis.
 
 ### B4. Re-OCR pilot — NEW (decided 2026-07-30)
-- **New issue:** *N12 — "Pilot: re-OCR ~50 known-bad scanned-era documents,
-  measure fidelity gain"*.
+- **New issue:** **#47**.
 - **Work:** select ~50 documents from B1's worst decile (121–124 skew),
   re-OCR with a modern engine via `data-run`, and measure CER/WER against
   B2's fidelity protocol on the same passages — old OCR vs. new OCR vs.
@@ -218,8 +215,7 @@ and published only on passing Gate Q. **The staged 125–132 re-extraction
 against gold like everything else (**D6**).
 
 ### C1. Probe + scrape the Legislators' Biographical Database
-- **New issue:** *N2 — "Roster source: probe and scrape the law library's
-  Legislators' Biographical Database"*.
+- **New issue:** **#37**.
 - **Work:** `data-run` dispatch (host proxy-blocked from analysis sessions;
   analysis doc Appendix A has URLs, fallbacks, dead ends): map the Presto
   search/export surface; bulk-pull sessions 121–124 (~190 rows each: name,
@@ -231,8 +227,7 @@ against gold like everything else (**D6**).
   front matter. All fail → **D7**: enrichment documented as 125+ feature.
 
 ### C2. Historical roster provider
-- **New issue:** *N3 — "legislature_roster: historical provider 121–124 +
-  towns for all sessions"*. Scaffolding exists.
+- **New issue:** **#38**. Scaffolding exists.
 - **Acceptance:** sizes ~186–201/session; `session_window()` scoping; towns
   normalized to match bill-text locality strings; no published-data change.
 
@@ -247,10 +242,9 @@ against gold like everything else (**D6**).
   with no precision drop. Permissive-direction mutation tests per #21 P2.
 
 ### C4. Matcher upgrades, one pass: initials + denylist + locality
-- **Existing issues:** #27, #28. **New issue:** *N4 — "Capture and persist
-  sponsor localities; locality-based disambiguation"* (Tier-1: schema).
+- **Existing issues:** #27, #28. **New issue:** **#39** (Tier-1: schema).
 - **Work:** (a) #27 trailing-initial resolution, both-or-neither → null;
-  (b) #28 denylist inflections, measured; (c) N4: persist the already-
+  (b) #28 denylist inflections, measured; (c) #39: persist the already-
   matched `of <locality>` group as nullable `sponsor_localities` aligned
   with `sponsors`; roster towns resolve same-chamber ambiguities.
   Published `sponsors` strings untouched (CLAUDE.md invariant).
@@ -276,8 +270,7 @@ against gold like everything else (**D6**).
 ## Workstream D — Packaging (M3)
 
 ### D-1. Dataset card overhaul to datasheet standard
-- **New issue:** *N7 — "Card overhaul: license, datasheet, quality,
-  limitations"* (Tier-1). All via the `publish.py` template + tests.
+- **New issue:** **#42** (Tier-1). All via the `publish.py` template + tests.
 - **Work:** fix `license:` (**D9**: recommend `cc0-1.0` for data +
   government-edicts note; MIT stays for code); fix `size_categories`; full
   datasheet sections (Gebru et al.); **B3's measured P/R and text-fidelity
@@ -291,7 +284,7 @@ against gold like everything else (**D6**).
   without opening GitHub.
 
 ### D-2. Versioning + DOI + citation
-- **New issue:** *N8 — "Semantic dataset versioning, DOI, BibTeX"* (Tier-1).
+- **New issue:** **#43** (Tier-1).
 - **Work:** tagged HF revisions per release; CHANGELOG on the card mapping
   version → extractor commit → measured quality at release; DOI (**D10**:
   HF vs. Zenodo); `preferred_citation` front matter.
@@ -301,14 +294,14 @@ against gold like everything else (**D6**).
 ## Workstream E — Paper + automation (M4)
 
 ### E1. Baseline analyses (three notebooks)
-- **New issue:** *N9.* (a) outcome prediction via the actions join; (b)
+- **New issue:** **#44.** (a) outcome prediction via the actions join; (b)
   cosponsorship networks across 24 years — now defensible because network
   edges rest on gate-passed extraction; (c) committee/topic drift.
 - **Acceptance:** each runs from the published dataset alone; findings
   summarized for the paper.
 
 ### E2. Data-descriptor paper
-- **New issue:** *N10.* Draft against the analysis doc's Appendix B
+- **New issue:** **#45.** Draft against the analysis doc's Appendix B
   grounding. **The gold-set methodology and Gate Q are now a paper section,
   not just process** — a state-bill dataset with hand-labeled P/R bounds is
   itself part of the contribution (BillSum's 1,237 CA bills, the nearest
@@ -316,7 +309,7 @@ against gold like everything else (**D6**).
 - **Acceptance:** submitted. **D11** picks the venue.
 
 ### E3. Weekly freshness automation
-- **New issue:** *N11* (Tier-1). Scheduled scrape of the active session →
+- **New issue:** **#46** (Tier-1). Scheduled scrape of the active session →
   diff-summary PR; publish waits on the environment gate **and now also on
   the Gate Q CI check**; House CSV export for current rosters.
 - **Acceptance:** two consecutive runs produce correct diff PRs, zero
@@ -371,7 +364,7 @@ starts the moment this plan is approved.
 
 | Reuse as-is | #13 (C5), #21 (A4), #25 (B1), #27/#28 (C4), #31 (C3), PR #29 (A2) |
 |---|---|
-| **New issues** | N0 card disclosure (Tier-1) · N1 branch hygiene · N2 Presto probe/scrape · N3 roster provider · N4 sponsor localities (Tier-1) · N5 gold sample (blind protocol) · N6 baseline P/R + Gate Q (Tier-1 via ci.yml) · N7 card overhaul (Tier-1) · N8 versioning+DOI (Tier-1) · N9 baselines · N10 paper · N11 automation (Tier-1) · N12 re-OCR pilot |
+| **Filed 2026-07-30** | #35 card disclosure (Tier-1) · #36 branch hygiene · #37 Presto probe/scrape · #38 roster provider · #39 sponsor localities (Tier-1) · #40 gold sample (blind) · #41 baseline P/R + Gate Q (Tier-1) · #42 card overhaul (Tier-1) · #43 versioning+DOI (Tier-1) · #44 baselines · #45 paper · #46 automation (Tier-1) · #47 re-OCR pilot |
 | Untouched | #26 fiscal notes (post-M3) |
 
 ## Resolved questions (owner review, 2026-07-30)
@@ -383,7 +376,7 @@ starts the moment this plan is approved.
    source evidence only. A ~10% repeat subsample provides an
    intra-annotator agreement figure. Baked into B2.
 3. **Re-OCR → pilot now, decide later.** ~50 worst-decile documents
-   re-OCR'd and measured during M1 (new item B4/N12); the measured delta
+   re-OCR'd and measured during M1 (new item B4, #47); the measured delta
    decides whether a post-v3 M5 milestone exists. Full re-OCR explicitly
    out of v3 scope.
 4. **Calendar → dedicated labeling blocks.** The owner labels in 2–4 hour
