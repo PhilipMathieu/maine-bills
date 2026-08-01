@@ -149,13 +149,27 @@ labeling, then baseline measurement, then the gate.
   - **Text fidelity** (~40–60 passages): short passages transcribed by eye
     from the source PDF and diffed against the published `text`, bounding
     character/word error rates per era for the `text` column itself.
-- **Method:** existing review UI (`tools/review_ui/`), targeted + random
-  modes; verdict JSONs committed as pytest fixtures; sampling code + seed
-  committed (reproducible).
-- **Acceptance:** every sampled item owner-verified; inter-item coverage of
-  all #31 damage classes; fixtures load in tests.
-- **Human:** the plan's main human cost — est. 5–7 windows. **D5** sizes
-  it. Targeted stratum first, so early labels carry the most information.
+- **Method (per owner decisions, 2026-07-30):** **fully blind** — the UI
+  shows source evidence only, never the extractor's output or any pre-fill,
+  eliminating anchoring and model-correlated label errors. A small repeat
+  subsample (~10%, second pass on a later day) yields an intra-annotator
+  agreement figure for the paper. Existing review UI (`tools/review_ui/`)
+  adapted accordingly; verdict JSONs committed as pytest fixtures; sampling
+  code + seed committed (reproducible).
+- **Time budget (per owner):** labeling happens in **dedicated 2–4 hour
+  blocks outside the daily windows**, not inside them. First 30 minutes are
+  a **calibration batch** measuring real throughput; the sample is then
+  sized to the owner's hours with strata filled in priority order —
+  targeted-hard (OCR damage, rosters) and matching identities first, random
+  strata after — so gate-critical labels are complete even if the tail is
+  cut. Resulting CI widths are reported for whatever size is reached.
+- **Acceptance:** every sampled item owner-labeled blind; coverage of all
+  #31 damage classes; repeat-subsample agreement reported; fixtures load in
+  tests.
+- **Parallelism:** agent work that publishes nothing (C1–C4 development)
+  proceeds while labeling is underway; **Gate Q evaluation and every
+  publish wait for the complete gold set** (staged-labeling decision,
+  2026-07-30).
 
 ### B3. Baseline P/R measurement + Gate Q definition
 - **New issue:** *N6 — "Measure baseline P/R; define and wire Gate Q"*.
@@ -177,6 +191,24 @@ labeling, then baseline measurement, then the gate.
   `docs/QUALITY-IMPROVEMENT-HISTORY.md`; thresholds agreed in writing; CI
   fails on regression beyond tolerance.
 - **Human:** one window to critique/ratify thresholds (**D1**).
+- **Retroactivity (decided 2026-07-30):** if baseline measurement shows an
+  already-published session below threshold, **disclosure suffices** — the
+  card's Known Issues section (A1) names the session and its measured
+  numbers; data is neither pulled nor demoted from the default config. No
+  reproducibility break for consumers mid-analysis.
+
+### B4. Re-OCR pilot — NEW (decided 2026-07-30)
+- **New issue:** *N12 — "Pilot: re-OCR ~50 known-bad scanned-era documents,
+  measure fidelity gain"*.
+- **Work:** select ~50 documents from B1's worst decile (121–124 skew),
+  re-OCR with a modern engine via `data-run`, and measure CER/WER against
+  B2's fidelity protocol on the same passages — old OCR vs. new OCR vs.
+  hand transcription. Agent-only; publishes nothing.
+- **Acceptance:** a measured fidelity delta per damage class. **The number
+  decides** whether a post-v3 re-OCR milestone (M5 / dataset v4) enters the
+  roadmap; either way the result is documented as the basis for that call.
+  Full re-OCR is explicitly *not* in scope for v3 — if triggered, M5 also
+  re-opens gold labeling for the affected strata.
 
 ## Workstream C — Fix to the gate, then publish v3 (M2)
 
@@ -300,7 +332,7 @@ against gold like everything else (**D6**).
 | D2 | Does the actions config (A2) wait for Gate Q too? | publish in M0 / hold | **Publish in M0** — different pipeline, no PDF extraction; holding it gains no extraction confidence |
 | D3 | Governance enforcement: configure ruleset or rewrite doc | configure / rewrite | **Configure** (~15 min) |
 | D4 | Approve branch-deletion list (A5) | yes / edits | as listed, keeping the re-extraction branch |
-| D5 | Gold-sample size vs. labeling time | ~250 (4 windows) / ~400 + matching + fidelity (6–7 windows) | **Full ~400** — it's the foundation everything now rests on; under-sizing it undercuts the reordering's whole point |
+| D5 | Gold-sample strata priorities (size now set by the calibration batch against the owner's dedicated hours — resolved question 4) | ordering of strata | **Hard strata + matching identities first**, random strata fill the remaining budget |
 | D6 | Staged 125–132 re-extraction: still publish early (v1 plan), or hold for Gate Q with everything else? | early / hold | **Hold** — consistent with the operating principle; A1's card disclosure covers users meanwhile |
 | D7 | If all roster sources fail for 121–124 | accept 125+ enrichment boundary / keep digging | **Accept**, documented |
 | D8 | `sponsor_localities` column in v3 or deferred | v3 / defer | **v3** — one schema review, and it's the disambiguation evidence |
@@ -339,25 +371,24 @@ starts the moment this plan is approved.
 
 | Reuse as-is | #13 (C5), #21 (A4), #25 (B1), #27/#28 (C4), #31 (C3), PR #29 (A2) |
 |---|---|
-| **New issues** | N0 card disclosure (Tier-1) · N1 branch hygiene · N2 Presto probe/scrape · N3 roster provider · N4 sponsor localities (Tier-1) · N5 gold sample · N6 baseline P/R + Gate Q (Tier-1 via ci.yml) · N7 card overhaul (Tier-1) · N8 versioning+DOI (Tier-1) · N9 baselines · N10 paper · N11 automation (Tier-1) |
+| **New issues** | N0 card disclosure (Tier-1) · N1 branch hygiene · N2 Presto probe/scrape · N3 roster provider · N4 sponsor localities (Tier-1) · N5 gold sample (blind protocol) · N6 baseline P/R + Gate Q (Tier-1 via ci.yml) · N7 card overhaul (Tier-1) · N8 versioning+DOI (Tier-1) · N9 baselines · N10 paper · N11 automation (Tier-1) · N12 re-OCR pilot |
 | Untouched | #26 fiscal notes (post-M3) |
 
-## Open questions for critique
+## Resolved questions (owner review, 2026-07-30)
 
-1. **Gate Q scope:** should the gate also apply retroactively — i.e., if
-   baseline measurement (B3) shows currently-published sessions *below*
-   threshold, do we pull/annotate them before M2 fixes land, or does A1's
-   disclosure suffice until then? (My proposal: disclosure suffices;
-   pulling data creates a reproducibility hole for anyone mid-analysis.)
-2. **Labeling protocol:** single-labeler (you) with agent pre-fill to
-   verify, or double-label a subsample to estimate your own error rate?
-   Double-labeling ~15% adds one window but gives the paper an
-   inter-annotator figure reviewers may ask for.
-3. **Text-fidelity floor:** B3 proposes reporting CER/WER without a
-   publish floor initially, since OCR-era text can't be materially improved
-   without re-OCRing the scans. Is re-OCR (e.g., modern OCR over the 121–124
-   PDFs) in scope for this plan, or explicitly out (my recommendation: out,
-   noted as future work)?
-4. The plan assumes ~30 min/day through August. If that slips, B2 stretches
-   and everything in M2+ slides with it — acceptable, or should the gold
-   sample be sized down (D5) to protect the calendar?
+1. **Gate Q retroactivity → disclosure only.** Below-threshold published
+   sessions stay up and in the default config; the card names them and
+   their measured numbers. Baked into B3.
+2. **Labeling protocol → fully blind.** No pre-fill anywhere; the UI shows
+   source evidence only. A ~10% repeat subsample provides an
+   intra-annotator agreement figure. Baked into B2.
+3. **Re-OCR → pilot now, decide later.** ~50 worst-decile documents
+   re-OCR'd and measured during M1 (new item B4/N12); the measured delta
+   decides whether a post-v3 M5 milestone exists. Full re-OCR explicitly
+   out of v3 scope.
+4. **Calendar → dedicated labeling blocks.** The owner labels in 2–4 hour
+   dedicated sessions outside the daily windows. A calibration batch sizes
+   the sample to real throughput, hard strata filled first; agent
+   development runs in parallel; only Gate Q evaluation and publishes wait
+   for the complete gold set. Baked into B2. (This supersedes D5's
+   window-count framing — D5 is now about strata priorities, not size.)
