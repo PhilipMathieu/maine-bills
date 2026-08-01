@@ -27,6 +27,7 @@ on:
           - fetch-status-sample
           - run-matching
           - build-actions
+          - publish-actions
           - custom
       sessions:
         description: "Space-separated session numbers (e.g. '132' or '132 121')"
@@ -34,10 +35,20 @@ on:
         required: false
         default: "132"
       run_id:
-        description: "For build-actions: space-separated run id(s) holding the actions-<session> artifacts"
+        description: "For build-actions/publish-actions: space-separated run id(s) holding the artifacts"
         type: string
         required: false
         default: ""
+      repo_id:
+        description: "For publish-actions: the HuggingFace dataset repo"
+        type: string
+        required: false
+        default: "pem207/maine-bills"
+      dry_run:
+        description: "For publish-actions: validate and report, upload nothing. Defaults to TRUE."
+        type: boolean
+        required: false
+        default: true
       extra_args:
         description: "Extra args (run-matching passthrough, or full command for 'custom': runs `uv run <extra_args>`)"
         type: string
@@ -486,6 +497,88 @@ jobs:
   # from the backfill so a session can be re-run without rebuilding everything,
   # and separate from publishing so a human sees the parquet before it ships --
   # uploading is Tier-1 and goes through the huggingface-publish gate.
+  # The only job in this workflow that WRITES to HuggingFace, and the only one
+  # declaring `environment:`. That declaration is the gate: the environment has
+  # a required reviewer, and HF_TOKEN exists nowhere else, so a dispatch cannot
+  # reach the Hub without the owner approving that specific run.
+  #
+  # Split from build-actions on purpose. Building is cheap, ungated and
+  # repeatable; publishing is neither. Keeping them one job would mean every
+  # rebuild queued for human approval, which trains people to click through it.
+  #
+  # dry_run defaults to TRUE, so the accident-shaped dispatch -- pick the task,
+  # paste a run id, hit go -- validates and reports instead of uploading.
+  publish-actions:
+    if: inputs.task == 'publish-actions'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: huggingface-publish
+    permissions:
+      contents: read
+      actions: read # to download the built config from the build-actions run
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Validate run_id
+        env:
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          # Digits only, NO spaces. build-actions accepts several run ids
+          # because sessions can come from several backfills; publish-actions
+          # takes exactly one build, and a space-separated pair would be handed
+          # to `gh run download` as a single argument and fail there instead of
+          # here, after the environment approval had already been spent.
+          case "$RUN_ID" in
+            "" | *[!0-9]*)
+              echo "::error::publish-actions needs run_id: ONE numeric run id of the build-actions run holding the actions-config artifact"
+              exit 1
+              ;;
+          esac
+
+      - name: Download the built config
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          set -e
+          mkdir -p data/actions-parquet
+          gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name actions-config --dir data/actions-parquet
+          echo "Collected:"
+          find data/actions-parquet -name '*.parquet' | sort
+
+      # Re-validated here rather than trusted: the build ran on a different
+      # runner and its artifact can arrive truncated. A bad session must fail
+      # before anything is uploaded, because correcting the Hub means a visible
+      # bad revision rather than a red check.
+      # Two steps rather than one branch, so HF_TOKEN is never placed in the
+      # environment of the run that cannot use it. A dry run reads local
+      # parquet and reports; handing it a write-capable credential it has no
+      # use for is exactly the exposure the gate exists to limit.
+      - name: Validate (dry run)
+        if: inputs.dry_run
+        env:
+          REPO_ID: ${{ inputs.repo_id }}
+        run: |
+          uv run python scripts/publish_actions_config.py \
+            --input data/actions-parquet --repo-id "$REPO_ID" --dry-run
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          REPO_ID: ${{ inputs.repo_id }}
+        run: |
+          uv run python scripts/publish_actions_config.py \
+            --input data/actions-parquet --repo-id "$REPO_ID"
+
   build-actions:
     if: inputs.task == 'build-actions'
     runs-on: ubuntu-latest

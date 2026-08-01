@@ -3,8 +3,23 @@ from pathlib import Path
 
 import pandas as pd
 from huggingface_hub import HfApi
+from huggingface_hub.utils import EntryNotFoundError, RepositoryNotFoundError
 
 logger = logging.getLogger(__name__)
+
+# The only failures that mean "this directory is not there yet". Anything else —
+# auth, 5xx, DNS — must surface rather than be read as an empty repo.
+_NOT_FOUND = (EntryNotFoundError, RepositoryNotFoundError, FileNotFoundError)
+
+# Where each config lives in the repo.
+#
+# The actions config is deliberately NOT under `data/`. The default "all" config
+# globs `data/**/*.parquet`, so an actions parquet placed anywhere beneath it
+# would be loaded as if it were bill rows -- a different schema silently unioned
+# into the config most consumers use without naming it. A sibling top-level
+# directory keeps the two globs disjoint by construction.
+BILLS_ROOT = "data"
+ACTIONS_ROOT = "actions"
 
 DATASET_CARD_TEMPLATE = """\
 ---
@@ -30,7 +45,12 @@ configs:
     data_files:
       - split: train
         path: "data/**/*.parquet"
+  - config_name: "actions"
+    data_files:
+      - split: train
+        path: "actions/**/*.parquet"
 {session_configs}
+{actions_configs}
 ---
 
 # Maine Legislative Bills
@@ -38,8 +58,8 @@ configs:
 Full text of bills and amendments from the Maine State Legislature,
 extracted from PDFs published by the Law and Legislative Reference Library.
 
-**Dataset version: v2.** Adds four nullable sponsor-enrichment columns
-(`sponsor_ids`, `sponsor_parties`, `sponsor_districts`,
+**Dataset version: v2.** Adds five nullable sponsor-enrichment columns
+(`sponsor_chambers`, `sponsor_ids`, `sponsor_parties`, `sponsor_districts`,
 `sponsor_match_confidence`) linking extracted sponsor names to OpenStates
 legislator records. All v1 columns are unchanged, so existing consumers are
 unaffected; records scraped without enrichment carry null entries in the new
@@ -58,7 +78,24 @@ ds = load_dataset("pem207/maine-bills", "132")
 
 # Stream without downloading
 ds = load_dataset("pem207/maine-bills", streaming=True)
+
+# Legislative history: one row per bill, with its committee docket
+actions = load_dataset("pem207/maine-bills", "actions")
+actions_132 = load_dataset("pem207/maine-bills", "actions-132")
 ```
+
+## Configs
+
+| Config | Rows | What |
+|---|---|---|
+| `all` (default) | one per **document** | Bill and amendment text. |
+| `<session>` e.g. `132` | one per document | The same, for a single session. |
+| `actions` | one per **bill** | Legislative history and docket. |
+| `actions-<session>` | one per bill | The same, for a single session. |
+
+Amendments are separate rows in `all` and share their parent's `ld_number`.
+The two families do not share a schema and live under separate paths, so
+the default `all` config never mixes them.
 
 ## Source
 
@@ -89,9 +126,62 @@ endorsed by nor affiliated with the Maine State Legislature.
 | `source_filename` | string | Original filename without extension |
 | `scraped_at` | string | ISO 8601 timestamp of extraction |
 
-The four `sponsor_*` enrichment columns are index-aligned with `sponsors`:
+The five `sponsor_*` enrichment columns are index-aligned with `sponsors`:
 entry *i* of each list describes `sponsors[i]`. `sponsors` itself is always
 the verbatim extracted name and is never rewritten by enrichment.
+
+## The `actions` config
+
+One row per **bill**, carrying the bill-level status fields and its committee
+docket as a nested list.
+
+| Column | Type | Description |
+|---|---|---|
+| `session` | int | Legislative session number |
+| `ld_number` | string | Legislative Document number (zero-padded) — the join key |
+| `paper` | string | Paper number, e.g. "SP 29" / "HP 1289" |
+| `title` | string | Bill title as printed on the status page |
+| `flags` | list | Status flags, e.g. EMERGENCY |
+| `committee` | string | Committee of referral, or null if never referred |
+| `referred_date` | string | ISO date of referral, or null |
+| `final_disposition` | string | e.g. PUBLIC LAW, DIED BETWEEN HOUSES, or null |
+| `final_disposition_date` | string | ISO date, or null |
+| `governor_action` | string | e.g. Signed, Vetoed, or null |
+| `governor_action_date` | string | ISO date, or null |
+| `chaptered_law` | string | e.g. "ACTPUB Chapter 33", or null |
+| `actions` | list of struct | The docket: `{{date, action, result, raw_date}}` per entry |
+| `action_count` | int | `len(actions)`, carried so it can be filtered without exploding |
+| `source_url` | string | Direct URL to the status page |
+
+### Joining to the bills config
+
+The key is `(session, ld_number)`, zero-padded on both sides. The join is
+**one-to-many** from this side: amendments in the bills config share their
+parent's `ld_number`, because a bill's status describes the bill, not each
+printed document. A bill with several amendments therefore matches several
+rows in `all`.
+
+```python
+import pandas as pd
+
+bills = load_dataset("pem207/maine-bills", "132")["train"].to_pandas()
+acts = load_dataset("pem207/maine-bills", "actions-132")["train"].to_pandas()
+merged = bills.merge(acts, on=["session", "ld_number"], how="left", suffixes=("", "_status"))
+
+# Long format, if you want one row per docket entry:
+long = acts.explode("actions")
+```
+
+### Nulls
+
+Nulls are meaningful and are never filled in. `committee = None` means the bill
+was never referred — it does **not** mean the referral failed to parse. A status
+page that does not parse is recorded as a failure and excluded from the config
+rather than written as an empty row, so an absent `ld_number` and a null field
+are different statements.
+
+Three bills across sessions 121–132 have no status page at all and are absent
+from this config while present in `all`.
 
 ## Sponsor enrichment methodology
 
@@ -137,14 +227,78 @@ def publish_session(df: pd.DataFrame, session: int, repo_id: str, local_dir: Pat
     logger.info(f"Uploaded {path_in_repo} ({len(df)} records)")
 
 
+def publish_actions_config(parquet_dir: Path, repo_id: str) -> list[int]:
+    """Upload a built `actions` config, one parquet per session.
+
+    ``parquet_dir`` is what ``scripts/build_actions_config.py`` writes:
+    ``<dir>/<session>/train-00000-of-00001.parquet`` plus a build-summary.json,
+    which is not uploaded — it describes the build, not the data.
+
+    Returns the sessions uploaded, in order. Refuses an empty directory rather
+    than reporting success, because "nothing to upload" and "uploaded nothing"
+    look identical in a log otherwise.
+    """
+    api = HfApi()
+
+    sessions = sorted(int(d.name) for d in parquet_dir.iterdir() if d.is_dir() and d.name.isdigit())
+    if not sessions:
+        raise ValueError(
+            f"No session directories under {parquet_dir}. Run build_actions_config.py first."
+        )
+
+    for session in sessions:
+        local_path = parquet_dir / str(session) / "train-00000-of-00001.parquet"
+        if not local_path.exists():
+            raise FileNotFoundError(
+                f"{local_path} is missing though its directory exists — the build did not finish."
+            )
+        path_in_repo = f"{ACTIONS_ROOT}/{session}/train-00000-of-00001.parquet"
+        api.upload_file(
+            path_or_fileobj=str(local_path),
+            path_in_repo=path_in_repo,
+            repo_id=repo_id,
+            repo_type="dataset",
+            commit_message=f"Update actions config for session {session}",
+        )
+        logger.info(f"Uploaded {path_in_repo}")
+
+    return sessions
+
+
+def _session_dirs(api: HfApi, repo_id: str, root: str) -> list[int]:
+    """Session numbers directly under ``root`` in the repo, ascending.
+
+    Returns [] when the directory does not exist yet — the actions config has
+    not been published on every repo this code runs against, and a missing
+    directory is a normal state rather than an error.
+    """
+    try:
+        items = api.list_repo_tree(repo_id, repo_type="dataset", path_in_repo=root)
+    except _NOT_FOUND as e:
+        # ONLY not-found. Catching Exception here swallowed auth failures, 5xx
+        # and network errors as "directory missing", so a transient outage would
+        # publish a card with the actions configs quietly absent — and the job
+        # would still go green. A card that is wrong is worse than a job that
+        # fails, because nothing downstream re-checks it.
+        logger.info(f"No {root}/ directory in {repo_id} ({type(e).__name__}); skipping its configs")
+        return []
+    return sorted(int(i.path.split("/")[-1]) for i in items if i.path.split("/")[-1].isdigit())
+
+
+def _config_block(name: str, path: str) -> list[str]:
+    return [
+        f'  - config_name: "{name}"',
+        "    data_files:",
+        "      - split: train",
+        f'        path: "{path}"',
+    ]
+
+
 def sync_dataset_card(repo_id: str) -> None:
     """Regenerate the HF dataset README.md to include configs for all sessions."""
     api = HfApi()
 
-    repo_items = api.list_repo_tree(repo_id, repo_type="dataset", path_in_repo="data")
-    sessions = sorted(
-        int(item.path.split("/")[-1]) for item in repo_items if item.path.split("/")[-1].isdigit()
-    )
+    sessions = _session_dirs(api, repo_id, BILLS_ROOT)
 
     if not sessions:
         logger.warning("No session directories found in repo; skipping card sync")
@@ -152,16 +306,19 @@ def sync_dataset_card(repo_id: str) -> None:
 
     session_config_lines = []
     for s in sessions:
-        session_config_lines.extend(
-            [
-                f'  - config_name: "{s}"',
-                "    data_files:",
-                "      - split: train",
-                f'        path: "data/{s}/*.parquet"',
-            ]
-        )
+        session_config_lines.extend(_config_block(str(s), f"{BILLS_ROOT}/{s}/*.parquet"))
 
-    readme_content = DATASET_CARD_TEMPLATE.format(session_configs="\n".join(session_config_lines))
+    # The actions config is additive: a repo that has never published one still
+    # gets a correct card, just without those entries.
+    actions_sessions = _session_dirs(api, repo_id, ACTIONS_ROOT)
+    actions_config_lines = []
+    for s in actions_sessions:
+        actions_config_lines.extend(_config_block(f"actions-{s}", f"{ACTIONS_ROOT}/{s}/*.parquet"))
+
+    readme_content = DATASET_CARD_TEMPLATE.format(
+        session_configs="\n".join(session_config_lines),
+        actions_configs="\n".join(actions_config_lines),
+    )
     api.upload_file(
         path_or_fileobj=readme_content.encode("utf-8"),
         path_in_repo="README.md",
@@ -169,6 +326,10 @@ def sync_dataset_card(repo_id: str) -> None:
         repo_type="dataset",
         commit_message=(
             f"Sync dataset card: {len(sessions)} sessions ({sessions[0]}–{sessions[-1]})"
+            + (f", {len(actions_sessions)} actions configs" if actions_sessions else "")
         ),
     )
-    logger.info(f"Dataset card updated with {len(sessions)} session configs")
+    logger.info(
+        f"Dataset card updated with {len(sessions)} session configs "
+        f"and {len(actions_sessions)} actions configs"
+    )
