@@ -356,9 +356,14 @@ limitations without opening a GitHub issue.
 
 ### Deferred, deliberately
 
-- **Fiscal notes (#26) and testimony:** high-value expansions; start each
-  with recon + a joinability design doc, after v3. Mine `feature-testimony`
-  for URL/layout knowledge first.
+- **Fiscal notes (#26):** high-value expansion; start with recon +
+  joinability design doc, after v3.
+- **Testimony:** high-value but a materially harder rights problem than bill
+  text — the government-edicts doctrine does *not* reach citizen/lobbyist
+  testimony, and the corpus contains sensitive personal disclosures that
+  survive "already public" as a defense. Design must be tiered by
+  provenance before any scrape lands. Full analysis and staging in
+  **Appendix C**. Mine `feature-testimony` for URL/layout knowledge first.
 - **Votes config** (sprint node N5): same pattern as actions; post-v3.
 - **Embeddings/search Space:** demo material, not on the publication path.
 - **Pre-121 sessions:** coverage probe only after the quality machinery
@@ -523,3 +528,191 @@ in Phase 4 stands; *Policy Studies Journal* and *Legislative Studies
 Quarterly* are where the consuming audience publishes, which argues for
 *Scientific Data* (dataset descriptor) plus an application-led companion
 aimed at one of those two, with NeurIPS D&B viable if the baselines lead.
+
+## Appendix C — Testimony copyright, privacy, and a tiered-release framework (2026-08-11)
+
+The obvious next-corpus expansion after fiscal notes is committee testimony.
+This appendix records the legal and ethical analysis that shapes how it must
+be scoped, so the roadmap does not treat it as a mechanical extension of the
+bill-text pipeline.
+
+### C.1 Fact-check of the underlying analysis
+
+The core doctrinal claims below were spot-checked against primary sources
+and standing references; findings that could not be checked from this
+session's proxy are flagged explicitly.
+
+| Claim | Verdict |
+|---|---|
+| Government-edicts doctrine is grounded in author identity: officials empowered to speak with the force of law cannot author works produced in their official duties (*Georgia v. Public.Resource.Org*, 590 U.S. 255 (2020), Roberts, C.J.) | **Confirmed.** |
+| The Georgia annotations were produced by LexisNexis under a work-for-hire contract with the Code Revision Commission that vested copyright in the state | **Confirmed** (recited in the opinion). |
+| 17 U.S.C. § 101 requires fixation "by or under the authority of the author" | **Confirmed** (statutory text). |
+| *Feist Publications v. Rural Telephone*, 499 U.S. 340 (1991): facts and non-original compilations are uncopyrightable | **Confirmed.** |
+| Maine FOAA (1 M.R.S. §§ 400–410) makes written and oral testimony a public record; the Legislature posts written testimony and archives oral testimony on video | **Confirmed** as to the statutory framework and current practice. The submission-form language itself has *not* been read in this session; Phase C-1 must do so before any text-tier decision. |
+| Frank LoMonte, *Copyright Versus the Right to Copy: The Civic Danger of Allowing Intellectual Property Law to Override State Freedom of Information Law*, Loyola U. Chicago L.J. (2022) | **Confirmed as a real article** by a real scholar (Brechner Center, U. Florida). Full-text not fetched from this session; cite by title/journal, verify pagination before it appears in a paper. |
+| *Lindberg v. Kitsap County* (Wash.) allocates the burden to the county to prove copyright bars disclosure under the state Public Records Act; the case concerns requester access, not bulk republication | **Confirmed** as to holding and scope. |
+| *Scientific Data* accepts CC0 and CC-BY only (no NC/ND) for datasets | **Confirmed** against Nature's stated policy. |
+| Sponsor patterns in this repo require `Senator|Representative|President|Speaker` (with the roster-list exception) | **Confirmed** against `src/maine_bills/text_extractor.py` (title map at lines 12–17; patterns at 196, 722–750). Relevant because it demonstrates the project's baseline discipline of tying identity to a legislative title — the same discipline testimony provenance requires. |
+| "Maine's own § 95-A and the OIT copyrightable-works policy" cut in favor of publishing executive-branch testimony | **Not verified from this session.** Neither the statute (1 M.R.S. § 95-A? 5 M.R.S. § 95-A?) nor the Office of Information Technology policy was fetched. Treat as a lead to run down in Phase C-1, not as a settled premise. |
+| "Practical obscurity" as a First Amendment / privacy concept | **Confirmed** as an accepted framing since *U.S. DOJ v. Reporters Committee*, 489 U.S. 749 (1989); its application to bulk republication of state legislative records has not been directly litigated to this session's knowledge. |
+
+Taxonomic claims below (which categories of hearing-record artifact are
+covered by government-edicts) are analytically sound and consistent with the
+Georgia holding. They are not "confirmed" in the sense of case law directly
+on point — no court has squarely held that Maine OPLA bill analyses are
+public-domain edicts — but the reasoning tracks the *Georgia* Court's
+"discharging legislative duties" formulation.
+
+**Net:** the framework is the right one to build on. The two spots where the
+project must not overclaim in print are (i) the § 95-A / OIT-policy line
+until sourced, and (ii) the assertion that OPLA/OFPR products are covered
+by the doctrine, which should be presented as *our position, grounded in
+Georgia by analogy* rather than as settled law.
+
+### C.2 Coverage by provenance — what the doctrine reaches on the hearing record
+
+| Artifact | Author | Coverage | Confidence |
+|---|---|---|---|
+| Committee amendments; committee reports (OTP-A, majority/minority) | Legislators, legislative capacity | Public-domain edicts | High |
+| OPLA bill analyses; OFPR fiscal notes | Legislative staff, legislative capacity | Public-domain edicts by analogy to *Georgia* | Medium-high |
+| Sponsor testimony (a legislator testifying on their own LD) | Legislator, arguably legislative capacity | Likely public-domain edicts | Medium — worth a separate schema tag from citizen testimony |
+| Clerk records: vote tallies, attendance, hearing schedules | N/A (facts) | Uncopyrightable under *Feist* regardless | High |
+| Executive-branch agency testimony (DEP, DHHS, etc.) | State employees, executive capacity | Doctrine does **not** apply directly; Maine-specific statute + agency policy may still permit republication | Medium; requires the § 95-A / OIT verification in C.1 |
+| Citizen / lobbyist / advocacy-org written testimony | Private author | **Not covered.** Ordinary copyrighted work; filing with the committee is not an assignment | High |
+| Oral testimony (audio/video recording, as a fixed recording) | Fixed by the Legislature | Sound-recording copyright is legislative work product | Medium-high |
+| Oral testimony (the spoken words themselves) | Speaker | Split: extemporaneous remarks arguably never fixed by/under speaker's authority (no copyright); prepared remarks read aloud remain the speaker's fixed work — ASR transcript is a derivative | Medium (this is an argued position, not a decided one) |
+
+### C.3 The privacy problem is bigger than the copyright problem
+
+Committee testimony routinely contains names, home towns, and deeply
+personal disclosures — medical history, abuse, addiction, immigration
+status. The Legislature posting individual PDFs on a search-limited portal
+and this project shipping a bulk parquet to Hugging Face for arbitrary
+downstream use (including LLM training) are qualitatively different acts.
+"It was already public" is a weak answer to that difference; **practical
+obscurity** is doing substantial work in the expectations of people who
+testify.
+
+*Scientific Data*'s human-data policy would evaluate this exact axis. This
+is the single failure mode most likely to sink an otherwise clean
+submission, independent of the copyright question.
+
+### C.4 Tiered release framework
+
+Testimony must not be a single scrape target. Design the pipeline against
+three tiers from day one, and treat any expansion beyond Tier A as a
+distinct governance decision, not a follow-on ticket.
+
+**Tier A — CC0, edicts-backed.** LD text (already shipped), amendments,
+session laws, committee reports, fiscal notes, OPLA analyses, roll calls,
+hearing metadata. Adds fiscal notes (#26) and committee reports/analyses to
+what v2 already ships. This is where the roadmap's headline dataset lives.
+
+**Tier B — testimony as structured records, no verbatim text.** Per
+submission: submitter name/organization, position (for/against/neither),
+bill, date, source URL, plus derived features (word count, coarse topic
+labels, stance). These are facts about the record — uncopyrightable under
+*Feist*, minimally invasive of practical obscurity, and analytically they
+carry most of the value: testimony volume, coalition structure, and
+committee position as predictors of bill survival is a strong paper and
+needs no verbatim text. This is the recommended default second corpus.
+
+**Tier C — full testimony text.** Kept out of the archival deposit.
+Instead ship a reproducible fetcher (a small library + a session-pinned
+manifest of URLs) so users regenerate a text corpus locally against
+`mainelegislature.org` at their own risk assessment. This is the standard
+NLP move for rights-encumbered corpora (cf. bookcorpus, C4-style provider
+guidance) and it keeps the deposited dataset within *Scientific Data*'s
+CC0/CC-BY-only licensing — Tier C in the deposit would violate that
+outright and force a lesser venue.
+
+### C.5 Sponsor-testimony carve-out
+
+Sponsor testimony (legislators testifying on their own LDs) is the one
+class of testimony where the government-edicts argument is available. It
+should be:
+
+1. Separately extracted and labeled in the pipeline — not merged into a
+   generic `testimony` table.
+2. Cross-linked to `sponsor_ids` from the existing sponsor-enrichment
+   schema, so the join to legislator identity is automatic and auditable.
+3. Publishable at Tier A if the doctrinal argument holds after C.1's
+   verification of the OPLA/OFPR analogy.
+
+This is a real and defensible carve-out; do not lose it by treating all
+testimony as a single rights category.
+
+### C.6 Roadmap staging
+
+**Phase C-1 — recon and licensing verification (post-v3, prerequisite for
+any testimony scrape).**
+
+1. Read the actual submission-form language on the testimony portal. Look
+   for any publication grant, terms of service, or notice that would
+   materially change the Tier B/C analysis.
+2. Verify the § 95-A / OIT copyrightable-works claim (C.1) against primary
+   Maine sources; document the citation or drop the argument from any
+   published card.
+3. Draft a one-paragraph inquiry to the Legislative Council or the
+   Revisor's Office asking whether the Legislature asserts rights in
+   submitted testimony, and whether it takes a position on bulk
+   redistribution. A "we don't assert rights" reply is worth more at
+   review time than any amount of doctrinal reasoning.
+4. Fetch the LoMonte article (Loyola U. Chi. L.J. 2022) and pin the
+   citation. Add it and *Lindberg v. Kitsap County* to Appendix B's
+   references.
+
+**Phase C-2 — Tier A extension (feeds v3.x or v4).**
+
+1. Fiscal notes (#26) — the existing plan-item, reframed as the first
+   Tier-A addition beyond bill text. Card language: public-domain by
+   analogy to *Georgia*, with the analogy stated explicitly.
+2. Committee reports / OPLA analyses — a second Tier-A corpus, same
+   framing. Joinable to bills via `ld_number`.
+3. Sponsor-testimony carve-out (C.5) — separate table, sponsor-linked.
+
+**Phase C-3 — Tier B testimony records (feeds v4).**
+
+1. Design a `testimony_records` schema: submitter, org, position, bill,
+   date, source URL, derived features. Explicitly exclude the text field
+   from the deposited parquet.
+2. Stance labels are a modeling output; either hand-label a sample and
+   ship a classifier's outputs with confidence, or exclude stance entirely
+   until Phase 2's absolute-quality machinery can score it. Do not ship
+   guessed stances as facts — the same discipline as sponsor enrichment
+   (unmatched → null, never guessed).
+3. Card language must state the Tier boundary explicitly: "This dataset
+   deliberately excludes verbatim testimony text; see the companion
+   fetcher for local reconstruction."
+
+**Phase C-4 — Tier C reproducible fetcher (companion package, not the
+deposit).**
+
+1. Small Python package that, given the manifest, fetches PDFs and returns
+   text. Session-pinned so the fetch is reproducible across time even as
+   the Legislature's URL scheme shifts.
+2. Documented rate limits, user-agent, and a link to the Legislature's
+   FOAA statement. Not a scraping tool masquerading as a library.
+3. **Not** published to Hugging Face; lives on GitHub with its own
+   licensing analysis.
+
+### C.7 Risks specific to the testimony track
+
+| Risk | Mitigation |
+|---|---|
+| Reviewer objects to bulk republication of citizen testimony text on privacy grounds even at Tier A | Tier B is the default; Tier A includes no citizen testimony verbatim, only sponsor testimony (C.5) which has an author-identity defense |
+| The OPLA/OFPR-by-analogy argument gets pushed back on in review | Present it in the card as our position with the *Georgia* analogy explicit, not as settled doctrine; hold a fallback license (CC-BY with an internal legal review note) if the analogy fails |
+| Legislature portal terms change to include an explicit no-redistribution clause | Fetcher-only design (Tier C) already routes around it; Tier B facts stay uncopyrightable regardless |
+| DOI-bearing Tier A release later found to include a mis-tiered artifact | Versioned releases (Phase 3) with a change-log; any correction ships as a new version, never an in-place overwrite |
+
+### C.8 What this does *not* change in Phases 0–4
+
+Nothing in Phases 0–3 depends on the testimony question — bill text,
+sponsors, and actions are all Tier A on this framework, which is what the
+existing plan already assumes (the license correction in Phase 3's card
+overhaul remains: `cc0-1.0`/public-domain for the current data, with the
+doctrinal citation the card is currently missing). Phase 4's baselines can
+proceed on today's corpus without touching testimony. This appendix
+governs *whatever comes after* — it exists so that decision is made with
+its rights analysis pre-loaded, not scoped in a hurry when someone opens
+issue #37.
